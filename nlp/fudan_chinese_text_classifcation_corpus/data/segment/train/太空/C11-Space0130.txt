@@ -1,0 +1,84 @@
+宇航学 报   
+ JOURNAL   OF   ASTRONAUTICS 
+ 1998 年   第 19 卷   第 1 期   No1   Vol.9   1998 科技期刊 
+ 
+ 基于 神经网络 在线 建模 的 非线性 动态 
+ 系统 中 传感器 故障 检测 方法  
+ 钮 永胜 　 赵 新民 
+ ( 哈尔滨工业大学 自动化 测试 与 控制 系 * 哈尔滨 * 150001 ) 
+ 　 　 摘 　 要 　 本文 提出 一种 基于 神经网络 在线 建模 的 动态 非线性 系统 中 传感器 故障 检测 方法 , 它 首先 利用 神经网络 在线 建立 动态 非线性 系统 的 超前 一步 预测 模型 , 然后 利用 神经网络 对 传感器 的 预测 输出 和 传感器 实际 输出 之差 与 一 预定 阈值 比较 以 检测 传感器 故障 。 本文 的 优点 是 可以 检测 多个 传感器 故障 , 同时 由于 采用 在线 学习 方式 , 非常 适于 航天器 自主 系统 传感器 故障 检测 的 需要 。 此外 , 故障 检测 阈值 的 选取 也 比较简单 。 为了 验证 本文 方法 , 仿真 了 一 控制系统 中 同时 发生 漂移 故障 的 两个 传感器 故障 检测 过程 。 结果表明 , 方法 十分 有效 。 
+ 　 　 主题词 　 非线性 系统 　 传感器 故障 　 故障 检测 　 神经网络 　 在线 学习 
+ MULTIPLE   SENSOR   FAILURE   DETECTION   
+ IN   NONLINEAR   SYSTEM   BASED   
+ ON   SYSTEM   IDENTIFICATION   METHOD   
+ USING   ON - LINE   LEARNING   NEURAL   NETWORK 
+ Niu   Yongsheng 　 Zhao   Xinmin 
+ ( Dept . of   Automated   Test , Measurement   and   Control . , 
+ Harbin   Instiute   of   Technology * Harbin * 150001 ) 
+ 　 　 Abstract 　 This   paper   presents   an   innovative   approach   for   multiple   sensor   failure   detection   in   a   nonlinear   system   based   on   system   identification   using   an   on - line   learning   neural   network . The   approach   builds   an   one - step   ahead   prediction   model   for   the   nonlinear   system   using   an   on - line   learning   neural   network   firstly , and   then   the   discprepancy   between   the   on - line   estimations   of   the   sensors   using   the   built   neural   system   model   and   the   actual   values   of   them   is   compared   with   a   predetermined   threshold   to   detect   sensor   failures . One   advantage   of   the   approach   is   the   ability   to   detect   multiple   sensor   failures . Another   advantage   is   that   it   may   be   suitably   used   in   autonomous   systems   with   the   neural   network   learning   and   working   on - line . The   method   is   proved   to   be   very   effective   by   a   simulation   result   of   detecting   two   sensor   failures   for   a   space   robot   system . 
+ 　 　 Key   words 　 Nonlinear   system 　 Sensor   failure 　 Fault   detection 　 Neural   network 　 On - line   learning 
+ 1 　 引言 
+ 　 　 随着 科学技术 的 不断进步 , 高性能 的 航天器 和 空间站 机器人 需 具备 对 传感器 故障 的 容错 能力 。 作为 测量 控制系统 中 诸 参量 的 关键部件 , 如果 传感器 发生 故障 , 包括 硬 故障 和 软故障 , 就 会 影响 系统 的 运行 。 事实上 , 传感器 是 控制系统 中 比较 容易 损坏 的 器件 ［ 1 ］ , 因此 控制系统 需 检测 传感器 是否 发生 故障 , 如果 检测 出 传感器 发生 了 故障 , 则 报警 , 并 调用 备份 传感器 , 或 重构 控制率 以 确保 整个 控制 过程 的 顺利进行 。 美国 NASA 曾 规定 空间 机器人 控制系统 应有 一个 故障诊断 系统 ［ 1 ］ 。 目前 传感器 故障诊断 方法 有 多种 , 比较 多 的 是 采用 分析 冗余 方法 ［ 1 ］ , 人工神经网络 方法 ［ 2 - 6 ］ 等 。 采用 分析 冗余 方法 需要 系统 的 精确 数学模型 , 所以 这个 方法 难以 应用 于 具有 模型 不确定性 的 系统 和 非线性 系统 。 已有 的 应用 神经网络 检测 传感器 故障 方法 则 存在 以下 缺点 : 1 . 难以 检测 多个 传感器 故障 。 2 . 仍 需 系统 的 数学模型 来 估计 系统 的 状态 矢量 。 3 . 只能 完成 静止 映射 , 即 神经网络 输入 和 输出 都 是 在 同一 时刻 。 4 . 没有 考虑 系统 的 输入量 。 为此 本文 提出 采用 神经网络 建模 的 传感器 故障 检测 方法 。 此 方法 的 优点 是 可以 检测 多个 传感器 故障 , 同时 由于 采用 在线 学习 方式 , 非常 适用 于 航天器 自主 系统故障 检测 需要 。 此外 , 故障 检测 阈值 的 选取 也 比较简单 。 通过 对 一 实际 控制系统 ［ 1 ］ 中 两个 传感器 漂移 故障 检测 的 仿真 表明 本文 方法 是 有效 的 。 
+ 2 　 基于 神经网络 在线 建模 的 传感器 故障 检测 方法 
+ 　 　 一个多 输入 多 输出 非线性 动态 系统 : 
+ y ( k + 1 ) = F ( y ( k ) , … , y ( k - m + 1 ) , u ( k + 1 ) , … , u ( k - n + 1 ) ) ( 1 ) 
+ ( u ( k + 1 ) 是 一 p 维 输入 矢量 , y ( k + 1 ) 是 一 q 维 输出 矢量 , n , m 是 输入 和 输出 的 最大 延迟 , 对于 线性系统 n = m = 1 , F ( … ) 代表 一般 的 非线性 函数 ) 。 可以 用 一个 前馈 神经网络 和 带 延迟 的 输入 、 输出 来 表示 ［ 8 ］ : 
+ ( 2 ) 
+ 训练 前 准备 好 所有 的 输入输出 数据 , 然后 采取 批处理 训练方法 建立 系统 的 动态 非线性 数学模型 , 也 可以 采取 在线 递推 方式 建立 , 原理 如图 1 所示 , 神经网络 为 多层 感知器 模型 ［ 3 , 8 ］ , 如图 2 所示 , 其中 i , j , k 分别 表示 输入 、 隐层 、 输出 层 , Wij , Wjk 分别 表示 输入 与 隐层 之间 的 权值 和 隐层 与 输出 层 之间 的 权值 。 
+ 
+ 
+ 图 1 　 动态 非线性 系统 模型 在线 辩识 的 神经网络 方法 和 传感器 故障 检测 原理 
+ 
+ 
+ 图 2 　 神经网络 预测器 结构 
+ 在线 建立 神经网络 预测 模型 和 传感器 故障 检测 的 具体步骤 是 : 
+ 　 　 ( 1 ) 假设 已经 观测 到 k + 1 时刻 的 传感器 正常 输出 样本 y ( k - m + 1 ) , … , y ( k ) , y ( k + 1 ) 和 系统控制 输入 u ( k - n + 1 , … , u ( k ) , u ( k + 1 ) , 我们 用 k + 1 时刻 以前 的 输入 和 k 时刻 以前 的 输出 u ( k - n + 1 ) , … , u ( k ) , u ( k + 1 ) , y ( k - m + 1 ) , … y ( k ) 作为 网络 的 输入 , 用 k + 1 时刻 的 输出 y ( k + 1 ) 作为 神经网络 的 输出 , 应用 误差 反向 传播 算法 ( BP 算法 ) 迭代 学习 , 直到 一定 迭代 次数 或 一定 的 训练 精度 权值 收敛 。 
+ 　 　 ( 2 ) 数据 向前 递推 一步 , 利用 收敛 后 的 神经网络 连接 权值 , 用 k + 2 时刻 以前 的 输入 和 k + 1 时刻 以前 的 输出 u ( k - n + 2 ) , … u ( k + 1 ) , u ( k + 2 ) , y ( k - m + 2 ) , … , y ( k + 1 ) 作为 网络 的 输入 , 预测 k + 2 时刻 的 系统 输出 估计值 
+ 　 　 ( 3 ) 无 传感器 故障 时 y   ( k + 2 ) , 十分 接近 , 两者 之差 仅 为 递推 误差 和 传感器 输出 噪声 , 而 当 传感器 发生 故障 时 , 相应 的 残差 分量 将 显著 增大 , 所以 如果 传感器 在 k + 2 步 的 估计 输出   和 实际 输出 y ( k + 2 ) 之差 ( 残差 ) 分量 的 绝对值 ｜ y   i   ( k + 2 ) θ 为 一个 事先 确定 的 阈值 , 则 可以 判断 第 i 个 传感器 发生 故障 。 
+ 　 　 ( 4 ) 如果 传感器 没有 故障 , 即 , 则 将 k + 2 时刻 以前 的 输入 和 k + 1 时刻 以前 的 输出 u ( k - n + 2 ) , … , u ( k + 2 ) , u ( k + 2 ) , y ( k - m + 2 ) , … , y ( k + 1 ) 作为 网络 的 输入 , 而 将 k + 2 步 数据 y ( k + 2 ) 作为 网络 的 输出 再次 学习 直至 网络 权值 收敛 到 一定 的 输出精度 并 返回 第 3 步 直至 检测 到 传感器 故障 。 
+ 　 　 由于 神经网络 每步 只 在线 学习 一组 样本 , 而 不是 如 离线 方法 那样 学习 所有 的 样本 , 所以 收敛 速度 很快 , 可以 保证 实时 检测 故障 的 需要 。 
+ 　 　 用于 建模 的 前馈 神经网络 结构 常 根据 经验 和 试错 方法 选择 。 本文 根据 试验 选择 神经网络 结构 。 阈值 的 选择 在 故障诊断 领域 是 一个 难点 ［ 1 ］ , 取得 过 小 , 当 传感器 输出 噪声 比较 大时 容易 引起 误 报警 , 阈值 取得 过大 , 则 难以 检测 小 的 传感器 故障 , 引起 漏 报警 。 本文 根据 样本 预测 误差 和 噪声 标准偏差 的 大小 来 确定 阈值 , 即用 样本 预测 误差 Δ 和 3 倍 传感器 输出 噪声 标准偏差 σ 之 和 Δ + 3 σ 作为 阈值 。 由于 递推 估计 输出 和 传感器 实际 输出 误差 在 各个 采样 点 并 不 一样 , 所以 本文 用 传感器 输出 最大 斜率 ρ 和 采样 间隔 Δ t 之积 ρ × Δ t 作为 最大 预测 误差 Δ , 事实上 , 预测 误差 的 上限 也 就是 这一 数值 。 这样 选择 阈值 消除 了 由 输出 噪声 和 学习 误差 引起 的 误 报警 , 当然 也 有 可能 稍微 选择 偏 大 , 从而 难以 检测 小于 阈值 的 传感器 微小 故障 。 如果 多个 残差 分量 发生 显著 变化 , 则 可以 断定 多个 传感器 发生 故障 。 
+ 3 　 仿真 实例 
+ 　 　 本文 以 工业 机器人 传感器 故障 的 实时 诊断 仿真 说明 本文 方法 , 且 假定 系统 是 正常 的 , 即 传感器 是 在 系统 正常 条件 下 发生 的 。 所用 的 机器人 数学模型 是 一强 耦合 、 非线性 系统 模型 , 经过 离散 化后 为 ［ 1 ］ : 
+ ( 3 ) 
+ 式 中 
+ D ( k ) = a1 + a2cos ( x4 ( k ) ) 
+ E ( k ) = a3 + a2cos ( x4 ( k ) ) / 2 
+ A ( k ) = a2sin ( x4 ( k ) ) ［ x1 ( k ) x2 ( k ) + x22 ( k ) / 2 ］ - a4cos ( x3 ( k ) ) 
+ - a5cos ( x3 ( k ) + x4 ( k ) ) + u1 ( k ) 
+ B ( k ) = - ( a2sin ( x4 ( k ) ) ) x21 ( k ) / 2 - a5cos ( x3 ( k ) + x4 ( k ) ) + u2 ( k ) 
+ C ( k ) = ( a1 + a2cosx4 ( k ) ) a3 - ( a3 + a2cosx4 ( k ) / 2 ) 2 ( 4 ) 
+ 其中 
+ u1 ( k ) = 125 - 5 ( 1 - exp ( - 0.2 k ) ) 
+ u1 ( k ) = 125 - 10 ( 1 - exp ( - 0.2 k ) ) ( 5 ) 
+ 　 　 u1 , u2 为 输入 , e 为 零 均值 , 方差 为 diag ［ 0.00001 , 0.00001 , 0.00001 , 0.00001 ］ 的 白 噪声 。 
+ 　 　 y1 , y2 , y3 , y4 分别 是 测量 机器人 两个 肘关节 的 角速度 和 角位移 传感器 。 T 为 采样 间隔 , 其值 为 0.001 秒 , 共有 100 个 采样 点 。 并设 a1 = 3.82 , a2 = 2.12 , a3 = 0.71 , a4 = 81.82 , a5 = 24.6 。 根据 作者 以前 的 工作 ［ 2 ］ , 选择 单个 隐层 的 神经网络 结构 , 神经网络 的 输入 节点 为 8 个 , 分别 为 y1 ( k ) , y2 ( k ) , y3 ( k ) , y4 ( k ) , u1 ( k ) , u2 ( k ) , u1 ( k + 1 ) , u2 ( k + 1 ) , 神经网络 的 输出 节点 为 4 个分 , 分别 是 y1 ( k + 1 ) , y2 ( k + 1 ) , y3 ( k + 1 ) , y4 ( k + 1 ) , 选择 结构 为 8 ∶ 5 ∶ 4 的 网络 在线 建立 机器人 动态 模型 并用 它 检测 传感器 故障 。 本文 假定 角速度 传感器 y2 和 角度 传感器 y4 在 第 50 个 采样 点 同时 出现 了 速率 较大 的 漂移 故障 如图 3 , 5 所示 。 两个 传感器 同时 发生 故障 的 情况 在 控制系统 中是 较 严重 的 情况 , 但 采用 本文 方法 也 可以 对付 这 类 故障 。 图 4 , 6 示出 了 在线 学习 神经网络 预测 模型 预测 两个 传感器 输出 和 它们 实际 输出 的 残差 与 检测 阈值 的 关系 , 阈值 分别 为 0.024 , 0.0182 , 从图 中 可以 看出 本文 方法 在 第 51 个 采样 点 检测 出 了 两个 传感器 漂移 故障 。 
+ 
+ 
+ 图 3 　 神经网络 预测 输出 和 角速度 
+ 传感器 漂移 故障 
+ 
+ 
+ 图 4 　 角速度 传感器 故障诊断 过程 
+ 
+ 
+ 图 5 　 神经网络 预测 输出 和 角速度 
+ 传感器 漂移 故障 
+ 
+ 
+ 图 6 　 角速度 传感器 故障诊断 过程 
+ 　 　 　 　 4 　 结论 
+ 　 　 本文 研究 了 建立 动态 非线性 系统 预测 模型 的 神经网络 在线 学习 和 检测 传感器 故障 方法 , 通过 一 仿真 实例 , 说明 本文 方法 可以 在线 检测 传感器 故障 。 本文 方法 具有 下述 特点 : 
+ 　 　 1 . 适用 于 复杂 系统 , 特别 是 非线性 系统 中 的 传感器 故障 检测 。 
+ 　 　 2 . 能够 预报 传感器 是否 发生 故障 , 并 可以 检测 多 传感器 故障 。 
+ 　 　 3 . 本文 方法 只能 检测 速率 较大 的 漂移 故障 和 突变 类型 故障 。 
+ 　 　 4 . 本文 是 在 假定 系统 正常 条件 下 研究 传感器 故障 检测 的 , 如果 系统 和 传感器 同时 发生 故障 , 则 需 进一步 研究 如何 区分 两类 故障 。 事实上 , 有关 这一 问题 在 故障诊断 领域 仍 是 个 难点 , 我们 将 另文 讨论 。 
+ 参考文献 
+ 1 周 东华 , 孙优贤 . 控制系统 的 故障 检测 与 诊断 技术 . 北京 : 清华大学出版社 , 1994 
+ 2Guo   T . - H .   and   Nurre   J . Sensor   Failure   Detection   and   Recovery   by   Neural   Networks . IJCNN , 1991 : 1221 - 1226 
+ 3Zhao   Xinmin , Ye   Xiaochun , Zhang   Chen . Artificial   Neural   Network   for   Sensor   Failure   Detection   in   Hovercraft   Engine . IEEE   Annual   Conference   on   Instrument   and   Measurement , Hamamatsu , Japan , 1994 : 167 - 170 
+ 4Napolitano   M   R , et   al . Neural - network - Based   Scheme   for   Sensor   Failure   Detection , Identification , and   Accommodation . AIAA   Journal   of   Guidance , Control , and   Dynamics , 1995 , 18 ( 6 ) : 1280 - 1286 
+ 5Napolitano   M   R , et   al . A   comparison   Between   Kalman   Filter   and   Neural   Network   Approaches   for   Sensor   Validation . AIAA   paper   96 - 3894 
+ 6Bulsari   A , et   al . Sensor   Fault   Detection   Using   State   Vector   Estimator   and   Feedforward   Neural   Networks   Applied   to   a   Simulated   Biochemical   Process . Actapolytech   Scan , Chemical   Technology   and   Metallurgy   Series , 1991 : 1 - 20 
+ 7Patton   R   J , et   al . Neural   Networks   Based   Fault   Diagnosis   for   Nonlinear   Dynamic   Systems . AIAA   Paper   95 - 3219 
+ 8 黄远灿 . 基于 神经网络 的 非线性 系统 辨识 算法 . 哈尔滨工业大学 博士论文 , 1995 

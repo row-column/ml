@@ -1,0 +1,93 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 10 期   Vol.25   No.10   1999 
+ 
+ 
+ 
+ 专业 过滤器 防 攻击 策略 研究 及 实现 
+ 陆月明 　 钱德沛 　 徐斌 
+ 摘要 ： 分析 了 4 种 网上 攻击 （ Attacks ） 的 原理 和 特点 ， 提出 了 采用 专业 过滤器 （ Professional   Filter ， PF ） 保护 内部 网站 点 的 策略 。 PF 具有 自身 的 安全性 和 复杂 的 过滤 策略 ， 能 很 好 地 防止 外部 攻击 。 同时 ， PF 具有 网络设备 的 特点 ， 使 网络 的 吞吐量 得到 了 保证 。 
+ 关键词 ： 专业 过滤器 ； SYN - flooding ； Ping - of - death ； Net - pign - flooding ； 服务 拒绝 
+ Research   and   Implementation   of   Attack   Defence   Policy   in   Professional   Filter 
+ Lu   Yueming   Qian   Depei   Xu   Bin 
+ ( Dept . of   Computer , Xi ' an   Jiaotong   University , Xi ' an710049 ) 
+ 【 Abstract 】 Principle   and   characteristics   of   four   attacks   on   the   network   are   analyzed   and   a   strategy   protecting   internal   network   by   mean   of   professional   filter ( PF )   is   addressed   in   this   paper . PF   can   defend   against   by   self   security   complex   filtering   policies . It   guarantees   the   throughput   of   network   due   to   its   network   device   nature 
+ 【 Key   words 】 Professional   filter ; SYN - Flooding ; Ping - of - death ; Net - ping - flooding ; Denial - of - service 
+ 　 　 计算机系统 的 安全性 主要 涉及 3 方面 的 内容 ： 保密性 ( secrecy ) ， 完整性 ( integrity ) 和 服务 可 获得性 ( available ) [ 1 ] ； 保密性 和 完整性 在 网络 中 可以 采用 强大 的 加密算法 和 认证 措施 得以 保证 ， 对 服务 的 可 获得性 目前 研究 较 少 ， 也 是 一个 难以解决 的 问题 。 
+ 　 　 Internet 网络 提供 了 一个 共享 的 底层 ， 如 路由器 、 交换机 等 ， 但 这些 设备 大都 缺乏 对 网上 数据包 的 合法性 进行 检查 ， 特别 是 缺少 对 数据包 的 源 IP地址 和源 MAC 地址 的 验证 ， 导致 目前 Internet 网上 的 IP地址 欺骗 攻击 泛滥成灾 ， 如 SYN - Flooding [ 2 ] 、 Ping - of - Death [ 3 ] 、 Net - Ping - Flooding 和 国内 目前 广泛 存在 的 IP地址 的 非法 盗用 问题 等 。 
+ 　 　 本文 作 了 3 方面 的 工作 ： ( 1 ) 分析 4 种 网上 攻击 的 原理 和 特点 ， 并 介绍 了 早期 的 一些 防范措施 ； ( 2 ) 介绍 PF 的 工作 原理 ， 提出 了 采用 PF 防止 网上 攻击 的 方法 ， 并 对 4 种 攻击 提出 了 相应 的 防范 策略 ； ( 3 ) PF 的 网络 性能 分析 。 
+ 1 　 网络攻击 的 特点 和 常用 的 防范措施 
+ 1.1   网络攻击 的 特点 
+ 　 　 目前 Internet 网上 的 攻击 ， 如 SYN - Flooding ， Ping - of - Death ， Net - Ping - Flooding 等 ， 它们 的 共同 特点 是 ： 
+ 　 　 ( 1 )   采用 IP地址 欺骗 ( IP   Spoofing ) [ 4 ] 。 攻击者 伪造 IP地址 对 目标 机 进行 攻击 ， 具有 欺骗性 ， 主要 是 隐瞒 罪行 。 
+ 　 　 ( 2 )   攻击者 的 目的 是 使 主机 或 网络 拒绝服务 ( Denial   of   Service ) [ 5 ] ， 或 非法 侵入 他人 主机 进行 破坏活动 。 
+ 　 　 ( 3 )   难以 发现 和 防止 。 
+ 1.2   目前 主要 的 4 种 攻击 手段 及 原理 
+ 　 　 目前 主要 的 4 种 攻击 手段 是 ： SYN - Flooding 、 Ping - of - Death 、 Net - Ping - Flooding 和 非法 侵入 。 
+ 　 　 SYN - Flooding 利用 TCP 连接 中 的 三次 握手 机制 的 缺陷 ， 采用 虚假 的 IP地址 ， 对 一些 服务器进行 攻击 ， 使 这些 服务器 拒绝服务 或 死机 ， 合法 用户 的 服务 得不到 保证 ， 到 现在 为止 ， 还 没有 合适 的 解决 方法 。 在 SYN - Flooding 中 ， 主机 先对 服务器 发 TCP - SYN 包 ， 服务器 回答 SYN - ACK 并 在 半 连接 栈 ( Pending   Stack ， PS ) 中 保留 数据 和 信息 ， 如果 主机 发 TCP - ACK 包 ， 连接 就 结束 ， 半 连接 ( Pending ) 数据 和 信息 则 从 PS 中移 去 。 如果 服务器 收不到 源 主机 的 TCP - ACK 包 ， 服务器 等待 一定 的 时间 ( 大约 75s 左右 ) [ 1 ] 才 作 超时 处理 ， Pending 数据 和 信息 从 PS 中 移出 。 攻击者 采用 程序 方式 对 服务器 连续 发 TCP - SYN 包 ， 使 服务器 的 PS 满 ， 不能 接受 合法 用户 的 请求 。 TCP - SYN 包的源 IP地址 一般 是 伪造 的 ， 例如 和 目的 IP地址 相同 ， 这样 ， 服务器 发出 的 SYN - ACK 当然 得不到 应答 ， 只能 等待 超时 ， 攻击者 只要 在 超时 之前 继续 发包 ， 服务器 的 PS 就 会 被 充满 。 
+ 　 　 Ping - of - Death 是 采用 大于 65535 字节 的 包去 ping 目标 主机 ， 目标 主机 因 没有 足够 的 空间 组装 65507 字节 以上 的 包 ， 而 产生 的 死机 等 现象 [ 3 ] 。 
+ 　 　 SYN - Flooding 能 使 主机 拒绝服务 ， Net - Ping - Flooding   能 使 整个 网络 拒绝服务 ， Ping 是 基于 ICMP 请求 应答 ( echo   request ) 包 开发 的 应用软件 ， 当一 主机 对 网络地址 发 请求 应答 包时 ， 目标 网上 活动 的 主机 都 会 给予 应答 ， 它 的 过程 如图 1 所示 。 目标 网上 活动 主机 数为 n 时 ， 攻击者 发 一个包 ， 相应 的 应答 包将会 出现 n 个 ， 流量 被 扩大 了 n 倍 。 攻击者 连续 向 目标 网络地址 发包 ， 整个 网就会 瘫痪 ， 特别 是 目前 Internet 的 出口 本来 就是 瓶颈 ， 带宽 又 小 ， 很 容易 阻塞 。 由于 攻击者 对 请求 包的源 IP地址 进行 了 伪造 且 不断 变化 ， 所以 很难 立即 查出 ， 需要 及时 防范 。 
+ 
+ 图 l   对 网络地址 的 请求 应答 
+ 　 　 非法 侵入 是 攻击者 采用 工具 或 计算机系统 的 漏洞 ， 获取 超级 用户 的 口令 进入 系统 ， 如 采用 主机 的 rlogin ， rsh ， Telnet ， FTP 等 来 窃取 主机 上 的 口令 文件 ， 从而 利用 工具 破解 ， 所以 这些 程序 对外部 用户 要 加以 限制 ， 而 服务器 提供 单一 的 服务 有利于 提高 主机 的 安全性 。 
+ 1.3   对 SYN - Flooding 的 一些 防范措施 
+ 　 　 对 SYN - Flooding 的 防范措施 有 增加 PS 的 大小 、 SYN   Cookies 、 请求 替代 、 应用层 代理服务器 和 过滤器 等 。 目前 BSD 中 PS 的 大小 为 5 个 Pending 入口 ， Linux 为 6 个 入口 ， 目前 最大 的 也 只有 10 个 入口 ， 增加 PS 大小 可以 容纳 更 多 的 Pending 入口 。 但 这 并 不能 解决问题 ， 因为 当 攻击者 发包 的 间隔 小于 超时 ( Timeout ) 时 ， 栈 还是 会满 ； 在 Linux 上 ， 每个 Pending 入口 保存 的 数据 为 520 字节 ， 2000 个 Pending 入口 将 达到 1M 字节 ， 大量 消耗 了 内存 资源 ； 同时 PS 的 加大 也 会 影响 主机 的 性能 [ 1 ] 。 
+ 　 　 SYN   Cookies 由 BSD 公司 提出 ， 它 把 SYN 包中 的 少量 数据 保存 在 栈 中 ， 在 SYN - ACK 包中 把 大部分 数据 传回 给 发送者 ， 发送者 再 在 TCP - ACK 中 把 数据 送回 建立 连接 。 它 的 缺点 是 不 透明 ， 会 引起 网络 性能 下降 ， 需要 更新 软件 ， 同时 它 也 不能 避免 SYN - Flooding 的 攻击 。 
+ 　 　 请求 替换 是 当栈 满时 ， 新 的 SYN 请求 替换 栈中 第一个 SYN 的 请求 ； 因 它 是 随机 的 ， 所以 会 替换 合法 用户 的 请求 。 
+ 　 　 应用层 代理服务器 它 本身 会 受到 SYN - Flooding 攻击 ， 不能 起到 保护 作用 。 
+ 　 　 网络层 过滤器 在 网络 特性 上 类似 普通 的 网络设备 ， 自身 非常 安全 ， 可以 起到 保护 内部 子网 的 作用 。 下面 给出 了 专业 过滤器 保护 内部 子网 ， 防止 外部 攻击 的 方法 。 
+ 2 　 专业 过滤器 的 工作 原理 和 防 攻击 策略 实现 
+ 2.1   专业 过滤器 的 介绍 及 工作 原理 
+ 　 　 目前 网络安全 防火墙 主要 采用 两种 技术 实现 ： 包 过滤 ( Packet   Filtering ) 技术 和 代理服务器 ( Proxy ) 技术 。 网关 包 过滤 主要 是 指以 屏蔽 路由器 ( Screening   Router ) 对 出入 包 进行 过滤 等 ， 其 优点 是 过滤 速度 快 ， 对 网络 性能 的 影响 小 ， 费用 低 ； 但 由于 网关 的 包 过滤 机制 目前 仅 是 一种 附带 功能 ， 过滤 策略 ( Filtering   Policy ) 显得 简单 ， 最大 的 缺点 还 在于 网关 上 的 过滤 策略 因 复杂性 和 安全性 原因 很难 被 用户 动态 改变 。 
+ 　 　 专业 的 过滤器 主要 工作 于 网络层 ， 和 普通 的 网络设备 一样 ， 无 状态 、 无 连接 ， 对 用户 透明 ； 专业 过滤器 的 性能 和 网络 的 流量 有关 ， 和 网上 的 用户数 无关 ； 这种 机制 使 专业 过滤器 对 网络 性能 的 影响 较 小 ， 同时 可 服务 的 用户数 较 多 ， 可 用于 企业 、 校园 级 网络 的 总 出口处 。 目前 的 专业 过滤器 和 代理服务器 的 安全性 可以 媲美 [ 6 ] 。 因为 过滤器 的 硬件 性能 、 过滤 策略 的 复杂度 在 不断 提高 ， 过滤器 本身 的 安全性 要 好 于 代理服务器 。 目前 利用 包 过滤 技术开发 的 防火墙 产品 有 由 美国 CheckPointer 公司 开发 的 FIREWALL - 1 [ 7 ] 等 。 
+ 　 　 在 实现 的 专业 过滤器 系统 IPMAN 中 集成 了 国内 、 国外 入出 4 种 流量 的 统计 、 访问 权限 控制 、 用户 身份 认证 、 内部 站点 的 保护 、 外部 非法 站点 的 屏蔽 和 数据 加解密 等 多种 功能 ； 用户 可 通过 内部 网上 基于 Web 的 管理 服务器 完成 访问 权限 的 设置 、 帐户 查询 等 工作 。 专业 过滤器 的 工作 原理 如图 2 所示 ( FU 为 过滤 单元 ) 。 它 隔离 内部 和 外部 网络 ， 对 流经 的 数据包 根据 过滤 策略 进行 过滤 、 转发 或 丢弃 。 
+ 
+ 图 2   专业 过滤器 的 工作 原理 
+ 2.2   采用 专业 过滤器 防止 外部 攻击 的 策略 及 实现 
+ 　 　 ( 1 )   SYN - Flooding 的 防止 策略 和 实现 
+ 　 　 PF 不断 从 网卡 接收缓冲区 读取数据 帧 ( 接收数据 帧 ) ， 然后 交予 过滤器 的 过滤 单元 ( Filtering   Unit ， FU ) 过滤 ， 然后 丢弃 非法 数据 帧 ， 转发 合法 数据 帧 。 FU 中 的 防 SYN - Flooding 过滤 单元 ( SYN - Flooding   Defense   Filtering   Unit ， SFDFU ) 可 防止 SYN - Flooding 攻击 ， 它 的 工作 原理 如图 3 所示 。 
+ 
+ 图 3   SFDFU 工作 原理 
+ 　 　 在 TCP3 次 握手 中 ， SFDFU 转传 了 两次 ， 在 第 2 次 握手 中 SFDFU 提前 向 服务器 回送 TCP - ACK 包 ， 使半 连接 成为 全 连接 ， 然后 屏蔽 客户端 的 ACK 包 ， 如果 用户 的 ACK 包中 夹带 数据 ， 可 继续 转传 ， 因为 不带 数据 的 TCP - ACK 包对 TCP 中 的 序列号 、 确认 号 不 影响 。 要 保护 的 内部 站点 IP地址 可 通过 管理员 动态 加入 SFDFU 的 保护 表中 ， SFDFU 可 由 管理员 动态 设置 开关 ， 当 无 攻击 时 可以 屏蔽 它 ， 以免 影响 性能 。 
+ 　 　 ( 2 )   Net - Ping - Flooding 的 防止 策略 和 实现 
+ 　 　 在 专业 过滤器 中 的 权限 处理单元 ( Rights   Dealing   Unit ， RDU ) ， 它 根据 用户 的 权限 表处理 流经 的 数据包 ， RDU 认为 内部网 是 一个 集合 ， 进入 内部网 的 数据包 的 目的 IP地址 必须 在 这 范围 内 ， 过滤器 捆绑 了 IP地址 和 用户 的 权限 表 ， 表中 每个 记录 的 信息 如图 4 所示 。 在 过滤器 中 ， 内部 的 网络地址 和 普通 的 IP地址 一样 需要 认证 后 才能 出入 过滤器 ， 对 网络地址 采取 屏蔽 的 方式 ， 可 有效 保护 内部 子网 免受 Net - Ping - Flooding 的 攻击 。 
+ 表 1   权限 表 的 记录 
+ IP地址 认证 否 国外 、 内 浏览 权可 提供 的 服务类型 可 访问 的 服务类型 流量表 … 
+ 
+ 图 4   PF 对 WWW 服务器 服务类型 的 控制 
+ 　 　 ( 3 )   服务类型 的 控制 方法 
+ 　 　 用户 可 通过 自己 的 帐户 ， 设置 绑定 主机 对外 提供 的 服务类型 ， 图 5 显示 了 PF 对 内部 的 一个 WWW 服务器 的 服务类型 的 控制 ， FTP 和 Telnet 两种 服务 不 被 外部 用户 使用 。 
+ 　 　 
+ （ a ） 过滤器 吞吐量 变化 图 　 　 　 　 　 　 （ b ） 过滤器 延迟 变化 图 
+ 图 5   受 两边 网络 吞吐量 影响 的 过滤器 性能 图 
+ PF ： 专业 过滤器 ， SFD - PF ： 具有 SYN - Flooding 防护 的 专业 过滤器 。 
+ 　 　 ( 4 )   Ping - of - Death 的 防止 策略 和 实现 
+ 　 　 过滤器 中 的 防 Ping - of - Death 过滤 单元 ( Ping - of - Death   Defense   Filtering   Unit ， PDFU ) ， 在 禁止 了 分片 的 Ping   IP 包 进入 内部网 ， 控制 了 Ping   包 的 长度 小于 1500 字节 ， 取消 了 利用 Ping 包 进行 攻击 的 可能性 ， PDFU 的 过滤 过程 如下 ： 
+ 　 　 if ( IP . protocol = = ICMP && ICMP . code = = ECHO _ REQUEST && IP . fragment _ flag ! = 0 ) 
+ 　 　 　 { 丢弃 该包 } 
+ 　 　 else { 转发 } 
+ 3 　 PF 的 性能 分析 
+ 3.1   PF 的 测试环境 
+ 　 　 专业 过滤器 系统 IPMAN 在 双穴 主机 ( Dual - homed   Host ) 上 实现 ， 双穴 主机 的 硬件 配置 为 ： Pentium   133 ， 8MB 内存 ， Intel   10MB 以太网卡 ， 软件 采用 汇编语言 开发 。 过滤器 是 透明 的 ， 类似 于 透明 桥 ， 过滤器 两边 网络 为 10MB 以太网 ， 采用 长度 为 100 字节 的 包 测试 ， 两侧 网络 吞吐量 为 等量 分布 。 
+ 3.2   PF 的 性能 模型 
+ 　 　 过滤器 的 接收 为 过滤器 把 数据 帧 从 网卡 的 接收缓冲区 读入 过滤器 内存 的 过程 ， 过滤器 的 发送 为 过滤器 把 数据 帧 写入 发送缓冲区 的 过程 ， 以 内存 缓冲区 作为 中介 ， 过滤器 采用 无 等待 的 收发 过程 ， 丢包 是 在 内存 或 发送缓冲区 满时 才 有 可能 。 它 的 性能 模型 如下 ： 
+ T = Tr + Tf + Ts + Lr * Tr + Ls * ( Tr + Tf ) 
+ 　 　 T ： 过滤器 处理 一个包 的 时间 ， Tr ： 接收 一个包 的 时间 ， Tf ： 过滤 一个包 的 时间 ， Ts ： 发送 一个包 的 时间 ， Lr ： 因 内存 缓冲区 满而 引起 的 丢 包率 ， Ls ： 因 发送缓冲区 满而 引起 的 丢 包率 。 因为 过滤器 在 以太网 上 实现 ， 它 的 发包 速度 要 受到 过滤器 两侧 网络 冲突 概率 的 影响 ， 当 两边 网络 的 吞吐量 增大 ， Lr 增大 ， 造成 丢包 重传 ， 进一步 使 两侧 网络 冲突 概率 增大 ， Ls 变大 ， T 增大 ， 过滤器 吞吐量 下降 。 
+ 3.3   测试 结果 
+ 　 　 PF 的 吞吐量 和 两侧 网络 的 吞吐量 的 关系 如图 5 所示 。 从图 5 可以 看出 ， 当 无 丢 包时 过滤器 的 吞吐量 由 网络 速度 决定 ； 过滤器 吞吐量 开始 下降时 是 由 处理机 处理速度 引起 的 ， 这时 过滤器 的 吞吐量 由 处理机 的 处理速度 决定 ； 当 两边 网络 吞吐量 到达 6000pps 左右 时 ， 两侧 网络 的 冲突 加剧 ， 过滤器 的 吞吐量 急剧下降 ， 这时 增加 处理机 处理 能力 已 无用 ， 过滤器 的 吞吐量 主要 由 发送 速度 决定 。 因为 发送 冲突 严重 ， 过滤器 花 大量 时间 接收 和 处理 的 包发 不 出去 ， 造成 总 吞吐量 大大 下降 。 从图 5 可以 看出 具有 SYN - Flooding 防护 的 专业 过滤器 的 性能 与 不带 这种 防护 的 专业 过滤器 的 性能 相差 很小 ， 因此 ， 增加 这些 防护 功能 是 合理 、 有效 的 。 
+ 4 　 结束语 
+ 　 　 专业 过滤器 具有 自身 的 安全性 ， 采用 合适 的 过滤 策略 ， 能 很 好 防止 外部 站点 的 SYN - Flooding 、 Ping - of - Death 、 Net - Ping - Flooding 等 的 攻击 ， 同时 能 限制 外部 站点 访问 内部 服务器 的 访问 类型 ， 提高 了 内部网 的 安全性 。 专业 过滤器 的 无 连接 、 无 状态 特性 可 保证 较 高 的 吞吐量 ， 是 目前 可选 的 一种 低成本 网络安全 解决方案 。 
+ 基金项目 ： 863 课题 
+ 作者简介 ： 陆月明 （ 1970 ～ ） ， 男 ， 博士生 ， 研究 方向 为 网络安全 、 主动 网络 
+ 作者 单位 ： 西安交通大学 计算机系 ， 西安 710049 
+ 参考文献 
+ 1   Van   C . MIT   Master   Degree   Paper : A   Defence   Against   Address   Spoofing   Using   Active   Networks . 
+ MIT , USA , 1997 
+ 2   Advisory   C . TCP   SYN   Flooding   and   IP   Spoofing   Attacks . http : / / seusa . sumitomo . com / docs / security / cert _ org / cert _ advisory / CA - 96.21 . 
+ TCP _ SYN - flooding , 1996 - 10 
+ 3   Advisory   C . Denial - of - service   Attack   via   Ping . http : / / seusa . sumitomo . com / docs / security / cert _ org /   cert _ advisory / CA - 96.26 . ping , 1996 - 10 
+ 4   Advisory   C . IP   Spoofing   Attacks   and   Hijacked   Terminal   Connections . http / / seusa . sumitomo . com / docs /   security / cert _ org / cert _ advisory / CA - 95.01 . IP . spoofing , 1995 - 01 
+ 5   Spatscheck   O . Defending   Against   Denial   of   Service   Attacks   in   Scout . http : / / www . scout . com / osdi99 . ps , 1998 
+ 6   Leon   E . Security   Challenges   Resulting   from   Connection   to   the   Internet . USA , PC   Magazine , 1997 - 06 
+ 7   Michael   S . CheckPoint ' s   FireWall - 1   2.1   Uses   Stateful   Inspection   to   Boost   Flexibility . USA ： PC   Week , 1996 ； 1999 , 13 ( 31 ) : 2 
+ 收稿 日期 ： 1999 - 01 - 26 

@@ -1,0 +1,94 @@
+环境 科学研究 
+ RESEARCH   OF   ENUIRONMENTAL   SCIENCES 
+ 1999 年   第   12 卷   第 3 期   vol.12   No.3   1999 
+ 
+ 
+ 
+ 硝基苯 与 苯胺 类 废水 生物降解 协同 作用 研究  
+ 韦 朝海 　 任 　 源 　 谢 　 波 　 吴超飞 　 陈惠中 　 陈焕钦 
+ 摘 　 要 　 从 各种 菌源 中 分离 得到 硝基苯 和 苯胺 的 高效 降解 菌 ， 研究 其 对 这 2 类化合物 的 降解 规律 ， 发现 C . perfringens 在 厌氧 条件 下 主要 将 硝基苯 降解 为 苯胺 ， 而 Pseudomonas   mendocina 和 Klebsiella   pneumoniae 在 好 氧 条件 下 可 将 硝基苯 分解 为 无害化 物质 ， 但 降解 速度 较厌 氧 过程 慢 。 好 氧 条件 下 ， 硝基苯 对 苯胺 的 降解 有 明显 的 抑制作用 ， 而 苯胺 对 硝基苯 的 抑制作用 不 明显 ， 导致 混合 菌 对 混合 基质 的 降解 速度 下降 。 不同 微生物 对 含 硝基苯 和 苯胺 类化合物 废水 的 降解 机理 表现 出 明显 的 差异 ， 高效 的 微生物 应该 体现 在 既 能 分解 初始 污染物 ， 又 能 分解 次级 产物 ， 实现 完全 无害化 的 目标 。 
+ 关键词 　 硝基苯 　 苯胺 　 生物降解 　 废水处理 
+ Study   of   Cooperate   Biodegradation   of   Wastewater   Containing 
+ Nitrobenzene   and   Aniline 
+ WEI   Chaohai   REN   Yuan   XIE   Bo   WU   Chaofei   CHEN   Huizhong   CHEN   Huanqin 
+ ( College   of   Chemical   Engineering ,   South   China   University   of   Technology ,   Guangzhou   510640 ) 
+ Abstract 　 The   bacteria   that   can   efficiently   degrade   nitrobenzene   and   aniline   have   been   separated   from   various   sources .   By   studing   the   biodegradation   characteristics   of   these   two   compounds ,   it   is   found   that   C . perfringens   can   degrade   nitrobenzene   to   aniline   in   anaerobic   process ,   Pseudomonas   mendocina   and   Klebsiella   pneumonia   can   transform   nitrobenzene   to   harmless   substance   respectively   in   aerobic   process   but   the   degradation   rate   is   lower   than   that   in   anaerobic   process .   Nitrobenzene   inhibits   the   degradation   of   aniline   in   aerobic   condition ,   and   the   opposite   effect   is   not   obvious   so   that   the   degradation   rate   of   mixed   bacteria   to   mixed   substances   will   decrease .   The   degradation   mechanisms   of   different   microbes   for   the   wastewater   containing   nitrobenzene   and   aniline   show   sharp   differences .   The   efficient   microbes   can   degrade   not   only   the   initial   pollutants   but   also   the   next   products   to   harmless   substances   entirely . 
+ Keywords 　 Nitrobenzene ;   Aniline ;   Biodegradation ;   Wastewater   treatment 
+ 　 　 硝基苯 和 苯胺 类化合物 均 是 广泛应用 的 化工原料 ， 国内 每年 生产 苯胺 8 万 t 以上 ， 其 下游 产品 有 150 余种 ， 全世界 每年 排入 环境 中 的 硝基苯 和 苯胺 类化合物 约 为 1 和 3 万 t ［ 1 ～ 3 ］ 。 随着 精细化工 工业 的 发展 ， 对 这 2 类 化学品 的 需求 呈 明显 上升 趋势 ， 由此 进入 环境 的 量 也 会 继续 增多 。 硝基苯 、 苯胺 及其 衍生物 对 生态 生物 均 表现 出 不同 程度 的 毒性 ， 被 列为 环境 优先 控制 污染物 ， 在 工业 排水 中 要求 严格控制 。 对于 微生物 而言 ， 硝基苯 类均 属于 难 降解 性 物质 ， 苯胺 属于 可降解 性 物质 ， 而 大部分 的 苯胺 衍生物 也 属于 难 降解 性 物质 ［ 4 ］ 。 由于 苯胺 类化合物 大部分 均 来源于 相应 的 硝基苯 化合物 的 还原 过程 ， 在 废水 中 的 出现 往往 表现 出 共存 关系 ， 故 研究 对 硝基苯 和 苯胺 类化合物 有 高效 降解 能力 的 菌种 特征 并 分析 它们 之间 的 关系 对于 提高 生化 法 处理 含 这 2 类化合物 废水 的 效率 及 选用 合理 的 工艺技术 路线 均 具有 非常 重要 的 指导意义 。 
+ 1 　 生物 试验 与 鉴定 
+ 1.1 　 菌种 的 分离 
+ 　 　 菌源 来自 广东 一些 药厂 下水道 的 污泥 中 。 选择 培养基 ： 0.3% K2HPO4 ； 0.3% KH2PO4 ； 0.5% NaCl ； 0.05% MaSO4 ， 将 硝基苯 或 苯胺 按 一定量 加入 作为 微生物 生长 的 唯一 碳源 和 能源 。 
+ 　 　 菌种 分离 与 纯化 ： 将 浓缩 后 的 活性污泥 加入 装有 玻璃珠 的 三角瓶 ， 摇动 将 其 打碎 搅匀 ， 稀释 划 平板 分离 ， 放置 于 30 　 ℃ 恒温箱 内 培养 数天 ， 观察 菌落 生长 情况 ， 把 形成 的 耐受力 强单 菌落 挑 斜面 保存 。 反复 划线 纯化 ， 把 长出 的 不同 形态 的 单 菌落 再 分别 挑 斜面 ， 作为 试验 用 原始 菌 。 
+ 1.2 　 菌种 的 诱变 与 驯化 
+ 　 　 将 原始 菌液 接入 含 苯胺 400   mg / L 左右 的 选择 培养基 中 ， 之后 每天 再 加入 一定量 的 苯胺 ， 置 30 　 ℃ 摇床 振荡 培养 ， 7   d 为 1 个 驯化 周期 。 每个 周期 结束 后 将 菌液 移至 新鲜 的 培养基 中 ， 重复 驯化 过程 。 期间 还 隔 天将 驯化 菌液 置于 设有 磁场 环境 和 一定 剂量 紫外光线 条件 下 诱变 若干 时间 。 经过 一段时间 的 驯化 与 诱变 得到 目的 菌液 ， 菌 悬液 经 离心 及 清洗 ， 制成 含湿 菌体 约 3   g / L 的 菌 悬液 作为 实验 用 菌液 。 硝基苯 降解 菌 的 做法 类似 。 
+ 1.3 　 菌种 的 观察 与 鉴定 
+ 　 　 将 所得 菌液 在 牛肉 膏 培养基 上 划 平板 ， 30   ℃ 下 恒温 培养 ， 观察 并 记录 菌种 经 驯化 、 诱变 后 的 生长 情况 、 菌落 特征 ， 镜检 菌体 的 形态 结构 ， 进行 革蓝氏 染色 。 经 鉴定 硝基苯 的 厌氧菌 为 C . perfringens ( 产气 荚膜 杆菌 ) ， 好氧菌 为 Pseudomonas   mendocina ( 门多萨 氏菌 ) 和 Klebsiella   pneumoniae   ( 肺炎 克雷伯 氏菌 ) 的 混种 。 苯胺 的 好氧菌 为 Ochrobactrum   anthropi ( 人 苍白 杆菌 ) 。 它们 的 特征 列于 表 1 中 。 
+ 表 1 　 硝基苯 与 苯胺 降解 菌 的 菌落 特征 
+ 
+ 特征 C . perfringensPseudomonas   mendocinaKlebsiella   pneumoniaeOchrobactrum   anthropi 
+ 颜色 浅黄色 黄棕色 灰白色 乳白 至 乳黄色 
+ 透明度 — 不 透明 透明 不 透明 
+ 质地 — 奶油 状 — 蜡状 
+ 菌落 直径 ( mm ) 0.5 ～ 1.2   1 ～ 2   3 ～ 4   0.5 ～ 2 
+ 菌体 大小 ( 0.1 ～ 0.6 )   μ m × ( 0.5 ～ 1.5 )   μ m — ( 0.3 ～ 1.5 )   μ m × ( 0.6 ～ 6.0 )   μ m — 
+ 形状 杆状 ( 链状 排列 ) 杆状 卵 圆状 或球 杆状 球状 或 棒状 
+ 隆起 状 — 扁平 高凸 低 凸 
+ 边缘 — — — 整齐 
+ 表面 状态 — 光滑 — 光滑 
+ 光泽 — 微 光泽 光泽 光泽 
+ 革蓝氏 染色 阴性 阴性 阴性 阴性 
+ 
+ 
+ 2 　 降解 特性 试验 
+ 2.1 　 厌氧 条件 下 的 降解 
+ 　 　 在 严格 厌氧 操作 条件 下 将 受 试物 硝基苯 、 接种 菌液 和 营养物 加入 窄口 培养 瓶 中 ， 控制 硝基苯 浓度 为 150   mg / L 左右 ， 加入 Na2S ( 0.5   mg / L ) 以 提供 还原 条件 ， 用 N2 除去 O2 后 密封 ， 在 35 　 ℃ 恒温 摇 床上 培养 ， 对 系列 实验 定时 分析 受试物 浓度 、 中间 产物 浓度 ( 主要 分析 苯胺 ) 、 COD 及 pH 值 ， 评价 以 硝基苯 为 唯一 碳源 和 能源 条件 下厌 氧 生物降解 特性 。 在 此 条件 下 根据 受试物 、 中间 产物 浓度 及 COD 值 的 历时 变化 与 分布 ， 推测 降解 机理 ， 实验 结果 见图 1 。 
+ 
+ 
+ 1 . 苯胺 　 2 . 硝基苯 　 3 . pH 值 　 4 . 硝基苯 　 5 . COD 值 
+ 图 1 　 厌氧 条件 下 硝基苯 的 降解 特性 
+ 　 　 从图 1 中 可见 ， 苯胺 与 硝基苯 存在 着 一定 的 关联 作用 ， 即 随着 硝基苯 的 厌氧 降解 ， 苯胺 浓度 逐渐 增大 ， 并且 趋于稳定 值 ， 说明 硝基苯 厌氧 降解 菌 利用 苯胺 的 能力 很 低 ， 从 COD 值 的 变化 也 反映 了 这个 现象 ， 即 溶液 COD 值 与 硝基苯 和 苯胺 的 理论 COD 值 之 和 较 接近 。 溶液 的 pH 值 随 时间 的 增长 而 增大 ， 理解 为 是 偏 碱性 苯胺 浓度 增大 所致 。 从 上述 一些 实验 研究 结果 可知 ， 硝基苯 在 厌氧 条件 下 易于 降解 生成 苯胺 ， 降解 完全 ， 降解 速度 较 好 氧 条件 下 快得多 ， 但 硝基苯 厌氧 降解 菌 基本上 不能 利用 它 的 次级 产物 苯胺 ， 表现 为 COD 值 的 变化 很小 。 
+ 2.2 　 好 氧 条件 下 硝基苯 的 降解 
+ 　 　 在 大量 初步 研究 工作 的 基础 上 ， 用 分离 到 的 硝基苯 好 氧 降解 菌 进行 受试物 的 降解 试验 ， 初始 受试物 的 浓度 定为 20   mg / L 左右 ， 接种 量 为 5   mL 菌 悬液 ( 约 2 × 109 个 / mL ) ， pH 调至 7.0 左右 ， 添加 适量 营养元素 ， 然后 置于 35   ℃ 的 恒温 摇 床上 以 120   r / min 振荡 培养 ， 测定 降解 过程 中 硝基苯 浓度 、 苯胺 浓度 、 COD 值 的 历时 变化 ， 分析 降解 特性 和 推测 其 降解 机理 。 实验 共 做 了 8 组 ， 根据 统计 方法 处理 数据 ， 列出 结果 如图 2 所示 。 
+ 
+ 
+ 1 . 苯胺 浓度 　 2 . 硝基苯 浓度 　 3 . COD 值 　 4 . COD 去除率 　 5 . 硝基苯 去除率 
+ 图 2 　 好 氧 条件 下 硝基苯 降解 特性 
+ 　 　 硝基苯 在 好 氧 条件 下 的 降解 速度 较慢 ， 这 与 文献 ［ 1 ］ 的 报导 是 相符 的 。 硝基苯 及其 衍生物 难以 生物降解 的 原因 是 由于 硝基 的 吸 电子 性 使得 苯环 上 电子云 密度 下降 ， 从而 使 氧化酶 的 亲 电子 受阻 。 20   mg / L 的 硝基苯 完全 降解 需要 10   d 以上 ， 前 10   d 的 降解 速率 较 高 ， 而后 降解 极为 缓慢 ， 说明 可能 存在 某 一种 抑制效应 。 试验 发现 硝基苯 好 氧 降解 菌 的 耐受 能力 较 低 ， 当 浓度 超过 100   mg / L 时 难以 生化 降解 ， 说明 硝基苯 的 毒性 要 比 苯胺 大得多 。 通过 COD 值 的 变化 发现 硝基苯 好 氧 降解 菌 可以 同时 降解 中间 产物   而 将 部分 底物 完全 矿化 ， 因此 ， 寻找 高效 的 好 氧 降解 菌 是 今后 研究 的 一个 重点 。 试验 过程 中 苯胺 的 出现 是 很 不 稳定 的 ， 浓度 普遍 低于 1.0   mg / L ， 约 有 60% 的 情况 检测 不 出来 ， 这是 目前 还 无法解释 的 实验 现象 。 
+ 　 　 实验 发现 ， 分离 所 得到 的 硝基苯 好 氧 降解 菌 对 二硝基苯 ( 邻 、 间 、 对 ) 和 三 硝基苯 均 有 一定 程度 的 降解 ， 其 研究 结果 有待于 完善 。 
+ 2.3 　 好 氧 条件 下 苯胺 的 降解 
+ 　 　 笔者 曾 对 从 多处 菌种 来源 中 分离 到 的 苯胺 高效 降解 菌 Ochrobactrum   anthropi 进行 系统 的 降解 特性 研究 ， 发现 该 菌种 对 苯胺 的 最高 降解 速度 可达 10.05   mg / ( L . h ) ， 并 能 将 苯胺 完全 无害化 ［ 5 ， 6 ］ 。 
+ 3 　 混合 基质 、 混合 菌种 的 降解 试验 
+ 　 　 实际 工程 中 含有 难 降解 有机物 的 工业废水 是 多种 成分 共存 的 混合液 。 单一 基质 、 单一 菌种 条件 下 有机物 生物降解 性能 的 研究 结果 与 实际 废水处理 情况 相比 有 较大 差距 ， 难以 有效 地 指导 工程 实践 。 在 本 研究 工作 中 ， 将 含约 20   mg / L 硝基苯 和 100   mg / L 苯胺 溶液 混合 成受 试液 ， 在 适宜 的 接种 量 条件 下 了解 其 降解 情况 ， 结果 如图 3 所示 。 研究 发现 硝基苯 对 苯胺 的 降解 有 明显 的 抑制效应 ， 苯胺 对 硝基苯 的 抑制作用 不 明显 。 混合 基质 、 混合 菌种 情况 下 的 降解 比 单一 基质 、 单一 菌种 的 降解 速度 要慢 得 多 ， 表现 出 拮抗效应 。 图 4 为用 混合 菌 降解 桂林 制药厂 废水 的 实验 结果 ， 原水 浓度 COD 为 1   610.5   mg / L ， 18   h 其 COD 去除率 达到 80% 以上 。 根据 厂方 提供 的 生产工艺 材料 分析 ， 废水 主要 成分 为 对 硝基 苯乙酮 、 氯代 苯胺 及 一些 杂环 化合物 ， 证明 了 所 筛选 的 菌种 的 性能 是 优越 的 ， 可以 处理 含 苯胺 和 硝基苯 及其 衍生物 的 实际 药厂 废水 。 
+ 
+ 
+ 1 . 苯胺 ( 苯胺 菌 ) 　 2 . 硝基苯 ( 苯胺 菌 ) 　 3 . 苯胺 ( 硝基苯 菌 ) 　 4 . 硝基苯 ( 硝基苯 菌 ) 
+ 5 . 苯胺 ( 苯胺 菌 + 硝基苯 菌 ) 　 6 . 硝基苯 ( 苯胺 菌 + 硝基苯 菌 ) 
+ 图 3 　 混合 基质 、 混合 菌种 条件 下 的 降解 
+ 
+ 
+ 图 4 　 药厂 废水 COD 降解 情况 
+ 4 　 硝基苯 、 苯胺 降解 的 相关 机理 分析 
+ 　 　 由于 生物降解 过程 的 复杂性 ， 硝基苯 类化合物 降解 途径 目前 仍 所知 甚 少 ［ 7 ， 8 ］ 。 厌氧 环境 下 硝基苯 降解 为 苯胺 被 理解 为 硝基苯 上 的 硝基 得 电子 还原 所致 ， 其 推测 的 模型 为 ［ 9 ］ ： 
+ 
+ 　 　 上述 预测 的 中间 产物 目前 还 没有 得到 充分 的 验证 ， 然而 最终 产物 苯胺 的 出现 在 实验 研究 中 已 被 证实 。 
+ 　 　 在 硝基苯 的 好 氧 降解 机理 研究 中 ， Billy   E . Haigler   等 ［ 1 ］ 利用 3 株 菌种 分别 试验 ， 并且 验证 了 有关 中间 产物 ， 发现 硝基苯 的 降解 途径 是 有 差异 的 ， 他们 没有 研究 进一步 矿化 的 降解 途径 。 而 Kwan － Hye   Juang   ［ 8 ］ 的 研究 工作 中 重点 阐明 了 混合 降解 途径 的 存在 ， 即 甲苯 双 氧化酶 的 作用 使 硝基苯 羟基 化成 硝基 邻苯二酚 ， 为 脱氢酶 脱 硝基 提供 了 渠道 ， 再 经过 开环 途径 而 实现 完全 的 矿化 。 
+ 　 　 复杂 有机 化合物 的 生物降解 途径 富于 变化 ， 各 文献 报导 存在 差异 ， 需要 加深 认识 ， 这 正是 科研 发展 的 魅力 所在 。 值得 指出 的 是 在 已经 报导 的 研究 工作 中 没有 发现 好 氧 环境 下 有 苯胺 中间体 产生 的 信息 ， 而 在 笔者 的 研究 工作 中 多次 被 检出 ， 这一 实验 现象 非常 值得 今后 深入 探索 查明 。 综合 实验 结果 与 分析 讨论 ， 认为 在 废水处理 微生物 筛选 中 除了 考虑 降解 效率高 、 适应性 强 、 易于 放大 培养 等 因素 外 ， 还有 一个 非常 重要 的 方面 是 要求 一种 ( 类 ) 微生物 既 能 分解 初始 污染物 ， 又 能 分解 次级 产物 ， 实现 完全 无害化 的 目标 。 对于 含 硝基苯 类化合物 的 废水 应 采用 厌氧 与 好 氧 相结合 的 生物 处理 技术 。 
+ 5 　 结语 
+ 　 　 a . 实验 筛选 分离 到 了 硝基苯 的 厌氧 降解 菌 1 株 ， 好 氧 降解 菌 2 株 ， 分别 为 C . perfringens ( 产气 荚膜 杆菌 ) ， Pseudomonas   mendocina ( 门多萨 氏菌 ) 和 Klebsiella   pneumoniae   ( 肺炎 克雷伯 氏菌 ) ， 还 得到 了 苯胺 的 好 氧 降解 菌 为 Ochrobactrum   anthropi ( 人 苍白 杆菌 ) ， 与 文献 报导 数据 相 比较 ， 它们 对 硝基苯 和 苯胺 有 高效 的 降解 作用 。 
+ 　 　 b .   硝基苯 的 厌氧 降解 产物 主要 为 苯胺 ， 降解 过程 中 废水 COD 值 的 变化 不 明显 。 门多萨 氏菌 和 肺炎 克雷伯 氏菌 能 将 硝基苯 好 氧 分解 并 利用 其中 间 产物 ， 将 废水 的 COD 值 降低 而 实现 底物 的 完全 矿化 即 无害化 ， 但 降解 速度 较慢 。 
+ 　 　 c . 硝基苯 对 苯胺 的 降解 有 抑制作用 ， 而 苯胺 对 硝基苯 的 好 氧 降解 的 抑制作用 不 明显 。 混合 基质 及 混合 菌种 情况 下 的 降解 作用 要 比 单一 基质 、 单一 菌种 的 降解 速度 要慢 得 多 ， 表现 为 拮抗效应 。 
+ 　 　 d . 硝基苯 和 苯胺 有效 的 生物降解 途径 机理 有待于 进一步 深入探讨 。 生物降解 机理 的 明确 对 建立 含 这 2 类化合物 的 废水 的 实际 处理工艺 理论 具有 重要 的 指导意义 。 
+ * 国家自然科学基金 ( 29407051 ) 和 广东省 自然科学 基金 ( 940758 ) 资助 项目 
+ 作者简介 ： 男 ， 1962 年生 ， 博士 ， 副教授 
+ 作者 单位 ： 华南理工大学 化工学院 ， 广州 　 510640 
+ 6 　 参考文献 
+ 1 　 Billy   E , Haiglar ,   Spain   J   C .   Biotransformation   of   Nitrobenzene   by   bacteria   cantaining   toluene   degradative   pathways .   Appl   Environ   Microbiol ,   1991 ,   57 ( 11 ) : 3156 . 
+ 2 　 杨义燕 ， 苏海佳 ， 秦炜 , 等 . 络合 萃取 法 处理 工业 苯胺 废水 . 化工 进展 ， 1995 ( 2 ) ： 24 ～ 27 . 
+ 3   US   EPA .   Nitrobenzene   initial   report   of   the   TSCA   interagency   testing   committee   and   information   dossiors   on   substances   designated   ( EPA   560 - 10 - 88 - 001 ) . Washington   D   C :   U   S   Environmental   Protection   Agency , 1988 . 
+ 4   Alexander   M . Biodegradation   of   organic   chemicals   environmental   concern .   Science ,   1981 ,   211 : 132 ～ 138 . 
+ 5   韦 朝海 ， 任源 ， 吴超飞 ， 等 . Ochrobactr   um   anthropi 对 苯胺 的 降解 特性 研究 . 环境 科学 ， 1998 ， 19 ( 5 ) ： 22 ～ 24 . 
+ 6 　 任源 ， 吴超飞 ， 韦 朝海 . 苯胺 降解 菌 的 驯化 筛选 研究 . 环境 科学研究 , 1998 ， 11 ( 4 ) ： 4 ～ 6 . 
+ 7 　 Spanggord   R   J ,   Spain   J   C ,   Nishino   S   F ,   et   al .   Biodegradation   of   2 , 4 － dinitroluene   by   Pseudomonas   sp .   Appl   Environ   Microbiol ,   1991 ,   57 : 3200 . 
+ 8   Kwan － Hye   Juang ,   Jang － Young   Lee ,   Hak － Sung   Kim ,   et   al .   Biodegradation   of   Nitrobenzene   through   a   hybrid   pathway   in   pseudomonas   putida .   Biotechnol   and   Bioengng ,   1995 ,   48 : 625 . 
+ 9   Frank   M   Dunnlvant ,   Ren 　 P   Schwarzenbach .   Reduction   of   Substitute   Nitrobezenes   in   aqueous   solution   containing   natural   organic   matter .   Environ   Sci   Technol ,   1992 ,   26 : 2133 . 
+ 收稿 日期 ： 1998 － 07 － 07 

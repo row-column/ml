@@ -1,0 +1,94 @@
+宇航学 报 
+ JOURNAL   OF   ASTRONAUTICS 
+ 1999 年   第 2 期 　 No.2   1999 
+ 
+ 
+ 
+ 桁架 结构 阻尼 控制 的 绝对值 模态 应变 能法 
+ 吕 　 刚 　 陆 　 锋 　 张景绘 
+ 　 　 摘 　 要 　 本文 阐述 了 近似 求解 复 特性 值 问题 模态 阻尼比 的 模态 应变 能法 ( MSE ) 和 绝对值 模态 应变 能法 ( AVMSE ) , 分别 用 两种 方法 计算 了 空间 桁架 结构 应用 粘弹性 阻尼器 进行 阻尼 控制 时 结构 的 模态 阻尼比 。 完成 了 空间 桁架 结构 模型 的 粘弹性 阻尼 控制 实验 。 理论 分析 与 实验 结果 比较 显示 , 当 结构 中 粘弹性 的 成分 较大 时 , AVMSE 对复 特征值 问题 中 模态 阻尼比 的 近似计算 给出 更 准确 的 结果 。 
+ 　 　 主题词 　 粘弹性 　 模态 　 桁架 　 阻尼 
+ ABSOLUTE   VALUE   MODAL   STRAIN   ENERGY   
+ METHOD   FOR   VISCOELASTIC   DAMPING   
+ CONTROL   OF   TRUSS   STRUCTURE 
+ L ü   Gang   Lu   Feng   Zhang   Jinghui 
+ ( Xi ' an   Jiaotong   University . Xi ' an.710049 ) 
+ 　 　 Abstract 　 The   Modal   Strain   Energy   Method ( MSE )   and   Absolute   Value   Strain   Energy   Method ( AVMSE )   to   solve   the   complex   eigenvalue   problems   approximately   are   described   briefly . The   modal   damping   ratio   of   space   truss   structure   with   added   viscoelastic   dampers   is   calculated   using   both   MSE   and   AVMSE   methods   for   damping   control   of   the   structure . The   experiment   in   damping   control   of   a   truss   structure   adding   viscoelastic   dampers   is   completed . The   comparison   between   the   analytical   results   and   experimental   results   shows   that   the   AVMSE   method   is   more   advanced   and   accurated   than   the   MSE   method   while   the   effect   of   viscoelasticity   to   the   structure   is   larger   for   calculating   the   modal   damping   ratio   of   the   complex   eigenvalue   problems . 
+ 　 　 Key   words 　 Viscoelastic   Mode   Truss   Damping 
+ 1 　 前 　 言 
+ 　 　 模态 应变 能法 ( MSE ) 已 被 广泛 用于 计算 粘弹性 阻尼 结构 的 模态 阻尼比 ［ 1 , 2 ］ , 这种 方法 简单 、 计算 量 小 , 可 得到 粘弹性 结构 模态 阻尼比 的 近似值 , 在 阻尼 结构 的 动力 分析 和 设计 中 被 广泛 采用 。 但 由于 MSE 法采实 模态 理论 近来 计算 复 模态 问题 , 当 粘弹性 材料 在 结构 中所 占 份额 较大 时 或 对于 复杂 的 粘弹性 复合 阻尼 结构 , 用 MSE 法 得到 的 结果 就 有 较大 误差 ［ 3 ］ 。 
+ 　 　 本文 在 模态 应变 能 方法 的 基础 上 , 通过 考虑 VED 滞后 特性 对 结构 动力 特性 的 影响 , 采用 绝对值 模态 应变 能 ( AVMSE ) 法来 分析 结构 的 阻尼 特性 。 这种 方法 不 增加 分析 的 工作量 , 又 考虑 了 粘弹性 的 影响 。 以 安装 剪切 式 VED 的 复合 空间 桁架 为例 , 分别 采用 MSE 法 和 AVMSE 法来 分析 结构 的 阻尼 特性 , 得出 仿真 结果 , 并 与 阻尼 特性 实验 结果 相 比较 , 结果表明 了 AVMSE 法是 对 MSE 法 的 一种 有效 修正 。 
+ 　 　 本文 阐述 了 AVMSE 法对 使用 VED 来 控制结构 被动 阻尼 和 VED 动力 设计 , 以及 对 粘弹性 复杂 结构 的 动力 分析 提供 了 更为 有效 和 准确 的 方法 。 
+ 2 　 MSE 、 AVMSE 方法 
+ 2.1 　 MSE 法 : Johnson   C . D . and   Kienholy ［ 2 ］ 在 近似 处理 复 特征值 问题 时 , 提出 了 MSE 方法 , 即 , 用 弹性 分析 得到 的 实 模态 振型 Φ 近似 替代 复 模态 振型 Φ * , 得到 结构 第 r 阶 模态 阻尼比 ζ r 的 近似 表达式 。 
+ 　 　 当 结构 中 含有 粘弹性 材料 构件 时 , 结构 刚度 阵为 复 刚度 阵 , 其 运动 方程 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 其中 KR 、 KI 复 刚度 阵 的 实部 、 虚部 。 设解 的 形式 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　   ( 2 ) 
+ 其中 λ * r , Φ * r 分别 为 第 r 阶复 特征值 和 复 特征向量 , 根据 Rao 的 分析 ［ 4 ］ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　   ( 3 ) 
+ 其中 η r 为 第 r 阶 模态 损耗 因子 。 求 瑞利 商 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 4 ) 
+ 这里 , 用 M — KR 的 实 特征向量 Φ r 近似 代替 复 特征向量 Φ * r , 则 ( 4 ) 式 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 5 ) 
+ 分别 比较 ( 3 ) 、 ( 5 ) 的 实部 和 虚部 , 得 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　   ( 6 ) 
+ 令 
+ 　 　 　 　 　 　 K = KR + jKI = Ke + KdR + jKdI 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 7 ) 
+ 其中 Ke 为主 结构 系统 弹性 刚度 , KdR 、 KdI 为 粘弹性 刚度 阵实部 、 虚部 。 
+ 当 结构 中 只有 一种 粘弹性 阻尼 材料 , 且 材料 的 损耗 因子 为 η v 时 
+ 　 　 　 　 　 　 KdI = η vKdR 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 8 ) 
+ 取立 ( 6 ) 、 ( 7 ) 、 ( 8 ) 并 考虑 到 ζ r = η r / 2 得 结构 第 r 阶 模态 阻尼比 ζ r 的 近似 表达式 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　   ( 9 ) 
+ 2.2 　 AVMSE 法 : 由 MSE 法 推导 可知 , 在 ( 4 ) 式 实部 虚 部分 离时 , 采取 了 用 结构 刚度 阵 的 实部 KR 所求 的 特征向量 替代 结构 复 振型 的 近似 处理 , 忽略 了 粘弹性 滞后 对 结构 振型 的 影响 。 考虑 到 当 结构 刚度 阵中 虚部 较大 时 , 用 KR 所求 的 特征向量 替代 结构 振型 误差 较大 , 必须 考虑 虚 刚度 的 影响 。 如用 实验 模态 代入 可 得到 更为 准确 的 结果 , 但 工作 量过大 , 对 阻尼 结构 的 动态 设计 亦 不 现实 。 下面 通过 对复 刚度 取 绝对值 进行 修正 , 用 修正 的 刚度 阵 Ka 计算 得到 的 实 模态 来 近似 替代 复合 结构 模态 Φ * 。 取 
+ 　 　 　 　 　 　 　 　 　 　 　 　 ( 10 ) 
+ 式 中 , NE 为 单元 数 , η j 为 j 单元 的 材料 损耗 因子 , KRj 为 j 单元 的 储能 刚度 阵 , NVE 为 粘弹性 单元 数 , KdRj 为 第 j 个 粘弹性 单元 刚度 阵 的 实部 。 相应 的 特征值 问题 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 11 ) 
+ 用来 近似 替代 ( 4 ) 式 中 粘弹性 复合 结构 的 复 特征向量 Φ * , 与 MSE 法 类似 , 对 只有 一种 阻尼 材料 的 结构 , 则 ( 9 ) 式 可 相应 写成 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 12 ) 
+ 由 ( 9 ) 、 ( 12 ) 可知 , 当 粘弹性 构件 特性 已知 时 , 则 可 计算 出 结构 的 模态 阻尼比 。 反之 , 当 确定 所 期望 的 结构 模态 阻尼比 后 , 则 可 求得 粘弹性 构件 的 实 刚度 KdR , 从而 有 了 设计 粘弹性 阻尼 构件 的 依据 。 
+ 3 　 数值 仿真 
+ 　 　 在 空间 桁架 结构 中 安装 VED 来 实现 结构 的 被动 阻尼 控制 , 应 预先 按 结构 所 要求 的 模态 阻尼比 设计 阻尼器 , 根据 粘弹性 材料 的 剪切 耗能 原理 , 设计 了 一种 圆柱形 剪切 式 VED ［ 5 ］ 。 
+ 　 　 分别 按 MSE 和 AVMSE 法 计算 图 1 所示 空间 桁架 结构 在 安装 VED 后 的 第一 阶 模态 阻尼比 。 共 安装 两个 相同 粘弹性 材料 制成 的 VED 于 如图 1 所示 ( 2 ) 、 ( 6 ) 杆 位置 , 这是 控制 第一 阶 模态 阻尼 的 最佳 位置 。 在 悬臂 端的 前三跨 节点 上 附加 集中 质量 块 以 降低 结构 的 固有频率 。 计算 时 考虑 了 主 结构 具有 结构 阻尼 C 。 桁架 结构 的 几何 尺寸 和 物理 参数 见表 1 。 
+ 　 　 　 　 表 1 　 桁架 结构 的 几何 尺寸 , 物理 参数 
+ 
+ 框数 6 附加 质量 0.16 kg × 16 
+ 每框 边长 20 × 10 - 3m 杆 横截面 积 80 × 10 - 6m2 
+ 总杆数 N = 78 弹性模量 7.2 × 104MPa 
+ 节点 数 28 　 　 
+ 
+ 
+ 图 1 　 桁架 结构 示意图 
+ 　 　 用 ( 9 ) 、 ( 12 ) 式 来 计算 结构 的 模态 阻尼比 。 图 2 是 分别 用 两种 方法 计算 得到 的 模态 尼比 ζ 1 与 阻尼器 储能 刚度 kdR 的 关系 曲线 。 由图 可见 , MSE 法比 AVMSE 法 计算 的 模态 阻尼比 偏高 。 在 阻尼器 的 动 刚度 较 小时 , 这种 差异 不 大 , 当 阻尼器 的 动 刚度 增加 时 差异 增大 。 
+ 　 　 定义 VED 的 动 刚度 kdR 与 桁架 杆 的 弹性 刚度 kd ( 本例 kd = 25MN / m ) 之比 k , 这一 比值 可 衡量 粘弹性 材料 在 结构 中所 占 比重 。 当 k = 0.4 时 , 用 MSE 法比 AVMSE 法 得到 的 第一 阶 模态 阻尼比 高出 1.16 倍 , 当 k = 0.8 时 , 将 高出 1.26 倍 。 从 计算 曲线 还 可 看出 , 模态 阻尼比 的 增加 随 阻尼器 动 刚度 的 变化 关系 为 非线性 , 当 阻尼器 的 动 刚度 增加 到 一定 程度 后 , 结构 的 模态 阻尼比 减小 。 这 说明 不能 一味 增加 阻尼器 的 剪切 面积 来 增大 结构 的 模态 阻尼比 。 
+ 
+ 图 2 　 结构 模态 阻尼比 与 刚度 关系 曲线 
+ 4 　 实 　 验 
+ 4.1 　 实验 概述 : 用 合金 角 铝制 做 一 空间 桁架 结构 模型 , 几何 尺寸 、 材料 、 附加 质量 和 两个 阻尼器 安装 位置 同 第 3 节 所述 。 阻尼器 剪切 面积 A = 1.44 × 103mm2 , 粘弹性 材料 厚度 h = 2mm 。 用 悬置 的 电磁 激振器 在 桁架 中部 沿 水平 方向 正弦 扫频 激励 , 测量 桁架 悬臂 顶端 水平 方向 的 加速度 响应 , 用 HP3562A 测量 复合 结构 系统 的 频率响应 函数 , 通过 对 频率响应 函数 的 零 极点 拟合 得到 结构 的 实验 模态 阻尼比 。 图 3 为 实验 装置 照片 。 
+ 
+ 图 3 　 实验 装置 照片 
+ 4.2 　 实验 结果 : 图 4 是 环境温度 为 15 ℃ 时 , 相同 激励 条件 下未 安装 阻尼器 和 安装 阻尼 后 的 前 5 阶 实测 频率响应 函数 。 由图 可见 , 阻尼器 对 增加 结构 的 模态 阻尼比 , 降低 前 5 阶 模态 的 峰值 是 十分 有效 。 第一 阶 模态 的 阻尼比 由 原先 的 0.6% 增加 到 8.33% , 增加 了 12.88 倍 。 
+ 
+ … 未 安装 VED 　 　 　 — 安装 VED 
+ 图 4 　 桁架 模型 实测 频响 函数 ( T = 15 ℃ ) 
+ 5 　 讨论 和 结论 
+ 　 　 桁架 模型 的 实验 结果 可以 印证 MSE 与 AVMSE 法 估算 粘弹性 复合 结构 模态 阻尼比 的 近似 程度 和 误差 取向 。 表 2 是 实测 模态 阻尼比 与 分别 用 MSE , AVMSE 法 计算 得到 的 第一 阶 模态 阻尼比 的 比较 。 
+ 表 2 　 第一 阶 模态 阻尼比 
+ 
+ 　 理论 计算 值 实验 值 ( % ) 误 　 差 ( % ) 
+ MSE 法 AVMSE 法 MSE 法 AVMSEE 法 
+ 模态 阻尼比 ζ ( % ) 9.209 . 038.3310 . 48.4 
+ 
+ 
+ 　 　 MSE 法 由于 过分 预估 结构 的 模态 运动 , 当 粘弹性 成为 较大 时 , 得到 的 模态 阻尼比 偏 大 。 AVMSE 法 考虑 了 粘弹性 对 结构 模态 的 影响 , 计算 出 的 粘弹性 复合 结构 模态 阻尼比 要 比 MSE 法 的 结果 更 接近 实验 结值 。 这一 结果 与 两种 模态 应变 能法 的 物理 概念分析 是 不 矛盾 的 , 从 第一 阶 模态 阻尼比 提高 的 程度 可知 , 两只 VED 的 剪切 耗能 与 结构 的 总 模态 应变能力 比 不可 忽略 , 而 AVMSE 法 正是 考虑 了 这种 不可 忽略 的 粘弹性 耗能 因素 。 
+ 　 　 空间 桁架 模型 结构 的 数值 仿真 和 实验 结果显示 , 在 不 增加 计算 工作量 的 条件 下 , AVMSE 法 考虑 了 粘弹性 滞后 特性 对 结构 模态 的 影响 , 从而 对 粘弹性 影响 相对 较大 的 结构 可 给出 更 接近 实际 的 估计 。 
+ 　 　 用 VED 进行 桁架 结构 阻尼 控制 , 当 VED 的 动 刚度 与 主 结构 中 桁架 杆 刚度 之 比 大于 0.25 时 , 应 采用 AVMSE 法 计算 模态 阻尼比 , 若用 MSE 法来 计算 将 带来 工程 上 所 不能 容许 的 误差 , 这一 结果 与 文献 ［ 3 ］ 的 分析 是 一致 的 。 
+ 　 　 作者 单位 ： 西安交通大学 工程力学 系 . 西安 . 710049 
+ 参考文献 
+ 　 1 　 Chang   K   C . and   Soong   TT . etal . Viscoelastic   Dampers   as   Energy   Dissipation   Devices   for   Seismic   Application . Earthquake   Spectra , 1993 , 9 ( 3 ) 
+ 　 2 　 Johnson   CD . and   Kienholz   DA .. Finite   Element   Predietion   of   Damping   in   Structure   with   Constrained   Viscoelastic   Layers . AIAA   Journal , 1982 , 20 ( 9 ) : 1284 - 1290 
+ 　 3 　 田 千里 . 具有 离散 阻尼器 的 结构 动力 分析 . 固体 力学 学报 , 1983 , ( 2 ) 186 - 196 
+ 　 4 　 Rao   DK .. Frequency   and   Loss   Factors   of   Sandwich   Beams   Under   Various   Boundary   Condition . Journal   of   Mechanical   Engineering   Science , 1978 , 20 : 270 - 282 
+ 　 5 　 吕刚 , 陆锋 , 李俊 宝 , 张景绘 . 桁架 结构 的 阻尼 设计 . 振动 工程学 报 , 1998 , 11 ( 2 ) : 145 - 153 
+ 　 　 本文 为 国家自然科学基金 资助 项目 ( 19632001 ) 
+ 收稿 日期 : 1997 年 5 月 26 日 , 修回 日期 : 1998 年 7 月 15 日 

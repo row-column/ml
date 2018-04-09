@@ -1,0 +1,100 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000 　 No.19 　 No.1 　 P.53 - 54 
+ 
+ 
+ 
+ 
+ WINDOWS 环境 下 动态 设置 打印机 参数 
+ 铁治欣 　 陈奇 　 俞瑞钊 
+ 摘   要 ：   一种 动态 设置 打印机 参数 的 方法 。 在 程序 中 运用 此 方法 ， 用户 在 打印 时 只 需 在 打印机 中 放入 合适 的 纸张 ， 而 不用 考虑 打印机 的 设置 。   
+ 关键词 ：   打印机   注册表   动态 设置 
+ 1   问题 的 提出 
+ 　 　 在 许多 应用 系统 中 ， 常常 需要 打印 各式各样 的 票据 和 报表 ， 它们 经常 是 没有 统一 的 格式 ， 所 需 的 打印纸 也 就 大小不一 ， 有 的 甚至 有 专用 的 格式 。 因此 ， 如果 我们 不 对 打印机 的 设置 进行 有效 的 控制 ， 就 要求 用户 在 运行 这些 系统 时 不断 地 更改 打印机 设置 ， 以 适应 系统 的 需要 。 一般 情况 下 ， 用户 会 觉得 用 这样 的 软件 很 麻烦 ， 并且 经常 会 出现 错误 。 一种 比较简单 的 解决办法 就是 对 同一 台 物理 打印机 在 WINDOWS 中 安装 几台 逻辑 打印机 ， 每台 逻辑 打印机 对应 一种 票据 或 报表 格式 ， 在 打印 某一 票据 或 报表 时 就 选择 与 之 对应 的 逻辑 打印机 。 这种 方法 的 缺点 是 每次 打印 时 还要 去 选择 1 个 逻辑 打印机 ， 增加 了 操作 人员 的 操作步骤 。 基于 此 ， 本文 给出 了 一种 比较 自动 和 通用 的 解决 方法 。 运用 此 方法 开发 打印 程序 ， 打印 时 用户 只 需往 打印机 中 加入 适当 的 纸张 即可 打印 出 正确 的 报表 。 
+ 2   动态 设置 打印机 
+ 　 　 在 WINDOWS   95 环境 下 ， 与 计算机 设置 有关 的 信息 全部 记录 在 注册表 ( REGISTRY ) 中 。 WINDOWS   95 在 用到 某一 设备 或 程序 时 ， 它 就 到 注册表 中 取出 有关 这一 设备 或 程序 的 设置 信息 。 当 增加 1 台 设备 时 ， WINDOWS   95 就 会 在 注册表 中 增加 相应 的 项目 ； 当 修改 某一 设备 的 设置 时 ， WINDOWS   95 也 会 对 有关 这一 设备 的 注册 项目 进行 修改 。 所以 我们 可以 通过 动态 修改 注册表 中 的 有关 打印机 设置 的 信息 来 达到 动态 设置 打印机 的 目的 。 
+ 　 　 经 研究 发现 ， 与 打印机 有关 的 主要 设置 有 二项 ， 其中 第 1 项为 当前 默认 打印机 ， 其 注册表 入口 为 ： HKEY ＿ LOCAL ＿ MACHINE \ Config \ 0001 \ System \ CurrentControlSet \ Control \ Print \ Printers ， 设置 值 存放 在 default 项中 的 字符串 ， 即 我们 可以 通过 这一 注册表 的 这 一 分支 的 default 项 得到 WINDOWS 的 当前 默认 打印机 。 第 2 项为 打印纸 设置 有关 的 项目 ， 其 注册表 入口 为 ： HKEY ＿ LOCAL ＿ MACHINE \ System \ CurrentControlSet \ Control \ Print \ Printers \ SETPRINTER ， 其中 的 SETPRINTER 要 替换 为 你 所 安装 的 打印机 的 名字 ， 如 Epson   LQ － 1600K 等 ， 这一 分支 有 许多 个项 ， 最 关键 的 项 ( 也 是 与 打印纸张 设置 有关 的 项 ) 是 Default   DevMode ， 此项 的 设置 值为 1 个 二进制 串 ， 其中 主要 的 几个 参数 的 偏移 地址 和 意义 见表 1 。 
+ 表 1   打印机 参数表 
+ 
+ 设置 项目 偏移量 字节数 说明 
+ 纸张 设置 0x2F2 打印机 纸张 类型 ， 256 为 用户 自定义 纸张 ， 小于 256 的 数值 为 该 打印机 能 打印 的 标准 纸张 的 编号 ， 随 打印机 类型 改变 。 
+ 纸张 长度 0x312 当 纸张 设置 为 256 （ 即 用户 自定义 纸张 ） 时才 有用 ， 意义 为 要 设置 的 打印纸 的 长度 （ 以 0 ． 1 毫米 为 单位 ） 。 
+ 纸张 宽度 0x332 当 纸张 设置 为 256 （ 即 用户 自定义 纸张 ） 时才 有用 ， 意义 为 要 设置 的 打印纸 的 宽度 （ 以 0.1 毫米 为 单位 ） 。 
+ 打印 方向 0x2D20x01 - 纵向 打印 ， 0x02 - 横向 打印 。 
+ 进纸 方式 0x3920x04 - 手动 送纸 ， 0x08 - 传纸器 。 
+ 
+ 　 　 下面 我们 给出 这种 动态 设置 方法 在 PowerBuilder ( PB ) 中 的 实现 方法 。 在 PB 中 我们 可以 定义 2 个 全局 函数 ： gf ＿ PrnSetting ( ) ， gf ＿ PrnSettingBack ( ) 。 具体 应用 时 ， 可以 用 第 1 个 函数 将 打印 设置 为 我们 需要 的 状态 ， 并 将 打印机 的 原 状态 保存起来 ， 再用 第 2 个 函数 将 打印机 状态 恢复 。 这 2 个 函数 的 具体 实现 如下 所示 。 
+ / / 函数 功能 ： 用 自定义 参数设置 打印机 
+ / / 输入 参数 ： al ＿ Lengn - 打印纸 长度 ， al ＿ Width - 打印纸 宽度 
+ / / 　 　 　 　 　 ai ＿ PaperSource - 进纸 方式 ， ai ＿ PrintDirection - 
+ / / 打印 方向 输出 参数 ： ablb ＿ setvalue - 打印机 的 原 参数 
+ / / 返回值 ： 1 - 成功 ， 0 - 不 成功 
+ Gf ＿ PrnSetting ( long   al ＿ Lengh ， long   al ＿ Width ， int   ai ＿ PaperSource ， int   ai ＿ PrintDirection ， blob   ablb ＿ setvalue ) 
+ constant   string   cls ＿ valuename ＝ ″ Default   DevMode ″ 
+ constant   uint   clu ＿ pos ＿ width ＝ 51 
+ constant   uint   clu ＿ pos ＿ length ＝ 49 
+ constant   uint   clu ＿ pos ＿ papersize ＝ 47 
+ constant   uint   clu ＿ pos ＿ papersource ＝ 57 
+ constant   uint   clu ＿ pos ＿ printdirection ＝ 45 
+ constant   uint   clu ＿ usersizepaper ＝ 256 
+ blob   lb ＿ value ， newvalue 
+ string   ls ＿ key ， ls ＿ printer 
+ int   li ＿ ret 
+ li   ret ＝ RegistryGet ( ″ HKEY ＿ LOCAL ＿ MACHINE \ Config \ 0001 \ 
+ 　 　 　 　 　 　 　 　 System \ CurrentControlSet ″ ＋ ＆ ″ \ Control \ Print \ 
+ 　 　 　 　 　 　 　 　 Printers ″ ， ′ default ′ ， RegString ! ， ls ＿ printer ) 
+ IF   li ＿ ret ＜ ＞ 1   THEN 
+ 　 　 MESSAGEBOX ( ″ 系统 提示 ″ ， ″ 打印机 未 设置 ！ ″ ， Excla －   mation ! ) 
+ 　 　 RETURN   0 
+ END   IF 
+ ls ＿ key ＝ ″ HKEY ＿ LOCAL ＿ MACHINE \ System \ CurrentControlSet \ 
+ 　 　 　 　 　 control \ Print \ Printers \ ″ ＋ ls ＿ printer 
+ RegistryGet ( is ＿ key ， cls ＿ valuename ， RegBinary ！ ， lb ＿ value ) 
+ ablb ＿ setvalue ＝ lb ＿ value 
+ lb ＿ newvalue ＝ blobmid ( lb ＿ value ， 1 ， clu ＿ pos ＿ papersize － 1 ) ＋ 
+ 　 　 　 　 　 　 　 blobmid ( lb ＿ value ， clu ＿ pos ＿ width ＋ 2 ) 
+ blobedit ( lb ＿ newvalue ， clu ＿ pos ＿ papersize ， clu ＿ usersizepaper ) 
+ blobedit ( lb ＿ newvalue ， clu ＿ pos ＿ length ， al ＿ Length ) 
+ blobedit ( lb ＿ newvalue ， clu ＿ pos ＿ width ， al ＿ Width ) 
+ lb ＿ value ＝ lb ＿ newvalue 
+ lb ＿ newvalue ＝ blobmid ( lb ＿ value ， 1 ， clu ＿ pos ＿ papersource － 1 ) 
+ 　 　 　 　 　 　 　 ＋ blobmid ( lb ＿ value ， clu ＿ pos ＿ papersource ＋ 1 ) ＋ 
+ 　 　 　 　 　 　 　 ＆   blobmid ( lb ＿ value ， 1 ， clu ＿ pos ＿ printdirec － 
+ 　 　 　 　 　 　 　 tion － 1 ) ＋ blobmid ( lb ＿ value ， clu ＿ pos ＿ printdi － 
+ 　 　 　 　 　 　 　 rection ＋ 1 ) 
+ blobedit ( lb ＿ newvalue ， clu ＿ pos ＿ papersource ， ai ＿ papersource ) 
+ blobedit ( lb ＿ newvalue ， clu ＿ pos ＿ printdirection ， ai ＿ printdirection ) 
+ ls ＿ key ＝ ″ HKEY ＿ LOCAL ＿ MACHINE \ System \ CurrentControlSet \ 
+ 　 　 　 　 　 Control \ Printers \ ″ ＋ ls ＿ printer 
+ li ＿ ret ＝ RegistrySet ( ls ＿ key ， cls ＿ valuename ， RegBinary ! ， lb ＿ newvalue ) 
+ IF   ii ＿ r ＜ ＞ 1   THEN 
+ 　 　 MESSAGEBOX ( ″ 系统 提示 ″ ， ″ 打印机 设置 失败 ！ ″ ， Exclamation ！ ) 
+ 　 　 RETURN   0 
+ END   IF 
+ RETURN   1 
+ / / 函数 功能 ： 恢复原 打印机 设置 
+ / / 输入 参数 ： ablb ＿ setvalue - 打印机 原 设置 串 
+ / / 输出 参数 ： 无 
+ / / 返回值 ： 1 - 成功 ， 0 - 不 成功 
+ Gf ＿ PrnSettingBack ( blob   ablb ＿ setvalue ) 
+ int   li ＿ ret 
+ string   ls ＿ printer ， ls ＿ key 
+ constant   string   cls ＿ valuename ＝ ″ Default   DevMode ″ 
+ li ＿ ret ＝ RegistryGet ( ″ HKEY ＿ LOCAL ＿ MACHINE \ Config \ 0001 \ 
+ 　 　 　 　   System \ CurrentControlSet ″ ＋ ＆ ″ \ Control \ Print － 
+ 　 　 　 　   ers ″ ， ′ default ′ ， RegString ! ， ls ＿ printer ) 
+ IF   li ＿ ret ＜ ＞ 1   THEN 
+ 　 　 MESSAGEBOX ( ″ 系统 提示 ″ ， ″ 打印机 未 设置 ！ ″ ，   Exclamation ! ) 
+ 　 　 RETURN   0 
+ END   IF 
+ ls ＿ key ＝ ″ HKEY ＿ LOCAL ＿ MACHINE \ System \ CurrentControlSet \ 
+ 　 　 　 　 　 Control \ Print \ Printers \ ″ ＋ ls ＿ printer 
+ li ＿ ret ＝ RegistrySet ( ls ＿ key ， cls ＿ valuename ， RegBinary ! ， 
+ 　 　 　 　 　 lb ＿ newvalue ) 
+ if   li ＿ ret ＜ ＞ 1   then   return   0 
+ return   1   
+ 　 　 本文 所 提供 的 程序 在 1 台内装 WINDOWS   95 操作系统 的 Pentium Ⅱ 266 计算机 上用 PowerBuilder   6 ． 0 和 Epson   LQ － 1600K 打印机 调试 通过 ， 并 在 我们 开发 的 MRP / ERP 系统 中 得到 应用 ， 效果 良好 。 对于 其它 开发工具 及其 它 打印机 型号 ， 其 实现 方法 和 上面 给出 的 相 类似 。 
+ 铁治欣 （ 杭州 浙江大学 计算机科学 与 工程系  310027 ） 
+ 陈奇 （ 杭州 浙江大学 计算机科学 与 工程系  310027 ） 
+ 俞瑞钊 （ 杭州 浙江大学 计算机科学 与 工程系  310027 ） 
+ 收稿 日期 ： 1999 － 07 － 21 

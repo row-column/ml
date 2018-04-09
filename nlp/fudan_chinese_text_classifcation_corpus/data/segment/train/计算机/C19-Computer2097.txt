@@ -1,0 +1,112 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 10 期   Vol.25   No.10   1999 
+ 
+ 
+ 
+ 使用 DAO 访问 Access 数据表 的 Binary 字段 
+ 荣冰 　 徐炜民 
+ 摘要 ： Access 数据库 具有 针对 数据库 集成性 的 最优 文件 结构 ， 其 数据表 中 的 Binary 字段 是 专为 存放 二进制 数据 而设 的 。 在 此 详尽 探讨 了 VC5.0 中 使用 DAO 类 访问 Access 数据表 中 Binary 字段 的 途径 及其 相关 的 COleVariant 的 应用 方法 。 最后 ， 针对 实例 设计 了 一个 CMdbAccessExample 类 ， 实现 了 文中 所述 内容 。 
+ 关键词 ： Access 数据库 ； Binary 字段 ； DAO 类 ； COleVariant 
+ To   Control   the   Binary   Field   of   Access   Database   with   DAO 
+ Rong   Bign   Xu   Weimin 
+ ( Dept . of   Computer , Shanghai   University , Shanghai   200072 ) 
+ 【 Abstract 】 Access   Database ( modb ) processes   the   optimalizing   file   construction   aimed   at   integration   of   Database . The   Binary   field   of   Access   Data - Table   is   used   for   storing   binary   data . The   artjcle   elaborately   gives   an   account   of   the   method   of   accessing   the   mdb   database   using   DAO   class   in   VC5.0   and   the   relevant   application   of " Cole   Variant " class . At   last , the   article   also   lay   out   an " CmdbAccessExample " aimed   at   a   given   example 
+ 【 Key   words 】 Access   database ; Binary   field ; DAO   class ; COleVariant 
+ 　 　 Access 的 数据表 除了 传统 数据库 的 Text 、 Single 、 Long 、 Data / Time 等 字 段 外 ， 另外 增加 了 一个 Binary 字段 ， 用于 存放 二进制 数据 ， 如 图象 、 声音 、 压缩 数据 等 [ 1 ] 。 
+ 　 　 VC5.0 中 提供 DAO 类 对 Access 数据表 进行 直接 访问 ， DAO 在 很大 程度 上 是 ODBC 的 超集 ， 它 包含 了 ODBC 类 的 大部分 功能 并 增加 它 自己 的 很多 功能 。 尽管 DAO 是 以 OLE 对象 的 形式 实现 的 ， 用户 并不需要 直接 与 这些 对象 打交道 ， MFC 、 DAO 类为 用户 处理 所有 的 细节 ， 给 用户 提供 与 OLE 对象 交互作用 的 数据 和 函数 成员 [ 2 ] 。 DAO 类 最 适于 编制 处理 Access 创建 的 . mdb 数据库 。 
+ 　 　 在 VC 中 访问 Access 数据表 时 ， 可 通过 两种 方法 来 存取数据 ： 
+ 　 　 ( 1 )   使用 VC 的 应用程序 向导 AppWizard 建立 一个 与 数据库 相关联 的 应用程序 ， 但是 这样 做 灵活 程度 很小 ， 一般 用于 对 整个 数据库 的 浏览 ， 而且 无法 直接 访问 Binary 字段 的 数据 。 
+ 　 　 ( 2 )   在 应用程序 中 创建 自己 的 类来 访问 数据表   ,   通过 编程 实现 对 数据字 段 的 访问 。 笔者 在 实际 应用 中 摸索 出 一套 运用 VC 的 DAO 类 访问 Binary 字段 的 方法 ， 基本思路 如下 ： 
+ 　 　 对 Access 数据库 Binary 字段 存储 时 ， 可 分为 以下 3 个 步骤 操作 ： 
+ 　 　 ·   先 将要 存储 的 数据 块 存放 入 一个 CBtyeArray 类中 ； 
+ 　 　 ·   由 COleVariant 类 的 构造函数 COleVariant ( const   CByteArray &   arrSrc )   构造 出 一个 COleVariant 类 ； 
+ 　 　 ·   使用 CDaoRecordset 类 的 成员 函数 SetFieldsValue ( ) 将 数据 存入 相应 的 字 段 。 
+ 　 　 从 Access 数据库 Binary 字段 获得 数据 时 ， 可 按 以下 步骤 操作 ： 
+ 　 　 ·   使用 CDaoRecordset 类 的 成员 函数 GetFieldsValue ( ) 将 数据 取 到 一个 COleVariant 类中 。 
+ 　 　 ·   把 所 需 数据 从 COleVariant 类中 解析 出来 。 
+ 1 　 重点 说明 
+ 1.1   DAO 类 的 应用 
+ 　 　 DAO 对象 为 用户 编程 创建 和 操纵 数据库 提供 了 一个 框架 ， 它 的 功能 分散 在 几个 对应 于 DAO 的 类 上面 ： CDaoDatabase 和 CdaoRecordset 。 
+ 　 　 CDaoDatabase 代表 了 与 数据库 的 联结 ， 通过 它 可以 对 数据 进行 操作 。 而 CDaoRecordset 则 代表 了 一组 从 数据源 选出 的 数据 集 。 数据 集 共有 3 种 类型 ： 
+ 　 　 表 类型 数据 集 - - 代表 基本 的 数据表 ， 可以 用来 检验 、 增加 、 变更 或 删除 单一 数据表 中 的 记录 。 
+ 　 　 动态数据 集 - - 这是 一个 对 可 修改 记录 的 查询 结果 。 动态数据 集 来自 一组 从 一个 或 多个 潜在 数据表 中 的 数据 集 ， 可 用于 检验 、 增加 、 变更 或 删除 记录 ， 可以 包含 多个 数据表 中 的 字 段 。 动态数据 集是 应用 最 普遍 的 数据 集 ， 同时 也 是 CdaoRecordset 默认 的 数据 集 类型 。 
+ 　 　 快照 类型 数据 集 - - 一组 用于 查找 数据 或 生成 报表 的 静态数据 集 。 快照 类型 数据 集 来自 一个 或 多个 数据 ， 它 不 可以 被 更新 。 
+ 　 　 本文 所述 的 操作 ， 应用 了 动态数据 集 。 
+ 1.2   Variant 和 COleVariant 以及 牵涉到 的 数据结构 
+ 　 　 Variant 类型 实际上 是 一个 较大 的 C语言 结构 ， 包含 许多 数据类型 的 联合 （ Union ） 。 这种 设计 方法 允许 该 类型 在 不同 场合 替代 许多 可能 的 数据类型 。 Variant 数据类型 在 不同 场合 下 ， 可以 包含 数据 或 指向 其他 数据 的 指针 。 由于 MFC 的 开发人员 认识 到 Variant 数据类型 的 重要性 ， 因此 创建 了 一个 COleVariant 类 ， 较 简便 地 封装 了 Variant 结构 到 OOP 包中 ， 这个 类为 自动化 服务器 和 客户机 之间 传递数据 提供 了 统一 、 安全 的 机制 [ 3 ] 。 尽管 创建 Variant 数据类型 是 用于 OLE 应用程序 ， 但 它 可以 用于 任何 可以 被 使用 的 地方 ， 而 不用 考虑 应用程序 是否 使用 OLE ， 这 在 数据库 存取 方面 显得 尤其 重要 。 
+ 　 　 以下 是 VC 中 对 Variant 类型 的 定义 [ 4 ] 部分 ： 
+ 　 　 typedef   struct   tagVARIANT 　 { 
+ 　 　 VARTYPE   vt ; 
+ 　 　 unsigned   short   wReserved1 ; 
+ 　 　 unsigned   short   wReserved2 ; 
+ 　 　 unsigned   short   wReserved3 ; 
+ 　 　 union { 
+ 　 　 unsigned   char 　 　 　 bVal ; 　 　 　 　 　 　 / / vt 标识 ： VT _ UI1 . 
+ 　 　 short 　 　 　 　 　 　 　 iVal ; 　 　 　 　 　 　 / / vt 标识 ： VT _ I2 . 
+ 　 　 long 　 　 　 　 　 　 　   lVal ; 　 　 　 　 　 　 / / vt 标识 ： VT _ I4 . 
+ 　 　 float 　 　 　 　 　 　 fltVal ; 　 　 　 　 　 　   / vt 标识 ： VT _ R4 . 
+ 　 　 double 　 　 　 　 　   dblVal ; 　 　 　 　 　     / / vt 标识 ： VT _ R8 . 
+ 　 　 VARIANT _ BOOL   bool ; 　 　 　 　 　 　 　 　 　 / / vt 标识 ： VT _ BOOL . 
+ 　 　 RETURN   VALUE   return _ value ; 　 　 　 　 　 / / vt 标识 ： VT _ ERROR . 
+ 　 　 CY 　 　 　 　 　 　 　 　 cyVal ; 　 　 　 　 　 　 / / vt 标识 ： VT _ CY . 
+ 　 　 DATE 　 　 　 　 　 　 　   date ; 　 　 　 　 　 　 / / vt 标识 ： VT _ DATE . 
+ 　 　 BSTR 　 　 　 　 　 　 bstrVal ; 　 　 　 　 　 　 / / vt 标识 ： VT _ BSTR . 
+ 　 　 IUnknown 　 　 FAR * punkVal ; 　 　 　 　 　 　 / / vt 标识 ： VT _ UNKNOWN . 
+ 　 　 Idispatch 　 FAR * pdispVal ; 　 　 　 　 　 　 / / vt 标识 ： VT _ DISPATCH . 
+ 　 　 SAFEARRAY 　 　 FAR *   parray ; 　 　 　 　 　 　 / / vt 标识 ： VT _ ARRAY | * . 
+ 　 　 unsigned   char 　 FAR *   pbVal ; 　 　 　 　 　   / / vt 标识 ： VT _ BYREF | VT _ UI1 . 
+ 　 　 short 　 FAR * 　 piVal ; 　 　 　 　 　 　 　 　     / / vt 标识 ：   VT _ BYREF | VT _ I2 . 
+ 　 　 long 　 FAR * 　 plVal ; 　 　 　 　 　 　 　 　 　 / / vt 标识 ： VT _ BYREF | VT _ I4 . 
+ 　 　 float 　 FAR * 　 pfltVal ; 　 　 　 　 　 　 　 　 / / vt 标识 ： VT _ BYREF | VT _ R4 . 
+ 　 　 double 　 FAR * 　 pdblVal ; 　 　 　 　 　 　 　 / / vt 标识 ： VT _ BYREF | VT _ R8 . 
+ 　 　 VARIANT _ BOOL   FAR *   pbool ; 　 　 　 　 　 　 / / vt 标识 ： VT _ BYREF | VT _ BOOL . 
+ 　 　 RETURN   VALUE   FAR *   preturn   value ; 　 　 / / vt 标识 ： VT _ BYREF | VT _ ERROR . 
+ 　 　 CY   FAR *   pcyVal ; 　 　 　 　 　 　 　 　 　 　 　 / / vt 标识 ： VT _ BYREF | VT _ CY . 
+ 　 　 DATE   FAR *   pdate ; 　 　 　 　 　 　 　 　 　 　 / / vt 标识 ： VT _ BYREF | VT _ DATE . 
+ 　 　 BSTR   FAR *   pbstrVal ; 　 　 　 　 　 　 　 　 　 / / vt 标识 ： VT _ BYREF | VT _ BSTR . 
+ 　 　 IUnknown   FAR *   FAR *   ppunkVal ; 　 　 　 　 / / vt 标识 ： VT _ BYREF | VT _ UNKNOWN . 
+ 　 　 IDispatch   FAR *   FAR *   ppdispVal ; 　 　 　 / / vt 标识 ： VT _ BYREF | VT _ DISPATCH . 
+ 　 　 SAFEARRAY   FAR *   FAR *   parray ; 　 　 　 　 　 / / vt 标识 ： VT _ ARRAY | * . 
+ 　 　 VARIANT   FAR *   pvarVal ; 　 　 　 　 　 　 　 　 / / vt 标识 ： VT _ BYREF | VT _ VARIANT . 
+ 　 　 void   FAR *   byref ; 　 　 　 　 　 　 　 　 　 　 / / 一般 引用 . 
+ 　 　 } 
+ 　 　 } VARIANT ; 
+ 　 　 正如 大家 所 看到 的 ， Variant 类型 是 一个 C 结构 ； 它 包含 了 一个 类型 代码 vt 、 一些 填充 字节 以及 一个 大 的 union 类型 。 其中 类型 代码 vt 控制 着 对 union 部分 的 解释 。 例如 ： 如果 vt 为 VT _ I2 ， 可以 从 iVal 中 读出 Variant 的 值 ； Variant 对象 可以 包含 实际 的 数据 或 指向 数据 的 指针 ， 如果 设置 了 vt 的 VT _ ARRAY 位 ， 则 必须 对 parray ( SAFEARRAY   FAR *   parray ) 中 的 指针 进行 访问 。 
+ 　 　 对于 一个 由 CByteArray 构造 出来 的 COleVariant 对象 ， 它 的 vt 值应 设置 了 VT _ UI1 和 VT _ ARRAY 两个 位 ， 因此 实际 数据 存放 在 parry 指向 的 SAFEARRAY 数组 中 。 SAFEARRAY 结构 定义 如下 ： 
+ 　 　 typedef   struct   FARSTRUCT   tagSAFEARRAY { 
+ 　 　 unsigned   short   cDims ; 　 　 　 　 　 　 / / 此 数组 中 的 维数 . 
+ 　 　 unsigned   short   fFeatures ; 　 　 　 　 / / 用于 指明 SAFEARRAY 属性 的 标志 
+ 　 　 # if   defined ( WIN32 ) / / Win32 平台 
+ 　 　 　 unsigned   long   cbElements ; 　 　 　 / /   数组 中 每个 元素 占用 字节数 . 
+ 　 　 　 unsigned   long   cLocks ; 　 　 　 　 　 / /   数组 被 锁定 的 次数 
+ 　 　 # else / / 16 位 平台 
+ 　 　 　 unsigned   short   cbElements ; 
+ 　 　 　 unsigned   short   cLocks ; 
+ 　 　 　 unsigned   long   handle ; 　 　 　 　 　 / /   为 兼容性 而 设置 ， 无用 
+ 　 　 # endif 
+ 　 　 　 void   HUGEP *   pvData ; 　 　 　 　 　 　 / /   指向 实际 数据 的 指针 
+ 　 　 　 SAFEARRAYBOUND   rgsabound [ 1 ] ; 　   / /   每 一维 的 边界 . 
+ 　 　 } SAFEARRAY ; 
+ 　 　 pvData 指针 指向 的 是 最终 的 数据 （ 二进制 数组 ） 。 那么 ， 此时 内存 中 的 映象 如图 1 所示 ： 
+ 
+ 图 1   内存 中 的 映象 
+ 1.3   解析 COleVariant 类中 的 数据 起点 ( 或称 偏移 位置 ) 和 数据 块 大小 
+ 　 　 如 1.2 所述 ， SAFEARRAY 结构 中 的 rgsabound 存储 了 数据 起点 和 数据 大小 。 
+ 　 　 typedef   struct   tagSAFEARRAYBOUND { 
+ 　 　 　 　 　 　 unsigned   long   cElements ; 　 　 　 / / 数据 元素 的 数量 
+ 　 　 　 　 　 　 long   lLbound ; 　 　 　 　 　 　 　 　   / / 数据 的 下界 
+ 　 　 } SAFEARRAYBOUND ; 
+ 　 　 其中 ILbound 指定 了 数据 块 的 起点 ， 必须 用 pvData 指针 的 值 加上 此值 才 是 真正 的 数据 位置 。 cElements 确定 了 数据 块 的 大小 ( 即 数组 大小 ) 。 
+ 1.4   CByteArray 的 初始化 
+ 　 　 由于 CByteArray 类 没有 提供 相应 的 构造函数 用于 初始化 ， 所以 只能 使用 该类 的 成员 函数 来 完成 。 先 通过 SetSize ( ) 成员 函数 设置 数组 类 的 大小 ， 然后 用 SetAt ( ) 成员 函数 赋值 。 
+ 2 　 小结 
+ 　 　 Access 数据库 是 应用 广泛 的 关系数据库 ， 可以 通过 VC 中 DAO 技术 来 对 其 进行 数据 操作 ， 而 对 Binary 字段 的 灵活运用 可以 更加 有效 地 实现 数据管理 功能 。 本文 对 Access 数据库 的 Binary 字段 存取方法 作 了 概述 ， 并 提供 一个 实例 ， 希望 能 起到 抛砖引玉 的 效果 ， 令 读者 在 数据库 操作 方面 有 更 深入 的 应用 。 
+ 作者简介 ： 荣冰 （ 1973 ～ ） ， 男 ， 研究生 ， 主研 方向 ： 高性能 计算机 体系结构 
+ 作者 单位 ： 上海大学 计算机 工程系 ， 上海 200072 
+ 参考文献 
+ 1   林立 域 . Access   97 使用手册 . 北京 ： 清华大学出版社 ， 1998 
+ 2   Gregory   K 著 . 康博 创作室 译 . Visual   C++   开发 使用手册 . 北京 ： 机械 工业 出版社 , 1997 
+ 3   Koruglinski   J   D 著 . 王国 印译 . Visual   C++   技术 内幕 . 北京 ： 清华大学出版社 , 1994 
+ 4   Microsoft . Visual   C++   5.0   Online   Help , MS   Develop   Studio , 1997 
+ 收稿 日期 ： 1999 - 01 - 04 

@@ -1,0 +1,108 @@
+信息 与 控制 
+ Information   and   Control 
+ 1999 年 　 第 28 卷 　 第 5 期 　 Vol.28 　 No.5 　 1999 
+ 
+ 
+ 
+ ARCH 模型 的 研究 与 探讨 
+ 
+ 苗 　 实 　 刘海 龙 　 潘 德惠 
+ 
+ 　 　 摘 　 要 ：   自 回归 条件 异 方差 ( ARCH ) 模型 是 近年来 新 发展 起来 的 时间 序列 模型 ， 它 反映 了 随机   过程 的 一种 特殊 特性 ： 即 方差 随 时间 变化 而 变化 ， 且 具有 丛集 性 、 波动性 ． ARCH 模型 已 广泛   地 应用 于 经济 领域 的 建模 及 研究 过程 中 ． 本文 介绍 了 ARCH 模型 的 特点 ， 它 的 参数估计 和 检验   ， 以及 ARCH 模型 的 发展 情况 ． 
+ 　 　 关键词 ： ARCH , 条件 异 方差 , 丛集 性 , 波动性 
+ 　 　 中 图 分类号 ： TP13 　 　 　 　 　 　 文献 标识码 ： B 
+ 
+ RESEARCH   ON   ARCH   MODEL 
+ MIAO   Shi   LIU   Hai - long   PAN   De - hui 
+ ( FBA   of   the   Northeastern   University ,   Shenyang   City   110006 ) 
+ Abstract :   Autoregressive   Conditional   Heteroscedastic   model   is   the   newly   developed   time   series   model ,   which   reflects   the   special   characteris   tics   of   stochastic   process : the   variance   changes   with   the   time   changing   and   the   variance   is   crowd   together   and   fluctuated .   ARCH   model   has   been   widely   ap   plied   in   modeling   and   research   of   economic   field ,   especially   of   financial   ma   rkets .   This   paper   introduces   the   characteristics   of   ARCH   model ,   it ' s   estimation   and   test   of   parameter   and   its   development   in   detail . 
+ Key   words :   ARCH ,   heteroscedastic ,   crowd ,   fluctuation 
+ 
+ 1 　 引言 
+ 　 　 ARCH   (   Auto   Regressive   Conditional   Heteroscedasticity ) 模型 最初 是 由 美国 圣迭哥 大学 经济学家 恩格尔 ( Engle   R . F ) 教授 于 1982 年 提出 的 ， 主要 用于 具有 丛集 性及 方差 波   动性 特点 的 经济 类 时间 序列 数据 的 回归 分析 及 预测 ． 实践证明 ， ARCH 模型 在 有关 方面 的 应用 中 取得 了 良好 的 效果 ． 
+ 　 　 传统 的 经济 计量 模型 假定 样本 的 方差 保持 不变 ． 随着 经济 理论 的 发展 及 实证 工作 的 深入   ， 已 发现 这一 假设 不 甚 合理 ． 越来越 多 的 研究者 发现 ， 经济 类 时间 序列 数据 ， 诸如 股票价格   、 通货膨胀率 、 利率 、 外汇 汇率 等 ， 经常出现 方差 随 时间 变化 的 特点 ． Mandelbrot ( 1963 )   曾 观察 到 许多 经济 随机变量 的 分布 有着 很 宽 的 尾部 ， 其 方差 也 在 不断 变化 中 他 还 发现 了 很   有 价值 的 现象 ： 在 方差 的 变化 过程 中 ， 幅度 较大 的 变化 会 相对 地 集中 在 某些 时间段 里 ， 而 幅度 较 小 的 变化 会 相对 集中 在 另 一些 时间段 里 ． Bera ( 1992 ) 用 美元 与 英镑 的 每月 汇率 ， 美国联邦政府 的 三个 月 期限 的 短期 债券 的 利率 以及 纽约股票交易所 月 综合 指数 的 增长率 来 进一步 验证 了 Mandelbrot 的 结论 ， 即 经济 类 时间 序列 数据 的 方差 易变性 及 丛集 性 ． 这种 变化 可能 归咎于 经济 领域 尤其 是 金融市场 的 多变性 ， 对 政治 动乱 和 政府 金融 政策 的 敏感性 等等 ．   但 这种 情况 给 我们 一种 启示 ： 观测 误差 的 方差 呈现 某种 自 相关 ． Engle 的 ARCH 模型 恰恰   捕捉到 了 经济 类 时间 序列 数据 的 这个 特点 ． 
+ 　 　 ARCH 模型 已 广泛 地 应用 于 经济 现象 的 分析 研究 中 ， 并 取得 了 良好 的 效果 ． 如 Engl   e ( 1982 ) ,   Engle 和 Kraft ( 1983 ) 用 ARCH 模型 分析 预测 美国 的 通货膨胀率 的 趋势 取得 了 令人满意 的 结果 ． Domowitz 和 Hakkio ( 1985 ) 也 曾 把 ARCH 模型 用于 外汇 汇率 市场 的 研究 中 ． Weiss ( 1984 ) 对 美国 13 种 不同 的 宏观经济 时间 序列 用 ARCH 建模 ， 取得 了 成功 的 结果 ． 进入 90 年代 ， 各国 学者 开始 对 ARCH 模型 进行 各个方面 的 完善 及 扩展 ， 出现 了 如 ： GARCH   ( Generalized   A   uto   Regressive   Conditional   Heteroscedasticity ) ,   NARCH   ( Non - linear   Auto   Regressiv   e   Conditional   Heteroscedasticity ) 等 模型 ． 
+ 2 　 ARCH 模型 的 提出 
+ 　 　 ARCH 模型 的 最 基本 特点 是 假设 观测 数据 的 方差 呈现 自 相关 ， 即 观测 误差 的 方差 是 其 滞后   值 的 函数 ． 设是 一个 被 预测 变量 ， 它 的 条件 分布 如下 ： 
+ yt | Φ t - 1 ～ N ( x τ t β , ht ) 
+ 其中 ： 
+ 
+ Φ t 是 在 t 时刻 的 信息 集合 ， xt 是 一些 外 生 变量 或 被 预测 变量 的 滞后 值 构成 的 向量 ，   β 和 α 是 待定 参数 ， 误差 项 服从 期望值 为 0 ， 方差 为 ht 的 正态分布 ， 即 ： ε t ～ N (   0 ,   h1 ) ． Engle 主要 假设 h ( * ) 的 函数 形式 为 以下 的 线形 关系 ： 
+ ht = α 0 + α 1 ε 2t - 1 + … + α p ε 2t - p 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 　 　 为了 保证 条件 方差 ht ＞ 0 ,   此 模型 要求 α 0 ＞ 0 ,   α i ≥ 0 ,   i = 1 , 2 , … , p 
+ 　 　 上式 中 ， 我们 可以 看出 ， 等式 左边 的 ht 为 t 时刻 误差 的 方差 ， 是 一个 非 负数 ， 而 非 随机变量 ． 等式 右边 的 ε 2t - 1 , … , ε 2t - p 在 t 时刻 时 也 已 不再 是 随机变量 ， 也 是 一些 已知 的 非 负数 ， 故 t 时刻 时 上方 等式 成立 ． 
+ 　 　 我们 可以 从 ARCH 模型 中 条件 异 方差 ht 的 回归方程 中 看出 ： 现在 时刻 的 方差 是 过去   时刻 误差 项 平方 的 p 阶 滑动 平均 ． 这 和 金融市场 中 的 时间 序列 数据 特征 十分 吻合 ， 即 如果 t - m   时刻 时 ( m ≤ p ) ,   市场 朝着 某个 方面 变化 ， 那么 这个 方面 的 误差 平方 就 会 增大 ， 如果 它们 相应   的 系数 α i 不为 0 ,   则 必会 导致 t 时刻 条件 异 方差 ht 的 增大 ， 也就是说 ， t 时刻   市场 可能 朝着 ( t - m ) 时 的 变化 方面 继续 运行 ， 即 内生 变量 的 大幅度 波动 集中 在 某些 时间   段 上 ， 而 小幅度   波动 集中 在 另 一些 时间段 上 ． 
+ 　 　 为了 保证 ARCH 模型 是 方差 平稳 的 ， 进一步 假设 方程 ： 
+ 1 - α 1z - α 2z2 - … - α pzp = 0 
+ 的 根 在 单位 圆 之外 ， 因为 α i 非负 ， 所以 ： 
+ α 1 + α 2 + … + α p ＜ 1 　 即 ： 
+ 　 　 那么 ε t 的 非 条件 方差 ， 也 就是 对 整个 样本空间 上 的 ε 2i 求 均值 ， 即 
+ 
+ 
+ 在 整个 样本空间 中 hi 及 ε 2i 皆 为 已知 的 非 负数 ， 可 得到 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 δ 2 = α 0 + α 1 δ 2 + … + α p δ 2 
+ 即 　 　 　 　 　 　 　 　 　 　 　 　 　 　 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 
+ 　 　 , 代入 ( 1 ) 式 得 ： 
+ 
+ 　 　 从此 方程 中 可 看出 ， 条件 异 方差 ht 是 全域 方差 δ 2 与 局部域 方程 中 ε 2t - 1 ,   … , ε 2t - p 的 加权 平均 ． 
+ 3 　 ARCH 模型 的 估计 和 检验 
+ 3.1   ARCH 模型 的 估计 
+ 　 　 对 ARCH 模型 的 对数 似然 函数 为 ( 省略 了 常数 项 ) ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 
+ 式 中 　 　 　 　 　 　 　 　 　 　 　 　 　 θ = ( β ′ ,   α ′ 0 ,   α ′ 1 ,   … ,   α ′ p ) 
+ 应用 最大 似然 估计 理论 ， 采用 迭代 算法 ， 可以 得出 
+ 
+ 其中 θ ( i ) 表示 经过 i 次 迭代 后 θ 的 参数 估计值 ， λ i 是 可变 步长 ， T 是 样本容量 ． 
+ 3.2   ARCH 模型 的 检验 
+ 　 　 采用 拉格朗 日 乘子 检验法 ( LM ) 对 ARCH 模型 进行 检验 ： 
+ 设 ： 　 　 　 　 　 　 　 　 　 　 　 　 　 　 H0 : α 1 = α 2 = … = α p = 0 
+ 得到 LM 检验 统计 量 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 
+ 其中 ： 　 　 　 　 　 　 　 　 　 　 　   f0 = ( ε 21h - 11 - 1 … ε 2th - 1t - 1 ) ′ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 w = ( α 0 ,   α 1 , … , α p ) ′ 
+ T 是 样本 数量 . 
+ 　 　 在 给定 的 信度 区间 下 ， 按 x2 ( p ) 查出 临界值 ， 若 TR2 大过 临界值 ， 则 拒绝 H0 假设 ， 表示 α i 中 至少 有 一个 不为 0 ， 即 ht = α 0 + α 1 ε 2t - 1 + … + α p ε 2t   - p ， 条件 方差 ht 是 随 时间 的 变化 而 变化 的 ． 
+ 4 　 ARCH 模型 的 发展 
+ 4.1   GARCH ( Generalized   Auto   Regressive   Conditional   Heteroscedasticity ) 
+ GARCH 模型 是 由 Engle 的 学生 Bollerslev 于 1986 年 提出 的 ， 他 把 ARCH 中 的 ht 表达式 中 加入 了 自 回归 部分 ， 即 ： 
+ ht = α 0 + α 1 ε 2t - 1 + … + α p ε 2t - p + θ 1ht - 1 + … + θ qht - q 
+ α 0 ＞ 0 ,   a1 , … , α p ,   β 1 , … , β q ≥ 0 
+ 　 　 上式 是 GARCH ( p , q ) 形式 ， 实际 应用 中 GARCH ( 1 , 1 ) 已知 ， 以 描述 数据 特性 ． 
+ 
+ 　 　 GARCH 中 ht 已 不再 具有 p 阶 截尾 性 ， 即 ht 对 过去 的 误差 项 平方 具有 无限 记忆性 ， 这 和 金融市场 中 的 时间 序列 数据 特性 更加 吻合 ， 而且 GARCH 模型 和 标准 的 时间 序列 模型 AR 及 ARMA 表现 出 更 多 的 一致性 ， 对 很多 现象 的 描述 也 比 ARCH 更 简洁 ． 
+ 4.2   AGARCH   ( Asymmetric   GARCH ( 1 , 1 ) ) 
+ 　 　 GARCH 模型 有时 不能 完全 说明 某些 金融 数据 的 偏态 和 峰度 性质 ， 峰度 问题 可用 假设 误差 服从 t 分布 （ 而 不再 是 正态分布 ） 来 解决 ， 偏态 问题 则 通过 以下 AGARCH 模型 关于 ht 的 假设 来 解决 ． 
+ ht = α 0 + α 1 ( ε t - 1 - ξ ) 2 + θ 1ht - 1 　 α 0 ＞ 0 ,   α 1 , β 1 ,   ξ ≥ 0 
+ 此 模型 中 ， 我们 可以 看到 当 ε t - 1 ≤ 0 时 ， 即 扰动 为 负时 ， ht 将 比 扰动 为 正时 取得 更   大 值 ， 所以 此 模型 更 适应 用于 如 股市 越跌 越 猛 或 崩盘 的 现象 ， 即 所谓 杠杆作用 ． 
+ 4.3   EGARCH   ( Exponential   GARCH ) 
+ 　 　 EGARCH 模型 由 Nelson ( 1991 ) 提出 ， 这是 一个 非线性 模型 ． 
+ loght = α + g ( zt - 1 ) + θ loght - 1 
+ 式 中 ,   可以 看出 zt ～ N ( 0 ,   1 ) 
+ 
+ EGACH 关于 条件 方差 的 假设 是 非线性 ， 非对称 的 ， 而且 不再 要求 参数 非负 ． 
+ 4.4   IGARCH   ( Integrated   GARCH ) 
+ 　 　 当 α 1 + β 1 = 1 时 ， 重写 GARCH ( 1 , 1 ) 模型 为 ： 
+ ht = α 0 + ( 1 - λ ) ε 2t - 1 + λ ht - 1 　 0 ≤ λ ≤ 1 
+ 　 　 此式 中 ， GARCH 模型 中 的 非 条件 方差 已 不 存在 ， 即 IGARCH 是非 平稳 的 GARCH 模型 ， 我们 可以 把 它 改写 成 ： 
+ 
+ 　 　 可以 看出 α 0 = 0 时 ， 它 等价 于 指数 加权 滑动 平均 模型 ， 且 比 它 具有 更 广泛 的 应用 ． 
+ 4.5   ARCH - M 或 GARCH - M 
+ 　 　 其 基本 形式 为 ： 
+ yi = β xt + δ ht + ε t 
+ ε t ～ N ( 0 ,   ht ) 
+ 　 　 我们 可以 看出 ， 此 模型 中 条件 方差 随 时间 的 变化 可 引起 条件期望 随 时间 的 变化 ， 更加 适   用于 某些 经济 和 金融 时间 序列 数据 的 研究 ． 
+ 5 　 结论 
+ 　 　 十几年来 ARCH 模型 已 在 经济 领域 尤其 金融市场 中 得到 了 越来越 广泛 的 应用 ， 关于 它 的 理论 探索 也 在 逐步 地 深入 ． ARCH 模型 最 基本 的 特征 在于 它 真实 地 反映 了 某些 经济 数据 的 特点 : 方差 随 时间 的 变化 而 变化 ． 
+ 作者简介 ： 苗   实 ， 女 ， 26 岁 ， 博士生 .   研究 领域 为 时间 序列 模型 理论 及 应用 . 
+ 　 　 　 　 　 刘海 龙 ， 男 ， 39 岁 ， 博士生 .   研究 领域 为 金融 控制 理论 及 应用 . 
+ 　 　 　 　 　 潘 德惠 ， 男 ， 71 岁 ， 教授 ， 博士生 导师 .   研究 领域 为 分布 参数 系统 及 经济 控制 理论 . 
+ 作者 单位 ： 东北大学 工商管理 学院 　 沈阳 　 110006 
+ 参考文献 
+ 1 　 张 汉江 ， 马超群 ， 曾俭华 .   金融市场 预测 及 决策 的 有力 工具 ： ARCH 模型 .   系   统 工程 , 1991 , 15 ( 1 ) 
+ 2 　 Tim   Bollerslev .   Generalized   Autoregressive   Conditional   Heteroskedasticity .   E   conometrics   1986 , 31 : 307 ～ 27 
+ 3 　 CAROL   Alexander .   Volatility   and   Correlation   Forecasting .   The   Handbook   of   R   isk   Management   and   Analysis , 1996 
+ 4 　 童恒庆 .   经济 回归 模型 及 计算 .   湖北 科学技术 出版社 , 1997 
+ 5 　 周复 恭 ， 倪加勋 .   应用 数理 统计学 .   中国人民大学出版社 , 1989 
+ 收稿 日期 ： 1999 - 01 - 22 

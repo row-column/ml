@@ -1,0 +1,120 @@
+信息 与 控制 
+ INFORMATION   AND   CONTROL 
+ 1999 年   第 28 卷   第 3 期   Vol.28   No.3   1999 
+ 
+ 
+ 
+ CMAC 神经元网络 在 CSTR 系统 建模 中 的 应用 
+ 于 乃功 　 汪吉鹏 
+ 　 　 摘要 ： 目前 正在 兴起 和 发展 的 人工智能 和 人工神经网络 的 研究 ， 为 复杂 非线性 系统 的 控制 开辟 了 一条 新路 ． 本文 将 CMAC 神经元网络 用于 CSTR 系统 的 建模 ， 取得 了 很 好 的 仿真 效果 ． 
+ 　 　 关键词 ： 神经元网络 ， CMAC 网络 ， 连续 搅拌 釜 系统 （ CSTR ） ， 建模 
+ 　 　 中 图 分类号 ： TP20 　 　 　 　 　 　 文献 标识码 ： B 
+ APPLICATION   OF   CMAC   NEURAL   NETWORK   TO   CSTR 
+ SYSTEM   MODELILING 
+ YU   Naigong 　 WANG   Jipeng 
+ ( Weifang   Advanced   Academy ) 
+ 　 　 Abstract 　 Current   research   on   artificial   intelligence   and   artificial   neural   networks   has   paved   a   new   way   for   the   control   of   complex   nonlinear   systems .   In   this   paper , a   new   CMAC ( Cerebellar   Model   Articulation   Controller ) - based   method   to   model   the   CSTR   system ( continuous   stirred   tank   reactor ) is   put   forward ,   and   simulation   results   are   presented   to   show   the   effectiveness   of   this   method . 
+ 　 　 Key   words 　 neural   network , CMAC   network , CSTR   system , modeling 
+ 　 　 1 　 引言 
+ 　 　 CSTR 系统 是 聚合反应 工业 中 广泛 使用 的 重要 系统 ， 它 是 一个 很强 的 非线性 系统 ， 其 系统 建模 、 状态 估计 和 实时控制 等 问题 ， 近年来 受到 众多 学者 的 关注 ． 它 的 控制 性能 受到 多方面 因素 的 影响 ， 主要 是 由于 对 反应 的 机理 缺乏 足够 清晰 的 认识 ， 以及 过程 本身 存在 的 严重 的 敏感性 和 非线性 ， 使得 系统 的 准确 建模 变得 相当 困难 ． 同时 ， 由于 复杂 非线性 系统 的 完善 有效 控制策略 的 缺乏 ， 给 CSTR 系统 的 实时 有效 控制 造成 更大 困难 ． 目前 正在 兴起 和 发展 的 人工智能 和 人工神经网络 的 研究 ， 为 复杂 非线性 系统 的 控制 开辟 了 一条 新路 ， 我们 将 CMAC 神经网络 用于 CSTR 系统 的 建模 ， 取得 了 很 好 的 仿真 效果 ． 
+ 　 　 2 　 CSTR 系统 简介 
+ 　 　 CSTR 系统 的 结构图 如图 1 所示 （ Pottman   and   Seborg ,   1992 ） ． 其中 ， CA 是 生成物 A 的 浓度 ， T 反应器 温度 ， q 进料 流速 ， qc 冷却剂 流速 ， Tc 是 冷却剂 温度 ． 在 这里 CA 和 T 是 CSTR 系统 的 输出 ， q 、 qc 、 Tc 是 CSTR 系统 的 输入 ． 该 系统 的 输入输出 方程 为式 （ 1 ） 所示 ． 
+ 　 　 　 　 ( 1 ) 
+ 这个 CSTR 的 参数 定义 及 稳态 工作 点如表 1 所示 ． 
+ 
+ 图 2 　 CSTR 系统 结构图 
+ 表 1 　 CSTR 的 参数 定义 稳态 工作 点 
+ 
+ VariableSymbolNominal   value 
+ Tank   volume 　 100l 
+ Feed   flow   rateq100lmin - 1 
+ Feed   concentrationCAf1moll - 1 
+ Feed   temperatureTf350K 
+ Coolant   flow   rateqc100lmin - 1 
+ Coolant   temperatureTc350K 
+ Densities ρ , ρ c1000gl - 1 
+ Specific   heatsCP , CPC1calg - 1K - 1 
+ Pre - exponential   factork07.2 × 1010min - 1 
+ Exponential   factorE ／ R9.98 × 103K 
+ Heat   of   reaction - Δ H2.0 × 105calmol - 1 
+ Heat   transferhA7 × 103min - 1K - 1 
+ characteristics 　 
+ 
+ 　 　 根据 这些 参数 ， 并且 令 ( 1 ) 式 可以 转化 为 （ 2 ） 式 ． 
+ 　 　 　 　 　 　 　 　 　 　 　 ( 2 ) 
+ 　 　 式 ( 2 ) 是 CSTR 系统 的 微分方程 ， 采用 四阶 龙格 - 库塔 法可 得到 系统 的 差分 方程 ． 对 方程组 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 3 ) 
+ 的 四阶 龙格 - 库塔 式子 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 4 ) 
+ 其中 
+ 
+ 并且 h = tn + 1 - tn 为 步长 ． 
+ 　 　 由 （ 4 ） 式 可以 得到 CSTR 系统 方程式 的 离散 递推 表达式 ． 
+ 　 　 图 2 是 CSTR 系统 输出 CA 在 系统 输入 qc 阶跃 变化 下 的 响应 曲线 ， 从 这个 阶跃 响应 曲线 可 看出 CSTR 系统 是 个 很 强 的 非线性 系统 ． 
+ 
+ 
+ 图 2 　 CSTR 系统 在 冷却剂 流速 阶跃 变化 下 的 响应 曲线 
+ 　 　 这样 一个 非线性 系统 采用 通常 的 建模 方法 会 遇到 很多 困难 ， 例如 模型 结构 和 模型 阶次 难以确定 ， 而 建模 算法 也 很 难 实现 ， 因此 这里 采用 神经网络 的 建模 方法 ． 
+ 　 　 3 　 用 CMAC 神经网络 实现 CSTR 系统 的 建模 
+ 　 　 3.1 　 CMAC 神经网络 特点 简介 
+ 　 　 CMAC 网络 是 ALBUS 针对 PERCEPTRON 的 缺点 ， 在 1975 年 提出 的 一种 模仿 人脑 的 连接 的 控制 模型 ． 虽然 从 每个 神经元 看 ， 其 关系 是 一种 线性关系 ， 但 从 其 结构 总体 看 CMAC 模型 可以 适合 一种 非线性 的 映射 关系 ， 而且 ， CMAC 从 输入 开始 就 具有 一种 综合 的 能力 ， 对于 一个 样本 输入 进行 学习 之后 ， 可以 对 相邻 的 样本 产生 一定 的 效应 ， 因此 在 输入 空间 中 ， 相近 的 样本 在 输出 空间 也 比较 相进 ， 同时 CMAC 的 算法 是 十分 简单 的 δ 算法 ， 它 的 收敛 速度 比 别的 同类 网络 快 的 多 （ 如 BP 网 ） ， 尤其 是 它 把 输入 在 一个 多维 状态 空间 中 的 量 映射 到 一个 比较 小 的 有限 区域 ， 只要 对 多维 状态 空间 中 样本 （ 少部分 ） 进行 学习 ， 就 可以 达到 轨迹 学习 和 控制 的 解 ， 因此 CMAC 特别 适合 于 复杂 系统 的 控制 ， 非线性 函数 映射 ， 以及 其它 识别 领域 ， 它 具有 自 适应 的 作用 ， 也 便于 硬件 化 ． 已经 证明 ， CMAC 能够 迅速 学习 未知 的 非线性 函数 ， 对于 未经 训练 的 输入 具有 良好 的 泛化 能力 ， 对于 以下 场合 
+ 　 　 （ 1 ） 输入输出 为 模拟量 ； （ 2 ） 对 收敛 速度 、 计算速度 要求 较 高 ； （ 3 ） 要求 大量 的 权值 ． 
+ 　 　 用 CMAC 网络 取代 BP 网络 ， 会 使 系统 性能 更优 ． 
+ 　 　 3.2 　 建模 结构 
+ 　 　 CMAC 网络 实现 了 一个 非线性 映射 ， 这是 一种 静态 模型 ， 而 CSTR 系统 是 一个 动态 系统 ， 因此 为了 能用 CMAC 网络 去 学习 CSTR 系统 就 需要 将 CSTR 系统 的 输出 反馈 到 CMAC 网络 的 输入 中 ， 此 便是 ARMA 模型 的 结构 ． 如图 3 是 CMAC 网络 学习 CSTR 系统 的 原理 框图 ． 
+ 
+ 图 3 　 CMAC 网络 学习 CSTR 系统 的 框图 
+ 　 　 图中 d 是 CSTR 系统 的 滞后 θ ． 非线性 ARMA 模型 的 一般 表达式 为 
+ 　 　 　 　 　 　 　 　 　 　 ( 5 ) 
+ 有 了 网络 学习 的 基本 结构 ， 若能 给出 系统 的 输入输出 数据 对 ， 就 可 利用 改进 的 CMAC 学习 方法 完成 建模 任务 ． 图 3 中 CMAC 网络 采用 压缩 的 CMAC 结构 ， 其 寻址 方式 是 输入 集 S 中 的 一个 元素 激活 权值表 W 中 的 一组 地址 ， 通过 对 这些 地址 的 值 （ 即 权值 ） 求和 ， 得到 输出 Y ． 
+ 　 　 3.3 　 确定 系统 参数 n , m 
+ 　 　 n , m 是 系统 的 维数 ， 对于 一个 完整 的 系统 辨识 方法 而言 ， 应该 能 得到 系统 的 结构 ， 至少 应 给出 判定 它们 的 法则 ． 在 线性系统 中 ， 最 可靠 的 方法 是 取 不同 的 参数值 建立 不同 的 模型 ， 然后 根据 模型 的 精确 程度 来 决定 最终 的 参数 ． 同样 ， 本文 也 采取 同样 的 方法 ， 逐步提高 n , m 的 值 （ 但 保持 网络 其他 参数 不变 ） ． 根据 仿真 结果 ， 当 n 和 m 增加 到 n ＝ m ＝ 3 时 ， 模型 的 误差 显著 减少 ， 而取 其他 小于 此值 的 参数 时 ， 网络 的 学习 很难 得到 满意 的 结果 ． 同样 ， 取 大于 此值 的 参数 时 ， 模型 的 精确 程度 也 增加 得 很少 ， 相反 ， 由于 系统 维数 的 增加 ， 使 网络 的 输入 空间 大大增加 ， 降低 了 网络 学习 的 性能 ． 故 ， 本文 中取 n ＝ m ＝ 3 ． 
+ 　 　 3.4 　 训练 数据 的 处理 
+ 　 　 对于 神经元网络 而言 ， 它 最终 的 性能 很大 程度 上 取决于 它 学习 时用 的 学习 数据 ， 很难 想象 通过 学习 不能 反应 系统 特性 的 数据 ， 能 得到 满意 的 模型 ． 因此 如何 针对 不同 的 系统 和 网络 ， 选取 合适 的 训练 数据 是 人工 神经元网络 中 的 重要 课题 ， 本人 对此 作 了 以下 探索 ． 
+ 　 　 如何 设计 输入 使之能 更好 地 激发 系统 的 特性 ： 选择 合适 的 输入 信号 是 系统 建模 的 重要 部分 ． 对于 线性系统 而言 ， 已经 有 不少 理论 结果 指导 人们 选择 输入 ． 但 对于 复杂 很多 的 非线性 系统 ， 几乎 没有 什么 很 成熟 的 理论 成果 ， 因此 本人 采取 在 额定 工作 点 附近 采用 随机 输入 信号 ， 实践证明 其 效果 不错 ， 通过 学习 ， 网络 能 建立 起较 精确 的 模型 ． 得到 原始数据 后 ， 应对 各 变量 进行 归一 处理 ， 以 消除 量纲 的 影响 ， 本文 中将 所有 变量 转换成 （ 0 - 1 ） 范围 里 ， 其 公式 如下 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 6 ) 
+ 式 中 ， max ( . ) 和 min ( . ) 表示 在 输入 和 输出 向量 中 的 最大值 和 最小值 ． 
+ 　 　 3.5 　 仿真 结果 及 分析 
+ 　 　 本文 以 输入 qc 到 输出 T ， CA 的 模型 为例 ， 因为 它 在 实际 控制 中 最 常用 ， 其余 模型 类似 ． 
+ 　 　 根据 前面 所述 的 原则 选取 输入 信号 qo 如图 4 所示 ． 得到 系统 的 响应 T ， CA 如图 5 ， 图 6 所示 ． 
+ 
+ 
+ 图 4 　 建模 时用 的 输入 qc 
+ 
+ 图 5 　 CSTR 系统 组分 浓度 CA 对 输入 的 响应 
+ 
+ 图 6 　 CSTR 系统 反应 温度 T 对 建模 时 输入 的 响应 
+ 　 　 从中 得到 神经元网络 学习 所用 的 学习 数据 ， 本文 中 选取 了 100 个 数据 进行 训练 ． 
+ 　 　 首先 对 数据 进行 归一化 处理 ， 由 前面 式 ( 9 ) ， 其中 取 
+ 
+ 　 　 归一化 后 ， 所有 变量 的 分辨率 均取 0.02 ． 
+ 根据 ( 2 ) 式 得到 系统 的 非线性 ARMA 模型 为 ： 
+ 
+ 由此可见 ， 输入 空间 是 十分 巨大 的 ， 所以 杂凑 编码 很 重要 ． 
+ 　 　 经过训练 的 网络 应该 能 代表 系统 的 非线性 特性 ， 为了 检测 它 的 性能 ， 改变 系统 的 输入 信号 ， 使 其 在 额定 工作 点 ± 20% 里 变化 ， 看看 网络 是否 有 一定 的 外 推 功能 ． 
+ 　 　 图 8 是 系统 的 响应 ， 而图 7 是 网络 的 输出 ， 可见 ， 两者 符合 得 很 好 ． 
+ 
+ 
+ 图 7 　 CMAC 网络 的 输出 ( T ) 
+ 
+ 图 8 　 CSTR 反应 温度 T 对 检验 时 输入 的 响应 
+ 　 　 4 　 结束语 
+ 　 　 由 以上 结果 可以 看出 ， 用 CMAC 网络 对 复杂 的 非线性 系统 建模 的 效果 是 不错 的 ， 这 显示 了 CMAC 网络 较 一般 网络 （ 如 BP 网络 ） 的 优越性 ， 作者 的 体会 最深 主要 有 下面 两点 ： 
+ 　 　 ( 1 ）   CMAC 的 结构 特点 及其 联想 特性 使 其 学习 的 收敛性 极快 ． 在 仿真 中 发现 ， 一般 其 学习 时间 在 5 分钟 以内 便 可以 达到 很 高 的 精度 ． 
+ 　 　 ( 2 ）   CMAC 的 参数 选择 比较 自由 ， 实现 比较 方便 ． 
+ 　 　 当然 ， 还有 许多 问题 有待 进一步 探讨 ， 如 ： 如何 使 网络 具有 一定 的 外 推 功能 ； 对于 时变 系统 ， 如何 对 网络 进行 实时 纠正 ； 以及 如何 建立 基于 网络 的 控制系统 ． 当然 ， 有些 问题 的 解决 也 依赖于 其他 学科 ， 尤其 是 非线性 理论 的 发展 ． 
+ 　 　 总之 ， CMAC 网络 发展 至今 ， 虽经 波折 ， 但 已 显示 出 广阔 的 应用 前景 ． 
+ 作者简介 ： 于 乃功 ， 男 ， 32 岁 ， 硕士 ． 研究 领域 为 智能 信息处理 、 复杂 工业 过程 的 计算机控制 、 神经网络 技术 ． 
+ 　 　 　 　 　 汪吉鹏 ， 男 ， 44 岁 ， 副教授 ， 主任 ． 研究 领域 为 微机 应用 ， 智能 控制 等 ． 
+ 作者 单位 ： 潍坊 高等 专科学校   电气 系 　 潍坊 　 261041 
+ 参考文献 
+ 　 1 　 Albus   J   S .   A   new   Approach   to   Manipulator   Control : The   Cerebellar   Model   Articulation   Controller   ( CMAC ) ,   Trans .   ASME ,   J .   Dynamic   Syst .   Meas .   Control , 1975 ,   1 ( 9 ) : 220 ～ 227 
+ 　 2 　 Albus   J   S .   Data   Storage   in   the   Cerebellar   Model   Articulation   Controller   ( CMAC ) , Trans .   ASME ,   J .   Dynamic   Syst .   Meas .   Control .   1975 ,   1 ( 57 ) : 228 ～ 233 
+ 　 3 　 Miller   W   T .   Real - Time   Application   of   Neural   Networks   for   Sensor - Based   Control   of   Robots   with   Vision , IEEE   Trans 
+ 　 4 　 Yiu - fai   Wong ,   A   Sideris .   Leaning   Convergence   in   the   Cerebellar   Model   Articulation   Controller ,   IEEE .   Trans .   Neural   Net .   1992 ,   3 : 115 ～ 121 
+ 　 5 　 Zurada   J   M .   Introduction   to   Artificial   Neural   Systems , West   Public - Shing   Company , 1992 
+ 　 6 　 郭 　 莉 ， 李 清泉 .   基于 神经网络 的 机器人 轨迹 跟踪 控制 . 控制 与 决策 ， 1994 ， ( 2 ) 
+ 　 7 　 张立明 .   人工神经网络 的 模型 及其 应用 ， 复旦大学 出版社 ， 1992 
+ 　 8 　 焦 李成 .   神经网络 的 应用 与 实现 ， 西安电子科技大学 出版社 ， 1993 
+ 　 9 　 王 秀峰 ， 李 　 波 ． 随机 非线性 系统 的 正交 优选 算法 ， 自动化 学报 ， 1993 ， 19 ( 3 ) 
+ 1997 - 01 - 03 收稿 

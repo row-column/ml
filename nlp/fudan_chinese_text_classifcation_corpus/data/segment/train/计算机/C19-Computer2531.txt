@@ -1,0 +1,106 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 2 期   No.2   1999 
+ 
+ 
+ 
+ 粗糙集 理论 中 概念 与 运算 的 信息 表示 * 
+ 苗夺谦 1 , 2   王   珏 2 
+ 　 　 摘要 　 粗糙集 理论 对 知识 进行 了 形式化 定义 , 为 知识 处理 提供 了 一套 严密 的 分析 工具 , 但 在 代数 表示 下 , 粗糙集 理论 的 本质 不易 被 理解 , 并且 , 尚无 高效 的 知识 约简 算法 . 该文 首先 建立 了 知识 与 信息 之间 的 关系 ; 然后 , 在 此基础 上 给出 了 粗糙集 理论 中 概念 与 运算 的 信息 表示 ; 最后 , 证明 了 知识 约简 在 信息 和 代数 两种 不同 表示 下 是 等价 的 . 这些 结论 有助于 人们 深刻理解 粗糙集 理论 的 本质 , 同时 , 为 寻找 高效 的 知识 约简 算法 奠定 了 基础 . 
+ 　 　 关键词 　 粗糙集 , 知识 表示 , 知识 约简 , 信息熵 , 等价 性 . 
+ 　 　 中图法 分类号 　 TP18 
+ An   Information   Representation   of   the   Concepts   and   Operations   in   Rough   Set   Theory 
+ MIAO   Duo - qian1 , 2   WANG   Jue2 
+ 　 　 Abstract 　   Rough   set   theory   proposes   a   formal   definition   of   knowledge   and   provides   a   series   of   tools   to   deal   with   knowledge .   However ,   in   the   algebraic   representation   of   this   theory ,   it   is   difficult   to   understand   the   essence   of   rough   set   theory ,   and   efficient   algorithm   of   knowledge   reduction   has   not   been   found .   In   this   paper ,   a   relationship   between   knowledge   and   information   is   set   up ,   and   then   based   on   the   relationship   an   information   representation   of   the   concepts   and   operations   about   rough   set   theory   is   given .   Finally ,   the   equivalence   properties   between   information   representation   and   algebraic   representation   of   knowledge   reduction   are   proved .   These   conclusions   are   helpful   for   people   to   understand   the   essence   of   rough   set   theory   and   essential   to   seek   new   efficient   algorithm   of   knowledge   reduction . 
+ 　 　 Key   words 　 Rough   set ,   knowledge   representation ,   knowledge   reduction ,   information   entropy ,   equivalence   property . 
+ 　 　 粗糙集 ( Rough   Set ) 理论 是 由 Z . Pawlak 于 1982 年 提出 的 ［ 1 ］ . 这一 理论 为 处理 具有 模糊 、 不 精确 或 不 完全 信息 的 分类 问题 提供 了 一种 新 的 工具 . 其 主要 思想 是 , 在 保持 信息系统 分类 能力 不变 的 前提 下 , 通过 知识 约简 , 导出 问题 的 决策 或 分类 规则 . 目前 , 粗糙集 理论 已 被 应用 于 机器 学习 、 故障诊断 、 控制算法 获取 、 过程 控制 以及 关系数据库 中 的 知识 获取 等 各种 应用领域 , 并 取得 了 很大 成功 ［ 2 ～ 4 ］ . 
+ 　 　 粗糙集 理论 中 所有 的 概念 和 运算 都 是 通过 代数学 的 等价关系 和 集合 运算 来 定义 的 , 我们 称之为 粗糙集 理论 的 代数 表示 . 在 代数 表示 下 , 粗糙集 理论 的 很多 概念 与 运算 的 直观性 较差 , 人们 不 容易 理解 其本质 . 另外 , 在 此 表示 下 , 目前 还 没有 关于 知识 约简 的 高效 算法 . 同一 问题 在 不同 知识 表示 下 的 算法 难度 是 不同 的 ［ 5 ］ . 
+ 1   粗糙集 理论 中 主要 概念 的 代数 表示 
+ 　 　 为了 在 第 3 节中 证明 本文 给出 的 信息 表示 与 粗糙集 理论 的 代数 表示 之间 的 等价 性 , 本节 有 必要 先 介绍 一下 该 理论 的 一些 主要 概念 与 运算 , 现将 这些 概念 的 代数 表示 罗列 如下 ［ 1 ］ : 
+ 　 　 设 U 是 一个 论域 , R 是 U 上 的 一个 等价关系 . U / R 表示 R 在 U 上 导出 的 所有 等价 类 ; [ x ] R 表示 包含 元素 x 的 R 的 等价 类 , x ∈ U . 一个 知识库 就是 一个 关系 系统 K = ( U , P ) , 其中 U 为 论域 , P 是 U 上 的 一个 等价关系 族 . 如果 QP , 且 Q ≠ , 则 ∩ Q ( Q 的 所有 等价关系 的 交 ) 也 是 一个 等价关系 , 记作 IND ( Q ) . 
+ 　 　 定义 1.1 .   设 K = ( U , P ) 和 K1 = ( U , Q ) 是 两个 知识库 . 如果 IND ( P ) = IND ( Q ) , 则 称 K 和 K1 ( 或 P 和 Q ) 是 等价 的 , 记作 KK1 ( 或 PQ ) . 
+ 　 　 知识库 K 和 K1 等价 , 意味着 K 和 K1 具有 相同 的 基础 类 , 因而 它们 具有 相同 的 表达能力 . 
+ 　 　 定义 1.2 .   设 U 为 一个 论域 . P 为 定义 在 U 上 的 一个 等价关系 族 , R ∈ P . 如果 IND ( P - { R } ) = IND ( P ) , 则 称 关系 R 在 P 中是 不必要 的 ( 多余 的 ) ; 否则 , 称 R 在 P 中是 必要 的 . 
+ 　 　 不必要 的 关系 在 知识库 中是 多余 的 . 如果 将 它 从 知识库 中 去掉 , 不会 改变 该 知识库 的 分类 能力 . 相反 , 若 从 知识库 中 去掉 一个 必要 的 关系 , 则 一定 改变 该 知识库 的 分类 能力 . 
+ 　 　 定义 1.3 .   设 U 为 一个 论域 , P 为 定义 在 U 上 的 一个 等价关系 族 , R ∈ P . 如果 每个 关系 R ∈ P 在 P 中 都 是 必要 的 , 则 称 关系 族 P 是 独立 的 ; 否则 , 称 P 是 相依 的 . 
+ 　 　 对于 相依 的 关系 族 来说 , 其中 包含 有 多余 关系 , 可以 对 其 约简 ; 而 对于 独立 的 关系 族 , 去掉 其中 任何 一个 关系 都 将 破坏 知识库 的 分类 能力 . 
+ 　 　 定义 1.4 .   设 U 为 一个 论域 , P 为 定义 在 U 上 的 一个 等价关系 族 . P 中 所有 必要 关系 组成 的 集合 , 称为 关系 族 P 的 核 , 记作 CORE ( P ) . 
+ 　 　 定义 1.5 .   设 U 为 一个 论域 , P , Q 为 U 上 的 两个 等价关系 族 , 且 QP . 
+ 　 　 如果   ( 1 )   IND ( Q ) = IND ( P ) ; 
+ 　 　 　 　 ( 2 )   Q 是 独立 的 , 
+ 则 称 Q 是 P 的 一个 约简 . 
+ 　 　 如果 知识 Q 是 知识 P 的 约简 , 那么 , U 中 通过 知识 P 可 区分 的 对象 , 同样 可以 用 知识 Q 来 区分 . 知识 约简 是 粗糙集 理论 中 最 重要 的 概念 . 
+ 2   知识 与 信息熵 的 关系 
+ 　 　 粗糙集 理论 从 新 的 视角 对 知识 进行 了 定义 , 把 知识 看作 是 关于 论域 的 划分 , 从而 使得 对 知识 能够 进行 严密 的 分析 与 处理 . 本节 我们 将 对 粗糙集 理论 中 的 知识 作新 的 理解 , 建立 知识 与 信息熵 的 关系 . 这是 本文 所 讨论 的 信息 表示 的 基础 . 
+ 　 　 设 U 为 一个 论域 , P , Q 为 U 上 的 两个 等价关系 ( 即 知识 ) . 我们 认为 U 上任 一 等价关系 都 可以 看作 是 定义 在 U 的 子集 组成 的 σ - 代数 上 的 一个 随机变量 . 其 概率分布 可 通过 如下 方法 来 确定 . 
+ 　 　 设 P , Q 在 U 上 导出 的 划分 分别 为 X , Y : 
+ X = { X1 , X2 , ... , Xn } ,   Y = { Y1 , Y2 , ... , im } ,   
+ 则 P , Q 在 U 的 子集 组成 的 σ - 代数 上 定义 的 概率分布 为 
+ 
+ 其中 p ( Xi ) = , i = 1 , 2 , ... , n ; p ( Yj ) = , j = 1 , 2 , ... , m ; 符号 ｜ E ｜ 表示 集合 E 的 基数 . 
+ 　 　 有 了 知识 概率分布 的 定义 之后 , 根据 信息论 可以 定义 知识 的 熵 与 条件 熵 的 概念 . 知识 P 的 熵 H ( P ) 定义 为 
+ H ( P ) = p ( Xi ) logp ( Xi ) .   
+ 知识 Q 相对 于 知识 P 的 条件 熵 H ( Q ｜ P ) 定义 为 
+ H ( Q ｜ P ) = p ( Xi ) p ( Yj ｜ Xi ) logp ( Yj ｜ Xi ) .   
+ 3   主要 概念 与 运算 的 信息 表示 
+ 　 　 在 上节 中 , 我们 建立 了 粗糙集 理论 中 的 知识 与 信息熵 的 关系 , 从而 使 我们 能够 从 信息 的 角度 对 粗糙集 理论 的 主要 概念 与 运算 进行 表达 . 本文 称此 表达 为 粗糙集 理论 的 信息 表示 . 本节 给出 了 该 理论 的 主要 概念 与 运算 的 信息 表示 , 并 证明 了 知识 约简 在 信息 与 代数 两种 不同 表示 下 是 等价 的 ［ 6 ］ . 
+ 　 　 定理 3.1 .   设 U 是 一个 论域 , P , Q 是 U 上 的 两个 等价关系 族 . 若 IND ( P ) = IND ( Q ) , 则 H ( P ) = H ( Q ) . 
+ 　 　 证明 : 因为 IND ( P ) = IND ( Q ) , 所以 , P , Q 在 U 的 子集 组成 的 σ - 代数 上 确定 的 概率分布 相同 . 故有 H ( P ) = H ( Q ) . 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 □ 
+ 　 　 注意 : 定理 3.1 的 逆 未必 成立 . 
+ 　 　 本 定理 说明 , 两个 代数 表示 下 等价 的 知识库 具有 相同 的 信息量 . 
+ 　 　 定理 3.2 .   设 U 是 一个 论域 , P , Q 是 U 上 的 两个 等价关系 族 , 且 PQ . 若 H ( P ) = H ( Q ) , 则 IND ( P ) = IND ( Q ) . 
+ 　 　 证明 : 因为 PQ , 所以 IND ( P ) IND ( Q ) . 下面 证明 
+ IND ( P ) IND ( Q ) . 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 )   
+ 令 　 　 　 　 　 　 　 　 U / IND ( P ) = { A1 , A2 , ... , An } ,   U / IND ( Q ) = { B1 , B2 , ... , Bm } . 
+ 用 反证法 ， 假设 式 （ 1 ） 不 成立 ， 则 至少 存在 一个 ∈ U / IND ( P ) ， 对 任何 Bj ∈ U / IND ( Q ) 都 有 Bj ， j = 1 ， 2 , … , m , 从而 存在 正整数 K ( 2Km ) , 使得 ∩ Bj ≠ , 且 
+ 　 　 　 　 　 　 　 　 　 　 　 0 ＜ p ( Bj ｜ ) = ＜ 1 ,   j = 1 , 2 , ... , K , 
+ 　 　 　 　 　 　 　 　 　 　 　 H ( Q ) = H ［ P + ( Q - P ) ］ = H ( P ) + H ［ ( Q - P ) ｜ P ］ . 
+ 因为 H ( P ) = H ( Q ) ， 所以 ， H [ ( Q - P ) | P ] = 0 . 即 
+ H ( Q ｜ P ) = 0 , 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 2 )   
+ 又 因为 　 H ( Ｑ ｜ P ) = p ( Ai ) p ( Bj ｜ Ai ) logp ( Bj ｜ Ai ) - p ( Ai0 ) p ( Bj ｜ ) logp ( Bj ｜ ) ＞ 0 , 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 □ 
+ 　 　 本 定理 说明 , 当 两个 知识库 存在 包含 关系 时 , 由 知识 信息量 的 相等 可 得出 它们 在 代数 表示 下 是 等价 的 . 
+ 　 　 定理 3.3 .   设 U 是 一个 论域 , P 是 U 上 的 一个 等价关系 族 . 一个 关系 R ∈ P 在 P 中是 不必要 的 ( 多余 的 ) , 其 充分 必要条件 为 H ( R ｜ P - { R } ) = 0 . 
+ 　 　 证明 : ( 必要性 )   设 R ∈ P 在 P 中是 不必要 的 , 由 定义 知下式 成立 
+ IND ( P - { R } ) = IND ( P ) .   
+ 由 定理 3.1 可知 , H ( P - { R } ) = H ( P ) . 
+ 因为 　 　 　 　 　 　 　 　 　 H ( P ) = H ［ ( P - { R } ) + { R } ］ = H ( P - { R } ) + H ( R ｜ P - { R } ) , 
+ 所以 ， 　 　 　 　 　 　 　 　 　 　 　 　 　 　 H ( R ｜ P - { R } ) = 0 . 
+ 　 　 （ 充分性 ） 设 H ( R ｜ P - { R } ) = 0 . 
+ 因为 　 　 　 　 　 　 　 　 H ( P ) = H ［ ( P - { R } ) + { R } ］ = H ( P - { R } ) + H ( R ｜ P - { R } ) , 
+ 所以 ， 　 　 　 　 　 　 　 　 　 　 　 　 　 　 H ( P - { R } ) = H ( P ) . 
+ 又 显然 有 　 　 　 　 　 　 　 　 　 　 　 　 　 　 P - { R } P . 
+ 由 定理 3.2 知 ， IND （ P - { R } ) = IND ( P ) . 故   R ∈ P 在 P 中是 不必要 的 . 　 　 　 　 　 　 　 　 　 　 　 　 　 □ 
+ 　 　 本 定理 说明 , 在 代数 表示 下 , 不必要 的 知识 在 知识库 中 没有 提供 新 的 信息 ; 反之亦然 . 
+ 　 　 推论 .   R ∈ P 在 P 中是 必要 的 充分 必要条件 为 H ( R ｜ P - { R } ) ＞ 0 . 
+ 　 　 定理 3.4 .   设 U 是 一个 论域 , P 是 U 上 的 一个 等价关系 族 . P 是 独立 的 充分 必要条件 为 : 对 任意 R ∈ P , 都 有 H ( R ｜ P - { R } ) ＞ 0 . 
+ 　 　 证明 : 由 独立性 的 定义 及 定理 3.3 的 推论 可证 . 
+ 　 　 定理 3.5 .   设 U 是 一个 论域 , P 是 U 上 的 一个 等价关系 族 . Ｑ P 是 P 的 一个 约简 的 充分 必要条件 为 下列 两个 条件 成立 : 
+ 　 　 ( 1 )   H ( Ｑ ) = H ( P ) ; 
+ 　 　 ( 2 )   对 任意 的 q ∈ Ｑ , 有 H ( q ｜ Ｑ - { q } ) ＞ 0 . 
+ 　 　 证明 : Ｑ P 是 P 的 一个 约简 的 充分 必要条件 为 
+ IND ( Ｑ ) = IND ( P ) , 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 3 )   
+ 且 
+ Ｑ 是 独立 的 . 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 4 )   
+ 　 　 由 定理 3.2 知 , 式 ( 3 ) 成立 的 充分 必要条件 是 H ( Ｑ ) = H ( P ) ( 因为 Ｑ P ) . 
+ 　 　 由 定理 3.4 知 , 式 ( 4 ) 成立 的 充分 必要条件 是 , 对 任意 的 q ∈ Ｑ , 有 H ( q ｜ Ｑ - { q } ) ＞ 0 . 
+ 故 结论 成立 . 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 □ 
+ 　 　 本 定理 说明 , 对于 知识 约简 而言 , 本文 所 给出 的 信息 表示 与 原来 的 代数 表示 完全 等价 . 但 信息 表示 比 代数 表示 更加 直观 ; 而且 在 前者 表示 的 基础 上 , 能够 导出 高效 的 知识 约简 算法 . 
+ 4   结   论 
+ 　 　 目前 , 关于 粗糙集 理论 的 研究 与 应用 受到 了 国际 人工智能 界 越来越 多 的 关注 . 本文 把 定义 在 论域 上 的 等价关系 看作 是 其 上 的 一个 随机变量 , 从而 建立 了 知识 与 信息熵 之间 的 关系 . 我们 从 信息 的 角度 给出 了 粗糙集 理论 中 主要 概念 与 运算 的 信息 表达 . 证明 了 知识 约简 在 信息 与 代数 两种 不同 表示 下 是 等价 的 . 这些 结论 有助于 人们 深刻理解 粗糙集 理论 的 本质 , 而且 为 寻找 高效 的 知识 约简 算法 奠定 了 基础 . 
+ 　 　 本文 只 对 不 考虑 决策 的 情况 进行 了 讨论 . 关于 有 决策 的 情况 以及 由此 得到 的 有关 知识 约简 的 一种 高效 算法 将 另文 介绍 . 
+ 致谢   衷心感谢 审稿 者 提出 的 宝贵 建议 ! 
+ 本文 研究 得到 国家 863 高科技 项目 基金 、 国家 青年 基金 和 山西省 青年 基金 资助 . 
+ 作者 介绍 ： 苗夺谦 , 1964 年生 , 博士 , 副教授 , 主要 研究 领域 为 粗糙集 理论 , 人工智能 与 模式识别 . 
+ 　 　 　 　 　 王珏 , 1948 年生 ， 研究员 ， 博士生 导师 ， 主要 研究 领域 为 人工智能 与 模式识别 . 
+ 本文 通讯联系 人 ： 苗夺谦 ， 太原   030006 ， 山西大学 数学系 
+ 作者 单位 ： 苗夺谦 　 山西大学 数学系 　 太原 　 030006 　 中国科学院自动化研究所   北京   100080 
+ 　 　 　 　 王   珏 　 中国科学院自动化研究所   北京   100080 
+ E - mail :   dqmiao @ deer . sxu . edu . cn 
+ 参考文献 
+ 　 ［ 1 ］ Pawlak   Z .   Rough   Sets :   Theoretical   Aspects   of   Reasoning   about   Data .   Amsterdam :   Kluwer   Academic   Publishers ,   1991 .   6 ～ 42 
+ 　 ［ 2 ］   Ziarko   W .   Introduction   to   the   special   issue   on   rough   sets   and   knowledge   discovery .   International   Journal   of   Computational   Intelligence ,   1995 , 11 ( 2 ) : 223 ～ 226 
+ 　 ［ 3 ］ 苗夺谦 , 王珏 . 基于 粗糙集 的 多 变量 决策树 构造方法 . 软件 学报 , 1997 , 8 ( 6 ) : 425 ～ 431 ( Miao   Duo - qian ,   Wang   Jue .   Rough   sets   based   approach   for   multivariate   decision   tree   construction .   Journal   of   Software ,   1997 , 8 ( 6 ) : 425 ～ 431 ) 
+ 　 ［ 4 ］ 王珏 , 苗夺谦 , 周育健 . 关于 Rough   Set 理论 与 应用 的 综述 . 模式识别 与 人工智能 , 1996 , 9 ( 4 ) : 337 ～ 344 ( Wang   Jue ,   Miao   Duo - qian ,   Zhou   Yu - jian .   Rough   set   theory   and   its   application :   a   survey .   Chinese   Journal   of   Pattern   Recognition   and   Artificial   Intelligence ,   1996 , 9 ( 4 ) : 337 ～ 344 ) 
+ 　 ［ 5 ］ 王珏 , 袁小红 , 石 纯一 等 . 关于 知识 表示 的 讨论 . 计算机 学报 , 1995 , 18 ( 3 ) : 212 ～ 224 ( Wang   Jue ,   Yuan   Xiao - hong ,   Shi   Chun - yi   et   al .   A   discussion   on   knowledge   representation .   Chinese   Journal   of   Computers ,   1995 , 18 ( 3 ) : 212 ～ 224 ) 
+ 　 ［ 6 ］ 苗夺谦 . Rough   Set 理论 及其 在 机器 学习 中 的 应用 研究 ［ 博士学位 论文 ］ . 中国科学院自动化研究所 , 1997 ( Miao   Duo - qian .   Rough   sets   and   its   application   in   machine   learning ［ Ph . D .   Thesis ］ .   Institute   of   Automation ,   The   Chinese   Academy   of   Sciences ,   1997 ) 
+ 本文 1996 - 10 - 09 收到 原稿 , 1998 - 03 - 03 收到 修改稿   

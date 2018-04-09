@@ -1,0 +1,96 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000   Vol.19   No.2   P.55 - 57 
+ 
+ 
+ 
+ 
+ Novell 网络 环境 下 Win95 无盘 工作站 的 安装 
+ 吴明华 
+ 摘   要 ：   100Mb ／ s   Novell 网络 环境 下 ， Win95 无盘 工作站 的 详细 安装 过程 步骤 。 
+ 关键词 ：   无盘 工作站   文件 安装   高速 网络   
+ 　 　 虽然 当前 Win95 ／ 98 已 成为 一般 用户 首选 的 操作系统 ， 但是 在 广大 教学 单位 ， 由于 各种 原因 ， 用 的 主要 还是 无盘站 。 100Mb ／ s 网络 目前 在 许多 单位 已 建立 ， 它 使得 Win95 的 无盘 使用 成为 可能 ， 但是 在 高速 网络 下 Win95 的 无盘 安装 问题 却 未 见 介绍 。 经过 本人 摸索 ， 终于 实现 了 100Mb ／ s 环境 下 Win95 无盘站 的 安装 ， 下面 就 安装 过程 详细 说明 如下 。 
+ 1   准备 工作 
+ 　 　 1 ． 硬件 
+ 　 　 服务器 为 联想 万全 1300 ， 安装 NetWare3 ． 12 ／ 4 ． 11 ， 工作站 为 486 ／ 16MB 及 P200 ／ 32MB 的 兼容机 若干 ， 另 准备 一有 盘 工作站 ， 供 安装 Win95 共享 文件 使用 。 工作站 全部 插 D － Link   DFE － 530   Tx   10 ／ 100Mb ／ s 网卡  下面 皆 以此 网卡 为例  ， 另 准备 了 一块 NE2000 兼容 网卡 。 
+ 　 　 2 ． 软件 
+ 　 　 Win95 完全版  pwin95 完全版  及 Novell 网络 相关 文件 。 
+ 　 　 3 ． 长 文件名 支持 
+ 　 　 另外 由于 Win95 支持 长 文件名 ， 因此 要 让 Win95 运行 于 Novell 网络 上 ， 要求 NetWare 能 支持 长 文件名 ， 方法 为 在 服务器 控制 台下 依次 执行 ： 
+ 　 　 NetWare   3 ． 12 版 ： 
+ 　 　 Load   os2   →   add   name   space   os2   to ＜ 卷名 ＞ 
+ 　 　 NetWare   4 ． 11 版 ： 
+ 　 　 Load   long   →   Add   name   space   long   to ＜ 卷名 ＞ 
+ 　 　 其中 的 卷 名为 要求 支持 长 文件名 的 卷 。 
+ 　 　 4 ． 有盘 工作站 的 要求 
+ 　 　 有盘 工作站 要求 已 安装 好 Win95 或 Win98  最好 为同 版本 的 Win95  ， 因为 Win95 的 共享 安装 部分 的 运行 文件 必须 在 Win95 及 以上 环境中运行 。 
+ 2   服务器 共享 安装 
+ 　 　 在 Win95 或 Win98 下以 系统管理员 登录 到 NetWare 服务器 。 然后 将 Win95 安装 光盘 放入 光驱 中 ， 运行 “ pwin95 ＼ admin ＼ nettools ＼ netsetup ＼ netsetup ． exe ” 文件 ， 出现 “ 基于 服务器 的 安装 ” 画面 。 选 其中 的 “ 设置 路径 ” ， 出现 路径 设置 对话框 。 此时 输入 1 个 UNC 格式 的 路径 ， 此 路径 为 Win95 在 服务器 中 的 共享 安装 目录 。 再 按 “ 安装 ” ， 然后 会 出现 “ 要求 选择 安装 共享 文件 的 地方 ” 的 画面 ， 选择 “ 服务器 ” ， 在 出现 “ 创建 默认值 ” 时 选择 “ 不 创建 默认值 ” ， 随后 提示 输入 Win95 的 序列号 ， 然后 系统 进行 Win95 的 文件 拷贝 ， 根据 网络 速度 不同 ， 此 过程 大约 需要 几分钟 到 十几分钟 ， 文件 拷贝 完后 ， 系统 自动 给 文件 置 上 只读 共享 属性 ， 至此 Win95 的 服务器 安装 部分 完成 。 
+ 3   客户端 的 设定 
+ 　 　 在 Win95 的 工作站 安装 时 ， 可 将 安装 信息 在 msbatch ． inf 文件 中 预先 设置 好 。 此 步骤 在 工作站 的 安装 中 有着 重要 的 作用 ， 如果 此 文件 设置 不好 ， 将 直接 导致 工作站 安装 成功 与否 。 
+ 　 　 运行 “ pwin95 ＼ admin ＼ nettools ＼ netsetup ＼ batch ． exe ” ， 出现 如图 1 所示 画面 。 
+ 　 　 在 图 1 中 设置 的 重点 是 “ Network   Options … ” 和 “ Install   Options … ” 二个 选项 。 选择 “ Network   Options … ” 选项 出现 图 2 画面 。 其中 比较 重要 的 有 ： （ 1 ） Available   Protocol 选项 ： 当然 选 IPX ／ SPX   compatible   protocol ； （ 2 ） frame 选项 ： 选 automatic ； （ 3 ） Available   Clients 选项 ： Client   for   NetWar   networks ， Preferred   server  首选 服务器 ， 一般 为 Win95 共享 文件 安装 的 服务器  如 net － i ； （ 4 ） enable   server － based   setup 选项 ： 选 remote   boot 。 其它 选项 都 可以 不用 设置 。 
+ 　 　 在 图 1 中选 “ Install   Options … ” 选项 后 会 出现 如图 3 所示 画面 。 
+ 　 　 其中 “ Setup   Options ” 可以 使用 其 默认值 ， 安装 类型 选 “ Custom ” ， 安装 目录 填 工作站 的 机器 目录 ， 如 k ： ＼ Windows ， 其中 k ： 盘为 工作站 目录 的 映射 盘 ， 时区 可选 可不 选 。 为了 在 安装 过程 中使 用户 随时 了解 安装 情况 ， 选 “ Set … ” 选项 ， 出现 如图 4 所示 画面 。 
+ 　 　 图 4 中选 “ Stop   during   setup   at   thd   following ” 中 的 “ Every   page  allow   customization   of   all   settings  ” 选项 。 
+ 　 　 图 2 中 的 “ Optional   Components … ” 选项 为 具体 安装 哪些 部件 ， 可 根据 需要 选择 。 
+ 　 　 所有 这些 选项 设置 完后 按 “ Done ” ， 选择 保存 目录 为 Win95 共享 目录 ， 文件名 为 msbatch ． inf ， 至此 工作站 安装 批处理 文件 设置 完成 。 
+ 　 　 然后 在 网络 中 创建 一批 用户  如 Win01 ， Win02 等 ， 最好 为 其 再 创建 个人 目录 ， 作为 每台 机器 的 目录  及 1 个组  如 Win95  ， 将 用户 加入 到 组中 ， 并 给 组 赋予 访问 Win95 共享 文件 的 权限  RF 即可  ， 工作站 目录 的 权限 为  RWCEMF  。 修改 注册 正本 ， 将 共享 文件目录 及其 下 的 COMMAND 目录 映射 为 搜索 驱动器 ， 个人 目录 映射 为 某 1 盘 的 根目录  如 k ： 盘  。 
+ 4   10Mb ／ s 无盘 工作站 的 安装 
+ 　 　 在 工作站 中先 插 1 块 NE2000 兼容 网卡 ， 并 能 以 有 盘 或 无盘 方式 上网 。   
+ 　 　 在 工作站 以 管理员 身份 登录 ， 先 在 工作站 用户 盘  如 k ： 盘  建立 一 临时文件 存放 目录 如 TMP ， 然后 在 Win95 共享 目录 中 运行 setup ． ext ， 格式 为 ： 
+ 　 　 setup   msbatch ． inf ／ t ： k ： ＼ tmp 
+ 　 　 其中 的 msbatch ． inf 选项 可 省略 ， 安装文件 会 自动 查找 它 ， ／ t ： k ： ＼ tmp 选项 必须 加上 ， 否则 安装 过程 中 会 出现 “ Can   not   load   Program ” 的 错误信息 。 
+ 　 　 依据 系统 提示 ， 完成 工作站 文件 的 安装 ， 此 过程 大约 需要 几分钟 时间 ， 然后 会 提示 重新启动 系统 ， 有时 会 出现 “ Invalid   DPMI   return   from   xxxx  xxxx ” 的 信息 ， 不过 不要紧 ， 重新启动 系统 即可 。 
+ 　 　 工作站 安装 完成 后 ， 在 工作站 的 Windows 目录 中 会 产生 1 个 文件名 为 net ＄ dos ． sys 的 文件 。 不过 还 必须 对 该 文件 按 下面 过程 进行 修改 。 
+ 　 　 （ 1 ） 在 DOS 下 重新 登录 上网 后 运行 ：   
+ 　 　 　 　 　 　 dosgen   net ＄ dos ． sys   ／ u 
+ 　 　 然后 将 emm386 ． exe 及 subst ． exe 文件 拷贝到 （ 1 ） 中 得到 的 软盘 ； 
+ 　 　 （ 2 ） 编辑 CONFIG ． SYS 文件 ， 使 其 内容 为 ：   
+ 　 　 device ＝ himem ． sys   
+ 　 　 device ＝ emm386 ． exe   ram   
+ 　 　 device ＝ ramdrive ． sys   2048   ／ e 
+ 　 　 （ 3 ） 编辑 软盘 中 的 win ． bat ， 在 其 最 前面 加上 subst   a ： c ： ＼ winboot 一句 ， 否则 启动 时会 提示 找 不到 emm386 ． exe 文件 ， 从而 不能 正常 启动 。 
+ 　 　 （ 4 ） 重新 生成 启动 映像 文件 如 ： dosgen   a  win95 ． sys 
+ 　 　 （ 5 ） 再 编辑 bootconf ． sys 文件 ， 使 工作站 能 从 win95 ． sys 文件 启动 ， 格式 为 ：   
+ 　 　 0xnetwork   address ， node   address ＝ win95 ． sys 
+ 　 　 （ 6 ） 编辑 win95 共享 目录 中 的 machines ． ini 文件 ， 其 内容 格式 为 ：  
+ 　 　 　 ［ node   address ］   ／ 将 12 位填全 ， 不足 时 在 前加 0 ／ 
+ 　 　 　 sysdatpath ＝ x ： ＼ ＜ home   directory ＞   ／ 工作站 机器 目录 ／ x ＝ ＼ ＼ server ＼ share   ／ 工作站 目录 的 映射 目录 ／ 设置 好 这些 后 ， 重新启动 机器 ， 即可 远程 启动 Win95 了 ， 此时 要求 输入 用户名 ， 此 用户 名为 登录 Novell 网 的 用户 ， 要求 其能 访问 Win95 共享 文件 和 该 计算机 对应 的 目录 。 不过 第 1 次 启动 时间 会长 一些 ， 系统 会 进行 一次 必要 的 设置 ， 全部 设置 完成 后 会 重新启动 机器 。 以后 正常 启动 的 时间 要 短 一些 ， 比 本地 Win95 启动 可能 稍慢 ， 视 工作站 的 多少 而 不同 。 
+ 
+ 图 1 　 安装 选项 界面 
+ 
+ 图 2 　 网络 选项 界面 
+ 
+ 图 3 　 安装 选项 明细 
+ 
+ 图 4 　 设置 界面 
+ 5   100Mb ／ s 工作站 的 安装 
+ 　 　 1 ． 在 DOS 下 登录 上网 ， 将 100Mb ／ s 网卡 的 驱动程序 拷贝到 Win95 共享 目录 ， 具体 拷贝 文件 为  假设 Win95 共享 目录 已 映射 为 T盘 ） ： 
+ 　 　 copy   a ： ＼ ndis2 ＼ dos ＼ dlkfet ． dos   t ： ｎ ＼ win95 
+ 　 　 copy   a ： ＼ netinf ． inf   t ： ＼ win95 ＼ inf 
+ 　 　 expand   a ： ＼ ndis3 ＼ dlkfet ． sy ＿ t ： ＼ win95 ＼ system ＼ dkfet ． sys 
+ 　 　 2 ． 在 能 正常 远程 启动 10Mb ／ s   Win95 的 工作站 中 再 安装 1 块 不带 启动 芯片 的 100Mb ／ s 网卡 ， 然后 启动 工作站 ， 完成 必要 的 设置 后 要求 重新启动 机器 。 
+ 　 　 3 ． 修改 10Mb ／ s 工作站 的 安装 软盘 ， 具体 修改 可 通过 二种 方法 来 进行 。 
+ 　 　 （ 1 ） 修改 注册表 ， 具体步骤 为 ： 
+ 　 　 ① 拷贝 100Mb ／ s 网卡 设置 盘 的 扩展 名为 ． dos 的 文件 如 dlkfet ． dos 文件 到 启动盘 ， 然后 修改 启动盘 的 注册表 ： 
+ 　 　 regedit   ／ 1 ： system ． dat ／ e   registry ． txt 
+ 　 　 ② 编辑 registry ． txt 文件 ， 将 “ netcard ＝ ne2000 ． dos ” 改为 “ netcard ＝ dlkfet ． dos ” 
+ 　 　 ③ 将 修改 后 的 信息 写入 注册表 ： regedit   ／ 1 ： system ． dat ／   c   registry ． txt 
+ 　 　 ④ 将 system ． dat 的 属性 去掉 
+ 　 　 ⑤ 修改 protocol ． ini 文件 ， 将 “ ms2000 ” 全部 改为 “ dlkfet ” 
+ 　 　 （ 2 ） 删除 盘 上 原来 的 NE2000 ． DOS 文件 ， 拷贝 100Mb ／ s 网卡 的 相应 文件 到 A 盘 ， 改名 为 NE2000 ． DOS ， 并 同样 按照 （ 1 ） 中 的 方法 修改 protocol ． ini 文件 。 
+ 　 　 然后 再 重新 生成 100Mb ／ s 下 的 远程 启动 映像 文件 
+ 　 　 4 ． 取下 10Mb ／ s 网卡 ， 给 100Mb ／ s 网卡 插上 启动 芯片 再 重新启动 机器 ， 至此 安装 第 1 台无盘 WIN95 工作站 的 工作 结束 。 
+ 6   增加 无盘 工作站 的 方法 
+ 　 　 100Mb ／ s 网卡 能 正常 启动 后 ， 其它 机器 只能 配置 相同 。 其 安装 可 通过 运行 netsetup ． exe 文件 ， 在 “ 基于 服务器 安装 ” 画面 中 ， 选择 “ 设置 路径 ” ， 填入 Win   95 的 共享 安装 路径 后 ， 选择 “ 添加 ” ， 出现 “ 安装 计算机 ” 画面 ， 输入 下列 参数 后 可 进行 文件 的 复制 。   
+ 　 　 选择 “ 安装 1 台 计算机 ”   
+ 　 　 计算机 名 ： WIN02   
+ 　 　 计算机 目录 ： ＼ ＼ NET － I ＼ KS ＼ WINUSER ＼ WIN02 ＼ WINDOWS   现存 
+ 　 　 计算机 目录 ： ＼ ＼ NET － I ＼ KS ＼ WINUSER ＼ WIN01 ＼ WINDOWS 
+ 　 　 依 此 步骤 可 把 所有 需要 从 网络 启动 的 计算机 的 文件 复制 好 。 然后 再 将 这些 计算机 的 节点 地址 等 信息 按 第 1 台 的 格式 写入 到 Win   95 共享 目录 的 machines ． ini 文件 中 。 再 修改 F ： ＼ LOGIN 中 的 BOOTCONF ． SYS 文件 ， 指明 这些 机器 所 对应 的 远程 启动 映像 文件 ， 至此 所有 安装 全部 结束 。 
+ 　 　 另外 ， D － link   DFE － 530TX 网卡 还有 一个 特点 ， 即可 使用 多个 远程 启动 映像 文件 ， 在 机器 启动 时 由 用户 选择 从 哪个 文件 启动 ， 从而 方便 了 用户 的 使用 ， 尤其 是 教学 单位 ， 学生 可 根据 情况 选择 从 DOS 还是 Win95 启动 。 BOOTCONF ． SYS 文件格式 设置 为 ： 
+ 　 　 0x1122 ， 0080C8EB4655 ＝ WIN95 ． SYS   DFEDOS ． SYS   
+ 　 　 即 并排 书写 二个 或 多个 启动 映像 文件 ， 注意 文件 之间 不要 加 任何 其它 符号 。 
+ 吴明华 （ 重庆 师范学院 物理学 与 信息技术 系 计算机 教研室  400047 ） 
+ 收稿 日期 ： 1999 － 08 － 28 

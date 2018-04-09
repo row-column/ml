@@ -1,0 +1,85 @@
+环境 科学 学报 
+ ACTA   SCIENTIAE   CIRCUMSTANTIAE 
+ 1999 年 　 第 19 卷 　 第 4 期 　 Vol.19 　 No.4 　 1999 
+ 
+ 
+ 
+ 离子 筛 与 醋酸纤维 素 混合 超滤膜 的 制备 及降 氟 性能 
+ 丛培君 　 孙 　 鹤 　 徐 应明 　 王淑兰 　 王 榕树 　 
+ 摘要 　 在 超滤膜 制备 过程 中 ， 向 铸膜液 中 引入 亲 氟 物质 — — 水合 氧化 镧 ， 经 熟化 后 制备 的 混合 超滤膜 具有 分离 大分子 和 降低 水体 中 氟 离子 浓度 两种 功能 . 以 含氟 饮用水 为 研究 对象 ， 对 其 混合 膜 的 降 氟 机理 进行 了 探讨 . 
+ 关键词 　 超滤膜 ； 水合 氧化 镧 ； 氟 . 
+ The   preparation   of   the   ultrafiltration   membrane   with   ion   sieve   for   removing   fluorine 
+ CONG   Peijun , SUN   He , XU   Yingming , WANG   Shulan , WANG   Rongshu   
+ ( Dept . of   Chemical   Engineering , Tianjin   University , Tianjin   300072 ) 
+ Abstract 　 In   the   process   of   preparing   ultrafiltration   membrane , the   introduction   of   hydrated   lanthanum   oxide   La2O3 . nH2O   makes   the   ultrafiltration   membrane   possess   two   functions - separating   large   molecules   and   decreasing   the   concentration   of   fluorine   in   the   water . The   mechanism   of   removing   fluorine   of   the   ultrafiltration   membrane   was   discussed . 
+ Keywords 　 ultrafiltration   membrane , hydrated   lanthanum   oxide , fluorine . 
+ 　 　 
+ 　 　 国内外 研制 的 降氟剂 品种 较 多 ［ 1 ， 2 ］ ， 但 主要 是 由 含 铝 物料 制成 . 近几年来 研究 表明 ［ 3 ］ ， 铝能 损害 人 的 大脑 ， 损伤 骨骼 及 影响 智力 . 所以 含铝 降氟剂 随着 铝 的 溶出 和 残留量 ， 越来越 引起 人们 的 关注 ， 其 应用 受到限制 . 因此 ， 研究 高效 、 经济 、 方便 的 非 铝 降氟剂 受到 了 重视 . 本文 受 填充 分子筛 蒸发 膜 、 化学作用 强化 膜 及 亲合 膜技术 的 启发 ［ 4 — 8 ］ ， 向 铸膜液 中 引入 水合 氧化 镧 ， 合成 了 离子 筛 与 醋酸纤维 素 混合 超滤膜 ， 用于 降低 饮用水 中 过量 氟 ， 并 对 降 氟 机理 进行 了 探讨 ［ 9 ］ ． 
+ 
+ 1 　 实验 部分 
+ 1.1 　 试剂 与 仪器 
+ 　 　 醋酸纤维 素 ( CA ) ， 乙酰 度 39.8% ( 西安 惠安 化工厂 ) ； 丙酮 、 高氯酸 镁 、 硝酸 、 氨水 均 为 分析 纯 ( 天津 南开 化工厂 ) ； 氧化 镧 为 分析 纯 ( 上海 跃龙 化工厂 ) ； 用水 均 为 无 离子水 . 
+ 　 　 TP - 10 - 20 型 蠕动泵 、 超滤 杯 ( 天津 纺织 学院 ) ； PHS - 2C 型 酸度计 ( 上海 雷磁 仪器厂 ) ； 磁力 搅拌器 ( 杭州 仪表 电机厂 ) ； CSB - 1 氟 离子 选择 电极 ( 长沙 半导体 材料厂 ) ； D - 7401 型 500W 搅拌器 ( 天津 华兴 科学 仪器厂 ) ； 刮刀 ( 自制 ) . 
+ 1.2 　 亲 氟 物质 的 筛选 与 制备 
+ 　 　 水体 中 氟 离子 易 与 多价 阳离子 形成 较 稳定 的 络离子 ， 如 BF - 4 、 FeF3 - 6 、 AlF3 - 6 等 . 另外 ， 因 氟 离子 的 变形 性 很小 ， 与 大 的 阳离子 又 不易 形成 络合物 ， 根据 溶度积 原理 ， 氟 与 镧 的 溶度积 Ksp = 1.4 × 10 - 18 ， 所以 选择 水合 氧化 镧 . 用 少量 硝酸 水溶液 ( 1 ∶ 1 ， V / V ) 溶解 氧化 镧 ， 以 氨水 调 pH 值为 7.8 — 8.5 ， 生成 水合 氧化 镧 沉淀 ， 经陈化 后 抽滤 ， 得 含 不同 湿 存水 比例 的 水合 氧化 镧 备用 . 
+ 1.3 　 离子 筛 混合 超滤膜 的 制备 及 性能 
+ 　 　 按表 1 配比 搅拌 均匀 ， 熟化 、 脱气 ， 用 L - S 相 转化 法 制备 离子 筛 混合 超滤膜 . 
+ 表 1 　 铸膜液 组成 
+ Table   1   Component   of   solution   preparing   for   the   membrane 
+ 
+ 醋酸纤维 素 丙酮 高氯酸 镁 水 水合 氧化 镧 湿 存水 比例 
+ 12.5 g69.0 g1.5 g15.0 g2.0 g1 ∶ 5 
+ 
+ 　 　 以 透水 速率 和 氟 离子 穿透 容量 考察 膜 性能 . 进水 氟 离子 浓度 为 10mg . L - 1 ， pH = 6.02 ， 室温 ， 压力 为 0.1 MPa . 当 透水 速率 稳定 后 ， 每隔 30min 测 一次 滤出 液 氟 离子 浓度 ， 绘制 流出 曲线 . 
+ 
+ 
+ 图 1 　 添加剂 浓度 对膜 透水 速率 的 影响 
+ Fig.1   Effect   of   additive   concentration   on   the   water   penetrating   rate   of   membrane 
+ 2 　 结果 与 讨论 
+ 2.1 　 高聚物 ( CA ) 浓度 
+ 　 　 当 高聚物 ( CA ) 浓度 为 5% 时 ， 铸膜 液太稀 ， 所以 粘度 低 ， 膜 性能 差 . 当 CA 浓度 为 15% 时 ， 铸膜液 又 太稠 ， 成膜 困难 . 实验 结果 证明 当 CA 浓度 为 12.5% 时 最 适宜 . 
+ 2.2 　 添加剂 
+ 　 　 添加剂 有致 孔 作用 ， 是 铸膜液 的 重要 组成部分 . 当 其它 条件 固定 时 ， 添加剂 浓度 在 1.5% — 4.0% 范围 变化 时 ， 混合 膜 的 透水 速率 变化 不 大 ， 当 高于 6.0% 时 ， 透水 速率 明显 加大 ， 降 氟 效率 差 ， 如图 1 所示 . 综合 考察 添加剂 ， 其 浓度 确定 为 1.5% . 
+ 2.3 　 离子 筛 吸附剂 及 水合 氧化 镧 湿 存水 比例 
+ 　 　 为 提高 氟 离子 的 去除率 ， 希望 膜 中 含有 较 多 的 离子 筛 吸附剂 水合 氧化 镧 . 经 与 空白 膜 对比 ， 从 铸膜 到 成膜 后 的 物化 性能 综合 各 因素 考核 ， 结果 认为 3 ＃ 、 4 ＃ 均 可 ( 表 2 ) . 
+ 表 2 　 4 种 铸膜液 组成 
+ Table   2   Components   of   four   kinds   of   solution   preparing   for   the   membrane 
+ 
+ CA , g 丙酮 , g 添加剂 ， g 水 ， g 水合 氧化 镧 ， g 湿 存水 比例 透水 速率 ， mL / ( cm2 . h ) 吸附 容量 , mg / g * 
+ 1 ＃ 12.571 . 01.515 . 00 — 28 — 
+ 2 ＃ 12.570 . 01.515 . 01.01 ∶ 535 — 
+ 3 ＃ 12.569 . 01.515 . 02.01 ∶ 5441.75 
+ 4 ＃ 12.568 . 01.515 . 03.01 ∶ 5483.21 
+ 
+ 　 　 *   mg / g 指达 平衡 时膜 中 每克 氧化 镧 吸附 氟 的 毫克 数 
+ 
+ 图 2 　 解吸 液 流出 曲线 
+ Fig.2   Curve   of   F -   concentration   in   desorbed   solution 
+ 2.4 　 离子 筛 复合 超滤膜 的 再生 
+ 　 　 根据 吸附 机理 ， 选用 浓度 为 5.0 × 10 - 3mol / L 的 氢氧化钠 溶液 解吸 再生 ， 吸附 流出 曲线 如图 2 所示 . 由图 2 可见 氟 离子 的 解吸 率 可达 93.0% ， 解吸 后 用 清水 将 膜 冲洗 干净 ， 可 重复使用 . 
+ 2.5 　 吸附 机理 
+ 2.5 . 1 　 形貌 观测 　 对 空白 1 ＃ 和 4 ＃ 膜 作 扫描电镜 形貌 观测 ， 加入 水合 氧化 镧 的 离子 筛 混合 超滤膜 致密 层 更 薄 ， 指状孔 增多 ， 孔隙 变 大 ( 图 3 ) . 因为 水合 氧化 镧 不仅 对膜 中 存在 的 水有 保护 作用 ， 同时 凝胶 时 还 能 将 外部 的 水 吸到 膜 中 ， 使 水分子 嵌入 到 高分子 网络 中 ， 使 膜结构 疏松 ， 膨润 比 增大 ， 导致 透水 率 增加 . 但 水合 氧化 镧 加入 量 要 控制 在 2.0% — 3.0% ， 否则 膜 物化 性能 下降 . 
+ 
+  
+ 图 3 　 空白 膜 与 混合 膜 电镜 形貌 图 
+ Fig.3   Scanning   electron   micrographs   of   blank   membrane   and   incorporate   membrane 
+ 2.5 . 2 　 降 氟 机理 
+ 　 　 无定形 金属 水合 氧化物 相当于 金属 原子 和 氧原子 交联 形成 的 高聚物 . La2O3 . nH2O 的 骨架 可 表示 为 ： 
+ 
+ 　 　 此 高聚物 骨架 中可有 部分 氧键 断裂 ， 其 氧原子 可 为 一个 羟基 替代 ， 具有 离子交换 性质 ， 因 这 类物质 是 两性 化合物 ， 其 交换 吸附 性质 与 pH 值 紧密 相关 . 在 pH < 7 时 ， 高聚物 骨架 带 正电荷 ， 呈 阴离子 交换 性质 ； 而 在 碱性 时则 相反 . 骨架 中心原子 解离 方式 为 ： 
+ 　 　 另外 ， 无定形 沉淀 水合 氧化 镧 对 水体 中 氟 离子 也 能 发生 表面 吸附 共沉淀 ， 从而 降低 氟 离子 浓度 . 因在 高分子 聚合物 中 引入 的 水合 氧化 镧 粒径 约 0.2 μ m ， 比表面 发达 ， 并且 镧 与 氟 所 形成 的 化合物 溶度积 较 小 ， 所以 水中 的 氟 离子 容易 被 吸附 载带 而 降低 ［ 8 ］ . 
+ 　 　 在 实验 条件 下 ， 含氟 溶液 的 pH = 6.02 ， 从 骨架 中心原子 解离 式 可知 ， 无定形 水合 氧化 镧 表面 带 正电荷 ， 因此 容易 与 溶液 中带 负电荷 的 氟 离子 发生 表面 吸附 共沉淀 而 降低 溶液 中 氟 离子 浓度 . 
+ *   天津市 建委 资助 项目 
+ 作者 单位 ： ( 天津大学 化学 工程系 ， 天津 　 300072 ) 
+ 参考文献 
+ 　 1 　 黄衍 初 ， 姜兆春 ， 曲长 菱 . 饮水 除氟剂 的 应用 . 环境 化学 ， 1994 ， 13 ( 6 ) ： 561 
+ 　 2 　 Farrah   H , Slavek   J , Pickering   W   F . Fluoricle   interactions   with   hyclrous   aluninium   oxicles   and   alumina . Aust   J   Soil   Res , 1987 , ( 25 ) : 55 
+ 　 3   刘增林 等 . 铝制 水壶 煮沸 的 饮用水 中铝 含量 的 测定 . 环境 科学 ， 1987 ， 18 ( 2 ) ： 68 
+ 　 4 　 商 振华 ， 周良模 . 膜 亲 和 色谱 的 现状 、 发展 和 应用 . 化学 进展 ， 1995 ， 7 ( 1 ) ： 48 
+ 　 5 　 马文英 ， 方佑龄 ， 赵文克 . 相 转移 法 制备 超微 粒子 氧化铬 . 无机盐 工业 ， 1993 ， ( 5 ) ： 11 
+ 　 6 　 陈 庆龄 . 膜 反应器 催化 技术 及膜 催化 材料 的 进展 与 展望 . 化工 进展 ， 1992 ， ( 2 ) ： 5 
+ 　 7 　 Watson   J   M , Zhang   G   S , Payne   P   A . The   diffusion   mechanism   in   silicone   rbber . Journal   of   Membrane   Science , 1992 , ( 73 ) : 55 
+ 　 8   Chen   V , Fane   A   G , Fell   C   J   D . The   use   of   anionic   surfactants   for   reducing   fouling   　 of   ultrafiltration   membrane : their   effects   and   optimization . Journal   of   Membrane   Science , 1992 , ( 67 ) : 249 
+ 　 9   秦启宝 等 . 化学 分离法 . 北京 ： 原子能 出版社 ， 1984.173 
+ 1997 - 11 - 10 收到 原稿 
+ 1998 - 03 - 12 收到 修改稿 

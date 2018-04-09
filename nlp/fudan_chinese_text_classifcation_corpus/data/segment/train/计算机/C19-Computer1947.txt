@@ -1,0 +1,172 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 1999 年   第 18 卷   第 1 期   Vol.18   No.1   1999 
+ 
+ 
+ 
+ 如何 在 Visual   Basic 应用程序 中 调用 动态链接库 
+ 王 向阳 
+ 　 　 摘 　 要 ： Visual   Basic 应用程序 调用 动态链接库 的 方法 、 步骤 及 应该 注意 的 一系列 问题 ， 同时 给出 了 参考性 示例 。 
+ 　 　 关键词 ： Windows 　 动态链接库 　 Visual   Basic 语言 
+ 　 　 Windows 动态链接库 ( Dynamic   Link   Library ， 简称 DLL ) 是 Microsoft   Windows 操作系统 最 显著 的 特点 之一 ， 也 是 Windows 系统 成为 优秀 软件设计 平台 的 基础 。 由于 动态链接库 提出 了 一个 全新 的 概念 ， 使得 程序设计 人员 可以 利用 动态链接库 函数 ( 或 过程 ) 实现 应用 程序代码 和 资源 的 共享 ， 因此 极大地提高 了 应用程序 的 编写 效率 ， 而且 在 多任务 环境 下 还 可以 大大提高 应用程序 的 执行 效率 。 
+ 　 　 Visual   Basic ( 以下 简称 VB ) 是 Microsoft 公司 推出 的 一种 简单 、 方便 、 高效率 的 全新 Windows 编程 工具 和 环境 ， 其 本身 就是 通过 动态链接库 函数 或 过程 工作 的 ， 不仅如此 ， VB 还 允许 其 应用程序 直接 调用 动态链接库 ( 包括 用户 自己 开发 的 动态链接库 ) 函数 或 过程 ， 以 进一步 扩充 VB 应用 程序设计 能力 ， 实现 原本 只有 C ( 或 C++ ) 才能 完成 的 功能 。 
+ 　 　 下面 详细 说明 VB 应用程序 调用 动态链接库 的 方法 、 步骤 及 应该 注意 的 一系列 问题 。 一般 情况 下 ， VB 应用程序 调用 动态链接库 需要 经过 2 个 步骤 ： 声明 和 调用 。 
+ 1 　 动态链接库 函数 或 过程 的 声明 
+ 　 　 所谓 调用 动态链接库 实际上 是 指 用户 在 用 VB 开发 的 Windows 应用程序 内 使用 动态链接库 中 的 函数 或 过程 。 而 在 使用 之前 ， 应该 首先 对 动态链接库 函数 或 过程 进行 声明 。 
+ 　 　 1 . 动态链接库 函数 或 过程 的 声明 方法 
+ 　 　 动态链接库 函数 或 过程 必须 在 全局 模块 或 表格 级 模块 中 声明 才 有效 。 当 动态链接库 函数 或 过程 没有 返回值 时要 声明 成 子程序 Sub 方式 ， 若有 返回值 则 应 声明 成 函数 Function 方式 ， 具体 格式 如下 。 
+ 　 　 子程序 Sub 格式 ： 
+ 　 　 Declare   Sub < 动态链接库 函数 或 过程 名 > Lib < 动态链接库 名 > ［ Alias < 别名 > ］ ( < 参数 > ) 
+ 　 　 函数 Function 格式 ： 
+ 　 　 Declare   Function < 动态链接库 函数 或 过程 名 > Lib < 动态链接库 名 > ［ Alias < 别名 > ］ ( < 参数 > ) As 数据类型 
+ 　 　 其中 ： 
+ 　 　 动态链接库 函数 或 过程 名为 被 调用 动态链接库 中 的 函数 或 过程 的 名字 。 
+ 　 　 动态链接库 名为 动态链接库 函数 或 过程 所在 的 动态链接库 的 名字 。 
+ 　 　 Alias < 别名 > 为 可选项 ， 用户 可 为 动态链接库 取 1 个别 名 。 
+ 　 　 < 参数 > 为 可选项 ， 当 调用 动态链接库 函数 或 过程 时 ， 由 VB 传送 给 动态链接库 函数 或 过程 的 参数 格式 和 类型 。 
+ 　 　 数据类型 为 动态链接库 函数 或 过程 返回值 的 类型 。 
+ 　 　 2 . 动态链接库 函数 或 过程 声明 的 注意事项 
+ 　 　 动态链接库 函数 或 过程 的 声明 应该 注意 如下 几点 ： 
+ 　 　 ( 1 ) Lib < 动态链接库 名 > 
+ 　 　 若 使用 的 是 Windows 操作系统 本身 的 动态链接库 ， 如 USER . DLL 、 KERNEL . DLL 等 ， 则 只要 直接 说明 为 库名 即可 。 如果 使用 的 是 其他 来源 的 动态链接库 ， 则 须 指明 动态链接库 的 全 路径名 ， 如 “ D ： ＼ USER ＼ EXAMPLE . DLL ” 。 值得 指出 的 是 Declare 声明 中 对 大 小写字母 不 敏感 。 
+ 　 　 ( 2 ) 参数 及其 传递 方式 
+ 　 　 在 VB 中 ， 有 按值 传递 ( By   Value ) 和 按 地址 传递 ( By   Reference ) 2 种子 程序 或 函数调用 的 参数传递 方式 。 调用 动态链接库 函数 时要 注意 参数 的 传递 方式 ， 若 按值 方式 传递 ， 则 应 在 参数 前面 加上 “ Byval ” 关键字 ； 按 地址 传递 则 不 加此 关键字 。 应 注意 的 是 在 C语言 的 函数 中 ， 除 数组 按 地址 方式 传递 外 ， 其余 均 按值 方式 传递 参数 。 
+ 　 　 ( 3 ) 任意 类型 的 参数 
+ 　 　 一些 动态链接库 函数 或 过程 的 同一 参数 可 接收 多种不同 类型 的 参数值 ， 这时 要用 As   Any 作为 参数 的 类型 ， As   Any 表示 参数 的 类型 不 受限制 。 值得注意 的 是 ： 当 参数 以 As   Any 方式 说明 时 ， VB 是 以 地址 方式 传递 参数 的 。 
+ 　 　 ( 4 ) 特殊 名字 的 处理 
+ 　 　 当要 调用 的 动态链接库 函数 或 过程 和 VB 标准 的 系统 函数 重名 ， 或者 有 一些 动态链接库 函数 或 过程 名 在 VB 中是 不 合法 的 符号 ( 如 含有 减 字符 “ - ” ， 或 下划线 “ ” ) 时 ， 可 使用 Alias 为 其 声明 1 个别 名 。 利用 别名 方法 还 可以 对 动态 链接 函数 或 过程 进行 改名 ， 例如 可以 将 某个 名字 很长 的 函数 用 一个 简短 的 别名 替代 。 
+ 　 　 3 . 声明 示例 
+ 　 　 设 Procl 是 用户 自定义 动态链接库 EXAMPLE . DLL 中 的 1 个 处理函数 ， 其中 整型 参数 x 按值 传送 ， 双 精度 型 参数 y 按 地址 传送 ， 函数 返回值 为 双 精度 型 ， 且 动态链接库 EXAMPLE . DLL 存放 在 D盘 的 USER 子目录 ( 文件夹 ) 中 。 则 在 VB 应用程序 中 ， 对于 函数 Procl 的 声明 就 应该 为 ： 
+ 　 　 Declare   Function   Procl   Lib   “ D : ＼ User ＼ Example . dll " ( Byval   x   As   Integer , y   As   Double ) As   Double 
+ 2 　 动态链接库 函数 或 过程 的 调用 
+ 　 　 全局 模块 或 表格 级 模块 中 声明 函数 或 过程 以后 ， VB 应用程序 就 可以 像 调用 标准 函数 一样 随意 调用 动态链接库 函数 或 过程 了 。 
+ 　 　 1 . 动态链接库 函数 或 过程 的 调用 方法 
+ 　 　 尽管 动态链接库 函数 或 过程 的 调用 执行 方式 与 标准 函数 的 调用 执行 方式 完全 一样 ， 但 其 自身 具有 的 一系列 特点 要求 计算机用户 必须 注意 数据类型 的 一致性 、 参数 的 传递 方式 及 排列 方式 。 
+ 　 　 由于 在 实际 工作 过程 中 ， 动态链接库 函数 或 过程 主要 由 C ( 或 C++ ) 语言 开发 完成 ， 其 编写 和 设计 均 是 按 C语言 规范 实现 的 。 因此 要求 VB 应用程序 中 的 数据类型 与 C语言 的 数据类型 相对 应 ， 如表 1 所示 。 
+ 表 1 　 C 、 Windows 及 Visual   Basic 间 数据 
+ 类型 的 对应 关系 
+ 
+ CWindowsVisual   Basic 动态链接库 声明 
+ intBOOLByval   Integer% ( As   lnteger ) 
+ unsigned   charBYTEn / s% 
+ unsigned   intWORDByvel   lnteger% 
+ unsigned   longDWORDByval   Long & 
+ char   far * LPSTRByval   String $ 
+ WORDATOMByval   Integer% 
+ WORDHANDLEByval   Integer% 
+ HANDLEHWNDByval   Integer% 
+ HANDLEHICONByval   Integer% 
+ HANDLEHDCByval   Integer% 
+ HANDLEHMENUByval   Integer% 
+ HANDLEHBITMAPByval   Integer% 
+ DWORDCOLORREFByval   Long & 
+ 
+ 
+ 　 　 按照 表 1 数据类型 对应 关系 即可 将 绝大部分 链接库 函数 或 过程 声明 为 VB 函数 ， 进而 调用 执行 。 例如 ， Windows 操作系统 本身 提供 的 动态链接库 GDI . DLL 中 ， 确定 显示器 分辨率 的 函数 为 Get   Devicecaps ， 其 格式 为 ： 
+ 　 　 Int   GetDeviceCaps ( HDC   hdc , int   icapabicity ) ; 
+ 　 　 按照 转换规则 ， 在 VB 应用程序 中 声明 格式 应该 为 ： 
+ 　 　 Declare   Function   GetDeviceCaps   Lib “ GDI . DLL " ( Byval   hdc   As   Integer , Byval   icapabicity   As   Integer ) As   Integer 
+ 　 　 待 正确 声明 以后 ， 就 可以 像 调用 标准 函数 一样 来 调用 动态链接库 函数 或 过程 了 。 
+ 　 　 注意 ： 上述 声明 中 ， 也 可以 用 动态链接库 声明 符 表示 ， 例如 用 “ & " 表示 “ As   Integer " 。 
+ 　 　 2 . 动态链接库 函数 或 过程 调用 的 注意事项 
+ 　 　 动态 链接 函数 或 过程 的 调用 执行 应该 注意 如下 几点 ： 
+ 　 　 ( 1 ) 数组 参数 的 特别 处理 
+ 　 　 当 数组 中 的 单个 元素 作为 参数 时 ， 和 其他 类型 的 变量 参数传递 完全 一样 。 但是 ， 当 希望 传递 1 个 数组 时 ， 情况 就要 复杂 得 多 。 如果 是 数值 型 数组 ， 可以 通过 向 动态链接库 过程 或 函数 传递 数组 首 地址 的 方法 以 实现 数组 传递 。 这 是因为 Windows 在 给 数值 型 数据 分配 空间 时 ， 是 一段 连续 的 地址 空间 ， 而 传递 数组 的 首 地址 实际上 是 将 数组 中首 元素 以 地址 方式 ( 非 Byval 方式 ) 传递 参数 。 这样 ， 动态链接库 就 可以 通过 首 元素 地址 访问 整个 数组 变量 的 元素 。 
+ 　 　 但 若 是 1 个 字符串 数组 ， 动态链接库 就 无法 通过 首 地址 方式 访问 所有 元素 ， 其 理由 有 2 点 ： 一 是因为 Windows 和 VB 为 字符串 型 数组 分配 空间 时 ， 并 不是 一段 连续 的 地址 空间 ； 其次 ， 因为 每个 数组 元素 的 串长 不 一致 。 因此 ， 动态链接库 函数 或 过程 不能 接受 1 个 字符串 型 的 数组 作为 参数 。 
+ 　 　 如果 1 个 动态链接库 函数 需要 1 个 缓冲区 指针 的 参数 时 ， 可以 有 2 种 办法 实现 ： ( 1 ) 通过 字符串 变量 ； ( 2 ) 通过 1 个 数值 型 数组 。 不过 应 保证 变量 足够 长 或 数组 足够 大以 避免 缓冲区 溢出 而 造成 内存 冲突 。 
+ 　 　 ( 2 ) 字符串 类型 参数 的 处理 
+ 　 　 大多数 动态链接库 函数 或 过程 在 以 字符串 作为 参数 时 ， 要求 用 C语言 的 串 格式 ， 又 称为 ASCII 串 ， 其 特点 是 字符串 以 0 结束 。 对 这种 情况 作 Declare 声明 时 ， 要 以 Byval 方式 声明 ， VB 将 自动 把 VB 的 串 格式 转换成 C 串 格式 。 例如 对于 RegisterClipboardFormat ( ) 函数 ， 声明 如下 ： 
+ 　 　 Declare   Function   RegisterClipboardFormat%   Lib “ User " ( Byval   FormatName $ ) 
+ 　 　 在 VB 应用程序 中作 以下 的 调用 ： 
+ 　 　 i% = RegisterClipboardFormat% ( “ RTF " ) 
+ 　 　 虽然 在 Declare 声明 中 也 可以 用 Byval 方式 声明 串 变量 ， 但是 Byval 仅仅 起 1 个 串 格式 转换 的 说明 作用 ， 而 事实上 参数传递 仍 按 地址 方式 进行 。 但是 ， 有些 动态链接库 过程 会 改变 串 变量 ， 通过 给 串 变量 赋值 的 方法 ， 给 VB 应用程序 传递 出口 参数 ， 这样 当 入口 参数 的 串长 小于 出口 参数 的 串长 时 ， 就 有 可能 因此 而 覆盖 其他 内存 区域 ， 这 是因为 动态链接库 不能 也 无法 自动 为 串 变量 增加 空间 ， 它 只能 简单 地 将 出口 参数 的 串 内容 写 到 入口 串 变量 中 。 因此 在 这种 情况 下 ， 在 调用 此类 动态链接库 时 ， 要 保证 串 变量 参数 足够 长 ， 以 确保 不 造成 内存 冲突 。 
+ 　 　 但 需要 注意 的 是 ， 一些 专门 为 VB 设计 的 动态链接库 ， 对 字符串 变量 参数 不 需要 用 Byval 声明 。 
+ 　 　 ( 3 ) 用户 自定义 类型 参数 的 处理 
+ 　 　 一些 动态链接库 函数 以 记录 或 结构 作为 参数 。 VB 允许 将 1 个 用户 自定义 类型 的 结构 或 结构 中 的 某 一 单独 元素 作为 动态链接库 的 传递 参数 ， 用户 自定义 类型 参数 只能 按 地址 方式 传递 ， 而 不能 按值 方式 传递 ， 而且 这种 类型 只能 在 全局 模块 中 使用 。 
+ 　 　 值得 指出 的 是 ， 在 以 自定义 类型 作为 动态链接库 函数 传递 时 ， 类型 中 也 不能 有 可变 长 的 字符串 类型 ， 否则 仍 可能 出现 因串 内容 被 修改 而 造成 的 内存 冲突 问题 。 
+ 　 　 ( 4 ) 对象 属性 类型 参数 的 处理 
+ 　 　 当 需要 以 对象 属性 作为 动态链接库 函数 或 过程 参数 时 ， 必须 按值 方式 传递 。 在 Declare 声明 中 ， 参数 以 Byval 方式 声明 ， 则 在 调用 时 ， 可以 直接 调用 对象 的 属性 参数 ， 否则 必须 先 将 属性 参数 赋给 另 一 临时 变量 ， 再 以 临时 变量 为 参数传递 之 。 
+ 　 　 ( 5 ) 表格 和 控制 图 不能 作为 动态链接库 函数 或 过程 的 参数 
+ 　 　 由于 表格 及 控制 图 对象 本身 就是 非常复杂 的 数据结构 ， Windows 的 动态链接库 设计 并 没有 考虑 这种 数据结构 。 此外 ， Windows 的 动态链接库 也 不 支持系统 的 4 个 标准 对象 — — Screen 、 Clipboard 、 Printer 及 Debug 作为 参数 。   
+ 3 　 VB 应用程序 调用 动态链接库 示例 
+ 　 　 为了 全面 说明 VB 应用程序 调用 动态链接库 的 方法 和 步骤 ， 现 给出 1 个 VB 应用程序 示例 。 此 程序 的 功能 为 ： 在 1 个 窗体 中 显示 机器 及 Windows 的 一些 信息 ， 包括 CPU 类型 、 协处理器 是否 安装 、 Windows 运行 模式 、 系统 剩余 内存 、 系统 空闲 资源 等 。 
+ 　 　 该 程序 调用 了 3 个 动态链接库 函数 或 过程 ， 即 GetFreeSpace 、 GetWinFlags 和 GetFreeSystemResources ， 其中 ： 
+ 　 　 GetFreeSpace 函数 扫描 全局 堆 ， 确定 并 返回 剩余 内存空间 的 字节数 。 
+ 　 　 GetWinFlags 函数 获取 并 返回 系统 内存 配置 信息 ( 包括 CPU 类型 、 协处理器 是否 安装 及 运行 模式 ) 。 
+ 　 　 GetFreeSystemResources 函数 获取 并 返回 系统 资源分配 情况 。 
+ 　 　 该 VB 应用程序 示例 所 涉及 的 窗体 属性 见表 2 。 其 相关 源程序 如下 。 
+ 　 　 ’ Visual   Basic 应用程序 调用 动态链接库 示例 源程序 ， 烟台 
+ 　 　 ’ 师范学院   王 向阳 
+ 表 2 　 VB 应用程序 示例 窗体 属性 
+ 
+ 对象 CaptionName 
+ 窗体 系统 信息 Forminfo 
+ 标签 CPULabe11 
+ 标签 协处理器 Labe12 
+ 标签 Windows 运行 模式 Labe13 
+ 标签 系统 剩余 空间 Labe14 
+ 标签 系统 空闲 资源 Label5 
+ 标签 — — Labelcpu 
+ 标签 — — Labelmaths 
+ 标签 — — Labelrun 
+ 标签 — — LabelFreemem 
+ 标签 — — Labelresource 
+ 按钮 认可 CmdOk 
+ 
+ 
+ 　 　 Declare   Function   GetRes   Lib “ User " Alias “ GetFreeSystemResources " ( Byval   FuSysResource   As   Integer ) As   Integer 
+ 　 　 Declare   Function   GetWinFlags   Lib “ Kernel " ( ) As   Integer 
+ 　 　 Declare   Function   GetFreeSpace   Lib “ Kernel " ( Byval   Wflags% ) As   Long 
+ 　 　 Const   WFP － MODE = & H1 
+ 　 　 Const   WF － CPU086 = & H40 
+ 　 　 Const   WF － CPU186 = & H80 
+ 　 　 Const   WF － CPU286 = & H2 
+ 　 　 Const   WF － CPU386 = & H4 
+ 　 　 Const   WF － CPU486 = & H8 
+ 　 　 Const   WF － STANDARD = & H10 
+ 　 　 Const   WF － Win286 = & H10 
+ 　 　 Const   WF － ENHANCED = & H20 
+ 　 　 Const   WF － Win386 = & H20 
+ 　 　 Const   WF － LARGEFRAME = & H100 
+ 　 　 Const   WF － SMALLFRAME = & H200 
+ 　 　 Const   WF － 80x87 = & H400 
+ 　 　 ' 函数 
+ 　 　 Sub   Form － info － load ( ) 
+ 　 　 　 Winflags & = GetWinFlags ( ) 
+ 　 　 　 If   Winflags &   And   WF － CPU086   Then 
+ 　 　 　 　 Label － cpu . caption = “ 8086 " 
+ 　 　 　 ElseIf   Winflags &   And   WF － CPU186   Then 
+ 　 　 　 　 Label － cpu . caption = “ 80186 " 
+ 　 　 　 ElseIf   Winflags &   And   WF － 286   Then 
+ 　 　 　 　 Label － cpu . caption = “ 80286 " 
+ 　 　 　 ElseIf   Winflags &   And   WF － CPU386   Then 
+ 　 　 　 　 Label － cpu . caption = “ 80386 " 
+ 　 　 　 Else 
+ 　 　 　 　 Label － cpu . caption = “ 80486 或 更 高 " 
+ 　 　 　 Endif 
+ 　 　 　 If   Windflags &   And   WF － ENHANCED   Then 
+ 　 　 　 Label － run . caption = “ 386 增强 模式 " 
+ 　 　 　 Elseif   Winflags &   And   WF － Win286   Then 
+ 　 　 　 　 Label － run . caption = “ 标准 模式 " 
+ 　 　 　 Endif 
+ 　 　 　 If   Winflags &   And   WF － 80X87   Then 
+ 　 　 　 　 Label － maths . caption = “ 有 " 
+ 　 　 　 Elseif   Label － maths . caption = “ 无 " 
+ 　 　 　 Endif 
+ 　 　 　 Mem & = GetFreeSpace ( 0 ) 
+ 　 　 　 Label － freemem . caption = Format $ ( mem & / 1024 , “ ##.### " ) , + “ KB " 
+ 　 　 　 Res% = GetRes ( 0 ) 
+ 　 　 　 Labelresource . caption = Format $ ( res% , “ ## " ) + “ % " 
+ 　 　 End   Sub 
+ 　 　 Sub   CmdOk － Click ( ) 
+ 　 　 　 End 
+ 　 　 End   Sub   
+ 4 　 结束语 
+ 　 　 通过 上面 论述 可知 ， VB 应用程序 调用 动态链接库 简单 、 方便 ， 但 一定 要 遵守 相应 的 声明 、 调用 规则 ， 同时 必须 注意 一些 容易 发生 的 错误 。 有关 这 一点 ， 相信 广大 计算机用户 在 实际 工作 过程 中 会 逐渐 体会 到 。 
+ 作者 单位 ： 烟台 师范学院 数学 与 计算机科学 系 ( 264025 ) 
+ 参考文献 
+ 　 1 　 王 向阳 . Windows 内存 管理 与 应用 . 计算机技术 ， 1996 ； ( 6 ) 
+ 　 2 　 王 向阳 . 运用 Object   Windows 编写 WINDOWS 程序 . 微 计算机 应用 ， 1996 ， 17 ( 4 ) 
+ 　 3 　 王 向阳 . Windows   NT 和 Windows   95 执行 文件格式 剖析 . 微 计算机 应用 ， 1996 ； 17 ( 5 ) 
+ 　 4 　 王 向阳 . Windows 程序设计 基础 . 新潮电子 ， 1997 ； ( 5 ) 
+ ( 收稿 日期 ： 1998 - 07 - 04 ) 

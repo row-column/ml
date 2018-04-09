@@ -1,0 +1,44 @@
+航空 计测 技术 
+ AVIATION   METROLOGY   &   MEASUREMENT   TECHNOLOGY 
+ 1999 年   第 1 期   No.1   1999 
+ 
+ 
+ 
+ 提高 小 管径 频差法 超声波 流量计 
+ 测量 精度 的 数理 分析 
+ 富 　 强 　 梁 青阳 
+ 　 　 摘 　 要 　 小 管径 频差法 超声波 流量计 的 测量 精度 受 各种因素 的 影响 ， 因而 获得 较 高精度 比较 困难 。 本文 对 影响 小 管径 频差法 超声波 流量计 测量 精度 的 多种 因素 进行 数理 分析 。 在 此基础 上 结合 多年 研制 该 流量计 的 实际 经验 ， 提出 提高 测量 精度 的 措施 及其 方法 。 
+ 　 　 关键词 　 小 管径 　 超声波 流量计 　 精度 　 误差 
+ Mathematical   Analysis   of   Increasing 
+ Measurement   Precision   of   Ultrasonic   Flowmeter 
+ with   Small   Tube   Diameter   and   Frequency   Difference   Method 
+ Fu   Qiang , Liang   Qingyang 
+ 　 　 Abstract 　 The   precision   of   the   ultrasonic   flowmeter   with   small   tube   diameter   and   frequency   difference   method   is   affected   by   several   factors , so   to   gain   more   accuracy   is   difficult . In   this   paper   many   factors   affecting   the   precision   of   measurement   with   the   ultrasonic   flowmeter   with   small   tube   diameter   and   frequency   difference   method   are   analyzed   mathematically . Being   based   on   that   and   combining   with   the   practical   experence   of   developing   this   flowmeter   for   several   years , the   measure   and   method   for   increasing   precision   of   measurement   have   been   proposed . 
+ 　 　 Key   words 　 Small   tube   diameter , Ultrasonic   flowmeter , Precision , Error 
+ 
+ 1 　 频差法 超声波 流量计 的 数学模型 
+ 　 　 超声波 测量 基本原理 如图 1 所示 。 两个 超声波 换 
+ 
+ 图 1 　 Z 型 安装法 
+ 能器 P1 、 P2 分别 置于 管道 的 上 、 下游 。 则 超声波 在 顺流 和 逆流 方向 上 传播 的 时间 T1 、 T2 分别 为 
+ T1 ＝ D ／ cos θ ／ ( C ＋ Vsin θ ) ＋ τ ( 1 ) 
+ T2 ＝ D ／ cos θ ／ ( C － Vsin θ ) ＋ τ ( 2 ) 
+ 
+ 其中 ， D 为 管道 内径 ； C 为 被 测 流体 的 声速 ； V 为 流体 的 流速 ； τ 为 脉冲 信号 传播 的 附加 时间 ( 包括 在 声 楔 和 管壁 中 传播 时间 及 电路 中 的 延迟时间 ， 即 声波 不 在 被 测 流体 中 的 传播 时间 ) 。 
+ 　 　 该 超声波 在 顺流 和 逆流 方向 上 传播 的 频率 为 f1 、 f2 ， 由 ( 1 ) 、 ( 2 ) 式 可 得出 频差 △ f 为 
+ △ f ＝ f1 － f2 ＝ 1 ／ T1 － 1 ／ T2 ＝ DVsin2 θ ／ ( ( D ＋ τ Ccos θ ) 2 － ( τ Vsin2 θ ／ 2 ) 2 )   ( 3 ) 
+ 
+ 因为 在 实际 测量 中 V ＜ ＜ C ， 所以 ( D ＋ τ Ccos θ ) 2 ＞ ＞ ( τ Vsin2 θ ／ 2 ) 2 ， 则 △ f 简化 为 
+ △ f ＝ DVsin2 θ ／ ( D ＋ τ Ccos θ ) 2 ＝ ( sin2 θ ／ D ) ( 1 ＋ τ Ccos θ ／ D ) － 2V   ( 4 ) 
+ 
+ 从式 ( 4 ) 得出 流速 公式 
+ V ＝ ( D ／ sin2 θ ) ( 1 ＋ τ Ccos θ ／ D ) 2 △ f   ( 5 ) 
+ 因为 容积 流量 Q ＝ π ( D ／ 2 ) 2VD ( 6 ) 
+ 
+ 其中 ， VD ＝ V ／ K 为 管道 横截面 平均速度 ； K 为 流速 修正 系数 。 最后 得出 流量 的 数学 表达式 
+ Q ＝ π D3 ／ ( 4Ksin2 θ ) ( 1 ＋ τ Ccos θ ／ D ) 2 △ f   ( 7 ) 
+ 
+ 2 　 误差 分析 及 提高 测量 精度 的 措施 
+ 　 　 由 ( 7 ) 式 可见 ， 影响 测量 流量 精度 的 有 K 、 D 、 τ 、 θ 、 C 和 △ f 六个 因素 。 测 得 流量 Q 的 相对误差 应为 
+ δ Q ／ Q ＝ Q ／ K . δ K ／ Q ＋ Q ／ D . δ D ／ Q ＋ 
+ Q ／ 

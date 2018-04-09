@@ -1,0 +1,32 @@
+上海 航天 
+ AEROSPACE   SHANGHAI 
+ 2001   Vol.18   No.1   P.2 - 6 
+ 
+ 
+ 
+ 
+ 小 卫星 故障诊断 与 处理 技术 
+ 廖明宏 　   吴翔 虎 　   程 光明 　   
+ 摘 　 要 ： 介绍 一种 简单 有效 的 故障诊断 及 处理 技术 。 它 将 小 卫星 的 故障 分为 分系统 级 、 系统 级 和 系统 外部 级 三种 ， 并 由 星务 管理软件 处理 系统 级 故障 。 在 每个 循环 周期 都 对 遥测 参数 进行 采集 和 监测 ， 当 故障 发生 时 ， 根据 故障 的 优先级 ， 选择 并 恢复 具有 最高 优先级 的 故障 。 该 技术 在 某 小 卫星 中 应用 ， 能 有效 满足 系统控制 周期 的 限制 和 系统可靠性 要求 。 
+ 关键词 ： 小 卫星 ； 可靠性 ； 故障 检测 ； 故障 隔离 ； 故障 恢复 
+ 分类号 ： V474.2 　 文献 标识码 ： A 
+ 文章 编号 ： 1006 － 1630 （ 2001 ） 01 － 0002 － 05 
+ Fault   Detection   Isolation   and   Recovery   for   the   Small   Satellite 
+ LIAO   Ming - hong （ Computer   Science   Department   of   Harbin   Institute   of   Technology ,   Harbin   Heilongjiang   150001 ,   China ） 　 
+ WU   Xiang - hu （ Computer   Science   Department   of   Harbin   Institute   of   Technology ,   Harbin   Heilongjiang   150001 ,   China ） 　 
+ CHENG   Guang - ming （ Computer   Science   Department   of   Harbin   Institute   of   Technology ,   Harbin   Heilongjiang   150001 ,   China ） 　 
+ Abstract ： A   simple   but   effective   fault   diagnosis   and   processing   technique   is   introduced .   The   failures   of   small   satellite   are   divided   into   three   levels :   sub - system   level ,   system   level   and   outside   system   level ,   and   the   failures   in   system   level   are   processed   by   housekeeping   software .   The   telemetric   parameters   are   sampled   and   monitored   in   each   control   cycle .   When   failure   occurred ,   only   the   highest   priority   failure   is   selected   and   recovered .   This   technique   is   applied   in   small   satellite ,   and   satisfies   the   limitation   of   control   cycle   and   reliability   requirement   of   system . 
+ Keywords ： Small   satellite ;   Reliability ;   Fault   detection ;   Fault   isolation ;   Fault   recovery 
+ 基金项目 ： 得到 国家 高技术 航天 领域 863 - 2 基金 资助 （ 863 - 2 - 5 - 1 - 8 ） 
+ 作者简介 ： 廖明宏 （ 1966 - ） ， 男 ， 博士 / 副教授 ， 研究 领域 ： 操作系统 、 人工智能 、 并行 分布式 处理 ； 吴翔 虎 （ 1968 - ） ， 男 ， 硕士 / 讲师 ， 研究 领域 ： 操作系统 ； 程 光明 （ 1971 - ） ， 男 ， 博士生 ， 研究 领域 ： 嵌入式 系统 。   
+ 作者 单位 ： 廖明宏 （ 哈尔滨工业大学 计算机系 ， 黑龙江 哈尔滨   150001 ） 　 
+ 　 　 　 　 　 吴翔 虎 （ 哈尔滨工业大学 计算机系 ， 黑龙江 哈尔滨   150001 ） 　 
+ 　 　 　 　 　 程 光明 （ 哈尔滨工业大学 计算机系 ， 黑龙江 哈尔滨   150001 ） 　 
+ 参考文献 ： 
+ ［ 1 ］ Paules   G ,   Luther   M . NASA ' s   earth   science   program - Increasing   science   opportunity   and   payoff   though   small   satellites [ C ] .   2nd   Int .   Symposium   of   the   International   Academy   of   Astronautics ,   Berlin ,   April   1999 . 
+ ［ 2 ］ 税世鹏 . 新世纪 初 军用 卫星 技术 及 市场 发展 评析 [ J ] . 国际 太空 , 2000 , （ 5 ） . 
+ ［ 3 ］ 何慧婉 . 小 卫星 的 发展 应用 与 前景 [ C ] . 中国 空间科学 学会 空间 探测 专业 委员会 第九次 学术会议 论文集 , 重庆 , 1986.11 . 
+ ［ 4 ］ 蔡 开元 . 安全 关键 软件 的 可靠性 评估 [ C ] . 98 ' 航天 高技术 青年 学术 讨论会 , 黄山 , 1998 .   8 . 
+ 收稿 日期 ： 2000 年 6 月 29 日 
+ 修稿 日期 ： 2000 年 9 月 18 日 
+ 出版日期 ： 2001 年 2 月 25 日 

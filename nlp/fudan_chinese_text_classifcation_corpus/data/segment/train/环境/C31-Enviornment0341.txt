@@ -1,0 +1,115 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1998 年   第 18 卷   第 5 期   No.5   Vol.18   1998 
+ 科技期刊 
+ 
+ 大气环境 质量 评价 的 标度 指数 法 *   
+ 李祚泳 　 ( 成都 气象 学院 大气 电子 工程系 ， 成都   610041 ) 
+ 文 　 摘 　 提出 用 标度 表示 大气 污染物 分指数 和 大气环境 质量 综合 指数 新 概念 。 依据 大气 污染物 浓度 等 比 赋值 ， 其 危害 程度 等 差 分级 原则 ， 导出 了 标度 分指数 和 综合 指数 的 计算公式 。 标度 分指数 表达形式 简单 、 规范 ， 对 任何 污染 程度 都 以 统一 基准 衡量 ； 标度 综合 指数 既 能 反映 多种 污染物 并存 对 环境 的 综合 影响 ， 又 适当 突出 严重 污染物 对 环境 的 危害 。 通过 对 实例 的 应用 、 分析 和 比较 ， 证实 了 该 评价 方法 的 有效性 、 可比性 和 通用性 ， 且 这些 性质 不 受 污染物 种类 和 数目 多少 的 限制 。 
+ 关键词 　 大气环境 质量 　 环境质量 评价 　 标度 指数 　 综合 指数 
+ A   scale   index   method   for   air   environmental   quality   assessment . Li   Zuoyong   ( Department   of   Atmospheric   Electronics   Engineering ,   Chengdu   Institute   of   Meteorology ,   Chengdu   610041 ) . China   Environmental   Science.1998 , 18 ( 5 ) : 433 ～ 436 
+ Abstract — New   concepts   of   the   scale   partial   index   of   air   pollutants   and   the   scale   integrated   index   of   air   environmental   quality   are   suggested .   The   new   formulae   are   derived   for   the   scale   partial   index   and   the   scale   integrated   index   based   on   the   principle   that   the   harm   extents   of   air   pollutant   are   classified   by   equi - difference   as   the   concentration   values   of   air   pollutant   change   with   equi - ratio .   The   format   of   scale   partial   index   is   simple   and   normal .   It   is   denoted   by   unity   standard   for   multi - extent   pollutions .   The   scale   integrated   index   not   only   represents   the   integrated   influence   from   multi - pollutant   on   the   environment ,   but   also   puts   stress   on   the   damage   from   severe   air   pollutants   as   well .   The   effectiveness ,   comparison   ability   and   generality   which   have   nothing   to   do   with   the   sorts   and   numbers   of   air   pullutants   are   verified   by   the   application ,   analysis   and   comparison   of   cases . 
+ Key   words : air   environmental   quality 　 environmental   quality   assessment 　 scale   index 　 integrated   index 
+ 　 　   迄今为止 ， 国内外 已 提出 多种 大气环境 质量 评价 方法 〔 1 ～ 7 〕 。 综合 指数 法因 能 反映 多种 污染物 对 环境 的 共同 影响 及 形式 简单 ， 而常 被 人们 使用 。 但 综合 指数 法 的 可比性 和 通用性 差 〔 2 , 8 〕 。 武丽敏 曾 提出 了 一种 分指数 和 综合 指数 表达式 与 其它 指数 法 都 有 差异 的 指数 评价 方法 〔 8 〕 。 但 该 方法 中 各 污染物 分指数 表达式 各异 ， 且 对 综合 指数 中 两个 常数 c 、 d 的 确定 缺乏 有 说服力 的 依据 。 
+ 　 　 作者 在 考察 和 分析 现有 多种 大气环境 质量 指数 表达式 的 基础 上 ， 提出 一种 按 大气 污染物 浓度 等 比 赋值 ， 其 危害 程度 等 差 分级 的 新 的 标度 指数 评价 法 。 
+ 1 　 标度 指数 是 表示 大气环境 质量 的 依据 
+ 　 　 衡量 大气环境 质量 的 主要 依据 应是 大气 污染物 的 危害 程度 ， 而 第 i 种 污染物 的 危害 程度 通常 用 分指数 表示 为 ： 
+ 　 ( 1 ) 
+ 式 中 ： Cix 为 第 i 种 污染物 实测 浓度 ； Sij 为 第 i 种 污染物 第 j 级 标准 浓度 限值 。 由式 ( 1 ) 可 得 : 
+ 　 ( 2 ) 
+ 　 　 ( 2 ) 式 表明 分指数 变化 △ Ii 与 浓度 变化 △ Cix 成 线性关系 。 而 研究 指出 ， 在 大气 污染物 背景 浓度 限值 Ci0 至 明显 危害 浓度 限值 Cid 范围 内 ， 当 污染物 浓度 成 等 比 变化 时 ， 人 对 污染物 刺激 量 的 主观 差觉 反应 成 等 差 变化 ， 应 以 这种 等 差 变化 作为 污染物 危害 程度 变化 的 依据 〔 9 〕 。 因此 ， 污染物 分指数 的 变化 应该 用 等 差 变化 表示 ， 而 这种 等 差 变化 又 可用 标度 差 △ Ki 表示 ： 
+ 　 ( 3 ) 
+ 式 中 ： γ 为 比例 常数 。 式 ( 3 ) 表示 了 污染物 浓度 成 等 比 变化 时 ， 标度 差成 等 差 变化 。 
+ 2 　 标度 分指数 和 标度 综合 指数 计算公式 
+ 2.1 　 大气 污染物 的 标度 分指数 计算公式 
+ 　 　 根据 文献 〔 9 〕 ， 由 “ 等 比 赋值 ， 等 差 分级 ” 的 指数 标度 原理 ， 得到 i 污染物 浓度 值 Cik 与 背景 浓度 限值 Ci0 之间 的 关系式 ： 
+ 　 ( 4 ) 
+ 式 中 ： ai 为 i 污染物 相邻 两级 重要性 比率 。 
+ 　 ( 5 ) 
+ 式 中 ： Cid 为 i 污染物 的 明显 危害 浓度 ； Ki 为 i 污染物 的 浓度 Cik 相对 于 背景 浓度 Ci0 变化 的 标度 表示 ， 它 可 用作 表示 污染物 危害 程度 ， 称为 污染物 的 标度 分指数 。 由式 ( 4 ) 得 ： 
+ 　 ( 6 ) 
+ 　 　 表 1 列出 了 6 种 大气 污染物 的 背景 浓度 限值 Ci0 和 相邻 两级 客观 重要性 比率 ai 。 已知 i 污染物 浓度 值 Cik ， 由表 1 查出 Cio 和 ai ， 就 可以 由 公式 ( 6 ) 计算 出 i 污染物 的 标度 分指数 Ki 。 
+ 表 1 　 大气 污染物 背景 浓度 和 重要性 比率 
+ Table   1 　 Background   concentration   values   of   atmospheric   
+ pollutants   and   the   ratioes   of   importance 
+ 
+ 污染物 名称 Cio ( mg / m3 ) ai 
+ SO20.021 . 43 
+ 飘尘 0.021 . 43 
+ NOx0.021 . 35 
+ TSP0.051 . 40 
+ O30.051 . 26 
+ CO1.151 . 27 
+ 
+ 2.2 　 大气环境 质量 标度 综合 指数 计算公式 
+ 　 　 若 环境 受 n 种 污染物 共同 影响 ， 每种 污染物 标度 分指数 Ki 满足 公式 ( 4 ) 。 设 n 种 污染物 并存 时 的 标度 综合 指数 K 与 n 个 标度 分指数 Ki ( i = 1 , 2 , … ,   n ) 之间 有 如下 关系 ： 
+ 　 ( 7 ) 
+ 式 中 ： 为 n 种 污染物 的 相邻 两级 重要性 比率 ai 的 几何 均值 。 在 进行 大气环境 质量 综合 评价 时 ， 一般 考虑 表 1 中 6 种 污染物 已 足够 。 当 n = 6 时 ， = 1.354 , α 、 β 为 两个 待定 参数 。 对 公式 ( 7 ) 两边 取 对数 ， 可 得 ： 
+ 　 ( 8 ) 
+ 　 　 当 各 分指数 相等 时 ， 令 Ke = Ki   ( i = 1 , 2 ， … … ， n ) ， 则 由 ( 8 ) 得 ： 
+ 　 ( 9 ) 
+ 　 　 K / Ke 代表 具有 多个 相同 污染 程度 的 污染物 并存 情况 下 的 标度 综合 指数 比 单个 标度 分指数 增大 的 倍数 。 公式 ( 8 ) 中 的 α ， β 可 作 如下 确定 ： 设 只有 一个 标度 分指数 特别 大 ， 记为 Ki , m ， 其余 标度 分指数 都 很小 。 此种 情况 下 ， 允许 K < Ki , m ， 但 △ K = Ki , m - K 不得 大于 相邻 两个 等级 的 分指数 差 的 一半 。 因为 任何 相邻 两个 等级 的 分指数 变化 ， 即 标度 变化 为 △ Ki , j = 2 , 故 △ K = 1 。 考虑 到 Ki , m 最大 可能 等级 为 Ⅲ 级 ， 此时 标度 分指数 为 Ki , m = 7 ， 故 允许 ≤ 0.15 ； 又 当 所有 6 个 标度 分指数 都 近似 相等 时 ， 标度 综合 指数 K > Ki , m ， 但 考虑 到 最大 不得 超过 一个 等级 ， 故 △ K = △ Ki , m = 2 。 同样 考虑 Ki , m = 7 ， 故有 ≤ 0.3 。 考虑 到 上述 两种 极端 情况 ， 于是 可 设 ： 
+ 
+ 将 ( 10 ) 代入 ( 9 ) 求解 联立方程 ， 可 得 ： 
+ 　 ( 11 ) 
+ 再 将 α 、 β 值 代入 公式 ( 8 ) ， 可 得 大气环境 质量 的 标度 综合 指数 计算公式 ： 
+ ( 12 ) 
+ 可见 ， 只要 由 公式 ( 6 ) 计算 得 标度 分指数 Ki ， 并 从表 1 查出 相应 的 ai ， 就 可 由 公式 ( 12 ) 计算 出 标度 综合 指数 K 。 
+ 2.3 　 标度 分指数 和 标度 综合 指数 的 分级 标准 
+ 　 　 按照 我国 大气环境 质量标准 GB3095 - 82 , 将 各种 污染物 的 各级 标准 日 平均 浓度 限值 代入 公式 ( 6 ) ， 计算 出 的 各级 标准值 作为 标度 分指数 的 分级 标准 ， 各级 标准 6 种 污染物 标度 分指数 的 算术 均值 作为 标度 综合 指数 分级 标准 。 各级 标准 的 标度 分指数 Ki 和 标度 综合 指数 K 见表 2 。 
+ 表 2 　 Ki 和 K 分级 标准 
+ Table   2 　 Classified   standards   on   partial   index   Ki   and   integrated   index   K 
+ 
+ 级别 KiK 
+ SO2 飘尘 NOxTSPO3CO 
+ I2.562 . 563.053 . 303.805 . 20 ( - ∞ , 3.5 〕 
+ II5.645 . 645.355 . 385.055 . 20 〔 3.5 ,   5.5 〕 
+ III7.067 . 066.706 . 926.006 . 88 〔 5.5 ,   ∞ ) 
+ 
+ 3 　 评价 实例 
+ 3.1 　 评价 结果 
+ 　 　 此处 评价 实例 监测数据 引 自 文献 〔 8 〕 。 表 3 列出 了 某 矿区 11 个 监测点 3 项 大气 污染物 浓度 的 监测 值 。 用 标度 分指数 公式 ( 6 ) 和 标度 综合 指数 公式 ( 12 ) 计算 出 的 各点 大气环境 质量 分指数 Ki 和 标度 综合 指数 K 见表 3 。 表 3 中 同时 列出 文献 〔 8 〕 用 Wu 氏法 对 该例 各点 的 评价 结果 。 
+ 　 　 比较 两种 评价 结果 可以 看出 ： 标度 指数 法对 2 、 5 两点 大气质量 评价 分级 结果 比 Wu 氏法 评价 分级 结果 提高 1 级 ， 这 是因为 这两点 均 只有 1 种 污染物 危害 程度 特别 突出 。 对 这种 情况 ， 标度 指数 法 允许 标度 综合 指数 比 最大 标度 分指数 小 15% ， 而 Wu 氏法 只 允许 5% 的 宽容 。 8 号点 的 3 种 污染物 危害 程度 接近 ， 标度 法 比较 强调 多因子 的 综合 影响 ， 因此 评价 分级 结果 比 Wu 氏法 降低 1 个 等级 。 其余 8 个点 两种 指数 法 评价 分级 结果 相同 。 作者 还 将 标度 指数 法 应用 于 武汉市 8 个点 ， 本溪市 8 个 测点 和 大同市 5 个 测点 的 大气环境 质量 综合 评价 ， 评价 结果 均 与 实况 相符 。 
+ 表 3 　 各 测点 的 大气 污染物 浓度 监测 值 Cik ( mg / m3 ) 、 Ki 、 K 和 评价 结果 
+ Table   3 　 The   monitoring   values   Cik   of   concentration ，   partial   index   Ki ， integrated   index   K   and   assessment   results   of   atmospheric   pollutants   in   sites   
+ 
+ 测点 SO2NOxTSP 综合 指数 
+ K 标度 法   
+ 分级   Wu 氏法 　 
+ 分级 　 
+ C1kK1C2kK2C3kK3 
+ 10.0552 . 730.0361 . 950.2394 . 704.53 IIII 
+ 20.0220 . 270.013 - 1.430 . 1883.981 . 33III 
+ 30.0974 . 420.0271 . 000.4176 . 385.76 IIIIII 
+ 40.1585 . 780.036   1.950 . 5126.997 . 18IIIIII 
+ 50.0270 . 840.3501 . 860.4576 . 654.39 IIIII 
+ 60.0341 . 480.018 - 0.350 . 1092.341 . 75II 
+ 70.0643 . 250.0583 . 540.1763 . 784.97 IIII 
+ 80.0864 . 080.0633 . 810.2124 . 345.80 IIIII 
+ 90.0603 . 070.0271 . 000.6577 . 745.71 IIIIII 
+ 100.0492 . 510.0472 . 840.1453 . 204.04 IIII 
+ 110.1515 . 650.1015 . 380.3025 . 417.78 IIIIII 
+ 
+ 4 　 结论 
+ 　 　 用 标度 指数 法 表示 大气环境 质量 具有 以下 7 个 特点 。 
+ 4.1 　 污染物 浓度 成 等 比 变化 ， 其 标度 分指数 成 等 差 变化 ， 符合 污染物 的 客观 刺激 量 与 主观 感觉 之间 的 韦伯 — 费希纳 实验 定律 ， 因而 用 标度 分指数 表示 大气环境 质量 是 有 科学实验 依据 的 。 
+ 4.2 　 对 任何 程度 的 污染 ， 标度 分指数 都 以 背景 浓度 Ci0 和 明显 危害 浓度 Cid 作 基准 去 衡量 ， 一个 浓度 值 只 对应 一个 标度 分指数 ， 因而 标度 指数 公式 不 受 环境 区域 限制 ， 通用性 好 。 
+ 4.3 　 在 相同 危害 程度 下 ， 不同 污染物 有 相等 或 相近 的 标度 分指数 。 
+ 4.4 　 由 公式 ( 6 ) 可知 ， 当 Cik < Ci0 时 ， 有 Ki < 0 。 因此 ， 标度 分指数 可以 有 负值 。 标度 分指数 为 负值 表示 该 污染物 浓度 值 低于 背景 浓度 值 ， 因而 对 环境 未 造成 任何 危害 。 
+ 4.5 　 标度 综合 指数 既 能 反映 多种 污染物 并存 时 对 环境 的 综合 影响 ， 又 适当 突出 了 严重 污染物 对 环境 的 危害 程度 。 
+ 4.6 　 标度 综合 指数 具有 横向 和 纵向 可比性 ， 这种 可比性 不 受 污染物 种类 和 数目 多少 的 限制 。 
+ 4.7 　 标度 分指数 Ki 和 标度 综合 指数 K 表达形式 简单 、 规范 ， 而且 表达式 中 都 只有 一个 参数 ai ， 计算 方便 。 
+ 参考文献 
+ 1 　 Golden   Jack .   Environment   impact   data   book .   Mclean .   Virginia :   Environmental   Assessment   and   Planning   Department   MITRE   Corporation ,   1980.23 ～ 71 
+ 2 　 Bezuglaya   E .   Yu ,   et   al .   Air   pollution   index   and   interpretation   of   measurements   of   toxic   pollutant   concentrations .   Atmos .   Environ . ,   1993 ,   27A ( 5 ) :   773 ～ 779 
+ 3 　 Goyal   P ,   Singh   M   P ， Gulati   A .   Air   quality   assessment   over   a   cement   industrial   complex .   Atmos .   Environ . ,   1996 ,   30 ( 7 ) : 1159 ～ 1166 
+ 4 　 侯 克复 .   环境 系统工程 .   北京 ： 北京理工大学 出版社 ， 1992.363 ～ 452 
+ 5 　 陈德明 ,   李祚泳 .   大气环境 质量 的 物元 分析 评价 法 .   环境 科学研究 ,   1994 ,   7 ( 2 ) :   24 ～ 28 
+ 6 　 李祚泳 ， 盛祖康 .   人工神经网络 用于 大气环境 质量 评价 与 排序 .   四川 环境 ， 1994 ,   13   ( 3 ) : 45 ～ 47 
+ 7 　 李祚泳 .   环境质量 综合 指数 的 余 分指数 合成 法 .   中国 环境 科学 ， 1997 ,   17 ( 6 ) : 554 ～ 556 
+ 8 　 武丽敏 ,   钱 振华 ,   张长青 .   大气质量 评价 综合 指数 法 的 研究 .   环境 科学 ， 1995 , 16 ( 3 ) : 58 ～ 60 
+ 9 　 李祚泳 .   基于 指数 标度 法 的 大气 污染物 标准 浓度 限值 . 中国 环境 科学 ， 1994 , 14 ( 3 ) : 196 ～ 199 
+ 作者简介 
+ 李祚泳 　 男 ， 1944 年 1 月生 。 理学 硕士 ， 教授 。 中国环境科学学会 大气环境 分会 委员会 委员 。 主要 从事 模糊数学 、 灰色 系统 、 层次 分析 、 多元分析 、 物元 分析 、 分形 与 分维 、 集对 分析 、 人工神经网络 及 投影 寻踪 技术 （ PP ） 等 在 环境 、 气象 、 灾害 学 和 光学 中 的 应用 基础 研究 。 主持 或 作为 主要 研究 人员 完成 了 国家 和 省部级 11 项 科研课题 ， 有 7 项 成果 获奖 。 已 在 国内外 发表 论文 约 180 篇 ， 有 9 篇 获 省市级 优秀论文 奖 ， 论著 5 本 。 论文 被 《 SCI 》 、 《 EI 》 、 《 PA 》 、 《 CA 》 和 《 中国 科学 引文 数据库 》 等 收录 或 检索 70 余次 。 
+ 收稿 日期 ： 1998 - 01 - 07 
+ *   国家自然科学基金 资助 项目 ( 49471048 ) 

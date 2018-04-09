@@ -1,0 +1,65 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 1 期   No.1   1999 
+ 
+ 
+ 
+ 对象 的 RSBO 表示 模型 * 
+ 奚建清 
+ 　 　 摘要 　 对象 的 内部 表示 决定 了 对象 的 存储 方式 和 访问 方式 , 文章 介绍 了 RSBO ( refined   synchronous   buffers   of   objects ) 表示 方法 , 是 SBO ( synchronous   buffers   of   objects ) 对象 表示法 的 改进 . RSBO 表示法 利用 解析 对象 结构 方式 , 把 对象 的 复杂 结构 分解 为 具有 相对 简单 结构 的 对象 节 . RSBO 在 SBO 表示法 的 基础 上 引入 了 指针 节 的 机制 . 指针 节 结构 是 对象 指针 的 扩展 , 并 能 同时 支持 在 复杂 对象 的 集合 上 的 访问 和 计算 . 另外 介绍 了 基于 RSBO 对象 的 访问 方式 和 索引 结构 , 传统 数据库 中 的 索引 技术 仍 能够 继续 在 基于 RSBO 表示 机制 的 对象 库中 使用 . 
+ 　 　 关键词 　 存储管理 , 数据库 , 面向对象 数据库 , 对象 表示 , 数据 访问 . 
+ 　 　 中图法 分类号 　 TP311 
+ RSBO :   an   Representation   Model   of   Objects 
+ XI   Jian - qing 
+ 　 　 Abstract 　 The   internal   representation   of   objects   in   ODBMS   ( object - oriented   database   management   system )   determines   the   way   to   store   and   access   the   objects .   In   this   paper ,   a   kind   of   object   representation   method — — RSBO   ( refined   synchronous   buffers   of   objects )   is   introduced .   The   method   is   a   refinement   of   SBO   ( synchronous   buffers   of   objects ) ,   which   is   a   kind   of   object   representation .   With   RSBO ,   an   object   having   sophisticated   structure   is   resolved   into   relatively   simple   object   sectors   ( pieces   of   the   object ) .   Based   on   SBO ,   RSBO   considers   the   mechanism   of   object   pointer   sectors ,   which   is   an   expansion   of   object   pointers .   Pointer   sectors   not   only   have   the   similar   properties   of   SBO   sectors ,   but   also   support   set - oriented   computation .   The   access   methods   and   possible   index   structures   on   RSBO   are   also   discussed .   The   traditional   index   method   can   be   still   used   on   RSBO . 
+ 　 　 Key   words 　 Storage   management ,   database ,   OODB   ( object - oriented   database ) ,   object   representation ,   data   access . 
+  　 面向对象 数据库 必须 支持 对象 的 联想 计算 和 导航 计算 . 文献 ［ 1 ］ 中 给出 了 一种 称为 SBO ( synchronous   buffers   of   objects ) 的 对象 表示 方法 , 其 基本 出发点 是 在 内存 中 用 尽量少 的 指针 表示 对象 间 的 关联 关系 （ 如 part - of 关系 ） , 因为 指针 只 支持 导航 计算 , 而 不 支持 集合 计算 . 指针 转换 及其 指针 跟踪 会 极大 地 降低 联想 计算 的 效率 . 在 SBO 表示 中 , 对象 值 的 一个 部分 称为 一个 对象 节 . 用 一组 内存 缓冲 数组 来 存储 对象 节 , 并用 数组 元素 下标 之间 的 一对一 的 对应 关系 来 表达 对象 节间 的 同步 关联 , 也 即 在 多个 关联 的 缓冲区 的 元素 指针 间 实施 同步 . 节 的 内存地址 可 在 编译 时 静态 确定 , 或 运行 时 动态分配 确定 . 通过 与 这种 内部 表示 相适应 的 访问控制 , 可 提高 对象 的 访问 效率 . SBO 表示 的 缺点 是 不能 表达 复杂 的 对象 结构 , 当 对象 节 之间 不能 直接 建立 起 一对一 的 对应 关系 时 , SBO 表示 就 失效 了 . 例如 , 下面 这些 情形 中 , 对象 节 之间 不能 建立 一对一 的 同步 关系 : ( 1 )   多个 对象 共享 同一 子 对象 ; ( 2 )   对象 节 关联 自身 或 关联 同一 对象 集合 节中 的 另 一个 对象 节 . 因此 , SBO 表示 在 表达能力 上 存在 着 缺陷 . 本文 引入 了 指针 节 的 概念 , 作为 SBO 表示 的 一种 扩充 , 使得 能 在 复杂 对象 关联 情况 下 , 建立 起 对象 节 之间 一对一 的 同步 关系 , 从而 支持 在 复杂 结构 对象 上 的 高效 访问 . 这种 扩充 的 SBO 表示 称为 RSBO ( refined   synchronous   buffers   of   objects ) 对象 表示 . 
+ 1 　 RSBO 表示 
+ 　 　 先 用 一个 例子 来 说明 RSBO 表示 模式 . 设 一个 类 Person 定义 了 如下 的 属性 “ 姓名   年龄   住址   相片 ” ( 为 简单 起 见 , 对象 标识符 和 操作 省略 了 ) . 这个 类 定义 中 没有 定义 复杂 的 对象 关联 关系 , 因此 , 利用 SBO 表示法 , 可 把 Person 对象 表示 为 如下 的 对象 节 ( s1   s2 ) , 其中 s1 = ( 姓名   年龄   住址 ) , s2 = ( 相片 ) . 显然 , s1 和 s2 之间 能 建立 起 一对一 的 关联 关系 . 逻辑 上 , 一个 对象 集合 的 节 可 表示 为 一个 数组 . 
+ 　 　 在 Person 中 加入 两个 新 的 属性 : “ 朋友   宿舍 ” , 其中 “ 朋友 ” 属性 的 值域 是 Person 实例 的 集合 , “ 宿舍 ” 的 值域 是 另 一个 类 ROOM 的 实例 集合 . 如果 多个 Person 对象 可以 共享 朋友 或 宿舍 , 并且 一个 Person 对象 的 朋友 可以 是 自己 , 则 这 两个 属性 引入 了 复杂 的 对象 关联 关系 . 假设 为 新 的 属性 设 两个 对象 节 s3 = ( 朋友 ) , s4 = ( 宿舍 ) , 则 s1 ［ i ］ 和 s2 ［ i ］ 及 s3 ［ i ］ 和 s4 ［ i ］ 之间 不 一定 具有 逻辑 关联 关系 . 为了 在 s1 , s2 , s3 , s4 之间 建立 这种 关系 , 另 引入 两个 对象 节 s ′ 3 和 s ′ 4 . s ′ 3 和 s ′ 4 中 的 元素 定义 如下 ： 
+ 　 　 令 L 是 对象 集合 节 的 长度 , “ & ” 和 “ * ” 与 C语言 中 的 地址 运算符 相同 . 对 任意 i , j , k ≤ L , 如果 有 Person 类 的 对象 o , 使 o = ( s1 ［ i ］   s2 ［ i ］   s3 ［ j ］   s4 ［ k ］ ) , 则 令 s ′ 3 ［ i ］ = & s3 ［ j ］ , s ′ 4 ［ i ］ = & s4 ［ k ］ . 
+ 　 　 因而 , 如果 o 存在 , 则 o = ( s1 ［ i ］   s2 ［ i ］   s3 ［ j ］   s4 ［ k ］ ) = ( s1 ［ i ］   s2 ［ i ］   * s ′ 3 ［ i ］   * s ′ 4 ［ i ］ ) , 把 ( s1 ［ i ］   s2 ［ i ］   s ′ 3 ［ i ］   s ′ 4 ［ i ］ ) 称为 o 的 RSBO 表示 . 下面 较 形式化 地 定义 这种 新 的 表示 , 有关 对象 节 的 定义 , 在 文献 ［ 1 ］ 中 已 给出 , 这里 不再 赘述 . 
+ 　 　 设 对象 集合 Ｏ 被 分成 多个 对象 集合 节 ( Ｏ 1 , Ｏ 2 , ... , Ｏ n ) , 则 对于 Ｏ 中 对象 Ｏ , 有 正整数 i1 , i2 , ... , in , 使得 o = ( Ｏ 1 ( i1 ) , Ｏ 2 ( i2 ) , ... , Ｏ n ( in ) ) . 
+ 　 　 定义 1 .   一个 对象 节 如果 含有 对象 OID , 则 称为 一个 主 对象 节 . 在 一个 对象 集合 Ｏ 中 , 对 任意 ( o = ( Ｏ 1 ( i1 ) , Ｏ 2 ( i2 ) , ... , Ｏ n ( in ) ) ) , 其中 Ｏ 1 ( i1 ) 是 o 的 主 对象 节 , 如果 ik = i1 , 则 Ｏ k ( ik ) 称为 o 的 普通 节 , Ｏ k 为 Ｏ 的 普通 节 , 否则 称为 异常 节 . 
+ 　 　 定义 2 .   对 对象 集合 Ｏ ＝ ( Ｏ 1 , ... , Ｏ n ) , 设 Ｏ 1 是 主 对象 节 对应 的 集合 节 ( 称为 Ｏ 的 主节 ) , 对 Ｏ 的 任一 异常 节 Ｏ j , 构造 一新 的 对象 节 Ｏ ′ j 如下 ： 对 任意 i , 若 Ｏ 1 ( i ) 和 Ｏ j ( k ) 同属 一 对象 , 则 令 Ｏ ′ j ( i ) = & Ｏ j ( k ) . 称 如此 构造 的 Ｏ ′ j 是 Ｏ 的 一个 指针 节 . 
+ 　 　 定义 3 .   在 对象 集合 O 的 SBO 表示 ( Ｏ 1 , Ｏ 2 , ... , Ｏ n ) 中 , 如果 把 所有 的 异常 节 都 换成 相应 的 指针 节 , 则 Ｏ 表示 为 ( Ｏ 1 , Ｏ ′ 2 , ... , Ｏ ′ n ) , 其中 Ｏ ′ i 或是 Ｏ 的 普通 节 , 或是 指针 节 , 则 这种 表示 称为 Ｏ 的 RSBO 表示 ( 改进 的 SBO 表示 ) . 为 直观 起 见 , 可 把 一个 对象 的 主节 说 成 是 该 对象 中 异常 节 的 共享 者 . 在 一个 对象 集合 的 RSBO 表示 中 , 每个 指针 节中 的 元素 和 主节 中同 下 标的 元素 是 一一对应 的 , 因此 , SBO 表示 中 的 同步 滑 性质 仍能 在 RSBO 表示 中 得到 保持 . 
+ 2 　 指针 节 结构 
+ 　 　 指针 节 的 实现 有 3 种 策略 . 
+ 　 　 ( 1 )   在 内存 中 用 普通 指针 实现 指针 节中 的 元素 , 例如 , 在 上述 例子 中 , 使 s ′ 3 ［ i ］ 等于 s3 ［ j ］ 的 地址 . 这种 方式 支持 快速 的 内存 访问 , 一次 间址 即可 访问 到 相应 的 异常 对象 节 . 这种 方案 适合 于 实现 诸如 Si 和 Sj 元素 之间 是 一对一 的 关联 关系 , 其 缺点 是 未 考虑 到 复杂 共享 和 存储管理 等 问题 . 
+ 　 　 ( 2 )   用 一个 称为 “ 译码器 ” 的 结点 地址 作为 指针 节 元素 , 其 结构 如图 1 所示 . 
+ 
+ 图 1 　 指针 节 和 异常 节 
+ 　 　 一个 对象 的 每个 异常 节有 一个 译码器 , 译码器 结点 具有 一个 指向 异常 节 的 指针 , 还 含有 一个 计数器 和 共享 者 的 地址 队列 . 计数器 记录 共享 该 异常 节 的 内存 对象 个数 , 设立 该 计数器 的 主要 目的 是 为了 在 释放 内存 分配 区时 防止 指针 悬空 . 与 第 1 种 方法 相比 , 这种 方法 需 两次 间址 才能 完成 访问 过程 . 为了 方便 应用程序 的 处理 , 译码器 中 还 可以 设置 一个 处理 指示器 , 表示 对应 的 异常 节 被 处理 过 的 次数 , 以 避免 在 一次 执行 过程 中 一个 异常 节 被 重复 处理 的 问题 . 
+ 　 　 ( 3 )   在 上述 方法 2 的 基础 上 , 把 各个 译码器 组织 成 一个 数组 , 另设 一个 普通 节 , 专门 存放 译码器 数组 元素 的 下标 , 从而 能 使 指针 节 和 其他 对象 节 之间 实现 同步 . 如果 共享 者 来自 同一个 对象 集合 节 , 则 译码器 的 共享 者 地址 队列 中 也 只 需 存放 共享 者 在 节中 的 序号 , 如图 2 所示 . 
+ 
+ 图 2 　 译码器 是 一个 数组 
+ 3 　 对象 访问 过程 
+ 　 　 下面 以 第 2 节中 的 方法 3 为例 , 讨论 基于 RSBO 表示 下 的 对象 访问 过程 . 在 引入 指针 节 结构 后 , 对象 的 I / O 可能 会 增加 指针 节 的 构造 , 访问 对象 值 的 过程 为 ： 
+ 　 　 ( a )   通过 对象 标识符 或 对象 结构 属性 名 访问 所属 类 及其 类 划分 表 ; 
+ 　 　 ( b )   确定 所 需要 访问 的 节 、 索引 和 外存 地址 ; 
+ 　 　 ( c )   确定 节 的 类型 ( 普通 节 或 指针 节 ) , 分配 相应 的 内存空间 ; 
+ 　 　 ( d )   输入 相应 的 节至 分配 的 节 空间 , 确定 指针 节中 的 各个 指针 元素 的 值 ; 
+ 　 　 ( e )   通过 属性 偏差 表和节 的 类型 访问 对象 节 , 得到 相应 的 对象 属性 值 的 直接 或 间接 地址 . 
+ 　 　 上述 过程 中 , 如果 对象 直接 类 可以 静态 确定 , 则 通过 编译器 完成 ( a ) 、 ( b ) 、 ( c ) 、 ( e ) 步 , 从而 执行 时 可以 得到 最高 的 访问 效率 . 对象 的 访问 方式 既 可以 是 导航 方式 , 也 可以 是 联想 方式 , 也 即 上述 的 访问 过程 与 计算 模式 无关 . RSBO 表示 下 , 对象 的 具体 访问 方法 类似 于 SBO 访问 方法 . ［ 1 ］ 但 对于 异常 节 的 访问 , 必须 通过 指针 节间 址 , 这种 访问 的 方式 类似 于 文献 ［ 2 ］ 中 讨论 的 情形 . 
+ 4 　 集合 属性 的 表示 
+ 　 　 对象 的 属性 值 可以 是 集合 类型 的 ( 包括 列表 、 元组 ) . 当 集合 属性 值中 的 元素 属于 普通 值 类型 , 并且 长度 固定 的 时候 , 可以 用 普通 节 直接 实现 这种 集合 类型 的 值 . 如果 属性 值 集合 是 可变 长 的 , 或 其中 的 元素 是 对象 , 或 含有 被 共享 的 部分 , 则 可以 用 指针 节来 实现 这种 集合 值 , 只 需 在 每个 指针 节 元素 中 存放 集合 的 地址 , 如图 3 所示 . 
+ 
+ 图 3 　 集合 属性 的 存放 
+ 5 　 索引 结构 
+ 　 　 索引 机制 是 数据库 用于 支持 高效 的 集合 访问 和 联想 查找 的 主要 设施 . 传统 的 关系 库中 , 索引 是 用 B + 树 、 Hash 表等 技术 来 实现 . 在 已有 的 一些 面向对象 数据库 如 Informix 中 , 对 对象 集合 的 查询 还 使用 了 R + 树 索引 技术 . ［ 3 , 4 ］ B + 树中 的 索引 键 是 属于 一个 关系 模式 中 的 属性 项 , 而 R + 树中 的 索引 键 是 对象 结构 空间 中 的 一个 区域 , 其中 的 属性 项 可以 属于 多个 类 模式 . 在 一个 数据库 中 , R + 树 支持 在 某 一 属性 空间 范围 内 对象 的 查找 . 单纯 的 B + 树 和 R + 树结构 不能 同时 支持 对象 路径 上 的 正反 向 查询 , 而 在 复杂 应用 中 , 从主 对象 到子 对象 的 正向 查询 和 从子 对象 到 主 对象 的 反向 查询 都 是 普遍 的 . ［ 2 ］ 
+ 　 　 在 RSBO 表示 模式 下 , 对于 一个 对象 集合 Ｏ , 若 Ｏ = ( S1 , ... , Sn ) , 其中 Si 是 Ｏ 的 节 , 则 由于 Si 在结构上 的 单纯性 , 其 外存 上 的 物理 存储技术 可以 采用 传统 的 数据库 的 存储技术 . 传统 的 索引 技术 如 B + 树 、 Hash 表 和 R + 树 等 技术 完全 可以 用于 对象 节 的 存储 上 , 所 不同 的 是 索引 树页 结点 中 的 指针 . 在 传统 的 B + 树中 , 一个 索引 指针 对应 一个 元组 ( 对象 ) 的 存储 位置 , 但 在 RSBO 表示 中 , 一个 索引 项中 的 一个 键值 可能 要 对应 多个 对象 节 的 存储 地址 . 
+ 　 　 由于 RSBO 表示 模式 能 把 对象 的 复杂 共享 或 嵌套 关联 的 结构 加以 析构 , 在 物理 组织 上 线性化 , 因此 , 可以 在子 对象 级别 上 建立 索引 , 支持 对子 对象 集合 的 浏览 访问 和 查询 . 同时 , 由于 主 对象 集合 节和子 对象 集合 节 的 顺序 是 一致 的 , 或能 通过 指针 节 达到 一致 , 因此 , 在 一个 节上 建立 的 索引 可以 同时 用于 查询 到 其他 同步 节上 的 数据 . 例如 , 在 “ 朋友 ” 属性 的 异常 节上 建立 的 索引 , 不仅 可以 用于 查询 “ 朋友 ” 子 对象 上 的 数据 , 还 可以 通过 节间 的 同步 关系 访问 “ person ” 类 的 节 s1 和 s2 . 
+ 　 　 对象 节间 的 同步 关系 使得 能够 利用 指针 节 实现 任何 一条 对象 访问 路径 , 而 不仅仅 是 实现 单个 对象 中 局部 的 part - of 关系 , 因此 , 文献 ［ 2 ］ 中 提出 的 扩展 对象 关系 可以 统一 地用 RSBO 表示 中 的 指针 节来 实现 , 并 在 任何 一条 对象 结构 路径 上 建立 索引 . 
+ 6 　 总 　 结 
+ 　 　 RSBO 表示 能 有效 地 支持 对象 的 结构 复杂性 , 减少 对象 结构 中 指针 的 使用 , 对象 节 和 指针 节 都 支持 集合 的 表示 和 单个 对象 的 表示 , 因此 , RSBO 结构 上 能够 进行 高效 的 导航 计算 和 集合 计算 . 特别 是 , 把 具有 复杂 关联 或 共享 关系 的 属性 表示 成 统一 的 指针 节 有助于 在 这种 复杂 属性 上 的 联想 搜索 , 这 在 已有 的 模型 中是 很 难 实现 的 . 
+ 本文 研究 得到 广东省 自然科学 基金 资助 。 
+ 作者 介绍 ： 奚建清 , 1962 年生 , 博士后 , 副教授 , 主要 研究 领域 为 数据库 , 面向对象 语言 . 
+ 本文 通讯联系 人 ： 奚建清 , 广州   510641 , 华南理工大学 计算机科学 系 
+ 作者 单位 ： 奚建清 　 华南理工大学 计算机科学 系 　 广州 　 510641 
+ E - mail :   csjqxi @ scut . edu . cn 
+ 参考文献 
+ 　 ［ 1 ］ 奚建清 . 支持 OODB 高效 计算 的 对象 表示 及其 机制 . 软件 学报 , 1997 , 8 ( 增刊 ) : 74 ～ 79 ( Xi   Jian - qing .   An   object   representation   and   mechanism   supporting   efficient   computation   in   OODB .   Journal   of   Software ,   1997 , 8 ( supplement ) : 74 ～ 79 ) 
+ 　 ［ 2 ］ Kemper   A ,   Amoerkotte   G .   Object - oriented   Database   Management .   Englewood   Cliffs ,   NJ :   Prentice   Hall   International   Inc . ,   1994 
+ 　 ［ 3 ］ Guttman   A .   R - trees :   a   dynamic   index   structure   for   spatial   searching .   In :   Beatrice   Yormark   ed .   Proceedings   of   ACM   SIGMOD   International   Conference   on   Management   of   Data .   New   York :   ACM   Press ,   1984 .   47 ～ 57 
+ 　 ［ 4 ］ Sellis   T ,   Roussopoulos   N ,   Faloutsos   C .   The   R +   tree :   a   dynamic   index   for   multi - dimensional   objects .   In :   Stocker   P   M ,   Kent   W ,   Hammersley   P   eds .   Proceedings   of   the   13th   International   Conference   on   Very   Large   Databases .   San   Francisco ,   CA :   Morgan   Kaufmann   Publishers   Inc . ,   1987 .   507 ～ 518 
+ 本文 1997 - 09 - 15 收到 原稿 , 1998 - 02 - 10 收到 修改稿 

@@ -1,0 +1,75 @@
+计算机 应用 
+ COMPUTER   APPLICATIONS 
+ 1999 年   第 19 卷   第 6 期   Vol.19   No.6   1999 
+ 
+ 
+ 
+ Web 服务器 与 数据库 服务器 的 连接 技术 
+ 丁明 吉 
+ 　 　 摘 　 要 　 本文 详细 论述 了 目前 主要 的 三种 接口技术 并 从 Web 模型 入手 ， 对 它们 的 接口 原理 和 开发 过程 进行 了 分析 与 对比 ， 最后 对 这 一 接口技术 的 发展 提出 了 看法 。 
+ 　 　 关键词 　 接口 , Web 服务器 , CGI , API , JDBC 
+ INTERCONNECTION   BETWEEN   WEB   SERVER   AND   DBMS   SERVER 
+ Ding   Mingji 
+ Information   Centre   of   Liaohe   Oilfield ,   Liaoning . Panjin   124010 
+ 　 　 Abstract 　 This   paper   expounding   three   present   major   interface   technology   in   detail ， beginning   with   Web   model   ， analyzing   and   comparing   their   interface   principle   and   their   developing   process .   Finally ， put   forward   my   view   in   the   development   of   this   interface   technology . 
+ 　 　 Keywords 　 Interface ， Web   server ， CGI ， API ， JDBC 
+ 1 　 Web 服务器 与 数据库 的 连接 方法 
+ 　 　 随着 应用 的 普及 ， Web 服务器 与 数据库 服务器 的 连接 显得 越来越 重要 ， 许多 厂商 不断 推出 新 的 接口技术 ， 使得 这种 连接 更加 简洁 、 方便 和 高效 。 Web 与 数据库 的 接口技术 已 成为 基于 Web 的 信息管理系统 的 核心 。 Web 服务器 与 数据库 的 连接 方法 通常 可 分为 基于 Java 的 （ JDBC ） 、 通用 网关 接口 ( CGI ) 及 应用 编程 接口 ( API ) 。 
+ 2 　 Java 数据库 互联 接口 ( JDBC ) 
+ 　 　 Java 的 推出 使 Web 页面 有 了 活力 和 动感 ， 用户 可以 从 Web 服务器 上 下载 Java 小 程序 到 本地 浏览器 上 运行 ， 这些 下载 的 小 程序 可以 就 向 本地 程序 一样 ， 可 独立 地 访问 本地 和 其他 服务器 的 资源 ， 下面 详细 介绍 JDBC 的 原理 及 实现 方法 。 
+ 2.1 　 JDBC 原理 
+ 　 　 JDBC 是 一种 可 用于 执行 SQL 语句 的 数据库 API ， 它 由 一些 Java 语言 写 的 类 、 界面 组成 。 它 在 功能 上 与 ODBC 相同 ， 给 开发人员 提供 了 一个 统一 的 、 标准 的 数据库 访问 接口 。 JDBC 访问 数据库 的 原理 是 : Internet / Intranet 用户 使用 浏览器 连接 到 本地 或 异地 的 Web 服务器 上 ， 下载 含有 Java 小 程序 的 HTML 文档 。 如果 Java 小 程序 使用 了 JDBC ， 浏览器 运行 的 小 程序 可 直接 与 数据库 建立 连接 ( 如图 1 所示 ) 。 
+ 
+ 图 1 　 通过 JDBC 访问 数据库 
+ 　 　 JDBC 是 一个 与 数据库系统 独立 的 API , 它 的 结构 有 两层 :   JDBC   API 和 JDBC   Drive   API 。 JDBC   API 提供 了 应用程序 到 JDBC   Driver   Manager 的 通信接口 ， JDBC   Driver   API 提供 了 JDBC   Driver   Manager 到 数据库 驱动程序 的 通信接口 。 
+ 　 　 JDBC   Driver   Manager 类似 于 ODBC   Driver   Manager ， 管理 由 各个 数据库 厂商 开发 的 JDBC 驱动程序 。 JavaSoft 提供 了 一个 通用 的 JDBC   Driver   Manager 。 每个 数据库 厂商 仅 需 提供 一个 与 ODBC 类似 的 JDBC 驱动程序 , 开发人员 就 可以 在 Java 语言 中 访问 该 数据库 。 此外 , JavaSoft 提供 了 一个 特殊 的 驱动程序 ， JDBC - ODBC 桥 ， 这个 桥 支持 JDBC 通过 已有 的 ODBC 驱动程序 访问 数据库 。 
+ 　 　 目前 JDBC 已 得到 许多 厂商 的 支持 ， 包括 Borland 、 IBM 、 Oracle 、 Sybase 等 。 目前 流行 的 大多数 数据库系统 都 推出 了 自己 的 JDBC 驱动程序 。 
+ 2.2 　 JDBC 实现 
+ 　 　 JDBC   API 是 通过 Java 的 类 接口 实现 的 ， 几个 主要 的 接口 是 : 
+ 　 　 ①   java . sql . DriverManager :   负责 处理 JDBC 数据库 驱动程序 的 加载 和 卸载 。 Drivermanager 类 作为 JDBC 的 管理层 ， 负责 找到 并 装入 与 URL 指定 的 数据库 相符 的 JDBC 驱动程序 。 该 驱动程序 与 远程 数据库 相连 ， 返回 一个 java . sql . connection 对象 。 
+ 　 　 ②   java . sql . Connection :   负责 建立 与 数据库 的 连接 。 
+ 　 　 ③ java . sql . ResultSet :   表示 从 数据库 服务器返回 的 结果 集 。 通过 操作 给 结果 集 实现 对 数据 的 访问 。 
+ 　 　 如果 要 访问 数据库 ， 首先 必须 建立 一个 java . sql . Connection 对象 ， 可以 通过 调用 DriverManager . get . Connection 得到 此 对象 。 该 方法 用 一个 URL 串 作为 参数 ， 该 URL 串 唯一 地 指定 了 要 访问 的 数据库 服务器 。 任何 一个 SQL 语句 都 可能 改变 数据库 内 的 数据 , 但是 , 如果 “ AutoCommit ” 失效 ， 则 必须 明显 地 使用 Commit ， 否则 无法 实现 数据库 的 更新 。 java . sql . Statement 指在 连接 状态 ， 能 执行 的 SQL 语句 ， 它 含有 两个 子类 :   java . sql . PreparedStatement   和   java . sql . CallableStatement ;   前者 执行 一个 预 编译 过 的 SQL   Statement ， 后者 执行 某一 连接 状态 数据库 内 的 存储 过程 。 JDBC   API 的 java . sql . ResultSet 对象 控制 经 Statement 获得 的 多行 数据 ， 它用 游标 ( Cursor ) 指示 当前 的 行 , 使用 Next 方法 可以 移动 Cursor 到 下 一行 。 ResultSet 的 GET 方法 能 让 你 获得 当前 行内 所有 列 的 值 。 
+ 　 　 下面 的 Java 程序段 将 连接 一个 ODBC 数据源 并 执行 一条 SQL 语句 , 返回 的 结果 集 放在 结果 集 对象 RS 中 。 
+ 　 String   url = " jdbc : odbc : Factory " ; 
+ Connection   on = DriverManager . GetConnection 
+ ( url , " UserName " , " PassWord " ) 
+ Statement   stmt = con . CreateStatement ( ) ; 
+ ResultSet   RS = stmt . ExecuteQuery 
+ ( " SELECT   Eno ， Ename ， Esex   FROM   Clerk " ) ; 
+ 　 　 JDBC 数据库 采用 URL 的 指名 规则 。 JDBC   URL 结构 为 : Jdbc : < SubPro - tocol > :   < SubName > , 其中 SubProtocol 表示 一个 特定 的 数据库 连接 , SubName 的 内容 依赖于 SubProtocol , “ jdbc : odbc : Factory ” 指定 一个 ODBC 数据源 Factory 。 
+ 3 　 通用 网关 接口技术 ( CGI ) 
+ 　 　 CGI 是 Web 服务器 运行 外部 程序 的 规范 ， 按照 CGI 编写 的 外部 扩展 程序 可以 处理 客户端 ( 通常 是 Web 浏览器 ) 输入 的 协同工作 数据 ， 完成 客户端 与 服务器 的 交互 操作 ， 扩展 服务器 的 功能 ， 完成 服务器 本身 不能 完成 的 工作 。 外部 程序执行 时 可以 生成 HTML 文档 ， 并 将 文档 返回 Web 服务器 。 
+ 　 　 CGI 应用程序 能够 与 浏览器 进行 交互作用 ， 还 可以 通过 数据库 的 API 与 数据库 服务器 等 外部 数据源 进行 通信 。 如 一个 CGI 程序 可以 从 数据库 服务器 中 获取数据 ， 然后 格式化 为 HTML 文档 后 发送给 浏览器 ， 也 可以 将 从 浏览器 获得 的 数据 放到 数据库 中 。 这样 ， 客户端 用户 就 可以 和 Web 服务器进行 数据处理 。 几乎 所有 的 服务器软件 都 支持 CGI ， 开发者 可以 使用 任 一种 Web 服务器 内置 语言 编写 CGI 语句 ， 其中 包括 广为 流行 的 Perl 语言 、 C 、 C++ 、 VB 、 Delphi 等 。 
+ 4 　 Web 服务器 应用 编程 接口 ( API ) 
+ 　 　 有些 Web 服务器软件 厂商 针对 CGI 运行 效率 低下 、 编程 困难 等 缺点 , 开发 了 各自 的 服务器 API ( Application   Programming   Interface ) ， 试图 克服 CGI 性能 方面 的 缺陷 。 
+ 　 　 服务器 API 一般 作为 一个 DLL 提供 , 是 驻留 在 Web 服务器 中 的 程序代码 ， 它 可以 象 CGI 那样 扩展 Web 服务器 的 功能 。 API 使 Web 开发者 实现 任何 CGI 可以 实现 的 功能 , 且 更加 面向用户 , 满足 应用程序 的 特殊 需求 。 常见 的 API 有 Microsoft 公司 的 ISAPI 、 Netscape 的 NSAPI 、 Informix 公司 的 IUWCAPI 。 
+ 　 　 由于 开发 API 应用程序 存在 许多 潜在 的 困难 , 所以 Microsoft 与 Netscape 在 其 各自 的 服务器 中 提供 了 基于 API 的 编程 接口 。 Microsoft 提供 了 IDC ( Internet   Database   Connector ) 。 Netscape 提供 了 LiveWire / LiveWire   Pro 。 
+ 5 　 各种 接口技术 的 比较 
+ 　 　 虽然 JDBC   、 CGI 和 Web   Server   API 都 能 实现 Web 与 数据库 的 连接 , 但 它们 的 工作 原理 是 不同 的 。 
+ 　 　 CGI 和 API 是 将 Web 服务器 与 某 一 进程 或 API 相连 ， 该 进程 或 API 将 得到 的 结果 格式化 为 HTML 文档 ， 返回 给 Web 服务器 ， 然后 由 Web 服务器 将 得到 的 HTML 文档 传给 浏览器 。 就是说 ， 与 数据库 的 交互 是 由 Web 服务器 完成 的 。 而 在 JDBC 中 ， 浏览器 将 嵌 于 HTML 文档 中 的 Java 应用程序 下载 到 能够 运行 Java 程序 的 本地 浏览器 中 加以 运行 ， 就是说 ， 与 数据库 服务器 的 交互 是 由 浏览器 直接 完成 的 。 表 1 对 它们 从 不同 侧面 进行 了 比较 。 
+ 表 1 　 各种 接口技术 比较 
+ 
+ 性 　 能 
+ 种 　 类 　 　 　 　 CGIAPIJDBC 
+ 实现 的 灵活性 好好 好 
+ 编程 的 复杂度 复杂 复杂 中等 
+ 对 程序员 的 要求 高高 中等 
+ 开发 时间 长长 中等 
+ 可移植性 较 好 差 好 
+ CPU 负担重 较轻 较 低 
+ 平台 有关 性 有关 有关 无关 
+ 
+ 　 　 相 比较而言 ， CGI 接口 应用 灵活 ， 开发工具 丰富 ， 功能 范围广 , 技术 相对 成熟 。 CGI 是 一个 大家 都 支持 的 规范 ， 但是 用 CGI 编程 太 复杂 , 一个 简单 的 Select 查询 ， 用 CGI 来 实现 就 需要 上 百条 语句 ;   CGI 运行 效率 也 不 高 , 并且 要求 程序员 必须 熟悉 HTML 。 再 加上 与 平台 有关 的 缺点 , 因而 CGI 会 被 新 的 规范 所 取代 。 
+ 　 　 用 Web 服务器 API 编写 的 程序运行 效率高 ， 但是 ， 用 API 编程 比 CGI 还 困难 ， 对 程序员 的 要求 更高 。 并且 API 致命 的 弱点 是 ， 各 API 间 没有 互通性 ， 用 一种 API 编写 的 程序 不能 到 另 一种 Web 服务器 上 运行 ， 限制 了 使用 范围 。 尽管 个别 公司 ( 如 Oracle ) 推出 了 基于 API 的 开发工具 , 在 一定 程度 上 解决 了 API 开发 困难 的 问题 , 但 仍 存在 与 API 一样 的 弱点 ， 与 各自 Web 服务器 捆绑 的 太 死 ， 缺乏 通用性 。 
+ 　 　 Java 编程 规范 ， 接口 清晰 ， 开发 效率高 。 Java 代码 在 可移植性 、 安全性 和 可靠性 等 方面 也 有 显著 优势 ， 利用 Java 的 多线程 控制技术 可以 大大提高 程序 的 执行 效率 。 而且 Java 翻译器 是 在 客户端 运行 ， 开发人员 能 创建 反馈 迅速 的 Java   Applet ， 这是 CGI 和 API 编程 无法 实现 的 。 
+ 　 　 虽然 Java 缺乏 组件 结构 , 交叉 平台 的 GUI 构架 很 粗糙 , 技术 还 不够 成熟 , 功能 也 有待 扩展 。 但 JDBC 仍 是 最 有 前途 的 接口技术 。 JDBC 借鉴 了 ODBC 的 思想 ， 可以 利用 现成 的 ODBC 驱动程序 访问 各类 数据库 , 保护 了 原有 的 投资 。 重要 的 是 , 在 数据库 方面 , 所有 的 数据库 厂商 都 宣布 支持 JDBC 标准 ， 已 推出 或 准备 推出 各自 的 JDBC 驱动程序 ; 在 Web 服务器 方面 , 除了 Microsoft 坚持 自己 的 ActiveX 外 ， 其他 厂商 都 宣布 支持 JDBC 标准 。 随着 时间 的 推移 ， JDBC 会 取代 CGI 成为 新 的 通用 的 接口 规范 。 
+ 6 　 前景 
+ 　 　 Web 服务器 与 数据库 服务器 的 接口技术 会 随着 Internet / Intranet 应用领域 不断 拓展 而 推陈出新 。 随着 分布式 对象 技术 在 Web 中 的 应用 , 使 人们 在 Internet / Intranet 上 实现 跨平台 互操作 的 愿望 有 可能 变为 现实 , 基于 分布式 对象 的 Web 数据库 应用 系统 将会 成为 企业 进行 分布式 管理 的 有力 武器 。 到 那时 ， 无论是 CGI 、 API 还是 JDBC 都 有 可能 成为 历史 ， 新 的 接口技术 会 更 方便 、 更 实用 、 更 安全 。 但 它们 的 思想 将 成为 这 一新 接口技术 诞生 的 基础 。 
+ 作者简介 ： 丁明 吉 　 硕士 。 主要 从事 数据库 应用 系统 和 浏览器 主页 的 开发 与 研究 。 
+ 作者 单位 ： 辽河油田 信息中心 　 辽宁 . 盘锦 （ 124010 ) 
+ 参考文献 
+ ［ 1 ］ 　 T . Berners - lee .   Hypertext   Transfer   protocol .   Internet   Engineering   Task   Foece   Working   Draft .   1993 , 11 
+ ［ 2 ］ 　 李建忠 , 付 　 裕 , 钱 清全 .   日新月异 WWW .   微电脑 世界 ,   1997 ; ( 2 ) : 100 - 103 
+ ［ 3 ］ 　 郑林峰 , 张公忠 .   JDBC 接口技术 . 中国 计算机 报 , 1997 ; 28 ( 7 ) : 82 
+ 收稿 日期 : 1999 - 02 - 01 ( 修改稿 ) 

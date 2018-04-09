@@ -1,0 +1,105 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE   
+ 1999 年   第 10 卷   第 5 期   Vol.10   No.5   1999 
+ 
+ 
+ 
+ 面向 软件 黑箱测试 的 仿真 环境 嵌入 故障 研究 
+ 屠海滢 　 吴芳美 
+ 摘要 　 故障注入 作为 软件测试 的 一种 有效 技术 已 进入 实用阶段 ,   然而 如何 在 软件 黑箱测试 中 运用 故障注入 技术 目前 尚 少有 文献 加以 论述 . 文章 提出 了 软件 黑箱测试 中 故障 外围 注入 的 思想 , 通过 嵌入 故障 的 仿真 环境 , 实现 对 被 测 软件 输入 级 的 故障 引入 , 改变 软件 的 运行 状态 , 诱发 内在 的 失效 模式 , 导致 错误 的 输出 , 从而 达到 预期 的 测试 目的 . 这一 方法 已 应用 于 铁路 车站 信号 控制系统 软件 的 测试 中 , 并 取得 了 良好 的 效果 . 
+ 关键词 　 软件测试 , 黑箱 , 环境 仿真 , 故障注入 , 铁路信号 . 
+ 中图法 分类号 　 TP311 
+ 　 　 Embedding   Fault   in   Simulation   Environment   for   Software   Black - box   Testing   
+ TU   Hai - ying   WU   Fang - mei 
+ Department   of   Telecommunication   Shanghai   Tiedao   University   Sha   nghai   200331 
+ Abstract 　   Fault - injection ,   as   a   perfected   technique   for   software   testing ,   now   has   been   put   into   practical   use .   However ,   only   a   very   few   of   the   documents   have   expounded   on   how   to   use   fault - injection   technique   in   soft   ware   black - box   testing .   A   new   approach   to   the   difficulty ,   i . e . ,   peripherally   in   jecting   faults   in   the   software   is   presented   in   this   paper .   By   means   of   a   fault -   imbedded   environmental   simulation ,   faults   are   injected   in   the   input   level   of   the   software   under   test .   These   faults   may   induce   inherent   failure   mode ,   thus   bringi   ng   about   unexpected   output - - consequently ,   the   anticipated   goal   of   the   test   is   attained .   This   method   has   been   used   for   testing   railway   signaling   control   system   software   and   desirable   results   have   been   achieved . 
+ Key   words 　 Software   testing ,   black - box ,   environmen   tal   simulation ,   fault   injection ,   railway   signaling . 
+     故障注入 技术 作为 一种 测试 技术 是 指 , 按照 特定 的 故障 模型 , 用人 为 的 、 有意识 的 方式 产生 故   障 , 并 施加 于 待 测系统 中 , 用以 加速 该 系统 的 错误 和 失效 的 发生 , 同时 观测 并 反馈系统 对 所注   入 故障 的 响应 信息 , 通过 分析 , 对系统 进行 验证 和 评价 的 过程 . 
+ 　 　 现有 的 用于 评价 系统 可信性 的 故障注入 方法 , 如 FERRARI ［ 1 ］ 是 将 软件 故障 直接 施加   于 被 测系统 ; DEPEND ［ 2 ］ 是 建立 原 系统 的 仿真 模型 , 通过 对模型 注入 故障 来 评估   原 系统 的 可信性 , 另外 还有 一些 基于 软件 、 基于 硬件 或 软硬件 结合 的 故障注入 方法 , 其 前提 都   是 被 测系统 必须 对 测试者 开放 , 也 就是 一个 白箱 . 本文 的 中心思想 是 将 故障注入 技术 应用 于 软   件 的 黑箱测试 , 即将 故障注入 到 被 测 软件 的 仿真 运行 环境 中 , 通过 嵌入 故障 的 仿真 环境 , 模拟   被测 软件 运行 环境 中 的 各种 异常情况 , 产生 非正常 的 输入 , 诱发 软件缺陷 的 暴露 , 导致 错误 的   输出 , 从而 达到 测试 的 目的 . 
+ 　 　 由于 当今世界 硬件 技术 的 迅猛发展 以及 系统 容错 技术 的 广泛应用 , 人们 并 不 怀疑 由 硬件 故障   而 导致 的 软件 失效 可以 是 微乎其微 的 . 相关 的 文献 表明 , 80% ～ 95% 的 实时 软件 的 失效 在 容错 系   统 中将 被 屏蔽 ［ 3 ］ . 相对而言 , 软件开发 过程 中 引入 的 软件缺陷 则 不可避免 . 这 一方面   是 由于 软件 需求 规格 说明 不够 详尽 或者 说明 有误 造成 的 , 另一方面 是 由 开发人员 考虑不周 而   导致 的 . 虽然 最终 提交 的 软件 往往 能够 很 好 地 满足 正常 功能 的 要求 , 然而 在 非正常 运行 条件 下   , 就 有 可能 出现 错误 的 结果 . 对于 有着 高可靠性 、 高 安全 需求 的 软件 , 这样 的 缺陷 甚至 有 可能   导致 严重 的 后果 . 鉴于 上述 原因 , 本文 论述 的 测试 将 针对 软件 的 功能 缺陷 进行 , 即 验证 软件 在   防范 外界 故障 方面 的 能力 . 我们 称 这种 测试 为 功能 负荷 测试 , 或 称为 功能 鲁棒性 测试 . 
+ 1 　   基于 对比 技术 的 软件 黑箱测试 方案 
+ 　 　 在 某些 应用领域 , 由 开发者 和 用户 以外 的 第 3 方来 进行 软件 的 可靠性 、 安全性 认证 是 必要 而且   可行 的 . 涉及 软件 的 保密性 及 专利 保护 等 因素 , 此时 的 被 测 软件 对 测试者 而言 只能 是 一个 “ 黑   箱 ” . 
+ 　 　 图 1 所示 为 一种 基于 对比 技术 的 软件 黑箱测试 方案 . 测试 方 根据 软件 的 需求 规格 说明 提供 对比   软件 , 即 确定 的 输入 、 输出 关系 . 测试 案例 同时 向 对比 软件 和 被 测 目标软件 输入 测试 信息 , 由   统计 评估 模块 负责 两路 输出 的 判别 和 评估 工作 . 同为 正常 的 输入 应 得出 一致 的 结果 , 而 非正常   的 输入 即 注入 一定 的 故障 后 , 则 可能 导致 不同 的 结果 . 由于 存在 着 测试 方对 自身 对比 软件 的 透   明 性 , 注入 的 故障 相对 于 对比 软件 是 已知 量 , 以此 来 测试 目标软件 对 故障 的 防范 能力 . 
+ 
+ 2 　 测试 用 仿真 环境 
+ 　 　 测试软件 , 尤其 是 具有 安全性 需求 的 软件 往往 需要 环境 仿真器 来 模拟 软件 的 执行 环境 ［ 4   ］ . 用于 测试 的 仿真 环境 应 与 被 测 软件 运行 的 真实 环境 在 功能 特性 、 时间 特性 及 故障 特性   上 尽可能 地 接近 . 在 黑箱测试 中 , 仿真 环境 是 作为 状态变量 集 S 输入 的 . 根据 面向对象 的 设   计 思想 而 构造 的 离散 事件 仿真 环境 具有 良好 的 适应性 和 灵活性 . 面向对象 的 仿真 环境 一般 有   如下 几个 主要 设计 步骤 : 
+ 　 　 （ a )   确定 有关 的 环境 对象 ; 
+ 　 　 ( b )   划分 对象 的 类 和 子类 ; 
+ 　 　 ( c )   建立 类 和 子类 的 仿真 模型 ; 
+ 　 　 ( d )   根据 模型 描述 各类 和 子类 的 活动 行为 , 即 状态 转移 事件 ; 
+ 　 　 ( e )   仿真 调度 . 
+ 　 　 假设 环境 中 与 测试 相关 的 不可 细化 的 类 或 子类 有 m 种 , 共含 n 个 对象 , 则 该 仿真 环境 将   包括 m 个类 封装 , 状态变量 集 S ＝ S1 × S2 × ... × Si × ... × Sn , S   i 表示 对象 i 的 状态 . 设 Si 有 Hi 种 取值 , 即 对象 i 有 Hi 种 可能 的 状态 （   实际上 与 对象 i 同属 一类 的 对象 都 有 Hi 种 可能 的 状态 ） , 则 m , n 或者 Hi   ( 1 ≤ i ≤ n   ) 的 值 越 大 , 仿真 环境 就 越 复杂 , 测试 的 工作量 也 将 随之 上升 . 
+ 3 　 嵌入 故障 的 环境 仿真 
+ 　 　 在 一般 情况 下 , 测试者 和 开发者 在 对待 目标软件 的 态度 上 有着 很大 的 区别 . 软件测试 的 目的 是   为了 尽量 暴露 软件 内在 的 缺陷 , 以便 纠正错误 , 去除 隐患 . 因而 , 让 目标软件 运行 在 人为 的 恶劣   环境 下 就 成 了 测试 的 一种 必要 手段 . 由于 仿真 在 时间 上 的 易于 把握 和 操作 中 的 无损 性 , 嵌入 故   障 的 环境 仿真 达到 了 在 实际 环境 中 进行 调试 时所 难以实现 的 测试 效果 . 它 不仅 能够 跟踪 软件   对 环境 中 持久 故障 的 反应 , 而且 可以 发现 软件 在 环境 的 瞬间 故障 下 出现 的 问题 . 根据 需要 , 各   种 在 实际 运行 中 具有 破坏性 的 测试项目 在 仿真 环境 中 也 可 方便 地 进行 . 
+ 　 　 在 向 仿真 环境 中 嵌入 故障 时 , 关键 并 不 在于 故障 的 起因 , 而 在于 区分 各种 故障 原因 在 某类 对象   上 表现 的 故障 行为 是否 相同 . 即以 不同 的 故障 行为 来 建立 类 的 故障 模型 , 而 并非 所有 现实 中 的   故障 形式 都 需要 仿真 . 基于 这一 思想 进行 的 设计 可 大大简化 仿真 模型 的 复杂程度 . 一种 可行 的   方案 是 : 首先 分析 软件 需求 规格 说明 中 所 描述 的 各 功能 项 , 列出 对应 目标软件 的 每 一 功能 项可   能 的 失效 模式 及其 与 仿真 环境 之间 的 密切联系 . 这种 分析 在 工程 应用软件 中 很大 程度 地 依赖   于 专家 经验 . 因而 建立 专家 知识库 在 特定 领域 中 至关重要 , 这 也 是 影响 测试 效率 的 关键 之 所在   . 其次 , 分析 造成 软件 失效 的 环境 故障 形式 , 归纳 故障 行为 . 最后 , 综合 环境 的 正常 行为 和 故障   行为 构造 模型 , 设计 仿真 活动 . 
+ 　 　 为 使 仿真 活动 易于 实现 , 可以 将 某类 对象 的 正常 状态 和 故障 状态 表示 在 一个 模型 中 , 建立 一体   化 嵌入 故障 的 仿真 环境 类 模型 . 因此 , 嵌入 故障 的 环境 仿真 将 在 前述 设计 步骤 中 的 ( c ) , ( d )   两步 作 适当 改动 , 即 : 
+ 　 　 ( c )   建立 类 和 子类 的 嵌入 故障 的 仿真 模型 , 此时 的 状态 转移 轨迹 包括 正常 态 之间 、 正   常态 向 故障 态 、 故障 态向 正常 态及 故障 态 之间 的 状态 转移 , 图 2 为 典型 的 抽象 后 的 仿真 类 模型   . 其中 : 正常 状态 的 集合 N = { Nj ｜ 1 ≤ j ≤ r } ; 故障 潜伏 状态 集 L = { Lj ｜   1 ≤ j ≤ s } ; 故障 状态 的 集合 F = { Fj ｜ 1 ≤ j ≤ t } ; 且 r + s + t = H ( H 为 该类 对象 的 可能 状态 数 ) .   + f 表示 注入 了 某种 故障 ; - f 表示 故障 消除 ; + k 表示 接受 某一 正常 的 动作 命令 . 
+ 
+ 　 　 ( d )   根据 模型 描述 各类 和 子类 的 含 故障 的 活动 行为 . 在 采取 离散 事件 时控 排序 法 的   环境 仿真 中 , 类 的 嵌入 故障 的 仿真 活动 可以 形式化 地 加以 描述 , 如图 3 所示 . 
+ 　 　 　 　 　 　 ∷ fault - embedded - action - process ( list , order ) 
+ 　 　 　 　 　 　 {   judge   the   object   location   is   right ; 
+ 　 　 　 　 　 　 　 　 switch ( order ) 
+ 　 　 　 　 　 　 　 　 　 　 　 { 　 case   k : insert   new   events   into   the   list   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 〈 object , time , original   state   Ni , following   state   Nj   〉 ; 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 〈 object , time , original   state   Li , following   state   Lj   〉 ; 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 〈 object , time , original   state   Li , following   state   Fj   〉 ; 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 〈 object , time , original   state   Fi , following   state   Fj   〉 ; 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 〈 object , time , original   state   Fi , following   state   Lj 〉 ;   
+ 　 　 　 　 　 　 　 　 　 case 　 f :   insert   two   kinds   of   new   events   into   the   list   ( + f   or   - f ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 〈 object , time , original   state   Ni , following   state   Fj   〉 ; 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 〈 object , time , original   state   Ni , following   state   Lj   〉 ; 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 〈 object , time , original   state   Li , following   state   Fj   〉 ; 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 〈 object , time , original   state   Fi , following   state   Fj   〉 ; 
+ 　 　 　 　 　 　 　 　 　 　 　 　 〈 object , time + duration , original   state   Fi , following   state   Nj 〉 ; 
+ 　 　 　 　 　 　 　 　 　 　 　 　 〈 object , time + duration , original   state   Li , following   stat   e   Nj 〉 ; 
+ 　 　 　 　 　 　 　 　 　 　 　 } 
+ 　 　 　 　 　 　 } 
+ 图 3 　   嵌入 故障 仿真 活动 的 形式化 描述 
+ 　 　 图中 的 〈 object , time , original   state , following   state 〉 表示 仿真 事件 , 4 个   参数 分别 代表 仿真 对象 、 事件 发生 时刻 、 对象 的 原始 状态 和 对象 的 后续 状态 . 其中 第 1 组 状态   转移 事件 发生 在 接收 正常 命令 ( order - k ) 时 , 第 2 组 状态 转移 事件 则 由 故障 命令 ( orde   r - f ) 引起 . 在 实现 过程 中 , 注入 故障 的 命令 与 正常 的 动作 命令 在 命令 格式 上 有所区别 . 一   般地 , 正常 动作 命令 的 记录 格式 为 〈 对象 object , 起始 时间 time , 命令 k 〉 , 而 故障 命令 的 记录   格式 为 〈 对象 object , 起始 时间 time , 故障 持续时间 duration , 故障 类型 f 〉 . 因而 我们 用   两个 函数 来 实现 上述 形式化 描述 的 仿真 活动 , 分别 用于 接收 正常 动作 命令 后 的 仿真 活动 和 接   收 注入 故障 命令 后 的 仿真 活动 . 
+ 　 　 由于 仿真 活动 函数 中 把 接收 某一 命令 后 所有 可能 的 状态 转移 事件 都 插入 到 了 事件 时序 表 list   中 , 造成 了 表中 可能 存在 大量 同时 事件 , 并且 对于 同一 对象 的 同时 事件 , 其中 只能 有 一个 是 有   效 事件 . 这样 必然 有损 仿真 的 效率 . 在 同时 事件 问题 严重 到 将 危及 仿真 的 有效性 时 , 已有 研究   工作 ［ 5 ］ 就 会 对 事件 表作 特殊 处理 , 改善 这一 现象 . 
+ 4 　 故障注入 测试 
+ 　 　 众所周知 , 关于软件 可信性 的 定量 评估 至今 尚 缺乏 令人满意 的 可行 方案 . 这里 阐述 的 针对 软件   功能 鲁棒性 的 测试 同样 也 很 难 给出 定量 的 指标 . 出于 对 实际 的 考虑 , 不妨 根据 测试 结果 来 对目   标 软件 进行 分级 评估 . 根据 不同 的 应用 情况 , 视某 一 级别 以上 的 软件 为 合格 （ 指 符合 用户 需求   ） 软件 , 该 级别 以下 的 软件 则 需 在 限制 条件 下 使用 . 对于 那些 缺陷 过多 的 软件 , 必须 加以 修改   , 并 进行 回归 测试 . 
+ 　 　 用于 这种 测试 的 测试 案例 除了 常规 操作 外 , 还有 一定量 的 可能 导致 较 高 故障率 的 操作 , 即 在 测   试 过程 中 使用 故障测试 案例 来 加速 目标软件 的 出错 概率 . 测试 案例 大致 可 分为 3 类 : 
+ 　 　 ( a )   常规 测试 案例 ( 仅 含 正常 动作 命令 k ) ; 
+ 　 　 ( b )   单 故障测试 案例 ( 含 1 种 故障 命令 f ) ; 
+ 　 　 ( c )   组合 故障测试 案例 ( 含 多种 故障 命令 ) . 
+ 　 　 常规 测试 即 无故障 条件 下 的 测试 用于 验证 软件 在 基本功能 上 的 完备 性 . 根据 需求 说明 及 专家   经验 抽象 出来 的 故障 负荷 测试 旨在 考验 被测 软件 在 外界 环境异常 时 的 安全性 . 根据 注入 的 是   单 故障 或是 多故障 、 此类 故障 在 现实 中 的 出现 频度 和 故障 导致 的 失效 后果 的 危害 程度 , 可以   将 测试 案例 划分 为 不同 等级 的 案例 集 . 案例 集 与 被 测 软件 输出 之间 的 映射 关系 如图 4 所示 . 其   中 A 为 常规 测试 案例 集 ; B 为 需求 规格 说明 中 要求 防护 的 单 故障 案例 或 组合 故障 案例 ; C 为 可   能 导致 危险 后果 的 单 故障 案例 或 组合 故障 案例 ; D 为 罕见 的 、 但 很 可能 导致 严重后果 的 单 故障   案例 或 组合 故障 案例 . 
+ 
+ 　 　 显然 , 前 两类 输出 是 用户 所 期望 的 , 因而 可以 得出 以下 结论 : 
+ 　 　 结论 ① :   目标软件 至少 应 满足 a2 ∪ b2 =  ; 
+ 　 　 结论 ② :   满足 a2 ∪ b2 ∪ c2 =  的 软件 具有 较强 的 抗干扰性 能 ;   
+ 　 　 结论 ③ :   满足 a2 ∪ b2 ∪ c2 ∪ d2 =  的 软件 堪称 优秀 软件 . 
+ 　 　 常规 测试 必须 保证 软件 的 每 一 基本功能 都 得到 了 充分 的 验证 . 对于 规模较   小 的 系统 , 推荐 使用 完备 测试 , 即将 每一 功能 项 的 每组 可能 存在 的 输入 都 作为 案例 , 这样 将 在   测试 功能 的 同时 , 附加 测试 了 目标 系统 在 数据 上 是否 有误 . 然而 , 当 被 测 软件 规模 较大 时 , 可能   造成 输入量 的 组合 爆炸 , 而 使 测试 在 时间 上 不再 可行 . 此时 只能 抽取 每个 功能 项 的 典型 输入 或   采取 随机 抽取 方式 进行 常规 测试 . 
+ 　 　 在 进行 单 故障 和 组合 故障测试 时 , 故障 的 注入 方式 可以 是 预先 设计 , 也 可以 是 随机 模式 . 单故   障 比较简单 , 对 仿真 环境 中 某 一 对象 设置 某种 故障 后 , 只 需 测试 该 对象 的 这 一 故障 可能 影响 的   功能 . 组合 故障 则 是 经过 精心设计 , 通过 多次 注入 单 故障 来 实现 的 . 这些 单 故障 可能 是 同一 对   象 的 不同 故障 类型 , 也 可能 是 发生 在 不同 对象 上 但 有 故障 相关性 的 故障 . 总之 , 这些 组合 故障   应是 在 实际 的 系统 运行 环境 中 可能 发生 的 , 比较 容易 引发 被测 软件 内在 缺陷 的 事件 . 可以 想像   , 单 故障 的 完备 测试 不难 实现 , 而 组合 故障 的 测试 则 不 可能 是 完备 的 , 因而 也 要 在 经过 等价 类   划分 后 进行 随机 测试 或 典型 测试 . 
+ 　 　 图 5 所示 的 是 单个 故障 的 注入 周期 , 组合 故障 是 多次 地 按 设定 的 时序 调用 这样 的 周期 来 注入 的   . 整体 的 自动测试 流程 如图 6 所示 , 图中 的 组合 故障测试 以双 故障 为例 . 在 测试 中 , 测试计划 根   据 划分 的 案例 集 按 由 低 至 高 的 顺序 进行 . 此外 , 一个 好 的 测试工具 必须 具备 相当 的 灵活性 . 尤   其 在 故障注入 测试 中 , 由于 穷尽 的 故障注入 是 不 可能 的 , 因而 在 自动测试 之外 , 还应 提供 一个   友好 的 人工 测试 界面 , 可以 方便 地 进行 各种 故障 设置 和 功能 项 测试 . 
+ 
+ 
+ 　 　 在 测试 时 还 需 关心 的 一个 重要 因素 是 软件测试 的 资源 开支 , 包括 测试 案例 的 设计 、 机 时 、 人   员 费用 等 . 应 综合 考虑 被测 软件 的 功能 需求 和 测试 开支 , 选择 最佳 的 软件 释放 时间 , 即 停止 测   试 , 由 用户 接管 系统 或 由 开发者 对 不 合格 软件 加以 修改 . 
+ 5 　 应用 实例 和 结论 
+ 　 　 本文 阐述 的 概念 和 思想 已 应用 于 铁路 车站 信号 控制系统 的 软件测试 中 . 由于 铁路 车站 信号 控   制 系统 是 一种 具有 高度 安全 需求 的 实时 控制系统 , 其 核心 软件 也 要求 是 安全软件 , 即 具有 故障   导向 安全 的 能力 . 
+ 　 　 根据 黑箱测试 思想 构造 的 测试 平台 如图 7 所示 . 
+ 
+ 　 　 车站 信号 控制系统 的 仿真 环境 包括 仿真 操纵台 （ 位于 平台 上位 机 , 仿 车站 值班员 的 操作 ） 和   仿真 现场 （ 位于 平台 下位 机 , 仿 车站 信号 设备 ） . 因而 嵌入 故障 后 的 仿真 环境 将 对 被 测 软件 产   生 4 类 输入 变量 : ( a )   值班员 的 正常 操作 ; ( b )   值班员 的 非正常 操作 ; ( c )   正常 的 现场 设备 状态   ; ( d )   非正常 的 现场 设备 状态 . 
+ 　 　 测试 案例 便是 根据 需求 说明 及 专家 经验 , 由 这 4 类 输入 变量 组合而成 . 对比 软件 及 统计 评估 模   块 均 位于 平台 上位 机 , 结合 被测 软件 的 输出 信息 进行 结果 分析 和 统计 评估 . 
+ 　 　 此 平台 已 对 多套 铁路 车站 信号 控制系统 软件 进行 了 系统 的 测试 , 并 取得 了 良好 的 效果 . 嵌入 故   障 的 仿真 环境 的 运用 暴露 了 一些 从未 发现 过 的 软件缺陷 . 如果 实际 运用 中 出现 了 仿真 环境 所   模拟 的 故障 , 有些 缺陷 便会 造成 严重 的 安全性 后果 . 表 1 为 测试 平台 对 两套 铁路 车站 信号 控制   系统 进行 软件测试 所得 结果 的 对照 . 被测 软件 1 在 常规 测试 中 发现 1 例非 安全性 缺陷 , 经 分析 属   于 设计 思想 有误 ; 在 罕见 故障 案例 测试 中 发现 安全性 缺陷 . 被测 软件 2 正常 通过 常规 测试 , 但 在   其他 3 类 案例 中均 存在 安全 或非 安全 的 缺陷 . 
+ 表 1 　 测试 结果 对照表 
+ 
+ 案例 等级 被测 软件 1 被测 软件 2 
+ A 有 缺陷 正常 
+ B 正常 有 缺陷 
+ C 正常 有 缺陷 有 缺陷 有 缺陷 
+ 
+ 　 　 这项 研究 在 案例 积累 、 测试 加速 和 仿真 环境 的 并行性 方面 还有 许多 值得 探讨 的 问题 , 将 在 今   后 的 工作 中 不断 地 深入 和 完善 . 
+ 本文 研究 得到 铁道部 发展 计划 项目 基金 资助 . 
+ 作者 屠海滢 , 女 , 1972 年生 , 博士生 , 主要 研究 领域 为 计算机 仿真 , 软件测试 技术 . 
+       吴芳美 , 女 , 1938 年生 , 教授 , 博士生 导师 , 主要 研究 领域 为 人工智能 , 安全 软件测试 评估 . 
+ 本文 通讯联系 人 : 屠海滢 , 上海   200331 , 上海 铁道 大学 电信 工程系 
+ 作者 单位 : ( 上海 铁道 大学 电信 工程系   上海   200331 ) 
+ 　 　 　 　 　 E - mail :   haiying @ shtdu . edu . cn 
+ 参考文献 
+ 　 [ 1 ] 　 Kanawati   G   A ,   Kanawati   N   A .   FERRARI :   a   flexible   software - based   fau   lt   and   error   injection   system .   IEEE   Transactions   on   Computer ,   1995 , 44 ( 2 ) : 248 ～ 25   9 
+ 　 [ 2 ] 　 Goswami   K   K ,   Lyer   R   K .   DEPEND :   a   simulation - based   environment   for   system   l   evel   dependability   analysis .   IEEE   Transactions   on   Computer ,   1997 , 46 ( 1 ) : 60 ～ 74 
+ 　 [ 3 ] 　 Tang   Dong ,   Hecht   H .   An   approach   to   measuring   and   assessing   dependabi   lity   for   critical   software   systems .   In :   Stark   G   ed .   Proceedings   of   the   8th   Inter   national   Symposium   on   Software   Reliability   Engineering .   Los   Alamitos ,   CA :   IEEE   C   omputer   Society   Press ,   1997 .   192 ～ 202 
+ 　 [ 4 ] 　 Zhu   Hong .   Specification   and   evaluation   of   software   environment   simul   ation   for   testing   safety   critical   software .   In :   Min   Ying - hua ,   Tang   Dong   eds .   Pr   oceedings   of   the   International   Workshop   on   Computer - aided ,   Design ,   Test ,   and   Ev   aluation   for   Dependability .   Beijing :   International   Academic   Publishers ,   1996 .   19   3 ～ 198 
+ 　 [ 5 ] 　 Steinman   J   S .   Interactive   SPEEDES .   In :   Rutan   A   H   ed .   Proceedings   of   the   24th   Annual   Simulation   Symposium .   Los   Alamitos ,   CA :   IEEE   Computer   Society   Pr   ess ,   1991 .   149 ～ 157 
+ 本文 1998 - 04 - 13 收到 原稿 , 1998 - 06 - 22 收到 修改稿 

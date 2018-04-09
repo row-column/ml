@@ -1,0 +1,140 @@
+计算机 工程 
+ COMPUTERENGINEERING 
+ 1999 年 　 第 25 卷 　 第 7 期 　 Vol.25 　 No.5 　 1999 
+ 
+ 
+ 
+ 基于 VB 和 DLL 的 硬件 端口 控制 方法 
+ 徐 击水   李毅 
+ 摘要   简要 介绍 16 位 和 32 位 Windows 系统 下 , 用户 动态 连接 库 的 开发 、 调用 及 实现 VB 对 硬件 端口 的 控制 方法 。 
+ 关键词   动态 连接 库 DLL   Visual   Basic   Visual   C++   ISA 总线   PCI 总线 
+ Computer   Inport   &   Outport   Control   Method   Based   on   DLL 
+ Xu   Jishui   Li   YI 
+ Wuhan   University   of   Hydraulic   &   Electric   Engineering   Wuhan   430072 
+ Abstract ： This   article   introduces   the   methods   of   progamming   DLL   under   the   16 - Bit   and   32 - Bit   Windows   environment ， and   clarifies   the   realization   of   VB   controling   computer   Inport & Outport   by   Using   DLL 
+ Key   words ： Dynamic   Link   Library （ DLL ） ； Visual   Basic ； Visual   C++ ； ISA   bus ； PCI   bus 
+ 　 　 Visual   Basic   ( 简称 VB ) 是 一种 可视化 的 面向对象 的 编程语言 ， 深受 广大 Windows 程序员 的 喜爱 。 但 和 任何 其它 语言 一样 ， VB 并 不能 满足 所有 的 编程 需要 ， 例如 没有 提供 读写 硬件 端口 、 控制 中断 等 硬件 控制 函数 。 而 在 一些 工业 控制 场合 ， 往往 需要 对 硬件 板卡 进行 读写操作 ， 如果 控制软件 是 采用 VB 编写 的 ， 就 很 有 必要 对 其 进行 功能扩充 ， 使 其 具有 操作 硬件 的 能力 。 实现 VB 功能扩充 的 方法 一般 是 编写 DLL 、 VBX 等 。 
+ 1 　 用户 动态 连接 库 ( DLL ) 的 开发 
+ 　 　 动态链接库 DLL ( Dynamic   Link   Library ) 是 Windows 最 显著 的 特点 之一 。 在 Windows 中 ， 动态链接库 提供 了 执行 不是 它 本身 执行 代码 部分 函数 的 调用 方法 。 该 函数 的 执行 码 位于 动态链接库 中 ， 包含 一个 或 多个 与 使用 它们 的 过程 分开 编译 、 链接 和 存储 的 函数 。 与 传统 的 静态 链接库 相比 ， 其 优点 主要 有 ： ① 执行 时才 连接 ， 不同 的 应用程序 能够 共享 ， 因此 节约 内存空间 ； ② 可 方便 地供 采用 其它 语言 的 程序 调用 。 
+ 　 　 一个 DLL 就是 一个 函数库 ， 当 一个 程序 要 调用 其中 某 函数 时 ， Windows 就 从 DLL 中 读出 并 运行 之 。 DLL 由 Windows 管理 ， 应用程序 调用 DLL 都 是 由 Windows 将 其 调入 内存 并 执行 的 。 
+ 　 　 Windows 操作 提供 很多 DLL 库 , 包括 " User . Exe " ， " Kernel . Exe " ， " Gdi . Exe " 等 。 这些 库 提供 从 硬件 驱动 到 GUI 界面设计 工具 等等 的 成千上万 个 函数 。 Windows 应用 程序接口 ( API ) 是 一组 动态链接库 ， 任何 使用 Windows   API 的 过程 都 使用 动态 链接 。 程序员 还 可以 根据 需要 编写 自己 新 硬件 设备 的 DLL 设备 驱动 函数库 ， 使 Windows 很 方便 地 支持 它们 的 应用 与 开发 。 
+ 　 　 Visual   C++ 1.52 和 Visual   C++ 2.0 都 提供 开发 DLL 途径 。 要 建立 DLL ， 首先 要 建立 一个 或 多个 源文件 ( . C ) 和 一个 模块 定义 文件 ( . DEF ) 。 源文件 包含 DLL 中 的 输出 的 函数 。 . DEF 文件 列出 这些 函数 并 定义 DLL 的 其它 属性 。 编译程序 使用 . C 文件 建立 目标 码 文件 ( . OBJ ) 。 库 管理程序 从 . DEF 文件 建立 一个 输出 文件 ( . EXP ) 和 一个 输入 库 文件 ( . LIB ) 。 最后 ， 链接 程序 使用 . OBJ 、 . EXP 和 . LIB 文件 产生 DLL 的 库 文件 。 . OBJ 和 . EXP 文件 提供 链接 程序 需要 产生 . DLL 文件 的 信息 。 . LIB 文件 包含 链接 程序 需要 解决 DLL 外部 引用 地址 的 信息 ， 这样 程序 在 运行 时能 找到 指定 的 DLL 。 
+ 2 　 VB 调用 DLL 方法 
+ 　 　 VB 通过 声明 和 执行 DLL 函数 可以 调用 Windows 的 各种 函数 、 功能 以及 程序员 自己 新 硬件 设备 的 DLL 设备 驱动 函数 ， 就 像 调用 自己 的 函数 一样 方便 。 VB 调用 DLL 函数 ， 分 两个 步骤 进行 ： ① 用 Visual   Basic 的 Declare 语句 声明 要 使用 的 DLL 过程 或 函数 ； ② 执行 DLL 子程序 。 
+ 　 　 目前 PC机 总线 形式 主要 有 ISA ( 16bits ) 、 PCI ( 32bits ) 和 VESA ( 32bits ) ， 对于 ISA 总线 一次 可以 读写 16bits ( a   word ) ， 而 对于 PCI 和 VESA 总线 一次 可以 读写 32bits ( double   word ) 。 下面 分别 介绍 16bits 和 32bits   Windows 系统 中 ， V C语言 编写 的 DLL 函数 以及 VB 对 DLL 的 调用 。 
+ 3 　 16 位 系统 中 用户 动态 连接 库 的 开发 及 调用 
+ 3.1 　 使用 Visual   C++ 1.52 编写 16 位 的 DLL 函数 
+ 　 　 ( 1 ) 建立 DLL 的 C语言 源文件 ( DLL 的 实现 部分 ) 
+ 　 　 / / PORT16 . CPP 
+ 　 　 # include   < windows . h > 
+ 　 　 # include   < conio . h > 
+ 　 　 / / 使 DLL 可 被 非 C 的 其它 语言 调用 ， 此 声明 必不可少 且 需 定义 为 全局变量 
+ 　 　 / / 这些 函数 适用 于 ISA   PCI   VESA 总线 
+ 　 　 extern " C " 
+ 　 　 {   int   _ export   WINAPI   Inportb ( int   port ) ; 　 　 / / input   a   byte   
+ 　 　 void   _ export   WINAPI   Outportb ( int   port , int   data ) ; 　 　 / / output   a   byte 
+ 　 　 int   _ export   WINAPI   Inportw ( int   port ) ; 　 　 / / input   a   word 
+ 　 　 void   _ export   WINAPI   Outportw ( int   port , int   data ) ; 　 　 / / output   a   word 
+ 　 　 } 
+ 　 　 / / DLL 标准 入口 点 
+ 　 　 int   FAR   PASCAL   LibMain ( HINSTANCE   hInstance , WORD   wDataSeg , WORD   wHeapsize , LPSTR   lpszCmdLine ) 
+ 　 　 {   if ( wHeapsize ! = 0 ) UnlockData ( 0 ) ; 　 　 return   1 ; } 
+ 　 　 / / DLL 标准 出口 点 
+ 　 　 int   FAR   PASCAL   _ export   WEP ( int   nParam ) 
+ 　 　 {   return   1 ; } 
+ 　 　 / / 端口 输入 函数 ( byte ) 
+ 　 　 int   _ export   WINAPI   Inportb ( int   port ) 
+ 　 　 {   return   _ inp ( port ) ; } 
+ 　 　 / / 端口 输出 函数 ( byte ) 
+ 　 　 void   _ export   WINAPI   Outportb ( int   port , int   data ) 
+ 　 　 {   _ outp ( port , data ) ; } 
+ 　 　 int   _ export   WINAPI   Inportw ( int   port ) 　 　 / / input   a   word 
+ 　 　 {   return   _ inpw ( port ) ; 　 } 
+ 　 　 void   _ export   WINAPI   Outportw ( int   port , int   data ) 　 / / output   a   word 
+ 　 　 {   _ outpw ( port , data ) ; } 
+ 　 　 ( 2 ) 建立 DLL 模块 定义 文件 ( DLL 的 输出 部分 ) 
+ 　 　 / / PORT16 . DEF 
+ 　 　 LIBRARY 　 PORT16 
+ 　 　 EXETYPE 　 WINDOWS 
+ 　 　 CODE 　 PRELOAD 　 MOVEABLE 　 DISCARDABLE 
+ 　 　 DATA 　 PRELOAD 　 MOVEABLE 
+ 　 　 HEAPSIZE 　 4096 
+ 　 　 EXPORTS 
+ 　 　 ( 3 ) 生成 动态 连接 库 port16 . dll 
+ 　 　 V C++ 1.52 生成 DLL 与其 编译 普通 的 Windows 应用程序 类似 ， 区别 在于 Project   Type ( 工程 文件类型 ) 中 选择   Windows   Dynamic - Link   Library ( . DLL ) 类型 。 Project 工程 文件名 称为 PORT16 ， 包含 PORT16 . CPP 和 PORT16 . DEF 两个 文件 。 
+ 3.2 　 VB4.0 - 16Bit 调用 DLL 
+ 　 　 以下 例子 通过 对 打印 端口 378H 进行 读写操作 ( 写出 和 读入 数据 应 相同 ) , 说明 VB 调用 DLL 过程 和 方法 。 运行 结果 ： 在 窗口 中 不断 显示 从 端口 读入 的 数据 0 - 255 。 
+ 　 　   ' 在 ( General ) 中 声明 DLL 过程 或 函数 
+ 　 　 Private   Declare   Sub   Outportb   Lib   " port16 . dll " ( ByVal   port   As   Integer , ByVal   data   As   Integer ) 
+ 　 　 Private   Declare   Function   Inportb   Lib " port16 . dll " ( ByVal   port   As   Integer ) As   Byte 
+ 　 　 Private   Declare     Sub   Outportw   Lib " port16 . dll " ( ByVal   port   As   Integer , ByVal   data   As   Integer ) 
+ 　 　 Private   Declare   Function   Inportw   Lib " port16 . dll " ( ByVal   port   As   Integer ) As   Integer 
+ 　 　 Dim   data   As   Integer 
+ 　 　   ' 在 Form 中 初始化 data 
+ 　 　 Private   Sub   Form _ Load ( ) 
+ 　 　 data = 0 
+ 　 　 End   Sub 
+ 　 　   ' 建立 一个 定时器 控件 和 Label 控件 
+ 　 　 Private   Sub   Timer1 _ Timer ( ) 
+ 　 　 Call   Outportb ( & H378 , data ) 　   ' 调用 port16 . dll 库中 的 Outportb (   ) 函数 , 输出 数据 
+ 　 　 Label1 . Caption = Inportb ( & H378 )   ' 调用 port16 . dll 库中 的 Inportb (   ) 函数 , 输入 数据 并 显示 
+ 　 　 data = data + 1 
+ 　 　 If   data > 255   Then   data = 0 
+ 　 　 End   Sub 
+ 4 　 32 位 系统 中 用户 动态 连接 库 的 开发 及 调用 
+ 4.1 　 使用 Visual   C++ 2.0 编写 32 位 的 DLL 函数 
+ 　 　 ( 1 )   建立 DLL 的 C语言 源文件 
+ 　 　 在 32 位 系统 中 编写 DLL 与 16 位中 规则 不同 ， WIN32 的 DLL 不再 需要 LibMain 和 WEP , 代之 的 是 DLLMain , 若 无 特别 申明 DLL 数据 归 所有 进程 共用 , 也就是说 ， 这一 进程 中 的 所有 线程 都 可 访问 这些 数据 ， 这 使得 编写 DLL 方便 多 了 。 这 因为 在 一般 下 我们 的 应用程序 文件 属于 一个 进程 ， 并且 端口 读写 不 涉及 数据共享 ， 即 不 需要 写 DLLMain 函数 。 
+ 　 　 / / PORT32 . CPP 
+ 　 　 # include   < windows . h > 
+ 　 　 # include   < conio . h > 
+ 　 　 / / 函数 Inportd ( ) 和 Outportd ( ) 仅 适用 PCI 和 VESA 总线 
+ 　 　 extern " C " 
+ 　 　 { LONG   FAR   PASCAL   Inportb ( LONG   port ) ; 　 / / input   a   byte 
+ 　 　 LONG   FAR   PASCAL   Inportw ( LONG   port ) ; 　 / / input   a   word 
+ 　 　 LONG   FAR   PASCAL   Inportd ( LONG   port ) ; 　 / / input   a   double   word 
+ 　 　 VOID   FAR   PASCAL   Outportb ( LONG   port , LONG   data ) ; 　 / / output   a   byte   
+ 　 　 VOID   FAR   PASCAL   Outportw ( LONG   port , LONG   data ) ; 　 / / output   a   word 
+ 　 　 VOID   FAR   PASCAL   Outportd ( LONG   port , LONG   data ) ; 　 / / output   a   double   word 
+ 　 　 } 
+ 　 　 LONG   FAR   PASCAL   Inportb ( LONG   port ) 　 / / input   a   byte 
+ 　 　 { return   _ inp ( ( int ) port ) ; } 
+ 　 　 LONG   FAR   PASCAL     Inportw ( LONG   port ) 　 / / input   a   word 
+ 　 　 { return   _ inpw ( ( int ) port ) ; } 
+ 　 　 LONG   FAR   PASCAL   Inportd ( LONG   port ) 　 / / input   a   double   word 
+ 　 　 { return _ inpd ( ( int ) port ) ; } 
+ 　 　 VOID   FAR   PASCAL   Outportb ( LONG   port , LONG   data ) 　 / / output   a   byte 
+ 　 　 { _ outp ( ( int ) port , data ) ; } 
+ 　 　 VOID   FAR   PASCAL   Outportw ( LONG   port , LONG   data ) 　 / / output   a   word 
+ 　 　 { _ outpw ( ( int ) port , ( int ) data ) ; } 
+ 　 　 VOID   FAR   PASCAL   Outportd ( LONG   port , LONG   data ) 　 / / output   a   double   word 
+ 　 　 { _ outpd ( ( int ) port , data ) ; } 
+ 　 　 ( 2 )   建立 DLL 模块 定义 文件   
+ 　 　 / / PORT32 . DEF 
+ 　 　 LIBRARY   PORT32 
+ 　 　 EXETYPE   WINDOWS 
+ 　 　 CODE 　 PRELOAD 　 MOVEABLE   DISCARDABLE 
+ 　 　 DATA 　 PRELOAD 　 MOVEABLE 
+ 　 　 EXPORTS 
+ 　 　 Inportb 
+ 　 　 Outportb 
+ 　 　 Inportw 
+ 　 　 Outportw 
+ 　 　 Inportd 
+ 　 　 Outportd 
+ 　 　 ( 3 ) 生成 动态 连接 库 port32 . dll ( 与 16 位 系统 的 生成 方法 相同 ) 
+ 4.2 　 VB4.0 - 32Bit 和 VB5.0 调用 DLL 
+ 　 　 ' 在 ( General ) 中 声明 DLL 过程 或 函数 
+ 　 　 Private   Declare   Sub   Outportb   Lib " port32 . dll " ( ByVal   port   As   Integer , ByVal   data   As   Integer ) 
+ 　 　 Private   Declare   Function   Inportb   Lib " port32 . dll " ( ByVal   port   As   Integer ) As   Byte 
+ 　 　 Private   Declare   Sub   Outportw   Lib " port32 . dll " ( ByVal   port   As   Integer , ByVal   data   As   Integer ) 
+ 　 　 Private   Declare   Function   Inportw   Lib " port32 . dll " ( ByVal   port   As   Integer ) As   Integer 
+ 　 　 Private   Declare   Sub   Outportd   Lib " port32 . dll " ( ByVal   port   As   Integer , ByVal   data   As   Long ) 
+ 　 　 Private   Declare   Function   Inportd   Lib " port32 . dll " ( ByVal   port   As   Integer ) As   Long 
+ 　 　 以后 的 使用 方法 同 16Bit 的 一样 ( 略 ) 。 
+ 作者简介 ： 徐 击水   男 ， 36 岁 ， 讲师 ， 主研 方向 ： 电力系统 自动化 ， 计算机 软 、 硬件 开发 
+ 作者 单位 ： 武汉 水利电力 大学   武汉   430072 
+ 参考文献 
+ 1 　 郑庆华 . Visual   Basic   3.0   for   Windows 程序设计 指南 . 西安 ： 西安   电子科技 大学 出版社 ,   1995 
+ 2 　 张道 军 ， 黄成 哲 . 在 VFP 中 利用 DLL 实现 硬件 端口 控制 . 微电脑 世界 , 1997 - 03 
+ 收稿 日期 ： 1998 - 09 - 07 

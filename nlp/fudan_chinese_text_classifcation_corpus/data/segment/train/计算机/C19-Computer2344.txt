@@ -1,0 +1,121 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 　 Vol.36 　 No.7 　 P.870 - 875 
+ 
+ 
+ 
+ 用户 访问 模式 数据挖掘 的 模型 与 算法 研究 
+ 周斌 　 吴 泉源 　 高洪奎 
+ 摘 　 要 ： 从 大量 顾客 日志 数据 中 挖掘 有 意义 的 用户 访问 模式 及 相关 的 潜在 顾客群 ， 是 现代 企业 发展 电子商务 战略 的 重要 支撑 技术 之一 . 文中 基于 E - OEM 模型 ， 提出 并 研究 了 综合 考虑 服务器 的 应用 逻辑设计 、 页面 拓扑 结构 及 用户 的 浏览 路径 等 多个 数据源 的 用户 访问 模式 及 潜在 顾客群 的 挖掘 算法 ， 并 以 实验 证明 该 模型 和 算法 的 有效性 . 
+ 关键词 ： 数据挖掘 与 知识 发现 ， 用户 访问 模式 ， 电子商务 
+ 分类号 ： TP311.13 
+ ON   MODEL   AND   ALGORITHMS   FOR   MINING 
+ USER   ACCESS   PATTERNS 
+ ZHOU   Bin 
+ （ College   of   Computer   Science ,   National   University   of   Defense   Technology ,   Changsha ,   410073 ） 
+ WU   Quan - Yuan 
+ （ College   of   Computer   Science ,   National   University   of   Defense   Technology ,   Changsha ,   410073 ） 
+ GAO   Hong - Kui 
+ （ College   of   Computer   Science ,   National   University   of   Defense   Technology ,   Changsha ,   410073 ） 
+ Abstract ： It   is   important   for   the   modern   enterprises   to   have   the   ability   of   discovering   useful   user   access   pattern   and   corresponding   potential   customers   from   large   volume   of   user   access   logs ,   so   that   they   can   benefit   from   their   electronic   commerce   strategies .   This   paper   presents   an   algorithm   for   mining   user   access   patterns   and   corresponding   potential   customers ,   which   are   based   on   E - OEM   model   to   integrate   application   logic ,   server   topology ,   and   user   browse   path .   Experiments   show   the   effectiveness   of   both   the   model   and   the   algorithm . 
+ Key   words ： data   mining   and   knowledge   discovery ,   user   access   pattern ,   E - business ▲ 
+ 1 　 引言 
+ 　 　 WWW （ world   wide   web ） 技术 的 日渐 成熟 ， 使 基于 这一 技术 的 应用 以 惊人 的 速度 向 社会 生活 的 方方面面 渗透 ： 从 教育 、 科研机构 间 的 信息 与 服务 的 交流 与 共享 ， 公司 、 企业 内部 分布 协同工作 的 管理 到 传统 商务 模式 向 电子商务 的 转型 ， 从而 使 人类 交互 信息 不可避免 地 电子化 和 海 量化 . 以 Web 服务器 日志 为例 ， 某些 Web 热点 的 日志 数据 正以 每天 数十 兆 的 速度 增长 . 从 这些 大量 数据 中 发现 有用 的 、 重要 的 知识 （ 包括 模式 、 规则 、 可视化 结构 等 ） ， 是 数据挖掘 与 知识 发现 （ data   mining   and   knowledge   discovery ,   简称 DMKD ） ［ 1 ］ 的 又 一 重要 研究 和 应用领域 . 
+ 　 　 DMKD 的 重要 应用领域 之一 是 商业 中 对 条码机 数据 （ bar   code ） 的 分析 ， 其 目的 是 发现 顾客 购物 规律 ， 为 商场 的 商业 决策 提供 支持 . 人类 生活 的 电子化 、 信息化 以及 商业 及 竞争 的 国际化 ， 使 DMKD 技术 在 很多 领域 得到 应用 并 进一步 发展 ， 已 成为 数据库 、 信息 决策 领域 的 重要 研究课题 之一 ［ 1 ］ . 基于 Web 服务器 日志 数据 的 DMKD 研究 也 越来越 受到重视 . 
+ 　 　 本文 以 电子商务 为 应用 背景 ， 讨论 我们 在 这 一 领域 的 研究 中 遇到 的 若干 问题 ， 如 模式 、 规则 形式 简单 、 可用性 不 理想 等 ， 以及 对 这些 问题 的 解决方案 . 
+ 2 　 相关 工作 
+ 　 　 从 研究 目标 的 角度 ， 已有 的 基于 Web 服务器 日志 数据 的 研究 大致 可以 分为 3 类 ： （ 1 ） 以 分析 系统 性能 为 目标 ； （ 2 ） 以 改进 系统 设计 为 目标 ； （ 3 ） 以 理解 用户 意图 为 目标 . 由于 各 目标 针对 的 功能 不同 ， 采取 的 主要 技术 也 不同 . 
+ 　 　 以 分析 系统 性能 为 目标 的 研究 ， 主要 是从 统计学 的 角度 ， 对 日志 数据项 进行 多种 简单 的 统计 ， 如 频繁 访问 页 、 单位 时间 访问 数 、 访问 数据量 随 时间 分布图 等 . 目前 已有 的 绝大多数 商用 及 免费 的 Web 日志 分析 工具 （ web   log   analyzer ） ［ 2 ］ 都 属 此类 . 这些 工具 的 使用者 一般 是 Web 服务器 管理者 （ 如 Web   master ） ； Web 服务器 的 设计 与 建设 的 主要 复杂性 是 它 必须 随着 设计者 及 用户 的 变化 而 不断 自我 调整 . Perkowitz 在 文献 ［ 3 ］ 中 研究 了 如何 以 日志 数据 为 依据 ， 对 Web 服务器 的 组织 和 表现形式 进行 自动 或 半自动 调整 ， 提出 了 adaptive   web   site 的 概念 . 这一 概念 虽然 是从 人机交互 和 软件 Agent 领域 提出 的 ， 但是 它 在 技术手段 上 却 很大 程度 上 与 DMKD 交叉 和 重叠 ； Chen 在 文献 ［ 4 ］ 中 提出 了 路径 游历 模式 （ path   traversal   pattern ） 的 发现 算法 . 算法 从 Web 服务器 日志 中 找出 频繁 的 用户 浏览 路径 . 此外 ， 将 数据仓库 及 OLAP 技术 用于 日志 分析 系统 的 建立 ， 也 是 一项 有 意义 的 工作 ［ 5 ］ . 
+ 　 　 上述 工作 都 能 从 大量 的 Web 日志 数据 中 找出 一定 的 模式 和 规则 ， 但是 目前 的 研究 结果 还 存在 不足 . 其中 ， 发现 的 模式 、 规则 的 可用性 不 理想 是 主要 问题 之一 . 这 一方面 体现 在 模式 、 规则 中 的 领域 信息 不够 ， 不易 用户 理解 . 举例来说 ， 算法 可以 发现 如下 模式 ： 对于 页面   A ， B ， C ， D ， 存在 一条 频繁 访问 路径 < A ,   B ,   C ,   D > . 更进一步 的 信息 ， 如该 路径 包含 的 用户 特征 、 对应 的 潜在 顾客群 等 ， 都 依赖于 用户 的 进一步 分析 ； 另一方面 体现 在 由 算法 对 数据 的 过于 敏感 （ overfit ） 而 导致 的 模式 粒度 过小而 数量 过多 . 
+ 3 　 用户 访问 模式 数据挖掘 的 模型 与 算法 
+ 　 　 我们 的 研究 工作 是 以 电子商务 （ E - business ） 中 网上 购物 （ net   marketing ） 为 应用 背景 的 . 商家 在 Web 上 建立 自己 的 在线 商品目录 （ online   catalog ） ， 顾客 （ 即 用户 ） 通过 浏览器 可以 浏览 商品目录 、 实现 网上 订购 甚至 网上支付 等 . 用户 与 商家 的 Web 服务器 间 交互 的 过程 信息 （ 包括 用户 的 登录 信息 、 用户 的 浏览 记录 ） 以及 用户 的 个人 简要 信息 等 ， 都 能 以 日志 文件 或 顾客 数据库 的 形式 存在 . 从中 找出 规律性 ， 对 商家 的 市场 销售 是 至关重要 的 . 本文 考虑 这样 一个 特定 问题 ： 如何 从 大量 顾客 数据 及 日志 数据 中 ， 挖掘出 有 意义 的 用户 访问 模式 及 相关 的 潜在 顾客群 . 这样 的 知识 将 有助于 商家 制定 促销 策略 . 
+ 3.1 　 E - OEM 数据模型 
+ 　 　 OEM （ object   exchange   model ） 模型 是 一种 描述 半 结构化 数据 的 数据模型 ［ 6 ］ . 为了 能够 从 数据 中 挖掘出 更有意义 的 知识 ， 我们 综合 考虑 服务器 的 应用 逻辑设计 、 页面 拓扑 结构 及 用户 的 浏览 路径 等 多个 数据源 和 领域 知识 . 为此 ， 我们 提出 扩展 的 OEM 模型 E - OEM （ extended   OEM ） ， 用来 描述 本文 讨论 的 问题 . 
+ 　 　 定义 1 .   对象 O 由 对象 标识 id ( O ) 和 对象 值 val ( O ) 组成 . id ( O ) 在 对象 空间 中 唯一 标识 对象 O . 对象 值 val ( O ) 可以 有 以下 两种 形式 ： 
+ 　 　 （ 1 ）   原子 形式 . val ( O ) = { l1 : d1 ,   … ,   lm : dm } ， 其中 ， li 是 属性 ， di 是 基本 数据类型 的 属性 值 ， i = 0 , 1 , … , m ； 
+ 　 　 （ 2 ）   引用 形式 . val ( O ) = { l1 : id ( O1 ) ,   … ,   ln :   id ( On ) } ， 其中 ， lj 是 属性 ， Oj 是 对象 ， id ( Oj ) 是 Oj 的 对象 引用 ， j = 0 ， 1 ， … ， n . 
+ 　 　 定义 2 .   令 Oi 是 对象 ， li 是 属性 ， i = 0 ， 1 ， … ， n ， 若有 ( li : id ( Oi ) ) ∈ val ( Oi - 1 ) 对 所有 i = 0 ， 1 ， … ， n 都 成立 ， 则 称 p = < O0 ,   l1 ,   O1 ,   … ,   ln ,   On > 为 长度 为 n 的 路径 （ n ≥ 0 ） ， 称 p 源于 对象 O0 终止 于 对象 On ， 称 Oi 含于 路径 p 中 或 路径 p 包含 Oi . 
+ 　 　 E - OEM 也 可以 用带 标号 的 有向图 表示 . 图中 的 结点 是 对象 标识 . 对于 val ( O ) 中 每 一 对象 引用 ( li : id ( Oi ) ) ， 在 图 中 都 有 一条 带 标号 li 的 有 向 边 ( O ,   Oi ) 与 之 对应 . 如果 图中 有 环 ， 则 称 该 E - OEM 图有 环 . 在 Web 上 的 很多 文档 的 OEM 图 都 有 环 . 图 1 给出 一个 E - OEM 图 的 例子 . 图中 的 各 非叶 结点 代表 着 定义 1 中 对象 ， 它们 可以 是 某个 Web 页面 或 基于 Web 的 应用 . p = < A ,   cast ,   C ,   actor ,   D ,   name ,   E > 是 一条 源于 A 止于 E 、 长度 为 3 的 路径 ， 简记 为 ACDE . 对象 C 和 D 都 含于 路径 p 中 . 
+ 
+ 
+ 图 1 　 E - OEM 图 的 例子 
+ 　 　 定义 3 .   Web 站点 上 所有 用户 可 访问 的 、 功能 独立 的 对象 （ 包括 文档 对象 、 应用 对象 ① ） 构成 对象 空间 . 
+ 　 　 对象 空间 中 所有 对象 都 由 E - OEM 模型 描述 ， 我们 在 此基础 上 构造 反映 对象 空间 中 各 对象 的 基本 信息 ， 作为 领域 知识 指导 数据挖掘 过程 . 
+ 3.2 　 应用领域 相关 问题 
+ 　 　 本 节 基于 上 节 所述 的 E - OEM 数据模型 ， 阐述 几个 领域 相关 问题 . 
+ 3.2 . 1   对象 基本 信息 获取 
+ 　 　 文档 对象 及 应用 对象 的 对象 标识 都 定义 为 其 URL （ universal   resource   locator ） 的 函数 ， 函数 值 在 对象 空间 中 唯一 . 此外 ， 我们 还 获取 对象 的 如下 基本 信息 . 　 　 
+ 　 　 ( 1 )   元 信息 . 对于 文档 对象 ， 包括 URL 、 文件大小 、 最近 修改 时间 等 ； 对于 应用 对象 ， 记录 其 CGI 程序 名 ； 
+ 　 　 ( 2 )   拓扑 信息 . 包括 在 对象 空间 中 引用 它 及 它 引用 / 生成 的 对象 的 对象 标识 ； 
+ 　 　 ( 3 )   一般 信息 . 对于 文档 对象 ， 包括 对象 中 若干 属性 名及 属性 值 ； 对于 应用 对象 ， 我们 记录 CGI 程序 的 有效 参数 组合 ， 作为 其 功能 描述 . 
+ 3.2 . 2   事务 的 标定 
+ 　 　 由于 所有 用户 在 服务器 上 的 浏览 情况 被 统一 登记 在 日志 表中 ， 由此 在 数据挖掘 之前 必须 解决 的 问题 是 用户 与 商家 间 事务 （ transaction ） 的 标定 . 
+ 　 　 定义 4 .   设 N 为 自然数 集 ， t ( Oi ) ∈ N 为 对象 Oi 的 访问 时刻 ， c ( Oi ) ∈ N 为 对象 Oi 的 用户 标识 ， p = < O0 ,   l1 ,   O1 ,   … ,   ln ,   On > 为 长度 为 n 的 路径 . 若 p 满足条件 ： （ 1 ）   c ( Oi ) = c ( Oj ) , i , j = 0 ， 1 ， … ， n ； （ 2 ）   t ( Oi ) ≤ t ( Oj ) , 0 ≤ i ≤ j ≤ n ， 则 称 p 为 用户 c 的 一条 访问 路径 . 
+ 　 　 定义 5 .   设 T 是 用户 c 的 访问 路径 的 集合 ， 对于 任意 对象 Oi 、 Oi + 1 含于 路径 p1 ， 任意 对象 Oj   含于 路径 p2 ， p1 ,   p2 ∈ T 且 p1 ≠ p2 ， 若 如下 条件 成立 ： （ 1 ）   t ( Oi + 1 ) - t ( Oi ) ≤ max _ time ；   （ 2 ）   | t ( Oi ) - t ( Oj ) | ＞ max _ time ， 则 称 T 为 用户 c 的 一次 事务 ， 其中 max _ time 为 自定义 的 最大 时间 间隔 . 
+ 　 　 定义 5 基于 页面 浏览 时间 来 标定 事务 . 在 实现 中 ， 我们 还 考虑 了 最 短 路径 原则 （ 过滤 长度 过 小 的 路径 ） . 事务 数据库 记录 顾客 与 商家 的 所有 事务 信息 ， 其中 关于 浏览 路径 的 数据项 可 直接 从 Web 服务器 日志 扩展 得到 . 在 本文 的 研究 中 ， 我们 将 事务 数据库 D 分成 两 部分 ： 正 事务 数据库 D + 和 负 事务 数据库 D - . D + 中 包含 所有 与 商家 成交 的 顾客 事务 ； D - 包含 浏览 但 未成交 事务 . 一般 情况 下 ， D - 远大于 D + ［ 7 ］ . 
+ 3.3 　 算 　 法 
+ 　 　 顾客 的 购物 模式 及 潜在 顾客群 可以 有 多种 表示 形式 和 方法 . 本文 中 ， 顾客 的 购物 模式 表示 为 访问 模式 （ 文中 以 大写字母 表示 ） . 它 由 一次 事务 中 的 多个 频繁 访问 路径 （ 文中 以 小写字母 表示 ） 构成 ； 在 此基础 上 ， 潜在 顾客群 定义 为 基于 频繁 访问 模式 的 用户群 . 
+ 　 　 定义 6 .   对于 给定 正 事务 数据库 D + 、 用户 自定义 最小 支持 度 min _ sup ∈ ［ 0 ,   1 ］ ， 如果 访问 模式 P = < p1 － p2 … － pk > 满足条件 ： 在 D + 中 至少 有 min _ sup × | D + | 个 用户 的 事务 集 包含 模式 P ， 则 称 P 为 顾客 的 频繁 访问 模式 ， 其中 ， | D + | 表示 D + 中 的 用户数 . 
+ 　 　 定义 7 .   对于 给定 负 事务 数据库 D - ， 顾客 频繁 访问 模式 集 { P1 ,   P2 ,   … ,   Pk } 及 模式 相似 关系 R ( D - , Pi ) ， 等价 类 Ci ∈ ( D - / R ( D - , Pi ) )   称为 D - 中 的 第 i 个 潜在 顾客群 ， i = l , l + 1 , … , k . 
+ 3.3 . 1   频繁 访问 模式 发现 算法 
+ 　 　 频繁 访问 模式 的 发现 与 频繁 序列 模式 的 发现 ［ 8 ］ 有 相似之处 ， 但 很 重要 的 不同 在于 顾客 在 Web 服务器 上 的 浏览 过程 带有 多种 不确定性 ， 如 浏览器 的 本地 Cache 、 用户 的 主观 随意性 等 . 这些 不确定性 导致 不同 用户 的 访问 模式 总体 相似 而 细节 不同 . 例如 ， 图 1 中 的 模式 < AB － CDE － FG > 与 < AB － CDFG > 可 认为 是 相似 的 . 如果 使用 序列 模式 发现 算法 ， 会 使 算法 对 数据 过于 敏感 ， 导致 发现 的 模式 数量 剧增 、 可用性 不好 . 为 解决 这一 问题 ， 我们 在 访问 模式 发现 算法 中 引入 路径 相似 度 . 对于 路径 p1 = < O10 , l11 , O11 , … , l1m , O1m > 及 p2 = < O20 , l21 , O21 , … , l2n , O2n > ， 定义 
+ 
+ 为 路径 p1 与 p2 的 相似 度 . 若 sim _ path ( p1 ,   p2 ) 大于 自定义 阈值 min _ sim ∈ ［ 0 ,   1 ］ ， 则 称 p1 与 p2 满足 路径 相似 关系 . 
+ 　 　 由于 候选 项集 （ 或 序列 ） 很多 且 有 大量 重复 前缀 ， 用 Hash 树 方法 来 存储 和 检索 频繁 项集 （ 或 序列 ） ， 是 很多 关联 规则 （ 或 序列 模式 ） 发现 算法 的 共性 ［ 9 ］ . 我们 的 算法 也 用 类似 的 方法 表示 和 检索 频繁 访问 模式 . 在 对 事务 数据库 的 扫描 过程 中 建立 和 调整 Hash 树 ， 扫描 完成 后 基于 Hash 树 计算 各 模式 的 支持 度 ， 得出 频繁 模式 . Hash 树 的 结构 如图 2 所示 . 
+ 
+ 
+ 图 2 　 频繁 访问 模式 的 Hash 树 表示 
+ 　 　 在 实现 中 ， 我们 采用 两层 Hash 树 将 访问 模式 散转 到 不同 的 匹配 树中 . 这样 一方面 避免 匹配 树过 宽 ， 加速 匹配 过程 ， 另一方面 有利于 将 数据 分块 并行处理 . 
+ 　 　 匹配 树 的 结点 是 相似 度 测定 函数 ， 边上 的 标号 代表 路径 . 算法 工作 过程 大致 如下 ： 当新 模式 到达 树根 时 ， 测定 函数 计算 该 模式 的 第一个 路径 与 下层 各边 标号 上 的 路径 的 相似 度 . 若 相似 度 小于 min _ sim ， 则 创建 一个 新 的 子 结点 及 对应 边 ， 边上 的 标号 为 新 模式 的 第一个 路径 ， 子 结点 计数器 置 1 ； 否则 ， 取 相似 度 最大 的 子 结点 作为 下降 结点 ， 当前 结点 计数器 增 1 . 新 模式 删除 第一个 路径 并 下降 至 下层 结点 ， 测定 函数 计算 新 模式 当前 路径 与其 下层 结点 的 路径 相似 度 ， 重复 该 过程 直至 新 模式 为空 . 各 结点 对应 的 访问 模式 由 从 树根 到 该 结点 的 各边 标号 依次 标定 ， 访问 模式 的 支持 度 是 当前 结点 计数器 与 根 结点 计数器 之比 . 
+ 3.3 . 2   潜在 顾客群 发现 算法 
+ 　 　 一般 地 ， 潜在 顾客群 的 发现 都 可以 描述 为 负 事务 数据库 D - 的 分类 （ classification ） 或 聚类 （ clustering ） 过程 . 本文 采用 K - Means ［ 10 ］ 聚类 算法 计算 D - 在 给定 模式 相似 关系 下 的 划分 . 初始 的 K 个 聚类 中心 可以 是 频繁 访问 模式 发现 算法 的 结果 ， 也 可以 由 业务人员 指定 . 模式 相似 关系 是 基于 路径 相似 关系 给出 的 . 对于 模式 P1 = < p11 － p12 … － p1n > 及 P2 = < p21 －   p22 … － p2n > ， 定义 
+ Sim _ pattern ( P1 ,   P2 ) =   | { pi | sim _ path ( pi1 ,   pi2 ) ≥ min _ sim } | / n 
+ 为 模式 P1 和 P2 的 相似 度 ， 若 Sim _ Pattern ( P1 ,   P2 ) 大于 自定义 阈值 MIN _ SIM ∈ ［ 0 ,   1 ］ ， 则 称 P1 与 P2 满足 模式 相似 关系 . 算法 描述 如下 . 
+ 　 　 　 　 输入 ： 事务 数据库 D - 、 初始 聚类 中心 { P1 , P2 , … , Pk } 、 最小 模式 相似 度 MIN _ SIM . 
+ 　 　 　 　 输出 ： 聚类 C1 , C2 , … ， Cn . 
+ 　 　 　 　 算法 ： 
+ 　 　 　 　 Ci : = { Pi } ,   i = 1 , 2 , … , k ; 
+ 　 　 　 　 foreach   P   in   D - 
+ 　 　 　 　 　 　 s = Sim _ pattern ( P ,   Pj ) : = maxi   Sim _ pattern ( P ,   Pi ) ,   i = 1 , 2 , … , k ; 
+ 　 　 　 　 　 　 if   s ＞ MIN _ SIM   then 
+ 　 　 　 　 　 　 　 　 Cj : = Cj ∪ P ; 
+ 　 　 　 　 return   Ci , i = 1 , 2 , … , k . 
+ 4 　 性能 模拟 与 分析 
+ 　 　 为了 对 算法 的 性能 作出 评估 ， 我们 在 Pentium   266 / 64M   RAM / Windows   95 / MS   Visual   C++   5.0 环境 下 进行 了 如下 模拟实验 ： （ 1 ） 以 预先 给定 的 5 个 访问 模式 为 基础 ， 采用 Markov 链 模型 ， 按表 1 所示 参数 ， 分别 生成 大小 为 5000 和 50000 的 D + 和 D - ； （ 2 ） 将 访问 模式 发现 算法 作用 于 D + ， 调整 min _ sim ， 考察 算法 的 时间 开销 ； （ 3 ） 将 潜在 顾客群 发现 算法 作用 于 D - ， 调整 min _ sim ， 考察 算法 的 分类 正确率 . 图 3 和 图 4 分别 给出 实验 结果 . 
+ 表 1 　 实验 数据 生成 参数 
+ 
+ D + D - 
+ 平均 路径 长度 　 3 平均 路径 长度 　 3 
+ 平均 模式 长度 　 3 平均 模式 长度 　 3 
+ Markov 状态 转移 概率 　 0.95 Markov 状态 转移 概率 　 0.90 
+ 顾客 数 　 200 顾客 数 　 2000 
+ 
+ 
+ 图 3 　 算法 时间 开销 
+ 
+ 
+ 图 4 　 算法 分类 正确率 
+ 　 　 由图 3 可知 ， （ 1 ） 算法 运行 时间 长于 相应 的 序列 模式 挖掘 算法 . 这 主要 是 由于 我们 考虑 了 相似 路径 的 概念 ， 导致 搜索 空间 增大 ； （ 2 ） 算法 运行 时间 随 路径 相似 度 近似 线性 增长 . 图 4 中 算法 的 分类 正确率 最大 可达 66 ％ . 它 说明 算法 的 有效性 . 
+ 5 　 结束语 
+ 　 　 从 大量 顾客 数据 、 日志 数据 中 挖掘出 有 意义 的 用户 访问 模式 及 相关 的 潜在 顾客群 ， 对于 实行 电子商务 战略 的 商家 的 商业 决策 起着 重要 的 作用 . 本文 基于 E - OEM 模型 ， 提出 了 综合 考虑 服务器 的 应用 逻辑设计 、 页面 拓扑 结构 及 用户 的 浏览 路径 等 多个 数据源 的 用户 访问 模式 及 潜在 顾客群 的 挖掘 算法 ， 实验 证明 算法 是 有效性 的 . 进一步 的 研究 工作 包括 ： （ 1 ） 将 算法 运用 于 真实 数据 并作 相应 优化 ； （ 2 ） 将 用户 访问 模式 算法 扩展 到 不同 抽象层次 上 . ■ 
+ ① 目前 ， 我们 只 考虑 CGI 应用 . 
+ 基金项目 ： 本 课题 得到 国家 “ 八 六三 ” 高科技 基金 资助 .   
+ 作者简介 ： 周斌 ， 男 ， 1971 年 6 月生 ， 博士 研究生 ， 主要 研究 领域 为 数据挖掘 与 知识 发现 . 
+ 　 　 　 　 　 吴 泉源 ， 男 ， 1942 年 2 月生 ， 教授 ， 博士生 导师 ， 主要 研究 方向 为 智能 软件 与 分布 　 　 　 　 　 　 计算 . 
+ 　 　 　 　 　 高洪奎 ， 男 ， 1942 年 6 月生 ， 研究员 ， 主要 研究 方向 为 数据库 、 智能 软件 . 
+ 作者 单位 ： 周斌 （ 国防科学技术大学 计算机 学院 　 长沙 　 410073 ） 
+ 　 　 　 　 　 吴 泉源 （ 国防科学技术大学 计算机 学院 　 长沙 　 410073 ） 
+ 　 　 　 　 　 高洪奎 （ 国防科学技术大学 计算机 学院 　 长沙 　 410073 ） 
+ 参考文献 ： ： 
+ ［ 1 ］ Fayyad   U   M ,   Piatetski - Shapiro   G ,   Smith   P .   From   data   mining   to   knowledge   discovery :   An   overview .   In :   Fayyad   U   M ,   Piatetsky - Shapiro   G ,   Smith   P ,   Uthurusamy   R   eds ,   Advances   in   Knowledge   Discovery   and   Data   Mining .   Boston :   AAAI / MIT   Press ,   1996 ,   1 ～ 34 
+ ［ 2 ］ http : / / www . uu . se / Software / Analyzers / Access - analyzers . html 
+ ［ 3 ］ Perkowitz   M ,   Etzioni   O .   Adaptive   web   sites :   An   AI   challenge .   In :   IJCAI ' 97 ,   Japan ,   1997 .   233 ～ 240 
+ ［ 4 ］ Chen   M   S ,   Park   J   S ,   Yu   P   S .   Data   mining   for   path   traversal   patterns   in   a   Web   environment .   In :   Proceedings   of   the   16th   International   Conference   on   Distributed   Computing   Systems ,   Hongkong ,   1996 ,   385 ～ 392 
+ ［ 5 ］ Zaiane   O   R ,   Xin   M ,   Han   J   W .   Discovering   Web   access   patterns   and   trends   by   applying   OLAP   and   data   mining   technology   on   web   logs .   Simon - Fraser   University ,   Tech   Rep :   1997 
+ ［ 6 ］ Nestorov   W ,   Ullman   J ,   Wiener   J ,   Chawathe   S .   Representative   objects :   concise   representations   of   semistructured   hierarchical   data .   In :   ICDE ' 97 .   Birmingham ,   1997 .   220 ～ 227 
+ ［ 7 ］ Ling   C   X ,   Li   C .   Data   mining   for   direct   marketing :   Problems   and   solutions ,   In :   KDD   ' 98 ,   1998 
+ ［ 8 ］ Srikant   R ,   Vu   W ,   Agrawal   R .   Mining   association   rules   with   item   constrains .   IBM   Almaden   Research   Center ,   Tech   Rep :   97 - 056 ,   1997 
+ ［ 9 ］ Park   J   S ,   Chen   M ,   Yu   P   S .   An   effective   hash   based   algorithm   for   mining   association   rules .   In :   ACM   International   Conference   on   Management   of   Data ,   Caliform ,   1995 
+ ［ 10 ］ Hartigan   J .   Clustering   Algorithms .   New   York :   John   Wiley   &   Suns   Inc ,   1975 
+ 收稿 日期 ： 1998 - 10 - 06 
+ 修稿 日期 ： 1999 - 03 - 08 

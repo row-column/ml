@@ -1,0 +1,96 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1998 年   第 18 卷   第 1 期   No.1   Vol.18   1998 
+ 科技期刊 
+ 
+ 紫外 - B 辐射 增强 对 小麦 和 燕麦 繁殖 特性 影响 的 研究 * 
+ 岳 　 明 　 王勋陵 　 ( 兰州大学 生物系 ， 兰州   730000 ) 
+ 文 　 摘 　 模拟 15 ％ 臭氧层 减薄 水平 ， 研究 了 紫外 - B （ UV - B ） 辐射 增强 对 小麦 的 花粉 活力 及 萌发 特性 以及 籽粒 产量 与其 萌发 特性 的 影响 。 小麦 和 燕麦 的 繁殖 特性 对 紫外 辐射 的 敏感性 差异 很大 。 增强 的 紫外 辐射 显著 抑制 了 燕麦 的 籽粒 产量 及 萌发 率 ， 而 对 小麦 的 繁殖 效率 未有 显著 影响 ， 小麦 花粉 活力 及 萌发 率 的 降低 可 由 单株 有效 穗数 的 增加 予以 补赏 。 
+ 关键词 　 紫外 辐射 　 小麦 　 燕麦 　 花粉 　 种子 萌发 
+ A   preliminary   study   of   the   responses   of   wheat   and   oat   reproductive   characteristics   to   enhanced   UV - B   radiation . Yue   Ming ， Wang   Xunling ( Department   of   Biology , Lanzhou   University , Lanzhou   730000 ) . China   Environmental   Science.1998 , 18 ( 1 ) : 68 ～ 71 
+ Abstract —   The   pollen   vitality   and   germination   and   also   the   seed   yield   and   germination   of   wheat   ( Triticum   aestivum   CV .   80101 )   and   oat ( Avena   sativa   VC .   Bayaer - 3 )   under   supplementary   UV - B   radiation   from   approximately   15%   ozone   layer   depletion   were   researched .   There   are   sensitivity   differences   of   reproductive   characteristics   to   UV - B   radiation   between   wheat   and   oat .   The   seed   yield   of   oat   and   its   germination   rate ( 25 ℃ , in   dark )   were   inhibited   significantly   by   UV - B   radiation   enhancement ,   while   there   was   no   effect   of   UV - B   radiation   on   those   of   wheat .   The   decrease   of   wheat   pollen   vitality   and   its   germination   rate   by   UV - B   radiation   enhancement   could   be   compensated   by   increase   of   numbers   of   ears   per   plant   under   supplementary   UV - B   radiation .   The   effects   of   UV - B   radiation   are   related   with   metabolic   changes   of   physiological   active   compounds   in   pollen   and   seed   which   are   connected   with   their   germination . 
+ Key   words :   ultraviolet   radiation 　 wheat 　 oat 　 pollen 　 seed   germination 
+ 　 　 由于 平流层 臭氧层 减薄 导致 的 地表 紫外 辐射 增强 （ 主要 是 UV - B , 280 ～ 315nm ） 已 成为 越来越 受 关注 的 全球 变化 问题 之一 。 增强 的 紫外 辐射 对 植物 生长发育 及 生理 机能 的 研究 较 多 〔 1 〕 ， 但 对 植物 繁殖 特性 的 影响 则 研究 很少 。 虽然 在 花药 未 开裂 前 ， 花冠 和 花药 壁能 吸收 98 ％ 以上 的 UV - B 辐射 ， 但 花粉 在 传粉 、 萌发 过程 中 仍 不免 要 遭高 紫外 辐射 的 伤害 〔 2 〕 ， 花粉 代表 高等植物 生活史 中 的 单倍体 阶段 ， 而 其 萌发 时 又 是 对 UV - B 辐射 最 敏感 的 时期 〔 3 〕 ， 在 此 时期 UV - B 辐射 对 植物 遗传 和 繁殖 上 的 潜在 影响 是 很 值得 考虑 的 。 这 不仅 关系 到 作物 产量 ， 也 关系 到 植物种 间 竞争 平衡 ， 从而 可能 在 较 短 的 进化 时间 里 改变 群落 的 组成 和 生产力 。 
+ 　 　 短波 紫外 辐射 （ UV - C , < 280nm ） 对 花粉 的 伤害 虽早 引起 了 注意 ， 但 现已 证明 UV - C 无助于 评价 臭氧层 减薄 的 生态 影响 ， 因为 即使 臭氧层 减薄 90 ％ ， UV - C 也 不会 到达 地表 。 故可 不予考虑 。 至今 有关 UV - B 对 花粉 影响 的 报道 仅见 Chang 等 〔 4 〕 和 Pfahler 〔 5 〕 对 一种 紫露 草 （ Tradesantia ) 和 玉米 ， Flint 和 Caldwell 〔 2 〕 对 虞美人 ( Papaver   rhoeas ) 等 植物 花粉 萌发 的 研究 。 此外 ， Teramua   和 Sulhvan 〔 6 〕 还 报道 了 UV - B 对 蚕豆 种子 及其 成分 影响 的 研究 ， 但是 并未 论及 是否 对 子代 种子 萌发 特性 也 产生 影响 的 问题 。 本文 主要 讨论 大田 条件 下 模拟 15 ％ 臭氧层 减薄时 ， 增强 的 紫外 - B 辐射 对 小麦 和 燕麦 花粉 活力 及 萌发 、 种子 产量 及 发芽率 等 繁殖 特性 的 影响 ， 为 评估 臭氧层 减薄 紫外 辐射 增强 的 生态 效应 提供 依据 。 
+ 1 　 材料 和 方法 
+ 　 　 试验 材料 为 春小麦 （ Triticum   aestivum ) 80101 和 燕麦 ( Avena   sativa ) 巴燕 三号 。 试验 在 兰州大学 生物 园 进行 ， 小区 面积 1m2 ， 。 按 400 株 / m2 的 密度 播种 ， 每 处理 设 3 个 重复区 。 各 小区 土壤 及 管理水平 一致 。 辐射 处理 采用 秦牌 （ Qin   Model ） 40W 紫外 B 灯 照射 ， 辐射强度 测定 用 北京师范大学 生产 的 UV - B型 紫外 辐射强度 仪 。 根据 Caldwell 〔 3 〕 计算 ， 将 仪器 的 读数 转变 为 生物 有效 辐射量 ， 以 mW / m2 单位 表示 。 处理 从 出苗 一周 后 开始 直至 成熟 （ 每遇 下雨 暂停 照射 ） ， 处理 时间 为 每日 9 : 00 ～ 16 : 00 ， 处理 强度 为 在 自然 太阳辐射 基础 上 增加 76.2   mW / m2 , 该 强度 相当于 兰州 地区 （ 海拔 1500   m ， 北纬 36 度 ） 夏至 前后 晴天 平均 增加 30 ％ 的 紫外 辐射量 ， 即 模拟 臭氧层 减薄 15 ％ ， 这 与 联合国环境规划署 （ UNEP ） 1991 年 预测 臭氧层 减薄 的 值 一致 。 通过 调节 灯 与 材料 的 距离 ， 基本 保证 整个 生长 季节 处理 强度 的 一致 。 对照 仅 接受 自然 太阳辐射 。 　 
+ 　 　 花粉 活力 测定 采用 TTC 染色法 ， 将 采来 的 花粉 抖入 盛有 1 ％ TTC 溶液 的 试管 中 ， 25 ℃ 下 处理 1h ， 镜检 ， 每 处理 样本数 n = 4 , 每 样本 统计 200 ～ 250 粒 花粉 。 花粉 萌发 率 测定 基本 参照 Flint 和 Caldwell 的 方法 〔 2 〕 ， 不过 蔗糖 浓度 是 多次 试验 后 确定 的 ， 当 花粉 抖落 到 培养 的 玻片 上后 ， 立即 将 玻片 置于 铺 有 湿 滤纸 的 培养皿 中 ， 覆盖 能 透过 紫外 - B 辐射 的 塑料薄膜 以 保湿 。 然后 将 培养皿 分别 置于 自然 光照 和 紫外 灯下 ， 处理 4h ， 结束 时滴加 0.4 ％ 醋酸 洋红 液 ， 以 终止 萌发 并 染色 。 每 处理 统计 样本数 为 n ＝ 3 ， 每 样本 统计 500 粒 左右 的 花粉 。 
+ 　 　 但 按 上述 方法 在 蔗糖 浓度 为 5% ～ 40 ％ 的 不同 培养基 上 燕麦 花粉 未能 得到 较 好 的 萌发 ， 最大 萌发 率仅 5 ％ 左右 ， 原因 待查 ， 其 结果 不 在 本文 中 讨论 。 
+ 　 　 小麦 成熟 后 每 小区 随机 抽取 10 株 进行 有关 指标 测定 。 总 生物量 中 包括 0 ～ 20cm 土层 分布 的 根系 。 种子 自然 风干 ， 其余 植物 材料 在 70 ℃ 条件 下 烘干 。 常规 方法 测定 所 收获 的 种子 在 25 ℃ 时 的 发芽率 和 发芽势 。 每皿 100 粒 种子 ， 设 6 次 重复 。 
+ 2 　 结果 与 讨论 
+ 　 　 花粉 活力 的 测定 表明 ， 对照组 小麦 和 燕麦 具 活力 花粉 为 37.3 ％ 和 32.3 ％ ， 而 UV - B 处理 分别 为 19.0 ％ 和 27.9 ％ （ 图 1 ） 。 UV - B 辐射 引起 两种 植物 花粉 活力 不同 程度 地 降低 ， 其中 小麦 花粉 活力 的 降低 达到 了 显著 水平 ( P < 0.05 ） 。 
+ 
+ 图 1 　 紫外 - B 辐射 对 花粉 活力 的 影响 
+ C : 对照组 　 T : 处理 组 
+ Fig.1 　 Effect   of   UV - B   radiation   on   pollen   vitality 
+ 　 　 取自 对照 小区 与 处理 小区 观测 其 花粉 萌发 如表 1 。   
+ 表 1 　 紫外 - B 辐射 对 小麦 花粉 萌发 的 影响 * 
+ Table   1 　 Effect   of   UV - B   radiation   on   the   germination 
+ of   wheat   pollen 
+ 
+ 项 　 目 自然 光照 UV - B 辐射 
+ 花粉 统计 数量 萌发 率 ( % ) 花粉 统计 数量 萌发 率 ( % ) 
+ 对照组   C1596   58.9 ± 1.1 a   1860   50.2 ± 1.4 b   
+ 处理 组   T129343.3 ± 2.8 c154232.6 ± 1.7 d   
+ 
+ 注 ： * 花粉 统计 数量 为 3 次 重复 统计 花粉 数量 之 和 ， 萌发 率 一栏 为 平均值 ± 标准差 ， 其后 所 跟 字母 不同 表示 各 平均值 之间 差异 显著 ( 按照 Duncar 多 范围 检验 。 P < 0.05 ,   n = 3 ) ， 检验 前 百分数 值 经过 反正 弦 变换 
+ 　 　 从表 1 所示 ， 对照组 的 花粉 萌发 率 明显 高于 处理 组 ， 表明 UV - B 增强 导致 小麦 花粉 萌发 率 的 降低 ， 双 因素 方差分析 显示 （ 表 2 ） ， 不同 花粉 来源 及 不同 的 萌发 条件 之间 花粉 萌发 率 差异 显著 ， 而且 花粉 来源 和 萌发 条件 之间 不 存在 交互作用 。 这 说明 紫外 - B 辐射 不仅 对 小麦 花粉 的 萌发 过程 有 显著 抑制作用 ， 而且 对 所 产生 的 花粉 特性 也 有 显著 影响 。 
+ 表 2 　 小麦 花粉 萌发 的 双 因素 方差分析 
+ Table   2 　 The   two - factors   analysis   of   variance   of 
+ 　 　 wheat   pollen   germination 
+ 
+ 变差 来源   开方 和   自由度   均方   F   P   
+ 花粉 来源 A846.71   846.7225 . 8 < 0.005   
+ 萌发 条件 B   272.71272 . 772.7 < 0.005   
+ 交互作用 AB2.012 . 00.53   > 0.005   
+ 误差   30.0   8   3.75   
+ 总和 1151.4   11   
+ 
+ 　 　 在 已 检测 过 的 几种 植物 中 ， 胚珠 等 雌性 器官 及 未 散出 的 花粉 ， 由于 能 得到 周围 组织 的 很 好 保护 而 不易 受到 UV - B 辐射 的 伤害 〔 7 〕 , 但 UV - B 辐射 对 花粉 壁有 一定 的 透过 性 ， 使得 花粉 在 萌发 过程 中易 受 UV - B 辐射 伤害 〔 7 〕 。 已有 文献 证实 花粉 萌发 过程 受到 UV - B 辐射 的 抑制 〔 5 〕 以及 花粉 DNA 的 伤害 及 修复 〔 8 〕 。 但 都 没有 从 长期 受 UV - B 处理 植株 上 取得 花粉 进行 试验 的 报道 。 从图 1 ， 表 1 ， 表 2 看 ， 花粉 来源 和 萌发 条件 各自 独立 地 影响 小麦 花粉 的 萌发 ， 即使 萌发 过程 中不受 UV - B 辐射 照射 ， 那些 曾 受过 UV - B 辐射 的 植株 其 花粉 活力 及 萌发 率 已 受到 明显 抑制 。 这一 结论 对 认识 UV - B 辐射 增强 如何 影响 植物 ， 特别 是 闭花 受精 植物 的 繁殖 特性 很 有 指导意义 。 
+ 　 　 植物 在 生长 过程 中 ， UV - B 辐射 抑制 光 系统 II 的 功能 ， 诱导 自由基 的 形成 和 DNA 伤害 ， 以及 次生 代谢 产物 的 改变 〔 3 〕 。 UV - B 辐射 可能 通过 一些 分子 如 DNA 等 ， 影响 与 花粉 活力 和 萌发 有关 的 生理 活性 物质 的 代谢 ， 进而 抑制 花粉 活力 和 萌发 率 。 
+ 　 　 从 籽粒 产量 看 ， UV - B 辐射 导致 燕麦 单株 籽粒 数 和 籽粒 重 的 显著 降低 ， 但 对 小麦 的 籽粒 产量 没有 影响 （ 表 3 ） 。 同时 UV 辐射 使 两种 植物 的 总 生物量 降低 而 单株 有效 穗 显著 增加 （ 表 3 ） 。 
+ 表 3 　 紫外 - B 辐射 增强 对 小麦 和 燕麦 籽粒 产量 性状 的 影响 * 
+ Table   3 　 Effect   of   UV - B   radiation   on   the   characteristics   of   seed   yield   in   wheat   and   oat 
+ 
+ 处理 总 生物量 籽粒 数   籽粒 量   有效 穗数   千粒重   籽粒 重 / 总 生物量   
+ 　 　 　 小麦 
+ C5.45 ± 0.26 a   36 ± 4a   1.26 ± 0.10 a1.6 ± 0.84 ac   31.3   0.231   
+ T4.43 ± 0.31 b38 ± 4a   1.26 ± 0.06 a   2.3 ± 0.48 bd   32.50 . 284   
+ 　 　 　 燕麦   
+ C   4.28 ± 0.27 b75 ± 7b   1.44 ± 0.11 a   1.2 ± 0.42 a   22.50 . 336   
+ T3.79 ± 0.20 c62 ± 6c   1.05 ± 0.06 b   2.0 ± 0.67 cd15.0   0.277   
+ 
+ 　 　 　 　 　 　 注 ： * 除 最后 两列 外 ， 各 数值 为 10 株 的 平均值 ± 标准差 。 每列 中缀 有 相同 字母 者 为 其 平均值 无 显著 差异 （ 按 Duncan 多 范围 检验 ， P < 0.05 ) 
+ 
+ 　 　   UV - B 辐射 引起 植物 生物量 下降 已有 不少 报道 ， UV - B 辐射 刺激 侧芽 的 生长 ， 因而 导致 分蘖 数 的 增加 被 认为 是 植物 对 UV - B 辐射 的 普遍 反应 〔 1 〕 。 另外 ， 两个 光 形态 建成 系统 也 影响 分蘖 。 UV - B 辐射 还 可以 引起 植物 同化 产物 在 各器官 中 分配 的 改变 〔 1 〕 。 表 3 中 籽粒 重 / 总 生物量 反映 出 UV - B 辐射 有利于 小麦 同化 产物 向 籽粒 中 运输 ， 但 对 燕麦 的 作用 正相反 。 表 3 还 显示 ， 尽管 UV - B 辐射 使 小麦 和 燕麦 的 单株 有效 数 增加 ， 但 却 没有 引起 籽粒 产量 的 相应 增加 ， 说明 每个 有效 穗 的 籽粒 产量 受到 UV - B 辐射 的 显著 抑制 ， 这 显然 与 授粉 结实率 的 降低 有关 。   
+ 　 　 取自 对照组 和 UV - B 处理 组 的 两种 植物种子 在 25 ℃ 时 的 发芽 情况 如图 2 ， 图 3 ， 小麦 和 燕麦 种子 发芽率 在 第 4 天 以后 不再 增加 ， 可以 看出 ， 从 第 2 ～ 4 天 受过 UV - B 处理 的 小麦 种子 发芽率 没有 显著 差异 ( 在 0.05 水平 上 差异 。 n = 6 ， 检验 前 百分数 值 经过 反正 弦 交换 ) ， 对 燕麦 而言 ， 在 处理 第 4 天 的 种子 发芽率 显著 降低 ， 在 第 2 天 
+ 
+ 图 2 　 UV - B 对 小麦 种子 发芽率 的 影响 
+ Fig.2 　 Effect   of   UV - B   on   germination   rate 
+ of   wheat   seed 
+ C : 对照组 　 T ： 处理 组 
+ 
+ 图 3 　 UV - B 对 燕麦 种子 发芽率 的 影响   
+ Fig.3 　 Effect   of   UV - B   on   germination   rate 
+ of   oat   seed 
+ C : 对照组 　 T ： 处理 组 
+ 其 发芽率 显著 高于 对照组 。 据 Teramura 等 报道 〔 6 〕 ， UV - B 辐射 可以 改变 大豆 种子 中 蛋白质 与 脂肪 的 含量 。 处理 组 燕麦 种子 开始 时 发芽 比率 高于 对照组 ， 这 是否 与 处理 组 燕麦 种子 的 成分 有所 改变 而 促进 其吸胀 有关 ， 尚待 进一步 研究 。 
+ 
+ 3 　 结论 
+ 3.1 　 增强 3 ％ 的 紫外 - B 辐射 对 小麦 和 燕麦 的 花粉 活性 都 有 一定 抑制作用 。 特别 是 ， 经过 紫外 － B 辐射 后代 的 花粉 ， 即使 萌发 时 不再 受 紫外 - B 辐射 处理 ， 其 活力 仍 有 明显 抑制 的 表现 。 
+ 3.2 　 增强 30 ％ 的 紫外 - B 辐射 对 燕麦 籽粒 产量 及 发芽率 有 明显 影响 ， 而 对 小麦 的 影响 则 不 明显 。 
+ 3.3 　 小麦 和 燕麦 的 繁殖 特性 对 紫外 - B 辐射 反应 的 敏感性 不 一样 ， 燕麦 大于 小麦 。 
+ 3.4 　 紫外 - B 辐射 虽对 小麦 花粉 活力 和 萌发 有 抑制作用 ， 但 可以 通过 单株 有效 数 的 增加 予以 补偿 ， 故 不会 对 其 最终 的 繁殖 效率 产生 明显 影响 。 
+ 参考文献 
+ 1 　 Barnes   P   W , S   D   Flint ， M   M   Caldwell . Am .   J .   Bot . ， 1990 ， 77 : 1354 ～ 1360 
+ 2 　 Flint   S   D ， M   M   Caldwell . Ecology , 1984 ， 65 : 792 ～ 795 
+ 3 　 Caldwell   M   M ， S   D   Flint . Solar   ultraviolet   radiation   and   ozone   layer   change : Implications   for   crop   plants .   In : Physiology   and   Determination   of   Crop   Yield ( American   Society   of   Agronomy ,   Crop   Science   Society   of   American , Soil   Society   of   American . eds . ) ， 1994 ， 487 ～ 507 
+ 4 　 Chang   D   C   N ， W   F   Campbell . Environ .   EXP .   Bot . ， 1976 ， 16 : 195 ～ 199 
+ 5 　 Pfahler   P   L . Environ .   Health .   Perspect.1981 ， 27 : 125 ～ 132 
+ 6 　 Teramura   A   H ， J   H   Sullivan . Environ .   Pollut . ， 1988 ， 53 : 466 ～ 468 
+ 7 　 Flint   S   D ， M   M   Caldwell . Am . J . Bot . ， 1983 ， 70 : 1416 ～ 1419 
+ 8 　 Jackson   J   F ， H   F   Linskens . Molec .   Gen .   Genet.1979 ， 176 : 11 ～ 16 
+ 作者简介 
+ 岳 　 明 　 男 ， 1967 年 10 月生 。 西北大学 生物系 讲师 ， 兰州大学 污染 生态学 博士 。 主要 从事 环境 植物学 教学 和 研究 工作 。 发表 论文 10 余篇 。 
+ 收稿 日期 ： 1997 - 03 - 04 
+ * 国家自然科学基金 及 博士点 基金 资助 项目 

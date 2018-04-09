@@ -1,0 +1,91 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1999 年 　 第 19 卷 　 第 4 期 　 Vol.19 　 No.4 　 1999 
+ 
+ 
+ 
+ 藻类 对 偶氮染料 的 降解 及 定量 结构 - 生物降解 性 研究 
+ 孙红文 　 黄国兰 　 丛丽莉 　 邵   敏 　 石   静 　 赖成明   
+ 摘要 ： 通过 研究 普通 小球藻 ( Chlorella   vulgaris ) 、 蛋白 核 小球藻 ( Chlorella   pyrenoidosa ) 、 斜 生栅藻 ( Scenedesmus   obliquus ) 对 偶氮染料 的 降解 作用 , 筛选 出 优势 藻种 并 优化 降解 条件 ; 对单 偶氮染料 进行 了 定量 结构 — 生物降解 性 相关 关系 ( QSBR ) 研究 . 3 种藻 均 能 利用 偶氮染料 为 其 生长 的 唯一 C 、 N 源 , 使 染料 脱色 , 蛋白 核 小球藻 具有 更强 的 脱色 能力 ; 且藻 在 无 N 环境 中 的 脱色 率 明显 高于 无 C 和 正常 环境 ; pH 值 对 染料 脱色 影响 较大 , 最佳 pH 值为 中性 ; 不同 结构 的 单 偶氮染料 生物降解 性 相差 很大 , 脱色 率为 9.1% ～   89.8% , QSBR 研究 表明 , 偶氮 键 的 最低 未 占据 轨道 能量 是 控制 生物降解 的 主要 因素 , 而 脱色 率 与 染料 的 分子量 无关 . 
+ 关键词 ： 偶氮染料 ； 绿藻 ； 生物降解 ； 定量 结构 — 生物降解 性 相关 关系 
+ 中 图 分类号 ： X13   文献 标识码 ： A   文章 编号 ： 1000 -   6923 ( 1999 ) 04 -   0289 -   04 
+ Biodegradation   of   azo   dyes   by   algae   and   QSBR   study . 
+ SUN   Hong - wen1 , HUANG   Guo - lan1 , CONG   Li - li1 , SHAO   Min2 , SHI   Jing3 ,   LAI   Cheng - ming3   ( 1 . College   of   Environmental   Science   and   Engineering ,   Nankai   University ,   Tianjin ,   300071 ,   China ;   2 . Department   of   Environmental   Engineering , Tianjin   University , Tianjin   300071 , China ； 3 . Department   of   Chemistry ,   Nankai   University , Tianjin   300071 , China ) .   China   Environmental   Science .   1999 , 19 ( 4 ) ： 289 ～   292 
+ Abstract ： Biodegradation   effects   of   azo   dyes   by   three   kinds   of   algae ?   Chlorella   vulgaris , Chlorella   pyrenoidosa   and   Scenedesmus   obliquus   were   studied .   The   most   potent   algae   and   best   degradation   condition   were   selected .   Furthermore ,   quantitative   structureiodegradability   relationship   ( QSBR )   was   studied   for   single   azo   dyes .   These   algae   could   use   azo   dyes   as   only   N   and   C   resources   for   their   growth   with   decolorizing   azo   dyes .   Chlorella   pyrenoidosa   was   most   potent   in   decolorization .   The   efficiency   rate   of   decolorization   in   noitrogen   nutrient   solution   was   higher   than   that   in   noarbon   or   normal   solution .   pH   value   had   great   effect   on   the   decolorization   with   most   suitable   pH   value   of   neutral .   Biodegradability   of   different   structural   single   azo   dyes   varied   significantly ,   with   the   decolorization   rate   ranging   9.1% ～   89.8% .   QSBR   study   disclosed   that   the   efficiency   rate   of   decolorization   was   mainly   controlled   by   the   energy   of   the   lowest   unoccupied   orbital   of   N = N ,   and   had   no   relationship   with   molecular   weight   of   the   dyes . 
+ Key   words ： azo   dyes ； algae ； biodegradation ； quantitative   structure   biodegradability   ralationship   ( QSBR ) 
+ 　 　 藻类 用于 污水处理 是 Oswald 等 [ 1 ] 在 1957 年 提出 的 , 逐渐 得到 了 广泛应用 . 藻类 除了 能 去除 金属 和 营养盐 外 , 还 能够 降解 包括 农药 、 烷烃 、 淀粉 、 酚类 、 邻苯二甲酸 酯 等 多种 有机物 [ 2 -   4 ] . 刘厚田 等 [ 5 , 6 ] 利用 藻菌 共生 系统 降解 偶氮染料 的 研究 表明 , 藻类 不仅 能够 通过 光合作用 为 好氧菌 供 氧 , 而且 能 单独 降解 偶氮染料 . 
+ 　 　 近年来 , 定量 结构 — 生物降解 性 相关 关系 ( Quantitative   Structure - Biodegradability   Relation - ship , QSBR ) 研究 是 环境 科学研究 的 热点 之一 , 偶氮染料 结构 — 脱色 关系 的 定性 研究 表明 , 染料 的 生物降解 性与芳 环上 取代 基的 性质 、 数目 、 位置 和 染料 的 分子量 相关 [ 7 , 8 ] . 戴树桂 等 [ 9 ] 进行 了 细菌 降解 染料 的 QSBR 研究 , 但 关于 藻类 降解 偶氮染料 的 QSBR 研究 尚未 见 报道 . 
+ 本文 研究 了 普通 小球藻 、 蛋白 核 小球藻 、 斜 生栅藻 对 偶氮染料 的 降解 作用 ; 并 对 不同 结构 单 偶氮染料 的 生物降解 进行 了 QSBR 研究 .   
+ 1   材料 与 方法 
+ 1.1   藻种 和 染料 
+ 　 　 普通 小球藻 ( Chlorella   vulgaris ) 、 蛋白 核 小球藻 ( Chlorella   pyrenoidosa ) 、 斜 生栅藻 ( Scenedesmus   obliquus ) 均 由 中国科学院 水生 生物 研究所 藻种 库 提供 . 
+ 　 　 染料 直接 深棕 NM 、 酸性 红 B 、 酸性 橙 II 、 酸性 品红 6B 、 酸性 红 3R 、 阳离子 红 GTL 、 直接 耐晒 黄 5GL 、 酸性 金黄 G 、 酸性 嫩黄 2G 、 酸性 大红 BS 、 活性 艳红 X - 3B 均 为 工业品 , 未 做 进一步 纯化 . 
+ 1.2   藻种 的 培养 
+ 　 　 纯种 普通 小球藻 、 蛋白 核 小球藻 、 斜 生栅藻 在 无菌 条件 下 转移 至 水生 4 号 ( HB4 ) 人工 培养液 中 , 培养 至 对数 生长期 进一步 扩大 培养 . 培养 条件 为 : 温度 25 ±   1 ℃ , 光强 4500Lux , 12h 光照 , 12h 黑暗 , 光照 期间 每 3h 振荡 充气 一次 . 
+ 1.3   实验 方法 
+ 　 　 以 直接 深棕 NM   ( 5 ～   40mg / L ) 为 研究 对象 , 加入 藻 的 培养液 中 , 藻 的 初始 密度 46 ′   104 个 / mL , 其它 条件 同上 . 记录 藻 的 生长 ,   并 测定 染料 吸 光度 的 变化 ,   计算 脱色 率 ,   实验 进行 8 天 . 分别 以 无 N 、 无 C 及 不同 pH 值 培养液 重复 上述 实验 , 以 优化 降解 条件 . 
+ 　 　 按 上述 条件 , 测定 蛋白 核 小球藻 对 10 种 不同 结构 单 偶氮染料 ( 10mg / L ) 的 脱色 率 . 选择 染料 分子量 和 偶氮 键 最低 未 占据 轨道 能量 ( PM3 法 ) 作为 QSBR 研究 的 结构 参数 . 
+ 2   结果 与 讨论 
+ 2.1   3 种藻 在 直接 深棕 NM 中 的 生长 及 对 染料 的 脱色 
+ 　 　 考虑 到 直接 深棕 NM 对 斜 生栅藻 生长 的 48h - EC50 为 8.37 mg / L [ 10 ] ,   选择 在 5mg / L 直接 深棕 NM 中 逐步 驯化 3 种藻 ,   逐步 成倍 提高 染料 的 浓度 ,   以 驯化 藻 对 染料 的 耐受力 . 图 1 为 3 种藻 在 20mg / L 直接 深棕 NM 中 的 生长 曲线 , 从图 1 可 看出 , 普通 小球藻 和 蛋白 核 小球藻 在 染料 中 生长 较 好 , 而 斜 生栅藻 的 生长 明显 受到 影响 . 逐步 驯化 提高 了 藻类 对 染料 的 耐受力 , 如 不 经过 驯化 , 斜 生栅藻 在 20mg / L 直接 深棕 NM 中 几乎 不能 生长 . 进一步 驯化 到 染料 浓度 为 40mg / L , 3 种藻 不能 生长 , 在 5 天后 陆续 死亡 . 
+ 
+ 图 1   藻 在 20mg / L 直接 深棕 NM 中 的 生长 
+ Fig.1   Growth   of   algae   in   20mg / L   Direct   Brown   NM 
+ 　 　 3 种藻 对 直接 深棕 NM 均 有 脱色 作用 , 对 5mg / L 直接 深棕 NM 作用 10 天 , 斜 生栅藻 脱色 率为 12.4% , 普通 小球藻 和 蛋白 核 小球藻 为 21.6% ;   而 对 20mg / L 直接 深棕 NM , 斜 生栅藻 的 脱色 率则 大大 下降 , 几乎 无 作用 ,   普通 小球藻 的 脱色 率 下降 到 11.0% ,   蛋白 核 小球藻 的 脱色 率 下降 为 17.2% . 所以 蛋白 核 小球藻 为 最佳 藻种 . 但 总的来看 脱色 率 偏低 . 
+ 2.2   降解 条件 的 优化 
+ 　 　 为了 考察 藻类 对 染料 的 利用 并 进一步提高 脱色 率 , 特 配制 不含 N 和 C 的 营养液 . 3 种藻 在 20mg / L 直接 深棕 NM 的 正常 、 无 N 、 无 C 培养液 中 的 生长 和 脱色 率见表 1 . 从表 1 可以 看出 ,   3 种藻 在 3 种 培养液 中均 能 生长 , 表明 藻类 能 利用 偶氮染料 作为 其 生长 的 唯一 N 、 C 源 . 正常 培养液 中 藻类 生长 较 好 , 明显 优于 在 无 N 或 无 C 环境 中 的 生长 , 这是 由于 无 N 或 无 C 培养液 中 养料 不足 , 藻类 摄取 不到 足够 的 营养 ; 另外 藻类 对 偶氮染料 的 降解 第一 产物 芳香 胺 比 偶氮染料 本身 毒性 更大 , 所以 脱色 的 同时 增加 了 染料 对 藻类 的 毒性 . 在 正常 培养液 中 , 藻类 对 染料 有 一定 的 降解 , 但 程度 较 小 . 在 无 N 或 无 C 培养液 中 , 降解 率 大大提高 , 表明 藻类 对 染料 的 脱色 作用 与 藻类 的 生理 代谢 过程 有关 . 3 种 环境 的 脱色 率 大小 顺序 为 : 无 N   > 无 C > 正常 . 由 脱色 率 和 生长 速率 可以 确定 蛋白 核 小球藻 为 优势 藻种 . 
+ 表 1   藻 在 20mg / L 直接 深棕 NM 的 不同 培养液 中 
+ 的 生长率 和 脱色 率 
+ Table   1   Growth   of   algae   and   decolorization   of   20mg / L   Direct   Brown   NM   in   different   nutrient   solution 
+ 藻   种   藻 的 生长 速率 ( d - 1 ) 脱色 率 ( % ) 
+ 正常       无 N 无 C   正常   无 N   无 C 
+ 普通 小球藻 0.2460 . 2110.21311 . 040.027 . 4 
+ 蛋白 核 小球藻 0.2350 . 2460.16717 . 247.736 . 8 
+ 斜 生栅藻 0.1560 . 0650.0401 . 0729.022 . 0 
+ 
+ 　 　 藻类 对 偶氮染料 的 降解 作用 , 还 受 温度 、 光强 、 pH 值 等 其它 环境 条件 的 影响 . 考虑 到 光强 对 脱色 率 的 影响 不 大 , 而 实际 废水 的 酸度 变化 较大 , 实验 仅 研究 了 pH 值 对 藻类 生长 及 染料 脱色 的 影响 ( 图 2 ) .   
+ 
+ 图 2   蛋白 核 小球藻 在 不同 pH 值 条件 下 的 生长 速率 
+ 和 对 直接 深棕 NM 的 脱色 率 
+ Fig.2   Growth   of   C .   pyrenoidosa   and   decolorization   of   Direct   Brown   NM   under   different   pH 
+ 　 　 由图 2 可以 看出 ,   酸性 和 碱性 环境 不利于 藻类 的 生长 , 在 中性 环境 中 藻类 生长 旺盛 . 藻类 对 染料 的 脱色 率 在 不同 pH 值下 具有 相同 的 变化趋势 , 在 中性 环境 中 脱色 率高 , 而 在 酸性 和 碱性 条件 下 脱色 率 较 低 . 可见 藻类 对 染料 的 脱色 率 与 藻类 的 生长 代谢 密切相关 . 
+ 2.3   不同 结构 单 偶氮染料 生物降解 性 比较 
+ 　 　 蛋白 核 小球藻 对 10 种 不同 结构 单 偶氮染料 的 脱色 率及 染料 的 分子量 和 偶氮 键 最低 未 占据 轨道 能量 ( Elumo ) 列于 表 2 . 不同 结构 的 染料 生物降解 性 相差 很大 , 脱色 率为 9.1% ～   89.8% . 本文 所用 染料 都 是 单 偶氮 键 , 但 其 两侧 结构 较 复杂 , 有 不同 取代 的 苯环 和 萘 环及 杂环 , 有 的 还 含有 N 正离子 . 本文 选择 了 两种 结构 参数 ?   偶氮 键 最低 未 占据 轨道 能量 Elumo 和 染料 分子量 M , 对 脱色 率 和 这 两种 结构 参数 进行 单 因素 QSBR 研究 , 结果 如下 : 
+ Y   ( 脱色 率 )   =   84.9   +   32.9 Elumo 
+ r   =   0.726   n   =   9   t   =   2.796 
+ Y ( 脱色 率 )   =   12.5   +   0.07 M 
+ r   =   0.220   n   =   10   t   =   0.638 
+ 　 　 脱色 率 与 最低 未 占据 空 轨道 能量 之间 具有 显著 相关性 ( t   >   t0.05   =   2.365 ) , 且 分子 的 最低 未 占据 轨道 能量 越负 , 脱色 率 就 越 低 . 而 脱色 率 与 染料 的 分子量 之间 不 存在 相关性 . 偶氮染料 的 降解 机理 已 被 证明 为 在 藻 体内 的 偶氮 还原酶 作用 下 产生 了 芳香 胺 , 芳香 胺 再进一步 被 降解 . 所以 染料 首先 需从 水体 中 富集 到藻 体内 , 然后 在 藻 体内 酶 的 作用 下 发生 还原 反应 , 所以 除了 反应 中心 的 偶氮 键 电性 起 决定 作用 外 , 其它 因素 如 染料 的 疏 水性 及 藻类 的 代谢 活性 也 会 影响 染料 的 脱色 率 , 所以 单 因素 QSBR 研究 不会 得出 非常 显著 ( t   > t0.01 ) 的 相关性 . 
+ 表 2   10 种 单偶 氮化合物 的 结构特征 与 脱色 率 
+ Table   2   Structural   descriptors   and   decolorization   efficiency   of   10   single   azo   dyes 
+ 名称 分子量 Elumo 脱色 率 ( % ) 名称 分子量 Elumo 脱色 率 ( % ) 
+ 酸性 红 B502.41 -   0.82489 . 8 直接 耐晒 黄 5GL354.19 未 计算 13.5 
+ 酸性 橙 II350.32 -   1.12366 . 2 活性 艳红 X - 3B615.33 -   1.12531 . 0 
+ 酸性 品红 6B523.44 -   0.62464 . 2 阳离子 红 GTL501.99 -   2.6259 . 1 
+ 酸性 红 3R604.46 -   0.36489 . 0 酸性 大红 BS502.42 -   1.31013 . 4 
+ 酸性 金黄 G375.38 -   0.90339 . 4 酸性 嫩黄 2G523.27 -   0.66246 . 7 
+ 
+ 　 
+ 3   结论   
+ 3.1   藻类 能够 利用 偶氮染料 作为 自身 生长 的 C 、 N 源 , 从而 使 染料 脱色 . 在 无 C 或 无 N 培养液 中 , 藻类 的 脱色 能力 较强 , 但 藻类 的 生长 状况 比 在 正常 培养液 中差 . 
+ 3.2   通过 对 普通 小球藻 、 蛋白 核 小球藻 、 斜 生栅藻 降解 能力 的 比较 , 发现 蛋白 核 小球藻 生长 最好 , 脱色 率 最高 , 因而 称为 优势 藻种 . 
+ 3.3   蛋白 核 小球藻 的 生长 及 对 染料 的 脱色 率受 pH 值 的 影响 显著 , 在 中性 环境 中 , 藻类 的 生长 及 对 染料 的 脱色 率高 , 在 酸性 和 碱性 条件 下 , 藻类 的 生长 及 对 染料 的 脱色 率则 降低 . 
+ 3.4   不同 结构 偶氮染料 的 生物降解 性 存在 很大 差别 , 脱色 率为 9.1% ～   89.8% , 偶氮染料 分子 中 偶氮 键 的 最低 未 占据 轨道 能量 是 控制 染料 降解 的 主要 因素 , 而 染料 的 分子量 与其 脱色 率 无关 . 
+ 基金项目 ： 天津市 科委 二十一 世纪 青年 基金 资助 项目 ( 973705511 ) 
+ 作者简介 ： 孙红文 ( 1967 - ) , 女 , 天津人 , 南开大学 环境 科学 与 工程学院 副教授 , 博士 , 主要 从事 污染物 在 土 、 水 生态环境 中 的 归宿 , 生态 效应 和 去除 方面 的 研究 工作 . 参加 或 主持 国家自然科学基金 和 天津市 科委 基金项目 及 国际 合作项目 6 项 . 发表 论文 30 余篇 . 
+ 作者 单位 ： 孙红文 　 黄国兰 　 丛丽莉 南开大学 环境 科学 与 工程学院 , 天津   300071 ； 
+ 　 　 　 　 　 邵   敏 　 天津大学 环境 工程系 , 天津   300071 ； 
+ 　 　 　 　 　 石   静赖 　 成明 　 南开大学 化学系 , 天津   300071 
+ 参考文献 ： 　 
+ [ 1 ] Oswald   W ,   Gotaas   H   B .   Photosynthesis   in   sewage   treatment [ J ] .   Trans .   Am .   Soc .   Civ .   Eng . , 1957 , 122 ( 1 ) : 73 -   105 . 
+ [ 2 ] 严 国安 ,   谭智群 .   藻类 净化 污水 的 研究 及其 进展   [ J ] . 环境 科学 进展 , 1995 , 3 ( 3 ) : 45 -   55 . 
+ [ 3 ] Klekner   V , Kesaric   N .   Degradation   of   phenols   by   algae   [ J ] .   J .   Environ .   Technol . , 1992 , 13 ( 3 ) : 493 -   498 . 
+ [ 4 ] 戴树桂 , 孙红文 , 黄国兰 等 .   河口 水及 藻类 对 三 丁基 锡 的 降解 作用 研究   [ J ] .   中国 环境 科学 ,   1997 , 17 ( 2 ) : 146 -   150 .   
+ [ 5 ] 刘厚田 , 杜晓明 , 刘金齐 等 .   藻菌 系统 降解 偶氮染料 的 机理 研究   [ J ] .   环境 科学 学报 ,   1993 , 13 ( 3 ) : 332 -   338 .   
+ [ 6 ] Liu   J , Liu   H .   Degradation   of   azo   dyes   by   algae   [ J ] .   Environ .   Pollut . , 1992 , 75 ( 2 ) : 273 ? 78 . 
+ [ 7 ] 杨惠芳 , 贾省芬 , 刘志培 .   水污染 防治 及 城市污水 资源化 技术   [ M ] .   北京 :   科学出版社 , 1993.42 -   49 . 
+ [ 8 ] 杜晓明 , 刘厚田 .   偶氮染料 分子结构 特征 与其 生物降解 性 的 关系   [ J ] .   环境 化学 , 1991 , 10 ( 6 ) : 12 -   17 . 
+ [ 9 ] 戴树桂 ,   宋 文华 ,   庄源益 等 .   偶氮染料 定量 结构 - 生物降解 性关系 ( QSBR ) 研究   [ J ] .   环境 化学 , 1998 , 17 ( 2 ) : 115 -   119 . 
+ [ 10 ] 孙红文 , 黄国兰 , 王 春节 等 .   偶氮染料 对 斜 生栅藻 的 毒性 作用 及 结构 活性 相关 关系 研究   [ J ] .   环境 科学 , 1998 , 19 ( 4 ) : 22 -   26 . 
+ 
+ 收稿 日期 ： 1998 - 12 - 08 

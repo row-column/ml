@@ -1,0 +1,120 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 　 Vol.36 　 No.6 　 P.681 - 684 
+ 
+ 
+ 
+ 知识 约简 的 一种 启发式 算法 
+ 苗夺谦 　 胡桂荣 
+ 摘 　 要 ： 知识 约简 是 Rough   Set 理论 研究 中 的 核心内容 之一 ， 现已 证明 寻找 决策表 的 最小 约简 是 NP - hard 问题 . 文中 首先 从 信息 的 角度 ， 对 决策表 中 属性 的 重要性 给出 度量 ； 在 此基础 上 ， 提出 了 一种 基于 互信息 的 知识 相对 约简 的 启发式 算法 ， 并 指出 该 算法 的 复杂性 是 多项式 的 ； 最后 ， 通过 实例 分析表明 ， 在 多数 情况 下该 算法 能够 得到 决策表 的 最小 约简 . 
+ 关键词 ： Rough   Set 理论 ， 知识 约简 ， 启发式 算法 ， 算法 复杂性 
+ 分类号 ： TP18 
+ A   HEURISTIC   ALGORITHM   FOR   REDUCTION   OF   KNOWLEDGE 
+ MIAO   Duo - Qian 
+ ( Department   of   Mathematics ,   Shanxi   University ,   Taiyuan   030006 ) 
+ HU   Gui - Rong 
+ ( Department   of   Mathematics ,   Shanxi   University ,   Taiyuan   030006 ) 
+ MIAO   Duo - Qian 
+ ( National   Laboratory   of   Pattern   Recognition , Insitute   of   Automation , Chinese   Academy   of   Sciences ,   Beijing   100080 ) 
+ Abstract ： Reduction   of   knowledge   is   one   of   the   important   topics   in   the   research   on   rough   set   theory .   It   has   been   proven   that   computing   the   optimal   ( minimal )   reduction   of   decision   table   is   a   NP - hard   problem .   In   the   paper   here ,   first ,   the   significance   of   attributes   in   decision   table   is   defined   from   the   viewpoint   of   information ;   then ,   a   heuristic   algorithm   based   on   mutual   information   for   reduction   of   knowledge   is   proposed ,   and   the   complexity   of   this   algorithm   is   analyzed ;   Finally ,   the   experimental   results   show   that   this   algorithm   can   find   the   minimal   reduction   for   most   decision   tables . 
+ Key   words ： Rough   set   theory ,   reduction   of   knowledge ,   heuristic   algorithm ,   complexity   of   algorithm ▲ 
+ 1 　 引 　 　 言 
+ 　 　 Rough   Set 理论 是 一种 处理 不 精确 、 不相容 和 不 完全 数据 的 新 的 数学 工具 ［ 1 ］ . 目前 ， 它 正在 被 广泛应用 于 人工智能 、 模式识别 与 智能 信息处理 等 领域 ， 并 取得 了 令人 可喜 的 成果 ［ 2 ， 3 ］ . 
+ 　 　 知识 约简 是 Rough   Set 理论 的 核心内容 之一 ［ 1 , 4 , 5 ］ . 众所周知 ， 知识库 中 的 知识 ( 属性 ) 并 不是 同等 重要 的 ， 甚至 其中 某些 知识 是 冗余 的 . 特别 ， 当 知识库 数据 是 随机 采集 的 时 ， 其 冗余 性 更为 普遍 . 冗余 知识 的 存在 ， 一方面 是 对 资源 的 浪费 ( 需要 存储空间 ) ； 另一方面 ， 干扰 人们 作出 正确 而 简洁 的 决策 . 所谓 知识 约简 ， 就是 在 保持 知识库 的 分类 或 决策 能力 不变 的 条件 下 ， 删除 其中 不 相关 或 不 重要 的 知识 . 
+ 　 　 在 Rough   Set 理论 中 ， 依据 是否 考虑 决策 属性 而 将 知识库 分别 表示 为 信息系统 或 决策表 的 形式 . 对 信息系统 的 知识 约简 ， 文献 ［ 6 ］ 已作 了 研究 . 本文 主要 讨论 对 决策表 的 知识 约简 ， 又 称为 知识 的 相对 约简 . 
+ 　 　 一般来讲 ， 一个 决策表 的 知识 相对 约简 不是 唯一 的 ， 即 对 同一个 决策表 可能 存在 多个 相对 约简 . 因为 知识 约简 的 目的 是 导出 关于 决策表 的 决策 规则 ， 约简 中 属性 的 多少 直接 影响 着 决策 规则 的 繁简 . 因此 ， 人们 期望 找到 具有 最少 属性 的 约简 ， 即 最小 约简 . 然而 ， 遗憾 的 是 Wong . S . K . M 和 Ziarko . W 已经 证明 找出 一个 决策表 的 最小 约简 是 NP - hard 问题 ［ 7 ］ . 
+ 　 　 导致 NP - hard 的 主要 原因 是 属性 的 组合 爆炸 问题 . 在 人工智能 中 ， 解决 这 类 问题 的 一般 方法 是 采用 启发式 搜索 ［ 8 ］ . 本文 首先 从 信息 角度 对 决策表 中 的 属性 的 重要性 进行 了 定义 ， 以此 作为 启发式 信息 ， 减小 知识 约简 过程 中 的 搜索 空间 . 在 此基础 上 ， 提出 了 基于 互信息 的 知识 相对 约简 算法 . 通过 实验 说明 ， 在 多数 情况 下本 算法 能够 获得 决策表 的 最小 相对 约简 . 
+ 2 　 基于 互信息 的 知识 相对 约简 算法 
+ 　 　 一个 决策表 T 可以 定义 为 四元组 T = 〈 U , C ∪ D , V , f 〉 ， 其中 U 为 论域 ； C ， D 分别 为 关于 U 的 条件 和 决策 属性 集 ； 表示 属性 a 的 值域 ； f : U × ( C ∪ D ) → V 是 一个 信息 函数 ， 即 对 x ∈ 
+ U , a ∈ C ∪ D ， 有 f ( x , a ) ∈ Va . 
+ 　 　 在 文献 ［ 6 ］ 中 ， 我们 将 Rough   Set 理论 中 的 知识 看作 是 定义 在 论域 U 的 子集 组成 的 σ - 代数 上 的 随机变量 . 从而 ， 引入 了 知识 熵 与 互信息 的 概念 . 所有 这些 定义 将 是 本文 展开讨论 的 基础 . 
+ 2.1 　 决策表 中 属性 重要性 的 定义 
+ 　 　 在 决策表 中 ， 人们 关心 的 是 哪些 条件 属性 对于 决策 更 重要 . 这 就 启示 我们 考虑 条件 属性 与 决策 属性 之间 的 互信息 . 我们 认为 ， 在 决策表 中 添加 某个 属性 所 引起 的 互信息 的 变化 大小 可以 作为 该 属性 重要性 的 度量 . 
+ 　 　 设 T = 〈 U , C ∪ D , V , f 〉 为 一个 决策表 ， 且 RC . 那么 ， 在 R 中 添加 一个 属性 a ∈ C 之后 互信息 的 增量 为 ： 
+ I ( R ∪ { a } ; D ) - I ( R ; D ) = H ( D | R ) - H ( D | R ∪ { a } ) 
+ 这里 ， I ( x ; y ) 表示 x 与 y 的 互信息 ； H ( y | x ) 表示 已知 x 时 ， y 的 条件 熵 . 该 增量 越大 ， 说明 在 已知 属性 R 的 条件 下 ， 属性 a 对 决策 D 就 越 重要 . 
+ 　 　 定义 1 .   设 T = 〈 U , C ∪ D , V , f 〉 是 一个 决策表 ， 且 RC . 则 对于 任意 属性 a ∈ C - R 的 重要性 SGF ( a , R , D ) 定义 为 ： 
+ SGF ( a , R , D ) = H ( D | R ) - H ( D | R ∪ { a } ) . 
+ 若 R = φ ， 则 SGF ( a , R , D ) 变为 ： 
+ SGF ( a , D ) = H ( D ) - H ( D | a ) = I ( a ; D ) 
+ 即 为 属性 a 与 决策 D 的 互信息 . 
+ 　 　 SGF ( a , R , D ) 的 值 越 大 ， 说明 在 已知 R 的 条件 下 ， 属性 a 对于 决策 D 就 越 重要 . 本文 将 把 SGF ( a , R , D ) 作为 寻找 最小 知识 约简 时 的 启发式 信息 ， 减少 搜索 空间 . 
+ 2.2 　 基于 互信息 的 知识 相对 约简 算法 — MIBARK 算法 
+ 　 　 由 Rough   Set 理论 知道 ， 任何 决策表 的 相对 核是 唯一 的 ， 而且 它 包含 在 所有 的 相对 约简 之中 ， 所以 ， 相对 核 可以 作为 求 最小 知识 约简 的 起点 . 在 文献 ［ 9 ］ 中 ， 我们 给出 了 知识 相对 约简 的 信息 表示 ， 并且 证明 了 它 与 Pawlak . Z 的 代数 表示 的 等价 性 . 由 这些 结论 可知 ， 互信息 相等 可以 作为 寻找 知识 相对 约简 的 终止 条件 . 
+ 　 　 下面 给出 基于 互信息 的 知识 相对 约简 ( MIBARK ) 算法 . 本 算法 是 以 bottom - up 的 方式 求 相对 约简 的 . 它 以 决策表 的 相对 核为 起点 ， 依据 第 2.1 节 定义 的 属性 重要性 ， 逐次 选择 最 重要 的 属性 添加 到 相对 核中 ， 直到 终止 条件 满足 . 
+ 　 　 算法 1 .   MIBARK ( mutual   information - based   algorithm   for   reduction   of   knowledge ) ： 
+ 　 　 输入 ： 一个 决策表 T = 〈 U , C ∪ D , V , f 〉 ， 其中 ， U 为 论域 ， C ， D 分别 为 条件 和 决策 属性 集 . 
+ 　 　 输出 ： 该 决策表 的 一个 相对 约简 . 
+ 　 　 步骤 1 .   计算 决策表 T 中 条件 属性 C 与 决策 属性 D 的 互信息 I ( C ； D ) ； 
+ 　 　 步骤 2 .   计算 C 相对 于 D 的 核 C0 = CORED ( C ) ； 
+ 一般来说 ， I ( C0 ; D ) < I ( C ; D ) ； 有时 ， 相对 核 C0 = φ ， 此时 I ( C0 ; D ) = 0 ； 
+ 　 　 步骤 3 .   令 B = C0 ， 对 条件 属性 集 C - B 重复 ： 
+ ①   对 每个 属性 p ∈ C - B ， 计算 条件 互信息 I ( p ; D | B ) ； 
+ ②   选择 使 条件 互信息 I ( p ; D | B ) 最大 的 属性 ， 记作 p ( 若 同时 有 多个 属性 达到 最大值 ， 则 从中 选取 一个 与 B 的 属性 值 组合 数 最少 的 属性 作为 p ) ； 并且 BB ∪ { p } ； 
+ ③   若 I ( B ; D ) = I ( C ; D ) ， 则 终止 ； 否则 ， 转 ① ； 
+ 　 　 步骤 4 .   最后 得到 的 B 就是 C 相对 于 D 的 一个 相对 约简 . 
+ 2.3 　 算法 复杂性 
+ 　 　 寻找 最小 知识 相对 约简 是 NP - hard 问题 ， 其 复杂性 主要 是 由 决策表 中 的 属性 组合 引起 的 . 对于 MIBARK 算法 而言 ， 在 最坏 情况 下 ， 每次 所 考虑 的 属性 数 依次 为 M ， M - 1 ， … ， 1 ( M 为 决策表 的 条件 属性 数 ) . 故 总 次数 为 
+ M + ( M - 1 ) + … + 1 = M ( M + 1 ) / 2 . 
+ 因此 ， 如果 忽略 对象 数对 计算 时间 的 影响 ， 那么 ， 在 最坏 情况 下 ， 该 算法 能够 在 O ( M2 ) 时间 复杂性 内 找到 满意 的 约简 . 
+ 3 　 实例 分析 
+ 　 　 为了 考察 MIBARK 算法 的 有效性 ， 本 节 选择 了 一个 已知 其 最小 相对 约简 的 决策表 进行 对比 分析 . 该 决策表 见 文献 ［ 7 ］ . 其中 ， 论域 U = { 1 , 2 , … , 21 } ， 条件 属性 集 C = { size ,   cyl ,   turbo ,   fuelsys ,   displace ,   comp ,   power ,   trans ,   weight } ， 决策 属性 D = { mileage } . 
+ 　 　 Ziarko . W 在 文献 ［ 7 ］ 中 讨论 了 该 决策表 的 相对 约简 问题 . 他 计算 出 了 该 决策表 的 所有 约简 ( 共 7 个 ) ， 这些 约简 所 含 属性 的 个数 分别 为 4 ， 5 ， 6 和 7 ， 所以 该 决策表 的 最小 相对 约简 为 R = { size ,   fuelsys ,   displace ,   weight } . 这 就 意味着 ， 如果 以该 决策表 提供 的 信息 为 基础 ， 预测 汽车 的 mileage ， 不必 考虑 该 决策表 中 的 11 个 因素 ； 只 需 考虑 汽车 的 size ， fuel 的 类型 ， 引擎 的 displacement 和 汽车 的 weight   四个 因素 就 足够 了 . 这 在 实际 应用 中是 极 有 价值 的 . 
+ 　 　 下面 利用 本文 的 MIBARK 算法 对 该 决策表 进行 约简 . 
+ 　 　 因为 本 算法 以 决策表 的 相对 核为 起点 ， 所以 ， 首先 求出 该 决策表 的 相对 核 Co = CORED ( C ) = { fuelsys ,   weight } . 
+ 　 　 ①   对 该 决策表 ， 计算 得 I ( C ; D ) = 0.5143 . 
+ 　 　 ②   对 该 决策表 的 相对 核 Co ， 计算 得 I ( Co ; D ) = 0.3952 . 
+ 　 　 ③   令 B = Co ， 对 p ∈ C - B ， 计算 条件 互信息 I ( p ; D | B ) ： 
+ 表 　 1 
+ 
+ 属性 psizecomppowercyldisplaceturbotrans 
+ I ( p ; D | B ) 0.08740 . 08210.07250 . 05330.05330 . 02960.0210 
+ 
+ 可以 看出 ， 使 条件 互信息 最大 的 属性 为 “ size ” ， 所以 ， 更新 后 的 B = { fuelsys ,   weight ,   size } ， 并且 ， 新 的 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 I ( B ; D ) = I ( Co ; D ) + I ( p ; D | B ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 = 0.3952 + 0.0874 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 = 0.4826 
+ 　 　 下 一步 ， 用 同样 的 方法 可 求得 ， 使 I ( p ; D | B ) 最大 的 属性 为 “ displace ” ， 所以 ， 更新 后 的 B = { fuelsys , weight , size , displace } ； 并且 ， 新 的 I ( B ; D ) = 0.5143 . 
+ 　 　 此时 ， I ( B ; D ) = I ( C ; D ) ， 故 程序 终止 . 因此 ， 属性 集 { fuelsys ,   weight ,   size ,   displace } 就是 该 决策表 的 一个 相对 约简 ， 约简 后 的 决策表 为表 2 . 
+ 　 　 　 　 　 表 2 　 约简 后 的 关于 car 的 决策表 
+ 
+ 条件 属性 决策 属性 
+ size 　 fuel 　 displace 　 weight 　 mileage 　 
+ compactEFImediummediummedium 
+ compactEFImediumlighthigh 
+ compact2BBLmediumheavylow 
+ compactEFImediumheavylow 
+ subcompact2BBLsmalllighthigh 
+ compact2BBLsmallmediummedium 
+ subcompactEFIsmalllighthigh 
+ subcompactEFImediummediumhigh 
+ compact2BBLmediummediummedium 
+ subcompactEFIsmallmediumhigh 
+ subcompact2BBLsmallmediumhigh 
+ compactEFIsmallmediumhigh 
+ 
+ 　 　 通过 上面 的 分析 可以 看出 ， 本文 所 给 MIBARK 算法 对 该 决策表 能够 找出 最小 相对 约简 . 但 该 算法 对 最小 约简 的 完备 性 还 需 进一步 探讨 . 
+ 4 　 结束语 
+ 　 　 Rough   Set 理论 为 开发 自动 规则 生成 系统 提供 了 一种 工具 . 它 通过 对 决策表 进行 知识 约简 ， 从而 导出 其 决策 规则 . 由于 知识 约简 的 不 唯一性 ， 使得 知识 约简 的 优劣 直接 影响 着 决策 规则 的 繁简 . 人们 期望 得到 关于 决策表 的 最 简洁 的 规则 ， 这 就 需要 计算 决策表 的 最小 约简 . 然而 ， 遗憾 的 是 已经 证明 找出 一个 决策表 的 最小 约简 是 NP - hard 问题 . 
+ 　 　 本文 首先 从 信息 的 角度 ， 对 决策表 中 属性 的 重要性 给出 度量 ； 在 此基础 上 ， 提出 了 一种 基于 互信息 的 知识 相对 约简 的 启发式 算法 ， 并 指出 该 算法 的 复杂性 是 多项式 的 ； 最后 ， 通过 实例 分析表明 ， 在 多数 情况 下该 算法 能够 得到 决策表 的 最小 约简 . 但是 ， 关于 该 算法 对 最小 约简 的 完备 性 问题 还 需 从 理论 上作 进一步 的 探讨 . ■ 
+ 基金项目 ： 本 课题 得到 国家自然科学基金 ( 项目编号   69805004 ) 和 山西省 青年 基金 ( 项目编号   　 　 　 　 　 　 981017 ) 资助 . 
+ 作者简介 ： 苗夺谦 ， 男 ， 1964 年 4 月生 . 博士 ， 副教授 ， 主要 研究 方向 为 Rough   Set 理论 与 应 　 　 　 　 　 　 用 、 KDD 、 Data   Mining 、 人工智能 和 模式识别 . 
+ 作者 单位 ： 苗夺谦 ( 山西大学 数学系 　 太原 　 030006 ) 
+ 　 　 　 　 　 胡桂荣 ( 山西大学 数学系 　 太原 　 030006 ) 
+ 　 　 　 　 　 苗夺谦 （ 中国科学院自动化研究所 模式识别 国家 重点 实验室 　 北京 　 100080 ） 
+ 参考文献 ： 
+ ［ 1 ］ awlak   Z .   Rough   Sets — — Theoretical   Aspects   of   Reasoning   About   Data .   Kluwer   Academic   Pub ,   1991 
+ ［ 2 ］ 珏 , 苗夺谦 , 周育健 .   关于 Rough   Set 理论 与 应用 的 综述 .   模式识别 与 人工智能 ,   1996 , 9 ( 4 ) : 337 ～ 344 
+ ( Wang   Jue ,   Miao   Duoqian ,   Zhou   Yujian .   Rough   set   theory   and   its   application :   A   survey .   Pattern   Recognition   and   Artificial   Intelligence ( in   Chinese ) ,   1996 , 9 ( 4 ) : 337 ～ 344 ) 
+ ［ 3 ］ 珏 , 王任 , 苗夺谦 等 .   基于 Rough   Set 理论 的 “ 数据 浓缩 ” .   计算机 学报 ， 1998 , 21 ( 5 ) : 393 ～ 400 
+ ( Wang   Jue ,   Wang   Ren ,   Miao   Duoqian   Het   al .   Data   enriching   based   on   Rough   set   theory .   Chinese   Journal   of   Computers ( in   Chinese ) .   1998 , 21 ( 5 ) : 393 ～ 400 ) 
+ ［ 4 ］ 夺谦 .   Rough   Set 理论 及其 在 机器 学习 中 的 应用 研究 [ 博士学位 论文 ] ,   中国科学院自动化研究所 , 北京 ， 1997 
+ ( Miao   Duoqian .   Rough   set   theory   and   its   application   in   machine   learning ( in   Chinese ) .   Institute   of   Automation ,   Chinese   Academy   of   Sciences , Beijing ， 1997 ) 
+ ［ 5 ］ ang   Jue ,   Miao   Duoqian .   Analysis   on   attribute   reduction   strategies   of   Rough   set .   Journal   of   Computer   Science   and   Technology ,   1998 , 13 ( 2 ) : 189 ～ 192 
+ ［ 6 ］ iao   Duoqian ,   Wang   Jue .   An   information - based   algorithm   for   reduction   of   knowledge .   IEEE   ICIPS   ' 97 .   1997.1155 ～ 1158 
+ ［ 7 ］ ong   S   K   M ,   Ziarko   W .   On   optimal   decision   rules   in   decision   tables .   Bulletin   of   Polish   Academy   of   Sciences ,   1985 , 33 : 693 ～ 696 
+ ［ 8 ］ 汝 钤 .   人工智能 . 北京 ： 科学出版社 ， 1996 
+ ( Lu   Ruqian .   Artificial   Intelligence ( in   Chinese ) .   Beijing : Science   Press ,   1996 ) 9 苗夺谦 ,   王珏 .   粗糙集 理论 中 概念 与 运算 的 信息 表示 .   软件 学报 ， 1999 , 
+ ( Miao   Duoqian ,   Wang   Jue .   An   information   representation   of   concepts   and   operations   in   rough   set   theory . Journal   of   Software ( in   Chinese ) ,   1999 ,   10 ( 2 ) :   113 - 116 ) 
+ 收稿 日期 ： 1998 - 08 - 10 
+ 修稿 日期 ： 1998 - 11 - 26 

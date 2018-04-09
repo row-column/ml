@@ -1,0 +1,48 @@
+自动化 学报 
+ ACTA   AUTOMATICA   SINICA 
+ 1999 年 　 第 25 卷 　 第 5 期 　 Vol.25   No.5   1999 
+ 
+ 
+ 
+ 
+ 带有 初始 误差 修正 的 迭代 学习 控制 
+ 黄宝健 　 孙明轩 　 张学智 
+ 关键词 　 初始条件 ， 迭代 学习 控制 ， 收敛性 . 
+ ITERATIVE   LEARNING   CONTROL   ALGORITHMS   WITH   INITIAL 
+ UPDATE   ACTION 
+ HUANG   Baojian 　 SUN   Mingxuan 　 ZHANG   Xuezhi 
+ ( Department   of   Electronics , Xi ' an   Institute   of   Technology ,   Xi ' an   710032 ) 
+ Key   words 　 Initial   condition ,   iterative   learning   control ,   convergence . 
+ 1 　 引 　 言 
+ 　 　 在 利用 迭代 学习 算法 设计 控制器 时 ， 为了 保证 算法 的 收敛性 ， 常 对系统 的 初态 限定 一定 的 条件 ， 这 就是 所谓 的 初始条件 问题 . 目前 发表 的 文献 大都 要求 迭代 初态 严格 重复 期望 初态 ［ 1 — 5 ］ . 然而 ， 实际 的 重复 定位 操作 往往 会 引起 迭代 初态 相对 于 期望 初态 的 偏移 . 在 很多 情况 下 期望 初态 是 未知 的 ， 而 系统 初态 也 是 固定 的 . 本文 研究 在 迭代 初态 任意 固定 的 情况 下 迭代 学习 控制 问题 ， 提出 了 带有 初始 误差 修正 的 迭代 学习 算法 ， 讨论 了 这种 算法 的 收敛性 ， 给出 了 算法 的 极限 轨迹 . 
+ 2 　 主要 结果 
+ 　 　 考虑 一类 非线性 系统 
+ ( 1 ) 
+ 其中 t ∈ ［ 0 , T ］ , x , f ( x ) ∈ Rn , B ( x ) ∈ Rn × r , y , g ( x ) ∈ Rm , u ∈ Rr . 对于 该 系统 ， 作 如下 假定 ： g ( x ) 关于 x 的 导数 gx ( x ) 存在 ； f ( x ) ， gx ( x ) ， B ( x ) 关于 x 满足 全局 一致 Lipschitz 条件 ， 即 对于 x1 , x2 ∈ Rn , f ( x1 ) - f ( x2 ) ≤ kfx1 - x2 , h ( x1 ) - h ( x2 ) ≤ khx1 - x2 , h ∈ ｛ B , gx ｝ ; B ( x ) , gx ( x ) 有 界 ： B ( x ) ≤ M1 , gx ( x ) ≤ M2 . 
+ 　 　 对 该 系统 采用 如下 形式 的 学习律 ： 
+ 　 ( 2 ) 
+ 其中 t ∈ ［ 0 , T ］ , ek ( t ) = yd ( t ) - yk ( t ) ， Γ ( y ( t ) ) 为 学习 增益 矩阵 ， 满足 Γ ( y ( t ) ) ≤ γ ， 而 
+ 　 ( 3 ) 
+ 称为 “ 初始 修正 函数 ” . 
+ 　 　 定理 1 . 对于 由式 ( 1 ) 所 描述 的 系统 及 学习律 ( 2 ) ， 如果 满足 
+ 　 　 c1 ) 　 I - Γ ( g ( x ) ) gx ( x ) B ( x ) ≤ ρ < 1 , x ∈ Rn ; 
+ 　 　 c2 ) 　 xk ( 0 ) = x0 , k = 0 , 1 , 2 ， … ， 
+ 则 当 k → ∞ 时 yk ( t ) 在 ［ 0 , T ］ 上 的 极限 轨迹 为 
+ 　 ( 4 ) 
+ 即当 k → ∞ 时 yk ( t ) 在 ［ h , T ］ 上 一致 收敛 于 yd ( t ) . 
+ 　 　 证明 . 令   e * k ( t ) = y * d ( t ) - yk ( t ) . 由式 ( 4 ) 知 ， y * d ( 0 ) = g ( x0 ) ， 因此 ， e * k ( 0 ) = y * d ( 0 ) - yk ( 0 ) = 0 , y * d ( h ) = yd ( h ) , . 取一 控制 输入 u * d ( t ) ， 使 系统 初态 位于 x0 的 输出 轨迹 为 y * d ( t ) . 记 Δ u * k = u * d - uk , e * k = y * d - yk . 于是 由式 ( 2 ) 当 0 ≤ t < h 时 
+ 　 ( 5 ) 
+ 当 h ≤ t ≤ T 时 ， 由于 y * d ( t ) = yd ( t ) ， 即 e * k ( t ) = ek ( t ) ， 而 θ h ( t ) = 0 ， 故式 ( 5 ) 也 成立 ， 即式 ( 5 ) 对 任何 t ∈ ［ 0 , T ］ 均 成立 . 由此可证 定理 1 的 结论 . 
+ 3 　 结 　 论 
+ 　 　 文中 所 提出 的 学习 算法 适用 于 存在 初态 偏移 的 学习 控制系统 ， 定理 1 的 条件 放松 了 对 迭代 初态 的 要求 . 函数 θ h ( t ) 的 引入 可以 实现 在 区间 ［ h , T ］ 上 对 期望 轨迹 的 完全 跟踪 ， 这 表明 此种 学习 算法 对于 克服 初态 偏移 的 影响 是 十分 有效 的 ， 但 h 过小会 产生 较大 的 控制 量 . 文中 的 结果 包含 了 迭代 初态 严格 重复 时 的 有关 结论 . 
+ 作者简介 ： 黄宝健 　 男 ， 1961 年 12 月生 . 硕士 ， 副教授 . 研究 领域 ： 几何 函数 论 ， 迭代 学习 控制 . 
+ 　 　 　 　 　 孙明轩 　 男 ， 1961 年 6 月生 . 硕士 ， 副教授 . 研究 领域 ： 迭代 学习 控制 ， 最优控制 ， 计算机 仿真 . 
+ 作者 单位 ： 西安 工业 学院 电子系 　 西安 　 710032 
+ 参考文献 
+ 1 　 Ahn   H   S ,   Choi   C   H .   Iterative   learning   control   for   linear   systems   with   a   periodic   disturbance .   Electronics   Letters ,   1990 , 26 ( 18 ) : 1542 — 1554 
+ 2 　 Arimoto   S ,   Kawamura   S ,   Miyazaki   F .   Bettering   operation   of   dynamic   systems   by   learning :   A   new   control   theory   for   servomechanism   or   mechatronics   systems .   In : Proc . of   23rd   IEEE   Conf .   on   Decision   and   Control .   Las   Vegas ,   NV ,   1984 , 1064 — 1069 . 
+ 3 　 Ortega   J   M ,   Rheinboldt   W   C .   Iterative   Solution   of   Nonlinear   Equations   in   Severial   Variables .   Academic   Press ,   1970 
+ 4 　 Poter   B ,   Mohamed   S   S .   Iterative   learning   control   of   partially   irregular   mutivariable   plants   with   initial   state   shifting .   Int . J . Systems   Sci . ,   1991 ,   22 ( 2 ) : 229 — 235 
+ 5 　 Sugie   T ,   Ono   T .   An   iterative   learning   control   law   for   dynamic   systems .   Automatica ,   1991 ,   27 ( 4 ) : 729 — 732 
+ 收稿 日期 ： 1997 - 03 - 28 
+ 修稿 日期 ： 1998 - 09 - 28 

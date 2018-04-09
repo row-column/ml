@@ -1,0 +1,114 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 8 期   Vol.36   No.8   1999 
+ 
+ 
+ 
+ 基 于小波 神经网络 的 光谱 数据压缩 与 分类 研究 
+ 张 永胜 　 　 郁 　 可 
+ 摘 　 要 　 文中 介绍 了 一种 基 于小波 分析 而 构造 的 神经网络 模型 — — 小 波 神经网络 . 利用 它 并 适当 选取 网络结构 和 小波基 ， 实现 了 对 化学物质 红外 光谱 数据 的 压缩 表达 和 分类 . 实验 表明 ， 网络 在 大幅度 压缩 数据 的 同时 能 很 好 地 恢复 原始 光谱 、 较 准确 地 反映 吸收 峰 的 位置 和 强度 . 在 分类 方面 它 比 其它 网络 具有 更 高 的 分辨率 和 特征提取 能力 . 通过 与 BP 网络 的 训练 结果 对比 ， 小 波 神经网络 具有 自适应性 强 、 收敛 速度 快及 可 屏蔽 随机噪声 等 优点 ， 特别 适用 于 非 平稳 、 非线性 信号 的 分析 研究 . 因此 ， 小 波 神经网络 在 光谱 处理 方面 有着 较 好 的 应用 前景 和 优越性 . 
+ 关键词 　 小 波 神经网络 ， 数据压缩 ， 分类 ， 红外 光谱 
+ 中图法 分类号 　 TP399 
+ STUDY   OF   SPECTRAL   DATA   REPRESENTATION   AND   CLASSIFICATION   FOR   WAVELET   NEURAL   NETWORK 
+ ZHANG   Yong - Sheng ①   and   YU   Ke ② 
+ ① ( Department   of   Computer   Science ,   Wuhan   University   of   Technology ,   Wuhan   430070 ) 
+ ② ( Optical   Fiber   Sensing   Research   Center ,   Wuhan   University   of   Technology ,   Wuhan   430070 ) 
+ Abstract 　 A   model   of   neural   network   based   on   wavelet   analysis — — wavelet   neural   network ,   is   introduced   in   the   paper   here .   The   chemical   substance   infrared   spectral   compression   representation   and   classification   are   realized   with   adaptive   network   structure   and   daughter   wavelet . The   experimental   results   show   that   the   original   spectra   can   be   recovered   well ,   the   place   and   intensity   of   absorptive   peaks   can   be   defined   exactly ,   and   the   data   can   be   compressed   greatly   with   the   wavelet   network . The   resolution   ratio   and   the   characteristic   collection   ability   of   the   wavelet   network   are   better   than   that   of   other   networks   in   classification .   A   comparison   of   the   two   training   results   of   the   wavelet   and   BP   networks   indicates   that   the   wavelet   network   has   better   adaptability   and   faster   convergence   speed   and   can   shield   random   noise .   The   wavelet   network   can   be   applied   to   the   study   and   analysis   of   nonstationary   and   nonlinear   signals ,   so   it   holds   a   bright   future   in   spectra   processing . 
+ Key   words 　 wavelet   neural   network ， data   compression ， classification ,   infrared   spectra 
+ 1 　 引 　 言 
+ 　 　 红外 光谱 是 进行 化合物 微观 结构 、 定性 及 定量分析 的 重要依据 . 准确 反映 所测 化合物 的 结构特征 ， 通常 需要 庞大 的 光谱 数据量 . 因而 在 保证 红外 光谱 主要 特征 基本 不变 的 前提 下 ， 如何 对 红外 光谱 进行 压缩 ， 较大 地 减少 数据 ， 进而 改善 红外 光谱 的 存储 、 检索 及 分类 等 处理 方式 ， 是 很 有 意义 的 研究 工作 . 小波 神经网络 ［ 1 ， 2 ］ 简称 小 波 网络 ， 是 基 于小波 分析 ［ 3 ， 4 ］ 而 构造 的 一种 新 的 神经网络 模型 . 由 于小波 变换 在 处理 信号 时有 较 好 的 高频 域 时间 精度 和 低频 域 频率 精度 的 优点 ， 故 它 在 数据压缩 、 模式识别 、 信噪 分离 等 方面 有着 广泛应用 . 本文 将 以 小 波函数 构造 的 神经网络 用于 红外 光谱 的 压缩 表达 和 分类 上 . 结果表明 ， 通过 调节 小波基 参数 、 权值 ， 网络 在 大量 压缩 数据 的 同时 能够 很 好 地 恢复 原有 光谱 ， 较 准确 地 反映 吸收 峰 的 位置 和 强度 ， 从而 达到 压缩 信号 与 原始 信号 的 最佳 匹配 . 在 分类 方面 小 波 网络 比 其它 网络 具有 更 高 的 分辨率 及 较 少 的 训练 次数 . 
+ 2 　 基本原理 
+ 2.1 　 数据表示 网络 
+ 　 　 小 波 变换 实质 是 一种 不同 参数 空间 之间 的 积分 变换 ［ 5 ］ 
+ 
+ 其中 是 具有 紧支集 的 函数 ， 称为 小波基 ， 和 分别 为 n 维和 m 维 参数 空间 中 的 坐标 . 
+ 　 　 在 一维 信号 f ( t ) 情况 下 , 小波基 或 h ( a , b , t ) ( 这里 ) 可以 按照 下述 方式 产生 
+ 
+ 其中 h ( t ) 为 基本 小波 或 母小波 ， 为 归一化 系数 ， a , b 分别 为 h ( a , b , t ) 的 伸缩 因子 和 平移因子 ， 对于 信号 f ( t ) ， 其 局部 结构 的 分辨 可以 通过 调节 参数 a , b ， 即 调节 小波基 窗口 的 大小 和 位置 来 实现 . 
+ 　 　 小 波 网络 是 基 于小波 分析 而 构造 的 神经网络 模型 ， 即用 非线性 小波基 取代 了 通常 的 非线性 Sigmoid 函数 ， 其 信号 表述 是 通过 将 所 选取 的 小波基 进行 线性 叠加 来 实现 的 ， 信号 s ( t ) 可用 小波基 h ( a , b , t ) 进行 如下 拟合 ： 　 　 
+ 
+ ( 3 ) 式 中 ， 为 拟合 信号 ， wk , bk 和 ak 分别 为 权值 、 小波基 的 平移因子 和 伸缩 因子 ， k 为 小波基 的 个数 ， 图 1 展示 了 仅 含有 一个 输入 和 一个 输出 节点 的 单层 网络结构 . 
+ 　 　 网络 参数 wk , bk 和 ak 可以 通过 下述 最小 均方 误差 能量 函数 进行 优化 
+ 
+ 其中 M 为 数据 采样 点 总数 . 在 式 ( 3 ) 中 采用 下述 Morlet 母小波 ( 如图 2 所示 ) ， 该小波 是 余弦 调制 的 高斯 波 ， 时 频域 同时 分辩率 高 ： 
+ 
+ 
+ 图 1 　 压缩 表示 小 波 神经网络 
+ 
+ 
+ 图 2 　 Morlet 母小波 
+ 
+ 　 　 若令 t ′ = ( t - bk ) / ak ， 则 E 的 梯度 分别 为 
+ 
+ 
+ 
+ 　 　 采用 共轭 梯度 法 优化 网络 wk ， bk 和 ak ， 分别 令 向量 ， 为 第 i 次 循环 搜索 方向 ， 则 
+ 
+ 其中 T 代表 转置 . 同理 定义 按下式 进行 调节 ： 
+ 
+ 
+ 
+ 　 　 本文 采用 了 一维 搜索 变 步长 法 ［ 6 ］ 计算 最佳 步长 每次 循环 时 按 上面 式子 分别 调节 网络 参数 向量 w  ， b  和 a  直到 E 小于 某一 设定 误差 或 循环 结束 为止 . 为了 合理 及 方便 表示 ， 网络 每次 循环 后 的 输出 误差 E ′ 用下式 表达 ： 
+ 
+ 2.2 　 数据 分类 网络 
+ 　 　 改变 小 波 网络结构 可以 对 输入 信号 进行 综合 分类 . 设 输入 训练样本 总数 为 P ， 网络 有 N 个 输出 节点 ， 对 第 p 个 样本 ， 第 n 个 节点 的 输出 用下式 表示 :   
+ 
+ 其中 ， 一个 Sigmoid 函数 . 图 3 给出 了 式 ( 14 ) 的 分类 小 波 网络结构 示意图 . 
+ 　 　 网络 参数 wk ， bk 和 ak 可 通过 下述 能量 函数 E 优化 
+ 
+ 其中 为 第 p 个 样本 ， 第 n 个 节点 的 理想 分类 输出 . 利用 式 ( 5 ) ， 并令 ， 则 
+ 
+ 
+ 
+ 
+ 
+ 图 3 　 分类 小 波 神经网络 
+ 用 2.1 节 所述 的 共轭 梯度 法 优化 网络 参数 wk ,   bk 和 ak ， 直到 E 小于 某一 设定 误差 . 
+ 3 　 结果 与 讨论 
+ 3.1 　 光谱 压缩 
+ 　 　 根据上述 方法 ， 我们 对 一个 α ,   α ′ — — 二氧 代 烯酮 环二硫代 缩酮 的 化合物 的 特征 红外 光谱 ( 波数 从 4000 ～ 452cm - 1 ， 波数 间隔 为 4cm - 1 ， 共 888 个 数据 点 ) 进行 了 压缩 研究 ， 将 其 红外 光谱 的 全部 数据 点 作为 训练 集 ， 波数 作为 输入 ， 透光率 作为 目标 输出 ， 共 采用 了 30 个 小波基 进行 训练 ， 将 wk ， ak 初始值 定为 随机数 ( 范围 均 从 - 100 ～ + 100 ) ， bk 的 初始值 在 取样 区间 内 均匀分布 ， 但 为了 加快 网络 收敛 速度 及 避免 误差 局部 最小 ， 我们 主要 以 波峰 和 波谷 等 所 对应 的 波数 作为 bk 的 初始值 , 训练 次数 为 200 次 ， 开始 步长 分别 为 α w = 10 - 2 ， α a = α b = 10 - 7 ， 训练 结束 后 输出 误差 E ′ 为 0.000275 ， 将 其 全部 波数 作为 输入 对谱 图 进行 了 恢复 ， 输出 误差 E ′ 也 为 0.000275 . 图 4 给出 了 该 化合物 的 原始 和 恢复 后 的 红外 光谱 . 
+ 
+ 
+ 图 4 　 α ,   α ′ — — 二氧 代 烯酮 环二硫代 缩酮 红外 光谱 图 
+ 
+ 　 　 可以 看出 恢复 后 的 光谱 能 很 好 地 保持 原有 光谱 的 特性 ， 特别 是 能够 较 准确 地 反映 吸收 峰 的 位置 和 强度 . 小波基 个数 的 选取 是 一个 十分 重要 的 问题 ， 个数 太 多 ， 虽然 能 使 收敛 速度 加快 ， 但 所 需 参数 要 增加 ， 压缩比 要 降低 ； 相反 ， 个数 太 少 ， 压缩比 可以 增大 ， 但 使 收敛 速度 变慢 甚至 不 收敛 . 经过 实验 ， 我们 选择 了 30 组是 比较 合适 的 . 这样 红外 光谱 的 原始 透光率 的 数据 可以 用 30 组 wk , bk 和 ak 共 90 个 参数 表示 出来 ， 从而 实现 了 其 光谱 的 压缩 ， 压缩比 约 为 10 ∶ 1 ， 效果 是 可以 满意 的 . 表 1 给出 了 实际 谱 峰值 与 恢复 后 的 谱 峰值 . 
+ 3.2 　 光谱 分类 
+ 　 　 由于 一些 物质 的 衍生物 或 某些 类中 的 不同 化合物 之间 存在 着 光谱 结构 的 相似性 ( 即峰位 ， 峰强 ， 峰形 ， 峰 宽 ， 峰 数目 等 的 相似 ) ， 可以 在 各种 谱 与 物质 结构 间 建立 某种 确定 的 对应 关系 ， 并 对 不同 的 物质 进行 分类 . 这里 我们 对 OH ， NH ， CO ， 芳香族 环烃 4 类物质 进行 初步 分类 ， 选择 了 这 4 类中 的 125 种 物质 的 特征 红外 光谱 作为 分类 训练 集 ， 用 另外 44 种 物质 的 红外 光谱 作为 检测 集 ， 其中 输出 层 由 2 个 节点 组成 ， 用 4 个 二进制 代码 表示 分类 结果 . 开始 对 采样 数据 进行 了 预处理 ， 为了 方便 和 突出 小波基 概念 ， 这里 用 了 固定 步长 法 ， 我们 先 经验 地 采用 10 个 固定 小波基 ( 即 bk 和 ak ， k = 1 , 2 , ... , 10 ， 取 某些 固定值 ) ， 初始 权值 为 一 随机数 ， 通过 只 调节 权值 来 优化 网络 ， 并 给定 α w 取值 . 经过 155 次 训练 ， 用 未经 训练 的 红外 光谱 检验 后 表明 ， 对 这 4 类物质 的 识别 可达 88 ％ 的 准确率 . 后来 ， 我们 再 采用 对 权值 w 、 小波基 的 平移因子 bk 和 伸缩 因子 ak 实行 全 调节 优化 网络 ， 并 给定 α w ， α a ， α b 取值 ， 经过 150 次 训练 后 ， 分类 准确率 达到 94 ％ . 这 表明 选用 合适 的 小波基 可以 提高 网络 分类 率 . 
+ 　 　 小 波 网络 用于 对 原始数据 分类 有 以下 几 方面 的 优点 ： ① 用 较 少 的 训练样本 即可 达到 较 好 的 训练 效果 ， 从而 加快 训练 速度 ， 增加 网络 的 识别 分辨率 . ② 小波基 可以 把 尺度 、 变换 等 的 不变性 进行 合并 ， 减少 训练样本 数 . ③ 具有 很 好 的 特征提取 和 屏蔽 随机噪声 能力 ， 特别 适于 非 平稳 、 非线性 信号 的 分类 . 
+ 　 　 我们 对 BP 网络 和 小波 网络 采用 同样 步长 和 初始 权值 ， 经过 5000 次 迭代 训练 来 比较 网络 收敛 速度 ， 图 5 显示 了 两种 网络 学习 的 收敛 曲线 ， 可见 小 波 网络 收敛 速度 明显 优于 BP 网络 . 
+ 
+ 
+ ( a )   BP 网络 ； ( b )   小 波 网络 
+ 图 5 　 两种 神经网络 收敛 误差 曲线图 
+ 表 1 　 实际 谱 峰值 与 恢复 后 的 谱 峰值 
+ 
+ 序号 实际 谱 峰值 恢复 后 的 谱 峰值 
+ 　 波数 ( cm - 1 ) 透光率 ( % ) 波数 ( cm - 1 ) 透光率 ( % ) 
+ 1324356.2324356 . 218130 
+ 2129918.5129818 . 215226 
+ 3128715.3128816 . 033068 
+ 4126810.112688 . 238141 
+ 5124218.0124119 . 981833 
+ 6122217.8122216 . 210110 
+ 762848.962646 . 037789 
+ 859755.559754 . 403103 
+ 958144.658144 . 159781 
+ 
+ 　 
+ 4 　 结束语   
+ 　 　 从 上述 讨论 可知 ， 小 波 网络 对 红外 光谱 数据压缩 和 分类 具有 一定 的 应用 价值 ， 展示 了 它 在 光谱 方面 的 应用 前景 . 但 对 整个 红外 波段 ， 随着 小波基 个数 的 增加 ， 计算 量会 迅速 增大 ， 这 对 硬件 的 要求 也 要 提高 ， 算法 的 进一步 优化 及 计算机 综合性 能 的 提高 有望 解决 这一 问题 . 需要 指出 的 是 ， 小波基 的 数量 和 网络 参数 的 初始值 对 网络 训练 有 很大 的 影响 . 此外 ， 采用 不同 的 母小波 和 误差 能量 函数 ， 有 可能 会 减小 训练 误差 以及 加快 网络 收敛 速度 . 
+ 基金项目 ： 本 课题 得到 国家自然科学基金 的 资助 ( 项目编号 5943206 ) 
+ 作者简介 ： 张 永胜 ， 男 ， 1964 年 9 月生 ， 硕士 ， 现 主要 从事 神经网络 、 数据库 开发 及 计算机 应用 研究 工作 . 郁可 ， 男 ， 1963 年 7 月生 ， 博士 ， 副教授 ， 现 主要 从事 光纤 传感 技术 及 智能 材料 研究 工作 . 
+ 作者 单位 ： 张 永胜 　 武汉 工业 大学 计算机科学 系 　 武汉 　 430070 
+ 　 　 　 　 　 郁 　 可 　 武汉 工业 大学 光纤 中心 　 武汉 　 430070 
+ 参考文献 
+ 1 　 Zhang   Q ,   Benvenise   A .   Wavelet   network .   Proc   IEEE   Trans   on   Neural   Network ,   1992 ,   3 ( 6 ) :   889 ～ 898 
+ 2 　 Harold   H   S ,   Brain   T ,   Shubha   K ,   Neural   network   adaptive   wavelet   for   signal   representation   and   classification ,   Optical   Engineering ,   1992 ,   31 ( 9 ) :   1907 ～ 1916 
+ 3 　 Bos   M ,   Hoogendam   E ,   Wavelet   transform   for   the   evaluation   of   peak   intensities   in   flow - injection   analysis .   Analytica   Chimica   Acta ,   1992 ,   267 :   73 ～ 80 
+ 4 　 Bos   M ,   Vrielink   JAM .   The   wavelet   transform   for   pre - processing   IR   spectra   in   the   identification   of   mono   and   disubstituted   benzens .   Chemometrics   and   Intelligent   Laboratory   Systems ,   1994 ,   23 ( 2 ) :   115 ～ 122 
+ 5 　 秦 前清 ,   杨宗凯 .   实用 小 波 分析 .   西安 :   西安电子科技大学 出版社 , 1995 
+ ( Qin   Qianqing ,   Yang   Zongkai .   Practical   Wavelet   Analysis .   Xi ' an :   Xi ' an   University   of   Electron   Science   and   Technology   Press , 1995 ) 
+ 6 　 胡守仁 , 沈清 , 胡 德文 等 .   神经 网络应用 技术 .   长沙 :   国防科技大学 出版社 , 1993 
+ ( Hu   Shouren ,   Shen   Qing ,   Hu   Dewen   et   al .   Application   Technology   of   Neural   Network ,   Changsha :   National   Defence   University   of   Science   and   Technology   Press ,   1993 ) 
+ 收到 日期 ： 1997 - 11 - 18 
+ 修改 日期 ： 1998 - 05 - 25 

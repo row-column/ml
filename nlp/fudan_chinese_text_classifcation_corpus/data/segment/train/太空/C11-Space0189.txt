@@ -1,0 +1,83 @@
+宇航学 报   
+ JOURNAL   OF   ASTRONAUTICS 
+ 1998 年   第 19 卷   第 1 期   No1   Vol.9   1998 科技期刊 
+ 
+ 一类 非线性 控制器 nPI 及其 在 扫描 镜 
+ 精密 伺服系统 中 的 应用 
+ 梁 文宝 
+ ( 航天工业 总公司 三院 三部 * 北京 * 100074 ) 
+ 徐 立新 
+ ( 北京理工大学 * 北京 * 100081 ) 
+ 梅晓容 　 庄显义 
+ ( 哈尔滨工业大学 * 哈尔滨 * 150001 ) 
+ 　 　 摘 　 要 　 本文 给出 一种 非线性 控制器 , 并 将 它 应用 于 扫描 镜 精密 伺服系统 的 校正 。 理论 分析 和 应用 结果表明 , 它 能 显著 改善 控制系统 的 静态 和 动态 性能 。 
+ 　 　 主题词 　 非线性 控制器 　 描述 函数 　 扫描 镜 　 伺服系统 
+ A   KIND   OF   NONLINEAR   CONTROLLER   nPI   
+ AND   ITS   APPLICATION   IN   SCANNING   
+ MIRROR   PRECISE   SERVO   SYSTEM 
+ Liang   Wenbao 
+ ( General   Design   Institute   of   The   Third   Research   Academy   of   
+ China   Aerospace   Corporation * Beijing * 100074 ) 
+ Xu   Lixin 
+ ( Beijing   Institute   of   Technology * Beijing * 100081 ) 
+ Mei   Xiaorong 　 Zhuang   Xianyi 
+ ( Harbin   Institute   of   Technology * Harbin * 150001 ) 
+ 　 　 Abstract 　 A   kind   of   nonlinear   controller   nPI   is   presented   and   used   to   correct   scanning   mirror   precise   servo   system   in   this   paper . The   theory   analysis   and   experiment   result   prove   that   the   nPI   can   improve   control   system   characteristics   obviously . 
+ 　 　 Key   words 　 Nonlinear   controller 　 Description   function 　 Scanning   mirror 　 Servo 
+ 1 　 引 　 言 
+ 　 　 由于 线性 比例 积分 控制器 ( PI ) 既 能 保证系统 具有 较 高 的 静态 精度 , 又 能 兼顾 系统 具有 良好 的 动态 性能 , 因此 它 在 控制系统 的 综合 中 获得 了 广泛 的 应用 。 但 线性 积分器 会 带来 90 ° 的 相位滞后 , 这 将 降低 控制系统 的 性能 。 为此 本文 给出 一种 非线性 比例 积分 控制器 ( nPI ) 。 理论 分析表明 , nPI 的 静态 、 动态 特性 都 优于 PI , nPI 应用 于 扫描 镜 精密 伺服系统 的 运行 结果 也 证明 了 这 一点 。 
+ 2 　 非线性 控制器 nPI 及其 特性 分析 
+ 2.1 　 非线性 积分器 
+ 　 　 设 nI 的 输入 为 e ( t ) , 输出 为 ui ( t ) , 则 它 的 数学模型 可以 写为 
+ 
+ ( 1 ) 
+ 
+ 
+ 图 1 　 nPI 结构图 
+ 式 中 TI 为 积分 时间常数 ; tn 为 满足 e ( t ) = 0 的 时刻 。 
+ 2.2 　 nPI 控制器 的 特性 分析 
+ 　 　 非线性 比例 积分 控制器 的 结构 如图 1 所示 。 利用 式 ( 1 ) , 经过 推导 得 其 描述 函数 为 
+ N ( j ω ) = H ( ω ) ej  φ ( ω ) 
+ ( 2 ) 
+ 其中 
+ 
+ ( 3 ) 
+ 
+ ( 4 ) 
+ 为了 把 nPI 同 PI 进行 比较 , 下面 给出 PI 的 幅频 和 相频特性 
+ 
+ ( 5 ) 
+ 
+ ( 6 ) 
+ 　 　 可以 看出 , nPI 和 PI 的 幅频特性 相似 , 并且 对 任意 角频率 ω , 总有 nPI 的 幅频 增益 大于 PI 的 幅频 增益 , 即 H ( ω ) ＞ HL ( ω ) 。 这 也 就 说明 nPI 和 PI 能 更好 地 降低 系统 的 稳态 误差 。 通过 对 相频特性 的 比较 可知 , 采用 nPI 校正 时 , 将 能 获得 更大 的 相角 稳定 裕量 , 从而 使 系统 的 动态 性能比 采用 PI 校正 时 更为 优越 。 
+ 3 　 nPI 在 扫描 镜 精密 伺服系统 中 的 应用 
+ 3.1 　 扫描 镜 控制系统 设计 
+ 　 　 扫描 镜 实际上 是 一个 微型 二维 转台 , 在 光学 成像 制导 和 导弹 半 实物 仿真 中 常有 应用 , 是 关键部件 之一 。 它 的 典型 结构 是 由 两套 机组 构成 , 分别 控制 扫描 镜片 的 俯仰 和 方位 运动 。 如何 实现 扫描 镜片 高精度 的 方位 和 俯仰 运动 , 有效 地 跟踪 光 路 , 是 航天 工程 中 迫切需要 解决 的 问题 。 
+ 　 　 在 经过 电流 环 、 速度 环 回路 和 系统 解 耦 的 设计 与 调试 后 , 扫描 镜 系统 等价 成 两个 单 变量 系统 — — 俯仰 系统 和 方位 系统 。 式 ( 7 ) 为 俯仰 系统 的 开环 传递函数 。 
+ 
+ ( 7 ) 
+ 根据 系统 的 技术 要求 , 推 得 控制 规律 如下 
+ Gbc ( S ) = 0.02 S 
+ ( 8 ) 
+ 
+ ( 9 ) 
+ 其中 Gc ( S ) , Gbc ( S ) 分别 为 串联 控制器 及 前馈 环节 的 传递函数 。 
+ 3.2 　 扫描 镜 系统 的 试验 结果 及 分析 
+ 　 　 图 2 给出 了 俯仰 系统 采用 PI 和 nPI 校正 的 阶跃 响应 曲线 和 正弦 响应 曲线 。 其中 采用 PI 校正 时 , 系统 超调量 为 36.4% , 调节 时间 为 230ms , 而 采用 相同 参数 ( KP ; TI ) 的 nPI 校正 时 , 系统 阶跃 响应 的 超 调量 为 25.6% , 调节 时间 为 110ms ; 再 看图 3 的 正弦 响应 , 采用 nPI 校正 不仅 具有 较 小 的 相位滞后 , 而且 具有 更 高 的 跟踪 精度 。 
+ 
+ 
+ ( a ) 线性 校正 的 阶跃 响应 　 　 ( b ) 非线性 校正 的 阶跃 响应 
+ 图 2 　 采用 nPI 与 PI 校正 系统 阶跃 响应 的 比较 
+ 
+ 
+ ( a ) 线性 校正 的 正弦 响应 　 　 ( b ) 非线性 校正 的 正弦 响应 
+ 图 3 　 采用 nPI 与 PI 校正 系统 正弦 响应 的 比较 
+ 4 　 结 　 论 
+ 　 　 本文 利用 非线性 积分器 , 构造 一种 非线性 控制器 nPI 。 并 应用 描述 函数 法分析 了 nPI 的 频率特性 , 从而 得出 nPI 用于 系统 校正 时 , 其 性能 明显 优于 PI 校正 的 结论 。 另外 , 又 将 nPI 成功 地 应用 于 扫描 镜 精密 伺服系统 , 系统 运行 结果 再次 验证 了 nPI 提高 控制 性能 的 有效性 。 
+ 参考文献 
+     1 　 牛景汉 . 一类 理想 非线性 积分器 的 研究 . 信息 与 控制 , 1986 , 15 ( 1 ) : 1 - 7 
+     2 　 庄显义 等 . 红外 目标 背景 仿真 装置 设计 报告 . 哈尔滨工业大学 仿真 中心 , 1993 
+     3 　 徐 立新 . 扫描 镜 精密 伺服系统 的 计算机 解 耦 控制 . 基础 自动化 , 1994 , 1 ( 5 ) : 27 - 29 
+     4 　 梁 文宝 . 扫描 镜 精密 伺服系统 的 计算机控制 研究 . 哈尔滨工业大学 硕士学位 论文 , 1996 , 1 　 
+ 本文 于 1996 年 5 月 13 日收 
+ 　 　 * 本 课题 获 国防 预研 基金 资助 

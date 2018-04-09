@@ -1,0 +1,301 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 10 卷   第 8 期   Vol.10   No.8   1999 
+ 
+ 
+ 
+ Trace   演算 
+ 黄涛   钱军   倪彬 
+ 摘要 　 文章 定义 了 基于 踪迹 ( trace ) 的 逻辑 语言 LTrace , 它 是 一阶 线性 时序 逻辑 语言 的 扩充 , 同时 也 是 “ 对象 演算 ” 研究 工作 的 基础 . Trace 演算 所述 的 “ 对象 ” 用来 刻画 具有 内部 状态 和 外部 行为 的 动态 实体 , 语法 上 由 对象 标记 表示 . 对象 标记 Ω = ( S , F , A , E ) 包含 4 个 部分 : 数据类型 S 、 函数 F 、 属性 A 和 动作 E . Σ = ( S , F ) 构成 通常 代数 规范 意义 下 的 标记 , 可 将 动作 看成 一 广义 数据类型 , 从而 得到 标记 Σ 的 动作 扩充 Σ E . 对象 标记 的 语义 解释 结构 由 关于 标记 Σ E 的 代数 、 映射 和 动作 与 踪迹 的 关系 定义 . Σ E - 代数 给出 关于 数据 参数 的 解释 ; 映射 给出 属性 在 动作 踪迹 中所取 的 值 ; 而 动作 与 踪迹 的 关系 则 给出 执行 一 有限 踪迹 以后 该 动作 是否 允许 执行 . 在 定义 了 Trace 演算 的 语法 和 语义 之后 , 文章 给出 了 Trace 演算 的 公理 系统 及其 可靠性 证明 .   
+ 关键词 　 Trace 演算 , 对象 标记 , 动作 , 踪迹 , 公理化 , 可靠性 . 
+ 中图法 分类号 　 TP 
+ Trace   Calculus 
+ HUANG   Tao   QIAN   Jun   NI   Bin 
+ ( Laboratory   of   Computer   Science   Institute   of   Software   The   Chinese   Academy   of   Sciences   Beijing   100080 ) 
+ ( Object   Technology   Center   Institute   of   Software   The   Chinese   Academy   of   Sciences   Beijing   100080 ) 
+ Abstract 　   A   trace - based   logic   language :   LTrace   is   defined   in   this   paper ,   which   is   an   extension   of   the   first - order   linear   temporal   logic   and   serves   as   cornerstone   of   the   works   — — Object   Calculus .   The   objects   in   trace   calculus   represent   the   dynamic   entities   endowed   with   a   local   state   and   external   actions ,   and   described   by   an   object   signature   in   syntax .   An   object   signature   is   a   4 - tuple   Ω = ( S , F , A , E )   in   which   S   stands   for   a   set   of   data   sorts ,   F   functions ,   A   attributes   and   E   actions .   Σ = ( S , F )   is   nothing   but   a   usual   signature   in   the   context   of   algebraic   specification .   It   can   be   extended   to   Σ E   with   the   action   regarded   as   a   special   data   sort .   The   semantics   of   trace   calculus   is   defined   by   an   object   signature   semantic   interpreting   structure   I = ( A , F , E ) ,   which   consists   of   a   Σ E -   Algebra   A   giving   an   interpretation   about   data   parameters ,   a   mapping   F   evaluating   the   attributes   on   an   action   trace ,   and   a   relation   E   giving   a   relationship   between   actions   and   a   trace .   Finally ,   we   contribute   an   axiom   system   of   our   trace   calculus   and   outlines   its   proof   of   soundness   after   we   define   the   syntax   and   semantics   of   the   trace   calculus . 
+ Key   words 　 Trace   calculus ,   object   signature ,   action ,   trace ,   axiomatization ,   Soundness . 
+ 　 　 对象 技术 代表 了 80 年代 以后 计算机软件 技术 发展 的 主流 . 就 目前 状况 而言 , 是 组合 软件工程 技术 主宰 了 发展 的 潮流 , 理论 的 研究 滞后 于 工程技术 的 发展 要求 . 对象 乃至 对象 系统 的 语义 研究 , 虽然 还 不能 对 理论 及 工程技术 的 发展 产生 深远 的 影响 和 推动 , 但 在 澄清 基本概念 、 增强 系统可靠性 等 方面 , 其 作用 仍 是 不可 替代 的 . 我们 早 在 文献 ［ 1 ］ 中 就 已 开始 使用 代数 规范 的 方法 研究 对象 行为 约束 . 而 在 文献 ［ 2 , 3 ］ 中 , 我们 进一步 给出 对象 语义 模型 及其 指称 描述 . 本文 将 在 文献 ［ 2 , 3 ］ 的 基础 之上 , 结合 代数 规范 ［ 4 , 5 ］ 和 时序 逻辑 方法 ［ 6 ］ , 定义 基于 踪迹 ( trace ) 的 逻辑 语言 LTrace , 它 是 一阶 线性 时序 逻辑 语言 的 扩充 . 以 这样 的 逻辑 演算 系统 为 工具 , 我们 就 可以 构造 一个 用于 描述 对象 和 特性 推理 的 逻辑 演算 系统 . 
+ 　 　 当前 关于 形式化 的 面向对象 的 语义 模型 的 研究 , 主要 有 基于 代数 模型 或 基于 时序 模型 两种 手段 . 对象 的 代数 语义 模型 理论 从 数学 上 是 很 完美 的 ( 如 抽象数据类型 ） , 但 缺点 是 缺乏 表达 对象 的 动态 行为 特征 的 能力 . 对象 除了 具有 静态 的 结构特征 外 , 还 具有 动态 的 语义 特征 . 在 系统 的 运行 过程 中 , 对象 可以 被 生成 、 修改 、 演变 和 消亡 . 此外 , 用于 刻画 系统 动态 行为 的 约束 关系 大多 与 时序 相关 , 仅用 代数 模型 是 难以 表达 的 , 自然 地 需要 用 时序 模型 的 观点 来 建立 对象 的 语义 理论 . 
+ 应该 指出 , 本文 所述 的 对象 是 指 一些 具有 内部 状态 和 外部 行为 的 动态 实体 , 并非 面向对象 方法 中 的 对象 概念 . 它 没有 考虑 对象 概念 中 的 一项 重要 特性 — — 封装 性 , 因此 Trace 演算 并 不是 一 对象 演算 . 但是 , 我们 的 目的 是 建立 一 面向对象 的 逻辑 演算 系统 , 所以 我们 这里 的 讨论 都 是 针对 对象 的 : 我们 给出 对象 标记 的 定义 、 提供 动作 运算符 , 可以 方便 地 描述 和 推理 动态 实体 的 动态 行为 . 
+ 　 　 对象 标记 包含 数据类型 、 函数 、 属性 和 动作 4 个 部分 . 数据类型 和 函数 构成 通常 代数 规范 意义 下 的 标记 , 给出 与 状态 无关 的 信息 , 它 是 对象 所处 的 数据 上下文 （ 或 环境 ） , 亦 可说是 一 用于 描述 对象 改变 的 框架 ; 属性 部分 包含 对象 状态 相关 信息 , 如同 通常 程序设计 语言 中 程序 变量 等 ; 动作 部分 给出 该 对象 可以 执行 的 动作 . 
+ 　 　 值得 指出 是 , 对象 标记 仅 给出 相应 对象 的 ( 行为 ) 特征 的 ( 语法 ) 描述 , 同 其他 对象 的 关系 是 通过 指定 一些 相关 动作 的 同步 而 建立 的 . 
+ 　 　 本文 第 1 节 给出 Trace 演算 的 语法 . 第 2 节 给出 Trace 演算 的 语义 . 第 3 ～ 5 节 分别 讨论 Trace 演算 的 法则 和 公理化 . 最后 给出 本文 总结 . 
+ 1   Trace 语法 
+ 1.1   对象 标记 
+ 　 　 定义 1 .   对象 标记 Ω 是 一 四元组 ( S , F , A , E ) 
+ 　 　 . S 是 类型 ( sorts ) 的 集合 . 
+ 　 　 . F 是 一 函数 簇 , 且 存在 一 映射 type : F → S * × S . 对 任意 f ∈ F , type ( f ) 称为 f 的 类型 . 常数 可 表示 为 零元 函数 符号 . 
+ 　 　 . A 是 以   S * × S   标识 的 属性 符号 簇 . 
+ 　 　 . E 是 以   S *   标识 的 动作 符号 簇 . 
+ 其中 F , A 和 E 是 有限 集且 不 相交 , S * 代表 零个 或 任意 多个 S . 零元 属性 符号 相应 于 通常 程序设计 语言 中 的 程序 变量 , 而 非 零元 属性 符号 则 用于 处理 复杂 数据结构 . 显然 , S 和 F 构成 通常 代数 规范 意义 下 的 标记 Σ = ( S , F ) . 在 第 2 节 , 我们 将 给 函数 和 动作 以 严格 的 解释 , 即 函数 和 动作 的 解释 是 状态 无关 的 , 而 属性 则 相反 , 是 状态 相关 的 . 
+ 我们 可以 将 动作 看作 是 广义 数据 , 以 E ′ 表示 这样 的 广义 数据 的 集合 . 对于 动作 符号 簇 E 中 的 每个 动作 符号 f : s1 × ... × sn , 定义 函数 f ′ : s1 × ... × sn → E ′ 来 得到 一 广义 数据类型 E ′ , 其 代数 规范 的 标记 为 
+ 　 　 Signature   E ′ = 
+ 　 　 　 　 Sort   E ′ 
+ 　 　 　 　 Functions 
+ 　 　 　 　 　 　 f ′ 1 : s1 × ... × sn1 → E ′ 　 　 　 　 / * f1 : s1 × ... × sn1 ∈ E * / 
+ 　 　 　 　 　 　 f ′ 2 : s1 × ... × sn2 →   E ′ 　 　 　 　 / * f2 : s1 × ... × sn2 ∈ E * / 
+ 　 　 　  　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 
+ 　 　 End 
+ 　 　 为 方便 以后 的 处理 , 我们 以 E 表示 E ′ 并 以 之 表示 广义 数据类型 E ′ . 
+ 　 　 定义 2 .   给定 一 对象 标记 Ω = ( S , F , A , E ) , Σ E - 标记 为 Σ E = ( SE , FE ) , 这里 , 
+ 　 　 . SE = S ∪ { E } , 即 我们 以 一新 类型 E 扩充 S . 
+ 　 　 . FE   是 以 S * × SE 标识 的 符号 簇 , 对 ω ∈ S * , s ∈ SE , 若 s ∈ S , 则 FE ω , s = F ω , s , 反之 , FE ω , s = E ω , 即 我们 以 动作 符号 扩充 函数 簇 . 
+ 1.2   项 
+ 　 　 令 X 是 以 S 标识 的 变量 簇 , 即 X = { Xs | s ∈ S } , 且 X 与 A , F , E 不 相交 . 
+ 　 　 定义 3 ( 项 ) .   给定 对象 标记 Ω 和 变量 簇 X , 对 s ∈ SE , 项集 T ( Ω , X ) s 归纳定义 如下 : 
+ 　 　 1 .   x ∈ Xs , x ∈ T ( Ω , X ) s , 
+ 　 　 2 .   Init ∈ T ( Ω , X ) E , 
+ 　 　 3 .   f ∈ EF 〈 s1 × ... × sn 〉 , s ∪ A 〈 s1 × ... × sn 〉 , s , ti ∈ T ( Ω , X ) si , 0 ≤ i ≤ n , 则 f ( t1 , ... , tn ) ∈ T ( Ω , X ) s , 
+ 　 　 4 .   a ∈ T ( Ω , X ) E , t ∈ T ( Ω , X ) s , 则 ［ a ］ t ∈ T ( Ω , X ) s , 
+ 　 　 5 .   t ∈ T ( Ω , X ) s , 则 Xt , X - t ∈ T ( Ω , X ) s . 
+ 　 　 我们 称 T ( Ω , X ) E 中 的 项为 动作 项 , Init 为 初始 动作 项 . 
+ 1.3   公   式 
+ 　 　 定义 4 ( 原子公式 ) .   给定 对象 标记 Ω , 变量 簇 X , 原子公式 集 AF ( Ω , X ) 可 归纳定义 如下 : 
+ 　 　 1 .   t1 , t2 ∈ T ( Ω , X ) s , s ∈ SE , 则 t1 = t2 ∈ AF ( Ω , X ) , 
+ 　 　 2 .   a ∈ T ( Ω , X ) E , 则 enabled ( a ) ∈ AF ( Ω , X ) . 
+ 　 　 定义 5 ( 公式 ) .   给定 一 对象 标记 Ω , 变量 簇 X , 公式 集 F ( Ω , X ) 可 由 以下 规则 归纳定义 : 
+ 　 　 1 .   p ∈ AF ( Ω , X ) , 则 p ∈ F ( Ω , X ) , ( 每个 原子公式 是 公式 ) ; 
+ 　 　 2 .   a ∈ T ( Ω , X ) E , p ∈ F ( Ω , X ) , 则 ［ a ］ p ∈ F ( Ω , X ) ; 
+ 　 　 3 .   通常 时序 运算 : p , q ∈ F ( Ω , X ) , 则 Xp , p ∪ q , X - p , p ∪ - q ∈ F ( Ω , X ) ; 
+ 　 　 4 .   通常 一阶 运算 : 
+ 　 　 ( 1 )   p , q ∈ F ( Ω , X ) , 则 　 p , p → q ∈ F ( Ω , X ) ; 
+ 　 　 ( 2 )   p ∈ F ( Ω , X ) , x ∈ Xs , 且 x 在 p 中 自由 出现 , 则  x : sp ∈ F ( Ω , X ) , 我们 称 x 在 ∈ x : sp ∈ F ( Ω , X ) 约束 出现 . 
+ 　 　 另外 , 我们 可 按 时序 逻辑 通常 采用 的 方法 引入 以下 等 公式 的 缩写 : p ∧ q , p ∨ q , pq , t , f , Ep , Gp , pBq , F - p , G - p , x : sp . 
+ 　 　 在 一 公式 p 中 , 变元 x ∈ Xs 的 出现 若 不是 在 x : s 或 x : s 的 范围 中 , 则 称 x 在 p 中 自由 出现 ; 反之 , 则 x 在 p 中称 约束 出现 . 
+ 　 　 如果 t ∈ T ( Ω , X ) s , p ∈ F ( Ω , X ) , 则 px : s ( t ) 表示 以 t 替换 所有 在 p 中 自由 出现 的 x , 且 x ∈ Xs . 我们 假设 t 中不含 在 p 中 约束 出现 的 自由 变元 . 
+ 　 　 值得 指出 的 是 , 我们 所 述及 的 项 和 变量 均 是 属于 某一 特定 的 类型 ( sort ) 的 , 为 简明 起 见 , 在 不 引起 混淆 的 情况 下 , 我们 略去 附加 的 类型信息 , 如 x : s   p 有时 我们 简写 为 x   p . 
+ 2   Trace 语义 
+ 　 　 Trace 的 语义 可 由 扩充 的 一阶 线性 时序 结构 给出 . 
+ 2.1   语义 域 
+ 2.1 . 1   动作 和 踪迹 
+ 　 　 踪迹 是 动作 的 执行 序列 . 我们 将 动作 扩充 为 一 广义 数据类型 , 由 Σ E 的 标记 代数 中 的 E 给出 E 中 动作 符号 的 解释 , 而 则 给出 动作 符号 序列 的 解释 . 我们 称 E 中 的 元素 为 动作 , 中 的 元素 为 踪迹 . 为 表示 方便 我们 引入 一些 有关 踪迹 的 符号 和 运算 . 
+ 　 　 定义 6 . 
+ 　 　 . 空 踪迹 表示 为 ε ; 
+ 　 　 . 若 ω ∈ , 则 ω . a ∈ E 表示 踪迹 ω 后 串接 一 动作 a ; 
+ 　 　 . | ω | 表示 踪迹 ω 的 长度 ; 满足 : | ε | = 0 , | ω . a | = | ω | + 1 ; 
+ 　 　 . 若 1 ≤ i ≤ | ω | , 则 ω i 表示 踪迹 ω 中 的 第 i 个 动作 , 满足 : 
+ ( ω . a ) i = ω i 　 　 　 　 　 　 若   0 ≤ i ≤ | ω | , 
+ ( ω . a ) i = a 　 　 　 　 　 　 若 i = | ω | + 1 ; 
+ 　 　 . 若 0 ≤ i ≤ | ω | , 则 i ω 表示 踪迹 ω 的 长为 i 的 前缀 , 满足 : 
+ 0 ω = ε , 
+ | ω | ( ω . a ) = ω . 
+ 　 　 通常 我们 省略 运算符 . 
+ 2.1 . 2   Ω - 语义 解释 结构 
+ 　 　 对象 标记 的 语义 解释 结构 由 一 关于 标记 Σ E 的 代数 、 一 映射 和 动作 与 踪迹 的 关系 定义 . Σ E - 代数 给出 关于 数据 参数 的 解释 ; 映射 给出 属性 在 动作 踪迹 中所取 的 值 ; 而 动作 与 踪迹 的 关系 则 给出 执行 一 有限 踪迹 以后 该 动作 是否 允许 执行 . 
+ 　 　 定义 7 .   一 对象 标记 Ω = ( S , F , A , E ) 的 Ω - 语义 解释 结构 是 一 三元组 = ( , , ) , 其中 
+ 　 　 . 是 一 Σ E - 代数 ; 
+ 　 　 . f ∈ A 〈 s1 × ... × sn 〉 , sn ≥ 0 有 : ( f ) : → ( s1 × ... × sn → s ) ; 
+ 　 　 . ε × E . 
+ 这里 , Σ E - 代数 是 Σ E - 初始 语义 代数 . ε 给出 动作 执行 的 前 条件 ( 我们 以 动作 和 踪迹 的 关系 来 表示 , 以 指出 在 某 一 状态 下该 动作 对 在 它 执行 以前 所 执行 的 动作 序列 的 限制 ) . 
+ 2.1 . 3   Trace - 结构 
+ 　 　 定义 8 .   给定 一 对象 标记 Ω = ( S , F , A , E ) , 一个 Trace Ω - 结构 = ( , v , ω ) 包含 : 
+ 　 　 . 一个 Ω - 语义 解释 结构 = ( , , ) ; 
+ 　 　 . 一个 赋值 函数 簇 v = { vs } s ∈ SE , vs : Xs → s ; 
+ 　 　 . 一个 踪迹 ω . 
+ 　 　 注意 , 这里 我们 以 踪迹 ω 替换 通常 时序 结构 中 的 状态 序列 . 设 si 为 第 i 个 状态 , ai 为 在 si 状态 下 执行 的 动作 , 该 动作 的 执行 将 导致 状态 转换 到 si + 1 , 因此 , 对 S0s1 , ... , sisi + 1 , ... , 我们 可以 以 踪迹 a0a1 ... 代替 时序 演算 意义 下 的 状态 序列 s0s1 .... 这样 , 对 , i 给出 在 状态 si 下 属性 值 映射函数 , 以下 用到 的 v * i , i 等 均 是 在 状态 si 意义 下 的 . 
+ 2.2   项 解释 
+ 　 　 我们 可模仿 经典 逻辑 的 方法 为 每个 项 定义 一值 . 首先 , 我们 定义 有关 变量 的 赋值 . 
+ 　 　 定义 9 ( 赋值 函数 ) .   给定 一 对象 标记 Ω = ( S , F , A , E ) , Ω - 语义 解释 结构 = ( , , ) , 则 关于 变量 簇 X 的 赋值 函数 簇记 为 : v = { vs | s ∈ SE } , 其中 vs 是 变量 集 Xs 到 语义 域 s 的 映射 . 
+ 　 　 我们 可 如下 定义 赋值 函数 簇 v 在 一 踪迹 ω 上 的 自然 扩充 v * i , i ∈ N : 
+ 　 　 . x ∈ Xs , v * i = v ( x ) ; 
+ 　 　 . f ∈ FE 〈 s1 × ... × sn 〉 , s , ti ∈ T ( Ω , X ) si , i , 1 ≤ i ≤ n , 则 v * i ( f ( t1 , ... , tn ) ) = f ( v * i ( t1 ) , ... , v * i ( tn ) ) ; 
+ 　 　 . f ∈ A 〈 s1 × ... × sn 〉 , s , ti ∈ T ( Ω , X ) si , i , 1 ≤ i ≤ n , 则 v * i ( f ( t1 , ... , tn ) ) = i ( f ) ( v * i ( t1 ) , ... , v * i ( tn ) ) ; 
+ 　 　 . a ∈ T ( Ω , X ) E , a ≠ Init , t ∈ T ( Ω , X ) s , 则 
+ 　 　 . t ∈ T ( Ω , X ) s , 则 v * i ( ［ Init ］ t ) = v * 0t ; v * i ( Xt ) = v * i + 1t ; v * i ( X - t ) = v * i - 1t , i ＞ 0 . 
+ 　 　 这里 我们 并 没有 给 初始 动作 项 Init 的 语义 解释 , 对 Init , 我们 主要 是 用于 运算符 ［ Init ］ . 
+ 　 　 现在 我们 可以 定义 公式 的 真假 值 . 
+ 　 　 对 任意 一个 Trace Ω - 结构 , 对 每个 原子公式 F , 我们 可 如下 定义 i ( F ) ∈ { t , f } , 表示 公式 F 在 状态 si 下 的 真假 值 : 
+ 　 　 1 .   i ( t1 = t2 ) = t 　 　 　 　 　 当且 仅 当 v * i ( t1 ) = v * i ( t2 ) ; 
+ 　 　 2 .   i ( enabled ( a ) ) = t 　 　 当且 仅 当 ( i ω , v * i ( a ) ) ∈ ε . 
+ 　 　 对 任意 一个 Trace Ω - 结构 , 对 每个 公式 F , 我们 可 如下 归纳定义 Ki ( F ) ∈ { t , f } , 表示 公式 F 在 状态 si 下 的 真假 值 : 
+ 　 　 1 .   i ( 　 p ) = t 　 　 　 　 　 当且 仅 当 i ( p ) = f ; 
+ 　 　 2 .   i ( p → q ) = t 　 　 　 　 　 当且 仅 当 i ( p ) = f 或 Ki ( q ) = t ; 
+ 　 　 3 .   i ( ［ a ］ p ) = t 　 　 　 　 当且 仅 当 
+ 　 　 4 .   i ( ［ Init ］ p ) = t 　 　 　 当且 仅 当 0 ( p ) = t ; 
+ 　 　 5 .   i ( Xp ) = t 　 　 　 　 　 　 当且 仅 当 i + 1 ( p ) = t ; 
+ 　 　 6 .   i ( p ∪ q ) = t 　 　 　 　 　 当且 仅 当 j ≥ i ( j ( q ) = t 且 ( i ≤ k ＜ j ) k ( p ) = t ) ; 
+ 　 　 7 .   i ( X - p ) = t 　 　 　 　 　 　 当且 仅 当 i ＞ 0 , i - 1 ( p ) = t ; 
+ 　 　 8 .   i ( p ∪ - q ) = t 　 　 　 　 　 当且 仅 当 j ≤ i ( j ( q ) = t 且 ( i ＜ k ≤ j ) k ( p ) = t ) ; 
+ 　 　 9 .   i ( x   p ) = t 　 　 　 　 　 当且 仅 当 ′ i ( q ) = t 对 任意 ′ = ( I , v , ω ) 满足 : v ′ ( y ) = v ( y ) , y , y ≠ x 也就是说 , i ( p ) 给出 公式 p 在 状态 si 下 的 真假 值 . 
+ 　 　 定义 10 ( 模型 和 有效 式 ) .   给定 一 公式 p 和 一 Trace Ω - 结构 , 若 对 任意 i ≥ 0 , i ( p ) = t , 则 称 p 对 是 有效 的 ( 记为 p ) , 称为 p 的 模型 . 若 对 所有 Trace Ω - 结构 , p , 则 称 p 为 有效 式 ( 记为 p )   . 给定 一 公式 集 Г , 若 对 所有 Г 中 的 公式 的 全称 闭式 p , p , 则 称为 Г 的 模型 . 
+ 　 　 定义 11 .   若 存在 一 Trace Ω - 结构 为 公式 集 Г 中 所有 公式 的 模型 , 则 称 Г 为 可 满足 的 . 
+ 　 　 定义 12 .   给定 一 公式 集 Г 和 一 公式 p , 若 对 所有 Г 的 模型 有 p 成立 , 则 称 p 为 Г 的 语义 推论 , 记 为 Г  p . 
+ 　 　 定理 1 .   若 q ∈ Г , q 且 Г p , 则 p . 
+ 　 　 定理 2 .   p1 , ... , pn 当且 仅 当 ( Gp1 ∧ ... ∧ Gpn ) → q . 
+ 　 　 定理 3 .   若 Г p , 且 г p → q , 则 Г q . 
+ 　 　 定理 4 .   若 Г p , 则 
+ 1 .   Г ［ a ］ p ; 
+ 2 .   Г ［ Init ］ p . 
+ 　 　 定理 5 . p 当且 仅 当 { 　 p } 不是 可 满足 的 . 
+ 3   Trace 法则 
+ 　 　 现在 我们 给出 一些 Trace 演算 的 逻辑 法则 . 首先 , 我们 可以 证明 , 一阶 时序 演算 的 重言式 在 新 的 逻辑 框架 下 仍然 适用 . 
+ 　 　 定义 13 ( 时序 重言式 ) .   设 x1 , ... , xn 是 一阶 时序 演算 的 原子公式 , p ( x1 , ... , xn ) ∈ FLTLB 是 一阶 时序 演算 的 重言式 , 则 对 任意 的 p1 , ... , pn ∈ Trace , p ( p1 , ... , pn ) 称为 Trace 演算 的 时序 演算 型 重言式 或 简称 时序 重言式 . 这里 p ( p1 , ... , pn ) 是 用 p1 , ... , pn 分别 替换 p ( x1 , ... , xn ) 中 的 x1 , ... , xn 所得 结果 . 
+ 　 　 定理 6 .   时序 重言式 是 有效 式 . 
+ 　 　 证明 省略 , 详见 文献 ［ 7 ］ .   根据 这 一定 理 , 我们 可以 将 所有 一阶 时序 演算 的 重言式 用作 Trace 演算 的 “ 逻辑 法则 ” . 进一步 , 我们 可以 证明 如下 断言 : 
+ 　 　 若 在 一阶 时序 演算 中 , 公式 q 是 公式 p1 , ... , pn 的 语义 推论 ; 则 我们 用 Trace 公式 一致 替换 p1 , ... , pn 和 q 将 不会 破坏 逻辑关系 . 
+ 　 　 定义 14 .   令 p1 , ... , pn , q ∈ Trace , 若 p1 ∧ ... ∧   pn → q 是 时序 重言式 , 则 称 q 是 p1 , ... , pn 的 时序 重言 推论 . 
+ 　 　 定理 7 .   若 q 是 p1 , ... , pn 的 时序 重言 推论 , 则 p1 , ... , pnq 
+ 　 　 为 节省 篇幅 , 我们 列出 有关 Trace 运算符 的 逻辑 法则 , 证明 则 从略 . 
+ 对偶 律 
+ 　 　 ( T1 )   ［ a ］ p ［ a ］ 　 p 
+ 同一律 
+ 　 　 ( T2 )   ［ Init ］ ［ Init ］ p ［ Init ］ p 
+ 分配律 
+ 　 　 ( T3 )   ［ a ］ ( p → q )  ［ a ］ p → ［ a ］ q 
+ 　 　 ( T4 )   ［ a ］ ( p ∧ q )  ［ a ］ p ∧ ［ a ］ q 
+ 　 　 ( T5 )   ［ a ］ ( p ∨ q )  ［ a ］ p ∨ ［ a ］ q 
+ 单调 性 
+ 　 　 ( T6 )   p → q ［ a ］ p → ［ a ］ q 
+ 吸收 律 
+ 　 　 ( T7 )   ［ a ］ ［ Init ］ p ［ Init ］ p 
+ 　 　 ( T8 )   X ［ Init ］ p ［ Init ］ p 
+ 　 　 ( T9 )   G ［ Init ］ p ［ Init ］ p 
+ 　 　 ( T10 )   F ［ Init ］ p ［ Init ］ p 
+ 　 　 ( T11 )   X - ［ Init ］ p ［ Init ］ p 
+ 　 　 ( T12 )   G - ［ Init ］ p ［ Init ］ p 
+ 　 　 ( T13 )   F - ［ Init ］ p ［ Init ］ p 
+ 　 　 ( T14 )   ［ Init ］ Gp ( Gp ∧ G - p ) 
+ 　 　 定理 8 .   若 p 中不含 属性 符号 
+ 　 　 1 .   p ［ Init ］ p ; 
+ 　 　 2 .   p ［ a ］ p . 
+ 　 　 定义 15 .   一项 t ∈ T ( Ω , X ) s , 变量 x ∈ Xs , 如果 以 t 替换 公式 p 中 的 变量 x 不 产生 属性 符号 在 时序 运算符 ( X , F , ... ) 和 动作 运算符 ( ［ Init ］ , ［ a ］ ) 作用域 内 的 新 出现 且 t 中 的 变量 不 在 替换 出 受约束 , 则 称 t 对于 p 中 的 x 是 可 替换 的 . 
+ 　 　 可 替换 的 要求 来自 于 变量 x 是 全局 的 , 其 解释 是 时序 / 踪迹 无关 的 . 
+ 　 　 定理 9 .   如果 t ∈ T ( Ω , X ) s 对于 p 中 的 x ∈ Xs 是 可 替换 的 , 则 xp → px ( t ) . 
+ 　 　 定理 10 .   若 a 不 在 p 中 自由 出现 , 则 a ［ a ］ p → ( Xp ) . 
+ 　 　 定理 11 .   a ∈ T ( Ω , X ) E , x ∈ Xs , 若 x 不 在 a 中 自由 出现 , 则 x ［ a ］ p ［ a ］ ( x   p ) . 
+ 　 　 定理 12 .   x ［ Init ］ p ［ Init ］ ( x   p ) . 
+ 　 　 若 a ≠ Init , 我们 有 : 
+ 　 　 ( T15 )   ［ a ］ p → ( p ∨ Xp ) 
+ 　 　 ( T16 )   ( p ∧ Xp ) → ［ a ］ p 
+ 4   Trace 公理化 
+ 　 　 给出 Trace 演算 的 语义 以后 , 现在 我们 给出 一 形式系统 来 进行 公式 推导 . 
+ 公   理 
+ 　 　 ( taut ) 　 所有 一阶 线性 时序 逻辑 的 公理 和 重言式 
+ 　 　 ( a1 ) p → ［ a ］ p 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 若 p 中不含 属性 符号 
+ 　 　 ( a2 ) ［ a ］ ［ Init ］ p ［ Init ］ p 
+ 　 　 ( a3 ) X ［ Init ］ p ［ Init ］ p 
+ 　 　 ( a4 ) X - ［ Init ］ p ［ Init ］ p 
+ 　 　 ( a5 ) ［ a ］ p ［ a ］ p 
+ 　 　 ( a6 )   ［ a ］ ( p → q ) ［ a ］ p → ［ a ］ q 
+ 　 　 ( a7 )   x   p → px ( t ) 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 若 t 对于 p 中 的 x 是 可 替换 的 
+ 　 　 ( a8 )   ［ Init ］ GpGp ∧ G - p 
+ 　 　 ( a9 )   a ［ a ］ p → Xp 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 若 a 不 在 p 中 自由 出现 
+ 　 　 ( a10 ) x ［ a ］ p → ［ a ］ x   p 　 　 　 　 　 　 　 　 　 　 　 　 若 x 不 在 a 中 自由 出现 
+ 规   则 
+ 　 　 ( mp )   p , p → q ├ q 
+ 　 　 ( nex )   p ├ Xp 
+ 　 　 ( las )   p ├ X - p 
+ 　 　 ( act )   p ├ ［ a ］ p 
+ 　 　 ( emp )   p ├ ［ Init ］ p 
+ 　 　 ( inv )   ［ Init ］ p , p → Xp ├ p 
+ 　 　 ( ind )   p → q , p → Xp ├ p → Gq 
+ 　 　 ( indp )   p → q , p → X -   p ├ p → G - q 
+ 　 　 ( gen )   p → q ├ p → x   q 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 若 p 中 无 x 的 自由 出现 
+ 　 　 这里 没有 讨论 有关 等 词 的 公理 和 规则 . 
+ 　 　 定理 13 ( 可靠性 ) .   令 p 为 一 公式 , Г 为 一 公式 集 , 若 Г ├ p , 则 Г p 
+ 　 　 证明 : 对 从 Г 证明 q 的 推导 过程 进行 归纳 . 
+ 　 　 1 .   p 是 Trace 演算 公理 , 由 定理 6 和 定理 8 , 法则 s ( T7 ) , ( T8 ) , ( T11 ) , ( T1 ) , ( T3 ) , 定理 9 , 法则 ( T14 ) , 定理 10 和 定理 12 , 分别 可知 公理 ( taut ) 和 公理 ( a1 ) ～ ( a10 ) 均 是 有效 式 . 因此 , 我们 有 Г p . 
+ 　 　 2 .   p ∈ Г , 显然 Г p . 
+ 　 　 3 .   p 是 由 q 和 q → p 经 ( mp ) 而 得 . 则 Г ├ q , Г ├ q → p . 由 归纳 假设 Г q , Г   q → p . 由 定理 3 可得 Г p . 
+ 　 　 4 .   p ≡ Xq 是 由 q 经 ( nex ) 而 得 . 则 Г ┢ q . 由 归纳 假设 Г q . 令 = ( I , v , ω ) 为 一 Trace Ω - 结构 , 满足 : r , r 为 Г 中 公式 的 一 全称 闭式 . 则 q , 即 对 任意 i ≥ 0 , i ( q ) = t , 所以 对 任意 j ≥ 0 , j + 1 ( q ) = t , 即 有 Г Xq . 
+ 　 　 5 .   p ≡ X - q 是 由 q 经 ( las ) 而 得 . 则 Г ┢ q . 由 归纳 假设 Г q . 令 = ( I , v , ω ) 为 一 Trace Ω - 结构 , 满足 : r , r 为 Г 中 公式 的 一 全称 闭式 . 则 q , 即 对 任意 i ≥ 0 , i ( q ) = t , 所以 对 任意 j ＞ 0 , j - 1 ( q ) = t , 即 有 Г X - q . 
+ 　 　 6 .   p ≡ ［ a ］ q 是 由 q 经 ( act ) 而 得 . 则 Г ┢ q . 由 归纳 假设 Г q . 由 定理 4 可得 Г ［ a ］ q . 
+ 　 　 7 .   q ≡ ［ Init ］ r 是 由 r 经 ( emp ) 而 得 . 则 Г ┢ q . 由 归纳 假设 Г q . 由 定理 4 可得 Г ［ Init ］ q . 
+ 　 　 8 .   p 是 由 ［ Init ］ p 和 p → Xp 经 ( inv ) 而 得 . 则 Г ┢ ［ Init ］ p , Г ┢ p → Xp . 由 归纳 假设 Г  ［ Init ］ p , Г p → Xp . 令 K = ( I , v , ω ) 为 一 Trace Ω - 结构 , 满足 : r , r 为 Г 中 公式 的 一 全称 闭式 . 则 : 
+ 　 　 ( 1 )   ［ Init ］ p ; 
+ 　 　 ( 2 )   p → Xp . 
+ 　 　 由 ( 1 ) 可得 0 ( r ) = t , 由 ( 2 ) 可得 0 ( p ) = 2 ( q ) = ... = i ( p ) = ... = t , 即 Г p . 
+ 　 　 9 .   p ≡ q → Gr 是 由 q → r 和 q → Xq 经 ( ind ) 而 得 . 则 Г ┢ q → r , Г ┢ q → Xq . 由 归纳 假设 Г q → r , Г   q → Xq . 令 = ( , v , ω ) 为 一 Trace Ω - 结构 , 满足 : r , r 为 Г 中 公式 的 一 全称 闭式 则 : 
+ 　 　 ( 1 )   q → r ; 
+ 　 　 ( 2 )   q → Xq . 
+ 　 　 对 任意 i 且 i ( q ) = t , 由 ( 2 ) 可得 i + 1 ( q ) = i + 2 ( q ) = i + 3 ( q ) = ... = t , 即 对 任意 j ≥ i , j ( q ) = t . 
+ 　 　 由 ( 1 ) 可得 j ( r ) = t , 对 任意 j ≥ i . 因此 我们 有 : i ( q → Gr ) = t , 对 任意 i ≥ 0 , 即 Г p . 
+ 　 　 10 .   p ≡ q → Gr 是 由 q → r 和 q → X - q 经 ( indp ) 而 得 . 与 ( ind ) 类似 . 
+ 　 　 11 .   p ≡ s → x   r , x 不 在 s 中 的 自由 出现 , 是 由 s → r 经 ( gen ) 而 得 . 则 Г ┢ s → r . 由 归纳 假设 Г s → r , 令 = ( , v , ω ) 为 一 Trace Ω - 结构 , 满足 : q , q 为 Г 中 公式 的 一 全称 闭式 . 则 s → r . 假设 对 某个 i , i ( s → x   r ) = f , 即 i ( s ) = t 且 Ki ( x   r ) = = f , 则 存在 一 ′ , 使得 ′ i ( r ) = f , 且 ′ 与 的 区别 仅 在于 对 x 的 赋值 不同 . 这 意味着 对 所有 如上 的 闭式 q , 有 ′ q , 因此 ′ s → r . 由于 s 中 无 x 的 自由 出现 , 则 有 ′ ( s ) = t , 这样 ′ ( r ) = t , 矛盾 . 所以 对 任意 i , i ( s → x   r ) = t , 如此 Г s → x   r . □ 
+ 　 　 为 简化 证明 , 我们 增加 一 规则 来 缩写 经典 一阶 线性 时序 演算 的 推导 步 ( 仅 使用 一阶 线性 时序 演算 的 公理 和 规则 ( mp ) , ( nex ) , ( ind ) ) , 即 
+ 　 　 ( prep )   p1 , ... , pn ┢ q 　 　 　 　 若 q 是 p1 , ... , pn 的 一阶 线性 时序 演算 的 语法 推论 
+ 　 　 常用 的 cut 规则 即 是 ( prep ) 的 一个 实例 . 
+ 　 　 定理 14 ( 演绎 定理 ) .   Г ∪ { p } ┢ q , 且 证明 中 使用 的 Gen 变元 不 在 p 中 自由 出现 , 则 不 增加 新 的 Gen 变元 就 可得 Г ┢ ［ Init ］ Gp → q . 
+ 　 　 我们 还 可 弱化 演绎 定理 的 要求 . 
+ 　 　 定理 15 .   Г ∪ { p } ┢ q , 若 证明 过程 中未 使用 PLTLP 规则 ［ 5 ］ 和 ( emp ) 且 证明 中 使用 的 Gen 变元 不 在 p 中 的 自由 出现 则 不 增加 新 的 Gen 变元 就 可得 Г ┢ Gp → q . 
+ 　 　 推论 1 .   若 p 是 闭式 , Г ∪ { p } ┢ q , 则 Г ┢ ［ Init ］ Gp → q . 
+ 　 　 定理 16 .   若 Г ┢ ［ Init ］ Gp → q , 则 Г ∪ { p }  q . 
+ 　 　 下面 我们 给出 一些 使用 Trace 演算 进行 定理 证明 的 例子 . 
+ 　 　 ( T17 )   p → Xp ┢ ［ Init ］ p → p 
+ 　 　 ( T18 )   Xp → p ┢ p → ［ Init ］ p 
+ 　 　 证明 : 
+ 　 　 ( T17 )   ( 1 )   ［ Init ］ G ［ Init ］ p → p 　 　 　 　 　 　 　 　 　 ( inv ) , 假设 、 演绎 定理 
+ 　 　 　 　 　 ( 2 )   ［ Init ］ p → G ［ Init ］ p 　 　 　 　 　 　 　 　 　 ( a3 ) , ( prep )   
+ 　 　 　 　 　 ( 3 )   ［ Init ］ p → ［ Init ］ G ［ Init ］ p 　 　 　 　 　 ( 2 ) , ( a2 ) , ( prep )   
+ 　 　 　 　 　 ( 4 )   ［ Init ］ p → p 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) , ( 2 ) , cut 
+ 　 　 ( T18 )   ( 1 )   Xp → p ) → ( 　 p → 　 Xp ) 　 　 　 　 　 　 　 　 　 prep 
+ 　 　 　 　 　 ( 2 )   　 　 p → 　 Xp 　 　 　 　 　 　 　 　 　 　 　 　 　 假设 , ( 1 ) , mp 
+ 　 　 　 　 　 ( 3 )   　 　 X   p →   X 　 p 　 　 　 　 　 　 　 　 　 　 　 　 ( prep ) 
+ 　 　 　 　 　 ( 4 )   　 　 p →   X 　 p 　 　 　 　 　 　 　 　 　 　 　 　 ( 2 ) , ( 3 ) , cut 
+ 　 　 　 　 　 ( 5 )   ［ Init ］ 　 p → 　 p 　 　 　 　 　 　 　 　 　 　 ( 4 ) , ( T17 ) 
+ 　 　 　 　 　 ( 6 )   　 ［ Init ］ p → ［ Init ］ 　 p 　 　 　 　 　 　 ( a5 ) 
+ 　 　 　 　 　 ( 7 )   　 ［ Init ］ p → 　 p   　 　 　 　 　 　 　 　 　 　 ( 5 ) , ( 6 ) , cut 
+ 　 　 　 　 　 ( 8 )   ( ［ Init ］ p →   p ) → ( p → ［ Init ］ p ) 　 　 　 ( prep ) 
+ 　 　 　 　 　 ( 9 )   p → ［ Init ］ p 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 7 ) , ( 8 ) , cut 
+ 　 　 ( T19 )   p → a ［ a ］ p ┢ Init ］ p → p 
+ 　 　 ( T20 )   a ［ a ］ p → p ┢ p → ［ Init ］ p 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 □ 
+ 　 　 推论 2 .   ［ Init ］ p , p → a ［ a ］ p ┢ p . 
+ 5   Trace 公理化 的 进一步 讨论 
+ 　 　 上 一节 的 公理化 讨论 中未 给出 有关 等 词 的 公理化 , 我们 将 在 这 一节 讨论 之 . 限于 篇幅 , 我们 只有 将 相关 证明 省略 , 详见 文献 ［ 7 ］ . 
+ 　 　 对 任意 t1 , t2 ∈ T ( Ω , X ) s , a ∈ T ( Ω , X ) E , 有 
+ 　 　 ( T21 )   ［ a ］ ( t1 = t2 ) ( ［ a ］ t1 = ［ a ］ t2 ) 
+ 　 　 对 任意 基 函数 f ∈ FE 〈 s1 × ... × sn 〉 , s , 如下 公式 是 有效 式 
+ 　 　 ( T22 )   ［ a ］ f ( t1 , ... , tn ) = f ( ［ a ］ t1 , ... , ［ a ］ tn 
+ 其中 a ∈ T ( Ω , X ) E , ti ∈ T ( Ω , X ) s , i , 1 ≤ i ≤ n . 
+ 　 　 也就是说 , “ = ” 、 函数 符号 和 动作 符号 的 解释 是 严格 ( rigid ) 的 , 即 状态 / 踪迹 无关 的 . 
+ 　 　 ( T23 )   ［ a ］ ［ Init ］ t = ［ Init ］ t 
+ 　 　 ( T24 )   X ［ Init ］ t = ［ Init ］ t 
+ 　 　 ( T25 )   X - ［ Init ］ t = ［ Init ］ t 
+ 　 　 定理 17 .   
+ 　 　 1 .   u = v   tx ( u ) = tx ( v ) ; 
+ 　 　 2 .   u = v   px ( u ) → px ( v ) . 
+ 　 　 定理 18 .   x , y ∈ T ( Ω , X ) s , 若 p 中不含 时序 运算符 和 动作 运算符 , 则 x = y → ( p → px ( y ) ) . 
+ 　 　 推论 3 .   x , y ∈ T ( Ω , X ) s , 若 p 中 x 不 在 时序 运算符 和 动作 运算符 作用域 内 出现 , 则 x = y → ( p → px ( y ) ) . 
+ 　 　 ( T26 )   u = v → ( tx ( u ) = tx ( v ) ) 
+ 　 　 ( T27 )   u = v → ( px ( u ) → px ( v ) ) 
+ 其中 u , v ∈ T ( Ω , X ) s , x ∈ Xs } , t 为任 一项 , p 为 任一 公式 , u , v 对于 p 中 的 x 是 可 替换 的 . 
+ 　 　 定理 19 .   若 a 不 在 p 中 自由 出现 , 则 apx ( ［ a ］ t ) → px ( Xt ) . 
+ 其中 x ∈ Xs , t ∈ T ( Ω , X ) s , p 中 x 不 在 时序 运算符 和 动作 运算符 作用域 内 出现 . 
+ 　 　 最后 , 我们 得到 如下 公理 . 
+ 公   理 
+ 　 　 ( ae1 )   ［ a ］ t = t 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 若 t 中不含 属性 符号 
+ 　 　 ( ae2 )   ［ a ］ ［ Init ］ t = ［ Init ］ t 
+ 　 　 ( ae3 )   X ［ Init ］ t = ［ Init ］ t 
+ 　 　 ( ae4 )   X - ［ Init ］ t = ［ Init ］ t 
+ 　 　 ( ae5 )   ［ a ］ ( t1 = t2 ) ( ［ a ］ t1 = ［ a ］ t2 ) 
+ 　 　 ( ae6 )   ［ a ］ f ( t1 , ... , tn ) = f ( ［ a ］ t1 , ... , ［ a ］ tn ) 　 　 f ∈ FEs1 × ... × sn , s 
+ 　 　 ( eq1 )   x = x 
+ 　 　 ( eq2 )   x = y → ( p → px ( y ) ) 　 　 　 　 　 　 　 　 　 　 　 　 　 　 若 p 中不含 时序 运算符 和 动作 运算符 
+ 6   结   论 
+ 　 　 本文 结合 代数 规范 方法 和 一阶 线性 时序 逻辑 方法 给出 具有 一般性 的 Trace 演算 . 综合 来说 , Trace 演算 具有 如下 特征 . 
+ 　 　 ( 1 )   对象 标记 是 对象 的 语法 界面 的 抽象 . 
+ 　 　 ( 2 )   统一 时序 模型 和 代数 模型 , 以 基于 对象 标记 的 Σ E - 代数 为 语义 域 , 并 建立 时序 逻辑 在 Σ E - 代数 上 的 线性 解释 . 
+ 　 　 ( 3 )   引入 动作 运算符 并 给出 其 在 语义 域 上 的 解释 . 动作 运算符 的 引入 使 我们 可以 方便 地 刻画 动作 的 作用 效果 . 
+ 　 　 ( 4 )   定义 一系列 公理 和 推导 规则 , 建立 一 可靠 的 Trace 演算 . 它 是 一阶 线性 时序 演算 的 扩充 . 并 给出 扩充 部分 与 命题演算 、 一阶 谓词演算 以及 时序 演算 之间 的 关系 . 
+ 　 　 Trace 演算 虽可 描述 和 推理 具有 内部 状态 的 动态 实体 及其 行为 特征 . 但 我们 的 目标 是 建立 一 对象 演算 系统 . 因此 , 如何 在 Trace 演算 的 基础 之上 , 进一步 考虑 对象 所 特有 的 性质 , 正是 我们 进一步 的 研究 工作 , 将 在 本文 的 续篇 : “ 对象 演算 （ Ⅰ ） （ Ⅱ ） ” 中 发表 . 
+ 注 ： 本文 研究 得到 国家自然科学基金 资助 . 
+ 本文 通讯联系 人 : 黄涛 , 北京   100080 , 中国科学院 软件 研究所 计算机科学 开放 实验室 
+ 作者简介 ： 黄涛 , 1965 年生 , 副研究员 , 主要 研究 领域 为 软件工程 , 对象 技术 , 分布 计算 , 程序设计 语言 及 环境 . 
+ 钱军 , 1966 年生 , 博士生 , 主要 研究 领域 为 专向 对象 的 理论 和 技术 , 分布 对象 计算 , 形式化 方法 . 
+ 倪彬 , 1969 年生 , 博士 , 主要 研究 领域 为 专向 对象 的 理论 和 技术 , 模型 检查 . 
+ 作者 单位 ： 黄涛 　 中国科学院 软件 研究所 计算机科学 开放 实验室 　 北京 　 100080 
+ 钱军 　 倪彬 　 中国科学院 软件 研究所 对象 技术 中心   北京   100080 
+ 参考文献 
+ 1   冯玉琳 , 李京 , 黄涛 . 对象 语义 理论 和 行为 约束推理 . 计算机 学报 , 1993 , 16 ( 11 ) : 889 ～ 897 
+ ( Feng   Yu - lin ,   Li   Jing ,   Huang   Tao .   Object   semantics   theory   and   behavior   constraint   deduction .   Chinese   Journal   of   Computers ,   1993 , 16 ( 11 ) : 889 ～ 897 ) 
+ 2   黄涛 , 冯玉琳 , 李京 . 对象 形式 语义 模型 . 软件 学报 , 1995 , 6 （ 增刊 ） : 207 ～ 212 
+ ( Huang   Tao ,   Feng   Yu - lin ,   Li   Jing .   Model   of   object   formal   semantics .   Journal   of   Software ,   1995 , 6 ( Supplement ) : 207 ～ 212 ) 
+ 3   黄涛 , 冯玉琳 , 倪彬 等 . 对象 描述语言 及其 指称 描述 . 软件 学报 , 1996 , 7 ( 10 ) : 577 ～ 586 
+ ( Huang   Tao ,   Feng   Yu - lin ,   Ni   Bin   et   al .   Object   description   language   and   its   denotation   description .   Journal   of   Software ,   1996 , 7 ( 10 ) : 577 ～ 586 ) 
+ 4   Beeri   C .   Recent   trends   in   data   type   specification .   Astestiano   E ,   Reggio   G ,   Tarlecki   A   eds .   Bulk   Types   and   Query   Language   Design .   LNCS   906 ,   Berlin :   Springer - Verlag ,   1995 
+ 5   Ehrig   H ,   Mahr   B .   Fundamentals   of   Algebraic   Specifications   1 :   Equations   and   Initial   Semantics .   Berlin :   Springer - Verlag ,   1985 
+ 6   Kroger   Fred .   Temporal   Logic   of   Programs .   Berlin :   Springer - Verlag ,   1987 
+ 7   黄涛 . 对象 形式 语义 理论 研究   ［ 博士学位 论文 ］ .   合肥 : 中国科技大学 , 1994 
+ ( Huang   Tao .   Theoretical   research   on   object   formal   semantics   ［ Ph . D .   Thesis ］ .   Hefei :   University   of   Science   and   Technology   of   China ,   1994 
+ 本文 1997 - 12 - 12 收到 原稿 , 1998 - 09 - 04 收到 修改稿 

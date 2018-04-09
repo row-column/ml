@@ -1,0 +1,109 @@
+宇航学 报   
+ JOURNAL   OF   ASTRONAUTICS 
+ 1998 年   第 19 卷   第 1 期   No1   Vol.9   1998 科技期刊 
+ 
+ 非线性 晃动 问题 的 ALE 边界 元 方法 * 
+ 岳宝增 　 王照 林 　 匡金炉 
+ ( 清华大学 工程力学 系   北京   100084 ) 
+ 　 　 摘 　 要 　 利用 ALE ( 任意 的 Lagrange - Euler ) 边界 元 方法 数值 求解 了 具有 自由 液面 的 非线性 晃动 问题 , 即受 外力 激励 下 流体 的 非线性 振动 问题 。 把 ALE 有限元 方法 的 思想 应用 到 边界 元 方法 中 , 得到 了 ALE 边界 元 方法 。 对于 自由 液面 的 非线性 动力 边界条件 , 应用 Galerkin 加权 方法 进行 了 有限元 数值 离散 。 为了 增加 求解 精度 , 对 动力 边界条件 提出 了 增加 误差 修正 项 的 数值 求解 方法 。 对 时间 变量 采用 Newmark 方法 进行 离散 。 推导 了 系统 非线性 方程 的 预测 - 多次 校正 法 迭代 格式 。 进行 了 算例 分析 与 比较 , 得到 了 令人 比较满意 的 结果 。 
+ 　 　 主题词 　 液体 晃动 　 边界 元法 　 ALE 边界 元 方法 
+ THE   ALE   BOUNDARY   ELEMENT   METHODS   IN   
+ SOLVING   NONLINEAR   SHOSHING   PROBLEMS 
+ Yue   Baozeng 　 Wang   Zhaolin 　 Kuang   Jinlu 
+ ( Department   of   Engineering   Mechanics , Tsinghua   Univerity , Beijing * 100084 * China ) 
+ 　 　 Abstract 　 The   ALE ( Arbitrary   Lagrange - Euler ) boundary   element   method   is   used   for   dealing   with   nonlinear   sloshing   problem ( nonlinear   oscillations   of   a   liquid   in   a   container   subjected   to   forced   oscillation ) . The   ALE   boundary   element   methods   is   derived   by   applying   the   idea   of   ALE   finite   element   method . The   dynamic   boundary   condition   is   redused   to   a   weighted   residual   equation   by   employing   the   Galerkin   nethod . Due   to   the   nonlinearity   of   the   problem , a   general   corrective   procedure   is   used   for   the   numerical   analysis . The   system   equation   is   discretized   by   the   use   of   Newmark   Method   timewise   and   the   predict - multi   corrective   steps   method   is   used   in   iteration   procedure . At   last , computation   example   and   computed   result   is   given . 
+ 　 　 Key   words 　 Fluid   sloshing 　 Boundary   element   method 　 ALE   boundary   element   method 
+ 　 1 　 引言 
+ 　 　 液体 的 晃动 问题 在 航天 、 航空 、 大型 化工设备 等 许多 方面 都 有 研究 的 背景 。 由于 自由 液面 上 的 动力 边界条件 ( Bernoulli ' s ) 及 自由 液面 的 位置 随着 时间 的 变化 而 移动 , 因此 , 求解 晃动 问题 是 一个 既 困难 又 麻烦 的 课题 。 有限元法 被 应用 于 求解 晃动 问题 获得 了 极大 的 成功 。 用 有限元法 求解 液体 晃动 问题 时 , 运动 的 流体 与 有限元 网格 之间 的 关系 即 动力学 描述 是 极为重要 的 。 由于 拉格朗 日 方法 和 欧拉 方法 这 两种 经典 的 描述 方法 各有 长短 , 这 就 使 人们 把 这 两种 方法 结合 起来 使用 , 得到 了 ALE 有限元 方法 ［ 1 , 2 ］ 。 边界 元 方法 以 有限元 方法 为 基础 , 突出 优点 是 可 将 求解 空间 降低 一维 , 80 年代 以来 用以 求解 带有 自由 液面 的 晃动 问题 ［ 3 ］ 取得 了 极大 进展 。 本文 推导 了 ALE 边界 元 计算 格式 及 非线性 边界 元 方程 的 预报 — — 多次 校正 迭代 格式 , 对 时间 变量 采用 Newmark 方法 进行 离散 。 在 跟踪 自由 液面 时 , 提出 了 一种 简便 合理 的 网格 更新 方法 , 通过 设计 满足 一定 条件 的 网络 移动 速度 使 边界 上 的 网格 点 保持 在 边界 上 , 并 使 单元 形状 不 发生 畸变 。 
+ 2 　 ALE 描述 方法 
+ 　 　 物质 点 t 时刻 在 空间 坐标 中 的 位置 为 : x = x ( X , t ) , 物质 点 t 时刻 在 参考 坐标系 中 的 位置 为 : x = x ( , 一个 函数 f 一般 表示 为 空间 和 时间 的 函数 , 同时 在 参考 坐标 及 随动 坐标 中 也 可 表示 为 各自 坐标 和 时间 的 函数 , 从而 有 关系式 : 
+ 
+ x , 分别 为 空间 坐标 , 物质 坐标 , 网络 参考 坐标 。 而 
+ ( 1 ) 
+ 其中 
+ 　 表示 固定 x 时 求导 ， Na 是 时间 维数 。 
+ 定义 为 当地 导数 。 
+ 定义 为 网格 导数 ， 简计 为 
+ 定义 为 质点 速度 。 
+ 定义 为 网格 速度 。 
+ 定义 为 质点 在 参考 坐标系 中 的 速度 。 
+ 可以 看到 : 
+ 　 　 　 　 　 　 　  ( 2 ) 
+ 由 ( 1 ) 式 得 : 
+ ( 3 ) 
+ 其中 : ci = ui - wi , 定义 为 ALE 描述 下 的 对流 速度 。 时 参考 坐标 取为 物质 坐标 , 网格 跟随 物质 质点 , 变为 Lagrange 描述 。 ( 2 ) 时 , 参考 坐标 取为 空间 坐标 , 网格 不 动 , 此时 变为 Euler 描述 。 
+ 3 　 ALE 网格 速度 的 确定 与 网格 更新 
+ 　 　 在 ALE 描述 下 , 网格 可以 按 任意 合适 的 方式 进行 设计 , 但 为了 能够 达到 跟踪 边界 尤其 是 流体 晃动 时 的 自由面 , 其上 的 网格 点 必须 永远 在 边界 上 , 这样 网格 点 的 速度 设计 就 受到限制 即 速度 的 约束条件 。 假设 边界 面 ( 或线 ) 的 方程 为 : 
+ F ( x , t ) = 0 ( 4 ) 
+ 由于 流体 质点 和 网格 点 始终 在 边界 上 即 永远 满足 方程 ( 4 ) 式 , 所以 有 : 
+ ( DF ) / ( Dt ) = 0 ; ( dF ) / ( dt ) = 0 
+ 从而 有 关系 : , 而 边界 面 方程 函数 的 梯度方向 即 边界 面 的 法线 方向 , 则 可得 
+ v * n = w * n ( 5 ) 
+ 在 满足 上式 的 条件 下 , 自由 液面 上 的 网格 点 的 移动 速度 可 按 如下 及种 方式 设计 。 
+ 
+ 
+ 图 1 　 自由 液面 上 网格 结点 速度 方向 
+ 图 1 表明 边界 结点 可以 按 : ( a ) 预先 给定 的 方向 如 水平 方向 或 竖直 方向 , ( b ) 垂直于 自由 液面 方向 或者 , ( c ) 当地 流体 速度 矢量 的 方向 转动 , 在 最后 一种 情况 就 得到 边界 上 的 拉格朗 日 描述 。 本文 算例 采用 了 方法 ( a ) , 即 水平 方向 采用 欧拉 描述 , 竖直 方向 采用 拉格朗 日 描述 。 由 ( 5 ) 式 , 自由 液面 上 网格 结点 移动 的 速度 为 : 
+ 　 　 　 　 　 　 　 　 　 　 　 ( 6 ) 
+ 　 　 　 　 　 　 　 　 　 ( 7 ) 
+ 在 求解 过程 中 , 每 一时间 步 网格 需要 更新 一次 , 对于 tn + 1 时刻 , 网格 结点 的 坐标 可 按 下式 计算 : 
+ xn + 1i = xni + ∫  tn + 1tnwidt 　 　 　 　 　 　 　 ( 8 ) 
+ 4 　 数学模型 
+ 　 　 本文 以 流体 的 不可 压缩 , 无 粘 , 非定常 无旋 理论 为 基础 , 物理 模型 如图 2 
+ 　 　 控制 方程 为 : 
+ 　 　                                                                                                            ( 9 ) 
+ 　 
+ 
+ 
+ 图 2 　 物理 模型 
+ 　 　 其中 ： F （ x ， y ， z ） = 0 为 自由 液面 方程 ， μ φ 项是 反应 流体 粘度 阻尼 效应 的 所谓 Rayleigh 阻尼 项 。 μ 一般 采用 实验 数据 。 ax （ t ） 为 一 水平 加速度 激励 。 S1 为 自由 液面 ， S2 为 贮箱 刚性 壁 。 由 ： ， 可 推出 ： 代入 动力学 边界条件 可 得 ： 由 关系式 ： 
+ 
+ 经过 化简 可 得 ： 
+ （ 11 ) 
+ 其中 : , 即 x 保持 不变 , 竖直 方向 跟随 自由 液面 的 时间 导数 , β 表示 自由 液面 和 水平面 的 夹角 。 
+ 5 　 系统 方程 的 数值 离散 
+ 　 对方 （ 9 ） 进行 边界 元 离散 ， 在 每 一 单元 上设 ： 其中 插值 函数 为 单元 长度 。 根据 边界 元 方法 [ 4 ] （ 9 ） 式 可 离散 为 ： 
+ 
+ 而 ： 上 结点 个数 
+ n1 为 自由 液面 S1 上 的 结点 个数 ， A 为 嗯 n 阶 方阵 。 对于 动力 边界条件 （ 10 ） ， 为了 消除 解 的 不稳定性 [ 3 ， 5 ] ， 引入 误差 修正 项 D ， 用下式 代替 （ 10 ） 式 ： 
+ 　 　 ( 13a ) 
+ 　 　 D = 0 ( 13b ) 
+ 根据 有限元 知识 , 利用 加权 余量 法可 推导 出 单元 上 的 离散 方程 如下 : 
+ ( 14 ) 
+ 其中 : 
+ 
+ 单元 集成 后 可 写成 如下 形式 : 
+ ( 15 ) 
+ 时间 变量 采用 Newmark 方法 离散 , 化简 后 可得 如下 形式 的 方程 : 
+ ( 16 ) 
+ 由 ( 12 ) , ( 16 ) 式 可得 : 
+ ( 17 ) 
+ 其中 : A1 = c + c1 γ Δ t , B1 = γ Δ tG , γ 是 按 积分 精度 和 稳定性 而 决定 的 参数 ( 一般 γ ≥ 0.5 ) , n , n + 1 代表 时间 步 。 ( 17 ) 式 为 非线性 方程 , 下面 给出 预测 — — 多重 校正 格式 的 计算 过程 ; 
+ 预测 得 : 
+ 
+ 校正 步 
+ 
+ 
+ 其中 : 采用 Newton - Raphson 方法 求解 。 
+ 6 　 算例 
+ 　 　 ( 1 ) 本文 选取 文献 ［ 3 ］ 中 的 算例 , b = 0.45 m , h = 0.6 m , 初始条件 为 当 t = 0 时 : 
+ 
+ 贮箱 受 横向 加速度 激励 : 
+ α x ( t ) = - X0 ω 2sin ω t ; X0 = 0.002 m ; ω = 5.5 rad / sec ; Δ t = 0.008 sec 
+ 计算结果 如图 3 , 与 文献 ［ 3 ］ 比较 基本一致 , 从 计算结果 可知 , 经过 一段时间 ( 例如 8 秒 ) 历程 后 晃动 幅值 将 不再 有 明显增加 , 这 是因为 液体 微料 的 纵向 加速度 不 可能 超过 质量 力场 的 加速度 , 这一 结论 与 试验 结果 吻合 。 文献 ［ 3 ］ 中 没有 直接 得到 这一 计算结果 , 此外 , 由于 本文 没有 对 非线性 方程 进行 线化 处理 , 时间 增量 要求 比较 小 ( 文献 ［ 3 ］ 中 Δ t = 0.015 sec ) 。 　 　 
+ 
+ 
+ 图 3 　 波高 η 的 时间 历程 
+ ( 2 ) 考察 三阶 模态 自由 晃动 问题 。 本文 模拟出 的 前 8 个 周期 内 不同 时刻 的 自由 液面 形状 如图 4 所示 , 非常明显 地 显示 了 共振 时 驻波 的 三个 点 , 与 有关 的 试验 结果 基本一致 , 其中 自由 晃动 的 幅值 取为 0.15 cm 。 　 　 
+ 
+ 
+ 图 4 　 不同 时刻 的 自由 液面 形状 
+ 7 　 结论 
+ 　 　 本文 把 ALE 有限元 的 思想 运用 到 边界 方法 中 , 推导 了 ALE 边界 元 的 计算 格式 及 系统 非线性 方程 的 预测 — — 多次 较 正步 迭代 格式 , 针对 动力 边界条件 的 数值 计算 上 的 困难 , 提出 了 修正 解法 , 得到 了 令人 比较满意 的 结果 。 分别 对 强迫 振动 和 自由 振动 进行 了 数值 计算 , 所得 结果 和 有关 文献 比较 基本 吻合 。 
+ 参考文献 
+ 　 1 　 Huerta   A   and   Liu   W   K . Viscous   flow   with   large   free   surface   motions . Compt . Meths . Appl . Mech . Engrg.1988 , 69 , 277 - 324 
+ 　 2 　 Muta   K , Kasai   Y , and   Nakahara   M , Experimental   tests   for   suppression   effects   of   water   restraint   plates   on   sloshing   of   a   water   pool . ASMEJ . of   pressure   vessel   Tech.1988 , 110 , 240 - 252 
+ 　 3 　 Nakayama   T   and   Washiza   K . The   bounday   element   method   applied   to   the   analysis   of   twodimensional   nonlineal   sloshing   problems   Int . J . for   Numer . Meths . in   Engrg.1981 , 17 , 1631 - 1646 
+ 　 4 　 Brebbia   C   A . The   Boundary   element   method   for   engineers   Pentech   Prers.1978 
+ 　 5 　 Hirt   C   W   and   Harlow   F   H . Ageneral   corrective - procedure   for   the   numerical   solution   of   initial - value   problem   J . Comp . Phy.1967 , 2 , 114 - 119 
+ 　 6 　 曾江红 , 王照 林 . 粘性流体 大幅 晃动 的 ALE 有限元 模拟 . 强度 与 环境 , 1996 , 3 , 22 - 27 

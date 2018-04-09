@@ -1,0 +1,137 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 2000 　 Vol.11 　 No.4 　 P.526 - 531 
+ 
+ 
+ 
+ 
+ 一种 面向对象 的 开放式 超媒体 引擎 
+ 　 龚育昌 　 周 学海 　 文栋辉 　 赵振西 
+ 　 摘要 　 从 讨论 超媒体 引擎 的 设计 原则 和 设计 方法 入手 , 提出 了 一种 基于 面向对象 数据库 管理系统 的 开放式 超媒体 引擎 . 由于 引入 了 元 对象 建模 , 该 引擎 不仅 可以 表达 复杂 的 超媒体 语义 , 而且 可以 直接 支持 开放性 链接 协议 , 从而 实现 了 对 第三方 应用 的 开放性 . 
+ 　 关键词 　 超媒体 引擎 , 元 对象 , 语义 约束 , 语义 剪裁 . 
+ 　 中图法 分类号 　 TP311 ， TP393 
+ An   Object - Oriented   Open   Hypermedia   Engine 
+ GONG   Yu - chang 　 ZHOU   Xue - hai 　 WEN   Dong - hui 　 ZHAO   Zhen - xi 
+ （ Department   of   Computer   Science   and   Technology   University   of   Science   and   Technology   of   China 　 Hefei 　 230026 ） 
+ Abstract 　 　 The   design   principles   and   methods   of   the   hypermedia   engine   are   discussed   in   this   paper ,   and   an   open   hypermedia   engine   based   on   OODBMS   ( object - oriented   database   management   systems )   is   presented .   By   introducing   meta - object   modeling ,   the   engine   can   not   only   express   complex   hypermedia   semantic ,   but   also   support   the   open   hypermedia   link   protocol   for   integrating   the   third - part   applications . 
+ Key   words 　 Hypermedia   engine ,   meta - object ,   semantic   constraint ,   semantic   tailoring . 
+ 　 　 超媒体 引擎 是 支持 超媒体 应用 开发 的 抽象机 , 它 提供 访问 和 操作 超媒体 的 接口 以及 用来 维护 超媒体 应用 语义 的 复杂 操作 . 已有 的 超媒体 引擎 或者 只 提供 一个 相对 固定 的 超媒体 数据模型 , 需要 由 应用 的 开发者 通过 增加 属性 来 扩充 语义 并 处理 引擎 的 维护 （ 如 HAM , HyperBase 等 ［ 1 ］ ） ； 或者 只 简单 地 提供 存储 功能 , 其他 功能 均 要求 应用 的 开发者 自行 实现 （ 如 HB3 ［ 2 ］ 和 Devise ［ 3 ］ 等 ） , 使得 超媒体 应用 的 建模 复杂化 , 而且 不 支持 超媒体 系统 与 第三方 应用 的 集成 . 
+ 　 　 一个 优良 的 开放式 超媒体 引擎 应该 满足 下述 4 项 基本 要求 : ( 1 )   可 剪裁 的 数据模型 , 能够 抽象 而 准确 地 表达 各种 应用 的 超媒体 对象 ； ( 2 )   灵活 的 语义 表达 , 能够 方便 地 描述 超媒体 应用 复杂 而 丰富 的 语义 ； ( 3 )   充分 支持 超媒体 系统 与 第三方 应用 和 外部 数据 管理系统 的 有效 集成 ； ( 4 )   支持 对 持久 对象 的 多用户 访问 、 并发 控制 、 恢复 和 版本控制 . 
+ 以 上述 4 项 要求 为 设计 原则 , 我们 利用 功能强大 的 面向对象 数据库 管理系统 Shore ， 设计 并 实现 了 一个 开放式 超媒体 引擎 . 该 引擎 引入 了 元 对象 建模 技术 , 有效 地 实现 了 上述 的 ( 1 ) ～ ( 3 ) 项 要求 . 而 利用 Shore 强大 的 数据库 管理 功能 , 自然 能 较 好 地 满足 上述 第 ( 4 ) 项 的 要求 . 
+ 本文 从 说明 SohEngine ( Shore - based   open   hypermedia   engine ) 的 设计 方法 入手 , 详细 地 介绍 了 元 对象 建模 中 的 语义 关系 和 SohEngine 的 数据模型 , 文章 最后 给出 了 SohEngine 的 实现 和 应用 情况 . 
+ 1 　 SohEngine 的 设计 方法 
+ 　 　 SohEngine 的 基本 设计 方法 是 在 Shore 之上 建立 一个 独立 于 应用 的 抽象 原始 超媒体 数据模型 , 使 其 具有 语义 表达 的 灵活性 、 可任意 剪裁 性 ， 并 充分 支持 超媒体 应用 的 建模 . 
+ 　 　 原始 超媒体 数据模型 是 通过 元 对象 建模 构造 的 , 元 对象 建模 的 主要 工作 包括 ： 
+ 　 　 ( 1 )   定义 独立 于 应用 的 语义 关系 . 为了 描述 原始 超媒体 概念 间 的 语义 关系 , 根据 对 超媒体 引擎 提出 的 要求 , 定义 以下 4 种 语义 关系 是 充分 必要 的 ： 
+ 　 　 。 平整 的 超媒体 网络结构 （ 加 约束 规则 ） , 如 允许 使用 不同 类型 的 链 和 结点 . 
+ 　 　 。 元素 关联 和 集合 关联 , 如 组合 结点 和 原子 结点 间 的 组合 关系 . 
+ 　 　 。 类别 指定 , 如 建造 具有 结点 行为 的 链 . 
+ 　 　 。 角色 指定 , 如 指定 对象 的 角色 及 角色 转换 . 
+ 　 　 通过 定义 合适 的 Shore 对象 类型 可以 建造 这些 语义 关系 . 
+ 　 　 （ 2 ）   创建 元 对象 . 为了 描述 原始 超媒体 建模 概念 的 结构 和 行为 , SohEngine 将 上述 语义 关系 结合 起来 ， 并 加入 约束 , 定义 了 8 种元 对象 类型 , 并 对 每个 元 对象 类 内置 了 一些 常用 的 元 对象 . 这些 元 对象 扩展 了 数据模型 , 体现 了 SohEngine 强大 的 表现 能力 . 由于 元 对象 本身 就是 Shore 的 数据 描述语言 SDL ( Shore   description   language ) 对象 类型定义 的 实例 , 因此 ， 可以 实时 、 方便 地 创建 新 的 元 对象 或 通过 建模 原语 来 改变 其 属性 . 这 不仅 保证 了 SohEngine 的 可 剪裁 性 和 语义 表达 的 灵活性 , 而且 这种 剪裁 不 需要 编写 额外 的 程序 和 重新 编译 . 
+ （ 3 ）   提供 建模 元语 . 为了 构造 复杂 的 超媒体 应用 , 支持 对 引擎 自身 的 剪裁 并 实现 开放性 , 超媒体 引擎 必须 提供 丰富 的 建模 元语 . 我们 在 文献 ［ 4 ］ 中 提出 了 一个 较 完备 的 开放性 超媒体 链接 协议 . SohEngine 对 该 协议 中 的 消息 都 提供 了 对应 的 建模 元语 作为 实现 函数 . 此外 , 还 提供 了 一组 约束 元语 , 用于 对 引擎 进行 剪裁 . 
+ 　 　 在 开发 实际 的 超媒体 应用 时 , 可以 将 不同 元 对象 的 语义 组合 起来 ， 描述 超媒体 应用 系统 的 结构 和 行为 . 为了 给 开发者 提供 灵活 的 机制 以 创建 所 需要 的 实例 对象 , SohEngine 利用 SDL 在 Shore 中 内置 了 一组 实例 对象 类 . 当 用户 创建 表达 具体 语义 关系 的 应用 超媒体 对象 时 , 可 利用 原有 的 和 自定义 的 元 对象 , 在 相应 的 实例 对象 类中 创建 实际 的 应用 实例 对象 . 上述 过程 中 重用 了 引擎 中 已有 的 对象 和 类 定义 , 而且 保证 了 对象 的 完整性 约束 . 
+ 　 　 SohEngine 的 可 重用 和 可任意 剪裁 的 特性 极大 地 简化 了 超媒体 应用 的 开发 工作 . 
+ 2 　 元 对象 建模 中 的 语义 关系 
+ 　 　 定义 原 超媒体 模型 中 的 语义 关系 是 实现 SohEngine 的 基础 , 需要 对 其 进一步 地 加以 描述 . 
+ 2.1 　 平整 的 超媒体 网络结构 
+ 　 　 我们 把 一个 包含 单向 和 双向 链 的 原始 超媒体 网络 定义 为 图 G0 ＝ ｛ N0 ， DL0 ， BL0 ｝ , 其中 N0 , DL0 和 BL0 分别 为 顶点 集 、 单向 链 和 双向 链 . 对 该 结构 进行 以下 两 方面 的 扩展 . 
+ 　 　 （ 1 ）   为了 定义 链结 点 , 对 顶点 的 概念 作 如下 扩展 ： 
+ 　 　 设 Ni ＋ 1 ＝ Ni ∪ DLi ∪ BLi ; DLiNiNi ； BLiNi × Ni , 据此 定义 图 G = ｛ N , DL , BL ｝ , 其中 Ni ＝ Ui ∈ nNi ； DL ＝ Ui ∈ nDLi ； BL ＝ Ui ∈ nBLi . 为了 超媒体 结构 的 平整 性 , 定义 如下 约束 ： ①   图中 不 允许 有 回路 ； ②   定义 不 允许 悬链 . 
+ 　 　 （ 2 ）   为了 允许 不同 类型 的 链 和 结点 , 定义 分类 图 TG = ｛ N , DL , BL ｝ , 并 引入 3 个 获取 结点 和 链 的 类型 的 函数 — — Type   N ： N → NT ； Type   DL ： DL → DLT ； Type   BL ： BL → BLT , 其中 集合 NT , DLT 和 BLT 分别 包含 了 元素 N , DL , BL 的 所有 类型 并且 是 互不 相交 的 , 而 DLT ′ 和 BLT ′ 则 分别 为 DLT 和 BLT 的 子集 , 表示 可以 当作 结点 来 操作 的 链 的 集合 . 
+ 　 　 为了 建立 链 和 结点 连接 的 约束 , 引入 约束 函数 ： 
+ ConsHT ： DLT ∪ BLT → ρ ( ( HT ∪ DLT ' ∪ BLT ' ） × ( HT ∪ DLT ′ ∪ BLT ′ ) ) . 
+ 利用 该 函数 可以 指定 某种 链 允许 连接 某类 结点 , 测试 超媒体 网络 中 是否 有 某种 链 或者 测试 某链 是不是 合法 的 . 例如 , 为了 限定 类型 为 SUPPORTS 的 二元 有 向 链 只 允许 连接 类型 为 datum 和 claim 的 结点 或者 ， 在 claim 类 结点 之间 建立 连接 时 , 定义 
+ ConsHT ( SUP - PORTS ) = ( ( datum , claim ) , ( datum , claim ) ) . 
+ 2.2 　 元素 关联 和 集合 关联 ( element   association   and   set   association ) 
+ 　 　 为了 建立 原始 超媒体 模型 中 的 组合 机制 , 我们 引入 关联 （ association ） 的 概念 , 并 建立 了 元素 关联 和 集合 关联 两类 约束 机制 . 
+ 　 　 元素 关联 引入 了 集合 对象 来 描述 一组 元素 对象 的 特征 . 元素 关联 建立 了 Element - of ( Element ∈ S ) 关系 , 因而 在 元素 对象 和 集合 对象 间 建立 了 1 - 层次结构 . 
+ 　 　 集合 关联 也 引入 了 一个 集合 对象 （ Superset ） 来 描述 另 一个 集合 对象 （ Subset ） 的 属性 . 集合 关联 在 Superset 和 Subset 之间 建立 Subset - of ( S ′ S ″ ) 关系 , 它 可以 被 递归 地 应用 于 建立 一个 n - 层次结构 . 依照 Dexter 模型 的 思路 , 我们 把 超媒体 的 结构 和 内容 划分 为 两个 层次 . 在 结构层 , 内容 结点 被 认为 是 原子 , 它 与 内容 层 的 内容 对象 存在 Element - of 关系 , 或者说 它 是 内容 对象 的 容器 . 利用 集合 关联 可以 建立 组合 结点 . 组合 结点 可以 包含 原子 、 链 和 其他 组合 结点 , 因此 ， 可以 将 其 看作 超集 ， 并 建立 相应 的 子集 关系 . 
+ 　 　 为了 对 元素 关联 和 集合 关联 进行 分类 , 引入 类型 函数 ： 
+ Type   Ass :   EO ∪ SO → ET ∪ ST , ET ∩ ST = Φ , 
+ 其中 EO 和 SO 分别 表示 原子 和 组合 对象 集合 , ET 和 ST 表示 可能 的 类型 . 将 该 函数 与 关联 捆绑 , 对于 针对 应用 来 剪裁 超媒体 模型 是 十分 有用 的 . 
+ 　 　 我们 对 集合 关联 建立 如下 约束 ： 
+ 　 　 。 子集 关系 中 集合 对象 的 结构 必须 是 无环 的 , 即 在 同一 集合 关联 中 作为 子集 的 集合 对象 结点 只能 有 一个 父 结点 . 原子 内容 对象 的 共享 是 很 有用 的 , 故 原子 关联 不受 这 一 约束 影响 . 
+ 　 　 。 利用 前述 的 Type   Ass 函数 , 我们 对 关联 的 结构 引入 约束 函数 ： 
+ Cons   Ass : ST → ρ （ （ ET ∪ ST ） × N0 × （ N0 ∪ （ ∞ ） ） , 
+ 其中 第 1 个 参数 表示 ST 的 子 集中 可以 包含 的 元素 关联 类型 , 后 两个 参数 分别 表示 该 类型 在 ST 中 出现 次数 的 上 下限 . 
+ 　 　 例 : 设 一个 类型 为 Path 的 组合 结点 包含 一个 起始 结点 , 并 允许 有 任意 多个 内容 结点 ， 且 只能 指向 一个 原子 文本 内容 结点 （ 该例 用于 对 结点 加 注释 ） . 该例 的 约束 函数 描述 为 
+ ConsAss : ( Path ) = ｛ ( start , 1 , 1 ) , ( Content , 0 , ∞ ) , ( FollowBy , 0 , ∞ ) , ( Textcontent , 0 , 1 ) ｝ , 
+ 其中 Start , FollowBy , Content ∈ ST , 而 Textcontent ∈ ET . 这 隐含 说明 ： 如果 产生 了 一个 Path 结点 实例 , 则 超媒体 引擎 就 会 自动 地 生成 一个 起始 结点 . 
+ 2.3 　 类别 指定 ( category   specialization ) 
+ 　 　 类别 指定 用来 建立 对象 集合 间 属性 与 方法 的 继承 关系 , 是 与 类型定义 无关 的 “ 外部 概念 ” . 
+ 　 　 我们 用 ST 表示 类 S 是 类 T 的 类别 指定 关系 ， 并 建立 以下 一致性 约束 ： ( 1 )   关系 必须 是 一个 偏序 ； ( 2 )   只 允许 类 的 单重 继承 , 即类 关系 是 树结构 ； ( 3 )   设 ext ( S ) 表示 类 S 的 扩展 , 则 需 满足 以下 条件 ： 如果 ST , 则 ext ( S ) ext ( T ) , 这 意味着 ∪ St   ext ( S ) ext ( T ) ； ( 4 )   若类 S 和 类 S ′ 间 不 存在 类别 指定 关系 , 则 ext （ s ） ∩ ext （ S ′ ） ＝ Φ . 
+ 　 　 类别 指定 可 用于 建造 那些 需要 继承 其他 类 的 属性 和 方法 的 类 , 例如 ， 可用 来 建造 有 结点 行为 的 链 又 毋需 引入 有关 结点 链 的 额外 概念 . 
+ 2.4 　 角色 指定 （ role   specialization ） 
+ 　 　 在 构造 超媒体 网络 时 , 有时 需要 把 一个 组合 结点 中 某 结点 的 某个 （ 些 ） 属性 拷贝到 另 一 组合 结点 中 的 另 一个 类型 不同 的 结点 中 , 使 这 两个 不同 类型 的 结点 共享 同一个 （ 或 一些 ） 属性 , 实现 对象 类型 的 转换 . SohEngine 中 定义 了 角色 指定 关系 Role - of 来 表示 这种 共享 . 如图 1 所示 , 建立 一个 共享 属性 结点 General , 通过 Role - of 关系 把 名字 等 共享 属性 从 计划 空间 中 的 Position 结点 拷贝到 修改 空间 中 的 Claim 结点 上 . 为了 说明 这种 类型转换 , 引入 了 一个 转换 函数 TransR ： R → ρ （ R ） , 其中 R 是 类 的 集合 , 可以 作为 一个 普通 对象 角色 . 此外 ， 我们 对 类别 指定 所 建立 的 一致性 约束 , 除 约束 ( 4 ) 之外 均 适用 于 角色 指定 . 
+ 
+ Fig.1   Role   specialization   and   convertion 
+ 图 1 　 角色 指定 和 转换 
+ 3 　 SohEngine 的 数据模型 
+ 3.1 　 SohEngine 中 的 对象 分类 
+ 　 　 SohEngine 中 的 对象 类型 分为 元 对象 类 （ Meta - Class ） 和 实例 对象 类 （ Inst - Class ） 两类 . 元 对象 是 第 1 类 对象 , 用以 描述 实例 对象 的 属性 格式 和 语义 约束 . 一个 元 对象 可以 对应 于 多个 实例 对象 , 而 相同 类型 的 实例 对象 只能 对应 于 一个 元 对象 , 如图 2 所示 . SohEngine 允许 应用 开发者 用 SDL 定义新 的 元 对象 , 以 描述 应用 所 需 的 某些 实际 应用 对象 . 图 2 中 T － IsBaseOn 是 新创 的 链元 对象 , 用以 描述 实际 的 应用 链 对象 T － IsBaseOn1 和 T － IsBaseOn2 的 属性 和 语义 约束 . 
+ 
+ Fig.2   Relationship   between   meta - object   andinstance   object 
+ 图 2 　 元 对象 和 实例 对象 的 关系 
+ 3.2 　 元 对象 
+ 　 　 SohEngine 综合 了 所有 可 想到 的 超媒体 抽象概念 , 定义 了 8 种元 对象 类型 ： Meta - Anchor ( 支持 创建 各种 锚元 对象 ) 、 Meta - Link （ 支持 创建 各种 链元 对象 ） 、 Meta - Node （ 支持 创建 各种 结点 元 对象 ） 、 Meta - Document （ 支持 创建 各种 超媒体 文档 元 对象 ） 、 Meta - Constraint （ 支持 创建 各种 语义 约束 元 对象 ） 、 Meta - Pspec （ 支持 创建 各种 展示 元 对象 ) 、 Meta - Service （ 支持 创建 各种 服务 元 对象 ） 和 Meta - Perspective （ 支持 创建 各种 视图 元 对象 ） . 
+ 　 　 SohEngine 对 这 8 个元 对象 类 内置 了 一组 常用 的 元 对象 , 如图 3 所示 , 这些 元 对象 体现 了 SohEngine 的 表达能力 . 
+ 
+ ① 元 - 对象 , ② 元 - 锚 , ③ 元 - 链 , ④ 元 - 点 , ⑤ 元 - 媒体 文档 , ⑥ 元 - 语义 约束 , ⑦ 元 - 展示 , ⑧ 元 - 服务 ⑨ 元 - 视图 , ⑩ 正文 锚 , 位图 锚 , Word 锚 有 向 链 , 无向 链 , 原子 结点 , 组合 结点 , 虚拟 结点 , 文档 结点 , 链 约束 , 组合 约束 , 展示 对象 , 服务 对象 , 视图 , 文本 结点 , 位 图 结点 . 
+ Fig.3   Meta - Classes   and   Met , a - Objects 
+ 图 3 　 元 对象 类和元 对象 
+ 　 　 SohEngine 还 提供 了 元 对象 之间 的 继承 机制 , 允许 子元 对象 继承 父元 对象 的 属性 和 语义 约束 . 例如 ， 图 4 中链 1 和 链 2 都 继承 了 有 向 链 特征 ， 又 分别 捆绑 了 语义 约束 ［ A , B ］ 和 ［ C , D ］ , 链 3 除了 继承 有 向 链 特征 外 , 还 隐含地 继承 和 捆绑 了 语义 约束 ［ A , B ］ + ［ C , D ］ . 此外 , SohEngine 还 提供 了 灵活 的 语义 约束 定义 和 捆绑 机制 , 以 增强 引擎 的 可 剪裁 性 . 例如 ， 对图 4 中 的 示例 , 可 自定义 一种 语义 约束 Constraints , 并 可 动态 地向 Link1 进行 捆绑 或 释放 捆绑 ： 
+ Meta - Link * pConst1 = newMeta - Link ( Constraints ) ; 
+ Link1 . BindConstraint ( Con . S ) ; 
+ Link1 . UnBindConstraint ( Con . S ) . 
+ 
+ Fig.4   Inharitance   of   constraint   rules 
+ 图 4 　 约束 规则 的 继承 
+ 3.3 　 实例 对象 类 
+ 　 　 当 超媒体 应用 的 开发者 对 SohEngine 进行 剪裁 或 编辑 超媒体 文档 时 , SohEngine 会 创建 各种 实例 对象 . 为了 支持 实例 对象 的 创建 , SohEngine 提供 了 与 元 对象 类 一一对应 的 8 种 实例 对象 类 , 分别 为 Anchor － Class , Link － Class , Node － Class , Document － Class , Constraint － Class , Pspec － Class , 
+ Service － Class 和 Perspective － Class . 这些 实例 对象 类 可以 实例 化为 多个 实例 对象 . 在 创建 实例 对象 时 , SohEngine 通过 元 对象 理解 Viewer 发来 的 数据 , 在 Shore 数据库 中 建立 持久 的 实例 对象 , 如 
+ Link － Class * IpA1 = new   Link － Class ( T － IsBaseOn ) . 
+ 3.3 　 实例 对象 类 
+ 当 超媒体 应用 的 开发者 对 SohEngine 进行 剪裁 或 偏辑 超媒体 文档 时 , SohEngine 会 创建 各种 实例 对象 . 为了 支持 实例 对象 的 创建 , SohEngine 提供 了 与 元 对象 类 一一对应 的 8 种 实例 对象 类 , 分别 为 Anchor _ Class   ， Node _ Class   ， Document _ Class   ， Constaint _ Class   ， , Pspec _ Class   ， Service _ Class   ， 和 和 Perpective _ Class   . 这些 实例 对象 类 可以 实例 化为 多个 实例 对象 . 在 创建 实例 对象 时 , SohEngine 通过 元 对象 理解 Viewer 发来 的 数据 , 在 Sore 数据库 中 建立 持久 的 实例 对象 , 如 
+ Link _ Class * IpA1 = new   Link _ Class ( T _ IsBaseOn ) . 
+ 其中 ， T － IsBaseOn 是 开发者 定义 的 链元 对象 , 它 描述 了 实际 的 链 实例 对象 IpA1 的 属性 格式 和 语义 约束 规则 . 
+ 3.4 　 SohEngine 的 建模 元语 
+ 　 　 SohEngine 的 建模 元语 是 一组 基于 Shore 事务 操作 的 C++ 接口函数 , 客户 引用 建模 元语 时 利用 下列 函数 与 SohEngine 通信 ： 
+ 　 　 。 发送 类名 , 取回 一个 类 的 OID . 
+ 　 　 。 开始 、 提交 和 终止 一个 Shore 的 上层 事务 . 
+ 　 　 。 调用 建模 元语 , 取回 执行 结果 . 
+ 　 　 。 发送 Shore 对象 查询 语句 （ OQL ） , 取回 查询 结果 . 
+ 　 　 当 客户 调用 建模 元语 进行 一系列 复杂 操作 时 , 每个 操作 缺省 地 作为 Shore 的 一个 上层 事务 . 通过 SohEngine 中 的 事务 命令 , 开发者 可以 构造 一个 新 的 复杂 操作 , 由 Shore 的 事务处理 机制 来 维护 其 完整性 . 
+ 　 　 我们 在 文献 ［ 4 ］ 中 提出 了 一个 较 完备 的 开放性 超媒体 链接 协议 , 该 协议 是 开发 超媒体 应用 （ 包括 第三方 应用 ） 所 需 的 通信 约定 . SohEngine 建模 元语 的 主要 部分 几乎 是 一对一 地 实现 该 协议 中 的 消息 . 这部分 元语 分为 7 类 , 共 38 个元语 , 分别 为 
+ 　 　 。 锚元语 ： DefAnchorType , CreateAnchor , GetAnchorDef , UpdateAnchor , DeleteAnchor , 
+ GetAnchorList , ExecuteAnchor , GetAnchorPspe ； 
+ 　 　 。 链元语 ：   DefLinkType , CreateLink , GetLinkDef , UpdateLink , DeleteLink ; 
+ 　 　 。 结点 元语 ：   DefNodeType , CreateNode , GetNodeDef , UpdateNode , DeleteNode , ClosingNode , 
+ CheckNode , GetNodeContent ; 
+ 　 　 。 展示 元语 ：   CreatePspec , GetPspecDef , UpdatePspec , DeletePspec ; 
+ 　 　 。 服务 元语 ：   GetService , SendService , ExecuteService ; 
+ 　 　 。 视图 元语 ：   DefPerspective , GetPerspectiveDef , UpdatePerspective , GetPerspectiveList , SelectPerspective , 
+ ClosePerspective ; 
+ 　 　 。 文档 元语 ： RegisterDocument , UpdateDocument , DeleteDocument , GetDocumentContent , CheckDocu - ment . 
+ 　 　 为了 支持 对 引擎 和 文档 进行 剪裁 , SohEngine 还 提供 了 4 条 语义 约束 元语 , 分别 为 CreateConstraint （ 创建 新 的 语义 约束 ） 、 GetConstraint （ 根据 约束 的 id 取到 其 定义 ） 、 UpdateConstraint （ 根据 约束 的 id 修改 其 定义 ） 、 DeleteConstraint （ 根据 约束 的 id 删除 其 定义 ） . 
+ 　 　 应用 建模 元语 开发 超媒体 应用 变得 相对 简单 了 . 例如 , 只要 给出 接口函数 ： 
+ CreateNode ( Meta － Node － Class : OID , Composite : OID , name : Cstring , position : CPoint ) : OID , 
+ 就 可 创建 一个 元 类型 为 Meta － Node － Class 的 结点 , 引擎 将 自动 检查 该 结点 是否 满足 组合 约束 （ 是否 属于 组合 结点 ） , 执行 后 引擎 将 返回 一个 新 结点 的 id , 或 告知 由于 不能 满足 语义 约束 而 无法 创建 该 结点 . 上述 创建 过程 无需 编写 额外 的 程序 . 
+ 4 　 实   现 
+ 　 　 依据 上 文中 介绍 的 超媒体 引擎 设计 技术 , 我们 在 SPARC 工作站 上 构造 了 一个 SohEngine 的 原型 系统 , 实现 了 SohEngine 的 大部分 功能 , 并 以 该 引擎 原型 为 核心 开发 了 一个 开放式 超媒体 实验 系统 , 通过 《 数据结构 》 课程 的 计算机辅助 教学 应用 验证 了 SohEngine 在 可 剪裁 性 、 语义 表达 灵活性 和 可简化 超媒体 应用 开发 的 优点 , 以及 对 第三方 应用 和 外部 文档 管理系统 的 开放性 . 
+ 龚育昌 （ 中国 科学技术 大学 计算机科学 与 技术 系 　 合肥 　 230026 ） 　 
+ 周 学海 （ 中国 科学技术 大学 计算机科学 与 技术 系 　 合肥 　 230026 ） 　 
+ 文栋辉 （ 中国 科学技术 大学 计算机科学 与 技术 系 　 合肥 　 230026 ） 　 
+ 赵振西 （ 中国 科学技术 大学 计算机科学 与 技术 系 　 合肥 　 230026 ） 
+ 参考文献 
+ 1 ， Cambell   B ,   Goodman   J   M .   HAM :   a   general   purpose   hypertext   abstract   machine . 
+ Communications   of   ACM ,   1988 , 31 ( 7 ) : 856 ～ 861 
+ 2 ， Legget   J   J ,   Schnase   J   L .   Viewing   dexter   with   open   eyes .   Communications   of   
+ ACM ,   1994 , 37 ( 2 ) : 76 ～ 86 
+ 3 ， Gronbak   K ,   Hem   J   A ,   Madsen   O   L   et   al .   Cooperative   hypermedia   system :   a   
+ dexter   based   architecture .   Communications   of   ACM ,   1994 , 37 ( 2 ) : 67 ～ 74 
+ 4 ， Li   Guang - ya .   Research   and   implementation   of   open   hypermedia   system   
+ ［ Ph . D .   Thesis ］ .   Hefei :   University   of   Science   and   Technology   of   China ,   1998 
+ ( 李光亚 . 开放式 超媒体 系统 的 研究 与 实践 ［ 博士学位 论文 ］ . 合肥 : 中国 科学技术 大学 , 1998 ) 
+ 
+  

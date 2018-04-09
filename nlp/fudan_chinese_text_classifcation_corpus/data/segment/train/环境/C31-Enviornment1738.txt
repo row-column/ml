@@ -1,0 +1,39 @@
+环境 科学研究 
+ RESEARCH   OF   ENUIRONMENTAL   SCIENCES 
+ 2001   Vol.14   No.2   P.33 - 35 
+ 
+ 
+ 
+ 
+ UV / TiO2 - Fenton 试剂 系统 处理 制药 废水 的 研究 
+ 程沧沧 　   肖忠海 　   胡 德文 　   张坚 亦 　   
+ 摘 　 要 ： 以 TiO2 为 催化剂 ， 并 将 其 制膜 固定 在 不锈钢 质 反应器 内壁 上 ， 以 9W 低压 汞灯 为 光源 ， 引入 Fenton 试剂 ， 对 武汉市 某 制药厂 的 制药 废水 进行 了 处理 实验 。 取得 了 脱色 率 100% ， CODCr 去除率 92.3% 的 效果 。 硝基苯 类化合物 含量 从 8.05 mg / L 降至 0.41 mg / L 。 还 探讨 了 多种 因素 对 光降解 的 影响 。 
+ 关键词 ： 制药 废水 ； 　 硝基苯 ； 　 光降解 ； 　 二氧化钛 ； 　 Fenton 试剂 
+ 分类号 ： K787 
+ 文章 编号 ： 1001 - 6929 ( 2001 ) 02 - 0033 - 03 
+ Study   on   Pharmaceutical   Wastewater   Treatment   by   UV / TiO2 - Fenton   Agent 
+ CHENG   Cang - cang （ Urban   Construction   and   Environmental   Protection   Department , Jianghan   University , 　 Wuhan   430019 , 　 China ） 　 
+ XIAO   Zhong - hai （ Urban   Construction   and   Environmental   Protection   Department , Jianghan   University , 　 Wuhan   430019 , 　 China ） 　 
+ HU   De - wen （ Urban   Construction   and   Environmental   Protection   Department , Jianghan   University , 　 Wuhan   430019 , 　 China ） 　 
+ ZHANG   Jian - yi （ Urban   Construction   and   Environmental   Protection   Department , Jianghan   University , 　 Wuhan   430019 , 　 China ） 　 
+ 
+ Abstract ： TiO2   was   used   as   catalyst ,   made   in   the   form   of   film   and   fixed   on   the   inner   wall   of   the   stainless - steel   photoreactor .   The   9 - W   low - voltage   mercury   lamp   was   applied   as   light   sources   and   Fenton   agent   introduced   to   perform   pharmaceutical   wastewater   treatment   at   one   pharmaceutical   factory   in   Wuhan   City .   The   resulted   decoloration   rate   was   100% ,   with   CODCr   removal   rate   of   92.3% .   Content   of   nitrobenzene   compounds   was   reduced   from   8.05   mg / L   to   0.41   mg / L .   Various   factors   affecting   photodegradation   were   discussed . 
+ Keywords ： pharmaceutical   wastewater ; 　   nitrobenzene ; 　   photodegradation ; 　   TiO2 ; 　   Fenton   agent 
+ 基金项目 ： 湖北省 教委 立项 课题 
+ 作者简介 ： 程沧沧 ( 1950 - ) ， 男 ， 湖北 红安 人 ， 副教授 .   
+ 作者 单位 ： 程沧沧 （ 江汉 大学   城建 环保 系 ， 湖北   武汉 　 430019 ） 　 
+ 　 　 　 　 　 肖忠海 （ 江汉 大学   城建 环保 系 ， 湖北   武汉 　 430019 ） 　 
+ 　 　 　 　 　 胡 德文 （ 江汉 大学   城建 环保 系 ， 湖北   武汉 　 430019 ） 　 
+ 　 　 　 　 　 张坚 亦 （ 江汉 大学   城建 环保 系 ， 湖北   武汉 　 430019 ） 　 
+ 
+ 参考文献 ： 
+ ［ 1 ］ 　 王 连生 . 环境 健康 化学 [ M ] . 北京 ： 科学出版社 ， 1994.61 ～ 67 . 
+ ［ 2 ］ 　 沈伟韧 ， 赵文 宽 ， 贺飞 ， 等 . TiO2 光 催化反应 及其 在 废水处理 中 的 应用 [ J ] . 化学 进展 ， 1998 ， 10 ( 4 ) ： 349 ～ 361 . 
+ ［ 3 ］ 　 魏复盛 ， 徐晓白 ， 阎吉昌 ， 等 . 水 和 废水 监测 方法 指南 [ M ] . 北京 ： 中国 环境 科学出版社 ， 1997.254 ～ 258 . 
+ ［ 4 ］ 　 国家环保局 编 . 水 和 废水 监测 分析方法 ( 第三版 ) [ M ] . 北京 ： 中国 环境 科学出版社 ， 1997.424 ～ 426 . 
+ ［ 5 ］ 　 刘勇 第 ， 徐寿昌 . 紫外 - Fenton 试剂 的 作用 机理 及其 在 废水处理 中 的 应用 [ J ] . 环境 化学 ， 1994 ， 13 ( 4 ) ： 302 . 
+ ［ 6 ］ 　 Christoph   K   Scheck . Degradation   of   phenol   and   alicylic   acid   by   UV   radiation / hydrogen   Peroxide / Oxygen [ J ] . Wat   Res , 1995 , 29 ( 10 ) : 2364 . 
+ ［ 7 ］ 　 Sclafani   A , Davi   E . Photocatalylic   degradation   of   phenol   in   aqueous   polyerystalline   TiO2   dispersions , the   influence   of   Fe3 + , Fe2 +   and   Ag +   on   the   reaction   rate [ J ] . J   Photochem   Photobiol   A , 1991 , 56 ( 2 ) : 113 . 
+ 
+ 收稿 日期 ： 2000 年 5 月 9 日 
+ 出版日期 ： 2001 年 3 月 30 日 

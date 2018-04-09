@@ -1,0 +1,81 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000 　 No.19 　 No.1 　 P.17 - 18 
+ 
+ 
+ 
+ 
+ Visual   Basic 中 数据 访问 接口 的 比较 和 探讨 
+ 蒋 翔宇 
+ 摘   要 ：   对 Visual   Basic 中 3 种 不同 的 数据 访问 接口 进行 比较 ， 并 提出 相互 的 转化 关系 。   
+ 关键词 ： 数据 访问 接口   DAO 接口   RDO 接口   ADO 接口 
+ 1   Visual   Basic 中 的 数据 访问 接口 
+ 　 　 数据 访问 接口 是 1 个 对象 模型 ， 它 代表 了 访问 数据 的 各个方面 。 在 Visual   Basic 中 ， 可用 的 数据 访问 接口 有 3 种 ： ADO （ ActiveX   Data   Objects ） 、 RDO （ Remote   Data   Objects ） 和 DAO （ Data   Access   Objects ） 。 随着 数据 访问 技术 的 不断进步 ， 这 3 种 接口 分别 代表 了 该 技术 的 不同 发展 阶段 。 
+ 2   3 种 接口 的 比较 
+ 　 　 DAO 数据 访问 对象 是 第 1 个 面向对象 的 接口 ， 它 显露 了 Microsoft   Jet 数据库 引擎 （ 由 Microsoft   Access 所 使用 ） ， 并 允许 Visual   Basic 开发者 通过 ODBC 像 直接 连接 到 其它 数据库 一样 ， 直接 连接 到 Access 数据库 。 
+ 　 　 RDO 远程 数据 对象 是 1 个 到 ODBC 的 、 面向对象 的 数据 访问 接口 ， 它同 易于 使用 的 DAO   style 组合 在 一起 ， 提供 了 1 个 接口 ， 形式 上 展示 出 所有 ODBC 的 底层 功能 和 灵活性 。 尽管 RDO 在 访问 Jet 或 ISAM 数据库 方面 受到限制 ， 而且 它 只能 通过 现存 的 ODBC 驱动程序 来 访问 关系数据库 。 但是 ， RDO 提供 了 用来 访问 存储 过程 和 复杂 结果 集 的 更 多 和 更 复杂 的 对象 、 属性 以及 方法 。 
+ 　 　 ADO 是 为 Microsoft 最新 和 最 强大 的 数据 访问 范例 OLE   DB 而 设计 的 ， 是 1 个 便于 使用 的 应用程序 层 接口 。 OLE   DB 为 任何 数据源 提供 了 高性能 的 访问 ， 这些 数据源 包括 关系 和 非 关系数据库 、 电子邮件 和 文件系统 、 文本 和 图形 、 自定义 业务 对象 等等 。 ADO 在 关键 的 Internet 方案 中 使用 最少 的 网络流量 ， 并且 在 前端 和 数据源 之间 使用 最少 的 层数 ， 所有 这些 都 是 为了 提供 轻量 、 高性能 的 接口 。 
+ 3   Visual   Basic 中 多种 接口 的 实现 
+ 　 　 下面 通过 一些 实例 对 ADO 、 RDO 和 DAO 的 不同之处 作 进一步 比较 ， DAO 相对 较 简单 ， 所以 这里 只 对 RDO 和 ADO 进行 比较 。 
+ 3.1   建立 到 某个 数据库 的 连接 
+ 　 　 1 ． RDO 。 要 打开 1 个 连接 ， 必须 提供 1 个 带 参数 的 连接 字符串 。 当 RDO 要 创建 1 个 rdoQuery 对象 时 ， 是 不 需要 连接 的 ， 但 当 最初 创建 1 个 rdoResultset 对象 时 是 需要 的 。 
+ Dim   cn   As   New   rdoConnection 
+ Const   ConnectionString ＝ ″ uid ＝ jxy ； pwd ＝ 123 ； driver ＝ ｛ SQLServer ｝ ； _ server ＝ salesserver ； database ＝ sales ； dsn ＝ ″ ″ 
+ 　 　 该 连接 字符串 访问 1 个 特定 的 SQL   Server ， 并 允许 ODBC 在 没有 DSN 的 情况 下 打开 1 个 连接 。 这是 1 个 带有 所有 标准 参数 的 典型 ODBC 连接 字符串 。 
+ 　 　 接下来 ， 在 窗体 的 Load 事件 中 ， 建立 游标 驱动程序 的 类型 以及 登录 超时 。 缺省 情况 下 ， RDO 使用 rdUseIfNeeded 游标 类型 ， 该 类型 调用 SQL   Server 上 服务器端 的 游标 。 下面 的 示例 中 指定 了 rdUseNone ， 从而 使 这种 缺省 规定 不 被 遵守 。 rdDriverNoPrompt 标志 意味着 如果 用户 ID 和 密码 不 匹配 ， 应用程序 将 产生 一个 错误 。 Private   Sub   Form _ Load （ ） 
+ 　 　 With   cn 
+ 　 　 　 cn ． Connect ＝ ConnectString 
+ 　 　 　 cn ． LoginTimeout ＝ 10 
+ 　 　 　 cn ． CursorDriver ＝ rdUseNone 
+ 　 　 　 cn ． EstablishConnection   rdDriverNoPrompt 
+ 　 　 End   With 
+ End   Sub 
+ 　 　 2 ． ADO 。 要 在 ADO 中 建立 1 个 数据库 连接 ， 必须 首先 创建 1 组可 被 ADODB 对象 引用 的 ADO 对象 。 这些 对象 将 在 以后 用于 设置 打开 连接 和 generate 结果 集 的 特定 属性 ： 
+ Dim   cn   As   New   ADODB ． Connection 
+ Dim   rs   As   New   ADODB ． Recordset 
+ Dim   Qy   As   New   ADODB ． Command 
+ 　 　 下面 创建 1 个 连接 字符串 ， 正如 在 RDO 示例 中 所 创建 的 那样 。 在 2 种 情况 下 ， 都 可以 使用 ODBC 的 “ 非 － DSN ” 连接 策略 以 节省时间 ， 并 提高 性能 ： 
+ Const   ConnectionString ＝ ″ uid ＝ jxy ； pwd ＝ 123 ； driver ＝ ｛ SQLServer ｝ ； _ server ＝ salesserver ； database ＝ sales ； dsn ＝ ″ ″ 
+ 　 　 最后 ， 打开 1 个 到 Form _ Load 事件 中 某个 数据库 的 ADO 连接 。 该 代码 和 RDO 代码 是 很 相似 的 ， 只不过 常数 是 以 ″ ad ″ 开始 的 ， 而 不是 ″ rd ″ 。 我们 不 需要 指定 提示 行为 ， 因为 ADO 的 缺省 设置 为 “ 无 提示 ” 。 如果 选择 对 它 进行 更改 ， 则 可以 使用 ADO   Properties 集合 来 处理 希望 的 提示 行为 。 在 RDO 中 ， 可以 用 OpenConnection 参数 来 设置 行为 。 在 ADO 中 ， 必须 设置 Properties   （ ″ Prompt ″ ） 属性 。 同时 ， 如果 您 不想 使用 游标 驱动程序 ， 则 不必 对 其 进行 指定 （ 象 在 RDO 中 的 CursorDriver ＝ rdUseNone ） ， 因为 ADO 的 缺省 规定 是 无 游标 驱动程序 。 
+ Private   Sub   Form _ Load （ ） 
+ 　 　 With   cn 
+ 　 　 ′ 建立 非 DSN 连接 
+ 　 　 ． ConnectionString ＝ ConnectString 
+ 　 　 ． ConnectionTimeout ＝ 15 
+ 　 　 ′ ． Properties （ ″ Prompt ″ ） ＝ adPromptNever 
+ 　 　 ′ This   is   the   default   prompting   mode   in   ADO ． 
+ 　 　 ． Open 
+ 　 End   With 
+ End   Sub 
+ 3.2   运行 返回 多个 结果 集 的 存储 过程 
+ 　 　 1 ． RDO 。 对于 存储 过程 来说 ， 返回 多个 行组 或 返回 包含 动作 查询 结果 的 多个 结果 集是 很 普通 的 。 必须 编写 代码 分别 处理 每个 结果 集 ， 否则 将 不能 使用 自己 的 查询 结果 。 在 RDO 中 ， 通过 MoreResults 方法 来 每次 处理 1 个 结果 集 。 每次 对 MoreResults 的 调用 都 将 关闭 当前 的 结果 集 ， 并 移动 到 下 1 个 结果 集 （ 如果 有 的话 ） 。 
+ Private   Sub   MultipleRSButton _ Click （ ） 
+ 　 　 sql ＝ ″ Select   *   from   Employees   Where   age   is   not   null ； ″ _   ＆   ″ Select   *   from   Employees   where   age   is   null ″ 
+ 　 　 Set   rs ＝ cn ． OpenResultset （ sql ） 
+ 　 　 rdoGrid1 ． ShowData   rs 
+ 　 　 i ＝ MsgBox （ ″ 下 一 结果 集 ？ ″ ″ ， vbYesNoCancel ） 
+ 　 　 If   i ＝ vbYes   Then 
+ 　 　 　 If   rs ． MoreResults   Then 
+ 　 　 　 　 rdoGridl ． ShowData   rs 
+ 　 　 　 End   If 
+ 　 　 End   If 
+ End   Sub 
+ 　 　 2 ． ADO 。 下面 的 代码 举例说明 了 如何 在 ADO 中 处理 返回 多个 结果 集 的 SP ． ADO 的 解决方案 与 RDO 解决方案 的 不同之处 在于 ： ADO 用 的 是 NextRecordset 方法 ， 在 该 方法 中 ， 将 批处理 中 的 下 一个 记录集 分配 给 某个 ADO   Recordset 对象 。 下 一个 记录集 的 读取 并 不 覆盖 第一个 ， 如同 在 RDO 中 的 那样 。 ADO 还 允许 多个 记录集 ， 如果 数据 提供 程序 支持 的话 。 
+ Private   Sub   MultipleRSButton _ Click （ ） 
+ 　 　 Dim   rs   As   New   ADODB ． Recordsetsql ＝ ″ Select   *   from   Employees   Where   age   is   not   null ； ″ _   ＆   ″ Select   *   from   Employees   where   age   is   null ″ 
+ 　 　 rs ． Open   sql ， cn 
+ 　 　 Do 
+ 　 　 　 　 i ＝ MsgBox （ ″ 下 一 结果 集 ？ ″ ， vbYesNoCancel ） 
+ 　 　 　 　 If   i ＝ vbYes   Then 
+ 　 　 　 　 　 ADOGridl ． ShowData   rs 
+ 　 　 　 　 　 Set   rs ＝ rs ． NextRecordset 
+ 　 　 　 　 End   If 
+ 　 　 Loop   Until   rs ． State ＝ adStateClosed 
+ End   Sub 
+ 4   结   论 
+ 　 　 在 3 种 数据 访问 接口 中 DAO 最 适用 于单 系统 应用程序 或 小 范围 本地 分布 使用 ， 而 RDO 已 被 证明 是 许多 SQL   Server 、 Oracle 以及 其它 大型 关系数据库 开发者 经常 选用 的 最佳 接口 。 ADO 是 DAO ／ RDO 的 后继 产物 。 ADO   2 ． 0 在 功能 上 与 RDO 更 相似 ， 而且 一般来说 ， 在 这 2 种 模型 之间 有 一种 相似 的 映射 关系 。 ADO “ 扩展 ” 了 DAO 和 RDO 所 使用 的 对象 模型 ， 这 意味着 它 包含 较少 的 对象 、 更 多 的 属性 、 方法 （ 和 参数 ） ， 以及 事件 。 
+ 　 　 3 种 接口 中 最新 的 是 ADO ， 它 是 比 RDO 和 DAO 更加 简单 、 更加 灵活 的 对象 模型 。 对于 新 工程 ， 应该 使用 ADO 作为 数据 访问 接口 。 
+ 　 　 不过 ， ADO 并 不是 自动 和 现存 的 数据 访问 应用 程序代码 兼容 的 。 当 ADO 封装 DAO 和 RDO 的 功能性 的 时候 ， 必须 将 许多 语言 要素 转换 为 ADO 语法 。 在 某些 情况 下 ， 这 将 意味着 现存 代码 的 某些 功能 的 1 个 简单 转换 。 在 其它 情况 下 ， 最佳 的 做法 可能 是 用 ADO 的 新 功能 重写 该 应用程序 。 同时 要 注意 的 是 ， ADO 当前 并 不 支持 DAO 的 所有 功能 。 ADO 主要 包括 RDO 风格 的 功能性 ， 以便 和 OLE   DB 数据源 交互 ， 另外 还 包括 远程 和 DHTML 技术 。 
+ 　 　 一般说来 ， 在 ADO 的 演化过程 中 ， 马上 把 大多数 DAO 应用程序 移植 到 ADO 上 可能 为 时太早 ， 因为 当前 的 ADO 并 不 支持 数据 定义 （ DDL ） 、 用户 、 组等 。 不过 ， 如果 只 将 DAO 用于 客户 ／ 服务器应用程序 ， 而 并 不 依赖于 Jet 数据库 引擎 或 不 使用 DDL ， 那么 现在 就 可以 移植 到 ADO 。 （ 
+ 蒋 翔宇 （ 上海交通大学 计算机科学 与 工程系  200030 ） 
+ 收稿 日期 ： 1999 － 07 － 10 

@@ -1,0 +1,90 @@
+环境 科学 学报 
+ ACTA   SCIENTIAE   CIRCUMSTANTIAE 
+ 1999 年   第 19 卷   第 5 期   Vol.19   No.5   1999 
+ 
+ 
+ 
+ 长江 、 黄河 、 松花江 60 — 80 年代 水质 变化趋势 与 社会 经济 发展 的 关系 * 
+ 陈静生 　 夏星辉 　 张利田 　 李荷 碧 
+ 摘要 　 对 我国 “ 水文 年鉴 ” 上 所载 长江 、 黄河 和 松花江 自 50 年代 末 至 80 年代 中期 所有 站点 的 水化学 监测数据 进行 统计分析 ， 发现 ， 在 此时 段 内 ， 就 天然水 主要 离子 成分 而言 ， 长江 、 黄河 和 松花江 表现 出 各自 独特 的 水质 变化趋势 . 对 其 成因 和 机理 进行 了 探讨 ， 认为 长江 中上游 水质 的 酸化 趋势 起因于 该 地区 不断 增长 的 燃煤 硫 排放 所 引起 的 严重 酸 沉降 过程 和 不断 增加 的 农田 流失 氮肥 的 氧化 成酸 过程 . 松花江 水质 的 碱化 趋势 主要 与 黑龙江省 造纸 废水 排放 和 大量 引用 重 碳酸钠 型 地下水 灌溉 农田 有关 . 黄河 中游 水质 的 浓化 趋势 与 天然 径流量 的 减少 以及 流域 农田 用水量 的 大大增加 有关 . 灌溉水 在 田间 发生 蒸发 浓缩 作用 和 加强 对 土壤 的 淋洗 作用 ， 导致 农田 回水 ， 进而 导致 河水 离子 浓度 升高 . 
+ 关键词 　 长江 ； 黄河 ； 松花江 ； 河流 ； 水质 变化 . 
+ Relationship   between   water   quality   changes   in   the   Yangtze , Yellow   and   Songhua   Rivers   and   the   economic   development   in   the   river   basins 
+ CHEN   Jingsheng , XIA   Xinghui , ZHANG   Litian , LI   Hebi   ( Department   of   Urban   and   Environmental   Sciences , Peking   University , Beijing   100871 ) 
+ Abstract 　 The   water   quality   data   of   the   Yangtze , Yellow   and   Songhua   Rivers   from   the   late   1950 ' s   to   the   middle   1980 ' s   were   analyzed . The   results   showed   that   each   river   had   its   own   trend   of   change   in   view   of   the   major   ion   content . The   water   was   acidified   in   the   upper   and   middle   reaches   of   the   Yangtze   River , which   was   caused   by   serious   acid   deposition   due   to   the   increasing   sulfur   emission   from   coal   combustion   as   well   as   the   oxidation   of   increasing   nitrogenous   fertilizer   run \ | off   from   farmland . The   water   quality   alkalization   occurred   in   the   Songhus   River , which   resulted   from   the   development   of   papermaking   and   farmland   irrigation   with   groundwater   of   the   sodium   bicarbonate   type   in   Heilongjiang   Province . The   ion   concentration   trend   happened   in   the   middle   reaches   of   the   Yellow   River , which   could   be   related   to   the   increasing   of   irrigation . The   total   ion   content   of   the   river   water   increased   due   to   the   concentration   of   irrigation   water   in   the   farmland   and   it ' s   washing   effect   on   the   soils . 
+ Keywords 　 Yangtze   River , Yellow   River , Songhua   River , water   quality   change . 
+ 　 　 首先 需 说明 的 是 ， 本文 所说 的 水质 变化 ， 不是 指 自然 条件 下 水体 水质 的 正常 周期性 波动 ( 如 河流 水质 随 水文 条件 的 季节性 波动 ) ， 也 不是 指 水体 受 附近 污染源 排放 影响 而 产生 的 污染性 水质 指标 的 随机性 波动 ， 而是 指在 一定 社会 经济 发展 水平 下 ， 由于 人类 某些 活动 持续 影响 所 产生 的 在 大 区域 或 流域 范围 内所 表现 出来 的 具 一定 方向性 的 水质 变化 . 研究 大 区域 和 大 流域 的 水质 变化 是 全球 变化 研究 的 一个 重要 方面 ， Gert   Knutsson 指出 ， 进行 这样 的 研究 至少 需 15 年 以上 的 水质 监测 资料 ， 这样 才能 从 水质 正常 的 自然 波动 中 区分 出 人类 活动 的 影响 ［ 1 ］ . 
+ 　 　 我国 河流 水质 监测 工作 始于 50 年代 末 和 60 年代 初 . 自 1956 年 起 ， 我国 水利部 相继 在 全国 500 多条 河流 上 建立 了 900 多个 水化学 监测站 ， 对 河水 的 主要 物理性质 、 主要 气体 、 主要 离子 和 营养元素 组分 等 进行 监测 . 70 年代 后 增加 了 监测点 ， 增加 了 某些 反映 污染 状况 的 监测 项目 . 自 1979 年 起 ， 我国 环境 部门 在 全国 六大 水系 上 设立 300 多个 监测 断面 ， 对 反映 污染 变化趋势 的 17 项 水质 指标 进行 监测 . 再有 ， 我国 作为 联合国 全球 水质 监测 计划 ( GEMS / WATER ) 的 参加者 ， 自 1979 年 起 在 我国 经济 发达 地区 的 大河 上 设立 4 个 监测 断面 ， 按 GEMS / WATER 计划 的 要求 和 规范 进行 监测 . 总之 ， 我国 已 具备 了 进行 河流 水质 变化趋势 研究 的 基本 条件 . 尽管如此 ， 但 至今 刚有 为数 有限 的 报道 ［ 2 — 4 ］ . 
+ 　 　 近两年来 ， 在 国家自然科学基金 资助 下 ， 我们 较 全面 地 研究 了 我国 大河 近 30 年 来 的 水质 变化 ， 发现 了 一些 十分 有 意义 的 现象 ， 即 ： 就 天然水 主要 离子 成分 而言 ， 在 60 — 80 年代 ， 长江 、 黄河 和 松花江 表现 出 各自 独特 的 水质 变化趋势 ， 即 ： 长江 水质 的 酸化 趋势 、 松花江 水质 的 碱化 趋势 和 黄河 水质 的 浓化 趋势 等 . 本文 拟 对 这些 现象 的 成因 和 机理 进行 分析 . 
+ 1 　 资料 来源 与 处理 
+ 　 　 从 我国 水利部 《 水文 年鉴 》 上 收集 上述 水系 所有 水文站 点自 50 年代 末 至 80 年代 中期 的 全部 水化学 监测数据 ( 采样 频度 为 6 、 8 、 12 至 24 次 / 年 不 等 . 1966 — 1976 年 期间 ， 有些 站 的 监测 次数 减少 ， 少数 站 甚至 数年 中断 监测 ) ， 将 数据 按 月 输入 计算机 后 ， 先 按 Grubbs 检验法 剔除 异常 值 ， 然后 采用 季节 肯 达尔 检验法 对 各 数据 时间 系列 进行 检验 ［ 5 ］ ， 以 判别 各类 数据 的 时间 系列 在 研究 时段 内 是否 有 显著 变化趋势 . 
+ 2 　 各 水系 河流 水质 变化 状况 
+ 　 　 长江 水系 　 在 汉口站 以上 连续 监测 年份 大于 15 年 的 50 个 监测站 中有 40 个 站 ( 占 80% ) 60 — 80 年代 水质 变化 的 趋势 为 ： SO2 - 4 和 Ca2 + 的 含量 上升 ， 某些 站点 碱度 ( HCO - 3 ) 下降 ( 个别 站点 pH 值 下降 ) ， 相应 地 ， 总 硬度 与 总 碱度 的 比值 上升 ( 图 1 ) . 我们 称 这 一 现象 为 水质 酸化 趋势 . 
+ 
+ 
+ 
+ 图 1 　 长江 支流 沱江 李家湾 河水 中 Ca2 + , SO2 - 4 浓度 ， pH 值 和 总 硬度 / 总 碱度 比值 的 年际 变化趋势 
+ Fig.1   Trends   in   Ca2 + , SO2 - 4 , pH   value   and   the   ratio   of   total   hardness   to   total   alkalinity   in   the   Tuojiang   River ( a   branch   of   the   Yangtze )   at   the   Lijiawan   Station 
+ 　 　 松花江 水系 　 在 松花江 干流 及 支流 嫩江 连续 监测 年份 大于 15 年 的 共 24 个 监测站 中 ， 有 16 个 站 ( 占 67% ) 60 — 80 年代 水质 变化 的 趋势 为 ： 碱度 ( HCO - 3 ) 上升 和 Na + 含量 上升 ( 某些 站点 pH 值 上升 ) ， 相应 地 ， 总 硬度 与 总 碱度 的 比值 下降 ( 图 2 ) . 我们 称 这 一 现象 为 水质 碱化 趋势 . 
+ 
+ 
+ 
+ 
+ 图 2 　 松花江 佳木斯 站 河水 中 Na + 和 HCO3 浓度 的 年际 变化趋势 
+ Fig.2   Trends   in   Na + , HCO - 3   levels   in   the   Songhua   River   at   the   Jiamusi   Station 
+ 　 　 黄河 水系 　 黄河 水系 的 水质 变化 在 下游 区域 与 中游 区域 有 显著 差别 . 下游 山东省 境内 的 大部分 支流 近 30 年来 水质 的 变化趋势 类似 于长江 中上游 的 水质 变化趋势 . 而 在 黄河 中游 干 、 支流 共 36 个 连续 监测 年份 大于 15 年 的 监测站 中 ， 有 26 个 站 ( 占 72% ) 60 — 80 年代 河水 水质 变化 的 趋势 为 ： 各 离子 浓度 均 有所 上升 ， 而 离子 间 的 比例 无 明显 变化 ( 图 3 ) . 我们 称 这 一 现象 为 水质 的 浓化 趋势 . 
+ 
+ 
+ 图 3 　 黄河 支流 渭河 魏家堡 站 河水 总 硬度 、 总 碱度 和 离子 总量 变化趋势 
+ Fig.3   Trends   in   total   hardness , total   alkalinity   and   total   ion   content   in   the   Weihe   River ( a   branch   of   the   Yellow   River )   at   the   Weijiabao   station 
+ 3 　 河水 水质 变化 与 社会 经济 发展 的 关系 
+ 3.1 　 长江 水质 酸化 与 燃煤 硫 排放 和 农田 氮肥 施用 的 关系 
+ 　 　 前 几年 的 大量 研究 已 表明 ， 位于 长江 中上游 的 四川 和 贵州 是 我国 严重 的 酸 沉降 地区 ， 雨水 pH 值 经常 在 4.0 — 5.0 之间 ， 属 “ 硫酸 型 ” 酸雨 ［ 6 ］ . 川贵 地区 主要 分布 石灰岩 和 富含 碳酸盐 的 三叠纪 砂 、 页岩 . 在 这样 的 情况 下 ， 严重 酸雨 必将 加强 对 碳酸盐 矿物 的 溶蚀 ， 导致 地表水 中 SO2 - 4 和 Ca2 + 的 含量 增高 和 碱度 降低 . 我们 对 长江 干流 重庆 寸滩 站 和 支流 沱江 李家湾 站 历年 河水 SO2 - 4 的 浓度 与 四川省 的 历年 燃煤 量 进行 相关 分析 ， 得 相关系数 为 0.88 和 0.70 . 如 将 水质 数据 滞后 一年 ， 则 二者之间 的 相关系数 可达 0.93 和 0.78 ( 图 4 ) . 
+ 
+ 
+ 图 4 　 长江 干流 寸滩 站 枯水期 SO2 - 4 浓度 和 四川省 燃煤 量 年 变化 图 
+ Fig.4   Relations   of   SO2 - 4   contents   in   the   Yangtze   River   in   low   water   season   for   a   period   of   1973 — 1983   at   the   Cuntan   Station   with   coal   combustion   in   Sichuan   Province   during   1972 — 1982 
+ 　 　 四川省 是 我国 主要 的 农业区 ， 农田 氮肥 施用量 逐年 增多 . 从 农业 土地 上 流失 的 大量 氮肥 被 氧化 是 一个 主要 的 人为 酸源 . 为 查明 农田 氮肥 对 长江 水质 酸化 影响 ， 对 长江 干流 重庆 寸滩 站 和 支流 沱江 李家湾 站 滞后 一年 的 河水 NO - 3 浓度 与 四川省 历年 氮肥 用量 进行 相关 分析 ， 得 二者之间 的 相关系数 为 0.93 和 0.78 . 以 沱江 李家湾 站 为例 ， 根据 对 河水 中 SO2 - 4 和 NO - 3 变化 量 当量 比 的 计算 ， 估算 出 燃煤 硫 排放 和 农田 氮肥 氧化 对 李家湾 站 河水 水质 酸化 的 贡献率 分别 为 75% 和 25% . 
+ 　 　 应用 Larry   J . Puckett 等 提出 的 反应 途径 模拟法 ［ 7 ， 8 ］ ， 研究 了 酸雨 对 CaCO3 — CaMg ( CO3 ) 2 — H2O 体系 的 影响 . 以 重庆 寸滩 站 1984 年 河流 枯水期 的 数据 为 模拟 体系 各 离子 的 初始值 ， 设 流域 土壤 中 的 CO2 分压 为 1520Pa ， 计算 了 不同 初始 pH 条件 下 ， 体系 达到 平衡 后 各 离子 的 浓度 . 结果表明 ， 水中 Ca2 + , Mg2 + 的 浓度 随 体系 初始 pH 值 的 降低 而 增加 ， HCO - 3 浓度 随 体系 初始 pH 值 的 降低 而 下降 . 
+ 　 　 还 应用 集水区 地下水 酸化 模型 ( MAGIC ) 对 沱江 主要 离子 含量 变化趋势 进行 模拟 ［ 9 ］ . 模拟 时 主要 考虑 酸 沉降 和 土壤 化学 过程 ( 包括 阳离子 交换 作用 ， 土壤 对 阴离子 ( SO2 - 4 ) 的 吸附 作用 ， 无机 铝 的 溶解 平衡 和 络合 平衡 ， CO2 的 溶解 及 碳酸 的 离解 平衡 和 土壤 中 矿物 的 风化作用 等 ) . 模拟 结果 与 沱江 李家湾 站 1972 — 1983 年间 主要 离子 含量 的 变化趋势 十分 吻合 . 
+ 3.2 　 松花江 水质 变化 与 造纸业 和 农田 发展 的 关系 
+ 　 　 黑龙江省 的 纸 产量 占 全国 的 5.7% ［ 7 ］ . 黑龙江省 机制纸 及 纸板 的 产量 1961 年 为 6.86 万吨 ， 到 1984 年 增长 至 40.78 万吨 . 对 1959 — 1984 年 黑龙江省 的 纸 产量 与 松花江 下游 佳木斯 站 河水 历年 Na + 和 HCO - 3 含量 的 相关 分析表明 ， 两者之间 有 显著 正 相关 关系 ， 显著性 水平 在 0.01 以上 ( 图 5 ) . 造纸 废水 对 松花江 水质 除 表现 为 碱性 物质 的 影响 外 ， 还 表现 为 造纸 废水 中所含 大量 有机物 降解 生成 CO2 ， 导致 河水 中 游离 CO2 浓度 升高 . 对 1959 — 1984 年 黑龙江省 纸 产量 与 佳木斯 站 河水 中 游离 CO2 含量 进行 相关 分析 ， 发现 两者之间 亦 有 显著 的 正 相关 关系 ， 从 另 一个 侧面 证明 了 造纸 废水 的 影响 . CO2 为 弱酸 ， 可 缓冲 碱性 废水 的 影响 ， 两者 的 定量 关系 待 进一步 研究 . 
+ 
+ 
+ 图 5 　 松花江 佳木斯 站 丰水期 河水 Na + , HCO - 3 浓度 和 黑龙江 纸 产量 的 年际 变化 
+ Fig.5   Relations   of   Na +   contents   in   the   Songhua   River   in   high   water   season   at   the   Jiamusi   Station   with   the   papermaking   development   in   Heilongjiang   Province 
+ 　 　 建国以来 黑龙江省 的 耕地面积 不断扩大 ， 农田 用水量 也 相应 增加 . 据 资料 ， 在 农用 水中 ， 地下水 所 占 比例 超过 10% . 松花江流域 大部分 地下水 为 硅酸盐 - 重 碳酸盐 - 钠型 水 ( HCO - 3 , Na + 和 SiO2 的 含量 均 相对 较 高 ) ［ 8 ］ . 如 大量 引用 地下水 灌溉 ， 必将 导致 农田 回水 ， 从而 致使 河水 中 Na + , HCO - 3 和 SiO2 含量 升高 . 对 黑龙江省 1959 — 1984 年 历年 灌溉面积 与 松花江 佳木斯 站 河水 历年 Na + 和 HCO - 3 离子 的 含量 进行 相关 分析 ， 发现 两者之间 亦 呈 显著 正 相关 ， 显著性 水平 在 0.01 以上 ( 图 6 ) . 在 研究 时段 内 ， 河水 SiO2 的 含量 亦 存在 显著 上升 趋势 . 
+ 
+ 
+ 图 6 　 松花江 佳木斯 站 丰水期 河水 Na + , HCO - 3 浓度 和 黑龙江省 农田 灌 面积 的 年 变化 曲线 
+ Fig.6   Relations   of   HCO - 3   contents   in   the   Songhua   River   in   high   water   season   at   the   Jiamusi   Station   with   the   area   of   irrigated   farmland   in   Heilongjiang   Province 
+ 　 　 根据 黑龙江省 1959 — 1984 年间 纸 产量 的 变化 和 每吨 纸 碱性 物质 的 排放量 ， 估算 造纸 废水 排放 对 松花江 水质 碱化 的 贡献率 约 为 30% — 45% ， 根据 当地 地下水 中 HCO - 3 与 SiO2 的 浓度 比 和 1960 — 1985 年 河水 SiO2 变化 量 ， 估算 农灌 地下水 对 松花江 水质 碱化 的 贡献率 约 为 55% — 65% . 
+ 3.3 　 黄河 中上游 水质 浓化 与 天然 径流量 减少 和 农田 用水量 增加 的 关系 
+ 　 　 大量 统计资料 表明 ， 我国 河水 的 离子 浓度 有 随 地表 径流量 减少 而 升高 的 现象 ［ 9 ］ . 另外 ， 引用 河水 灌溉 农田 ， 灌溉水 在 田间 发生 蒸发 浓缩 作用 和 淋洗 土壤 也 可 通过 农田 回水 使 河水 离子 浓度 升高 . 从 黄河 宁蒙段 ( 自 青铜峡 站 至头 道 拐 站 ) 的 水质 变化 中 可以 十分 清晰 地 看到 后 一点 . 此二站 相距 508km ， 其间 无大 支流 汇入 ， 区域 地质 岩性 无 明显 变化 ， 但 此二站 河水 的 离子 总量 却 相差悬殊 . 据 1980 — 1984 年 的 监测数据 ， 这 一时期 青铜峡 站 河水 离子 总量 的 平均值 为 400mg / L ， 而头 道 拐 站 河水 离子 总量 的 平均值 为 570mg / L . 这一 现象 的 发生 主要 由 位于 此二站 间 面积 达 85.73 万 hm2 的 宁蒙 灌区 大量 引用 黄河水 灌溉 所 产生 的 大量 农田 回水 所 引起 . 
+ 　 　 三门峡 站 的 水文 资料 表明 ， 从 60 年代 至 80 年代 ， 该站 的 年 径流量 有 减少 趋势 ， 1960 年 为 457 亿 m3 ， 到 1982 年 减至 357 亿 m3 ［ 10 ］ . 解放以来 ， 黄河流域 农田 用水量 不断 增加 ， 1940 年 为 53.6 亿 m3 ， 至 1980 年 增至 290.9 亿 m3 ［ 11 ］ . 为 研究 地表 径流量 减少 和 农田 用水量 增加 对 黄河 水质 变化 的 影响 ， 以 三门峡 站 和 支流 汾河 津站 为例 ， 对 1959 — 1982 年间 河水 离子 总量 、 年 径流量 与 农田 用水量 三者 进行 相关 分析 . 结果 见图 7 、 图 8 . 对 汾河 河津 站 有关 资料 的 分析 获 同样 结果 . 三门峡 站 径流量 的 减少 部分 由 上游 农田 用水量 增加 所致 ， 部分 由 天然 和 其他人 为 过程 所致 ， 将 研究 时段 内年 径流量 的 减少 量 和 农田 用水 的 增加量 进行 比较 ， 初略 估算 出 农用 水量 增加 对 黄河 水质 变化 的 贡献率 约 为 44% . 
+ 
+ 
+ 图 7 　 黄河 三门峡 站 枯水期 河水 离子 总量 与 河流 流量 的 相关性 
+ Fig.7   Relations   of   total   ion   contents   in   the   Yellow   River   in   low   water   season   at   Sanmenxia   station   with   the   runoff 
+ 
+ 
+ 图 8 　 黄河 三门峡 站 枯水期 河水 离子 总量 与 相应 区域 灌溉 水量 的 相关 图 
+ Fig.8   Relations   of   total   ion   contents   in   the   Yellow   River   in   low   season   at   Sanmenxia   station   with   irrigation   water   in   the   corresponding   region 
+ 4 　 结论 
+ 　 　 自 50 年代 至今 ， 随着 社会 经济 迅速 发展 ， 我国 不同 流域 陆地 水 水质 发生 相应 变化 ， 不仅 大大增加 了 污染性 水质 组分 ( 本文 未 研究 此类 问题 ) ， 而且 使 天然 性 水质 组分 ( 主要 离子 ) 发生变化 . 长江 水质 的 酸化 趋势 起因于 该 地区 不断 增长 的 燃煤 硫 排放 所 引起 的 严重 酸 沉降 过程 和 不断 增加 的 农田 流失 氮肥 的 氧化 成酸 过程 . 松花江 水质 的 碱化 趋势 主要 与 黑龙江省 碱法 造纸业 大 发展 和 大量 引用 重 碳酸钠 型 地下水 灌溉 农田 有关 . 黄河 水质 的 浓化 趋势 一方面 与 天然 径流量 的 减少 有关 ， 一方面 与 流域 农田 用水量 的 大大增加 有关 . 到 目前为止 ， 上述 河流 各 组分 浓度 变化 的 趋势 是 明显 的 ， 但 变化 幅度 尚不大 ， 尚未 影响 该 河流 的 水质 功能 . 从 基础 研究 角度 考虑 ， 大 区域 、 大 流域 的 水质 变化 研究 无疑 是 全球 变化 研究 的 一个 重要 方面 . 进行 此项 研究 有助于 加强 和 深化 对 我国 环境 变化 的 认识 ， 可为 大 区域 大 流域 水质 管理 和 水质 规划 的 决策 提供 依据 . 
+ *   国家自然科学基金 资助 项目 ( 项目编号 ： 49671017 ) 
+ 作者简介 : 夏星辉 : 现在 北京师范大学 环境 科学 研究所 ， 100875 
+ 作者 单位 : 北京大学 城市 与 环境 学系 ， 北京 　 100871 
+ 参考文献 
+ 1 　 Gert   Knutsson . Trends   in   the   Acidification   of   Groundwater . Groundwater   Quality   Management   ( Proceedings   of   the   GOM   93   Conference   held   at   Yallin , September   1993 ) . LAHS   Publ.1994 : 5 — 15 
+ 2 　 陈静生 、 关文 荣 、 夏星辉 等 . 长江 中上游 水质 变化趋势 与 环境 酸化 关系 初探 . 环境 科学 学报 ， 1998 ， 18 ( 3 ) ， 265 — 270 
+ 3 　 陈静生 、 夏星辉 、 蔡绪 贻 . 川贵 地区 长江 干支流 河水 主要 离子 含量 变化趋势 分析 . 中国 环境 科学 ， 1998 ， 18 ( 2 ) ， 131 — 135 
+ 4 　 陈静生 、 关文 荣 、 夏星辉 等 . 长江 干流 近 三十年 来 水质 变化 探析 . 环境 化学 ， 1998 ， 17 ( 1 ) ： 8 — 13 
+ 5 　 Robert   M   Hirsch   et   al . Techniques   of   trend   analysis   for   monthly   water   quality   data , Water   Resources   Research.1982 , 18 ( 1 ) : 107 — 121 
+ 6 　 魏复盛 等 . 我国 降水 酸度 和 化学 组成 的 时空 分布 特征 . 酸雨 文集 ( 中国环境科学学会 编 ) ， 北京 ： 中国 环境 科学出版社 . 203 — 207 
+ 7 　 黑龙江省 经济 年鉴 编辑 委员会 编辑 . 黑龙江省 经济 年鉴 . 哈尔滨 ： 学习 与 探索 杂志社 ， 1985.472 — 500 
+ 8 　 科夫 达   B   A . 黑龙江 流域 的 土壤 化学 及其 土壤改良 的 途径 . 黑龙江 流域 综合 考察队 自然 条件 组 学术报告 汇编 . 北京 ： 科学出版社 ， 1959.1 — 15 
+ 9 　 Cosby   B   J   et   al . Modelling   the   effects   of   acid   deposition : estimation   of   long - term   water   quality   responses   in   a   small   forested   catchment . Water   Resources   Research , 1985 , 21 ( 11 ) : 1591 — 1601 
+ 10 　 黄河水 沙 变化 研究 基金会 . 黄河水 沙 变化 研究 论文集 . 1993.156 — 160 
+ 11 　 赵 文林 主编 . 黄河 泥沙 . 郑州 ： 黄河 水利 出版社 . 1996.509 — 512 
+ 1998 - 04 - 09 收到 原稿 
+ 1998 - 10 - 11 收到 修改稿 

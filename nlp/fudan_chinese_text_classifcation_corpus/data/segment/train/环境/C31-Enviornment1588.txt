@@ -1,0 +1,132 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1999 年   第 2 期   No.2   1999 
+ 
+ 
+ 
+ 不同 量子化学 算法 在 多环 芳烃 光解 行为 定量 结构 - 性质 关系 ( QSPR ) 中 的 应用 
+ 陈景文 　 王帅杰 　 邹善伟 　 全燮 　 薛 大明 　 赵雅芝 
+ 　 　 摘要 ： 以 采用 MINDO / 3 、 MNDO 和 AM1 算法 计算 的 17 种多环 芳烃 ( PAHs ) 的 前线 分子 轨道 能为 分子结构 参数 , 进行 了 这些 PAHs 光解 速率 常数 的 定量 结构 - 性质 相关 ( QSPR ) 的 研究 , 并 与 基于 PM3 算法 得到 的 QSPR 模型 进行 了 比较 . 研究 结果表明 , 应用 PM3 算法 得到 的 前线 分子 轨道 能 进行 这些 PAHs 光解 速率 常数 QSPR 拟合 的 结果 最好 , 其次 是 AM1 算法 , 而 MINDO / 3 和 MNDO 算法 得到 的 结果 较差 . 
+ 　 　 关键词 ： 量子化学 ； 多环 芳烃 ； 光解 速率 常数 ； 定量 结构 - 性质 相关 
+ 　 　 中 图 分类号 ： X13   文献 标识码 ： A   文章 编号 ： 1000 - 6923 ( 1999 ) 02 - 0102 - 04 
+ The   application   of   different   quantum   chemical   hamiltonians   in   developing   quantitative   structure - property   relationship   ( QSPR )   for   photolysis   of   polycyclic   aromatic   hydrocarbons . 
+ CHEN   Jing - wen 　 WANG   Shuai - jie 　 ZOU   Shan - wei 　 QUAN   Xie 　 XUE   Da - ming 　 ZHAO   Ya - zhi   
+ ( Department   of   Environmental   Science   and   Technology ,   School   of   Chemical   Engineering ,   State   Key   Laboratory   of   Dye   and   Surfactant   Fine   Chemicals ,   Dalian   University   of   Technology ,   Dalian   116012 ,   China ) .   China   Environmental   Science.1999 , 19 ( 2 ) ： 102 ～ 105 
+ Abstract ： MINDO / 3 ,   MNDO   and   AM1   algorithms   were   used   to   compute   frontier   molecular   orbital   energies   of   17   polycyclic   aromatic   hydrocarbons   ( PAHs ) ,   which   were   then   used   as   molecular   structure   descriptors   to   obtain   Quantitative   Structure - Properties   Relationships   for   photolysis   of   the   PAHs .   The   comparison   of   the   obtained   models   in   this   study   with   the   QSPR   model   based   on   the   descriptors   derived   from   PM3   algorithm   obtained   in   our   previous   study   showed   that   the   QSPR   results   in   which   the   frontier   molecular   orbital   energies   derived   from   PM3   hamiltonian   were   used ,   was   the   best ,   and   the   next   was   the   result   based   on   AM1   hamiltonian .   The   results   based   on   MINDO / 3   and   MNDO   hamiltonians   were   relatively   poor . 
+ Key   words ： quantum   chemistry ； polycyclic   aromatic   hydrocarbons   ( PAHs ) ； photolysis   rate   constants ； quantitative   structure - property   relationships   ( QSPR ) 
+ 　 　 多环 芳烃 ( PAHs ) 是 一类 典型 的 环境 污染物 , 大多数 PAHs 都 具有 致癌性 [ 1 ] , 它们 在 水 环境 中 很 难 被 生物降解 [ 1 ] . 前人 研究 表明 , 光 分解 是 PAHs 在 水 环境 中 的 一个 重要 迁移 、 转化 途径 [ 1 , 2 ] . 然而 , 实验 测定 PAHs 的 光解 需要 特殊 的 实验 装置 , 既 费时 又 需 大量 经费 , 难以 适应 PAHs 类 有机 污染物 危害性 评价 的 需要 , 因此 , 发展 PAHs 光解 行为 的 定量 结构 - 性质 关系 ( QSPR ) 非常 重要 . 
+ 　 　 由于 量子化学 参数 具有 明确 的 物理 意义 、 可以 较 容易 地 通过 计算 获得 、 节省 大量 时间 和 经费 、 便于 对 机理 进行 探讨 等 优点 , 使 之 成为 目前 QSPR 研究 的 一个 热点 [ 3 ] . 
+ 　 　 近年来 , 量子力学 研究者 相继 提出 了 MINDO / 3 、 MNDO 、 AM1 和 PM3 等 求解 HFR 方程 [ 3 ] 的 半 经验 分子 轨道 算法 , 其 参数 化 的 标准 是 使 计算结果 全面 符合 实验 ( 包括 分子 的 成键 能 ) . 这些 量子化学 算法 各有 优缺点 , 它们 对 不同 类型 化合物 的 适合 程度 不同 [ 4 , 5 ] . 本 研究 将 采用 MINDO / 3 、 MNDO 和 AM1 等 算法 计算 17 种 PAHs 的 前线 分子 轨道 能 , 以 基于 这些 算法 得出 前线 分子 轨道 能量 差为 分子结构 参数 , 发展 PAHs 光解 速率 常数 的 QSPR 模型 , 并 将 得到 的 QSPR 模型 与 以往 基于 PM3 算法 得出 的 QSPR 模型 [ 6 ] 相 比较 , 从而 筛选 出 适合 进行 PAHs 光解 速率 常数 QSPR 研究 的 最佳 量子化学 算法 . 
+ 1   材料 与 方法 
+ 　 　 研究 的 17 种 PAHs 及其 光解 速率 常数 ( kexp ) 的 实测值 [ 6 ] 见表 1 . 应用 ALCHEMY Ⅱ 软件 来 观察 分子结构 并 采用 内 坐标 编写 分子结构 文件 . 应用 MOPAC ( 6.0 版 ) 软件 中 的   MINDO / 3 、 MNDO 和 AM1 算法 [ 3 ] , 在 Pentium   150MHz   ( 16 兆 内存 ) 微机 上 进行 计算 . 控制 MOPAC 计算 的 关键词 为 : MINDO / 3 ( 或 MNDO 或 AM1 ) 、 PRECISE 、 ESP 、 DIPOLE 、 POLAR 、 NOINTER 、 BONDS . MOPAC ( 6.0   版 ) 在 对 分子结构 进行 优化 后 , 计算 得到 PAHs 前线 分子 轨道 能 ( 表 2 ) . 
+ 表 1   PAHs 及其 光解 速率 常数 
+ Table   1   PAHs   and   their   photolysis   rate   constants 
+ 
+ 化合物 logkexp 
+ ( 实测值 ) 
+ ( 100 × min ) - 1 残差 = 实测值 － 拟合 值 
+ PM3 
+ 算法 MINDO / 3   算法 MNDO   算法 AM1   算法 
+ 萘 - 1.2920 . 227 - 0.716 - 0.727 - 0.333 
+ 联苯 - 1.222 - 0.0120 . 6100.4620 . 686 
+ 蒽 0.362 - 0.1120 . 2200.243 - 0.019 
+ 菲 - 0.1850 . 5530.1730 . 2050.368 
+ 1 - 甲基 菲 - 0.785 - 0.199 - 0.514 - 0.441 - 0.365 
+ 2 - 甲基 菲 - 1.189 - 0.432 - 0.821 - 0.793 - 0.619 
+ 3 - 甲基 菲 - 0.775 - 0.213 - 0.511 - 0.431 - 0.370 
+ 9 - 甲基 蒽 1.2120 . 6771.0001 . 0440.787 
+ 9 , 10 - 二甲基 蒽 0.8010 . 2220.5270 . 5610.347 
+ 9 - 苯基 蒽 0.5930 . 07950.3890 . 4370.167 
+ 丁省 0.7080 . 1580.3150 . 2290.339 
+ 苯 并 [ a ] 蒽 0.4000 . 01020.2940 . 3270.076 
+ 　 - 0.151 - 0.210 - 0.119 - 0.066 - 0.241 
+ 芘 - 0.441 - 0.024 - 0.920 - 1.077 - 0.476 
+ 苯 并 [ a ] 芘 0.508 - 0.111 - 0.1860 . 1490.049 
+ 二 萘 嵌 苯 0.182 - 0.427 - 0.169 - 0.216 - 0.255 
+ 苯 并 [ a , h ] 蒽 0.146 - 0.1880 . 0550.094 - 0.143 
+ 
+ 表 2   PAHs 的 前线 分子 轨道 能 
+ Table   2   Frontier   molecular   orbital   energies   of   PAH   s 
+ 
+ 化合物 MINDO / 3   ( eV ) MNDO   ( eV ) AM1   ( eV ) 
+ Ehomo   ElumoEhomo   ElumoEhomo   Elumo 
+ 萘 - 8.8841 . 085 - 9.3320 . 253 - 8.956 - 0.064 
+ 联苯 - 8.2130 . 477 - 8.574 - 0.332 - 8.710 - 0.265 
+ 蒽 - 7.606 - 0.074 - 8.049 - 0.842 - 8.123 - 0.840 
+ 菲 - 8.0500 . 348 - 8.480 - 0.481 - 8.617 - 0.409 
+ 1 - 甲基 菲 - 7.9970 . 275 - 8.455 - 0.522 - 8.518 - 0.398 
+ 2 - 甲基 菲 - 8.0670 . 346 - 8.484 - 0.477 - 8.595 - 0.376 
+ 3 - 甲基 菲 - 7.9960 . 265 - 8.4580 . 525 - 8.510 - 0.400 
+ 9 - 甲基 蒽 - 7.539 - 0.172 - 8.024 - 0.902 - 8.007 - 0.840 
+ 9 , 10 - 二   甲   基   蒽 - 7.475 - 0.273 - 7.978 - 0.984 - 7.890 - 0.848 
+ 9 - 苯基 蒽 - 7.524 - 0.139 - 8.024 - 0.880 - 8.048 - 0.884 
+ 丁省 - 7.226 - 0.440 - 7.721 - 1.185 - 7.747 - 1.234 
+ 苯 并 [ a ] 蒽 - 7.642 - 0.032 - 8.114 - 0.830 - 8.206 - 0.813 
+ 　 - 7.7830 . 097 - 8.261 - 0.719 - 8.372 - 0.674 
+ 芘 - 7.408 - 1.293 - 7.932 - 1.736 - 7.879 - 1.182 
+ 苯 并 [ a ] 芘 - 7.344 - 0.290 - 7.861 - 1.088 - 7.922 - 1.111 
+ 二 萘 嵌 苯 - 7.272 - 0.316 - 7.816 - 1.118 - 7.856 - 1.158 
+ 苯 并 [ a , h ] 蒽 - 7.647 - 0.006 - 8.149 - 0.829 - 8.255 - 0.805 
+ 
+ 
+ 　 　 采用 STATGRAPHICS ( 4.0 版 ) 软件 进行 回归 分析 . 用复 相关系数 ( R ) 、 经过 自由度 校正 的 复 相关系数 ( Radj . ) 、 拟合 值 的 标准误差 ( SE ) 、 方差分析 的 方差 比 ( F ) 、 t 检验 值 ( t ) 及 显著性 水平 ( p ) 来 表征 模型 的 优劣 . 
+ 2   结果 与 讨论 
+ 　 　 量子化学 原理 表明 , 前线 分子 轨道 能 , 即 最高 占据 轨道 能   ( Ehomo ) 和 最低 未 占据 轨道 能 ( Elumo ) 是 两个 非常 重要 的 分子 性质 参数 [ 3 ] , 其中 , Ehomo 表示 某个 分子 与 其它 分子 相互作用 时 给出 电子 的 能力 , Elumo 表示 某个 分子 与 其它 分子 相互作用 时 接受 电子 的 能力 . 前线 分子 轨道 能量 差 ( Elumo - Ehomo ) 则 反映 一个 分子 的 外层 电子 从 最高 占据 轨道 跃迁 到 最 低空 轨道 时 所 需 能量 的 大小 . 
+ 　 　 1996 年 , 陈景文 等 人 [ 6 ] 以 采用 量子化学 PM3 算法 得出 PAHs 的 最低 未 占据 轨道 能 ( Elumo ) 和 最高 占据 轨道 能   ( Ehomo ) 的 差为 分子结构 参数 , 首次 报告 了 一个 包括 17 个 PAHs 光解 速率 常数 的 QSPR 方程 . 该 方程 的 形式 如下 , 其 模型 拟合 结果 见表 3 . 
+ logkexp   = - 32.734 + 9.769 ( Elumo - Ehomo ) - 
+ 0.715 ( Elumo - Ehomo ) 2 ( 1 ) 
+ n   = 17 　 R2 = 0.848 　 R2adj . = 0.826 
+ SE   = 0.322 　 F = 38.926 　 p   = 0.0000 
+ 表 3   模型 拟合 结果 
+ Table   3   Model   fitting   results 
+ 
+ 算法 ( 自变量 ) 系数 SEtp 
+ PM3 算法 　 　 　 　 
+ 常数 - 32.7345 . 728 - 5.7140 . 0001 
+ ( Elumo - Ehomo ) 9.7691 . 5876.1570 . 0000 
+ ( Elumo － Ehomo ) 2 - 0.7150 . 109 - 6.5550 . 0000 
+ MINDO / 3 算法 　 　 　 　 
+ 常数 - 4.9077 . 960 - 0.6170 . 5475 
+ ( Elumo － Ehomo ) 1.7891 . 9960.8960 . 3852 
+ ( Elumo － Ehomo ) 2 - 0.1490 . 124 - 1.1950 . 2519 
+ MNDO 算法 　 　 　 　 
+ 常数 0.5599 . 5670.0580 . 9542 
+ ( Elumo － Ehomo ) 0.4632 . 4630.1880 . 8535 
+ ( Elumo － Ehomo ) 2 - 0.0730 . 157 - 0.4620 . 6510 
+ AM1 算法 
+ 常数 - 28.3899 . 778 - 2.9030 . 0116 
+ ( Elumo － Ehomo ) 8.3512 . 6223.1840 . 0066 
+ ( Elumo － Ehomo ) 2 - 0.6040 . 175 - 3.4600 . 0038 
+ 
+ 
+ 　 　 方程 ( 1 ) 的 相关 关系 是 显著 的 , 该 方程 具有 较大 的 相关系数 和 较 小 的 拟合 值 标准误差 , 并且 该 方程 的 拟合 值 与 实测值 接近 ( 见表 1 ) , 因此 方程 ( 1 ) 可以 应用 于 PAHs 在 与 实验 条件 相同 光源 的 照射 下 的 光解 速率 常数 的 预测 . 并且 经 检验 在 标准化 之后 , 方程 ( 1 ) 的 两个 自变量 之间 的 相关系数 较 小 , 该 方程 克服 了 自变量 的 共线性 问题 , 因此 该 方程 有利于 对 PAHs 光解 机理 的 解释 , 实际上 , 它 很 好 地 解释 了 PAHs 的 光解 机制 [ 6 ] . 
+ 　 　 以 采用 MINDO / 3 、 MNDO 和 AM1 算法 计算 得到 的 前线 分子 轨道 能为 分子结构 参数 , 基于 方程 ( 1 ) 的 形式 , 分别 对 所 研究 的 PAHs 的 光解 速率 常数 进行 回归 分析 , 得到 以下 的 QSPR 方程 , 其 模型 拟合 结果 列于 表 3 中 . 
+ MINDO / 3 算法 :   
+ logkexp   = - 4.907 + 1.789 ( Elumo - Ehomo ) 
+ 　 　 　 　 - 0.149 ( Elumo - Ehomo ) 2   ( 2 ) 
+ 　 　 　 　 　 　 n = 17 　 R2 = 0.507 　 R2adj . = 0.436 
+ 　 　 　 　 　 　 SE = 0.580 　 F   = 7.195 　 p   = 0.0071 
+ MNDO 算法 :   
+ logkexp = 0.559 + 0.463 ( Elumo - Ehomo ) 
+ - 0.073 ( Elumo - Ehomo ) 2 ( 3 ) 
+ 　 　 　 　 　 　 　 n = 17 　 R2 = 0.491 　 R2adj . = 0.419 
+ 　 　 　 　 　 　 　 SE = 0.589 　 F = 6.766 　 p   = 0.0088 
+ AM1 算法 :   
+ logkexp = - 28.389 + 8.351 ( Elumo - Ehomo )   
+ - 0.604 ( Elumo - Ehomo ) 2 ( 4 ) 
+ 　 　 　 　 　 　 　 n   = 17 　 R2 = 0.724 　 R2adj . = 0.685   
+ 　 　 　 　 　 　 SE = 0.434 　 F = 18.363 　 p = 0.0001 
+ 　 　 　 由表 3 及 方程 ( 1 ) 、 ( 2 ) 、 ( 3 ) 和 ( 4 ) , 可以 得出 以下 的 结论 : 从 显著性 水平 来看 , 方程 ( 1 ) 的 显著性 水平 值 最小 , 其次 是 方程 ( 4 ) 的 显著性 水平 值 ； 从 方差分析 的 F 值 来看 , 方程 ( 1 ) 的 F 值 最大 , 方程 ( 4 ) 的 F 值 次之 , 这些 都 说明 在 得到 的 4 个 QSPR 方程 中 , 方程 ( 1 ) 最 显著 , 其次 是 方程 ( 4 ) . 从 方程 的 复 相关系数 来看 , 方程 ( 1 ) 的 复 相关系数 最高 , 其次 是 方程 ( 4 ) ； 从 方程 的 拟合 值 标准偏差 SE 的 大小 来看 , 方程 ( 1 ) 的 SE 最小 , 其次 是 方程 ( 4 ) 的 SE , 这些 说明 在 得到 的 4 个 QSPR 方程 中 , 方程 ( 1 ) 的 预测 能力 最大 , 其次 是 方程 ( 4 ) , 它们 的 实测值 与 拟合 值 之间 的 残差 都 较 小 ( 见表 1 ) , 说明 可以 应用 这 两个 方程 来 预测 其它 PAHs 的 光解 速率 常数 . 综上所述 可以 看出 , 应用 PM3 算法 得出 的 量子化学 参数 进行 部分 PAHs 光解 速率 常数 QSPR 研究 的 结果 最好 , 其次 是 AM1 算法 , 而 MINDO / 3 和 MNDO 算法 得到 的 结果 较差 , 说明 PM3 和 AM1 算法 可以 更好 地 表征 PAHs 的 分子 性质 . 这 可能 是因为 MINDO / 3 、 MNDO 、 AM1 、 PM3 算法 是 以 时间 的 先后顺序 发展 起来 的 [ 3 ] , 后面 的 算法 都 克服 了 前面 算法 的 不足 , 并 发扬 了 前面 算法 的 优点 . 
+ 3   结语 
+ 　 　 应用 MINDO / 3 、 MNDO 和 AM1 算法 计算 了 17 个 PAHs 分子 的 前线 分子 轨道 能 , 并 以 其 为 分子结构 描述符 , 对 所 研究 的 17 种 PAHs 的 光解 速率 常数 进行 回归 分析 , 得到 一系列 PAHs 光解 速率 常数 QSPR 方程 , 并 与 基于 PM3 算法 所得 的 QSPR 方程 作 了 比较 . 研究 结果表明 , 应用 PM3 算法 得出 的 前线 分子 轨道 能 参数 进行 这些 PAHs 光解 速率 常数 QSPR 研究 的 结果 最好 , 其次 是 AM1 算法 , 而 MINDO / 3 和 MNDO 算法 得到 的 结果 较差 . 因而 可以 认为 , PM3 和 AM1 算法 可以 更好 地 表征 PAHs 的 分子 性质 . 
+ 基金项目 ： 国家自然科学基金 青年 基金 ( 29807001 ) ； 污染 控制 与 资源化 国家 重点 实验室 开放 课题 资助 项目 ( 设在 南京大学 ) 
+ 作者 单位 ： 陈景文 　 王帅杰 　 邹善伟 　 全   燮 　 薛 大明 　 赵雅芝 （ 大连理工大学 化工学院 环境 科学 与 工程系 , 染料 与 表面 活性剂 精细化工 合成 国家 重点 实验室 , 辽宁   大连 116012 ） 
+ 作者简介 ： 陈景文 ( 1969 - ) , 男 , 辽宁 建昌 人 , 大连理工大学 化工学院 环境 科学 与 工程系 副教授 , 博士 , 主要 从事 有机 污染物 的 环境 行为 、 生态 毒理 及 定量 结构 - 性质 - 活性 关系 、 污染 预防 、 污染 控制 、 污染 治理 等 方面 的 科研 与 教学 工作 . 曾 参加 国家 重大 自然科学 基金项目 “ 典型 化学 污染物 在 环境 中 的 变化 及 生态 效应 ” 的 研究 工作 . 现在 主要 承担 国家自然科学基金 青年 基金项目 “ 芳烃 类 有机 污染物 光解 行为 的 定量 结构 - 性质 关系 研究 ” 的 研究 工作 . 以 第一 作者 , 已 在 国际 SCI 刊物 发表 论文 10 篇 , 在 国内 核心 期刊 上 发表 论文 8 篇 , 参加 编写 专著 1 部 . 
+ 收稿 日期 ： 1998 - 07 - 08 
+ 参考文献 : 
+ 　 [ 1 ] Grimmer   G . Environmental   carcinogens : polycyclic   aromatic   hyd - rocarbons ,   chemistry ,   occurrence ,   biochemistry ,   carcinogenicity [ M ] . Boca   Raton .   Florida :   CRC   Press , Inc . , 1983 . 
+ 　 [ 2 ] Miller   T ,   Mabey   W   R ,   Lan   B   Y ,   et   al .   Photolysis   of   polycyclic   aromatic   hydrocarbons   in   water [ J ] . Chemosphere , 1981 , 10 : 1281 - 1290 . 
+ 　 [ 3 ] 王 连生 , 韩朔睽 . 分子结构 、 性质 与 活性 [ M ] . 北京 : 化学工业 出版社 ,   1997 . 
+ 　 [ 4 ] Baj   S ,   Dawid   M .   Correlation   between   the   chemical   structures   of   dialkyl   peroxides   and   their   retention   in   reversed - phase   high - performance   liquid   chromatography [ J ] .   Journal   of   Liquid   Chromatography ,   1994 ,   17 ( 18 ) :   3933 - 3949 . 
+ 　 [ 5 ] Kass   S   R . Hydrocarbon   acidities   calculated   with   MINDO / 3 ,   MNDO   and   AM1 [ J ] .   J .   Comp .   Chem . ,   1990 ,   11 ( 1 ) :   94 - 104 . 
+ 　 [ 6 ] Chen   J   W ,   Kong   L   R ,   Zhu   C   M ,   et   al .   Correlation   between   photolysis   rate   constants   of   polycyclic   aromatic   hydrocarbons   and   frontier   molecular   orbital   energy [ J ] .   Chemosphere ,   1996 ,   33 ( 6 ) :   1143 - 1150 . 

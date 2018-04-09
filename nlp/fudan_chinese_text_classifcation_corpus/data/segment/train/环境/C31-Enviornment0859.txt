@@ -1,0 +1,146 @@
+环境 科学 学报 
+ ACTA   SCIENTIAE   CIRCUMASTANTIAE 
+ 1999 年   第 19 卷   第 3 期   Vol.19     No.3   1999 
+ 
+ 
+ 
+ 根据 分子 连接性 指数 估算 极性 有机 化合物 的 吸附 系数 * 
+ 卢晓霞 　 陶 　 澍 * * 　 李 　 杭 　 朴海善 　   
+ 摘要 　 研究 了 分子 连接性 指数 与 极性 有机 化合物 吸附 系数 ( 以 有机 碳计 ) 的 关系 . 通过 对 建模 组中 211   种 极性 化合物 分子 连接性 指数 与 logKOC 进行 回归 分析 ， 发现 仅 根据 分子 连接性 指数 不能 准确 地 计算 其 KOC 值 . 当 在 模型 中 引入 极性 校正 因子 后 ， 计算 的 准确度 明显提高 . 据此 建立 了 估算 极性 有机 化合物 KOC 的 定量 模型 . 对 所 研究 的 231 种 极性 化合物 ， 平均 估算 误差 为 0.31 个 对数 单位 ， 45% 的 估算 误差 在 0.2 个 对数 单位 之内 . 
+ 关键词 　 分子 连接性 指数 ； 极性 有机 化合物 ； 吸附 系数 ( KOC ) . 
+ Prediction   of   KOC   of   polar   organic   compounds   based   on   molecular   connec   tivity   indices 
+ LU   Xiaoxia ,   TAO   Shu ,   LI   Hang ,   PIAO   Haishan   
+ Department   of   Urban   and   Environmental   Sciences ,   Peking   University ,   Be   ijing   100871 
+ Abstract 　 Relationahip   beteen   the   molecular   structure   and   KOC   of   polar   organic   c   ompounds   were   investigated   based   on   molecular   connectivity   indices .   The   total   23   1   polar   compounds   were   divided   randomly   into   two   sets :   the   training   set   and   the   te   st   ing   set .   Using   1 χ , 1 χ V , 2 χ ， and   2 χ V   variab   les ,   the   coefficient   of   determination   ( R2 )   of   the   regression   equation   was   only   0.564 .   The   mean   residual   of   the   calculated   KOC   of   the   compounds   in   the   training   set   was   0.44   log   units .   The   results   showed   that   the   KOC   of   po   l   ar   compunds   can   not   be   estimated   by   MCI   alone   due   to   the   existence   of   the   hydrop   h   obic   groups .   However ,   by   introducing   thirteen   polar   factors   into   the   regression   equation ,   the   precision   of   the   model   was   improved   greatly .   To   most   polar   compoun   ds   in   the   training   set ,   their   KOC   can   be   calculated   by   1 χ V ,   2 χ   and   the   polar   factors .   The   model   was   verified   by   a   set   of   independen   t   da   ta .   The   final   model   was   built   on   the   basis   of   the   total   231   measured   KOC   values .   The   mean   residual   of   the   estimated   KOC   of   the   231   polar   com   pounds   is   0.31   log   units   and   45%   of   the   residuals   are   less   than   0.2   log   unit . 
+ Keywords 　 molecular   connectivity   indices ,   polar   organic   compunds   ,   KOC . 
+ 1 　 引言 
+ 　 　 吸附 是 影响 有机 化合物 环境 行为 的 重要 作用 之一 ， 它 使 有机 化合物 残留 于 土壤 或 沉积物 中 ，   从而 影响 其 移动性 和 生物 毒性 ［ 1 ］ . 通常 用 吸附 系数 来 描述 有机 化合物 的 吸附 特性 . 由于 有机 化合物 在 固相上 的 吸附 机理 主要 为 憎水 吸附 ， 在 大多数 情况 下 ， 土壤 或 沉积物 中 的 有机质 在 吸附 中起 主导作用 ， 因此 可用 吸附 系数 KOC ( 以及 KOM ) 来 描述 土壤 或 沉积物 对 有机 化合物 的 吸附 特性 . 
+ 　 　 KOC 是 指 达到 吸附平衡 时 ， 有机 化合物 被 土壤 或 沉积物 中 有机质 ( 以 有机 碳计 ) 吸附 的 浓度 与其 在 体系 中 的 水相 浓度 之 比 ， 它 是 用于 评价 有机 污染物 环境 行为 的 一个 重要 参数 . KOC 的 获取 有 两种 方式 ： 实测 和 估算 . 实测 KOC 具有 准确 、 可靠 和 实用性 强 的 优点 ， 但 由于 有机 化合物 种类 繁多 ， 且 实测 难度 较大 ， 难以 满足 实际 工作 的 需要 . 尽管 通过 计算 获得 的 KOC 不如 实测 准确 ， 但 其 方法 简便 、 成本低 ， 有利于 实际 工作 的 进行 . 估算 KOC 的 常规 方法 是 建立 KOC 与 KOW ( 辛醇 / 水 分配 系数 ) 或 KOC 与 S ( 水 溶解度 ) 的 相关 关系式 ［ 2 ］ . KOW 中 的 辛醇 相与 天然 有机 吸附剂 在 本质 上 有 很大 差异 ， 而 S 中 并 不 包含 对 有机 相 的 描述 ， 因此 这 两种 估算 方法 在 准确度 上 有 较大 局限性 . 近年来 ， 分子 连接性 指数 ( MCI ) 也 被 用来 估算 有机 化合物 的 KOC . 根据 分子 连接性 指数 估算 KOC 的 优点 在于 一旦 建立 了 相关 模型 ， 仅 需 输入 化合物 的 分子结构 参数 ， 不 需要 其它 的 实验 数据 ［ 3 ］ . 在 我们 的 前期 研究 中 ， 曾 试图 对 所有 极性 与非 极性 有机 化合物 建立 统一 的 估算 模型 ， 然而 直接 应用 分子 连接性 指数 进行 计算 的 结果表明 ， 仅 根据 某种 或 多种形式 的 分子 连接性 指数 ， 可以 对非 极性 化合物 KOC 值 进行 较 准确 的 估算 ， 但 类似 的 方法 并 不适 用于 极性 化合物 ［ 4 ］ . 
+ 　 　 极性 与非 极性 化合物 在 土壤 或 沉积物 中 的 吸附 特性 有 较大 差异 . 极性 化合物 分子 中 含有 极性 基团 ( 亲水 基因 ) ， 倾向 溶于 水中 ， 其 KOC 的 大小 不仅 取决于 分子 表面积 的 大小 ， 且 与 分子 中 极性 基团 的 种类 和 数目 有关 . 而 非 极性 化合物 不易 溶于 水 ， 其 KOC 的 大小 主要 取决于 分子 表面积 的 大小 . 正 因为 如此 ， 尽管 国外 不少 学者 在 非 极性 化合物 KOC 等 有关 参数 的 计算 方面 获得 了 一系列 成果 ［ 5 - 7 ］ ， 但 对 极性 化合物 KOC 的 预测 始终 没有 成功 的 例子 . 本 研究 的 目的 是 通过 在 分子 连接性 指数 模型 中 引入 必要 的 校正 参数 ， 来 比较 准确 地 估算 极性 化合物 的 KOC . 
+ 2 　 研究 方法 
+ 　 　 本 研究 共 收集 了 330 种 有机 化合物 的 KOC 实测 数据 ， 其中 极性 化合物 为 231 种 ， 非 极性 化合物 为 99 种 . 数据 来源 包括 G . G . Briggs ( 1973 , 1981 ) , E . E . Kenaga   ( 1980 ) , S . W . Karick   hoff ( 1979 , 1981 , 1985 ) , A . G . Donglas   ( 1979 ) , P . D . Vowles ( 1987 ) , J . J . Hassett ( 1980 , 1981 ) ,   C . T . Chiou ( 1979 , 1983 ) 等 学者 发表 或 整理 的 文献 ［ 8 - 19 ］ . 通常 会 遇见 这种 情况 ， 即 一种 化合物 有 多个 KOC 实测值 ， 或者 KOC 值 是 一个 范围 值 . 在 建模 时 ，   对 数据 进行 了 选择 ， 一般 取 其中 位数 . 
+ 　 　 研究 时 将 330 种 化合物 随机 地 分成 两组 ： 建模 组和 验证 组 . 建模 组 共有 330 种 化合物 ， 其中 极   性 化合物 为 211 种 . 验证 组 共有 30 种 化合物 ， 其中 极性 化合物 为 20 种 . 所 研究 的 极性 化合物 主要 包括 ： 酸 、 醇 、 酚 、 苯胺 、 乙酰 苯胺 、 苯 脲 、 硝基 化合物 、 含氮 杂环 化合物 、 以及 各类 酯   等 . logKOC 范围 为 - 0.40 - 4.88 . 
+ 　 　 对 所 研究 化合物 计算 其 分子 连接性 指数 ( MCI ) . 该 指数 是从 有机 化合物 分子 的 隐氢 骨架 中 产生 的 拓扑 指数 ， 它 反映 了 分子 大小 、 分枝 、 键型 、 以及 杂 原子 等 信息 . 对于 某一 给定 的 分子结构 ， 可以 计算 不同 类型 和 阶项 的 MCI ［ 20 ］ . MCI 用点价 乘积 平方根 的 倒数 来 表示 ， 详细 内容 见 有关 文献 ［ 20 ］ . 本 研究所 用 的 MCI 主要 有 1 χ 、 1 χ V 、 2 χ 和 2 χ V ， 计算 通式 为 ： 
+ m χ = ∑ nj = 1 ∏ m + 1i = 1 δ i - ( 1 ) / ( 2 [ SX ) ] 
+ m χ V = ∑ n ) / ( j = 1 ∏ m + 1 ) / ( i = 1 δ Vi - ( 1 ) / ( 2 ) 
+ 式 中 ， δ 为 原子 的 点价 ， δ V 为 原子 的 价点价 ， i 为 分子 中 的 非 氢原子 ， m 为阶数 ， n 为子 图 数目 . 
+ 　 　 研究 使用 Statistica ( version4.5 ) 统计 软件 实现 所有 回归 分析 . 
+ 3 　 结果 与 讨论 
+ 3.1 　 各类 化合物 1 χ 与 KOC 关系 
+ 　 　 对 建模 组 各类 化合物 的 1 χ , 对 1 χ 与 logKOC 的 关系 进行 回归 分析 ， 得到 以下 方程 ： 
+ logKOC = 4.407 + 0.3801 χ 
+ ( 1 ) 
+ n = 300 , r2 = 0.403 , s = 0.988 
+ 式 中 ， n 为 化合物 总数 ， r2 为 可决 系数 ， s 为 估计 的 标准差 . 
+ 　 　 1 χ 与 logKOC 的 关系 如图 1 中 实线 所示 . 
+ 
+ 
+ 图 1 　 建模 组 极性 与非 极性 化合物 的 1 χ - KOC 关系 
+ Fig.1   Relationship   between   1 χ   ang   logK   OC   of   polar   and   nonpolar   compunds   in   the   training   set 
+ 从图 1 可以 看出 ， 尽管 1 χ 与 logKOC 显著 相关 ( 在 0.05 水平 ) ， 但 大部分 数据 偏离 回归 直线 较 远 ， 不能 直接 用该 回归 模型 计算 各类 化合物 的 KOC . 如果 仔细分析 图中 数据 点 ， 可以 发现 分布 在 回归 直线 上下 的 化合物 表现 出 一定 的 规律 ， 即 位于 回归 直线 之上 的 化合物 大多 为 不 含 极性 基团 的 化合物 ， 而 位于 回归 直线 之下 的 化合物 大多 为 含有 极性 基团 的 化合物 . 事实上 ， 100% 的 非 极性 化合物 都 表现 为 对 回归方程 的 正 偏离 ， 而 约 80% 的 极性 化合物 负 向 偏离 回归方程 . 由此可见 ， 极性 与非 极性 化合物 在 1 χ - logKOC 定量 关系 上 表现 出 明显 不同 的 特性 . 
+ 　 　 由于 极性 与非 极性 化合物 的 这种 显著 差异 ， 因此 分别 对 两类 化合物 进行 研究 . 关于 非 极性 化合物 的 模型 计算 已 在 另 文中 介绍 ［ 4 ］ ， 本文 主要 研究 极性 化合物 KOC 的 估算 方法 . 
+ 3.2 　 极性 化合物 1 χ 与 KOC 关系 
+ 　 　 如果 仅取 建模 组中 极性 化合物 ( 共 211 种 ) 的 KOC 与 1 χ 进行 分析 ， 得到 以下 方程 ： 
+ logKOC = 0.428 + 0.2971 χ 
+ n = 211 , r2 = 0.456 , s = 0.629 
+ ( 2 ) 
+ 1 χ 与 logKOC 的 关系 如图 1 中 虚线 所示 . 
+ 　 　 从 方程 ( 2 ) 和 图 1 ( 虚线 ) 可以 看出 ， 1 χ 与 极性 化合物 logKOC 的 线性关系 很 不 理想 ， 其可决 系数 仅为 0.456 . 用 该式 计算所 研究 化合物 的 KOC 值 ， 平均误差 为 0.49 个 对数 单位 ， 误差 低于 0.2 个 对数 单位 的 化合物 仅 占 25% ( 图 2 ) . 
+ 
+ 
+ 图 2 　 根据 1 χ 计算 建模 组 极性 化合物 KOC 的 误差 分布 
+ Fig.2   Residual   distribution   of   the   calculated   KO   C   based   on   1 χ   in   the   training   set 
+ 3.3 　 极性 化合物 多项 MCI 与 KOC 关系 
+ 　 　 为 充分利用 MCI 所 包含 的 信息 特征 ， 在 回归 分析 中 引入 1 χ V ， 2 χ 和   2 χ V.1 χ 主要 包含 分子 大小 的 信息 ， 这 3 种 指数 则 包含 了 分枝 、 不饱和 键 、 以及 杂 原子 等 多项 信息 . 对 1 χ 、 1 χ V , 2 χ 和 2 χ V 与 logK   OC 的 关系 进行 多元 线性 回归 ， 得到 以下 方程 ： 
+ logKOC = 0.590 - 0.2011 χ + 0.3461 χ V + 0.2262   χ + 0.0362 χ V 
+ n = 211 , r2 = 0.565 , s = 0.567 
+ ( 3 ) 
+ 　 　 与 式 ( 2 ) 相比 ， 回归方程 可决 数值 r2 由 0.456 提高 到 0.565 ， 估计 的 标准差 s 由   0.629 降低 到 0.567 ， 表明 方程 对 数据 的 拟合 质量 有所提高 . 根据 式 ( 3 ) 计算所 研究 化合物 的 KOC ， 得到 的 计算 值 与 实测值 的 平均误差 为 0.44 个 对数 单位 ， 误差 小于 0.2 个 对数 单位 的 化合物 占 28% . 图 3 和 图 4 分别 给出 了 计算 与 实测 logKOC 的 关系 以及 计算 的 误差 分布 . 
+ 
+ 
+ 图 3 　 根据 1 χ 、 1 χ V , 2 χ 和 2 χ V 计算 的 建模 组 极性 化合物 logKOC 与 实测值 的 关系 
+ Fig.3   Relationship   between   the   calculated   and   measured   KOC   value   s   of   chemicals   in   the   training   set 
+ 
+ 
+ 图 4 　 根据 1 χ 、 1 χ V , 2 χ 和 2 χ V 计算 的 建模 组 极性 化合物 KOC 的 误差 分布 
+ Fig.4   Residual   distribution   of   the   calculated   KOC   based   on   χ   、 1 χ V 、 2 χ   and   2 χ V   for   compunds   in   the   training   se   t 
+ 从图 3 和 图 4 可以 看出 ， 虽然 与 式 ( 2 ) 相比 ， 回归 结果 有所改善 ， 但 仍 不能 较 准确 地 计算 极性 化合物 的 KOC 值 . 在 分子 连接性 指数 法中 ， 尽管 Kier 和 Hall 对杂 原子 点价及 校正 点价 都 给予 了 定值 ， 使 分子 连接性 价 指数 包含 一定 的 电子信息 ， 但 国外 已有 的 研究 结果 及 我们 的 研究 结果 都 表明 ， 仅 根据 MCI 不能 很 好 地 估算 极性 有机 化合物 的 KOC . MCI 是 一种 拓扑 参数 ， 它 主要 反映 有机 化合物 分子 的 形状 和 大小 ， 因而 与非 极性 化合物 KOC 有 很 好 的 线性关系 ［ 4 ， 5 ］ ， 但 它 不能 有效 地 反映 极性 化合物 吸附 中非 疏 水性 作用力 的 大小 . 非疏 水性 作用 对于 极性 化合物 的 吸附 有 重要 影响 ， 如果 不定量 描述 非疏 水性 作用 对 KOC 的 贡献 ， 就 不 可能 准确 地 计算 它 极性 化合物 的 KOC 值 . 
+ 　 　 极性 化合物 吸附 中 的 非疏 水性 作用 主要 是 因 分子 中 的 极性 基团 所 引起 ， 极性 基团 可 使 极性 化合物 分子 与 水分子 之间 形成 氢键 或者 发生 其它 反应 ， 从而 减弱 固 相对 化合物 的 吸附 . 为了 完整 地 描述 极性 化合物 的 吸附 特性 ， 有 必要 在 MCI 模型 中 引入 极性 校正 参数 . 
+ 3.4 　 根据 MCI 和 极性 因子 建立 模型 
+ 　 　 所 研究 化合物 分子 中 的 极性 基团 主要 包括 ： - COOH 、 - OH 、 - CO - 、 - COO - 、 - NO2 、 - NH2 ( - NH - 和 - N - ) 、 - NCO - 、 - NCON - 、 - SCON - 、 - SO2 - 、 - PO - 、 - O - 、 以及 - N = . 它们 对 化合物 吸附 的 影响 各不相同 ， 因此 分别 用 不同 的 极性 因子 ( Fi ) 来 描述 不同 极性 基团 对 KOC 的 贡献 . 例如 ， - OH 的 极性 因子 用 F - OH 表示 ， 同时 假定 不同 或 同种 多个 极性 基团 的 贡献 具有 加和性 ， 即 若 分子 中 含有 3 个 - OH ， 则 用 3F - OH 表示 . 以 1 χ 、 1 χ V , 2 χ 、 2 χ V 和 极性 因子 作为 自变量 ， 对 建模 组中 211 种 极性 化合物 的 KOC 值 进行 了 回归 分析 ， 得到 以下 方程 ： 
+ logKOC = 0.758 - 0.0461 χ + 0.2031 χ V + 0.3042 χ + 0.0452 χ V + Σ MiFi 
+ n = 211 , r2 = 0.783 , s = 0.413 
+ ( 4 ) 
+ 式 中 ， Mi 为 第 i 个 极性 基团 的 个数 ， Fi 为 第 i 个 极性 基团 的 极性 因子 . 
+ 　 　 回归方程 的 可决 数值 r2 由式 ( 3 ) 的 0.565 提高 到 0.783 ， 估计 的 标准差 s 由式 ( 3 ) 的 0.567 降低 到 0.413 ， 说明 引入 极性 因子 后 ， 模型 对 极性 化合物 KOC 值 的 估算 精度 明显提高 . 由 方程 ( 4 ) 可 看出 ， 1 χ 和 2 χ V 在 方程 中是 不 重要 的 ， 这 两个 变量 的 系数 与 1 χ V ， 2 χ 的 系数 相比 ， 相差 一个 数量级 ， 因此 可 从 方程 中 剔除 . 仅 选择 1 χ V 、 2 χ 和 极性 因子 作为 自变量 进行 回归 分析 ， 得到 以下 方程 ： 
+ logKOC = 0.731 + 0.2131 χ V + 0.2812 χ + Σ MiFi 
+ n = 211 , r2 = 0.782 , s = 0.413 
+ ( 5 ) 
+ 拟合 中 求得 的 极性 因子 数值 如表 1 所示 . 
+ 　 　 剔除 1 χ 和 2 χ V 后 ， 模型 对 KOC 的 估算 效果 几乎 不变 . 所得 极性 因子 数值 全部 为 负数 ， 反映 了 极性 基团 对 极性 化合物 吸附 的 负 影响 . 如前所述 ， 极性 基团 容易 与 水 / 固 体系 中 的 水分子 以 氢键 结合 或 发生 其它 反应 ， 从而 降低 其 在 固相上 的 吸附 . 
+ 表 1 　 极性 因子 数值 表 
+ Table   1   Values   of   polar   factors 
+ 基团 极性 因子 基团 极性 因子 基团 极性 因子 
+ - COOH - 1.892 - SO2 - 1.160 - COO - - 0.529 
+ - OH - 0.444 - CON - 1.261 - PO - - 0.581 
+ - CO - - 0.466 - NCON - - 1.238 - O - - 0.112 
+ - NH2 - 0.319 - SCON - - 0.668 - N   - 0.147 
+ - NO2 - 0.394 　 　 　 　 
+ 3.5 　 模型 验证 
+ 　 　 为 验证 所 建 模型 的 可靠性 ， 用式 ( 5 ) 计算 了 验证 组中 20 种 极性 化合物 的 KOC 值 ， 图 5 和 图 6 也 同时 给出 了 其 计算 与 实测 logKOC 的 关系 及 误差 分析 . 验证 组 KOC 计算 值 与 实测值 的 平均误差 仅为 0.38 个 对数 单位 ， 由于 这些 化合物 的 实测 数据 并未 用于 模型 建立 过程 中 ， 从而 证实 了 所建 模型 的 可靠性 . 图中 所示 结果表明 无论是 计算结果 比较 还是 误差 分布 比较 ， 验证 组与 建模 组均 无 显著 差别 . 
+ 
+ 
+ 图 5 　 根据 1 χ V 、 2 χ 与 极性 因子 计算 的 两组 极性 化合物 logKOC 与 实测值 关系 
+ Fig.5   Relationship   between   the   calculated   and   measured   KOC   value   s   of   compounds   in   both   sets 
+ 
+ 
+ 图 6 　 根据 1 χ V 、 2 χ 与 极性 因子 计算 的 两组 极性 化合物 KOC 的 误差 分布   
+ Fig.6   Residual   distribution   of   the   calculated   KOC   based   on   1 χ 、 2 χ   and   polar   factors   sets 
+ 3.6 　 最终 模型 确定 
+ 　 　 为 充分利用 现有 数据 信息 ， 改善 模型 参数 的 准确性 ， 以 两组 中 所有 极性 化合物 实测 KOC 值为 基础 ， 按式 ( 5 ) 的 形式 重新 建立 回归 模型 ， 得 ： 
+ logKOC = 0.750 + 0.2221 χ V + 0.2402 χ + Σ MiFi 
+ n = 211 , r2 = 0.757 , s = 0.427 
+ ( 6 ) 
+ 拟合 中 求得 的 极性 因子 数值 如表 2 所示 . 
+ 表 2 　 极性 因子 数值 表 
+ Table   2   Values   of   polar   factors 
+ 基团 极性 因子 基团 极性 因子 基团 极性 因子 
+ - COOH - 1.635 - SO2 - 1.188 - COO - - 0.527 
+ - OH - 0.366 - CON1.088 - PO - - 0.448 
+ - CO - - 0.296 - NCON - - 1.044 - O - - 0.137 
+ - NH2 - 0.170 - SCON - - 0.523 - N - - 0.194 
+ - NO2 - 0.308 　 　 　 
+ 
+ 　 　 式 ( 6 ) 即 为 最终 确定 的 根据 分子 连接性 指数 估算 极性 化合物 KOC 的 模型 . 该 模型 对 总共 231 种 极性 化合物 KOC 的 估算 误差 如图 7 所示 . 其 平均误差 为 0.31 个 对数 单位 ， 45% 的 化合物 误差 小于 0.2 个 对数 单位 . 
+ 　 　 从 所建 模型 来看 ， 极性 有机 化合物 KOC 由 两 部分 组成 ： 一是 分子 连接性 指数 ， 主要 描述 分子 中非 极性 部分 对 KOC 的 贡献 ； 另 一 是 极性 因子 ， 主要 描述 分子 中 极性 部分 对 KOC 的 贡献 . 极性 基团 的 存在 影响 了 化合物 在 水 / 固两 相间 的 分子 间 相互作用 ， 且 这种 影响 随着 基团 的 种类 和 数目 而 变化 . 与 已有 的 计算 极性 化合物 KOC 的 模型 相比 ， 本 模型 具有 如下 优越性 ： 1 ) 方法 简便 ， 计算 时不需 输入 其它 实验 参数 ； 2 ) 有助于 从 分子 水平 上 了解 和 阐释 极性 化合物 的 吸附 机理 ； 3 ) 适用性 强 ， 可 用于 估算 各类 极性 化合物 的 KOC . 
+ 　 　 与 前期 研究 中 建立 的 非 极性 化合物 KOC 计算 模型 相比 ［ 4 ］ ( 平均误差 0.26 个 对数 单位 ) ， 本文 模型 计算精度 略差 ， 这 一方面 可能 是 由于 除 有机质 外 ， 其它 吸附剂 ( 如 粘土矿 物 ) 也 对 极性 化合物 的 吸附 有 影响 ； 另一方面 是 由于 研究所 用 的 KOC 实测 数据 本身 精度 不高 . 从总体上 看 ， 所 建 模型 可 用于 估算 极性 化合物 的 KOC . 
+ 
+ 
+ 图 7 　 根据 1 χ V 、 2 χ 与 极性 因子 计算 的 231 种 极性 化合物 KOC 的 误差 分布 
+ Fig.7   Residual   distribution   of   the   calculated   KO   C   based   on   1 χ V , 2 χ   and   polar   factors   for   231   polar   compund   s 
+ 　 4 　 结 　 论 
+ 　 　 由于 极性 基团 的 存在 ， 极性 有机 化合物 分子 连接性 指数 与 它们 的 KOC 没有 很 好 的 线性关系 ， 仅 根据 分子 连接性 指数 ， 不能 准确 地 计算 其 KOC . 通过 引入 极性 校正 参数 ， 能够 大大提高 对 KOC 的 估算 精度 . 对 大多数 极性 化合物 而言 ， 选择 1 χ V , 2 χ 和 极性 因子 即可 较 准确 地 计算 KOC . 根据 231 种 极性 化合物 KOC 实测 数据 建立 的 模型 ， 其 估算 的 平均误差 为 0.31 个 对数 单位 ， 45% 的 误差 小于 0.2 个 对数 单位 . 
+ *   自然科学 基金 重点项目 ( 49632060 ) 和 国家杰出青年基金 项目 ( 49525102 ) 资助 
+ 作者 单位 : 北京大学 城市 与 环境 学系 ， 北京 　 100871 
+ 参考文献 
+ [ 1 ] 　 Chiou   C   T .   Reactions   and   movement   of   orgainc   chemicals   in   soils .   SSSA ,   Madison ,   WI.1992 . 1 - 29 
+ [ 2 ] 　 Meylan   W ,   Howard   P   H ,   Boething   R   S .   Molecular   topology / fragment   contribution   method   for   predicting   soil   sorption   coefficients .   Environ   Sci   &   Technol ,   1992 , 26   : 1560 - 1567 
+ [ 3 ]   Bahnick   D   A ,   Doucette   W   J .   Use   of   molecular   connectivity   indices   to   estimate   soil   sorption   coefficients   for   organic   chemicals .   Chemosphere ,   1988 ,   17 ( 9 ) : 1703   - 1715 
+ [ 4 ]   卢晓霞 ， 陶 　 澍 ， 李 　 杭 ， 朴海善 等 . 根据 分子 连接性 指数 估算 非 极性 有机 化合物 的 K   OC . 土壤学 报 ， 1999 ， 36 ： 待 发表 
+ [ 5 ]   Sabljic   A .   On   the   prediction   of   soil   sorption   coefficients   of   organic   polluta   nts   from   molecular   structure :   application   of   molecular   topolgy   model .   Environ   Sc   i   &   Technol ,   1987 , 21 : 358 - 366 
+ [ 6 ]   Sekusak   S ,   Sabljic   A .   Soil   sorption   and   chemical   topology .   Journal   of   Math   ematical   Chemistry ,   1992 , 11 : 271 - 280 
+ [ 7 ]   Gerstl   Z ,   Helling   C   S .   Evaluation   of   molecular   connectivity   as   a   predictive   m   ethod   for   the   adsorption   of   pesticides   by   soils .   J   Environ   Sci   Health ,   1987 , B22 :   55 - 69 
+ [ 8 ]   Briggs   G   G .   A   simple   relationship   between   soil   sorption   of   organic   chemicals   and   their   octanol - water   partitioning   behaviour .   Proc   7th   British   Insecticide   An   d   Fungicide   Conf ,   1973 , 11 : 475 - 478 
+ [ 9 ]   Briggs   G   G .   Theoretical   and   experimental   relationships   between   soil   adsorptio   n ,   octanol - water   partition   coefficients ,   water   solubilities ,   bioconcentration   f   actors ,   and   the   parachor .   J   Agric   Food   Chem ,   1981 , 29 : 1050 - 1059 
+ [ 10 ]   Kenaga   E   E ,   Goring   C   A .   In : Eaton   J   G ,   Parish   P   P   and   Hendricks   A   C   ( eds ) . Relationship   between   water   solubility ,   soil   so   rption ,   octanol - water   Partitioning ,   and   concentration   of   chemicals   in   biota .   Aquatic   Toxicology ,   Proceedings   of   the   third   annual   symposium   on   aquatic   toxicology .   ASTM ,   STP   707 ,   Philadelphia .   1980 : 78 - 115 
+ [ 11 ]   Karickhoff   S   W ,   Brown   D   S ,   Scott   T   A .   Sorption   of   hydrophobic   pollutants   on   natural   sediments .   Water   Res ,   1979 ,   13 : 241 - 248 
+ [ 12 ]   Karickhoff   S   W ,   Semiempirical   estimation   of   sorption   of   hydrophobic   pollutan   ts   on   natural   sediments   and   soils .   Chemosphere ,   1981 , 10 ( 8 ) : 833 - 846 
+ [ 13 ] 　 Karickfoff   S   W ,   Morris   K   R . Sorption   dynamics   of   hydrophobic   pollutants   in   se   diment   suspensions .   Env   Toxicol   Chem ,   1985 ,   4 ( 4 ) : 469 - 479 
+ [ 14 ] 　 Donglas   A   G .   Proceedings   of   9th   International   Meeting   on   Organic   Geochemistr   y .   Newcastle   Upon   Tyne .   1979 
+ [ 15 ]   Vowles   P   D ,   Mantoura   R   F   C .   Sediment - water   partition   coefficiients   and   HPLC   - retention   factors   of   aromatic   hydrocarbons .   Chemosphere ,   1987 , 16 : 109 - 116 
+ [ 16 ] 　 Hassett   J   J .   Sorption   properties   of   sediments   and   energy - related   pollutants   .   EPA - 600 / 3 - 80 - 041 .   1980.23 - 67 
+ [ 17 ]   Hassett   J   J .   Sorption   of   alpha - naphthol : Implications   concerning   the   limits   of   hydrophobic   sorpting .   Soil   Sci   Soc   Am   J ,   1981 ,   45 ( 1 ) : 38 - 42 
+ [ 18 ] 　 Chiou   C   T ,   Peters   L   J ,   Freed   V   H .   A   physical   concept   of   soil - water   equilibr   ia   for   nonionc   organic   compounds .   Science ,   1979 , 206 : 831 - 832 
+ [ 19 ] 　 Chiou   C   T ,   Porter   P   E ,   Schmeddi   D   W .   Partition   equlibria   of   nonionic   organic   compounds   between   soil   organic   matter   and   water .   Env   Sci   &   Tech ,   1983 , 17 ( 4 ) : 227   - 231 
+ [ 20 ] 　 Kier   L   B ,   Hall   L   H .   Molecular   connectivity   in   structure   activity   analysis .   R   esearch   Studies   Press ,   Chichester .   1986 
+ 1997 - 08 - 18 收到 原稿 　 1998 - 04 - 28 收到 修改稿 

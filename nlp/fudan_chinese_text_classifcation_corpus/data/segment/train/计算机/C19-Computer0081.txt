@@ -1,0 +1,65 @@
+计算机 应用 
+ Computer   Applications 
+ 1999 年   第 19 卷 　 第 8 期   Vol.19 　 No.8   1999 
+ 
+ 
+ 
+ Windows   NT 与 NetWare 无盘 工作站 的 安装 
+ 杨艺山 　 刘 明春 　 刘世元 
+ 1 　 Windows   NT 无盘 工作站 安装 过程 
+ 1.1 　 准备 工作 
+ 　 　 硬件 ： 一台 SBS （ Server - based   setup ） 服务器   , 一台 Windows95 有盘 工作站 ， 若干 台 配有 BootRom 的 无盘 工作站 。 需要 注意 的 是 BootRom 中 的 引导 程序 是 上 NT 网 的 ， 且 与 相应 卡型 （ ISA / PCI ） 匹配 。 本人 曾用 卡型 有 TE3500 ( Realtek   8029 芯片 PCI 网卡 ) ， TE2500 , TE2008B / A （ UM9008 芯片 ISA 网卡 ） 。 软件 ： Microsoft   Windows   NT   Server   4.0   中文版   , WINDOS95 中文版 , , 必需 的 Netsetup . exe 等 文件 ， 这些 文件 若 不 在 Windows95 安装盘 上 ， 可以 从 以下 站点 获取 ： ftp : / / ftp2 . nwpu . edu . cn / incoming / netsetup   注意 Windows95 序列号 必须 型 如 425 - XXXXXXX ， 早期 的 95 版本 一般 都 符合要求 ， 不要 使用 随机 的 OE   M 版本 ， 安装 时 CPU 不要 超频 ， 否则 容易 死机 。 
+ 1.2 　 安装 过程 
+ 　 　 ． 　 启动 远程 启动 服务 
+ 　 　 首先 在 安装   NT   Server 的 主控 域 服务器 上 从 控制面板 — 网络 — 协议 中 添加 DLC ( 数据 链接 控制 ) 协议 ， 然后 在 服务 中 添加 远程 启动 服务 ， 在 提示 窗口 中须 两次 正确 输入 安装 路径 ， 设含 NT4.0 光盘 的 光驱 为 F ： , 第一个 路径 为 F : \ I386 , 第二个 路径 为 F : \ clients \ rpl ， 即可 安装 成功 。 在 控制面板 — 服务 中 启动 远程 启动 服务 ， 并 设为 自动 启动 。 这时 就 可以 用 装有 BootRom & 127 ; 芯片 的 网卡 启动 工作站 ， 如果 网卡 安装 正确 ， 远程 启动 管理器 中将 看到 无盘 工作站 网卡 的 节点 地址 号 。 如果 看不到 工作站 网卡 的 地址 ， 首先 检查 网卡 是否 安装 正确 ， 然后 重新 运行 网卡 驱动程序 。 一般 ISA 卡 I / O   Base 为 300h ， 中断 为 3 ， BootRom 基址 选为 C8000 。 若 设置 完毕 重新 开机 后 显示器 “ 黑屏 ” ， 应拔 下 BootRom ， 用 软件 重新 选择   BootRom   地址 和 程序 字节数 直到 故障 排除 。 经上述 步骤 更正 后 ， 一定 要 在 服务器 远程 启动 管理器 中 看到 该卡 地址 号 。 
+ 　 　 ． 　 在 服务器 上 准备 文件 
+ 　 　 设 NT 安装 在   E : \ WINNT 下 , 所用 网卡 为 TE2008B , 因 该卡 与 NE2000 网卡 兼容 ， 故可 直接 用 E : \ WINNT \ RPL \ BBLOCK \ NDIS 下 的 NE2000 . dos 和 E : \ WINNT \ RPL \ BBLOCK \ NETBEUI \ NE2000 目录 下 的 dosbb . cnf 和 protocol . ini 文件 ， 此外 将 dosbb . cnf 文件 中 “ EXE   BBLOCK \ I13 . COM   ～   ～   ～ ” 一行 改为 “ EXE   BBLOCK \ W95I13 . COM   ～   ～   ～ ” 并 另存为 W95BB . CNF 文件 , 以备 启动 WIN95 时 使用 。 若 网卡 不 与 E : \ WINNT \ RPL \ BBLOCK \ NETBEUI \ 下 的 任一 网卡 兼容 ， 就 必须 将 其 DOS 驱动程序 复制到 E : \ WINNT \ RPL \ BBLOCK \ NDIS 目录 下 , 一般 其 扩展 名为 . DOS , 如 PCIND . dos (   TE3500N 型 PCI 网卡 ) 。 新建 一个 目录 , 将 NE2000 目录 下 的 PROTOCOL . INI 和 DOSBB . CNF 复制到 此 目录 下 ， 编辑 这 两个 文件 ,   并 将 网卡 驱动器 （ NE2000 ） 改 成本 网卡 的 名字 （ 如 PCIND ） 。 同样 将 “ EXE   BBLOCK \ I13 . COM   ～ ～ ～ ” 一行 改为 “ EXE   BBLOCK \ W95I13 . COM   ～ ～ ～ ” , 并 另存为 W95BB . CNF 。 而 有些 网卡 可 直接 上 NT ， 如 Epro , Am2100 等 ， 这一 步骤 可省 。 
+ 　 　 ． 　 在 MS － DOS 方式 下 执行 RPLCMD 
+ 　 　 RPLCMD 是 用来 查看 和 更新 远程 启动 服务 数据库 的 ， 远程 启动 服务 必须 正在 运行 。 先后 使用 V 键 ( Vender 销售商 ) ， A 键 添加 销售商 名字 ( 输入 卡号 前 六位 ) ，   然后 使用 B 键 ， A 键 新增 一个   BootBlock ( 引导 块 ) 输入 引导 块 名 如 boot1 和 对应 销售商 名 ， 以及 启动 文件名 BbcFile = BBLOCK \ NETBEUI \ NE2000 \ DOSBB . CNF ， 接着 使用 C 键 ， A 键 新增   Config ( 配置 ) 如 config1 , 输入 对应 引导 块 名 , 一级 目录名 dos ,   二级 目录名 dos622 共享 配置文件 fits \ dos622 . fit , 个人 配置文件 fits \ dos622p . fit , 配置 注释 名如 MyDos622 ， 其他 未 列出 的 项均 用 回车 作答 。 
+ 　 　 ． 　 建立 Dos6.22 的 无盘 工作站 
+ 　 　 将 DOS6.22 的 系统文件 复制到 E : \ WINNT \ RPL \ RPLFILES \ BINFILES \ DOS622 下 , 并 解除 MSDOS . SYS 和 IO . SYS 的 S 和 H 的 属性 ， 否则 工作站 启动 后 出现 “ Non   System   Disk ” 错 。 打开 远程 启动 管理器 ， 检查 配置文件 ， 更新 数据库 ， 添加 新 的 配置文件 。 输入 配置文件 后 ， 给 添加 的 配置文件 建立 新 的 工作站 ,   在 “ 适配器 ID ” 处 输入 卡号 如 000021021111 ， 在 “ WKSTA ” 处 输入 工作站 名 , 如 : WS1 ; 单击 添加 按钮 ， 若 出现 所 选 配置文件 与 这个 工作站 不 兼容 时 ， 须 重新 运行   E : \ WINNT \ SYSTEM32 \ 下 的 RPLCMD . EXE 文件 ， 添加 符合 工作站 网卡 性质 的 配置文件 。 最后 启动 远程 工作站 。 
+ 　 　 ． 　 建立 Windows   3.2 的 无盘 工作站 
+ 　 　 启动 Dos622 远程 工作站 , 使用 Net   Use 映射 放入 服务器 共享 光驱 的 Windows   3.2 安装盘 , 执行 SETUP / A 将 Windows   3.2 安装 到 C : \ WIN 目录 下 , 进入 C : \ WIN , 执行 SETUP / N , 将 Windows   3.2 安装 到 C : \ Windows 目录 下 。 回到 根目录 , 执行 XCOPY   / E   C : \ Windows   C : \ WKSTA . PRO \ WIN 以后 ， 所有 以此 profile 登录 的 工作站 都 可以 共享 Windows3.2 了 ， 一般 此 步骤 可省 ， 因为 现在 几乎 不用 Windows3.2 了 。 
+ 　 　 ． 　 安装 Windows   95 的 共享 文件 
+ 　 　 首先 ， 在 NT 服务器 上建 一 共享 目录 ( 如 PWIN95S ) 用于 保存 公共 文件 ， 并建 另 一 共享 目录 ( 如 : RPL95 ) 用于 保存 每台 工作站 的 私有 文件 , 本人 将 其装 在 D盘 。 登录 一台 普通 的 Windows   95 工作站 , 执行 NETSETUP . EXE , 将 Windows   95 的 文件 安装 到 \ \ NTS4 \ PWIN95S 中 ( 其中 NTS4 为 服务器 名 ) 。 按 缺省值 完成 安装 即可 。 在 服务器 上 放入 Windows   NT 光盘 ， 执行 CLIENTS \ RPL \ UPDATE \ WIN95 下 的 WIN95SRV . BAT 文件 。 此 步骤 使 PWIN95S 中 的 文件 具有 网络 安装 功能 。 
+ 　 　   ． 　 在 Windows   95 下 添加 网卡 
+ 　 　 在 服务器 的 MS － DOS 方式 下 再次 执行 RPLCMD ， 使用 B 键 ， A 键 新增 一个 引导 块 如 boot2 , 输入 对应 销售商 名 和 引导文件 BBLOCK \ NETBEUI \ NE2000 \ W95BB . CNF , 接着 使用 C 键 ， A 键 新增   一个 配置 如 config2 , 输入 对应 引导 块 名 , 一级 目录名 dos ,   二级 目录名 win95 ， 共享 配置文件 fits \ win95 . fit , 个人 配置文件 fits \ Win95p . fit ， 配置 注释 名 Mywin95 ， 其他 未 列出 的 项 也 均 用 回车 作答 。 
+ 　 　 ． 　 安装 第一台 Windows95 无盘 工作站 
+ 　 　 接着 登录 一台 DOS 无盘 工作站 , 映射 网络 驱动器 。 NET   USE   F : \ \ NTS4 \ PWIN95S ， NET   USE   G : \ \ NTS4 \ RPL95 ， 在 F盘 上 执行 SETUP , 将 Windows   95 安装 到 G : \ CLIENT1 目录 下 ， 若 安装 过程 中 对话框 全中文 ， 表示 没有 运行 WIN95SRV . BAT   。 安装 出现 “ Setup   Options ” 选择 “ Custom ” ; 出现 “ Analyzing   Your   Computer ” 对话框 时 选择 “ No   I   want   to   modify   the   hardware   list ” ， 并 删除 所有 硬件 ; 出现 “ Network   Configuration ” 对话框 时 , 选择 相应 网卡 ， 设置 好 相应 的 IRQ 和 I / O 地址 , 其余 选择 Windows   95 的 缺省值 。 若 “ Network   Configuration ” 对话框 中未 出现 相应 网卡 名 ， 可 运行 infinst . exe （ 与 Netsetup . exe 在 同一 目录 下 ） 将 一些 外部 组件 （ 网卡 ） 添加 到 网络 安装 树 ， 这时 可以 选择 该 网卡 继续 安装 ， 否则 会 出现 Setupx . dll 保护模式 错 。 运行 “ 远程 启动 管理器 ” , 执行 “ 检查 配置 ” 和 “ 修复 安全性 ” ， 建立 一个 使用 “ Mywin95 ” 配置 的 profile , 例如 : Mywin95 。 执行 服务器 上 的 E : \ WINNT \ RPL \ BIN \ WIN95CLT . BAT 建立 配置文件 与 工作 目录 及 服务器 的 对应 关系 , 例如 : Win95clt   d : \ rpl95 \ client1   \ \ NTS4   Mywin95 ， 若 d : \ rpl95 \ client1 目录 下 缺少 autoexec . bat , config . sys 文件 ， 应 人为 补 上 。 修改 D : \ PWIN95S 目录 下 的 MACHINES . INI 文件 。 加入 工作站 的 启动 信息 , 例如 : 
+ 　 　 ［ 000021021111 ］ 
+ SYSDATPATH = G : \ CLIENT1 
+ G = \ \ NTS4 \ RPL95 
+ 　 　 删除 原 工作站 ， 更新 为 Mywin95 配置 ， 重新启动 工作站 ， 当 出现 “ Type   the   username , or   press   enter   if   it   is   000021021111 : ” 时 , 注意 输入 用户名 , 例如 : WS1 即可 完成 以后 的 安装 , 注意 ， 需 两次 输入 用户 与 口令 。 
+ 　 　 ． 　 安装 其他 Windows95 工作站 
+ 　 　 安装 其他 Windows   95 无盘 工作站 时 ， 先 启动 一台 DOS 无盘 工作站 。 在 一台 普通 的 Windows   95 工作站 上 执行 Windows   95 光盘 上 的 NETSETUP . EXE 程序 。 出现 “ 服务器 安装 ” 对话框 时 , 单击 “ 设置 路径 ” 。 出现 “ 服务器 路径 ” 对话框 时 , 输入 \ \ NTS4 \ PWIN95S , 单击 “ 确定 ” 。 单击 “ 机器 安装 目录 ” 中 的 “ 添加 ” 按钮 , 分别 输入 计算机 名 ， 本 机 工作 目录 和 第一台 无盘 工作站 的 工作 目录 。 例如 : WS2 ， \ \ NTSR \ RPL95 \ CLIENT2 , \ \ NTS4 \ RPL95 \ CLIENT1 , 继续 完成 以后 安装 。 在 服务器 上 修改 工作站 的 启动 记录 , 让 它 使用 第一台 工作站 的 profile , 修改 MACHINES . INI , 加入 该 工作站 的 信息 。 重新启动 工作站 ， 完成 安装 。 
+ 2 　 NetWare 无盘 工作站 的 安装 过程 
+ 2 ． 1 　 准备 工作 
+ 　 　 硬件 ： 一台 Netware 服务器   , 一台 有盘 ( 软盘 即可 ) 工作站 ， 若干 台 配有 BootRom 的 无盘 工作站 。 软件 ： Novell   Netware   3.12 以上 版本 ， Dos6.22 ,   Windows95 中文版 ， 必需 的 Netsetup . exe 等 文件 , 注意事项 同 上 。 
+ 2 ． 2 　 安装 过程 
+ 　 　 NetWare   DOS 无盘 工作站 的 安装 
+ 　 　 首先 在 服务器 DOS6.22 操作系统 上 安装 Netware3.12 网络操作系统 。 然后 用 一有 盘 工作站 用 软盘 上网 成功 。 软盘 含 DOS6.22 系统 COMMAND . COM ( 隐含 IO . SYS ， MSDOS . SYS ) , IPX . COM ,   NETX . COM ,   HIMEM . SYS , AUTOEXEC . BAT , CONFIG . SYS 等 文件 。 其中 AUTOEXEC . BAT 文件 内容 如下 ： 
+ 　 　 IPX 
+ NETX 
+ F : 
+ LOGIN 
+ CONFIG . SYS 文件 内容 如下 ： 
+ 　 　 Files = 50 
+ Dos = High . Umb 
+ Buffers = 50 
+ Device = Himem . sys 
+ Device = Emm386 . exe 
+ 　 　 登录 后用 该 软盘 生成 DOS 启动 映像 文件 ， 以下 用 SYS : PUBLIC 下 的 SYSCON ， USERDEF , MAKEUSER ， MAP ， SETPASS 设置 软件 ， 编辑 登录 脚本 ( Login   Script ） 等 。 
+ 　 　 NetWare   Windows95 无盘 工作站 的 安装 
+ 　 　 与 NT 的 Windows95 无盘站 相比 ， 有 许多 相同之处 ： 比如 硬 软件 要求 相同 ， 都 需要 安装 共享 目录 和 文件 ， 配置 安装 脚本 和 Machines . ini 文件 。 若 NT   下无盘 95 安装 成功 ， 参照 着 安装 NOVELL 无盘 95 就 容易 一些 。 
+ 3 　 需要 注意 的 问题 
+ 3.1 　 关于 PCI 网卡 
+ 　 　 若 使用 的 是 一般 PCI 网卡 ， 由于 其中 断 号 与 地址 号 不可 修改 ， 且 数值 随 计算机 的 不同 而 变化 ， 所以 还应 编辑 E : \ winnt \ rpl \ rplfiles \ profiles \ mywin95 \ suboot \ protocol . ini 文件 ， 修改 Bingings 项 和 Interrupt , Iobase 项 。 此外 ， 个别 主板 不 支持 这种 无盘 启动 。 
+ 3.2 　 需要 区分 的 几个 概念 
+ 　 　 RAS ( 远程 访问 服务 ) 　 RAS 为 远程 访问 服务 ， RAS 服务器 最 多 允许 256 个 远程 客户 拨入 ， 通过 调制解调器 ， ISDN 卡 ， X.25 线路 提供 访问 服务 。 大家 熟悉 的 拨号网络 是 其 客户机 版 ， 通过 他们 可以 连到 Internet 。 
+ 　 　 网络 客户 管理器 　 管理工具 中 网络 客户 管理器 是 用于 制作 网络 客户 登录   Windows   NT   域 所 必须 的 磁盘 和 一些 客户端 的 网络管理 工具 的 。 例如 ， 通过 它 制作 的 磁盘 我们 可以 在 仅 装有   Dos6.22   的 操作系统 中 连入 NT 域 。 
+ 4 结束语 
+ 　 　 使用 远程 启动 服务 有 以下 优点 ： 通过 使用 无 硬盘驱动器 的 工作站 增加 网络 安全性 ， 防止 引进 计算机病毒 ； 在 分配 信息 和 软件资源 上 具有 更大 权限 , 更 易 集中 升级 软件 , 降低 购买 和 维护 工作站 的 成本 。 因此 在 教学 、 培训 、 游戏网 等 场合 用途 很大 。 
+ 作者简介 ： 杨艺山 　 副教授 ， 主要 从事 网络 技术 ， 多媒体技术 等 领域 的 研究 。 　 刘 明春 　 博士 研 
+ 　 　 　 　 　 究生 。 　 刘世元 　 硕士 研究生 。 
+ 作者 单位 ： 杨艺山 　 刘 明春 　 刘世元 　 西北工业大学 电子 工程系 　 陕西 ． 西安 ( 710072 ) 
+ 收稿 日期 : 1999 - 05 - 13 ( 修改稿 ) 

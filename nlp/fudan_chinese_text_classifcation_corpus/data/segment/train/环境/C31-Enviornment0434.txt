@@ -1,0 +1,102 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1999 年 　 第 19 卷 　 第 3 期 　 Vol.19   No.3   1999 
+ 
+ 
+ 
+ 聚醚 废水处理 工艺 研究 
+ 王   慧 　 文湘华 　 刘 广利 　 黄 　 霞 　 施 汉昌 
+ 摘要 ： 研究 了 中 和 混凝 - 厌氧 + 好 氧 - 生物 活性炭 组合 工艺 , 在 不同 工况 和 运行 参数 条件 下 处理 聚醚 废水 的 效果 . 结果表明 , 中 和 混凝能 有效 地 降低 生物 处理 的 污泥 负荷 , 调节 pH 值 6.7 , 聚合 氯化铝 的 投加量 为 100mg / L 时 , 聚醚 废水 COD 去除率 可达 28% , 当 进水 的 COD 为 3000 ～   4000mg / L 时 , 聚醚 废水 经此 组合 工艺 处理 后 , COD 的 总 去除率 达 96% 以上 , 出水 COD 值约 150mg / L . 
+ 关键词 ： 聚醚 废水 ； 生物 接触 氧化 ； 生物 活性炭 ； 处理工艺 
+ 中 图 分类号 ： X703   文献 标识码 ： A   文章 编号 ： 1000 -   6923 ( 1999 ) 03 -   0273 -   04 
+ Study   on   treating   polyaether   wastewater   process . 
+ WANG   Hui ,   WEN   Xiang - hua , LIU   Guang - li , HUANG   Xia , SHI   Han - chang   
+ ( State   Key   Joint   Laboratory   of   Environmental   Simulation   and   Pollution   Control , Department   of   Environmental   Science   and   Engineering , Tsinghua   University ,   Beijing   100084 , China ) .   China   Environmental   Science .   1999 , 19 ( 3 ) ： 273 ～ 276 
+ Abstract ： The   feasibility   and   effect   of   applying   cogulation - sedimention - anaerobic + aerobic   biological   active   carbon   process   to   treat   polyaether   wastewater   in   different   operating   conditions   was   studied .   The   results   showed   cogulation - sedimention   process   could   efficiently   reduce   the   sludge   loading   rate   of   biological   treatment   process .   when   PAC   was   used   with   100mg / L   at   pH   6.7 ,   COD   removal   rate   can   reach   28% .   Applying   the   above   treatment   process , when   COD   of   influent   is   about   3000 ～   4000mg / L ,   COD   of   effluent   can   reach   about   150mg / L   and   total   COD   removal   rate   is   more   than   96% . 
+ Key   words ： polyaether   wastewater ； biological   contact   oxidation   process ； biological   active   carbon ； treatment   technics   
+ 　 　 有机化工 废水 多 为难 降解 废水 , 而 聚醚 废水 又 是 其中 难度 较大 的 一类 废水 . 目前 国内外 有关 聚醚 废水 的 处理 尚未 见 报道 . 天津 某 化工厂 以 生产 聚醚 多元醇 、 乙二醇 醚 及其 它 合成 表面 活性剂 为主 . 其 生产 车间 排放 的 聚醚 废水 成分 复杂 , 含油量 大 , 且 水质 和 水量 的 变化 都 很大 . 对 水质 的 抽样 测试 结果表明 , 在 一天 中 污水排放 的 COD 值 由 600mg / L 变化 至 7000mg / L . 高浓度 废水 主要 来源于 聚醚 等 生产 车间 , 尽管 经过 生活 污水 稀释 , 该厂 污水 总 排放口 出水 COD 仍 在 3000 ～   4000mg / L 之间 , 平均 为 3500   mg / L ( SS   80 ～ 235mg / L , pH 值为 5.5 , 石油 类 含量 6 ～ 12mg / L , 水体 呈 乳浊液 状 ) . 本 实验 研究 了 中 和 混凝 - 厌氧 + 好 氧 - 生物 活性炭 组合 工艺 处理 聚醚 废水 的 可行性 和 处理 效果 , 提出 了 综合 物化 预处理 、 生物 处理 和 化学 氧化 的 工艺流程 , 确定 了 合理 经济 的 设备 运行 参数 [ 1 ] , 使 该厂 聚醚 废水 达到 污水排放 COD < 100mg / L 的 要求 . 
+ 1   方法 和 设备 
+ 　 　 试验 由 物化 预处理 、 生物 处理 和 化学 氧化 深度 处理 三 部分 组成 ( 图 1 ) . 
+ 1.1   预处理 
+ 　 　 原水 pH 值 < 6.0 , 上层 有 浮油 , 下层 有 沉淀 , 水质 较 浑浊 . 正常 的 废水 生物 处理 系统 要求 pH 值 在 6 ～   9 之间 , 考虑 到 微生物 的 正常 代谢 , 对 原水 进行 了 中 和 混凝 试验 , 先 投加 氢氧化钙 将 聚醚 废水 的 pH 值 从 5.5 调至 8.0 , 再 以 聚合 氯化铝 为 混凝剂 , 以 COD 为 监测 指标 , 考察 投 药量 与 COD 去除 效率 的 关系 . 
+ 1.2   生物 处理 
+ 　 　 聚醚 废水 中含 大量 大分子 聚合物 , 属难 降解 物质 . 故应 采用 厌氧 和 好 氧 生物 处理 结合 的 方法 , 先以 厌氧 生物 处理 切断 大分子 使 之 成为 可降解 或易 降解 的 小 分子 化合物 , 再 以 好 氧 生物 法 处理 . 好 氧 处理工艺 包括 接触 氧化 和 生物 活性炭 . 
+ 
+ 图 1 　 聚醚 废水处理 试验 流程 示意 
+ Fig.1   The   flow   chart   of   treating   polyaether   wastewater   
+ 1 . 预处理   2 . 厌氧 生物 反应器   3 . 好 氧 生物 接触 氧化 
+ 反应器   4 . 生物 活性炭 反应器   5 . 化学 氧化 深度 处理 
+ 1.2 . 1   厌氧 与 好 氧 生物 接触 氧化 处理 [ 2 ]   厌氧 和 接触 氧化 均 采用 生物膜 法 , 以 有机 软性 填料 挂膜 . 好 氧 活性污泥 取自 燕山 石化 公司 废水处理 厂二 沉池 , 厌氧 活性污泥 则 由 好 氧 污泥 在 缺氧 条件 下 驯化 得到 . 在 装置 运行 初期 , 接种 污泥 至 试验装置 中 , 根据 不同 的 配料 比 投加 聚醚 废水 和 其它 营养物质 . 
+ 1.2 . 2   生物 活性炭 处理 [ 3 ] 　 采用 颗粒 活性炭 为 填料 , 利用 其强 吸附性 及 生物降解 性 在 连续 曝气 的 条件 下降 解 废水 中 剩余 的 有机物 . 
+ 1.3   化学 氧化 深度 处理 [ 4 ] 
+ 　 　 采用 臭氧 氧化 法对 上述 出水 进行 深度 处理 , 以 达到 理想 的 处理 效果 又 可 节省时间 . 
+ 1.4   试验设备 
+ 　 　 DBJ - 621 型 四联 搅拌机 ; 厌氧 生物 反应器 : 内径 12.5 cm , 高 1.2 m , 有效 体积 为 12L , 反应器 内 悬挂 软性 填料 ; 好 氧 生物 接触 氧化 反应器 : 内径 18cm , 高 1.2 m , 有效 体积 为 24L , 反应器 内 悬挂 软性 填料 ; 生物 活性炭 反应器 : 内径 3.3 cm , 高 42.5 cm , 有效 体积 为 184mL , 反应器 内 装 颗粒状 活性炭 ( HG3 - 1290 - 80 ) . 上述 反应器 均 为 有机玻璃 园柱 ; 臭氧 氧化 反应器 ( 清华大学 机械 设备厂 ) . 
+ 2   结果 与 分析 
+ 2.1   原水 水质 测定 
+ 　 　 聚醚 废水 水质 变化很大 , 其 COD 值 最低 为 408mg / L , 最高 可达 8114mg / L . 图 2 是 3 次 24h   ( 每 2h 取 1 次 水样 ) 水质 调查结果 . 从图 2 可 看出 , 聚醚 废水 水质 即使 在 几小时 内 也 要 发生 很大 的 变化 . 为了 使水 处理 设备 能 稳定 地 运行 , 需要 设置 调节 池 , 调节 聚醚 废水 水质 , 以 减小 对 处理 设备 的 冲击 负荷 .   
+ 
+ 图 2 　 不同 时间段 原水 水质 中 COD 的 变化 
+ Fig.2   COD   changes   of   original   water   during   different   time   periods 
+ 2.2   中 和 及 混凝 试验 
+ 　 　 原水 pH = 5.5 , COD 约 3500mg / L . 投加 氢氧化钙 调节 pH 值 , 结果表明 , 6.7 为 最 适宜 pH 值 , 出水 平均 COD = 2500mg / L , 去除率 最高 为 28% , 这 可能 是 聚醚 表面 活性剂 类 废水 的 一个 特点 . 因 多元醇 醚 极性 一般 较强 , 加入 适当 的 碱 可以 降低 多元醇 醚 的 极性 , 使 其 在 水中 的 溶解度 降低 , 因此 , 对于 这 类 废水 , 中 和 是 很 重要 的 处理 步骤 . 混凝剂 的 种类 和 投加量 的 实验 结果表明 , 加入 聚合 氯化铝 ( PAC ) 100mg / L , COD 降至 2026mg / L , 去除率 可达 19% . 
+ 2.3   厌氧 和 好 氧 生物 接触 氧化 试验 
+ 　 　 厌氧 和 好 氧 生物 接触 氧化 试验 结果 见表 1 . 两个 工况 ( 第一 工况 : 实验 1 ～ 6 ; 第二 工况 : 实验 7 、 8 ) 总 水力 停留时间 分别 为 36h 和 48h , 但 厌氧段 出水 COD 值 与 进水 COD 值 相比 变化 都 不大 , 一般 认为 有机物 主要 在 好氧段 被 氧化 分解 , 在 厌氧段 大分子 有机物 可能 被 水解 成小 分子 有机物 , 促进 好氧段 的 生物降解 . 考虑 到 水力 停留时间 越长 , 反应器 的 体积 越大 , 则 工程 的 基建投资 越高 , 因此 , 选择 第一 工况 , HRT = 36h , 结果表明 , 好氧段 出 水中 COD 值 在 1000mg / L 左右 , COD 去除率 仍 达到 了 44% 以上 . 
+ 表 1 　 厌氧 + 好 氧 生物 接触 氧化 试验 结果 
+ Table   1   Results   of   anaerobic   treatment   and   biological   contact   oxidation   process 
+ 序号 进水 COD 值 ( mg / L ) 厌氧段 出水 COD 值 ( mg / L ) 好 氧 生物 接触 氧化 段 出水 COD 值 ( mg / L ) COD 去除率 ( % ) 
+ 117601837130926 
+ 21971190189854 
+ 32245231598256 
+ 419431749114341 
+ 522912312120048 
+ 619122120112441 
+ 72010221499353 
+ 821042310118144 
+ 
+ 　 　 注 : 厌氧 反应 水力 停留时间 : 1 ～ 6 为 12h , 7 ～ 8 为 16h ; 好 氧 生物 接触 氧化 
+ 　 　 反应 水力 停留时间 : 1 ～ 6 为 24h , 7 ～ 8 为 32h ; 1 ～ 8 为 间歇 进水 序号 
+ 2.4   生物 活性炭 试验 
+ 　 　 水力 停留时间 ( HRT ) 为 8h , 进水 为 厌氧 + 好 氧 生物 接触 氧化 的 出水 . 试验 结果 见表 2 . 
+ 表 2 　 生物 活性炭 试验 结果 
+ Table   2   Result   of   biological   active   carbon   treatment 
+ 序号 进水 COD 值 ( mg / L ) 出水 COD 值 ( mg / L ) COD 去除率 ( % ) 
+ 1144512991 
+ 272516178 
+ 399315984 
+ 499317183 
+ 599315484 
+ 
+ 　 　 因 生物 接触 氧化 的 出水 COD 值 仍 高达 800 ～ 1300mg / L , 还 未 达到 排放 标准 , 所以 须 对 其 出水 作 进一步 处理 . 生物 活性炭 技术 充分利用 活性炭 的 吸附 作用 和 微生物 对 有机物 的 降解 作用 , 它 延长 了 活性炭 的 工作 周期 并 提高 了 有机物 的 去除率 . 试验 结果表明 , 当 水力 停留时间 为 8h , 出 水中 COD 值 可 降到 150mg / L 左右 , 平均 COD 去除率 达到 84% , 累计 去除率 为 96% . 
+ 2.5   臭氧 氧化 
+ 　 　 为 使出 水中 的 COD 值 小于 100mg / L , 采用 臭氧 氧化 法对 出水 作 进一步 处理 . 进 水中 COD 值为 147mg / L , 臭氧浓度 10mg / L , 气水 接触 时间 5 ～ 15min , 出水 COD 值为 97mg / L . 
+ 3 　 聚醚 废水 的 处理工艺 
+ 　 根据 实验 结果 及 分析 , 采用 中 和 混凝 - 生物 厌氧 + 好 氧 - 生物 活性炭 组合 工艺 可以 有效 地 处理 难 降解 的 聚醚 废水 , 使 COD 的 去除率 达 96% 以上 , 出水 COD 为 150mg / L . 根据上述 实验 结果 设计 了 聚醚 废水处理 工艺流程 ( 图 3 ) . 主要 设备 的 水力 停留时间 、 相应 的 累计 COD 去除率 见表 3 . 此 工艺流程 及 运行 参数 对 聚醚 类 有机 废水 的 处理工艺 均 有 参考价值 . 
+ 
+ 图 3 　 聚醚 废水处理 流程 示意 
+ Fig.3   Flow   chart   of   treating   polyaether   wastewater 
+ 1 . 调节 池   2 . 隔 油池   3 . 中 和 、 混凝池   4 . 沉淀池   5 . 厌氧 反应 池 
+ 6 . 好 氧 生物 接触 氧化 反应 池   7 . 沉淀池   8 . 生物 活性炭 反应 池 
+ 9 . 化学 氧化 反应 池   10 . 污泥 处理 
+ 表 3   各 设备 的 运行 参数 及 COD 累计 去除率 
+ Table   3   Parameters   of   runingequipment   and   add   up   COD   removal   rate 
+ 设备 名称 水力 停留时间 ( h ) COD 累计 去除率 ( % ) 
+ 调节 池 16 　 
+ 隔 油池 85 
+ 中 和 、 混凝池 及 沉淀池 235 
+ 厌氧 反应 池 12 　 
+ 好 氧 生物 接触 氧化 反应 池 2471 
+ 生物 活性炭 反应 池 896 
+ 化学 氧化 反应 池 0.597 
+ 
+ 4   结 　 论 
+ 4.1   当 聚醚 废水 进水 COD 为 3000 ～ 4000mg / L 时 , 经过 中 和 混凝 沉淀 - 生物 厌氧 + 好 氧 - 生物 活性炭 组合 工艺 处理 , 聚醚 废水 的   COD 去除率 达 96% , 出水 COD 值为 150mg / L . 实验 证明 , 中 和 混凝能 有效 地 降低 生物 处理 的 冲击 负荷 , 聚醚 废水 中 COD 的 去除 效果显著 . 调节 pH 值为 6.7 、 聚合 氯化铝 的 投加量 为 100mg / L 时 , COD 去除率 达 28% . 
+ 4.2   厌氧 - 好 氧 两个 工况 的 研究 表明 , 停留时间 的 延长 对 聚醚 废水 的 处理 效果 影响 不 大 , 说明 聚醚 废水 中 存在 生物 难 降解 物质 , 因此 欲 达到 较 高 的 排放 标准 , 采用 生物 活性炭 吸附 作用 是 必要 的 . 而 化学 氧化 段 的 采用 与否 可视 排放 要求 而定 ． 
+ 作者简介 ： 王   慧 ( 1969 - ) , 女 , 辽宁 鞍山人 , 清华大学 环境 科学 与 工程系 讲师 , 博士 , 主要 从事 难 降解 有机 废水 的 降解 过程 和 机制 以及 有关 环境 化学分析 方面 的 教学 和 研究 工作 . 承担 过 国家自然科学基金 项目 “ 藻类 天线 系统 复合物 能量 传递 机制 的 研究 ” ; 国家 “ 八五 ” 科技 攻关项目 “ 变藻 蓝 蛋白 核心 复合物 结构 与 功能 的 研究 ” 等 研究 工作 . 发表 论文 13 篇 . 
+ 作者 单位 ： （ 清华大学 环境 科学 与 工程系 , 环境模拟 与 污染 控制 国家 联合 重点 实验室 , 北京   100084 ） 
+ 参考文献 ： 
+ [ 1 ] 许保玖 . 当代 给水 与 废水处理 原理 [ M ] .   北京 : 高等教育出版社 , 1991 , 206 . 
+ [ 2 ] Babu   Z   F ,   Timothy   M   V .   Complete   degradation   of   polychlorinated   hydrocarbons   by   a   two   stage   biofilm   reactor   [ J ] .   Applied   and   Environmental   Microbiology ,   1991 , 12 : 3418 -   3422 . 
+ [ 3 ] Khodadoust   A   P ,   Wagner   J   A ,   Suidan   M   T , et   al . Anaerobic   treatment   of   PCP   in   fluidized - bed   GAC   bioreactors   [ J ] .   Water   Research ,   1997 , 31 ( 7 ) : 1776 -   1786 . 
+ [ 4 ] Buxton   G   V ,   Greenstock   C   L ,   Helman   W   P , et   al .   Critiacal   review   of   rate   constants   for   reactions   of   hydrated   electrons   and   hydrogen   atoms   and   hydroxyl   radicals   ( . OH / . O - )   in   aqueous   solution   [ J ] .   J .   Phys .   Chem .   Ref .   Data ,   1998 , 17 : 515 -   519 . 
+ 收稿 日期 ： 1998 - 11 - 03 

@@ -1,0 +1,101 @@
+计算机 应用 
+ Computer   Applications 
+ 1999 年   第 19 卷   第 7 期     Vol.19   No.7   1999 
+ 
+ 
+ 
+ 开放 网络 环境 中 Agent 的 管理 概念模型 
+ 孙玉冰 
+ 　 　 摘 　 要 　 本文 重点 讲述 了 一种 在 开放式 网络 环境 中 对 ISA 进行 管理 的 模型 （ 简称 为 ISAMM ） , 包括 它 的 四个 主要 性质 、 信息 流程 及其 优点 。 最后 ， 对 ISAMM 和 目前 网络 中 关于 ISA 的 管理 方法 作 了 比较 ， 并 指出 了 值得 深入研究 的 相关 方向 。 
+ 　 　 关键词 　 Agent , 兼容性 , 自主性 , 真实性 , 安全性 
+ 　 　 
+ INTERNET   SOFTWARE   AGENT   MANAGEMENT   MODEL 
+ 
+ Sun   Yubin 
+ Department   of   Information   Science ,   Mathematics   College ,   Peking   University ,   Beijing   100871 
+ 
+ 　 　 Abstract 　 In   this   article ,   " ISAMM " ,   a   new   conceptual   model   of   managing   Internet / Intranet   software   agents   is   introduced .   Comparing   with   current   ISA   managing   methods ,   ISAMM   has   four   main   characteristics   and   its   own   information   flow .   At   the   end ,   we   list   some   merits   of   ISAMM   and   several   directions   that   worthy   of   deeply   researching . 
+ 　 　 Keywords 　 Agent ,   Compatibility ,   Autonomy ,   Reality ,   Security 
+ 
+ 　 　 Internet / Intranet 的 飞速发展 使得 网络 信息 和 数字 资料 的 数量 呈 指数 级 增长 ， 人们 希望 通过 网络 检索 资源 或者 浏览 资料 时 往往 觉得 无从下手 。 如何 帮助 人们 快速 有效 地 检索 资源 、 按照 常识 和 理性 处理事务 、 自动 协助 人们 探索 资源 的 合理配置 等 一系列 问题 也 随之 产生 。 为了 解决 上述 问题 ， 人们 综合 运用 计算机技术 和 AI 技术 ， 实现 了 许多 Web   Agent 。 这些 ISA 一般 运行 于 网络 环境 中 ， 帮助 人们 寻找 资源 ， 建立 网络 索引 或 完成 其它 有用 的 工作 。 本文 重点 论述 使用 范围 较广 的 一种 Web   Agent ， 即 Web   Spider ［ 1 ］ 。 为 便于 介绍 ， 以下 将 它 称为 Agent 。 
+ 　 　 Agent 可以 分为 Benevolent   Agent   和 Malevolent   Agent 两种 。 一般而言 ， Agent 设计者 需要 注意 两个 问题 ， 即 ROBOTS 协定 和 访问 频次 协定 ［ 2 ］ ［ 3 ］ 。 
+ 　 　 在 开放式 网络 环境 下 实现 对 Agent 的 有效 管理 是 一个 重要 而 复杂 的 问题 。 由于 网络 环境 的 复杂性 、 开放性 ， Agent 程序设计 的 灵活性 以及 网络 本身 存在 的 安全漏洞 等 ， 均 导致 了 Agent 管理 问题 的 复杂性 和 难以 实施 。 本文 论述 了 一种 新 的 ISA 的 管理 方案 ， 称为 “ ISAMM ” ( Internet   Software   Agent   Management   Model ) 。 　 　 
+ 1 　 ISAMM 
+ 　 　 David   Eichmann 在 “ Ethical   Web   Agent ” 文中 定义 了 Ethical   Agent 并 指出 了 Web   Service   Agent 和 Web   User   Agent 所 应该 具有 的 性质 ［ 9 ］ ［ 10 ］ 。 Etzioni 在 “ A   Softbot - based   Interface   to   the   Internet ” 中 列出 了 Web   Agent   ( Softbot ) 安全 体系 的 主要 特征 ： Safe ,   Tidy ,   Thrifty 和 Vigilant ［ 4 ］ 。 在 目前 的 开放式 网络 环境 中 ， 只 存在 一些 关于 ISA 的 管理 方法 ， 尚未 形成 完善 的 管理体系 。 这些 管理 方法 主要 包括 两个 协定 ［ 2 ］ ［ 3 ］ 。 
+ 1.1 　 ROBOTS 协定 
+ 　 　 对于 Web 管理者 而言 ， 有时 需要 禁止 某些 Spider 访问 一些 站点 或者 站点 上 的 某些 资源 。 目前 ， 普遍 采取 的 做法 是 创建 ROBOTS . TXT 文件 ， 并存 放在 服务器 的 缺省 目录 下 。 在 文件 中 规定 所 限定 的 Agent 和 限定 Agent 所 访问 的 资源 。 下面 仅举 几例 加以 说明 ： 
+ 　 　 （ 1 ）   User - Agent : * 　 Disable :   / 
+ 　 　 　 　 　 禁止 所有 的 Agent 访问 本 站点 。 
+ 　 　 （ 2 ）   User - Agent : * 　 Disable :   / private 
+ 　 　 　 　 　 禁止 所有 的 Agent 访问 本 站点 上 / private 目录 下 的 资源 。 
+ 　 　 （ 3 ）   User - Agent :   Spider 　 Disable :   / 
+ 　 　 　 　 　 禁止 Spider   Agent 访问 本 站点 。 
+ 　 　 对于 Web   Server 而言 ， 创建 ROBOTS . TXT 文件 来 限定 Agent 的 访问 活动 只是 其 意愿 。 如果 要 实现 这 一点 ， 首要条件 是 要求 访问 该 站点 的 ISA 为 Benevolent   Agent 。 Web   Server 并 不能 阻止 Malevolent   Agent 对 其 的 攻击 式 访问 。 
+ 1.2   　 访问 频次 协定 
+ 　 　 上面 所述 的 是 Web   Server 部分 资源共享 性 的 丧失 ， 下面 讲述 可能 由于 Malevolent   Agent 的 访问 而 造成 Web   Server 性能 的 丧失 。 当 ISA 运行 时 ， 不但 要 占用 运行 它 的 机器 的 内存 和 处理器 资源 ， 而且 ISA 使用 网络 来 检索 文档 ， 所以 它 要 占用 网络连接 的 带宽 ， 同时 还要 使用 服务器 的 处理器 、 内存 和 网络资源 。 因此 ， 快速 的 ISA 应用程序 很 可能 损坏 服务器 ， 因为 它 可能 使得 服务器 的 负荷 、 内存 和 资源 达到 饱和 。 即使 负载 并 没有 使得 服务器 崩溃 ， 也 可能 使 服务器 停止 ， 直到 负载 减轻 后 才能 继续 工作 。 一个 Spider 对 网络 中 的 某 一 服务器 采用 上述 的 访问 方式 是 不 允许 的 ， 也 是 不可 接受 的 。 在 网络 中过 多 地 请求 一台 服务器 以至于 它 不能 正常 工作 ， 称为 “ 轰击 ” ， 也 称为 “ 否认 服务性 攻击 ” （ Spamming ） 。 
+ 　 　 目前 ， 网络 中 关于 Agent 的 管理 协定 并 不能 真正 有效 地 防止 Malevolent   Agent 的 恶意 攻击 。   Malevolent   Agent   可能 访问 Web   Server 禁止 其 访问 的 资源 ； 也 可能 因为 过频 地 请求 服务器资源 而 造成 服务器 性能 的 急剧 降低 ， 甚至 失去 处理 其它 请求 的 能力 。 Hyacinth   S .   Nwana 也 曾经 指出 关于 Mobile   Agent 的 几个 主要 面临 的 问题 和 需要 深入研究 的 方向 ［ 1 ］ 。 因此 迫切需要 一种 新 的 ISA 的 管理 方案 ， 以 实现 对于 开放式 网络 环境 中 ISA 的 更为 安全 、 有效 、 高效 的 管理 ， 本文 将 这种 新 的 方案 缩写成 “ ISAMM ” 。 图 1 给出 了 ISAMM 的 示意图 。 　 　 
+ 
+ 
+ 
+ 图 1 　 ISAMM 示意图 
+ 　 　 ISAMM 的 提出 、 定义 和 实施 应该 具有 以下 特征 ： 兼容性 、 自主性 、 真实性 、 安全性 ， 另外 在 特定 环境 下 ， ISAMM 还 可以 具有 其它 一些 性质 。 下面 分别 对 上述 特征 作以 论述 ： 
+ 　 　 兼容性 　 目前 ， 网络 上 已经 存在 各种 纷繁复杂 的 信息 资源 ， 这些 资源 各有 其 特殊 的 存放 格式 和 传输 格式 ， 而且 为了 便于 网络通讯 和 保证 接口 的 一致性 ， 人们 已经 制定 和 实施 了 多种 协议 ， 如 HTTP 、 FTP 、 TCP / IP 等 。   ISAMM   的 实施 ， 应该 尽可能 在 保持 与 上述 内容 一致 的 基础 上 ， 达到 在 开放式 网络 环境 中 对   ISA 实施 安全 、 有效 、 合理 管理 的 目的 ， 甚至 ISAMM 可以 制定 自己 的 规范 和 协议 ， 但 必须 保证 与 其他 协议 无 矛盾 和 无 冲突 。 
+ 　 　 自主性 　 在 ISAMM 中 ， 应该 允许 Web   Server 以 人工 或者 自动 的 方式 享有 自主权 ， 应该 保证 Web   Server 或者 Web   Server 管理员 能够 对 向 它 提出 请求 的 所有 ISA 进行 授权 和 根据 不同 ISA 的 MBR 、 VCA 以及 其他 参数 来 对 ISA 的 访问 资源 限制 进行 维护 。 
+ 　 　 真实性 　 在 ISAMM 中 ， 每 一个 在 网络 环境中运行 的 ISA 应该 是 真实 的 ， 这里 的 “ 真实 ” 的 含义 是 ： 每 一个 ISA 应该 是 经过 注册 和 认证 的 Benevolent   Agent 。 鉴于 这 一点 ， 需要 在   ISAMM 中 建立 一个 或 多个 ISA - CA （ ISA   Authentication   Center ） 以 对 不同 的 ISA 进行 区分 和 认证 。 
+ 　 　 安全性 　 因为 目前 在 开放式 网络 环境 中 ISA 管理 方法 并 不能 有效 地 防止 Malevolent   Agent 对 Web   Server 的 攻击 式 访问 和 访问 Web   Server 禁止 其 访问 的 资源 ， 因此 实施 ISAMM 的 一个 重要 目的 是 增强 ROBOTS 协定 和 访问 频次 协定 ， 保护 Web   Server 的 信息 资源 ， 增加 资源 的 共享性 。 ISAMM 允许 Web   Server   对 不同 的 ISA 进行 授权 和 对 ISA 能够 访问 的 信息 资源 进行 维护 ， 允许 ISA - CA 对 ISA 进行 注册 登记 和 鉴证 以及 AIN 和 ISA 相关 信息 的 加密 存储 ［ 5 ］ 。 另外 ，   ISAMM   能够 跟踪 所有 ISA 尝试 进行 恶意 行为 的 活动 ， 以便 分析 判别 之用 。 
+ 　 　 其它 性质 　 ISAMM 在 保证 上述 四条 性质 的 同时 ， 根据 实施 的 不同 环境 还 可以 具有 其他 一些 性质 。 比如 ： 可以 对 所有 注册 的 ISA 进行 某种 条件 下 的 排序 ， 可以 跟踪 某种 特定 ISA 的 所有 网上 活动 等 。 
+ 
+ 2 　 ISAMM 系统   ( ISAMS ) 
+ 　 　 ISAMS 从 系统 组成 上 可以 分为 三层 ： 第一层 为 ISA - CA ， 也 即 所有 系统 中 的 Agent   和 Web   Server 的 授权 中心 及 认证 中心 ； 第二层 为 Agent 集合 和 ISA 集合 ， 它们 是 ISAMM 的 管理 对象 ； 第三层 为 开放式 网络 环境 中 独立 存在 的 Agent 和 Web   Server ， 如图 2 所示 。 　 　 
+ 
+ 
+ 图 2 　 ISAMS 的 系统 架构 
+ 　 　 假定 Spider 名称 为 Alice ( A ) ， Web   Server 名称 为 Bob ( B ) ， Alice 将 使用 ISAMS 方案 与 开放 网络 环境 中 的 服务器 Bob 进行 通讯 。 图 3 给出 了 ISAMM 信息 流程 示意图 。 　 　 
+ 
+ 
+ 图 3 　 ISAMM 系统 信息 流程 示意图 
+ 　 　 其中 Spider   A 为 开放 网络 环境 中 的 Software   Agent ， 取名 Alice （ A ） ； ISA - CA 为 ISA   的 认证 中心 （ ISA   Authentication   Center ） ； Web   Server   B 为 网络 中 的 一台 提供 资源 和 信息 服务 的 服务器 ， 取名为 Bob （ B ） 。 
+ 　 　 整个 信息 流程 可 分为 以下 几 部分 ： Agent 的 注册 及 AIN 的 分发 ， HTTP 请求 - 响应 信息 流程 ， 以及 Server （ Bob ） 请求 ISA - CA 对 Agent （ Alice ） 进行 认证 。 
+ 2.1 　 Agent 的 注册 及 AIN 的 分发 
+ 　 　 Alice   A 在 开始运行 于 网络 上 之前 ， 应该 先 向 网络 中 的 ISA - CA 服务器发送 HTTP 注册 请求 。 ISA - CA 在 接受 到 Alice   A 的 请求 之后 ， 首先 判断 Alice   A 是否 已经 注册 ， 若 是 ， 发送 拒绝 响应 信息 ； 否则 ， 根据 Alice   A 的 注册 请求 内容 分配 Alice   A 的 标示 码 AIN ， 然后 将 AIN 及 响应 信息 发送给 Alice   A ， 同时 存储 关于 Alice   A 的 相关 信息 。 图 3 中 的 ISA - CA 主要 负责 Agent 标示 码 （ AIN ） 的 产生 与 分发 、 Agent 信息 的 加密 存储 、 Key 的 安全 管理 、 响应 Server 对 Agent 认证 的 请求 、 记录本 机 日志 等 功能 。 
+ 2.2 　 HTTP 请求 - 响应 信息 流程 
+ 　 　 Alice 经过 注册 并 被 成功 地 分配 了 AIN 之后 ， 就 可以 在 开放式 网络 环境中运行 了 ， 既 可以 向 任何 一台 服务器发送 HTTP 请求 ， 也 可以 接受 来自 任何 一台 服务器 发来 的 信息 。 下面 参照 图 4 ， 以 Alice   使用 HTTP 协议 请求 服务器 Bob 发送 文档 sample . doc 为例 说明 ISAMS 中 一个 HTTP 请求 - 响应 的 流程 ［ 7 ］ 。 　 　 
+ 
+ 
+ 图 4 　 HTTP 请求 - 响应 处理 流程 
+ 　 　 （ 1 ）   Alice 与 服务器 Bob 建立 连接 。 
+ 　 　 （ 2 ）   Alice 发送 HTTP 请求 给 Bob ， 请求 中 除了 HTTP 协议 所 规定 的 信息 之外 ， 还 包含 AIN 。 
+ 　 　 （ 3 ）   Bob 侦听 到 Alice 发来 的 请求 后 ， 启动 服务器程序 进行 请求 处理 。 
+ 　 　 （ 4 ）   Bob 将 请求 结果 发送给 Alice ， 记录 日志 并 断开 与 Alice 的 连接 。 
+ 　 　 在 上述 流程 中 ， ISAMM 主要 作用 在 第 (   3   ) 步 。 具体 说明 如下 ： 
+ 　 　 Bob 接收 到 Alice 发来 的 HTTP 请求 后 ， 首先 根据 请求 信息 中 的 AIN 检查 本地 Agent   Database 中 是否 存在 Alice 的 有关 信息 ， 如果 没有 ， 则 Alice 是 第一次 访问 本 服务器 ， Bob 则 请求 ISA - CA 对 Alice 进行 验证 ， 具体 见 2.3 。 否则 ， Bob 检测 Alice 是否 为 Benevolent   Agent ， 若 是 ， 则 根据 Alice 所 请求 的 sample . doc 文档 检查 Alice 的 访问 权限 和 资源 访问 限制 ， 如果 可以 访问 ， 则 Bob 按照 正常 的 HTTP 响应 的 方式 处理 该 响应 ， 同时 记录 与 Alice 有关 的 访问信息 ， 并 重新 计算 和 更新 与 Alice 有关 的 参数 ， 如 MBR   ( Malevolent / Benevolent   Ratio ) ， VCA ( Visiting   Counts   of   Agent ) 等 。 如果 Alice 所 请求 的 资源 sample . doc 为 Bob 限制 Alice 访问 的 资源 ， 则 Bob 向 Alice 发送 警告 信息 ， 并 更新 Alice 的 有关 参数 。 
+ 2.3 　 Server 请求 ISA - CA 对 Agent 进行 认证 
+ 　 　 服务器 Bob 发送 验证 Agent 标示 码 的 请求 给 ISA - CA ， 同时 发送 Alice 的 AIN 及 相关 信息 ， ISA - CA 接收 到 请求 后 ， 检索 本地 Agent   Database ， 如果 存在 Alice 有关 的 信息 ， 则 说明 Alice 已经 注册 成功 ， 此时 ISA - CA 发送 确认 消息 给 Bob ， 消息 中 包含 Alice 有关 的 信息 ， 此时 Bob 就 可以 处理 Alice 的 请求 了 。 如果 Alice 没有 经过 注册 ， 则 ISA - CA 发送 拒绝 消息 给 Bob ， Bob 接受 到 该 消息 之后 ， 则 可以 发送 “ 请 注册 到 ISA - CA ” 等 内容 给 Alice ［ 9 ］ 。 　 　 
+ 
+ 
+ 图 5 　 服务器 请求 ISA - CA 对 AIN 进行 验证 
+ 
+ 3 　 ISAMM 优点 及 可能 扩展 
+ 　 　 综上所述 ， ISAMM 与 现有 的 ISA 管理 方法 相比 具有 以下 优点 ： 
+ 　 　 ISAMM 使得 Web   Server 或 Web   Server 管理员 可以 对 不同 的 Agent 进行 授权 ， 包括 访问 权限 限制 和 访问 资源 限制 ， 从而 防止 Agent 的 恶意 攻击 和 限制 不同 的 Agent 访问 不同 的 资源 ； 
+ 　 　 在   ISAMM 中 ， Web   Server 或 Web   Server   管理员 可以 正确 决策 提出 请求 的 Agent 的 MBR ， 从而 有所区别 地 对 不同 的 Agent （ Benevolent   /   Malevolent   Agent ） 进行 不同 的 响应 ； 
+ 　 　 ISAMM 在 一定 程度 上 加强 了 ROBOTS 协定 和 访问 频次 协定 ， 杜绝 了 上述 两 协定 所 存在 的 问题 ， 使得 Web   Server 可以 直接 对 Agent 的 访问 权限 和 访问 行为 进行 控制 ； 
+ 　 　 保证 ISA 私有 数据 的 透明性 。 由于 ISA - CA 的 存在 ， 使得 ISA 拥有 了 不同 的 但 也 是 唯一 的 AIN 。 ISA 经过 注册 和 被 成功 分配 AIN 之后 ， 则 无论 发送 请求 还是 接收 响应 ， 均 只 需要 使用 AIN 来 标示 自己 ， 一则 可以 减少 发送 请求 的 数据量 ， 二则 可以 隐藏 Agent 本身 的 有关 信息 ， 保证   Agent 本身 相对 于 开放 网络 的 透明性 ； 
+ 　 　 可以 跟踪 所有 Agent 的 访问信息 ， 从而 保证 正常 的 网络 秩序 。 同时   ISA - CA 可以 通过 对 注册 的 Agent 进行 数据分析 而 得出 有 意义 的 结果 。 　 　 
+ 4 　 相关 的 问题 
+ 　 　 网络 环境 的 开放性 、 复杂性 和 Agent 程序设计 的 灵活性 、 功能 的 多样性 ， 使得 在 开放 网络 环境 中 实施 对 Agent 的 管理 显得 极为 困难 。 目前 的 管理 方法 并 不能 防止 Malevolent   Agent 破坏 行为 的 出现 ， 同时 使得 Web   Server 的 资源 丧失 了 部分 共享性 ， 因此 迫切需要 一种 更为 主动 、 有效 、 合理 的 管理 方案 以 达到 既定 目的 。 ISAMM 可以 有效 地 防止 Agent 对 Web   Server 的 攻击 和 访问 未经 授权 访问 的 资源 ， 又 可以 保证 HTTP 请求 - 响应 的 顺利进行 ， 同时 Web   Server 和 ISA - CA 还 可以 联合 规范 Agent 的 行为 。 因此 ISAMM 的 实施 ， 可以 保证 在 网络 环境 中 有效 管理 Agent ， 保证 网络 向着 健康 、 有序 的 方向 发展 。 
+ 　 　 将来 关于 ISAMM 的 研究 主要 集中 在 以下 几个 方面 ： 引入 信息安全 技术 及 安全 机制 ［ 5 ］ ［ 8 ］ ， 增加 ISAMM 的 加密 、 鉴证 、 防 假冒 、 防 抵赖 能力 ； 目前 Web   Server 管理员 需要 根据 ISAMM 决定 的 MBR 手工 维护 特定 Agent 的 访问 权限 和 相应 的 资源 访问 限制 ， 将来 可以 由 Web   Server 本身 利用 人工智能 技术 直接 根据 MBR 决定 Agent 的 相关 权限 ， 并 自动 对 Agent 的 访问 权限 和 资源 限制 进行 管理 ； ISA - CA 的 分布式 数据 资源 分布 ， 可以 在 开放式 网络 环境 中 设置 多个 ISA - CA ， 以 保证 认证 请求 和 注册 请求 的 快速 响应 ， 但 需注意 数据 的 完整性 和 一致性 ； ISAMM 不但 可以 对 ISA   进行 注册 和 认证 ， 还 可以 实施 对 Web   Server 的 注册 和 认证 。 
+ 　 　 孙玉冰 　 博士 研究生 。 主要 研究 方向 ： 人工智能 和 软件 Agent 。 
+ 　 　 作者 单位 ： 孙玉冰 （ 北京大学 数学 科学 学院 信息 科学系 　 北京 100871 ） 
+ 参考文献 
+ ［ 1 ］ 　 Hyacinth   S .   Nwana .   Software   Agent :   An   Overview   Knowledge   Engineering   Review ,   1996 
+ ［ 2 ］ 　 Martjin   Koster .   Guide   for   robot   Writers .   Nexor   Corp . http : / /   web . nexor . co . wk / mak /   doc / robots /   guide - lines . html 
+ ［ 3 ］ 　 Martjin   Koster .   A   Standard   for   Robot   Exclusion .   Nexor   Corp .   http : / / web . nexor . co . wk / mak / doc / robots / norobots . html 
+ ［ 4 ］ 　 Etzioni   O .   Weld   D . A   Softbot - based   Interface   to   the   Internet . CACM ′ 96 
+ ［ 5 ］ 　 孙玉冰 .   信息安全 技术 及其 在 ATM 网络 中 的 应用 .   Computer   &   Communication (   Financial   Computerization   ) ,   1996 
+ ［ 6 ］ 　 HTTP :   A   protocol   for   networked   Information   , http : / / info . cern . ch / hypertext / WWW /   protocol /   HTTP / HTTP2 . html 
+ ［ 7 ］ 　 ISO   Standard   8879   SGML :   Standard   Generalized   MarkupLanguage ,   ftp : / / ftp . ifi . uio . no / pub / SGML / SGMLs 
+ ［ 8 ］ 　 SET :   Secure   Electronic   Transaction ,   http : / / www . visa . com / 
+ ［ 9 ］ 　 Eichmann   David .   The   RBSE   Spider - - Balancing   Effective   Search   Against   Web   Load .   The   First   International   Conference   on   the   WWW .   May   25 - 27   1994 
+ ［ 10 ］   Eichmann   David .   Ethical   Web   Agents   RBSE   Program . University   of   Houston - Clear   Lake   . 
+ 收稿 日期 : 1999 - 04 - 05 ( 修改稿 ) 

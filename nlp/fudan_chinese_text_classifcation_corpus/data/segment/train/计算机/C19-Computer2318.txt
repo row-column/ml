@@ -1,0 +1,131 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 　 Vol.36 　 No.6 　 P.690 - 694 
+ 
+ 
+ 
+ 视觉 基础 矩阵 的 统一 表示 
+ 吴福朝 　 于 洪川 　 袁波 　 韦穗 
+ 摘 　 要 ： 通用 的 基础 矩阵 表示 形式 为 F = K - T ［ t ］ × RK - 1 ， 其中 ： K 为 摄像机 内 参数 阵 ， R , t 分别 为 摄像机 的 旋转 矩阵 与 平移 矢量 . 纯 旋转 运动 所 对应 的 基础 矩阵 并 不 包含 在 此 表达式 之中 . 文中 给出 一种 新 的 基础 矩阵 表达式 ： F = ［ e ′ ］ × KRK - 1 ， 其中 e ′ 是 极点 . 这个 表达式 统一 了 纯 旋转 的 情形 . 更 重要 的 是 在 末 标定 的 情况 下 ， 由此 表达式 可 使 求解 摄像机 内 参数 、 运动 参数 等 问题 得到 简化 . 
+ 关键词 ： 主动 视觉 ， 外极 几何 ， 基础 矩阵 
+ 分类号 ： TP18 
+ AN   UNIFORM   EXPRESSION   OF   THE   FUNDAMENTAL   MATRIX 
+ WU   Fu - Chao ， YU   Hong - Chuan ， YUAN   Bo ， WEI   Sui 
+ ( Institute   of   Artificial   Intelligence   of   Anhui   University ,   Hefei   230039 ) 
+ Abstract ： The   fundamental   matrix ' s   expression   is   usually   F = K - T ［ t ］ × RK - 1 ,   where   K   is   the   intrinsic   parameters   matrix   of   camera , and   R   and   t   is   the   rotation   matrix   and   the   translation   vector   of   camera   respectively .   The   expression   is   not   valid   when   using   the   pure   rotation .   In   the   paper   here ,   a   new   expression   of   the   fundamental   matrix   , F = ［ e ′ ］ × KRK - 1 ,   is   presented ,   where   e ′   is   epipolar   point . Net   only   the   expression   is   valid   when   using   the   pure   rotation ,   but   also   it   predigestes   the   following   problems ,   such   as ,   the   intrinsic   parameters   matrix ,   the   motion   parameters ,   and   structure   recovery   from   uncalibrated   stereo   rig . 
+ Key   words ： active   vision ,   epipolar   geometry ,   fundamental   matrix ▲ 
+ 1 　 引 　 　 言 
+ 　 　 在 主动 视觉 任务 中 ， 摄像机 内 参数 不 可能 总是 能 离线 地被 标定 ， 因此 我们 不能 假定 摄像机 内 参数 是 已知 的 ， 也就是说 在 主动 视觉 任务 中 所 获取 的 图像 通常 是 未 标定 的 . 从未 标定 的 图像 求解 匹配 关系 、 摄像机 内 参数 、 运动 参数 以及 立体 重构 等 问题 ， 基础 矩阵 扮演着 十分 重要 的 角色 ［ 1 ～ 6 ］ .   通常 使用 的 基础 矩阵 表示 形式 为 F = K - T ［ t ］ × RK - 1 ， 其中 ： K 为 摄像机 内 参数 阵 ， R ， t 分别 为 摄像机 的 旋转 矩阵 与 平移 矢量 . 此 表达式 有 下述 缺点 ： ①   纯 旋转 运动 所 对应 的 基础 矩阵 并 不 包含 在 此 表达式 之中 ； ②   不 便于 上述 问题 的 求解 .   本文 给出 一种 新 的 基础 矩阵 表达式 ： F = ［ e ′ ］ × KRK - 1 ， 其中 e ′ 是 极点 . 这个 表达式 统一 了 纯 旋转 的 情形 . 我们 的 研究 表明 ： 在 未 标定 的 情况 下 ， 由此 表达式 可 使 求解 摄像机 内 参数 、 运动 参数 等 问题 得到 简化 . 
+ 2 　 透视 模型 
+ 　 　 在 本文 中 我们 考虑 的 摄像机 模型 为 小孔 模型 . 在 此 模型 中 ， 摄像机 将场 景点 X 经过 光心 C 透视 到 像 平面 上 的 像素点 m .   光轴 是 自光 心且 垂直于 像 平面 的 一条 射线 ， 与 像 平面 交于 c 点 . 令像 平面 的 坐标系 为 c - xy ， 对应 的 摄像机 坐标系 为 C - XYZ ， 其中 Z 轴 与 光轴 重合 ， X , Y 轴 分别 平行 于 x , y 轴 ， 世界 坐标系 与 C - XYZ 重合 . 如果 摄像机 内 参数 矩阵 为 
+ 
+ 则 场 景点 X = （ X ， Y ， Z ） T 投影 到 像 平面 上 的 像素 坐标 m = （ x ， y ） T 满足 ： 
+ 
+ 　 　 如果 采用 齐次 坐标   m = （ u ， v ， w ） T ， 其中 u / w = x ， v / w = y ， 我们 有 ： 
+ m = KX 　 　 （ 1 ） 
+ 当 摄像机 作 刚体 运动 ， 旋转 矩阵 为 R ， 平移 向量 为 t 时 ， 新 的 摄像机 坐标系 为 C ′ - X ′ Y ′ Z ′ , 它 与 C - XYZ 之间 的 关系 为 X ′ = RX + t ， 则 场 景点 X = （ X ， Y ， Z ） T 在 当前 像 平面 上 的 像素 坐标 m ′ = 
+ ( u ′ , v ′ , w ′ ) \ + T 为 
+ m ′ = KRX + Kt 　 　 ( 2 ) 
+ 3 　 外极 几何 与 基础 矩阵 
+ 　 　 现在 考虑 摄像机 在 两个 视点 下 观察 同一 场景 的 情况 ， 如图 1 所示 . 令 C ， C ′ 分别 为 第 1 与 第 2 个 摄像机 的 光心 位置 ， C ′ 在 第 1 个 像 平面 I 上 的 投影 为 e ， C 在 第 2 个 像 平面 I ′ 上 的 投影 为 e ′ ， 它们 称为 外 极点 . 像 平面 I ( I ′ ) 上 通过 点   e （ e ′ ） 的 直线 称为 外极线 . 在 立体 视觉 中 ， 有 著名 的 外极 约束 ： 像 平面 上 I 任 一点 m ， 它 在 像 平面 I ′ 上 的 匹配 点 m ′ 必 位于 外极线 l ′ m 上 ； 类似 地 ， I ′ 像 平面 上任 一点 m ′ ， 它 在 像 平面 I 上 的 匹配 点 m 必 位于 外极线 lm ′ 上 . l ′ m 与 lm ′ 称为 对应 的 外极线 . 
+ 
+ 
+ 图 1 　 外极 几何 
+ 　 　 在 射影 空间 内 ， 像 平面 上 的 直线 l 可用 射影 坐标 来 表示 . 点 m 与 m ′ 的 外极线 l ′ m 与 lm ′ 的 射影 坐标 仍记 为 l ′ m 与 lm ′ ， 则 l ′ m 与 之 m 间 满足 一个 线性变换 ［ 7 ］ ： 
+ l ′ m = Fm 
+ F 是 秩 2 的 矩阵 ， 称为 基础 矩阵 . 
+ 　 　 因 m 的 匹配 点 m ′ 在外 极线 l ′ m 上 ， 故有 
+ m ′ TFm = 0 　 　 ( 3 ) 
+ 将 （ 3 ） 式 转置 ： 
+ mTFTmT = 0 
+ 它 表明 m ′ 对应 的 外极线 可 由 FTm ′ 表示 . 
+ 　 　 基础 矩阵 有 下述 基本 性质 ： 
+ 　 　 （ 1 ）   F 为 基础 矩阵 当且 仅 当 F 满足 （ 3 ） 式 且   rank （ F ） = 2 ； 
+ 　 　 （ 2 ）   极点 e 满足 Fe = 0 ， 极点 e ′ 满足 FTe ′ ＝ 0 ； 
+ 　 　 （ 3 ）   F   在 相差 一个 非零 常数 因子 下 是 唯一 的 . 
+ 4 　 基础 矩阵 与 内 参数 、 本质 矩阵 之间 的 关系 
+ 　 　 令 X = （ X ， Y ， Z ） 为任 一场 景点 ， m ∈ I , m ′ ∈ I ′ 是 一对 匹配 点 ， 由 （ 1 ） ， （ 2 ） 式 ： 
+ m = KX , m ′ = KRX + Kt 
+ 所以 
+ m ′ = KRK － 1m + Kt 
+ 即 
+ K － 1m ′ = RK － 1m + t 
+ 令 
+ 
+ 则 ［ t ］ × t = 0 ， 所以 
+ ［ t ］ × K － 1m ′ = ［ t ］ × RK － 1m 
+ 又 因 
+ m ′ TK － T ［ t ］ × K － 1m ′ = 0 
+ 所以 
+ m ′ TK － T ［ t ］ × RK － 1m = 0 
+ 因 rank （ K － T ［ t ］ × RK － 1 ） = 2 ， 故 
+ F ＝ K － T ［ t ］ × RK － 1 　 　 ( 4 ) 
+ 是 基础 矩阵 ， 其中 [ t ] × R 是 本质 矩阵 . 
+ 　 　 当 t = 0 时 ， ［ t ］ × = 0 ， 这样 F = 0 不是 基础 矩阵 . 即 摄像机 为 旋转 运动 时 ， 其 基础 矩阵 并 不 统一 在 表达式 （ 4 ） 之中 . 
+ 5 　 基础 矩阵 的 统一 表示 
+ 　 　 本 节 给出 基础 矩阵 的 统一 表达式 . 我们 有 
+ 　 　 定理 1 .   
+ F = ［ e ′ ］ × KRK - 1 　 　 ( 5 ) 
+ 　 　 证明 . 　 当 t ≠ 0 时 ， 由 （ 4 ） 式 
+ F = ( K － T ［ t ］ × K － 1 ) KRK － 1 
+ 所以 只须 证明 ： 在 相差 一个 常数 因子 的 意义 下 有 
+ K － T ［ t ］ × K － 1 ＝ ［ e ′ ］ × 
+ 　 　 由于 摄像机 的 初始 坐标系 与 刚体 运动 后 的 坐标系 之间 的 关系 为 X ′ ＝ RX ＋ t ， 因此 初始 光 心 位置 X = 0 在 运动 后 坐标系 中 的 坐标 为 X ′ = t ， 所以 e ′ = Kt 
+ 
+ 　 　 不难 计算 ： 
+ 
+ 所以 
+ 
+ 
+ 因此 ， 在 相差 一个 非零 常数 因子 的 意义 下 有 
+ K － T ［ t ］ × K － 1 ＝ ［ e ′ ］ × 
+ 所以 
+ F ＝ ［ e ′ ］ × KRK － 1 
+ 　 　 当 t = 0 时 ， 令 X = （ X ， Y ， Z ） T 为任 一场 景点 ， m = ( u , v , w ) T ∈ I , m ′ = ( u ′ , v ′ , w ′ ) ∈ I ′ 是 一对 匹配 点 ， 则 
+ m = KX ,   m ′ = KRX 
+ 所以 
+ m ′ = KRK － 1m 
+ 令 KRK － 1 = ( mij ) 3 × 3 ， 并令 ( u , v , w ) + T 的 欧几里得 坐标 为 ， 于是 
+ 
+ 从 上式 中 的 第 3 个 分量 知 
+ s ′ = s ( m31x + m32y + m33 ) 
+ 于是 有 
+ ( m31x + m32y + m33 ) ( x ′ , y ′ , 1 ) T = ( mij ) 3 × 3 ( x , y , 1 ) T 
+ 所以 
+ 　 　 ( 6 ) 
+ 从 （ 6 ） 式 中 消去 m31x + m32y + m33 得 
+ x ′ ( m21x + m22y + m23 ) ＝ y ′ ( m11x + m12y + m13 ) 
+ 即 
+ - m21xx ′ - m22yx ′ + m11xy ′ + m12yy ′ - m23x ′ + m13y ′ = 0 
+ 写成 矩阵 形式 ： 
+ 
+ 令 
+ 
+ 则 
+ m ′ TFm = 0 
+ 因 rank ( KRK － 1 ) = 3 ， 所以 rank （ F ） = 2 ， 故 F 是 基础 矩阵 . 
+ 令 e ′ = ( 0 ， 0 ， 1 ) T ， 则 
+ 
+ 根据 基础 矩阵 的 基本 性质 ( 2 ) ,   可 推知 e ′ 是 极点 . 因 
+ 
+ 故 定理 成立 . 
+ 6 　 结 　 　 语 
+ 　 　 在 本文 中 ， 我们 给出 了 基础 矩阵 的 统一 表示 ， 这种 表示 是 非常 有用 的 . 我们 的 研究 表明 ， 使用 本文 的 基础 矩阵 表示 式 ， 可 使 从未 标定 的 图像 求解 摄像机 内 参数 、 运动 参数 等 问题 得到 大为 简化 ， 这些 结果 将 在 另文 发表 . ■ 
+ 基金项目 ： 本 课题 得到 国家自然科学基金 和 国家 “ 八 六三 ” 计划 资助 . 
+ 作者简介 ： 吴福朝 ， 男 ， 1957 年 10 月生 ， 教授 ， 目前 主要 从事 人工智能 、 计算机 视觉 、 应用 数 　 　 　 　 　 　 学等 方面 的 科研 与 教学 工作 . 
+ 　 　 　 　 　 于 洪川 ， 男 ， 1969 年 6 月生 ， 博士 研究生 ， 主要 从事 计算机 视觉 、 虚拟现实 技术 方 　 　 　 　 　 　 面 的 研究 工作 . 韦穗 ， 女 ， 1946 年 4 月生 ， 教授 ， 博士生 导师 ， 副校长 . 目前 主要 从 　 　 　 　 　 　 事 计算机 视觉 、 模式识别 、 虚拟现实 技术 等 方面 的 研究 工作 . 
+ 作者 单位 ： 吴福朝 （ 安徽大学 人工智能 研究所 　 合肥 　 230039 ） 
+ 　 　 　 　 　 于 洪川 （ 安徽大学 人工智能 研究所 　 合肥 　 230039 ） 
+ 　 　 　 　 　 袁波 （ 安徽大学 人工智能 研究所 　 合肥 　 230039 ） 
+ 　 　 　 　 　 韦穗 （ 安徽大学 人工智能 研究所 　 合肥 　 230039 ） 
+ 参考文献 ： 
+ [ 1 ] Hartley   R   I .   Estimation   of   relative   camera   position   for   uncalibrated   cameras .   In :   Proc   European   Conf   on   Computer   Vision .   Santa - Margerita ,   Italy ,   1992 .   579 ～ 587 
+ [ 2 ] Deiche   R ,   Zhang   Z ,   Luong   Q   T   et   al .   Robust   recovery   of   the   epipolar   geometry   for   an   uncalibrated   stereo   rig .   In :   Proc   European   Conf   on   Computer   Vision .   Stockholm ,   Sweden ,   1992 .   567 ～ 576 
+ [ 3 ] Maybank   S   J ,   Faugeras   O   D .   A   theory   of   self - calibration   of   a   moving   camera .   The   International   Journal   of   Computer   Vision ,   1992 ,   8 ( 2 ) :   123 ～ 151 
+ [ 4 ] Robert   L ,   Faugeras   O   D .   Relative   3D   positioning   and   3D   convex   hull   computation   from   a   weak   calibrated   stereo   pair .   In :   Proc   Int ' l   Conf   on   Computer   Vision .   Berlin ,   Germany ,   1993 .   540 ～ 543 
+ [ 5 ] Zhang   Z ,   Deriche   R ,   Faugeras   O   D   et   al .   A   Robust   technique   for   matching   two   uncalibrated   images   through   the   recovery   of   the   unknown   epipolar   geometry .   Artificial   Intelligence .   1995 ,   78 ( 1 - 2 ) :   87 ～ 119 
+ [ 6 ] 吴福朝 ， 于 洪川 ， 袁波 等 .   摄像机 自 标定 - 理论 与 算法 .   自动化 学报 ， 1999 ,   25 ( 6 ) 
+ 　 　 　 ( Wu   Fuchao , Yu   Hongchuan ,   Yuan   Bo   et   al .   Camera   self - calibration - theory   and   algorithms .   ACTA   Automatica   Sinica ( in   Chinese ) ,   1999 ,   25 ( 6 ) ) 
+ [ 7 ] Luong   Q   T ,   Faugeras   O   D . The   fundamental   matrix :   Theroy ,   algorithms ,   and   stability   analysis .   The   International   Journal   of   Computer   Vision ,   1996 ,   17 ( 1 ) :   43 ～ 75 
+ 收稿 日期 ： 1998 - 08 - 10 
+ 修稿 日期 ： 1998 - 11 - 30 

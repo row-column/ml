@@ -1,0 +1,119 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 1999 年   第 18 卷   第 2 期   Vol.18   No.2   1999 
+ 
+ 
+ 
+ Java 线程 控制 的 图像 分割 与 合成 
+ 索 红光 　 石乐义 　 丁淑妍 　 高振东 
+ 　 　 摘 　 要 ： 使用 Java 对 WEB 静态 图像 进行 分割 重组 ， 然后 根据 用户 的 交互 操作 合成 显示 ， 并 利用 线程 对 程序 的 并发 性 加以控制 ， 从而 达到 图像 显示 的 动态性 和 交互性 效果 。 
+ 　 　 关键词 ： Java 语言 　 类 Class 　 线程 Thread 
+ 　 　 Java 是 一种 面向对象 的 编程语言 。 它 具有 与 平台 无关 、 面向对象 、 动态 、 安全 等 特点 ， 允许 直接 使用 多线程 方式 进行 编程 ， 对 程序 进行 并发 控制 。 Java 还 支持 分布式 网络 操作 ， 从而 能够 方便 地 进行 网络 文件 对象 的 存取 。 利用 Java 语言 本身 提供 的 绘图 功能 ， 可以 绘制 一些 简单 的 图形 。 而 对于 复杂 图形 ， 一般 先 用 绘图 软件 制成 图像 ， 然后 采用 Java 所 提供 的 方法 对 图像 下载 并 进行 处理 和 控制 ， 从而 实现 静态 图像 的 动态显示 。 
+ 1 　 Java 图像处理 与 线程 的 并发 控制 
+ 1.1 　 Java 图像处理 
+ 　 　 Java 语言 提供 了 丰富 的 类 ( Class ) 、 接口 ( Interface ) 以及 相应 的 调用 方法 ( Method ) 。 使用 这些 类 或 接口 ， 可以 定义 自己 的 类 或 子类 ， 充分利用 Java 面向对象 的 特性 进行 编程 。 在 java . awt 包中 ， 提供 了 专门 的 Image 类 ， 它 是 1 种 抽象类 ， 可 提供 抽象 的 方法 描绘 图片 的 一些 共同 特性 。 而 在 Applet 类 和 Tookit 类中 都 提供 了 2 种 getImage ( ) 方法 下载 图像 ， 分别 根据 绝对 地址 和 相对 地址 查询 所 要 下载 的 图像 。 通常 采用 相对 地址 的 下载 方法 ， 它 的 语法 定义 及 功能 如下 ： 
+ 　 　 1 . public   Image   getImage ( URL   url , String   name ) 
+ 　 　 功能 ： 根据 相对 地址 下载 图像 。 
+ 　 　 参数 ： url — — URL ( 统一 资源 定位 ) 基 地址 ， 
+ name — — 图像 文件名 。 
+ 　 　 获取 图像 后 就 可以 调用 Graphics 类 提供 的 drawImage ( ) 方法 显示 图像 。 
+ 　 　 2 . public   drawImage ( Image   img , int   x , int   y , observer ) 
+ 　 　 功能 ： 在 指定 位置 显示 图像 。 
+ 　 　 参数 ： img — — 待 显示 图像 ， x — — 横坐标 ， y — — 纵坐标 ， observer — — 图像 监视器 ， 用来 监视 图像 的 下载 情况 ， 接受 图像 装载 信息 ( 当 图像 完全 载入 时 返回 True ， 否则 返回 False ) 。 
+ 　 　 在 显示 图像 时 ， 通常 希望 获得 对 图像 的 控制 ， 从而 以 自己 喜欢 的 各种 方式 实现 媒体 播放 。 为此 ， Java 专门 提供 了 用于 跟踪 包括 图像 和 声音 等 多媒体 对象 的 ImageObserver 类 和 MediaTracker 类 ， 在 本文 程序 中 主要 用到 的 是 跟踪 多幅 图像 状态 的 MediaTracker 类 。 
+ 1.2 　 Java 多线程 并发 功能 
+ 　 　 目前 ， 线程 ( Thread ) 已经 为 许多 操作系统 和 应用 开发 系统 所 采用 。 线程 是 程序 的 单个 控制流 ， 具有 顺序程序 的 特点 ， 但是 线程 不是 1 个 程序 ， 它 仅仅 是 程序 的 1 个 执行 序列 。 线程 具有 很强 的 并发 功能 ， 在 同一 时刻 可能 有 多个 线程 同时 处于 执行 状态 。 线程 是 动态 的 ， 具有 一定 的 生命周期 ， 分别 经历 从 创建 、 执行 、 阻塞 直到 消亡 的 过程 。 Java 语言 中 提供 了 专门 的 Thread 类 ， 以 支持 直接 的 多线程 编程 。 Thread 类 提供 了 对 线程 的 控制 方法 ， 如 Start ( ) , Stop ( ) , Run ( ) 、 Suspend ( ) 、 resume ( ) 、 Sleep ( ) 以及 Run ( ) 方法 等等 ， 它们 可以 对 线程 的 状态 进行 控制 。 并 可以 运用 SetPriority ( ) 方法 设置 线程 的 运行 优先 顺序 。 Thread 类 的 定义方法 如下 ： 
+ 　 　 Thread ( ThreadGroup   group , Runable   target , String   name ) 
+ 　 　 SetPriority ( ) 用来 设置 线程 的 优先级 。 线程 优先级 是 1 个 介于 MINPRIORITY ( 在 类 中 定义 为 1 ) 和 MAXPRIORITY ( 在 类 中 定义 为 10 ) 之间 的 整数 。 线程 不同 的 优先级 决定 了 不同 线程 之间 的 切换 。 
+ 2 　 Java 图像 分割 与 合成 的 算法 及 实现 
+ 　 　 Java 程序 首先 将 一个 完整 的 图像 下载 ， 然后 将 其 分割 成 20 个 单元 拼图 ， 即 分为 5 行 4 列 。 在 本例 中 特地 将 第 20 幅 图像 单元 设为 1 个 空白 图像 ， 以便 拼图 时 用户 交互 操作 使用 。 这些 参数 分别 定义 在 相应 的 变量 中 。 
+ 　 　 final   int   XCELLS = 5 ; 　 　 / / 每行 拼图 的 数目 
+ 　 　 final   int   YCELLS = 4 ; / / 每列 拼图 的 数目 
+ 　 　 final   int   ALLCELLS = 20 ; / / 分割 元素 的 数目 
+ 　 　 final   int   EMPTY = 19 ; / / 将 第 20 单元 ， 即 cells ［ 19 ］ 置成 
+ / / 空白 图像 
+ 　 　 然后 将 这些 图像 分割 单元 存于 1 个 Cell 类 数组 cells ［ ］ 中 ， 在 这里 Cell 类中 含有 图像 以及 它 的 起始 位置 和 当前 位置 ， 其 具体 定义 如下 ： 
+ 　 　 class   Cell 
+ 　 　 { int   sx , sy ; 　 / / 起始 位置 
+ 　 　 int   cx , cy ; 　 / / 当前 位置 
+ 　 　 Image   img ; 　 / / 单元 图像 
+ 　 　 public   Cell ( Image   img , int   x , int   y ) 　 / / Cell 类 构造函数 
+ 　 　 { this . img = img ; 
+ 　 　 sx = x ; sy = y ; } 　 / / 给 起始 位置 赋值 为 x , y 
+ 　 　 } 
+ 　 　 为了 对 每个 图像 分割 单元 进行 状态 跟踪 ， 还 需要 建立 1 个 MediaTracker 类 的 实体 ( instance ) ， 然后 调用 addImage ( ) 方法 ， 为 每个 要 跟踪 的 图像 指定 1 个 唯一 的 标识符 。 标识符 决定 了 图像 获取 时 的 优先 顺序 并 使得 图像 能够 独立 完整 地 进行 处理 。 
+ 　 　 MediaTracker   tracker = new   MediaTracker ( this ) 
+ 　 　 / / 为 当前 使用 类 建立 1 个 MediaTracker 实体 ， 用于 跟踪 类 
+ 　 　 / / 上 的 图像 
+ 　 　 cells ［ EMPTY ］ = new   Cell ( createEmpty ( ) , toPoint ( EMPTY ) . x , toPoint ( EMPTY ) . y ) ; 
+ 　 　 tracker . addImage ( cells ［ EMPTY ］ . img , 0 ) ; 
+ 　 　 / / 调用 createEmpty ( ) 方法 产生 空白 图像 ， 并 加入 到 所 跟踪 
+ 　 　 / / 的 cells 数组 中 20 单元 
+ 　 　 void   setPosition ( int   x , int   y ) 　 　 / / 设置 单元 图像 当前 位置 
+ 　 　 { cx = x ; cy = y ; } 
+ 　 　 各个 图像 单元 的 位置 存放 于 位置 数组 position 里 ： 
+ 　 　 int   position ［ ］ ［ ］ = new   int ［ XCELLs ］ ［ YCELLS ］ 
+ 　 　 这样 就 可以 使用 Cell 类 数组 cells ［ ］ 对 图像 的 各个 单元 进行 操作 ， 从而 将 各个 单元 图像 进行 合成 显示 ， 并 通过 position ［ ］ ［ ］ 数组 改变 各个 单元 的 位置 。 为了 对 各 单元 进行 并发 操作 ， 需要 对 线程 加以控制 ， 并 通过 鼠标 事件 和 按键 事件 控制 进程 的 开始 、 睡眠 和 进行 等 状态 变化 ， 其 实现 方法 如下 ( 仅以 run ( ) 方法 为例 ) ： 
+ 　 　 Thread   imageThread = null ; 　 / / 定义 线程 imageThread , 初始 
+ / / 值为 空 
+ 　 　 public   void   run ( ) 
+ 　 　 { imageThread . setPriority ( Thread . MINPRIORITY ) ; / / 设置 线   
+ / / 程 执行 优先 级别 
+ 　 　 try 
+ 　 　 　 　 { imageThread . sleep ( 2000 ) ; / / 线程 睡眠 等待 2000ms 
+ 　 　 　 　 } catch ( InterruptedException   e ) { } 
+ 　 　 first = changeArray ( ) ; / / 调用 changeArray ( ) 方法 随机 改变 图 
+ / / 像 单元 位置 
+ 　 　 while ( ! loaded ) / / 判断 图像 若 未 被 跟踪 载入 ， 则 调用 相关 
+ / / 方法 跟踪 并 加载 图像 
+ 　 　 　 　 { repaint ( ) ; 
+ 　 　 　 　 try 
+ 　 　 　 　 　 { imageThread . sleep ( 100 ) ; 
+ 　 　 　 　 　 } catch ( InterruptedException   e ) { System . out . println ( e ) ; } 
+ 　 　 　 　 } 
+ 　 　 } 
+ 　 　 changeArray ( ) 方法 用来 随机 地 改变 图像 单元 的 位置 ， 其 实现 方法 如下 ： 
+ 　 　 boolean   changeArray ( ) 
+ 　 　 { 
+ 　 　 int   source ［ ］ = new   int ［ 20 ］ ; 
+ 　 　 int   full ［ ］ = new   int ［ 20 ］ ; 
+ 　 　 for ( int   i = 0 ; i < ALLCELLS ; i ++ ) 
+ 　 　 　 　 { 
+ 　 　 　 　 int   r = ( int ) ( Math . random ( ) * 20 ) ; 
+ 　 　 　 　 while ( full ［ r ］ ! = 0 ) 
+ 　 　 　 　 r = ( r + ( int ) ( Math . random ( ) * 20 ) ) % 20 ; 
+ 　 　 　 　 source ［ i ］ = r ; 
+ 　 　 　 　 full ［ r ］ = 1 ; 
+ 　 　 　 　 } 
+ 　 　 int   pos = 0 ; 
+ 　 　 for ( int   i = 0 ; i < ALLCELLS ; i ++ , pos ++ ) 
+ 　 　 　 　 { 
+ 　 　 　 　 Point   p = toPoint ( source ［ pos ］ ) ; 
+ 　 　 　 　 cells ［ pos ］ . setPosition ( p . x , p . y ) ; 
+ 　 　 　 　 position ［ p . x ］ ［ p . y ］ = pos ; 
+ 　 　 　 　 } 
+ 　 　 x = cells ［ EMPTY ］ . cx ; 
+ 　 　 y = cells ［ EMPTY ］ . cy ; 
+ 　 　 return ( false ) ; 
+ 　 　 } 
+ 　 　 当 applet 执行 后 点击 鼠标 ， 线程 就 被 启动 ， 开始 装载 图像 并 执行 changeArray ( ) 随机 选择 1 个 位置 来 移动 图像 单元 ， 此时 可以 使用 键盘 移动 图像 上 的 任意 单元 到 任何 位置 。 在 这里 还有 一个 重要 内容 就是 怎样 将 图像 分割 成 许多 的 单元 ， 我们 可以 通过 引用 CropImageFilter 方法 来 分割 图像 ， 它 是 1 个 分割 图像 过滤器 。 其 实现 方法 如下 ： 
+ 　 　 Image   crop ( int   pos ) 
+ 　 　 { / / pos 参数 为 调用函数 给出 的 图像 单元 位置 号 
+ 　 　 Point   p = toPoint ( pos ) ; / / 将 位置 号 转化 为 坐标 形式 
+ 　 　 ImageFilter   filter = new   CropImageFilter ( xside * p . x , yside * p . y , xside , yside ) ; 
+ 　 　 / / 在 给定 坐标 和 长宽 的 绝对 矩形 区域 内 创建 分割 图像 过 
+ 　 　 / / 滤器 实体 filter 
+ 　 　 ImageProducer   producer = new   FilteredImageSource ( baseImage . getSource ( ) , filter ; ) 
+ / / 由原 图像 和 分割 图像 过滤器 实体 创建 新 的 图像 
+ 　 　 　 　 　 　 / / 产生器 producer 
+ 　 　 return   createImage ( producer ) ; / / 由 图像 产生器 producer 产生 
+ / / 图像 并 返回 
+ 　 　 } 
+ 　 　 通过 以上 步骤 ， 整个 图像 的 分割 与 合成 显示 就 完成 了 。 本 程序 主要 利用 了 crop ( ) 、 changeArray ( ) 、 mousedown ( ) 、 Thread ( ) 等 方法 以及 几个 表示 程序运行 状态 的 布尔 变量 实现 了 一个 线程 控制 和 动感 图像 相结合 的 图像处理 过程 。 
+ 作者 单位 ： 山东 东营 石油大学 计算机系 ( 257062 ) 
+ 参考文献 
+ 1 　 吴建平 ， 尹霞 ， 冯晓东 . JAVA 程序设计 语言 . 北京 ： 清华大学出版社 ， 1997 
+ 2 　 邱仲潘 . JAVA 从 入门 到 精通 . 北京 ： 电子 工业 出版社 ， 1997 
+ 3 　 张 为民 . JAVA 语言 及 应用 . 北京 ： 清华大学出版社 ， 1996 
+ 4 　 陈玉生 . JAVA 语言 一月 通 . 成都 ： 电子科技 大学 出版社 ， 1997 
+ ( 收稿 日期 ： 1998 - 08 - 10 ) 

@@ -1,0 +1,196 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 10 卷   第 8 期   Vol.10   No.8   1999 
+ 
+ 
+ 
+ 数据仓库 联机 维护 中 一致性 问题 的 研究 
+ 李子 木 　 孙 利民 　 周兴铭 
+ 摘要 　 数据仓库 是 存储 供 查询 和 决策分析 用 的 集成化 信息 仓库 , 它 的 信息 来源于 不同 地点 的 数据库 或 其他 信息源 . 实体化 视图 是 数据仓库 中 存储 的 主要 信息 实体 , 当 原始数据 发生变化 时 , 数据仓库 中 的 实体化 视图 也 必须 作 相应 的 更新 维护 . 在 数据仓库 实体化 视图 的 联机 维护 过程 中 , 由于 联机 分析 处理 （ On - line   Analytical   Process , 简称 OLAP ） 查询 的 介入 , 会 产生 数据 不 一致 的 问题 . 文章 提出 了 一种 MVCA （ multiversion   compensating   algorithm ） 算法 来 解决 这一 问题 . MVCA 采用 版本控制 方法 , 利用 补偿 思想 和 应答 机制 协调 数据库 和 数据仓库 之间 的 更新 维护 操作 , 达到 保证数据 一致 的 目的 . 最后 , 文章 通过 一个 典型 示例 说明 了 该 算法 在 实际 中 的 具体 应用 . 
+ 关键词 　 数据仓库 , 实体化 视图 , 联机 维护 , 数据 一致性 , MVCA （ multiversion   compensating   algorithm ） . 
+ 中图法 分类号 　 TP311 
+ Consistency   Algorithm   for   Data   Warehouse   On - line   Maintenance 
+ LI   Zi - mu 　 SUN   Li - min 　 ZHOU   Xing - ming 
+ ( Department   of   Computer   Science   Changsha   Institute   of   Technology   Changsha   410073 ) 
+ Abstract 　   A   warehouse   is   a   data   repository   containing   integrated   information   for   efficient   querying   and   analysis ,   which   data   come   from   the   databases   or   the   other   info - sources   at   different   places .   Materialized   view   is   the   primary   information   entity   stored   in   the   data   warehouse .   It   must   be   refreshed   when   the   corresponding   data   changed   in   the   database .   Consistency   problem   will   be   arisen   during   materialized   views   on - line   maintenance   because   of   the   invention   of   OLAP   query .   In   this   paper ,   the   authors   introduce   a   new   algorithm ,   MVCA   ( multiversion   compensating   algorithm ) ,   using   multiversion   and   compensating   techniques ,   along   with   acknowledgement   mechanism   to   synchronize   the   maintenance   process   between   the   database   and   the   data   warehouse   so   as   to   ensure   the   data   consistency .   At   the   end   of   the   paper ,   the   authors   illustrate   the   application   of   the   algorithm   by   a   typical   example . 
+ Key   words 　 Data   warehouse ,   materialized   view ,   on - line   maintenance ,   data   consistency ,   MVCA ( multiversion   compensating   algorithm ) . 
+ 　 　 数据仓库 用来 为 决策 提供 支持 , 它 的 数据 来源于 数据库 或 其他 信息源 （ 本文 只 考虑 数据库 的 情况 ） . 类似 于 早期 的 数据库 , 现有 的 数据仓库 产品 采用 的 都 是 脱机 维护 策略 ： 系统 先 搜集 记录 , 不 立刻 加入 数据仓库 , 而是 使用 Bulk - load 技术 周期 地 刷新 数据仓库 . 由于 Bulk - load 技术 在 系统 刷新 期间 , 数据仓库 被 禁止 使用 , 所以 , 许多 采用 数据仓库 产品 的 公司 都 是 利用 夜晚 时间 对 数据仓库 进行 刷新 维护 . 这种 维护 方式 面临 着 3 个 重要 的 问题 . 
+ 　 　 . 随着 公司 业务 的 全球化 , 时 区 问题 会 变得 越来越 明显 , 专门 对系统 进行 更新 维护 的 “ 夜晚 时间 ” 将 越来越 难以确定 ； 
+ 　 　 . 随着 应用 的 不断深入 , 当 数据量 非常 大 的 时候 , 这种 维护 方式 所用 的 时间 也 会 越来越 长 . 由于 Bulk - load 技术 在 刷新 系统 期间 , 对 数据仓库 是 禁止 使用 的 , 而 系统 的 维护 工作 必须 在 次日 清晨 用户 开始 使用 数据仓库 之前 完成 , 因此 , 时间 是 一个 必须 认真 考虑 的 限制 因素 ； 
+ 　 　 . Bulk - load 技术 容易 使 信息 过时 , 在 一些 对 实时性 要求 比较 高 的 关键 任务 中 , 如 战场 决策 , 这种 脱机 维护 方式 是 不 能够 被 接受 的 . 
+ 　 　 因此 , 数据仓库 联机 维护 技术 受到 了 越来越 广泛 的 重视 . 
+ 1   问题 的 产生 及 研究 现状 
+ 　 　 在 数据仓库 联机 维护 技术 中 , 实体化 视图 的 联机 维护 是 一个 关键技术 . 它 是 指 , 在 数据仓库 为 用户 提供 服务 的 同时 , 当 数据库 中 的 原始数据 发生 改变 时 , 实时 地 将 这种 变化 反映 到 数据仓库 中 , 使 相应 的 实体化 视图 得到 及时 的 刷新 . 
+ 　 　 数据仓库 中 存储 的 是 部分 原始数据 的 拷贝 和 实体化 视图 集合 , 它 并 不能 完全 满足用户 的 所有 查询 . 对于 某些 OLAP 查询 （ 如 “ 下 钻 ” ） , 数据仓库 必须 通过 访问 数据库 才能 给出 最终 的 查询 结果 . 由于 实体化 视图 是 建立 在 原始数据 之上 的 , 它 的 更新 维护 总是 或多或少 地 落后 于 原始数据 的 更新 . 当 一个 OLAP 查询 既 用到 实体化 视图 , 又 用到 原始数据 , 而且 原始数据 和 实体化 视图 是 相关 的 （ 实体化 视图 用到 了 该 原始数据 ） , 如果 原始数据 已 被 修改 , 而 这种 变化 尚未 反映 在 相应 的 实体化 视图 中 时 , 便会 产生 查询 上 的 不 一致 问题 . 
+ 　 　 斯坦福大学 的 D . Quass 提出 了 一个 2VNL ( two - version   no - locking ) 算法 ［ 1 ］ , 利用 版本控制 来 解决 实体化 视图 的 联机 维护 和 一致性 问题 . 2VNL 算法 采用 当前 版本 与 影子 版本 分别 负责 实体化 视图 的 查询 与 维护 , 当前 版本 只 允许 进行 读 操作 , 不 允许 更新 , 所有 的 写 操作 和 更新 操作 全部 在 影子 版本 上 进行 . 当 影子 版本 提交 后 , 当前 版本 被 废除 , 影子 版本 成为 当前 版本 , 以后 的 维护 操作 将 在 新 的 影子 版本 上 进行 . 2VNL 算法 在 解决 数据仓库 联机 维护 和 一致性 方面 作出 了 有益 的 尝试 , 但 它 却 存在 3 个 主要 的 缺点 . 
+ 　 　 . 由于 算法 只 采用 了 两个 版本 , 在 进行 版本 切换 时 , 有些 查询 事务 将 不可避免 地被 中止 , 从而 导致 事务 的 重启 . 特别 是 对 OLAP 这种 费时 较长 的 查询 , 事务 重启 的 可能性 就 更 大 了 ； 
+ 　 　 . 2VNL 算法 基于 对 查询 情况 的 预测 , 只 对 某些 汇总 属性 建立 了 影子 版本 . 当 这种 预测 不够 准确 、 完备 , 或者 对 某些 查询 情况 无法 预测 时 , 2VNL 算法 将 无法 工作 . 而且 由于 这种 预测 需 人工 进行 , 这 将 增加 维护 的 成本 , 并 带来 许多 其他 问题 ； 
+ 　 　 . 由于 算法 只 采用 了 两个 版本 , 而且 总是 在 每天 的 一个 固定 时间 进行 切换 , 所以 这种 维护 方式 满足 不了 类似 于 “ 战场 决策 ” 这样 的 对 实时性 要求 较 高 的 关键 任务 . 
+ 　 　 本文 提出 的 “ MVCA 多 版本 补偿 算法 ” （ multiversion   compensating   algorithm , 简称 MVCA ） , 除了 能够 保证 在 联机 维护 状态 下 用户 查询 的 一致性 以外 , 还 很 好地解决 了 上述 这些 问题 . MVCA 算法 分为 MVCA - dw 和 MVCA - db 两 部分 , 分别 在 DW 端 和 DB 端 执行 . 它 采用 补偿 思想 ［ 2 ］ 和 应答 机制 , 联合 控制 原始数据 的 多个 版本 , 以 保证 在 对 数据仓库 中 实体化 视图 联机 维护 的 同时 , OLAP 查询 也 能 得到 一致 的 结果 .   
+ 2   MVCA 算法 
+ 2.1   MVCA 中 的 消息 类型 
+ 　 　 db _ up ： 　 　 DB 端 发出 的 数据 变化 通知 , 它 包括 3 个 参数 ： 
+ 　 　 　 　 　 　 　 　 ins ( r , t ) ： 在 关系 r 中 插入 元组 t ； 
+ 　 　 　 　 　 　 　 　 del ( r , t ) ： 从 关系 r 中 删除 元组 t ； 
+ 　 　 　 　 　 　 　 　 mod ( r , t1 , t2 ) ： 在 关系 r 中用 元组 t2 更新 元组 t1 ； 
+ 　 　 dw _ mv ： DW 端 视图 维护 进程 发出 的 查询 通知 , 它 返回 的 结果 用于 实体化 视图 的 维护 ； 
+ 　 　 dw _ olap ： DW 端 发出 的 用户 查询 通知 , 它 返回 的 结果 将 直接 提交 给 OLAP 应用 ； 
+ 　 　 db _ mv ： DB 端 发出 的 完成 dw _ mv 查询 后 的 返回 结果 ； 
+ 　 　 db _ olap ： DB 端 发出 的 完成 dw _ olap 查询 后 的 返回 结果 ； 
+ 　 　 dw _ ack ： DW 端 发出 的 维护 完成 确认 通知 , DB 端 在 收到 这一 消息 后 , 将 对 数据库 中 的 老 版本 元组 和 标志 位作 相应 处理 . 
+ 2.2   MVCA - dw 算法 
+ 　 　 MVCA - dw 算法 是 DW 端 视图 维护 进程 执行 的 算法 . 它 加强 了 ECA 算法 ［ 3 ］ 对 modify 操作 的 支持 , 使 实体化 视图 的 维护 更具 完备 性 , 并 通过 与 MVCA - db 建立 的 应答 机制 保证 用户 查询 的 一致性 . 具体 算法 如下 . 
+ 　 　 初始化 ： i ＝ 0 , k ＝ 0 , Collect ＝ , UQS ＝ , Top ＝ ； 
+ 　 　 对 DB 端 发来 的 消息 作 相应 处理 ： 
+ 　 　 db _ up ( U ) ： 
+ 　 　 　 　 　 If   U ＝ ins ( r , t )   then 
+ 　 　 　 　 　 　 ｛ i ＝ i + 1 ； Qi ＝ V ( r , t ) － ∑ Qj ∈ UQSPjQj ( r , t ) ； 
+ 　 　 　 　 　 　 发送 dw _ mv ( Qi ) 到 DB 端 ； 
+ 　 　 　 　 　 　 UQS ← UQS ＋ Qi ； Pi ＝ 1 ； Top ← Top ＋ 〈 ins ( r , t ) 〉 ； ｝ 
+ 　 　 　 　 　 Else   if   U ＝ del ( r , t )   then 
+ 　 　 　 　 　 ｛ i ＝ i ＋ 1 ； Qi ＝ V ( r , t ) － ∑ Qj ∈ UQSPjQj ( r , t ) ； 
+ 　 　 　 　 　 　 发送 dw _ mv ( Qi ) 到 DB 端 ； 
+ 　 　 　 　 　 　 UQS ← UQS ＋ Qi ； Pi ＝ － 1 ； Top ← Top ＋ 〈 del ( r , t ) 〉 ； ｝ 
+ 　 　 　 　 　 Else   if   U ＝ mod ( r , t1 , t2 )   then 
+ 　 　 　 　 　 　 ｛ i ＝ i ＋ 1 ； Qi ＝ V ( r , t1 ) － ∑ Qj ∈ UQSPjQj ( r , t1 ) ； 
+ 　 　 　 　 　 　 发送 dw _ mv ( Qi ) 到 DB 端 ； 
+ 　 　 　 　 　 　 Pi ＝ － 1 ； i ＝ i ＋ 1 ； Qi ＝ V ( r , t2 ) － ∑ Qj ∈ UQSPjQj ( r , t2 ) ； 
+ 　 　 　 　 　 　 发送 dw _ mv ( Qi ) 到 DB 端 ； 
+ 　 　 　 　 　 　 Pi ＝ 1 ； UQS ← UQS ＋ Qi － 1 ＋ Qi ； Top ← Top ＋ 〈 mod ( r , t1 , t2 ) 〉 ； ｝ 
+ 　 　 db _ mv ( Ai ) ： 
+ 　 　 　 　 　 Collect ← Collect ＋ PiAi ； UQS ← UQS － Qi ； 
+ 　 　 　 　 　 If   UQS ＝   then ｛ MV ← MV ＋ Collect ； 
+ 　 　 　 　 　 　 Repeat ｛ S ∈ Top , 发送 dw _ ack ( s ) 到 DB 端 ； ｝ 
+ 　 　 　 　 　 　 Until   Top 中 记录 的 操作 全部 被 发送 出去 } ； 
+ 　 　 db _ olap ( A * ) ： 
+ 　 　 　 　 将 A * 提交 给 OLAP 应用 . 
+ 　 　 当某 一 时刻 DB 端 数据 更新 的 速度 较 快 时 , DW 端 发出 的 查询 需要 作 补偿 处理 , UQS （ unanswered   query   set ） 即 是 用于 记录 那些 尚未 收到 结果 的 查询 的 . Collect 是 一个 临时 变量 , 为了 防止 中间状态 的 不 一致 , 只有 当 发出 的 所有 dw _ mv 查询 都 收到 结果 后 , DW 端的 视图 维护 进程 才 用 Collect 更新 实体化 视图 . V 是 数据仓库 中 实体化 视图 的 定义 , 如 V ＝ r1r2   , 则 V （ r1 , ［ 2 , 3 ］ ） ＝ ［ 2 , 3 ］ r2 （ 用 r1 的 元组 ［ 2 , 3 ］ 替代 表达式 中 相应 的 关系 ） . Qi 是 DW 端 发往 DB 端的 查询 , 形式 上 与 V 类似 . MV 是 与 V 对应 的 实体化 视图 中 元组 的 集合 . Top 用于 记录 DB 端的 数据 更新 操作 , 当 这些 更新 已经 反映 到 实体化 视图 中后 , DW 端的 视图 维护 进程 将 利用 Top , 通知 DB 端 将 旧版本 的 数据 从 数据库 中 清除 掉 . 
+ 2.3   DB 端的 数据表示 
+ 　 　 为了 使 数据仓库 用户 的 查询 得到 一致 结果 , DB 端的 数据 在 刷新 时 必须 将 刷新 前 的 旧值 保存 下来 , 同时 又 不能 阻碍 DB 端 用户 对 数据库 的 正常 使用 , 因此 MVCA 采用 多 版本 方法 对 数据库 中 的 刷新 数据 进行 控制 和 维护 . 对于 数据库 中 元组 的 每个 “ modify ” 操作 , 都 相应 生成 一个 新 版本 的 元组 , 旧版本 的 元组 只作 逻辑 删除 , 只有 在 收到 DW 端 相应 的 应答 之后 才 可 将 其作 物理 删除 . 对 数据库 中 元组 的 “ delete ” 操作 亦 是 如此 . 每个 元组 含有 hp 和 tp 两个 指针 , 分别 指向 最旧 的 版本 和 次 新 版本 , 我们 用 一 标志 位 flag 来 区分 新旧 版本 数据 , 并 限制 它们 所 能 参与 的 运算 . flag 有 4 种 可能 的 值 . 
+ 　 　 I ：   insert 标记 . 表明 当前 元组 是 刚 插入 的 , 只有 当 收到 DW 端 发来 的 ins ( r , t ) 时 , 才能 将 此 位置 为 “ ∧ ” （ 空 标记 , 后面 会 讲 到 ） . flag 为 “ I ” 的 元组 不能 参加 DW 端 发来 的 dw _ olap 查询 运算 （ 因为 它 还 没有 反映 到 相应 的 实体化 视图 中 ） , 但是 可以 参与 dw _ mv 查询 和 正常 的 数据库 运算 . 
+ 　 　 D ：   delete 标记 . 表明 当前 元组 是 刚 被 删除 的 （ 逻辑 删除 ） , 只有 当 收到 DW 端 发来 的 相应 的 del ( r , t ) 时 , 才 可 将 此 元组 物理 删除 . flag 为 “ D ” 的 元组 只能 参与 dw _ olap 查询 运算 . 
+ 　 　 M ：   modify 标记 . 新 生成 的 元组 被 置 上 此 标记 , 更新 前 的 元组 作为 旧版本 被 移入 Cache 或 缓冲 池 . 它 的 最新 版本 参与 dw _ mv 运算 和 正常 的 数据库 运算 , 最 旧版本 则 参与 dw _ olap 运算 . 只有 在 收到 DW 端 发出 的 相应 的 mod ( r , t1 , t2 ) 时 , 才 可 将 相应 的 旧版本 物理 删除 . 当 它 只有 一个 版本 时 , 即 最新 版本 和 最 旧版本 都 是 它 自身 时 , 将 flag 置 为 “ ∧ ” . 
+ 　 　 ∧ ：   空 标记 . 空 标记 的 元组 可以 参与 所有 运算 . 
+ 2.4   MVCA - db 算法 
+ 　 　 在 DB 端 , MVCA - db 算法 采用 多 版本 方法 对 历史数据 进行 控制 维护 , 通过 标志 位 和 应答 机制 确保 数据 的 一致 操作 . 因为 DB 端的 数据库 是 相对 独立 的 , DB 端 并不知道 自己 的 哪些 数据 参与 了 DW 端 实体化 视图 的 计算 . 因此 , 对于 数据库 的 每 一步 更新 操作 , DB 端 都 需 通知 数据仓库 , 以 确认 是否 会 影响 到 相应 的 实体化 视图 . DB 端 对 数据库 的 更新 操作 有 3 种 . 
+ 　 　 ins ( r , t ) ： 在 关系 r 中 插入 元组 t ； 
+ 　 　 del ( r , t ) ： 从 关系 r 中 删除 元组 t ； 
+ 　 　 mod ( r , t1 , t2 ) ： 用 t2 更新 r 中 的 元组 t1 . 
+ 　 　 相应 地 , DB 端 发往 DW 端的 消息 是 ： 
+ 　 　 db _ up 〈 ins ( r , t ) 〉 ； db _ up 〈 del ( r , t ) 〉 ； db _ up 〈 mod ( r , t1 , t2 ) 〉 . 
+ 　 　 这些 消息 是 紧跟着 相应 的 操作 发出 的 . 发出 消息 后 , DB 端会 期待 着 收到 来自 DW 端的 消息 , MVCA - db 算法 根据 DW 端 发回 的 不同 的 消息 类型 作 相应 的 操作 处理 . 
+ dw _ mv ( Qi ) ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 算法 1 . 
+ 　 　 ( 1 )   对于 r ∈ Qi （ r 是 作 Qi 运算 时 涉及 到 的 关 　 　 Repeat ｛ 
+ 系 ） , 使用 算法 1 读出 r 中 所有 元组 ； 　 　 　 　 　 　 　 　 　 　 对于   tr , 
+ 　 　 ( 2 )   使用 读出 的 元组 作 Qi 运算 , Ai ← 结果 ； 　 　 　 　 　 if   t . flag = M   then   读出 t 的 最新 版本 
+ 　 　 ( 3 )   发送 db _ mv ( Ai ) 到 DW 端 . 　 　 　 　 　 　 　 　 　 　 　 else   if   t . flag ≠ D   then 读出 t ｝ 
+ dw _ olap ( Q * ) ：   　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 Until   r 中 元组 已 全部 扫描 ． 
+ 　 　 ( 1 )   对于 r ∈ Q *   , 使用 算法 2 读出 r 中 所有 元组 ； 算法 2 ． 
+ 　 　 ( 2 )   使用 读出 的 元组 作 Q * 运算 ； A * ← 结果 ； 　 　 　 　 　 Repeat ｛ 
+ 　 　 ( 3 )   发送 db _ olap ( A * ) 到 DW 端 ； 　 　 　 　 　 　 　 　 　 　 　 　 对于   tr , 
+ dw _ ack ( s ) ： 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 if   t . flag = ∧ 或 D   then 读出 t 
+ if   s ＝ ins ( r , t )   then   t . flag = ∧   / *   将 t 的 flag 置 为 空   * / 　 　 else   if   t . flag = M   then 读出 t 的 
+ else   if   s ＝ del ( r , t )   then   物理 删除 r 中 的 元组 t ； 　 　 　 　 　 最 旧版本 ｝ 
+ else   if   s ＝ mod ( r , t1 , t2 )   then 　 　 　 　 　 　 　 　 　 　 　 　 　 　 Until   r 中 元组 已 全部 扫描 ． 
+ ｛ 物理 删除 r 中 的 元组 t1 ； 
+ if   t2 . hp = t2 . tp = ∧   / *   即 只 剩下 一个 版本 的 元组 时   * / 
+ then   t2 . flag = ∧ ｝ 
+ 3   典型 应用 示例 
+ 　 　 在 第 2 节中 , 我们 已经 对 MVCA 算法 进行 了 详细 的 描述 . 本节 我们 将 通过 一个 典型 示例 来 说明 MVCA 在 实际 应用 中是 怎样 进行 联机 维护 , 并 解决 与 “ 下 钻 ” 查询 的 一致性 问题 的 . 
+ 　 　 在 DB 端的 数据库 中有 两个 关系 r1 和 r2 . 
+ 　 　 　 　 　 　 　 
+ 
+ 　 　 数据仓库 中 相应 的 实体化 视图 的 定义 为 V ＝ ∏ A , Z ( r1r2 ) , 则 V 的 元组 集合 为 MV ＝ ｛ ［ 1 , 2 ］ , ［ 2 , 2 ］ ｝ . 在 后面 的 一段时间 里 , DB 端的 数据库 进行 了 3 个 更新 操作 . 
+ 　 　 del ( r1 , ［ 2 , 4 ］ ) ； 
+ 　 　 mod ( r2 , ［ 4 , 5 , 2 ］ , ［ 4 , 7 , 8 ］ ) ； 
+ 　 　 ins ( r2 , ［ 4 , 9 , 6 ］ ) . 
+ 　 　 而 数据仓库 在 实体化 视图 的 维护 期间 （ 不妨 假设 为 在 收到 DB 端 这 3 个 更新 操作 的 消息 之后 ） 启动 了 一个 OLAP 查询 Q . 
+ 　 　 Q ：   select   X , Y , Z 
+ 　 　 　 　 fromr2 
+ 　 　 　 　 where   Z   in 
+ 　 　 　 　 　 　 　 ( select   Z 
+ 　 　 　 　 　 　 　 fromV ) 
+ 　 　 OLAP 查询 将 Q 分成 两个 按 顺序 执行 的 子 查询 ： Q ′ 和 Q * （ 设 Q ′ 返回 的 结果 为   α ） . 
+ 　 　 Q ′ ：   select   Z 　 　 　 　 　 Q * ：   select   X , Y , Z 
+ 　 　 　 　 　 from   V 　 　 　 　 　 　 　 　 　 from 　 r2 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 where   Z   in   α 
+ 　 　 在 不 使用 MVCA 算法 的 情况 下 , 首先 执行 Q ′ , 由于 此时 数据仓库 中 V 的 元组 集合 为 MV = { ［ 1 , 2 ］ , ［ 2 , 2 ］ ｝ , 所以 , Q ′ 返回 的 结果 为 α ＝ ｛ 2 ｝ ； 接着 执行 “ 下 钻 ” 查询 Q * , 此时 DB 端的 数据库 已经 作 了 更新 操作 , 原 r2 中 的 元组 ［ 4 , 5 , 2 ］ 已经 被 新元 组 ［ 4 , 7 , 8 ］ 替代 , r2 中 不再 含有 Z ＝ 2 的 元组 , 所以 Q * 执行 完成 后 返回 的 结果 为  . 这个 结果 是 错误 的 , 正确 的 结果 应该 是 ［ 4 , 5 , 2 ］ . 显然 , OLAP 查询 出现 了 数据 的 不一致性 . DW 端的 实体化 视图 中 含有 Z ＝ 2 的 元组 , 而 DB 端的 数据库 中 却 没有 与 之 对应 的 原始数据 . 出现 这种 情况 的 原因 是 , Q ′ 用 的 是 数据仓库 中 尚未 更新 的 实体化 视图 , 而 Q * 则 使用 了 数据库 中 更新 后 的 数据 . 
+ 　 　 下面 , 我们 将 MVCA 算法 应用 到 数据仓库 的 联机 维护 中 , 并 按照 事件 发生 的 时间 顺序 来 说明 MVCA 是 怎样 工作 并 解决 这种 不 一致 问题 的 . 
+ 在 DB 端 （ Ti 为 时标 ） ： 
+ 　 　 T1 ： 将 r1 中 元组 ［ 2 , 4 ］ 的 flag 置 为 D ； 发出 db _ up 〈 del ( r1 , ［ 2 , 4 ］ ) 〉 ；   
+ 　 　 T2 ： 将 r2 中 元组 ［ 4 , 5 , 2 ］ 移入 Cache , 将 ［ 4 , 7 , 8 ］ 存入 原来 ［ 4 , 5 , 2 ］ 的 位置 , 置 ［ 4 , 7 , 8 ］ 的 flag 为 M ； 发出 db _ up 〈 mod ( r2 , ［ 4 , 5 , 2 ］ , ［ 4 , 7 , 8 ］ ) 〉 ； 
+ 　 　 T3 ： 在 r2 中 插入 ［ 4 , 9 , 6 ］ , 并 将 其 flag 置 为 I ； 发出 db _ up 〈 ins ( r2 , ［ 4 , 9 , 6 ］ ) 〉 . 
+ 　 　 DB 端 数据库 进行 了 上述 操作 之后 , r1 和 r2 就 成为 如下 形式 ：   
+ 　 　 　 　 　 
+ 
+ 　 　 在 DW 端 ： 
+ 　 　 T4 ： 收到 db _ up 〈 del ( r1 , ［ 2 , 4 ］ ) 〉 ； 发送 dw _ mv ( Q1 ) , 其中   
+ Q1 ＝ V 〈 (   r1 , ［ 2 , 4 ］ ) 〉 ＝ Π A , Z ( ［ 2 , 4 ］ r2 ) ； 
+ P1 ＝ － 1 ； 
+ UQS ＝ ｛ Q1 ｝ ； 
+ Top ＝ ｛ 〈 del (   r1 , ［ 2 , 4 ］ ) 〉 ｝ ； 
+ 　 　 T5 ： 收到 db _ up 〈 mod ( r2 , ［ 4 , 5 , 2 ］ , ［ 4 , 7 , 8 ］ ) 〉 ； 发送 dw _ mv ( Q2 ) , 其中 
+ Q2 ＝ V 〈 (   r2 , ［ 4 , 5 , 2 ］ ) 〉 ＋ Q1 〈 (   r2 , ［ 4 , 5 , 2 ］ ) 〉 
+ ＝ Π A , Z ( r1 ［ 4 , 5 , 2 ］ ) ＋ Π A , Z ( ［ 2 , 4 ］ ［ 4 , 5 , 2 ］ ) ； 
+ 　 　 P2 ＝ － 1 ； 
+ 发送 dw _ mv ( Q3 ) , 其中 
+ Q3 ＝ V 〈 ( r2 , ［ 4 , 7 , 8 ］ ) 〉 ＋ Q1 〈 ( r2 , ［ 4 , 7 , 8 ］ ) 〉 
+ ＝ Π A , Z ( r1   ［ 4 , 7 , 8 ］ ) ＋ Π A , Z ( ［ 2 , 4 ］ ［ 4 , 7 , 8 ］ ) ； 
+ 　 　 P3 ＝ 1 ； 
+ UQS ＝ ｛ Q1 , Q2 , Q3 ｝ ； 
+ Top ＝ ｛ 〈 del (   r1 , ［ 2 , 4 ］ ) 〉 , 〈 mod ( r2 , ［ 4 , 5 , 2 ］ , ［ 4 , 7 , 8 ］ ) 〉 ｝ ； 
+ 　 　 T6 ： 收到 db _ up 〈 ins ( r2 , ［ 4 , 9 , 6 ］ ) 〉 ； 发送 dw _ mv ( Q4 ) , 其中 
+ Q4 ＝ V 〈 ( r2 , ［ 4 , 9 , 6 ］ ) 〉 ＋ Q1 〈 ( r2 , ［ 4 , 9 , 6 ］ ) 〉 ＋ Q2 〈 ( r2 , ［ 4 , 9 , 6 ］ ) 〉 － Q3 〈 ( r2 , ［ 4 , 9 , 6 ］ ) 〉 
+ ＝ V 〈 ( r2 , ［ 4 , 9 , 6 ］ ) 〉 ＋ Q1 〈 ( r2 , ［ 4 , 9 , 6 ］ ) 〉 ＋ ( V 〈 ( r2 , ［ 4 , 9 , 6 ］ ) 〉 ＋ Q1 〈 ( r2 , ［ 4 , 9 , 6 ］ ) 〉 ) 
+ － ( V 〈 ( r2 , ［ 4 , 9 , 6 ］ ) 〉 ＋ Q1 〈 ( r2 , ［ 4 , 9 , 6 ］ ) 〉 ) 
+ ＝ V 〈 ( r2 , ［ 4 , 9 , 6 ］ ) 〉 ＋ Q1 〈 ( r2 , ［ 4 , 9 , 6 ］ ) 〉 
+ ＝ Π A , Z ( r1 ［ 4 , 9 , 6 ］ ) ＋ Π A , Z ( ［ 2 , 4 ］ ［ 4 , 9 , 6 ］ ) ； 
+ 　 　 　 　 　 　 P4 ＝ 1 ； 
+ UQS ＝ ｛   Q1 , Q2 , Q3 , Q4 ｝ ； 
+ Top ＝ ｛ 〈 del ( r1 , ［ 2 , 4 ］ ) 〉 , 〈 mod ( r2 , ［ 4 , 5 , 2 ］ , ［ 4 , 7 , 8 ］ ) 〉 , 〈 ins ( r2 , ［ 4 , 9 , 6 ］ ) 〉 ｝ ； 
+ T7 ： 用户 启动 OLAP 查询 Q , 首先 执行 Q ′ , 从 MV 中 得到 Z ＝ 2 后 , OLAP 向 DB 端 发出 “ 下 钻 ” 查询 dw _ olap ( Q * ) , 其中 Q * ＝ Π X , Y , Z ( σ Z = 2 ( r2 ) ) . 
+ 　 　 在 DB 端 ： 
+ 　 　 T8 ： 收到 dw _ mv ( Q1 ) , 应用 MVCA - db 算法 , 计算 出 A1 ＝ ｛ ［ 2 , 8 ］ , ［ 2 , 6 ］ ｝ ； 发送 db _ mv ( A1 ) ； 
+ 　 　 T9 ： 收到 dw _ mv ( Q2 ) , 应用 MVCA - db 算法 , 计算 出 A2 ＝ ｛ ［ 1 , 2 ］ , ［ 2 , 2 ］ ｝ ； 发送 db _ mv ( A2 ) ； 
+ 　 　 T10 ： 收到 dw _ mv ( Q3 ) , 应用 MVCA - db 算法 , 计算 出 A3 ＝ ｛ ［ 1 , 8 ］ , ［ 2 , 8 ］ ｝ ； 发送 db _ mv ( A3 ) ； 
+ 　 　 T11 ： 收到 dw _ mv ( Q4 ) , 应用 MVCA - db 算法 , 计算 出 A4 ＝ ｛ ［ 1 , 6 ］ , ［ 2 , 6 ］ ｝ ； 发送 db _ mv ( A4 ) ； 
+ 　 　 T12 ： 收到 dw _ olap ( Q * ) , 应用 MVCA - db 算法 , 计算 出 A * ＝ ｛ ［ 4 , 5 , 2 ］ ｝ ； 发送 db _ mv ( A * ) . 
+ 　 　 在 DW 端 ： 
+ 　 　 T13 ： 收到 db _ mv ( A1 ) ； 
+ Collect ＝ ｛ － ［ 2 , 8 ］ , － ［ 2 , 6 ］ ｝ ； 
+ UQS ＝ ｛ Q2 , Q3 , Q4 ｝ ； 
+ 　 　 T14 ： 收到 db _ mv ( A2 ) ； 
+ Collect ＝ ｛ － ［ 2 , 8 ］ , － ［ 2 , 6 ］ , － ［ 1 , 2 ］ , － ［ 2 , 2 ］ ｝ ； 
+ UQS ＝ ｛ Q3 , Q4 ｝ ； 
+ 　 　 T15 ： 收到 db _ mv ( A3 ) ； 
+ Collect ＝ ｛ － ［ 2 , 6 ］ , － ［ 1 , 2 ］ , － ［ 2 , 2 ］ , ［ 1 , 8 ］ ｝ ； 
+ UQS ＝ ｛ Q4 ｝ ； 
+ 　 　 T16 ： 收到 db _ mv ( A4 ) ； 
+ 　 　 Collect ＝ ｛ － ［ 1 , 2 ］ , － ［ 2 , 2 ］ , ［ 1 , 8 ］ , ［ 1 , 6 ］ ｝ ； 
+ 　 　 UQS ＝ ； 
+ 　 　 MV ← ｛ ［ 1 , 2 ］ , ［ 2 , 2 ］ ｝ ＋ Collect ＝ ｛   ［ 1 , 8 ］ , ［ 1 , 6 ］ ｝ （ 这是 实体化 视图 维护 完成 后 
+ 的 正确 结果 ） ; 
+ 　 　 发送 dw _ ack 〈 del ( r1 , ［ 2 , 4 ］ ) 〉 ; 
+ 　 　 发送 dw _ ack 〈 mod ( r2 , ［ 4 , 5 , 2 ］ , ［ 4 , 7 , 8 ］ ) 〉 ; 
+ 　 　 发送 dw _ ack 〈 ins ( r2 , ［ 4 , 9 , 6 ］ ) 〉 ; 
+ 　 　 T17 ： 收到 db _ mv ( A * ) ； 将 ［ 4 , 5 , 2 ］ 提交 给 OLAP 应用 （ 这是 OLAP “ 下 钻 ” 查询 的 正确 结果 ） . 
+ 在 DB 端 ： 
+ 　 　 T18 ： 收到 dw _ ack 〈 del ( r1 , ［ 2 , 4 ］ ) 〉 ;   从 r1 中 彻底 删除 ［ 2 , 4 ］ ； 
+ 　 　 T19 ： 收到 dw _ ack 〈 mod ( r2 , ［ 4 , 5 , 2 ］ , ［ 4 , 7 , 8 ］ ) 〉 ; 从 r2 中 彻底 删除 ［ 4 , 5 , 2 ］ , 并 将 
+ ［ 4 , 7 , 8 ］ 的 flag 置 为 ∧ ； 
+ 　 　 T20 ： 收到 dw _ ack 〈 ins ( r2 , ［ 4 , 9 , 6 ］ ) 〉 ; 将 r2 中 ［ 4 , 9 , 6 ］ 的 flag 置 为 ∧ ； 
+ 　 　 至此 可以 看到 , MVCA 算法 不仅 保证 了 DW 端的 实体化 视图 得到 了 正确 的 维护 结果 ： MV ＝ ｛ ［ 1 , 8 ］ , ［ 1 , 6 ］ ｝ , 而且 保证 了 在 对 实体化 视图 进行 联机 维护 的 同时 , 用户 对 数据仓库 的 “ 下 钻 ” 查询 Q 也 得到 了 一致 的 结果 ： ［ 4 , 5 , 2 ］ , 而 不是 . 
+ 4   结束语 
+ 　 　 随着 数据库 应用 的 不断 扩展 和 深入 , 人们 对 数据仓库 的 需求 也 与日俱增 . 数据仓库 由 脱机 维护 到 联机 维护 是 一个 必然 的 过程 , 24 ( 小时 ) × 7 ( 天 ) 的 工作 模式 是 下一代 数据仓库 的 重要 发展 方向 . MVCA 算法 解决 了 数据仓库 联机 维护 过程 中 所 产生 的 一种 数据 一致性 问题 , 并且 由于 它 是 在 数据仓库 联机 状态 下 工作 的 , 所以 完全 满足 “ 战场 决策 支持 ” 等 对 实时 要求 比较 高 的 关键 应用 , 它 可以 为 指挥员 提供 即时 的 、 一致 的 战场 决策 信息 . 
+ 本文 通讯联系 人 : 李子 木 , 长沙 410073 , 长沙 工学院 计算机科学 系 
+ 作者简介 ： 李子 木 , 1971 年生 , 博士生 , 主要 研究 领域 为 数据仓库 , 数据库 协同工作 , 高速 计算机网络 . 
+ 孙 利民 , 1968 年生 , 博士 , 主要 研究 领域 为 分布 并行计算 , 高速 计算机网络 . 
+ 周兴铭 , 1938 年生 , 教授 , 博士生 导师 , 中国科学院 院士 , 主要 研究 领域 为 数据库 协同工作 , 分布 并行计算 , 高性能 计算机 体系结构 . 
+ 作者 单位 ： 长沙 工学院 计算机科学 系 　 长沙 　 410073 
+ E - mail :   doctor2 @ nudt . edu . cn 
+ 参考文献 
+ 　 1 　 Quass   C .   Materialized   views   in   data   warehouses   ［ Ph . D .   Thesis ］ .   Stanford   University ,   1997 
+ 　 2 　 Srinivasan   V .   On - line   processing   in   large - scale   transaction   systems   ［ Ph . D .   Thesis ］ .   University   of   Wisconsin - Madison ,   1992 
+ 　 3 　 Zhu - ge   Y .   View   maintenance   in   a   warehousing   environment .   In :   Proceedings   of   ACM   SIGMOD   Conference .   URL :   http :   / / www - db . stanford . edu / warehousing / warehouse . html ,   1995 
+ 本文 1998 - 05 - 05 收到 原稿 , 1998 - 09 - 01 收到 修改稿 

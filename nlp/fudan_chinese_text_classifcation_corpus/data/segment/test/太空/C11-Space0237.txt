@@ -1,0 +1,113 @@
+　 宇航学 报 
+ JOURNAL   OF   ASTRONAUTICS 
+ 1999 年   第 20 卷   第 3 期   vol.20   No.3   1999 
+ 
+ 
+ 
+ 框架结构 模态 分析 的 行波 方法 * 
+ 朱 桂东 　 郑 钢铁 　 邵成勋 
+ 　 　 摘 　 要 　 基于 空间 框架结构 的 行 波动力学 模型 ， 给出 获取 结构 模态 参数 的 一个 新 方法 。 将 由 一维 波导 组装 成 的 框架结构 的 振动 作为 弹性 波 研究 ， 弹性 波在 波导 上 传播 ， 在 结点 处 反射 和 散射 。 结构 的 模态 特性 在 结构 呈 自由 振动 状态 时 得以 体现 ， 据此 建立 一个 关于 结构 内行 波 的 特征值 问题 ， 并 由此 求得 结构 的 固有频率 及 振型 。 文中 还 给出 了 与 有限元 方法 结果 的 比较 
+ 　 　 主题词 　 框架结构 　 模态 分析 　 行波 
+ MODAL   ANALYSIS   FOR   FRAME   STRUCTURES   
+ VIA   TRAVELING   WAVE   APPROACH 
+ Zhu   Guidong 
+ ( Beijing   Institute   of   Astronautical   System   Engineering . Beijing.100076 ) 
+ Zhang   Gangtie   Shao   Chengxun 
+ ( P . O . Box   137 , Harbin   Institute   of   Technology . Harbin.150001 ) 
+ 　 　 Abstract 　 Based   on   traveling   wave   formulation , a   new   approach   to   obtain   modal   parameters   for   frame   structures   is   presented . A   frame   structure   is   composed   of   one - dimensional   members , and   the   vibration   of   the   frame   is   regarded   as   travelling   waves   propagating   along   the   members . From   free   vibration   model   of   a   frame   structure , an   eigenvalue   problem   is   formed   for   wave   mode   vector . Natural   frequencies   and   corresponding   modal   shapes   for   the   structure   are   obtained   by   solving   the   eignvalue   problem . Comparison   with   the   finite   element   method   is   also   presented . 
+ 　 　 Key   words 　 Frame   structures   Modal   analysis   Travelling   wave 
+ 　 　 1 　 引言 
+ 　 　 结构 模态 参数 的 提取 在 结构 振动 分析 中 具有 相当 重要 的 位置 。 获得 结构 模态 参数 的 主要 方法 有 两种 ， 即 理论 模态 分析 和 实验 模态 分析 ［ 1 ］ 。 对 运动 方程 及 边界条件 都 很 简单 的 结构 ， 如均质 简支梁 、 悬臂梁 等 ， 其 模态 特性 可 从 一 函数 特征值 问题 解得 ［ 2 ］ 。 对 复杂 结构 ， 一般 用 有限元 方法 将 结构 离散 化 ， 此时 模态 分析 可 归结为 矩阵 特征值 问题 。 
+ 　 　 由 一维 单元 组装 成 的 框架结构 是 现代 大型 空间结构 的 一种 主要 形式 ， 尽管 整个 结构 的 构型 可能 非常复杂 ， 但 每个 单元 都 是 很 简单 ， 其 模型 一般 可 精确 地 建立 。 为 充分利用 这个 优点 ， 在 框架结构 的 振动 分析 和 控制 中 发展 起来 一种 行波 方法 ( Traveling   Wave   Approach ) ［ 3 ］ 。 Beale 等 ［ 4 ］ 用 行波 分析 了 结构 中 的 功率 流 ， 并 给出 能量 传递 路径 。 MacMartin 等 ［ 5 ］ 进行 了 基于 行波 模型 的 振动 控制 工作 。 朱 桂东 等 ［ 6 ， 7 ］ 基于 行波 模型 对 框架结构 的 阻尼 减振 进行 了 分析 。 王泉 等 ［ 8 ］ 讨论 了 结构 波动 区域 的 可控性 及 降维 问题 。 
+ 　 　 尽管 行波 模型 已 被 广泛 地 研究 ， 但 波动 模型 与 传统 的 模态 空间 模型 的 关系 却 很少 被 研究 。 Meirovitch ［ 9 ］ 曾 研究 在 模态 空间 对 行波 进行 控制 。 本文 研究 从 行波 模型 中 获得 框架结构 的 模态 特性 ， 如 固有频率 、 模态 振型 等 。 同时 给出 了 与 有限元 方法 结果 的 比较 。 
+ 　 　 2 　 框架结构 行 波动力学 模型 ［ 6 ， 7 ］ 
+ 　 　 框架结构 由 一维 的 单元 ( 图 1 ) 通过 结点 ( 图 2 ) 组装 而 ， 在 每 一个 单元 上 有 不同 频率 的 拉压 、 扭转 、 弯曲 波 传播 。 对 每 一个 单元 的 要求 是 其 必须 具有 连续 的 机械 阻抗 ， 而且 所有 的 外力 和 位移 边界条件 都 作用 在 结点 上 ， 因此 波在 单元 上 传播 时 无 反射 。 称 每 一种 独立 传播 的 波得 傅利叶 变换 为波 模式 ( Wave   Mode ) 。 单元 任一 截面 上 的 波 模式 向量 定义 为 wm = ［ wTl , wTr ］ T ， 其中 wl 和 wr 分别 称为 左 行波 模式 向量 和 右 行波 模式 向量 。 设一 结点 将 N 个 单元 连接 在 一起 ， 在 每 一个 单元 上 都 有 相对 于 结点 的 入射波 模式 wni 和 出射波 模式 wno 。 
+ 
+ 图 1 　 单元 示意图 
+ 
+ 图 2 　 结点 示意图 
+ 　 　 选取 各个 单元 两端 的 出射及 入射波 模式 向量 为 基本 未知量 ， 并令 Wo = ［ wT1o , wT2o , … , wTMo ］ T , Wi = ［ wT1i , wT2i , … , wTMi ］ T , M 为 单元 总数 。 Wi 和 Wo 分别 称为 系统 出射 和 入射波 模式 向量 。 从 结点 的 力 和 位移 边界条件 ， 可 得到 系统 的 散射 模型 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 Wo = SWi + GR 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 式 中 S 为 系统 散射矩阵 ， G 为 系统 影响 矩阵 ， R 为外 载荷 和 位移 激励 形成 的 向量 。 从波 在 单元 上 的 传递 特性 可 得 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 Wo = TWi 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 2 ) 
+ T 为 系统 传递 矩阵 ， 给定 R 可 从 ( 1 ) 、 ( 2 ) 求得 Wi 和 Wo ， 结构 的 位移 和 内力 也 可 通过 变换 得到 。 
+ 　 　 3 　 模态 分析 
+ 　 　 结构 的 模态 特性 可 从 其 自由 振动 中 反映 出来 ， 从 自由 振动 的 动力学 模型 求得 位移 的 非零解 即 为 结构 振动 的 模态 位移 。 令 A ( ω ) = T - S , A 是 n × n 维复 矩阵 ， n 为 入射波 模式 的 维数 。 对 三维空间 框架结构 ， n = 12N ， N 为 结构单元 总数 。 令 ( 2 ) 式 中 的 外 激励 向量 R 为 零 ， 结构 自由 振动 的 动力学 方程 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 A ( ω ) Wi = 0 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 3 ) 
+ 方程 ( 3 ) 是 一个 特殊 的 特征值 问题 ， 矩阵 A 的 元素 为 频率 ω 的 超越 函数 。 结构 当且 仅 当 方程 ( 3 ) 具有 非 平凡 解时 才能 维持 自由 振动 状态 ， 即 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 det ( A ) = 0 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 4 ) 
+ 上式 是 一个 超越 方程 ， 可以 看成 是 结构 的 特征 方程式 。 本文 仅 考虑 无 阻尼 的 情况 ， 因此 ( 4 ) 式 的 无穷 多个 解 ω i , 1 = 1 , 1 , … 均 为 实数 ， 这些 解 对应 着 结构 的 无穷 多个 固有频率 。 下面 将 给出 如何 从 行波 模型 中 导出 对应 每一 固有频率 的 结构 振型 。 
+ 　 　 对 结构 的 固有频率 ω i , A ( ω i ) 为 n 维 复数 空间 到 其 自身 的 线性变换 ， 因 A ( ω i ) 奇异 ， 故有 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ri = n - rank ( A ( ω i ) ) ＞ 0 , i = 1 , 2 , … 　 　 　 　 　 　 　 　 　 　 　 ( 5 ) 
+ 式 中 ri 为 A ( ω i ) 的 缺 秩数 。 令 { α 1 , α 2 , … , α ri ) 为 A ( ω i ) 零空间 的 一组 基 ， 因此 有 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 A ( ω i ) α j = 0 , j = 1 , 2 , … , ri 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 6 ) 
+ 向量 α j , j = 1 , 2 ， … , ri 即为 对应 于 固有频率 ω i 的 系统 入射波 模式 的 振型 。 通过 Gram - Schmidt 规范 正交 化 过程 可以 获得 一组 规范 正交 基 。 设 为 对应 固有频率 的 系统 入射波 模式 振型 ， 对图 1 所示 的 单元 ， 其 入射波 模式 向量 和 出射波 模式 向量 分别 为 ［ , ］ T 和 ［ , ］ T 。 截面 P 处 的 模态 位移 和 内力 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 7 ) 
+ 式 中 λ m , Y ( xp , ) , ξ m ( xp , ) 分别 为 坐标 变换 阵 、 状变 变换 阵 、 和 波 传递 矩阵 。 
+ 　 　 由于 上述 方程 的 复杂性 ， 对略 复杂 的 结构 ， 其 结果 只 能够 用 数值 的 方法 求 出 。 求解 过程 中 的 难点 在于 解 特征 方程式 ( 4 ) ， 以 获得 结构 的 固有频率 。 不 适当 的 搜索 方法 可能 会 遗漏 某些 固有频率 ， 因此 在 求解 过程 中应 利用 结构 的 各种 频率响应 ， 以 判定 固有频率 的 位置 及 迭代 初值 。 
+ 　 　 4 　 实例 
+ 　 　 这里 给出 两个 例子 ， 以 说明 基于 行波 模型 的 模态 分析 过程 和 结果 。 第一个 例子 为 两端 简支 均 质梁 ， 其 行波 模型 可以 解析 的 形式 给出 。 另 一个 例子 是 一 较为 复杂 的 三维 框架结构 ， 并 给出 与 有限元 方法 比较 的 结果 。 
+ 　 　 4.1 　 例 1 　 简支梁 
+ 　 　 考虑 如图 3 所示 两端 简支梁 在 x - y 平面 内 的 弯曲 运动 ， 整个 梁在 波动 分析 中 作为 一个 单元 ， 两个 端点 为 两个 结点 。 
+ 
+ 图 3 　 两端 简支梁 示意图 
+ 　 　 自由 振动 的 Euler - Bernoulli 梁 的 数学模型 在 频域 中 的 表示 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 8 ) 
+ 其中 v 为 横向 位移 ， EI 为 弯曲 刚度 ， ρ ， A 分别 为 质量 密度 和 截面积 。 ( 8 ) 式 的 通解 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 9 ) 
+ 式 中 , ci , i = 1 ～ 4 为常 系数 。 eikx 和 ekx 项 对应 着 向 左 传播 的 波 ， 而 e - ikx 和 e - kx 项 对应 着 向 右 传播 的 波 。 令 wl1 = c1eikx , wl2 = c2ekx , wr1 = c3e - ikx , wr2 = c4e - kx , 从 上式 可 得到 单元 的 状态 转换 方程 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 10 ) 
+ 其中 wl = ［ wl1 , wl2 ］ T , wr = ［ wr1 , wr2 ］ T , θ , V 和 M 分别 为 截面 转角 、 剪力 和 弯矩 。 
+ 　 　 结点 1 和 结点 2 处 的 边界条件 是 一样 的 ， 即 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 v = 0 , 　 M = 0 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 11 ) 
+ 在 结点 1 处有 wi1 = wl , wo1 = wr ; 在 结点 2 处有 wo2 = wl , wi2 = wr ， 因此 两 结点 处 的 散射 关系 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 wo1 = S1wi1 , wo2 = S2wi2 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 12 ) 
+ 其中 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 13 ) 
+ 　 　 从波 模式 的 定义 可 得 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 14 ) 
+ 系统 入射 和 出射波 模式 向量 分别 定义 为 Wi = ［ wTi1 , wTi2 ］ T , Wo = ［ wTo2 , wTo1 ］ T , 将 ( 12 ) 式 代入 ( 14 ) 式 可以 得到 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 AWi = 0 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 15 ) 
+ 其中 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 16 ) 
+ 　 　 ( 15 ) 式 有 非 平凡 解 ， 当且 仅 当 
+ 　 　 　 　 　 　 　 　 　 　 　 　 det ( A ) = ( ekl + 1 ) ( ekl - 1 ) ( eikl + 1 ) ( eikl - 1 ) = 0 　 　 　 　 　 　 　 　 　 ( 17 ) 
+ 即 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 18 ) 
+ 此时 ( 15 ) 式 的 解为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 19 ) 
+ 利用 ( 10 ) 式 作 变换 得 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 20 ) 
+ ( 18 ) 式 和 ( 20 ) 式 与 解 函数 特征值 问题 ［ 2 ］ 所得 结果 完全一致 。 
+ 　 　 4.2 　 例 2 　 空间 框架结构 
+ 　 　 行波 方法 和 有限元 方法 都 被 用以 对图 4 所示 的 框架结构 进行 分析 ， 框架 由 八根 同样 的 均 质圆 截面 Euler - Bernoulli 梁 刚性 连接 而成 ， 在 两种 方法 中 ， 每 一根 梁都 被 作为 一个 单元 。 单元 的 物理 特性 为 ： 长度 l = 1.0 m ， 截面 半径 r = 0.01 m ， 密度 ρ = 7800kg / m3 ， 扬氏 模量 E = 2.0 × 1011N / m2 ， 泊松比 μ = 0.25 。 
+ 　 　 　 
+ 图 4 　 三维 框架结构 示意图 
+ 　 　 从 行波 模型 ( TWM ) 和 有限元 方法 ( FEM ) 所 得到 的 结构 的 最低 8 阶 固有频率 列于 表 1 ， 各阶 固有频率 对应 的 振型 如图 5 示 。 有限元 方法 中 的 模态 位移 是 用 文献 ［ 10 ］ 中 的 位称 函数 插值 得到 的 。 由于 结构 在 x 和 y 方向 具有 相同 特性 ， 因而 对 某些 固有频率 可能 有 两个 振型 ， 为 简便 起见 图中 只 画出 一个 振型 。 
+ 表 1 　 结构 固有频率 ( rad / s ) 
+ 
+ 序号 12345678 
+ TWM63.729181 . 7544139.7255268 . 5689319.8176320 . 1489346.2224436 . 0539 
+ FEM63.882381 . 8925140.4397303 . 6320382.4355383 . 1072430.7789613 . 6596 
+ 振型 ( a ) ( b ) ( c ) ( d ) ( e ) ( f ) ( g ) ( h ) 
+ 
+ 　 　 从表 1 可见 ， 有限元 方法 求得 的 固有频率 比 行波 方法 所得 的 固有频率 要 高 ， 而且 随着 频率 的 增加 两者 的 差异 也 增大 。 结构 的 振型 ( 图 5 ) 也 是 高阶 的 差别 较大 ， 而且 单元 内部 的 差别 要 比 结点 上 的 差别 大 ， 原因 在于 行波 方法 中 单元 上 的 位 是 通过 精确 的 传递 特性 求得 的 ， 而且 限中元 是 用 假设 的 插值 函数 插值 得到 的 。 以上 结果表明 ， 行波 方法 所得 的 结果 比 有限元 方法 精确 ， 特别 是 固有频率 。 
+ 
+ 图 5 　 结构 振型 ( TWM — — ， FEM … … ) 
+ 　 　 5 　 结束语 
+ 　 　 本文 基于 行波 模型 给出 获得 框架结构 的 模态 特性 的 一种 新 方法 。 事实上 ， 基于 Euler - Bernoulli 梁 模型 的 行波 方法 得到 的 结果 ， 是 基于 同样 模型 的 有限元 方法 在 自由度 趋向 无穷 时 的 极限 解 。 与 实际 结构 之间 的 差别 在于 Euler - Bernoulli 梁 模型 本身 带来 的 误差 。 本文 给出 的 方法 具有 一定 的 通用性 ， 对 某些 单元 可以 采用 更为 精确 的 模型 ， 以 获得理想 的 结果 。 行波 模型 给出 了 非常 全面 的 结构 特性 ， 但 同时 其 计算 量 也 比较 大 ， 如何 使 之 成为 一种 工程 实用 的 方法 还 需要 很多 的 研究 。 
+ * 国家自然科学基金 资助 项目 ( 编号 19632001 ) 
+ 作者 单位 ； 朱 桂东 ： 北京 宇航 系统工程 设计部 . 北京 9200 信箱 10 分箱 13 号 . 100076 
+ 　 　 　 　 　 郑钠 铁   邵成勋 ： 哈尔滨工业大学 . 航天 工程 与 力学 系 . 150001 
+ 参考文献 
+ 　 　 1 　 陆秋海 ， 李德 葆 . 模态 理论 的 进展 . 力学 进展 ， 1996 ， 26 ( 3 ) ： 464 - 471 
+ 　 　 2 　 Meirovitch   L . Computational   Methods   in   Structural   Dynamics . Sijthoff   &   Noordhoff   International   Publishers , The   Netherlands , 1980 
+ 　 　 3 　 von   Flotow   A   H . Travelling   Wave   Control   for   Large   Spacecraft   Structures . Journal   of   Guidance , Control   and   Dynamics , 1986 , 9 ( 4 ) : 462 - 468 
+ 　 　 4 　 Beale   L   S   and   Accorsi   M   L . Power   Flow   In   Two - and   Three - dimensional   Frame   Structures . Journal   of   Sound   and   Vibration , 1995 , 185 ( 4 ) : 685 - 702 
+ 　 　 5 　 MacMartin   D   G , Miller   D   W , Hall   S   R . Structural   Control   Using   Active   Broadband   Impedance   Matching , Proceedings   of   the   conference   on   recent   advances   in   active   control   of   sound   and   vibration , Blacksburg , Virginia , USA , Apr.15 - 17 , 1991 : 604 - 617 
+ 　 　 6 　 朱 桂东 ， 郑 钢铁 ， 邵成勋 . 基于 波动 模型 的 框架结构 被动 阻尼 减振 分析 . 航空 学报 ， 1997 ， 18 ( 6 ) ： 670 - 675 
+ 　 　 7 　 朱 桂东 ， 郑 钢铁 ， 劭 成勋 . 基于 行波 模型 的 航天器 附件 动力 吸振 分析 . 振动 工程学 报 ， 1998 ， 11 ( 2 ) ： 138 - 143 
+ 　 　 8 　 王泉 ， 王大均 ， 苏先樾 . 关于 结构 波动 区域 可 探性 和 一个 有关 的 降维 模型 . 中国 科学 ( A 辑 ) ， 1994 ， 24 ( 9 ) ： 955 - 960 
+ 　 　 9 　 Meirovitch   L   and   Bennighof   J   K . Modal   Control   of   Travelling   Waves   in   Flexible   Structures . Journal   of   Sound   and   Vibration , 1986 , 111 ( 1 ) : 131 - 144 
+ 　 　 10 　 Rao   S   S . The   Finite   Element   Method   in   Engineering . Pergamon   Press , 1982 
+ 收稿 日期 : 1997 年 5 月 15 日 , 修回 日期 : 1998 年 10 月 19 日 

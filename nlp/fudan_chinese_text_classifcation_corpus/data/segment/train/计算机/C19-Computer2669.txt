@@ -1,0 +1,129 @@
+软件 学报 
+ JOURN   AL   OF   SOFTWARE 
+ 1999 年 　 第 10 卷 　 第 10 期 　 Vol.10 　 No.10 　 1999 
+ 
+ 
+ 
+ 多边形 物体 的 精确 B - 样条 自由 变形   
+ 冯结青   彭 群生 
+ 摘要   在 计算机 动画 与 几何 造型 中 , 自由 变形 是 一种 重要 的 几何 形状 修改 方法 . 该文 从 移位 算子 和 函数 复合 的 观点 探讨 一种 方法 , 即 当 被 变形 物体 用 三角 片 表示 、 变形 工具 为 B - 样条 参数 体时 , 变形 后 的 物体 可以 精确 地 表示 为 一组 三角 Bzier 曲面 片 , 其 次数 为 B - 样条 参数 体 3 个 方向 的 次数 之 和 . 此 方法 的 核心 在于 自由 变形 是 作用 在 三角 片上 , 而 不是 顶点 上 , 所以 解决 了 多边形 物体 B - 样条 自由 变形 的 点 采样 问题 . 
+ 关键词   自由 变形 , 函数 复合 , 移位 算子 , 三角 Bzier 曲面 片 . 
+ 中图法 分类号   TP391 
+ Accurate   B - spline   Free - Form   Deformation   of   Polygonal   Objects 
+ FENG   Jie - qing   PENG   Qun - sheng 
+ ( State   Key   Laboratory   of   CAD   &   CG   Zhejiang   University   Hangzhou   310027 ) 
+ Abstract   Free - form   deformation   is   an   important   geometric   shape   modification   method   in   computer   animation   and   geometric   modeling .   The   authors   explore   it   by   means   of   functional   composition   via   shifting   operators   in   this   paper .   When   the   object   to   be   deformed   is   represented   by   triangular   meshes   and   the   deformation   tool   is   a   B - spline   volume ,   the   deformed   object   can   be   accurately   described   as   a   set   of   triangular   Bzier   patches ,   whose   degree   is   the   sum   of   three   directional   degrees   of   the   B - spline   volume .   The   proposed   method   also   solves   the   sample   problem   of   free - form   deformation ,   because   free - form   deformation   acts   on   triangular   meshes   rather   than   points . 
+ Key   words   Free - form   deformation ,   functional   composition ,   shifting   operators ,   triangular   Bzier   patch . 
+ 　 　 在 计算机 动画 和 几何 造型 中 , 几何 形状 的 修改 是 一个 重要 的 研究课题 . 用户 可以 通过 交互 地 拉动 物体 的 顶点 或 控制顶点 或者 对 其 施加 变换 的 方法 改变 物体 的 几何 形状 , 但 这些 方法 所 产生 的 效果 是 有限 的 , 用 它们 难以 得到 复杂 的 形状 . 当 顶点 或 控制顶点 的 数目 较多时 , 这种 直接 操作 方式 就 显得 十分 繁琐 . 空间 变形 方法 则 较 好地解决 了 这个 问题 [ 1 ] . 
+ 　 　 Barr 首先 提出 了 整体 与 局部 变形 的 概念 [ 2 ] . 在 他 的 方法 中 , 变换 矩阵 不再 是 常数 , 而是 空间 位置 的 函数 , 因而 变形 可 独立 于 物体 的 具体 表示 形式 . 自由 变形 ( free - form   deformation , 简称 FFD ) 的 概念 是 由 Sederberg 和 Parry 首先 提出 来 的 [ 3 ] , 这种 方法 提供 了 一个 更为 一般 的 空间 变形 方法 框架 : 待 变形 物体 首先 被 嵌入 一个 中间 空间 . 当 中间 空间 的 形状 发生变化 时 , 变形 传递 给 嵌入 其中 的 物体 . 在 文献 [ 3 ] 中 , 该 空间 为 一个 三变 元 张量积 Bzier 体 . 后来 人们 推广 了 FFD 的 概念 , 陆续 提出 了 B - spline   FFD [ 4 ] , Extended   FFD [ 5 ] , Rational   FFD [ 6 ] , NURBS   FFD [ 7 ] 以及 Continuous   FFD [ 8 ] 等 方法 . 所有 这些 FFD 方法 都 遵循 相同 的 处理 步骤 : 
+ 　 　 ( 1 )   定义 一个 参数 体 , 包括 参数 空间 和 控制顶点 网格 ; 
+ 　 　 ( 2 )   将 物体 映射 到 参数 空间 中 ; 
+ 　 　 ( 3 )   通过 编辑 控制顶点 或 其他 方式 改变 参数 体 的 形状 ; 
+ 　 　 ( 4 )   嵌 在 参数 空间 中 的 物体 作 相应 变形 . 
+ 其他 种类 的 FFD 推广 还 包括 : Animated   FFD [ 9 ] 、 直接 操作 FFD [ 10 ] 、 任意 拓扑 网格 FFD [ 11 ] 、 Dirichlet   FFD [ 12 ] 等 , 这些 方法 的 处理 步骤 与 上述 4 步 略有不同 . 如果 将 FFD 方法 的 空间 控制 网格 看作 三维 变形 工具 的话 , 则 曲面 控制 变形 方法 [ 13 ] 、 轴 变形 方法 [ 14 , 15 ] 和 基于 空间 点 及其 位移 约束 的 空间 变形 方法 [ 16 ] , 分别 具有 二维 、 一维 、 零维 的 变形 控制 工具 . 在 文献 [ 17 ] 中 , Bechmann 对 上述 具有 不同 拓扑 维数 变形 工具 的 变形 方法 进行 了 详细 的 分析 和 比较 . 
+ 　 　 上述 所有 空间 变形 方法 都 是 独立 于 物体 的 具体 几何 表示 形式 的 , 即 变形 作用 在 物体 的 顶点 或 控制顶点 上 , 而 与 物体 的 拓扑 无关 . 理论 上 , 只有 当 变形 作用 在 物体 的 每 一点 上时 , 变形 才 是 精确 的 . 显然 , 如果 用 目前 的 方法 , 这种 理论化 的 结果 是 不 可能 得到 的 , 原因 是 物体 在 计算机 中 只能 以 离散 的 形式 表示 . 当 表示 物体 的 顶点 或 控制顶点 较 稀疏 时 , 用 当前 的 方法 就 难以 得到 理想 的 变形 结果 , 最差 的 情形 是 物体 保持 不变 , 或 物体 的 拓扑 关系 发生变化 . 所以 在 实际 应用 中 , 变形 物体 的 采样 是 一个 重要 的 问题 . 迄今为止 , 只有 文献 [ 4 ] 涉及 了 这个 问题 . 在 他们 的 方法 中 , 系统 自动 地 计算 多边形 边 的 中点 的 精确 变形 与 线性插值 之间 的 误差 , 当 误差 大于 阈值 时 , 当前 多边形 就 会 以 插入 顶点 的 方式 加密 采样 , 直至 所有 边 的 采样 误差 小于 给定 值 . 这种 方法 的 一个 不足之处 在于 , 采样 方式 不能 保证 检测 到 所有 奇异 点 , 而 这些 奇异 点 往往 刻画 了 变形 的 特征 . 
+ 　 　 在 本文 中 , 我们 借助于 移位 算子 的 概念 , 用 函数 复合 的 方法 解决 了 多边形 物体 的 B - 样条 自由 变形 的 采样 问题 . 在 我们 的 方法 中 , 首先 将 B - 样条 参数 体 通过 节点 插入 算法 转化 为 分块 连续 的 Beizer 参数 体 ; 然后 , 根据 B - 样条 参数 体 的 节点 向量 对 多边形 物体 进行 剖分 和 重新 三角 化 , 使剖分 和 重新 三角 化后 物体 的 每 一个 三角 片 严格 地 位于 某个 Bzier 参数 体 之内 ; 最后 通过 函数 复合 三角 片 与 相应 的 Bzier 参数 体 , 得到 三角 片 的 精确 变形 结果 , 即 一个 次数 为 B - 样条 体 各个 方向 的 次数 之 和 的 三角 Bzier 曲面 片 . 由于 应用 了 移位 算子 , 复合 过程 在 形式 上 变得 清晰 简明 . 三角 Bzier 曲面 片 控制顶点 的 计算 则 通过 广义 de   Casteljau 算法 , 众所周知 , 这是 数值 稳定 的 . 所有 上述 过程 都 无需 用户 的 干预 , 而是 由 算法 自动 完成 的 . 
+ 　 　 本文 第 1 节 介绍 移位 算子 以及 一种 B - 样条 参数 体 的 定义方法 . 第 2 节 介绍 多边形 物体 的 剖分 和 三角 化等 预处理 过程 . 第 3 节 介绍 基于 移位 算子 和 广义 de   Casteljau 算法 的 函数 复合 算法 . 最后 是 对 算法 的 讨论 以及 实验 结果 . 
+ 1 　 移位 算子 及 广义 de   Casteljau 算法 
+ 　 　 结合 移位 算子 , Bernstein 多项式 可以 用 一种 更为 清晰 简洁 的 方式 表达 , 许多 关于 Bzier 曲线 、 曲面 的 性质 可以 简洁 地 推导 出来 [ 18 ] . 记 r ( u , v , w ) 为 一个 Bzier 参数 体 , 其 定义 为 
+ ,   　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 其中 Rijk ∈ R3 . 记 Eu , Ev , Ew , I 为 移位 算子 , 定义 如下 : 
+ ， ， ， 
+ 应用 移位 算子 , 方程 ( 1 ) 可以 重新 表示 为 
+ . 　 　 　 　 　 　 　 　 　 　   ( 2 ) 
+ 式 ( 1 ) 与 式 ( 2 ) 的 等价 性 可以 通过 二项式 展开 定理 得到 证明 , 在 此 从略 . 
+ 　 　 下面 我们 给出 在 FFD 方法 中 B - 样条 体 的 一种 定义 方式 . 记 被 变形 物体 在 物体 坐标系 中 的 包围 盒为 . 通过 用户 交互 或 系统 自动 生成 的 方式 , 根据 这个 包围 盒 生成 的 B - 样条 体 的 节点 向量 u , v , w 定义 为 
+ u = { u0 … , uku , uku + 1 … , unu … , unu + ku } , 
+ 其中 ku 为 B - 样条 体 u 方向 的 次数 , nu 为 u 方向 的 控制顶点 的 个数 , 端 节点 为 ku 重 节点 . v , w 方向 的 节点 向量 v , w 具有 类似 定义 . 由 上述 节点 向量 确定 的 各 参数 方向 次数 分别 为 ku , kv , kw 的 B - 样条 体 P ( u , v , w ) 为 
+ . 
+ 　 　 采用 上述 节点 向量 的 定义方法 的 优点 是 , 当 我们 把 待 变形 物体 映射 到 B - 样条 体 的 参数 空间 中 时 , 物体 的 坐标值 与 物体 在 参数 空间 中 的 局部 坐标 等价 , 从而 节省 了 映射 时 的 计算 量 . 然后 , B - 样条 体 通过 节点 插入 算法 转化 为 分块 连续 的 Bzier 参数 体 [ 19 ] . 
+ 2 　 物体 的 剖分 和 重新 三角 化 
+ 　 　 在 本文 中 , 我们 假设 待 变形 物体 由 三角 平面 片 组成 , 这 是因为 三角 片 可以 保证 共面性 . 如果 输入 物体 不是 三角 化 的 多面体 , 我们 可以 首先 对 其三 角化 . 本节 所 描述 的 剖分 与 重新 三角 化是 在 B - 样条 体 的 参数 空间 中 进行 的 , 为 简化 起 见 , 将 向量 u , v , w 重新 记作 x , y , z ; 将 ui , vj , wk 记作 xi , yj , zk . 
+ 　 　 记 P0P1P2 为 物体 上 的 一个 三角 片 , 如图 1 ( a ) 所示 , 三角形 的 三条 边 P0P1 , P1P2 , P2P0 可以 作 线性 参数 化 . 这里 我们 不 对 它们 作 统一 的 [ 0 , 1 ] 参数 化 , 而是 如下 定义 : 
+ 
+ 假定 u 方向 节点 所在 平面 x = xi ( i = i0 , … , i1 ) 与 三角 片 P0P1P2 相交 , 我们 的 目的 是 求出 平面 与 三角 片 的 交点 , 并 在 保持 交线 的 约束 下 对 三角 片 重新 三角 化 , 使 结果 中 每 一个 三角 片 位于 一个 Bzier 参数 体 之内 . 为此 , 我们 首先 计算 平面 与 三角 片 的 交点 , 所有 的 交点 与 三角 片 的 3 个 顶点 形成 一个 单向 循环 链表 ; 对于 这个 链表 , 我们 通过 适当 的 跟踪 算法 得到 一系列 的 平面 多边形 , 简称 为 Loop ; 最后 对 边数 大于 3 的 Loop 进行 三角 化 . 上述 过程 依次 对 v , w 方向 类似 地 进行 . 下面 我们 就 详细 介绍 上述 算法 . 
+ 　 　 
+ ( a ) 有 3 对 交点 , 它们 用 圆点 表示 并用 线段 两 两 相连 , 此图 中 的 循环 链表 为 
+ 　 　 P0Q0P1Q1 ＇ , Q0 ＇ Q2 ＇ P2Q2P0 , 根据 我们 的 Loop 生成 算法 得到 的 4 个 Loop 分别 
+ 　 　 为 : P0Q0Q0 ＇ Q2 ＇ Q2 , Q0Q1 ＇ Q0 ＇ , Q1P1Q1 ＇ , Q2 ＇ P2Q2 
+ ( b ) 这是 一种 厅异 情况 , 三角 片 顶点 P0 首先 从 Vlist 中 删除 ; 最终 得到 的 Vlist 为 Q0P1Q0 ＇ P1Q0 ; 相应 
+ 　 　 的 两个 Loop 为 P1Q0 ＇ Q0 , Q0 ＇ P2Q0 . 
+ 2.1 　 求交及 循环 链表 的 生成 
+ 为了 便于 描述 算法 , 我们 首先 介绍 一个 用于 存储 三角 片 顶点 及 三角 片 与 平面 交点 的 数据结构 , 如下 所示 . 
+ Struct   vertex   { 
+ float   x , y , z ; 　 　 / *   space   position   coordinates   * / 
+ float   t ;   　 　 　 / *   t   parameter   corresponding   to   edge   parameterizations   * / 
+ short   int   Vflag ;   / *   “ 1 ”   if   triangle   vertex ;   “ 2 ”   if   intersection   points   * / 
+ struct   vertex   * link ;   / *   link   between   two   intersections ,   NULL   if   triangle   vertex   * / 
+ struct   vertex   * next ;   / *   for   linked   list   * / 
+ ｝ 
+ 　 　 在 进行 求交 之前 , P0 , P1 , P2 首先 根据 t 值 形成 一个 循环 链表 , 记作 Vlist , 这 3 个点 的 Vflag 置 为 1 , link 置 为 NULL , 一般 情况 下 , 一个 平面 与 一个 三角 片 的 交点 数为 2 , 此时 , 这 两个 关联 的 交点 通过 link 相连 , 其 Vflag 置 为 2 . 然后 我们 根据 这 两个 交点 的 t 值 大小 将 其 插入 链表 Vlist 中 . 这样 , 三角 片 的 顶点 及 平面 与其 交点 根据 其 t 值 大小 就 形成 了 一个 有序 的 循环 链表 , 如图 1 ( a ) 所示 , 属于 同一个 平面 的 两个 交点 通过 link 相连 , 这个 信息 对 我们 下 一步 生成 Loop 是 很 重要 的 . 
+ 　 　 下面 我们 来 考虑 一些 奇异 情形 . 当 平面 与 三角 片交于 一点 或 一条 边时 , 平面 被 视作 与 三角 片 无 交点 . 如果 平面 交 于 三角 片 的 一个 顶点 及 该 顶点 所 对 的 边 , 如图 1 ( b ) 所示 , 此时 , 我们 首先 将 该 三角 片 的 顶点 从 Vlist 中 删除 , 然后 再 将 两个 交点 插入 Vlist . 
+ 2.2 　 Loop 的 生成 算法 
+ 　 　 在 本节 中 , 我们 介绍 如何 由 循环 链表 Vlist 生成 Loop , 如图 1 所示 . 一个 Loop 的 生成 从 一个 startV 开始 , startV 是 链表 Vlist 中 Vflag 值为 1 的 任意 一个点 . 如果 Vlist 中 的 某个 顶点 被 访问 过 了 , 则 其 Vflag 值 减去 1 ; 当 生成 了 所有 的 Loop 之后 , Vlist 中 所有 元素 的 Vflag 值均 为 0 . 这是 由于 所有 的 三角 片 顶点 被 访问 一次 , 而 交点 被 访问 两次 . 访问 Vlist 中 元素 的 顺序 是 这样 确定 的 : Loop 的 第 1 条边 一定 为 三角 片 的 边 , 即下 一个 顶点 由 next 指针 决定 , 然后 , 一般 情形 下 是 next 和 link 指针 交替 使用 . 如果 当前 点 是 三角 片 的 点 , 则 下 一个点 一定 是 交点 ( 由 next 指针 确定 ) , 即使 前 一个 所用 的 指针 是 next . 这个 算法 的 特点 是 生成 的 所有 Loop 的 顶点 顺序 与 原来 三角 片 顶点 的 顺序 一致 , 也就是说 如果 原来 的 三角 片 的 3 个 顶点 是 顺时针 方向 的 , 则 所有 Loop 也 是 顺时针 方向 的 . 这 一点 在 绘制 时 很 重要 , 因为 它 决定 了 后面 的 三角 Bzier 曲面 片 与 对应 的 三角 片 具有 相同 趋势 的 外法 向 . 
+ 2.3 　 重新 三角 化 
+ 　 　 根据 第 2.2 节中 的 算法 , 共有 3 类 Loop 生成 , 它们 的 边数 分别 为 3 , 4 , 5 . 对于 边数 为 4 或 5 的 Loop , 我们 根据 边长 和 最小 的 原则 将 其三 角化 . 对于 四边 Loop , 选择 较 短 的 对角线 将 其三 角化 ; 对于 五边 Loop , 每 一个 顶点 可以 发出 两条 对角线 , 在 这 5 组 对角线 中 , 我们 选择 具有 边长 和 最 短 的 顶点 进行 三角 化 , 如图 2 所示 . 
+ 
+ 图 2 　 三角 化 Loop 
+ 对于 四边 Loop , 选择 短 的 对角线 , 这里 是 BD , 所 生成 的 三角 片为 ABD 和 BCD . 如果 是 五边 Loop , 选择 具有 最短 对角线 和 的 顶点 , 如果 b + e 最短 , 则 生成 的 三角 片为 ABC , ACD , ADE . 
+ 3 　 平面 三角 片 和 Bzier 参数 体 的 函数 复合 
+ 　 　 待 变形 物体 经过 剖分 和 重新 三角 化 之后 , 物体 的 每 一个 三角 片 都 位于 某个 Bzier 参数 体 之中 . 记 P0P1P2 为 一个 三角 片 , 它 的 3 个 顶点 相对 于 Bzier 参数 体 的 局部 坐 标记 为 ( u0 , v0 , w0 ) , ( u1 , v1 , w1 ) , ( u2 , v2 , w2 ) . 这个 三角 片 可以 通过 重心坐标 参数 化为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　   ( 4 ) 
+ 其中 ( x , y , z ) 为 重心坐标 . 将 上述 参数 化 方程式 ( 4 ) 代入 式 ( 2 ) , 我们 就 可以 得到 三角 片 FFD 的 精确 结果 . 这里 的 核心 问题 是 如何 设计 一个 算法 来 快速 地 求取 函数 复合 结果 . 
+ 　 　 DeRose 等 人 曾 研究 过 Bernstein 多项式 的 函数 复合 算法 [ 20 , 21 ] , 这里 我们 采用 与其 不同 的 方法 来 探讨 这个 问题 . 我们 借助于 移位 算子 的 概念 , 可以 使 Bernstein 多项式 的 函数 复合 问题 的 推导 变得 更加 简洁 和 易于 理解 . 下面 我们 给出 1 次 三角 Bzier 曲面 片 ( 即 三角 平面 片 ) 与 张量积 Bzier 参数 体 的 函数 复合 算法 . 将 上面 的 重心 参数 化 方程组 式 ( 4 ) 代入 式 ( 2 ) 得 
+ 
+ 记 Aui = ( 1 - ui ) I + uiEu , Avi + ( 1 - vi ) I + viEv , Awi = ( 1 - wi ) I + wiEw , i = 0 , 1 , 2 . 将 这些 记号 带入 上面 的 表达式 ,   R = ( x , y , z ) 可以 简化 为 
+ 
+ 其中 N = nu + nv + nw , Rijk 为 
+ 　 　 　 　 　 　   ( 5 ) 
+ 根据上述 推导 可知 , 复合 结果 是 一个 次数 为 N 的 三角 Bzier 曲面 片 , 它 的 控制顶点 可以 通过 广义 de   Casteljau 算法 求得 . 这里 所 得到 的 三角 Bzier 曲面 片 的 法向 与 原来 的 物体 的 外法 向 趋势 一致 , 这个 性质 可 由 我们 的 剖分 和 重新 三角 化 算法 保证 . 
+ 4 　 算法 讨论 与 实验 结果 
+ 　 　 由于 我们 对 物体 所作 的 剖分 和 重新 三角 化 过程 是 与 物体 的 三角 片 的 大小 无关 的 , 所以 在 重新 三角 化 的 结果 中 , 会 产生 一些 较 小 的 三角 片 , 对于 这些 较 小 的 三角 片 , 我们 没有 必要 将 其作 精确 的 自由 变形 , 因为 它们 不 存在 采样 问题 . 所以 在 具体 实现 该 算法 时 , 可以 设定 一个 阈值 , 当 三角 片 的 三条 边均 小于 阈值 时 , 该 三角 片 只作 普通 的 自由 变形 , 而 非 本文 提出 的 精确 自由 变形 , 从而 可以 节省 计算 量 . 但是 , 这 可能 会 增加 处理 面片 裂缝 的 负担 . 
+ 　 　 另外 一个 可以 节省 计算 量 的 技巧 是 : 对于 每个 三角 片 , 检测 其 是否 位于 某个 参数 平面 中 , 即 看 其 3 个 顶点 的 局部 坐标 是否 有 一个 坐标 分量 相等 , 如果 相等 , 我们 可以 简化 计算 控制顶点 的 过程 . 例如 , 如果 某个 三角 片 的 3 个 顶点 u 分量 均 为 u = u * , 那么 结果 的 三角 Bzier 曲面 片 的 次数 应为 kv + kw , 而 不是 ku + kv + kw . 
+ 　 　 在 目前 的 几何 造型 或 计算机 动画 系统 中 , 在 用户 交互 过程 中 , 为了 提高 显示 速度 , 系统 一般 都 显示 其线 框图 . 对于 本文 提出 的 算法 , 我们 也 可以 计算 物体 的 精确 的 线框 变形 , 即 计算 线段 与 Bzier 参数 体 的 复合 , 其 结果 为 一条 Bzier 曲线 . 限于 篇幅 , 我们 在 此 省略 该 推导 . 
+ 　 　 我们 已经 在 SGI   Indy 图形工作站 上 实现 本 算法 . 在 图 3 ～ 5 中 , ( a ) 为 初始 物体 ; ( b ) 为 直接 的 自由 变形 结果 , 即 变形 作用 在 顶点 , 而 非 三角 片上 ; B - 样条 参数 体 的 控制顶点 及 网格 在 图 中用 点 和 虚线 表示 ; ( c ) 为 物体 在 参数 空间 经过 剖分 和 重新 三角 化 的 结果 , 其中 虚线 表示 B - 样条 体 节点 向量 ; ( d ) 为 精确 变形 结果 . 
+ 
+ B - 样条 体 的 次数 为 2 × 1 × 2 , 控制顶点 为 4 × 2 × 4 , 在 ( b ) 中 , 初始 时共面 的 几个 三角 片 变形 后 不再 共 面 , 甚至 不 连续 , 而 在 ( d ) 中 , 变形 物体 是 光滑 的 . 
+ 图 3 
+ 
+ B - 样条 体 的 次数 为 1 × 2 × 2 , 控制顶点 为 4 × 2 × 2 
+ 图 4 
+ 
+ B - 样条 体 的 次数 为 2 × 1 × 1 , 控制顶点 为 4 × 2 × 2 
+ 图 5 
+ 　 
+ 5 　 结   论 
+ 　 　 在 本文 中 , 我们 借助于 移位 算子 推导 出 了 多边形 物体 的 精确 B - 样条 自由 变形 结果 . 首先 我们 提出 了 一种 适合 于 本文 问题 的 物体 的 剖分 和 重新 三角 化 方法 , 然后 研究 了 线形 Bzier 三角 曲面 片 与 张量积 Bzier   体 的 函数 复合 , 即 自由 变形 作用 于 三角 片 , 并 给出 了 具体 算法 . 实验 结果 验证 了 算法 的 正确性 . 本文 提出 的 算法 可以 容易 地 集成 入 已有 的 动画 或 几何 造型 系统 , 从而 丰富 了 几何 造型 手段 . 我们 认为 进一步 的 研究 方向 包括 : 
+ 　 　 ( 1 )   将 本 算法 可以 直接 推广 到 RFFD [ 6 ] , NURBS   FFD [ 7 ] , CFFD [ 8 ] ; 
+ 　 　 ( 2 )   曲面 表示 物体 的 FFD 精确 变形 ; 
+ 　 　 ( 3 )   其他 类型 的 精确 变形 结果 , 主要 是 基于 点 约束 的 空间 变形 、 轴 变形 以及 曲面 控制 自由 变形 方法 . 
+ 注释 ： 本文 研究 得到 国家自然科学基金 资助 。 
+ 作者简介 ： 冯结青 ： 1970 年生 , 博士 , 助理 研究员 , 主要 研究 领域 为 几何 造型 , 计算机 动画 , 科学计算 
+ 　 　 　 　 　 　 　 　 　 可视化 
+ 　 　 　 　 　 彭 群生 ： 1947 年生 , 博士 , 教授 , 博士生 导师 , 主要 研究 领域 为 真实感图形 , 计算机 动 
+ 　 　 　 　 　 　 　 　 　 画 , 三维 几何 造型 , 红外 图像 形 , 工程图纸 扫描 识别 
+ 作者 单位 ： 浙江大学 CAD & CG 国家 重点 实验室   杭州   310027 
+ E - mail :   jqfeng @ cad . zju . edu . cn 
+ 参考文献 
+ Bechmann   D .   Space   deformation   survey .   Computers   and   Graphics ,   1994 , 18 ( 4 ) : 571 ～ 586   
+ Barr   A .   Global   and   local   deformation   of   solid   primitives .   ACM   Computer   Graphics   ( Siggraph ’ 84 ) ,   1984 , 18 ( 3 ) : 21 ～ 30   
+ Sederberg   T ,   Parry   S .   Free - form   deformation   of   solid   geometric   models .   ACM   Computer   Graphics   ( Siggraph ’ 86 ) ,   1985 , 20 ( 4 ) :   537 ～ 541   
+ Griessmair   J ,   Purgathofer   W .   Deformation   of   solids   with   trivariate   B - splines .   In :   Hansmann   et   al   eds .   Proceedings   of   Eurographics ’ 89 .   North - Holland :   Elsevier   Science   Publisher   B . V . ,   1989 .   137 ～ 148   
+ Coquillart   S .   Extended   free - form   deformation :   a   sculpturing   tool   for   3D   geometric   modeling .   ACM   Computer   Graphics   ( Siggraph ’ 90 ) ,   1990 , 24 ( 4 ) : 187 ～ 193   
+ Karla   P ,   Mangli   A   et   al .   Simulation   of   facial   muscle   actions   based   on   rational   free - form   deformation .   Computer   Graphics   Forum   ( Eurographics ’ 92 ) ,   1992 , 2 ( 3 ) : 59 ～ 69   
+ Lamousin   H ,   Waggenspack   W .   NURBS - based   free - form   deformation .   IEEE   Computer   Graphics   and   Applications ,   1994 , 4 ( 9 ) :   59 ～ 65   
+ Bechmann   D ,   Bertrand   Y   et   al .   Continuous   free - form   deformation .   Computer   Networks   and   ISDN   Systems   ( special   issue   of   Compugraphics ’ 96 ) ,   1997 , 27 ( 14 ) : 1715 ～ 1725   
+ Coquillart   S ,   Jancene   P .   Animated   free - form   deformations :   an   interactive   animation   technique .   ACM   Computer   Graphics   ( Siggraph ’ 91 ) ,   1991 , 25 ( 4 ) : 23 ～ 26   
+ Hsu   W ,   Hughes   J   et   al .   Direct   manipulation   on   free - form   deformation .   ACM   Computer   Graphics   ( Siggraph ’ 92 ) ,   1992 , 26 ( 2 ) :   177 ～ 184   
+ MacCracken   R ,   Joy   K .   Free - Form   deformation   with   lattice   of   arbitrary   topology .   ACM   Computer   Graphics   ( Siggaph ’ 96 ) ,   1996 , 30 ( 3 ) : 181 ～ 183   
+ Moccozet   L ,   Magnenat - Thalmann   N .   Dirichlet   free - form   deformations   and   their   application   to   hand   simulation .   In :   Thalmann   N   ed .   Proceedings   of   Computer   Animation ’ 97 .   Geneva :   IEEE   Computer   Society ,   1997 .   93 ～ 102   
+ Feng   Jie - qing ,   Ma   Li - zhuang ,   Peng   Qun - sheng .   A   new   free - form   deformation   through   the   control   of   parametric   surfaces .   Computers   and   Graphics ,   1996 , 20 ( 4 ) : 531 ~ 539   
+ Lazarus   F ,   Coquillart   S   et   al .   Axial   deformation :   an   intuitive   deformation   technique .   Computer - Aided   Design ,   1994 , 26 ( 8 ) :   607 ～ 613   
+ Chang   Y ,   Rockwood   A .   A   generalized   de   Casteljau   approach   to   3D   free - form   deformation .   ACM   Computer   Graphics   ( Siggraph ’ 97 ) ,   1997 , 30 ( 3 ) : 187 ～ 196   
+ Borrel   P ,   Bechmann   D .   Deformation   of   N - dimensional   objects .   International   Journal   of   Computational   Geometry   and   Applications ,   1991 , 1 ( 4 ) : 137 ～ 155   
+ Bechmann   D .   Multidimensional   free - form   deformation   tools .   In :   de   Sousa   A ,   Hopgood   B   eds .   State   of   the   Art   Report   ( Eurographics ’ 98 ) .   Lisbon ,   Portugal :   Blackwell   Publisher ,   1998 .   102 ～ 110   
+ Chang   Geng - zhe .   Bernstein   polynomial   via   the   shifting   operators .   American   Mathematical   Monthly ,   1984 , 91 ( 10 ) : 634 ～ 638   
+ Farin   G .   Curves   and   Surfaces   for   Computer - Aided   Geometric   Design .   2nd   Edition ,   New   York :   Academic   Press ,   1990   
+ DeRose   T .   Compositing   Bzier   simplex .   ACM   Transactions   on   Graphics ,   1988 , 7 ( 3 ) : 198 ～ 221   
+ DeRose   T ,   Goldman   R   et   al .   Functional   composition   algorithms   via   blossoming .   ACM   Transactions   on   Graphics ,   1993 , 12 ( 3 ) :   113 ～ 135   
+ 收稿 日期 : 1998 - 09 - 21 修稿 日期 : 1998 - 12 - 01 

@@ -1,0 +1,122 @@
+计算机 应用 
+ COMPUTER   APPLICATIONS 
+ 1999 年   第 19 卷   第 10 期   Vol.19   No.10   1999 
+ 
+ 
+ 
+ 浮动 许可证 加密 系统 的 研制 
+ 伍晓宇 
+ 　 　 摘 　 要 　 本文 以 作者 开发 的 浮动 许可证 加密 系统 为例 ， 详细 讨论 了 适合 于 Windows 等 操作系统 的 网络 加密技术 ， 包括 计算机 ID 号 的 构造 、 通过 TCP / IP 网络 对 加密 系统 各个 模块 实现 许可证 控制 等 。 
+ 　 　 关键词 　 浮动 许可证 ， 加密 ， TCP / IP ， 套 接字 
+ DEVELOPMENT   OF   FLOATING   LICENSE   SYSTEM 
+ Wu   Xiaoyu   
+ Engineering   College   of   Shenzhen   University ， Guangdong . Shenzhen   518060 
+ 　 　 Abstract 　 Through   floating   license   system   developed   by   the   author ,   the   paper   discusses   software   protection   technology   which   is   suitable   for   Windows   platform   and   network .   The   content   includes   constructing   PC   ID ,   controlling   the   license   of   the   secured   system   modules   on   TCP / IP   network   and   so   on . 
+ 　 　 Keywords 　 Floating   license ，   Encryption ，   TCP / IP ，   Socket 
+ 1 　 前言 
+ 　 　 计算机软件 作为 一种 知识 密集型 的 商品化 产品 ， 在 开发 过程 中 需要 大量 的 人力 、 物力 和 财力 ， 为 开发 程序 而 付出 的 成本 往往 是 硬件 价值 的 数倍 乃至 数百倍 。 然而 ， 从 软件 的 诞生 开始 ， 非法 复制 问题 就 一直 困扰 着 软件 生产商 们 ， 一项 凝聚 着 众多 技术人员 多年 脑力劳动 的 产品 却 在 很 短 的 时间 被 非法 复制 ， 这 将 会 造成 生产商 的 重大损失 。 由此 软件保护 技术 应运而生 。 
+ 　 　 计算机网络 软件加密 无可避免 地 涉及 到 网络 技术 ， 浮动 许可证 ( Floating   License ) 技术 正是 为 适应 这一 需要 而 产生 。 以下 以 作者 在 为 新加坡国立大学 设计 的 加密 系统 为例 进行 讨论 ， 希望 能 起到 抛砖引玉 的 作用 。 
+ 2 　 计算机 ID 号 的 构造 
+ 　 　 计算机 ID 号 即 计算机 身份证 ， 它 是 计算机 的 标识 ， 在 各种 小型机 以上 的 高档 计算机 中 往往 提供 了 CPU   ID 值 ， 可以 用 它 来 作为 计算机 的 ID 号 。 但是 目前 绝大多数 微机 都 没有 提供 CPU   ID 值 ， 由于 在 大多数 情况 下 我们 是 以 微机 为 研究 对象 ， 因此 为 它 构造 ID 号 就 显得 十分 重要 。 
+ 　 　 在 Windows 操作系统 广泛 流行 的 今天 ， 传统 的 以 软 硬盘 指纹 标记 （ 例如 许多 资料 上 介绍 过 的 磁道 接缝 等 技术 ） 作为 PC   ID 的 方法 已 不能 适应 要求 ， 这 是因为 Windows 操作系统 运行 于 保护模式 下 ， 不 允许 用户程序 直接 进行 许多 中断 级 的 程序 操作 。 因此 ， 必须 寻求 新 的 构造 ID 号 的 方法 。 
+ 　 　 很多 人 都 知道 安装 于 微机 中 的 网卡 都 有 一个 唯一 的 、 一般 是 6 字节 的 物理 卡号 ， 它 可以 通过 编写 NetBios 程序 等 方法 读取 ， 我们 可以 用 它 作为 计算机 ID 号 。 网卡 采用 物理 序号 ， 它 不但 用于 Windows 操作系统 ， 也 可以 应用 于 UNIX 等 其它 操作系统 之上 。 
+ 　 　 当 机器 中 没有 网卡 时 ， 建议 可 考虑 用 硬盘 卷 标号 作为 ID 值 。 但是 ， 每当 硬盘 进行 格式化 等 操作 后 ， 卷 标值 会 发生变化 ， 这 一点 应当 引起 注意 。 因此 ， 应 尽量 使用 网卡 号 。 另外 ， 为了 防止 某些 盗版者 通过 非法 途径 定制 相同 序列号 的 网卡 ， 在 构造 PC   ID 时 还 可 考虑 加入 其它 硬件 参数 等 信息 。 
+ 　 　 以下 是 作者 编写 的 使用 NetBios 技术 读取 网卡 号 的 一段 Windows   C 程序代码 。 
+ / /   读取 网卡 号 ， 其高 、 中 、 低位 字 ( 共 6 字节 ) 分别 保存 于 
+ / /   AddrNumH 、 AddrNumM 和 AddrNumL 中 
+ void   GetAdapterNum (   short   *   AddrNumH , 
+ short   *   AddrNumM , 
+ short   * AddrNumL   ) 
+ {   
+ int   i = 0 ; 
+ ADAPTER — STATUS   AStat ; 
+ BYTE   bRc ; 
+ NCB   ncb ; 
+ PUCHAR   ptr   =   ( PUCHAR ) & AStat ; 
+ UCHAR   HoldNetWorkName ［ 20 ］ ; 
+ HoldNetWorkName ［ 0 ］ = ′ * ′ ; 
+ memset ( & ncb ,   0x00 ,   sizeof (   NCB   )   ) ; 
+ memset ( & AStat ,   0x00 ,   sizeof (   ADAPTER — STATUS   )   ) ; 
+ ncb . ncb — command   =   NCBASTAT ; 
+ ncb . ncb — length   =   sizeof ( AStat ) ; 
+ ncb . ncb — buffer   =   ptr ; 
+ ncb . ncb — lana — num   =   0 ; 
+ for (   i   =   0 ;   i <   16 ;   i ++   ) 
+ ncb . ncb — callname ［ i ］   =   HoldNetWorkName ［ i ］ ; 
+ bRc   =   Netbios (   & ncb   ) ; 
+ if (   ! (   (   bRc   = =   NRC — GOODRET   )   | | 
+ (   bRc   = =   NRC — INCOMP   )   )   )   return   FALSE ; 
+ * AddrNumH   =   AStat . adapter — address ［   0   ］   *   256   
+ +   AStat . adapter — address ［   1   ］   ; 
+ * AddrNumM   =   AStat . adapter — address ［   2   ］   *   256 
+ +   AStat . adapter — address ［   3   ］ ; 
+ * AddrNumL   =   AStat . adapter — address ［   4   ］   *   256 
+ +   AStat . adapter — address ［   5   ］ ; 
+ } 
+ 　 　 实际 应用 时 ， 可 首先 让 用户 测试 将要 在 其 上 安装 运行 被 加密 系统 的 计算机 的 网卡 号 。 关于 测试方法 ， 可 由 开发商 发给 用户 一个 用 以上 C 代码 编写 的 测试程序 ； 也 可以 由 用户 直接 运行 windows 系统 的 命令 程序 winipcfg . exe ， 对于 Windows   NT 也 有 类似 的 命令 ， 名称 略有 差别 。 
+ 　 　 用户 测试 出 网卡 号 后 通知 软件 开发商 ， 开发商 随后 可 在 软件系统 中 嵌入 以上 C 代码 ， 并且 加入 比较 用户 网卡 号 的 程序 ， 确保 软件 每次 运行 时 首先 对 网卡 号 进行 确认 。 这样 被 加密 系统 只能 在 安装 有 对应 网卡 的 机器 上 运行 ， 从而 保护 开发商 的 合法权益 。 
+ 　 　 以上 是 工作站 加密 的 办法 ， 它 同时 也 可以 作为 网络 浮动 加密技术 的 基础 。 
+ 3 　 浮动 许可证 核心技术 
+ 　 　 图 1 是 作者 设计 的 Floating   License 系统 的 拓朴 结构图 ， 整个 系统 由 开发商 设置 好后 交 用户 安装 在 其 网络 中 的 各种 机器 上 运行 。 图中 左下角 是 加密 系统 的 核心 ： 浮动 许可证 服务器 ( FloatingLicense   Server ) ， 由 服务器程序 LicServer . exe 对 整个 用户 网络 的 License 进行 管理 。 
+ 
+ 图 1 　 浮动 许可证 系统 拓扑 结构 
+ 　 　 LicServer . exe 在 运行 前 必须 校验 它 所在 计算机 ( License 服务器 ) 的 ID 号 ， 校验 方法 在 第一节 中 已作 了 介绍 。 若 校验 不 成功 ， 作为 系统核心 的 该 服务器程序 无法 运行 ， 整个 被 加密 系统 也 就 相应 地 不能 正常 操作 ， 达到 软件保护 的 目的 。 若 服务器程序 经 校验 成功 后 正常 运行 ， 它 将 等待 客户机 发来 各种 请求 消息 ， 并 控制 它们 的 运行 状态 。 
+ 　 　 客户端 的 计算机 机型 可以 是 PC机 、 小型机 和 主机 等 ， 它们 上面 运行 着 开发商 的 被 加密 软件 ( 例如 商品化 的 CAD / CAM 系统 ) 的 不同 机型 版本 ， 其 软件 中 都 嵌套 有 一 通信 模块 ， 每当 被 加密 软件 运行 时 ， 首先 向 浮动 许可证 服务器发送 请求 信息 ， 请求 信息 可 包括 客户端 用户名 、 登录 模块号 和 登录 时间 等 。 服务器 收到 这些 请求 信息 后 ， 根据 预先 定义 的 规则 ， 决定 是否 批准 该 客户 登录 ， 并 向 客户端 发出 回答 信息 。 如果 批准 客户端 运行 动作 ， 则 被 加密 系统 可以 正常 运行 ； 反之 ， 被 加密 系统 立即 退出 ， 并 给 用户 显示 相应 的 提示信息 。 
+ 　 　 许可证 服务器 的 管理 范围 可以 是 局域网 、 城市 网 甚至 是 遍布 全球 的 Internet 网络 。 
+ 表 1 
+ 
+ 模块号 模块 名 最大 登录 用户数 
+ 1CAD3 
+ 2CAM2 
+ 3SIMUL1 
+ 
+ 　 　 例如 ， 假设 有 一个 将 被 加密 的 CAD / CAM 系统 包括 3 个 模块 ， 其 License 限定 规则 如表 1 所示 。 表 1 的 限定 规则 及 实时 的 License 状态 可以 在 服务器程序 中 用 如下 结构 表达 记录 ： 
+ 　 　 struct   — 　 LicStat   { 
+ char   ModName ［ 10 ］   ; 
+ / /   模块 名 
+ int   LimUserNum ;   
+ / /   模块 最大 用户数 
+ int   CurUserNum ;   
+ / /   模块 当前 用户数 
+ }   LicStat   =   {   " CAD " ,   3 ,   0 , 
+ " CAM " ,   2 ,   0 , 
+ " SIMUL " ,   1   ,   0   } ; 
+ 　 　 用户 可以 在 网络 中 任何 一台 客户机 上 运行 被 加密 软件 ， 这 就是 所谓 “ 浮动 许可证 ” 的 含义 。 例如 ， 用户 1 和 用户 2 分别 从 网上 任一 客户机 上 登录 2 号 模块 ( CAM 模块 ) 时 ， 服务器 在 收到 登录 请求 信号 后 ， 经 检查 确定 未 超过 该 模块 登录 的 最大 用户数 ( 但 已 达到 CAM 模块 的 最大 用户数 2 ) ， 立即 将 当前 模块 的 登录 用户数 递增 到 2 ， 同时 分别 向 用户 1 和 用户 2 发出 批准 信号 ， 使 他们 可以 正常 使用 模块 2 ， 但 当 用户 3 从 任一 客户机 上 登录 2 号 模块 时 ， 显然 ， 这时 服务器 必须 拒绝 用户 3 对 2 号 模块 的 使用 。 直到 用户 1 和 用户 2 中 至少 有 一位 退出 2 号 模块 的 应用 时 ， 用户 3 才能 正常 进入 模块 2 。 其它 模块 的 使用 情况 也 完全相同 ， 只是 不同 模块 登录 的 最大 用户数 限制 不 一定 相同 。 
+ 　 　 License 服务器 除 完成 上述 工作 外 ， 还 需要 详细 记录 登录 用户 的 资料 ， 其 资料 可用 以下 结构 记录 ： 
+ 　 　 struct   — 　 LogTab   { 
+ char   UserName ［ 132 ］ ; 
+ / /   登录 用户名 
+ long   ClientID ;   
+ / /   登录 机器 的 ID 值 
+ int   ModNo ;   
+ / /   登录 模块号 
+ int   Sock ;   
+ / /   通信 连接 Socket 号 
+ char   lpszTime ［ 32 ］ ;   
+ / /   登录 时间 
+ }   LogTab ［ MAXLOGNUM ］ ; 
+ 　 　 这个 结构 中 保存 的 信息 十分 重要 ， 有时 在 客户端 可能 会 出现 系统 非正常 退出 的 情况 ， 例如 系统 崩溃 或 死机 等 。 而 此时 服务器端 该 用户 仍然 占用 License ， 这 势必 影响 到 其它 用户 对 相同 模块 的 登录 。 好 在 这个 结构 记录 了 所有 登录 用户 的 详细资料 ， 这里 ， 我们 对 这 一 问题 的 处理 办法 是 ， 当下 一次 用户 登录 到来 时 ， 服务器 首先 根据 结构 中 的 信息 对 过去 所有 登录 的 客户 进行 一次 检查 ， 如果 被 检查 的 客户 没有 做出 相应 的 反应 ， 则 确定 对方 已 非正常 退出 ， 立即 在 服务器 中将 其 资料 清除 ， 同时 释放 它 占用 的 License 。 在 这些 工作 完成 后 ， 再 来 处理 本次 登录 用户 的 请求 信号 。 
+ 　 　 浮动 许可证 系统 中 服务器端 与 客户端 的 通信 可 采用 建立 于 TCP / IP 协议 之上 的 套 接字 ( socket ) 编程 ， 它 不但 可 用于 UNIX 操作系统 ， 也 可以 用于 Windows 操作系统 中 。 从图 2 中 可以 反映 在 网络 中 管理 License 操作 的 基本 思想 。 
+ 
+ 
+ 图 2 　 套 接字 连接 服务 通信 流程 
+ 　 　 作者 研制 的 License 服务器端 管理程序 ： LicServer . exe 采用 Win32   Console   Application 方法 编程 ， 没有 使用 任何 图形界面 ， 这样 做 的 好处 是 ， 若 浮动 许可证 系统 的 服务器 运行 于 Windows   NTServer 操作系统 的 之上 时 ， 可 应用 有关 Windows   NT 服务器 的 后台程序 （ Server ） 技术 ， 将 LicServer . exe 程序运行 于 NT 操作系统 后台 之中 。 另外 ， 若 将 程序 稍加 修改 ， 也 可以 运行 于 UNIX 操作系统 上 。 
+ 4 　 License 状态 的 管理 
+ 　 　 作者 设计 的 浮动 许可证 服务器端 程序 LicServer . exe 是 整个 加密 系统 的 核心 ， 为了 提高 程序 的 可移植性 ， 它 没有 提供 图形界面 。 但 有时 用户 需要 实时 了解 和 管理 整个 系统 的 License 状态 ， 为此 这里 设计 了 程序 LicStat . exe 来 完成 这一 工作 ， 它 需要 与 LicServer . exe 交流 License 状态 信息 ， 并且 可以 方便 地 通过 友好 的 图形界面 将 这些 信息 提供 给 用户 ， 以便 用户 随时 可以 了解 License 的 使用 状态 。 
+ 　 　 状态 管理 提供 以下 功能 ： 
+ 　 　 1 )   反映 当前 占据 License 的 登录 用户 信息 。 包括 ： User   Name ( 登录 用户名 ) 、 Socket   No . ( 服务器 为 本次 登录 通信 提供 的 套接 字号 )   、 Time ( 登录 时间 ) 和 Module   No . ( 登录 模块号 ) 。 该 控键 位于 对话框 上方 ， 属于 Control   List 型 控键 ， 它 的 ID 值为 IDC — USER — LIST 。 
+ 　 　 2 )   反映 当前 不同 模块 License 的 状态 信息 。 包括 ： Module   No . ( 模块号 ) 、 Module 、 Name ( 模块 名 ) 、 Current   Count ( 相应 模块 当前 被 占用 的 License 数 ) 和 Limit   Count ( 相应 模块 的 License 限制 数 ) 。 该 控键 位于 对话框 下方 ， 属于 Control   List 型 控键 ， 它 的 ID 值为 IDC — MODULE 。 
+ 　 　 3 )   反映 当前 登录 的 用户 总数 。 它 是 Static   Text 型 控键 ， 位于 对话框 的 左方 ， 其 ID 值为 IDC — STATUS 。 
+ 　 　 4 )   控制 按键 。 包括 ： 
+ 　 　 a .   按钮 Exit ， 退出 状态 管理程序 。 
+ 　 　 b .   按钮 Update   Lic   Stat ， 刷新 License 状态 信息 的 显示 。 
+ 　 　 c .   按钮 Reset   Lic   Stat ， 通知 服务器程序 LicServer . exe 清除 所有 占据 License 的 客户 。 
+ 　 　 d .   按钮 More   Info / Standard   Info ， 对话框 下面 关于 反映 当前 不同 模块 License 状态 信息 的 控键 可以 通过 按钮 More   Info / StandardInfo 卷起 或拉下 。 
+ 5 　 网络 防火墙 与 远程 监控 
+ 　 　 前面 提到 过本 浮动 许可证 系统 可 运行 于 遍布 全球 的 Internet 网中 ， 作者 曾 测试 过 让 客户端 的 被 加密 程序运行 于 国内 ， License 服务器 运行 于 新加坡国立大学 进行 控制 取得 了 成功 ， 而且 运行 速度 并 不慢 。 但 应该 引起 注意 的 是 ， 在 某些 单位 因 安全 原因 设置 有 防火墙 ( fire   wall ) ， 需要 特定 的 Socket 操作 端口 信息 才能 通过 。 
+ 作者简介 ： 伍晓宇 　 博士 ， 副教授 。 主要 从事 金属 塑性 成形 、 CAD / CAM 等 领域 的 研究 工作 。 
+ 作者 单位 ： 深圳大学 工程技术 学院 　 广东 . 深圳 （ 518060 ） 
+ 参考文献 
+ ［ 1 ］ 　 伍晓宇 .   C / C++ 语言 与 研究 开发 实践 .   航空工业 出版社 ， 1999 
+ ［ 2 ］ 　 Marshall   Brain .   Win32   system   services —   the   heart   of   windows   NT ，   1997 
+ 收稿 日期 : 1999 - 05 - 23 

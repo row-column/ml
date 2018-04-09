@@ -1,0 +1,165 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH 
+ AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 12 期   Vol.36   No.12   1999 
+ 
+ 
+ 
+ 基于 Agent 技术 的 虚拟 组织 集成 框架 IFVO 
+ 高 　 济 　 　 　 林东豪 
+ 摘 　 要 　 虚拟 组织 正 成为 常规 组织 （ 或 个人 ） 间 协同工作 的 重要 形式 ， 并 要求 集成化 信息 基础 的 支持 . 文中 提出 一个 基于 Agent 技术 的 虚拟 组织 集成 框架 IFVO ， 它 以 面向 活动 分担 的 联合 意向 作为 主要 手段 从 3 个 方面 ： 体系结构 方式 、 Agent 协作 和 语义 互操作 ， 支持 集成化 虚拟 组织 信息 基础 的 开发 和 协调 运作 . IFVO 将 虚拟 组织 的 信息 基础 封装 和 构造 为 可 快速 组合 和 拆卸 的 嵌套 Agent 联邦 ， 从而 能 有效 地 支持 虚拟 组织 的 动态 建立 、 运营 过程 的 重组 和 协作 过程 的 协调 . 
+ 关键词 　 虚拟 组织 ， 集成 框架 ， 体系结构 方式 ， Agent 协作 ， 语义 互操作 
+ 中图法 分类号 　 TP311.5 
+ IFVO : AN   AGENT   BASED   INTEGRATIVE   FRAMEWORK   FOR 
+ VIRTUAL   ORGANIZATIONS 
+ GAO   Ji   and   LIN   Dong - Hao 
+ ( Department   of   Computer   Science   &   Technology , 
+ Zhejiang   University ,   Hangzhou   3100   27 ) 
+ Abstract 　 Virtual   organizations   are   becoming   an   important   form   for   cooperation   among   regul   ar   organizations   ( or   persons ) ,   which   needs   the   support   of   integrative   informatio   n   infrastructure .   In   this   paper ,   an   agent   based   integrative   framework   for   virtua   l   organizations ,   called   IFVO   is   introduced ,   which ,   using   joint   intentions   as   the   main   means ,   supports   the   development   and   coordinated   running   of   integrative   info   rmation   infrastructure   for   virtual   organizations   in   three   aspects :   architecture   style ,   agent   cooperation ,   and   semantic   interaction .   IFVO   allows   the   infrastructu   re   of   a   virtual   organization   to   be   packed   and   constructed   into   the   nested   agent   federation   which   can   be   composed   and   decomposed   quickly ,   in   order   to   support   ef   fectively   the   dynamic   creation   of   virtual   organizations ,   the   reengineering   of   bu   siness   processes ,   and   the   coordination   of   cooperation   processes . 
+ Key   words 　 virtual   organization ， integrative   framework ， architec   ture   style ， agent   cooperation ,   semantic   interaction 
+ 1 　 引 　 　 言 
+ 　 　 在 由 计算机 互联网 支持 的 分布 计算环境 下 ， 虚拟 组织 能 将 时空 上 分布 但 能力 和 资源 互补 的 常规 组织 （ 或 个人 ） 高效 地 组合 起来 ， 提高 解决问题 的 能力 和 增强 对 挑战性 机遇 的 快速 应变能力 ， 且 不必 改变 它们 原有 的 工作 环境 ， 从而 引起 了 人们 的 广泛 重视 [ 1 ， 2 ] . 尤其 在 制造业 ， 虚拟 事业 和 跨 职能 虚拟 工作组 已 成为 21 世纪 新一代 制造业 的 核心 概念 . 
+ 　 　 虚拟 组织 要求 以较 低 代价 快速 建立 能 支持 其 成员 协同工作 的 信息 基础 ， 企需 集成 技术 提供 以下 支持 ： ① 在 知识 级 [ 3 ] （ 便于 营运 管理 和 决策者 理解 的 较 高 抽象 级 ） ， 通过 组合 成员 信息 基础 的 高层 体系结构 来 快速 建立 虚拟 组织 的 信息 基础 ； ② 将 成员 信息 基础 的 操作 层 抽象 和 包装 为 大 、 中 粒度 的 主动型 软 构件 用于 构造 高层 体系结构 ； ③ 提供 有效 的 协调 手段 ， 使软 构件 的 协同工作 能 紧凑 一致 地 进行 ； ④ 支持 软 构件 的 语义 互操作 ， 实现 软 构件 协作 时 的 语义 适配 . 
+ 　 　 目前 集成 框架 的 研究 主要 建立 在 基于 软 构件 / 软 总线 方式 的 分布 对象 技术 上 ， 因 其 面向 信息 基础 的 操作 层 ， 故 抽象 程度 较 低 ， 再 加上 软 构件 的 被动型 操作 、 不 提供 协作 的 协调 手段 和 不 支持 语义 互操作 等 问题 ， 难以 有效 支持 虚拟 组织 信息 基础 的 快速 建立 和 运行 的 协调一致 [ 4 ， 5 ] . 
+ 　 　 软件 Agent 的 自治 性 、 合作性 和 自适应性 以及 多 Agent 协作 的 自 组织性 ， 使 Agent 技术 有 潜力 提供 这种 支持 [ 6 ， 7 ] . 但 目前 Agent 技术 的 研究 侧重于 认知 理论 和 应用 功能 的 实现 ， 将 Agent 协作 的 关系 、 需求 和 维持 隐含 于 Agent 心理 状态 （ BDI ） 的 描述 中 ， 没有 清晰 描述 Agent 在 协作 中 的 地位 和 作用 ， 也 没有 从 软件工程 训练 法 的 角度 透明 描述 Agent 协作 乃至 集成化 应用 系统 的 体系结构 ， 因而 尚 不足以 支持 虚拟 组织 信息 基础 的 建立 . 
+ 　 　 本文 提出 基于 Agent 技术 的 虚拟 组织 集成 框架 IFVO ( integrative   framework   for   virtual   or   ganization ) ， 其以 面向 活动 分担 的 联合 意向 作为 主要 手段 透明 描述 Agent 的 协同工作 和 以 Agent 为 大 粒度 软 构件 的 包容 （ plug - in ） 体系结构 ， 并 支持 Agent 协作 的 一致性 维持 和 语义 互操作 ， 从而 满足 虚拟 组织 对 信息 基础 集成 技术 的 需求 . 
+ 　 　 本文 接下去 首先 阐述 集成 框架 IFVO ， 然后 介绍 支持 IFVO 的 元级 开发 环境 ， 最后 给出 结论 . 
+ 2 　 集成 框架 IFVO 
+ 　 　 我们 把 虚拟 组织 的 信息 基础 视为 分布 计算环境 下应 需 动态 建立 的 集成化 应用 系统 （ 以下 称 IAS ） . 作为 集成 框架 ， IFVO 首先 把 软件 Agent 视为 有 意向 执行 适当 计算 活动 的 大 粒度 软 构件 ， 然后 再 利用 Agent 认知 理论 去 发挥 其 在 计算 活动 的 集成 和 Agent 协作 中 的 智能 作用 . 
+ 　 　 IFVO 建立 在 分布 对象 技术 基础 之上 ， 从 3 个 方面 支持 计算 活动 的 集成 和 Agent 协作 ， 并 由此 支持 IAS 的 快速 建立 和 协调 运作 . 
+ 　 　 IFVO = （ AS ， AC ， SI ） 
+ 　 　 ( 1 ) AS — — 体系结构 方式 （ architectural   style ） 用以 指导 建立 以 软件 Agent 为 基本 构件 的 包容 体系结构 ； 
+ 　 　 ( 2 ) AC — — Agent 协作 ， 用以 作为 集成 和 协调 分布 计算环境 下 计算 活动 的 基本 手段 ； 
+ 　 　 ( 3 ) SI — — 语义 互操作 ， 用以 解决 Agent 协作 时 可能 出现 的 通信 语义 和 操作 语义 失配 问题 . 
+ 　 　 IFVO 将 计算 活动 的 集成 和 协调一致 （ 而 非 Agent 心理 状态 及其 变化 ） 作为 设计 Agent 和 多 Agent 协作 的 主线 ， 并 以 基于 活动 分担 的 联合 意向 作为 主要 手段 逐步 精化 对 Agent 协作 和 包容 体系结构 的 设计 . 
+ 2.1 　 体系结构 方式 
+ 　 　 作为 虚拟 组织 的 信息 基础 ， 一个 IAS 构造 为 由 协作 的 软件 Agent 组成 的 Agent 社团 . 可以 把 Agent 视为 “ 即插即用 ” 的 软 构件 ， 而 知识 级 通信 机制 则 是 支持 Agent 互操作 的 软 总线 （ 知识 级 的 含义 参见 第 3 节 ） . 每个 Agent 都 拥有 若干 执行 计算 活动 的 意向 和 技能 . 意向 把 活动 分解 为子 活动 ， 并 按 调度 策略 把 它们 分配 给 有 意向 执行 的 适当 Agent ； 而 技能 则 执行 基本 （ 不再 分解 ） 的 计算 活动 ， 并 通过 集成 和 综合 常规 软 构件 提供 的 计算 功能 来 实现 计算 活动 拟 提供 的 计算 服务 . 
+ 　 　 计算 活动 和 联合 意向 的 定义 构成 Agent 参与 和 组织 协同工作 的 依据 . 所谓 联合 意向 即 为 需要 其它 Agent 承担 部分 或 全部 子 活动 的 意向 ， 其 集中管理 活动 的 分担 ， 从而 成为 组织 和 维持 协同工作 的 纽带 . IAS 通过 一组 顶层 计算 活动 提供 计算 服务 ， 这些 活动 分布 于 多个 Agent ， 可 由 环境 事件 （ 环境 变化 、 用户 请求 等 ） 和 状态 事件 （ 计算结果 发布 和 消息 请求 等 ） 激活 ， 且 允许 层次 分解 （ 通过 联合 意向 ） ， 使得 协同工作 的 管理 可以 分布 于 多个 Agent ， 进而 形成 分布 的 集中管理 （ 或 多 中心 管理 ） . 
+ 　 　 依据 上述 讨论 ， 软件 Agent 可以 定义 为 以下 七元 组 ： 
+ 　 　 （ intentions ， activities - 1 ， activities - 2 ， events ， assigning ， activating ， gener   ating ） 
+ 　 　 assigning ： intentions       activities - 2 
+ 　 　 activating ： activities - 1 → intentions 
+ 　 　 generating ： activities - 1 ∪ activities - 2       events 
+ 　 　 软件 Agent 间 的 知识 级 通信 连接 Distributor 则 可定义 为 以下 六元 组 ： 
+ 　 　 （ intentions ， activities - 1 ， activities - 2 ， events ， binding ， informing ） 
+ 　 　 binding ： activities - 2     intentions 
+ 　 　 informing ： events       activities - 1 
+ 　 　 在 这 两个 定义 中 ， activities - 1 和 activities - 2 分别 指示 由 联合 意向 intentions 分派 的 和 由 事件 events 激活 的 计算 活动 集 . Assigning ， activating ， generating ， binding 和 informing 则 指示 映射 关系 ， 符号 （ 偏 函数 ） 、 → （ 全 函数 ） 、 （ 关系 ） 和 P （ 幂集 ） 借用 了 Z 语言 的 约定 . 
+ 　 　 依据 协作 的 紧密 程度 ， 我们 可以 把 软件 Agent 的 协同工作 分为 3 个 范畴 ： 
+ 　 　 ( 1 ) Agent 联邦 — — 联邦 设立 一个 Agent 作为 协同工作 的 管理者 ， 称为 ma ， 其 有权 不 经 协商 就 分派 计算 活动 给 联邦 成员 （ Agent ） . 在 ma 中 定义 的 计算 活动 和 联合 意向 代表 联邦 要 从事 的 计算 活动 和 联合 意向 . 
+ 　 　 ( 2 ) Agent 协作组 — — ma 可以 寻求 熟人 （ Agent ） 的 协助 ， 但 必须 先 经由 协商 征求 熟人 的 同意 后 才能 分派 计算 活动 ， ma 与 熟人 构成 协作组 . 
+ 　 　 ( 3 ) 随偶 协作 — — Agent 和 Agent 联邦 的 计算 活动 可 由 事件 激活 ， 这时 Agent 将 应 需 （ 依据 服务 请求 ） 或 主动 （ 依据 其它 Agent 发布 的 计算结果 ） 提供 计算 服务 . 
+ 　 　 Agent 联邦 可定义 为 以下 四元组 ： 
+ 　 　 （ ma ， members ， acquaintance ， distributors ） 
+ 　 　 它 包括 一个 ma ， 若干 成员 和 熟人 ， 并 有 相应 的 通信 支持 . ma 集中管理 联邦 内 的 协同工作 ， 成员 间 和 熟人 间 互不 通信 . 进而 ， Agent 社团 可定义 为 由 若干 Agent 联邦 （ 包括 其 ma 管理 的 协作组 ） 、 单一 Agent （ 不 参与 联邦 和 协作组 、 仅 参与 随偶 协作 ） 和 支持 单一 Agent 参与 随偶 协作 的 连接 distributors 构成 的 三元组 ： 
+ 　 　 （ agent _ federations ， single _ agent ， other _ distributors ） 
+ 　 　 所有 distributors 都 遵从 知识 级 通信 规范 ， 它们 联合 起来 构成 支持 Agent 互操作 的 软 总线 . 
+ 　 　 以 上述 体系结构 方式 ， Agent 联邦 、 Agent 、 计算 活动 和 执行 活动 的 联合 意向 ， 构成 对 IAS 包容 体系结构 的 透明 描述 . 以 联合 意向 为 纽带 ， IAS 包容 体系结构 的 描述 可 按 两条 不同 的 线索 逐步 精化 ： 
+ 　 　 ( 1 ) 活动 分解 — — Agent 通过 联合 意向 把 一 活动 分解 为 若干 子 活动 ， 而 承担 子 活动 的 Agent 又 可 通过 相应 的 联合 意向 把子 活动 分解 为子子 活动 ， 从而 清晰 地 刻画出 计算 活动 的 逐层 分解 结构 . 
+ 　 　 ( 2 ) 活动 分担 — — Agent 联邦 的 ma 依据 联合 意向 集中管理 子 活动 的 分派 ， 而 有 意向 承担 子 活动 的 Agent 联邦 又 可 依据 相应 的 联合 意向 集中管理 子 子 活动 的 分派 ， 从而 清晰 地 刻画出 计算 活动 的 逐层 分担 结构 . 
+ 　 　 IAS 包容 体系结构 的 透明 描述 体现 在 每个 层次 都 不必 涉及 下层 子 活动 的 实现 细节 ， 而仅 将 注意力 集中 在 计算 活动 的 分解 和 分担 . 图 1 和 图 2 分别 例示 了 可能 的 嵌套 Agent 联邦 和 活动 的 层次结构 . 由于 允许 多个 Agent （ Agent 联邦 ） 有 意向 执行 同一 活动 ， 导致 活动 可 有 多种 分解 方式 . 典型 情况 下 ， 上层 Agent 联邦 面向 虚拟 组织 ， 下层 Agent 联邦 则 面向 虚拟 组织 各 成员 . 从而 ， 通过 将 成员 信息 基础 的 上层 体系结构 改造 为 Agent 联邦 ， 可以 快速 建立 起 支持 虚拟 组织 的 IAS . 
+ 
+ UpAF 表示 上层 联邦 ， AFi 表示 下层 联邦 ， 实 方框 和 虚圆框 分别 表示 联邦 和 协作组 ， 
+ 大 中 圆圈 表示 ma ， 小圆圈 表示 普通 Agent 
+ 图 1 　 可能 的 嵌套 Agent 联邦 
+ 
+ 圆圈 表示 活动 ， 方框 表示 由 承担 复合 活动 的 mai 分派 的 子 活动 
+ 图 2 　 可能 的 活动 层次结构 
+ 　 　 执行 基本 活动 的 意向 蜕化 为 技能 ， 其 通过 调度 领域 操作 来 实现 基本 活动 拟 提供 的 计算 服务 . 目前 技能 提供 3 种 方式 的 调度 ： 固定 的 领域 操作 序列 ， 以 状态 - 反应 规则 组 动态 规划 领域 操作 序列 ， 以 任务 归约 模型 动态 规划 领域 操作 序列 . 
+ 　 　 所谓 动态 规划 ， 意指 需 依据 当前 的 Agent 心理 状态 和 环境 状态 决定 领域 操作 的 选择 和 执行 顺序 . 任务 归约 将 领域 操作 配置 到 描述 任务 （ 计算 活动 ） 层次 归约 （ 分解 ） 的 与 或 图 中 ， 以求 更 有效 地 调度 复杂 任务 的 执行 . 
+ 　 　 在 IFVO 中 ， 我们 提供 统一 的 接口 ， 将 领域 操作 映射 到 由 分布 对象 技术支持 的 软 构件 所 提供 的 计算 函数 . 从而 ， 使 IAS 包容 体系结构 能 无缝 地 建立 在 分布 对象 技术 基础 上 . 
+ 2.2 　 Agent 协作 
+ 　 　 Agent 协作 构成 IFVO 支持 IAS 快速 建立 和 协调 运转 的 基础 ， 尽管 分布 的 人工智能 和 多 Agent 系统 的 研究者 们 已 对 Agent 协作 进行 了 大量 的 研究 ， 但 从 支持 软件工程 的 角度 透明 地 描述 协作关系 和 协作 的 维持 却 很少 . 
+ 　 　 Jennings 通过 称为 联合 处方 （ recipe ） 的 预定 义 规划 去 清晰 地 描述 Agent 联合行动 的 结构化 组织 ， 从而 向 透明 描述 Agent 协作 迈进 了 一步 [ 8 ] . 但 这种 处方 不免 过于 简单 ， 仅 描述 了 计算 活动 的 分解 和子 活动 的 分派 ， 未 对 计算 活动 拟 提供 的 计算 服务 作 规格 说明 ， 使得 Agent 协商 和 协作 的 一致性 维护 缺乏 依据 . 
+ 　 　 IFVO 从 支持 协商 和 协作 的 一致性 维护 角度 ， 允许 对 计算 活动 提供 的 计算 服务 做 全面 的 规格 说明 ， 并 通过 联合 意向 将 计算 服务 的 提供 精 化为 对于 活动 分担 的 规划 ； 从而 透明 地 描述 了 协作关系 和 协作 的 维持 . 
+ 　 　 计算 活动 的 定义 模板 以 BNF 形式 表示 如下 ： 
+ 　 　 〈 Activity 〉 ∶ = 〈 名称 〉 [ 〈 Description 〉 ] [ 〈 Info - Model 〉 ] 〈 Sc   heduling 〉 
+ 　 　 　 　 〈 Negotiating 〉   〈 Maintaining 〉 
+ 　 　 〈 Description 〉 ∶ =   〈   text   〉 
+ 　 　 〈 Info - Model 〉 ∶ =   〈 信息 模型 名 〉 
+ 　 　 〈 Scheduling 〉 ∶ = [ 〈 Fire - Pattern 〉 ] [ 〈 PreCondition 〉 ] [   〈 Execute - Input 〉 ] 
+ [ 〈 Assignment - Constraint 〉 ] [ 〈 Execute - Output 〉 ] [ 〈 PostCondition 〉 ] 
+ 　 　 〈 Negotiating 〉 ∶ = [ 〈 Solicit - Input 〉 ] [ 〈 Solicit - Output 〉 ] 〈 BidTime 〉 ] [ 〈 PostBidProcessing   〉 ] 
+ 　 　 〈 Maintaining 〉 ∶ = [ 〈 ExpireTime 〉 ] [ 〈 RealTime 〉 ] [ 〈 Exce   ption - Processing 〉 ] 
+ 　 　 　 　 　 　 　 　 　 　 　 [ 〈 End - Processing 〉 ] 
+ 　 　 该 模板 提供 的 规格 说明 归纳 为 3 个 方面 ： 
+ 　 　 ( 1 ) 调度 — — 为 计算 活动 的 启动 、 分派 、 执行 和 结果 检验 提供 依据 ， 包括 激活 模式 、 先决条件 （ Agent 心理 和 环境 条件 ） 、 执行 活动 所 需 的 输入 参数 、 活动 分派 约束 、 期望 的 执行 结果 及其 应 满足 的 后验 条件 . 
+ 　 　 ( 2 ) 协商 — — 为 Agent 联邦 的 ma 决策 与 熟人 的 协作 提供 依据 ， 包括 征求 熟人 投标 时 所 需 的 输入 参数 、 期望 的 投标 信息 （ 征求 输出 ） 、 投标 截止 时间 和 中标 决策 处理 . 熟人 一旦 中标 ， 就 被 视为 联邦 的 临时 成员 ， 与 正式 成员 一样 听从 ma 的 调度 . 
+ 　 　 ( 3 ) 维持 — — 为 ma 维持 活动 执行 的 一致性 提供 依据 ， 包括 活动 完成 的 截止 时间 、 活动 执行 实际 所 需 时间 、 异常 处理 、 结束 处理 . 前 二者 用于 支持 超时 警告 处理 ， 异常 处理 面向 活动 的 执行 异常 和 调度 异常 ， 结束 处理 对 执行 结果 作 后续 处理 ， 包括 为 联合 意向 的 后续 活动 准备 输入 参数 ， 和 在 必要 时 把 执行 结果 作为 状态 事件 发布 给 适当 的 Agent . 
+ 　 　 计算 活动 的 定义 为 ma 规划 、 调度 和 维持 活动 的 执行 提供 了 可靠 依据 . 计算 活动 在 执行 中 的 状态 转变 行为 可 表示 为 以下 五元 组 ： 
+ 　 　 （ activity - states ， conditions ， a - operators ， initial - state ， transitions ） 
+ 　 　 initial - state ∈ activity - states 
+ 　 　 transitions ： （ （ activity - states × conditions ）   a - operators ） →   activity - states 
+ 　 　 联合 意向 通过 参照 静态 制定 的 调度 计划 （ 我们 也 称之为 Recipe ） 规划 和 调度 活动 的 分担 . Recipe 预先 设定 了 可能 的 计划 、 计划 步 和 计划 步中 包括 的 子 活动 ， 以 BNF 形式 表示 如下 ： 
+ 　 　 〈 Scheduling - Plan 〉 ∶ = { 〈 Plan - Step 〉 | （ Loop 〈 Scheduling - Plan 〉 ） } + 
+ 　 　 〈 Plan - Step 〉 ∶ = Return | （ ← 〈 Activity - Set 〉 [ 〈 Condition 〉 ] ） | （ or { （ ← 〈 Activity - Set 〉 [ 〈 Condition 〉 ] ） } + ） 
+ 　 　 〈 Activity - Set 〉 ∶ = 〈 Activity 名 〉 | （ And { 〈 Activity 名 〉 } + ） 
+ 　 　 联合 意向 实现 时 的 状态 转变 如图 3 所示 ， 状态 转变 行为 则 可 表示 为 以下 五元 组 ： 
+ 
+ 图 3 　 联合 意向 实现 时 的 状态 转变 图 
+ 　 　 （ intentions - states ， conditions ， i - operators ， initial - state ， transition ） 
+ 　 　 initial - state ∈ intentions - states 
+ 　 　 transitions ： （ （ intentions - states × conditions ） 
+ 　 　 　 　 　 　 　 　 　 i - operators ） → intentions - states 
+ 　 　 其中 ， 联合 意向 的 初始状态 为 “ 休止 ” ， 每个 状态 决定 可用 的 操作 和 下 一 状态 . 联合 意向 激活 后 ， ma 依据 Recipe 所作 的 规划 仅限于 确定 （ 通过 协商 ） 由 那些 熟人 承担 子 活动 ， 以及 熟人 承担 同一 子 活动 时 的 优先级 . Recipe 的 执行 和 环境 状态 决定 计划 执行 步 、 子 活动 的 选用 ， 并 分配 子 活动 给 Agent 联邦 中 适当 的 成员 或 熟人 . 
+ 　 　 协商 和 协作 的 一致性 维持 一直 是 Agent 协作 面临 的 难题 . 尽管 协商 协议 和 联合 负责 模型 已 提供 了 良好 的 原则性 解决 方法 ， 但 终因 协商 和 维持 与 协作 的 细节 紧密 相关 而 难以 通用 . 通过 清晰 地 描述 面向 特别 计算 活动 的 协商 和 维持 知识 ， 可以 提供 精化 通用 协议 和 联合 负责 模型 到 具体 应用领域 的 有效 手段 ： 
+ 　 　 ( 1 ) IFVO 采用 “ 招标 - 投标 ” 协商 协议 ， 但 允许 每个 计算 活动 可以 使用 不同 的 招标 和 投标 参数 、 截止 时间 和 中标 决策 处理 ； 
+ 　 　 ( 2 ) IFVO 采用 “ 联合 负责 ” 模型 维持 协作 的 一致性 ， 但 允许 每个 计算 活动 清晰 描述 特有 的 知识 ， 使得 通用 的 面向 联合 意向 的 一致性 维护 方法 可以 与子 活动 一致性 的 特定 维护 无缝 地 联接 起来 ； 
+ 　 　 ( 3 ) 清晰 地 描述 协商 和 维持 知识 ， 增加 了 Agent 联邦 的 ma 依据 联合 意向 去 规划 和 调度 活动 的 透明度 ， 进而 增加 了 Agent 协作 的 可 理解 性 和 可 维护 （ 修改 ） 性 . 
+ 　 　 鉴于 虚拟 组织 的 营运 方式 是 让 其 成员 在 保持 独立性 的 同时 协作 完成 联合 目标 ， 在 信息 基础 的 高层 通过 定义 联合 意向 来 实现 Agent 协作 十分 合适 . 作为 联邦 成员 或 熟人 的 Agent 只 需 遵循 子 活动 的 定义 提供 计算 服务 ， ma 则 依据 联合 意向 的 定义 和子 活动 定义 对 协作 进行 规划 和 调度 ， 不必 了解 计算 服务 实现 的 细节 . 
+ 2.3 　 语义 互操作 
+ 　 　 分布 计算环境 下软 构件 间 语义 互操作 的 障碍 是 通信 内容 的 失配 问题 . 原因 在于 隐含 于 各软 构件 中 的 本体论 — — 术语 （ 对象 、 关系 和 属性 ） 的 定义 和 相关 处理 方式 不 一致 [ 9 ， 10 ] . 为此 ， 建立 共享 本体论 成为 解决 语义 失配 问题 的 关键 ， 所 需 的 附加 处理 只是 依据 共享 本体论 与 软 构件 隐含 本体论 间 的 差别 对 收发 的 通信 内容 作 语义 适配 处理 . 
+ 　 　 考虑 到 世界 的 复杂性 ， 建立 普适 的 本体论 不 可能 ； 即使 局限于 某个 应用领域 也 很 困难 . 例如 ， 工程 数据 规范 STEP 可 视为 一种 共享 本体论 ， 尽管 制定 它 耗费 了 大量 时间 、 人力 和 物力 ， 至今 仍 不 健全 . 况且 应用领域 会 进化 ， 人们 的 观点 也 会 改变 . 
+ 　 　 在 IFVO 中 ， 活动 的 分担 （ 包括 协商 、 分派 、 结果 返回 等 ） 构成 通信 需求 的 主要 部分 ， 基于 活动 分担 的 联合 意向 为 实现 语义 互操作 提供 了 较 好 的 支持 ： 
+ 　 　 ① 联合 意向 将 共享 本体论 的 定义 局限于 由 它 调度 的 子 活动 范围 内 （ 见图 4 ） ； 
+ 
+ 图 4 　 联合 意向 调度 的 子 活动 遵循 同一 本体论 ， 
+ 但父 活动 ( a1 ) 可 遵循 另 一个 
+ 　 　 ② 计算 活动 将 共享 本体论 的 定义 局限于 有 意向 执行 该 活动 的 Agent 之间 （ 见图 5 ） ； 
+ 
+ 图 5 　 计算 活动 的 分派 和 承担者 共享 本体论 
+ 　 　 ③ 计算 活动 与子 活动 可以 遵循 不同 的 共享 本体论 . 
+ 　 　 由于 共享 本体论 的 定义 仅 局限于 小 范围 内 ， 且父 活动 和子 活动 定义 时 的 术语 可以 遵循 不同 的 本体论 ， 可 显著 减轻 设计 共享 本体论 的 工作量 ， 并 增加 灵活性 和 可维护性 . 此外 ， 收发 环境 和 状态 事件 的 Agent （ 及 相应 活动 ） 应 共享 本体论 ， 这 成为 设计 共享 本体论 的 另 一 依据 . 
+ 　 　 IFVO 提供 表示 语言 CRLE （ concept   representation   language   for   exchange ） 去 定义 共享 本体论 . 每个 本体论 是 Agent 执行 计算 活动 时 （ 包括 收发 事件 ） 所 参考 术语 的 集合 ， 作为 参与 协作 的 相关 Agent 理解 通信 内容 的 共同 基准 . 术语 可以 是 对象 类 、 关系 和 函数 ， 都 定义 为 概念 ， 以 BNF 形式 表示 如下 ： 
+ 　 　 Concept 名称 〉 
+ 　 　 　 　 [ Super : { 〈 超类 名 〉 } + ] ; / / 超类 名 3 种 ： 对象 类 、 关系 、 函数 
+ 　 　 　 　 { 〈 槽 名 〉 : { 〈 侧面 值 〉 〈 内容 〉 , } * ; } * 
+ 　 　 　 　 [ Constraint { 〈 真值 表达式 〉 } + ] ; 
+ 　 　 End [ 〈 名称 〉 ] 
+ 　 　 通过 精确 地 定义 术语 的 结构化 语义 （ 多槽 多 侧面 ） 、 例示 方式 （ 槽 值 提供 方式 ） 和 例示 约束 （ 槽 的 取值 约束 或 限制 ） ， 共享 本体论 的 Agent 可以 正确理解 相关 计算 活动 的 需求 和 招标 信息 以及 相关 事件 的 语义 . 
+ 　 　 联合 意向 工作 时所作 的 预处理 和 后处理 （ 参见 图 3 ） ， 为 不同 本体论 间 的 差别 （ 参见 图 4 ） 提供 了 作 语义 适配 处理 的 场所 和 手段 ， 适配 处理 表示 为 ： 
+ 　 　 { 〈 函数 表达式 〉 | 〈 规则 〉 | 〈 规则 组 〉 } * ， 
+ 它 是 无条件 处理 、 有 条件 处理 和 选择性 处理 的 序列 . 
+ 　 　 与 目前 分布 对象 技术 和 Agent 技术 分别 将 适配 处理 隐含 于 script 语言 和 Agent 心理 状态 的 描述 不同 ， 在 联合 意向 中显式 表示 适配 处理 可以 增强 可 理解 性 和 可维护性 . 
+ 　 　 执行 基本 活动 的 Agent 技能 以 类似 于 联合 意向 的 方式 对 活动 遵循 的 本体论 和 隐含 于 领域 操作 （ 常规 软 构件 ） 中 的 本体论 差别 做 适配 处理 ， 任务 归约 模型 则 进一步 作 领域 操作间 的 语义 适配 处理 .   
+ 3 　 IFVO 的 开发 环境 
+ 　 　 IFVO 的 开发 环境 是 一种 元级 开发 环境 ， 其 聚焦 在 以 Agent 和 Agent 活动 （ 意向 和 技能 ） 作为 大 、 中 粒度 软 构件 去 设计 IAS 高层 体系结构 — — 这些 软 构件 的 包容 体系结构 . 它 不 支持 常规 软 构件 的 开发 ， 而仅 将 虚拟 组织 各 成员 信息 基础 中 的 已有 软 构件 和 应 需 所 设计 的 软 构件 集成 进 支持 虚拟 组织 运营 的 IAS . 目前 该 开发 环境 建立 于 DCOM / OLE 平台 之上 ， 下 一步 我们 准备 将 符合 CORBA 规范 的 软 构件 也 集成 进 Agent 技能 . 
+ 　 　 元级 开发 环境 分 两个 部分 ， 分别 支持 IAS 的 开发 和 运行 （ 如图 6 所示 ） . 在 运行 部分 ， 行为 控制器 和 联邦 模型 集 支持 Agent 联邦 及其 成员 的 运行 ， 通信 机制 则 支持 Agent 联邦 乃至 任意 Agent 间 的 语义 互操作 . 每个 联邦 的 ma 的 行为 控制器 依据 活动 模型 集 、 自身 模型 集 （ 定义 联合 意向 、 技能 和 联邦 成员 ） 和 熟人 集 ， 控制 协作 商议 、 意向 规划 、 意向 执行 和 技能 执行 . 通信 机制 分 3 个 层次 ： CRLE 和 共享 本体论 （ 用于 定义 通信 内容 ） ， 消息 表示 语言 （ 按 协议 封装 通信 内容 ） 和 通信 促进 Agent 集 ， 支持 Agent 间 的 知识 级 语义 互操作 . 知识 级 意指 每个 Agent 均 可 经由 消息 传送 ， 间接 操作 其它 Agent 拥有 的 信息 和 知识 ， 而 不管 它们 实际上 以 什么 形式 表示 和 处理 . Agent 各自 拥有 的 知识 联合 构成 共享 的 虚拟 知识库 . 
+ 
+ aa , sa 和 fa 分别 表示 界面 、 服务 和 通信 促进 Agent 
+ 图 6 　 IFVO 的 元 开发 环境 
+ 　 　 在 开发 部分 ， 提供 协调 和 合成 语言 CCL （ coordination   and   composition   language ） 去 定义 Agent 协作 和 IAS 包容 体系结构 ； 提供 CRLE 去 定义 共享 本体论 . 一个 交互式 可视化 工具 用于 辅助 IAS 的 开发者 ， 并 支持 模型库 和 本体论 库 的 管理 和 维护 . 
+ 　 　 IFVO 已 用于 开发 两个 实用化 IAS ： 成套 空分 设备 的 报价 系统 和 公路运输 调度 系统 . 限于 篇幅 ， 这里 就 不再 阐述 了 . 
+ 4 　 结 　 　 论 
+ 　 　 本文 提出 基于 软件 Agent 技术 的 集成 框架 IFVO ， 从 3 个 方面 ： 体系结构 方式 、 Agent 协作 和 语义 互操作 ， 支持 虚拟 组织 信息 基础 IAS 的 快速 建立 . 
+ 　 　 通过 清晰 地 定义 基于 活动 分担 的 联合 意向 ， IFVO 解决 了 传统 Agent 技术 不 清晰 描述 Agent 计算 活动 和 Agent 协作 的 问题 ， 使 透明 地 刻画 Agent 协作 和 以 Agent 为 软 构件 的 包容 体系结构 成为 可能 . 计算 活动 在 联合 意向 的 管理 下 层次 分解 ， 使得 IAS 的 高层 体系结构 可 按 活动 分解 和 活动 分担 这 两条 线索 逐步 精化 . 通过 联合 意向 对 计算 活动 的 分担 作 规划 和 调度 ， 以及 通过 基于 本体论 和 语义 适配 处理 实现 语义 互操作 ， 虚拟 组织 成员 间 的 协同工作 能以 Agent 为 中介 在 知识 级 紧凑 一致 地 进行 . 
+ 　 　 IFVO 并 不 直接 支持 虚拟 组织 的 模型 建立 和 伙伴 选择 ， 以及 运营 过程 的 设计 和 优化 ， 而是 旨在 为 已 筹建 的 虚拟 组织 快速 建立 支持 其 高效 运营 的 IAS . 通过 以 计算 活动 、 联合 意向 和 Agent 技能 来 封装 成员 企业 的 运营 处理 和 企业 间 的 协作 ， 将 虚拟 组织 信息 基础 的 IAS 构建 为 可 快速 组合 和 拆卸 的 嵌套 Agent 联邦 ， 从而 可 在 确保 成员 企业 不 改变 其 运营 处理 功能 的 前提 下 有效 地 支持 虚拟 组织 的 动态 建立 ， 运营 过程 的 重组 和 协作 过程 的 协调 . 　 　 
+ 　 　 今后 的 研究 将 是 完善 基于 Agent 技术 的 集成 理论 和 提高 元 开发 环境 的 易用性 . 
+ 本 课题 得到 国家自然科学基金 项目 （ 项目编号 69583007 和 69773019 ） 资助 . 
+ 作者简介 ： 高济 ， 男 ， 1946 年 2 月生 ， 教授 ， 博士生 导师 ， 主要 研究 方向 为 人工智能 、 软件 工 
+ 　 　 　 　 　 程 、 系统集成 和 CIMS 等 . 
+ 　 　 　 　 　 林东豪 ， 男 ， 1973 年 7 月生 ， 博士 研究生 ， 主要 研究 方向 为 软件工程 、 CIMS 等 . 
+ 作者 单位 ： 浙江大学 人工智能 研究所 　 杭州 　 310027 
+ 参考文献 
+ 　 1 　 O ' Leasy   D   E   et   al .   Artificial   intelligence   and   virtual   org   anization .   Communication   of   the   ACM ,   1991 ,   40 ( 1 ) :   52 ～ 59 
+ 　 2 　 Goldman   S   et   al .   Agile   Competitors   and   Virtual   Organization .   New   Y   ork :   Van   Nostrand   Reinhold ,   1995 
+ 　 3 　 Newell   A .   The   knowledge   level .   Artificial   Intelligence ,   1982 ,   18 ( 1 ) :   8   2 ～ 127 
+ 　 4 　 Nierstrasg   O   et   al .   Directions   in   software   composition .   ACM   Compu   ting   Surveys ,   1995 ,   27 ( 2 ) :   262 ～ 264 
+ 　 5 　 Garlan   D .   Research   direction   in   software   architecture .   ACM   Computing   Surveys ,   1995 ,   27 ( 2 ) :   257 ～ 261 
+ 　 6 　 Wooldridge   et   al .   Intelligent   agent :   Theory   and   practice .   The   Kno   wledge   Engineering   Review ,   1995 ,   110 ( 2 ) :   115 ～ 152 
+ 　 7 　 Gek   Woo   Tan   et   al .   An   intelligent - agent   framework   for   concurrent   product   design   and   planning .   IEEE   Trans   on   Engineering   Management ,   1996 ,   43 ( 3 ) :   297 ～ 306 
+ 　 8 　 Jennings   N   R .   Controlling   cooperative   problem   solving   in   industrial   mu   lti - agent   systems   using   joint   intentions .   Artificial   Intelligence ,   1995 ,   75 ( 2 ) :   195 ～ 240 
+ 　 9 　 高济 .   基于 表示 本体论 的 智能 系统 开发 .   计算机 研究 与 发展 ,   1996 ,   33 ( 11 ) :   8   01 ～ 807 
+ 　 　 　 ( Gao   Ji .   Development   of   intelligent   systems   based   on   representation   ont   ologies .   Computer   Research   &   Development ( in   Chinese ) ,   1996 ,   33 ( 11 ) :   801 ～ 807 ) 
+ 　 10 　 Mike   Vschold   et   al .   Ontologies :   Principles   methods   and   application   s .   The   Knowledge   Engineering   Review ,   1996 ,   11 ( 2 ) :   93 ～ 136 
+ 原稿 收到 日期 ： 1998 - 12 - 09 ； 修改稿 收到 日期 ： 1999 - 09 - 21 . 

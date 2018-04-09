@@ -1,0 +1,121 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 　 Vol.36 　 No.7 　 P.853 - 858 
+ 
+ 
+ 
+ （ t , n ） 阈 方案 的 欺诈 识别 
+ 谭凯军 　 诸 鸿文 　 顾尚杰 
+ 摘 　 要 ： ( t , n ) 阈 方案 中 的 欺诈 识别 是 一个 很 重要 的 问题 . 文中 提出 了 一种 有效 的 基于 平方 剩余 的 欺诈 识别 方案 ， 攻击 时 的 难度 相当于 分解 两个 大 素数 的 乘积 的 难度 . 它 无须 使用 单向 哈希 函数 ， 并且 对 公共 参数 的 完整性 给予 保证 ， 可以 阻止 阴谋 者 起诉 陷害 某个 特殊 的 成员 . 它 很 容易 扩展 到 分享 多个 秘密 的 情况 . 它 所 需 的 通信量 较 Chang - Hwang 方案 小 . 
+ 关键词 ： 欺诈 识别 ,   阈 方案 ,   平方 剩余 ,   秘密 分享 值 
+ 分类号 ： TP309 ； TP918 
+ CHEATER   IDENTIFICATION   IN   ( t , n )   THRESHOLD   SCHEME 
+ TAN   Kai - Jun 
+ ( Department   of   Electronic   Engineering ，   Shanghai   Jiaotong   University ,   Shanghai   200030 ) 
+ ZHU   Hong - Wen 
+ ( Department   of   Electronic   Engineering ，   Shanghai   Jiaotong   University ,   Shanghai   200030 ) 
+ GU   Shang - Jie 
+ ( Department   of   Electronic   Engineering ，   Shanghai   Jiaotong   University ,   Shanghai   200030 ) 
+ Abstract ： Cheating   detection   is   a   very   important   issue   for   ( t , n )   threshold   schemes .   An   efficient   cheater   detection   scheme   based   on   quadratic   residues   is   proposed   in   this   paper .   The   attack   is   as   difficult   as   factoring   the   product   of   two   large   prime   numbers .   The   scheme   doesn ' t   need   any   one - way   hash   function .   The   integrity   guarantee   is   given   to   the   public   parameters ,   which   can   prevent   a   conspirator   from   falsely   accusing   any   specific   members .   It   can   be   easily   expanded   to   the   multi - secret   sharing   scheme .   The   quantity   of   communication   is   smaller   than   that   in   Chang - Hwang   scheme . 
+ Key   words ： cheater   identification ,   threshold   scheme ,   quadratic   residues ,   secret   shares ▲ 
+ 1 　 引言 
+ 　 　 阈 方案 主要 是 用来 保护 某个 秘密 不会 丢失 、 损坏 或 修改 . ( t , n ) 阈 方案 是 将 一个 秘密 分成 n 份 分享 值 并 交给 相应 的 成员 ， 其中 的 任何 t 个 成员 可以 恢复 该 秘密 ， 而 少于 t 个 是 不行 的 . 现实 中有 很多 情形 要 用到 ( t , n ) 阈 方案 ， 例如 在 某个 安全部门 ， 档案 都 保管 在 一个 保险柜 里 ， 而 打开 保险柜 的 口令 作为 一个 秘密 在 这个 安全部门 的 高级 管理人员 中 分享 ， 设有 n 个 ， 在 打开 保险柜 时 ， 必须 由 这 n 个 中 的 任意 t 个 相互协作 来 恢复 口令 ， 这一 方式 即 采用 ( t , n ) 阈 方案 . 
+ 　 　 Shamir ［ 1 ］ 和 Blakley ［ 2 ］ 在 1979 年 提出 了 ( t , n ) 阈 方案 问题 ， 此后 有 许多 研究者 在 这个 领域 进行 研究 . 在 阈 方案 中 ， 有 一个 关键 的 前提条件 ： 即 假设 所有 的 成员 在 恢复 秘密 时 都 呈交 上 他们 所 拥有 的 真正 秘密 分享 值 . 但 这种 假设 只是 一种 理想 状态 ， 实际 情况 中 往往 会 有人 因 某种 目的 而 呈交 上 一个 假 分享 值 ， 欺骗 别的 成员 而 单独 获得 秘密 . Tompa 和 Woll ［ 3 ］ 指出 了 这种 欺骗 以及 方案 的 不 安全性 . 因此 怎样 识别 欺诈 的 成员 在 ( t , n ) 阈 方案 的 实现 中是 一个 重要 的 问题 . 在 过去 的 几年 里 ， 已有 不少 有关 这方面 的 研究 结果 ［ 3 ～ 8 ］ . 欺诈 识别 可以 确切 地 指出 欺诈 者 ， 而 欺诈 检测 只能 查出 是否 有 欺诈 现象 ， 所以 欺诈 识别 比 欺诈 检测 更 有利于 系统 的 安全 实现 . 文献 ［ 3 ］ ～ ［ 5 ］ 中 的 方案 解决 了 欺诈 检测 ， 文献 ［ 6 ］ ～ ［ 8 ］ 中 的 则 解决 了 欺诈 识别 . 
+ 　 　 Wu - Wu 方案 ［ 6 ］ 以及 Hang - Chang - Yang 方案 ［ 7 ］ 都 依靠 单向 哈希 函数 的 安全性 ， 然而 正如 文献 ［ 9 ］ 中 Harn 的 分析 ， 大多数 单向 哈希 函数 是 基于 一个 循环 简单 函数 的 复杂性 ， 虽然 他们 在 开始 的 时候 似乎 很难 分析 ， 但 随着 时间 的 推移 ， 会 发现 他们 很 容易 遭受 某些 特殊 的 攻击 . 例如 最近 的 研究 结果表明 ， MD5 已 接近 通过 密码 分析 而 成功 攻击 的 边缘 ［ 10 ］ . 文献 ［ 8 ］ 中 Chang - Hwang 方案 是 基于 平方 剩余 的 数学 基础 的 ， 虽然 在 欺诈 识别 的 验证 过程 中 ， 所 需 的 计算 很 简单 ， 但 初始化 时 所 需 的 计算 量 却 不小 ， 而且 需要 生成 很多 参数 ， 这 不利于 扩展 到 分享 多个 秘密 的 情况 . 而 在 实际 中 ， 一个 秘密 被 揭示 后 就 不能 被 再 使用 ， 相应 于 它 所 生成 的 公共 参数 和 秘密 分享 值 将 全部 放弃 ， 所以 不得不 再 分享 新 的 秘密 ， 以 保证 安全 需求 ， 这 就是 多个 秘密 分享 机制 的 重点 内容 ［ 16 ～ 18 ］ . 方案 的 简单 ( 包括 计算 与 通信量 的 大小 ) 将 保证系统 的 灵活性 和 实用性 . 另外 Chang - Hwang 方案 中 ， 并 不能 像 他 所 宣称 的 可以 阻止 起诉 某个 特殊 的 成员 . 
+ 　 　 笔者 受 Wu - Wu 方案 ［ 6 ］ 和 Chang - Hwang 方案 ［ 8 ］ 的 启发 ， 提出 了 一种 新型 的 ( t , n ) 阈 方案 的 欺诈 识别 方案 . 
+ 2 　 相关 的 方案 
+ 2.1 　 Wu - Wu 方案 
+ 　 　 Wu - Wu 欺诈 识别 方案 可 应用 在 任何 ( t , n ) 阈 方案 中 . 假设 分享 值 分配 中心 SDC 已 将 秘密 分享 值 si ( i = 1 , 2 , … , n ) 分配 给 各 成员 ui ( i = 1 , 2 , … , n ) . SDC 将 选择 一个 素数 p 和 一个 单向 哈希 函数 h ( . ) ， 将 其 公开 ， 并且 计算 一个 公共 值 T ： 
+ 
+ 　 　 当 任意 t 个 成员 想 生成 秘密 时 ， 通过 执行 以下 步骤 可 识别 出 欺诈 成员 ： 
+ 　 　 步骤 1 :   所有 的 t 个 成员 呈交 上 他们 的 秘密 分享 值 并 计算 ： 
+ 　 　 步骤 2 :   对 每个 成员 uj ， 检查 下面 的 等式 是否 成立 ： 
+ 
+ 假如 上 式 成立 ， 那么 成员 uj 是 诚实 的 ， 否则 他 是 一个 欺诈 者 . 
+ 　 　 该 方案 的 安全性 主要 依靠 单向 哈希 函数 h ( . ) ， 因为 任何人 可 根据 公开 值 T 求得 ( uj 是 n 个 成员 中 的 任意 一个 ） ， 所以 sj 的 安全性 完全 依靠 h ( . ) . 另外 文献 ［ 8 ］ 中 指出 攻击者 可 改变 T 为 T ′ ： 
+ T ′ = T - b × p2 ( j - 1 ) ， 其中 - p < b < p , b ≠ 0 . 
+ 基于 这个 T ′ ， 成员 uj 即使 呈交 上 正确 的 sj 也 不能 通过 等式 的 检测 ， 所以 T 没有 完整性 保证 . 
+ 2.2 　 Chang - Hwang 方案 
+ 　 　 Chang - Hwang 方案 ［ 8 ］ 是 以 平方 剩余 定理 为 数学 基础 建立 的 , 可 应用 在 任何 ( t , n ) 阈 方案 中 . 假设 分享 值 分配 中心 SDC 已 将 秘密 分享 值 si ( i = 1 , 2 , … , n ) 分配 给 各 成员 ui ( i = 1 , 2 , … , n ) . SDC 选择 两个 大 素数 p 和 q ， 并 计算 N = p × q ， 其中 ( p + 1 ) mod4 = 0 , ( q + 1 ) mod4 = 0 , N 的 比 特长 为 512 . 然后 产生 4 对 参数 ： ( α , α － 1 ) , ( β , β － 1 ) , ( γ , γ － 1 ) , ( σ , σ － 1 ) , 其中 α ∈ QRp ∩ QRq , β ∈ QRp ∩ QNRq , γ ∈ QNRp ∩ QRq , σ ∈ QNRp ∩ QNRq , 而 ξ × ξ － 1 ＝ 1 （ modN ） , ξ ∈ ｛ α ， β ， γ ， σ ｝ . QRp ， QRq 分别 表示 模 p 和 q 的 平方 剩余 的 集合 ， 而 QNRp ， QNRq 则 分别 表示 模 p 和 q 的 非 平方 剩余 的 集合 . 关于 平方 剩余 和 非 平方 剩余 的 介绍 可 参见 文献 ［ 8 ］ . 接着 SD 选择 n 个 互素 的 整数 di ( i = 1 , 2 , … , n ) , 且 di > si , 然后 SDC 利用 si , N , α ， β ， γ ， σ 来 计算 公共 参数 T 和 各 成员 的 伪 分享 值 . 　 　 
+ 　 　 步骤 1 ： 利用 si 计算 Bi ， 使得 Bi ∈ QRp ∩ QRq 
+ 　 　 　 　 If 　 si ∈ QRp ∩ QRq ， then   Bi ∶ = si × α   mod   N , index1 ∶ = ′ 00 ′ ； 
+ 　 　 　 　 If 　 si ∈ QRp ∩ QNRq ， then   Bi ∶ = si × β   mod   N , index1 ∶ = ′ 01 ′ ； 
+ 　 　 　 　 If 　 si ∈ QNRp ∩ QRq ， then   Bi ∶ = si × γ   mod   N , index1 ∶ = ′ 10 ′ ； 
+ 　 　 　 　 If 　 si ∈ QNRp ∩ QNRq ， then   Bi ∶ = si × σ   mod   N , index1 ∶ = ′ 11 ′ ； 
+ 　 　 步骤 2 ： 计算 Bi 模 N 的 平方根 xi ， 使得 Bi ∶ = x2i ( modN ) ; 
+ 　 　 步骤 3 ： 产生 hi ∶ = xi ‖ index1 , 其中 ‖ 是 比特 串 连接符 ； 
+ 　 　 步骤 4 ： 按 步骤 1 ～ 3 相 类似 的 过程 ， 用 di 计算 Ci ， 使得 Ci ∈ QRp ∩ QRq ， 计算 Ci 模 N 的 平方根 yi ， 产生 ri ∶ = yi ‖ index2 ； 
+ 　 　 步骤 5 ： 让 s * i ∶ = siyi . 利用 中国 剩余 定理 计算 满足 n 个 等式 的 公共 值 T ， 这 n 个 等式 为 T ≡ s * imoddi ( i = 1 , 2 , … , n ) . 
+ 　 　 于是 SDC 最后 将 ( T , N , α － 1 ， β － 1 ， γ － 1 ， σ － 1 ) 公开 ， 而 ( hi , di , ri ) 是 成员 ui 的 伪 秘密 分享 值 . 
+ 　 　 当 n 中 的 t 个 成员 要 生成 秘密 时 ， 他们 各自 呈交 自己 的 伪 秘密 分享 值 ( h ′ i , d ′ i , r ′ i ) ， 其余 的 成员 可验证 比值 的 正确性 . 他们 先 从 r ′ i 中 得到 y ′ i 及 index2 ， 求取 di ≡ y ′ 2i × σ 2 ( modN ) ( 其中 σ 2 是 根据 index2 的 值取 α － 1 ， β － 1 ， γ － 1 ， σ － 1 中 的 某 一个 值 ) . 如果 di ≠ d ′ i ， 那么 ui 为 欺诈 者 ， 否则 继续 验证 . 从 h ′ i 中 得到 x ′ i 及 index1 ， 并 计算 ， 如果 等式 s ′ i ≡ x ′ 2i × σ 1 ( modN ) 成立 ( 其中 σ 1 是 根据 index1 的 值取 α － 1 ， β － 1 ， γ － 1 ， σ － 1 中 的 某 一个 值 ) ， 那么 ui 为 诚实 的 ， 否则 为 欺诈 者 . 在 欺诈 检测 的 同时 也 恢复 了 秘密 分享 值 si . 
+ 　 　 Chang 和 Hwang 指出 Wu - Wu 方案 中 T 没有 完整性 保证 ， 不能 阻止 阴谋 者 起诉 陷害 某个 特殊 的 成员 ， 而 他们 的 方案 却 可以 . 但 实际上 ， Chang - Hwang 方案 中 T 虽然 不能 被 改变 ， 但 α － 1 ， β － 1 ， γ － 1 ， σ － 1 仍然 有 完整性 问题 . 譬如 某人 将 α － 1 改为 c ， 那么 任意 一个 伪 秘密 分享 值中 index2 = ′ 00 ′ 的 成员 都 无法 通过 验证 ， 所以 该 方案 并 不能 像 他们 所 宣称 的 可以 阻止 阴谋 者 起诉 陷害 某个 特殊 的 成员 . 
+ 3 　 本文 方案 
+ 　 　 因为 前 两种 方案 都 存在 公共 参数 完整性 的 问题 ， 所以 本文 方案 对此 提出 解决 方法 . 在 陈述 方案 之前 ， 先 简单 介绍 基于 离散 对数 的 具有 消息 恢复 的 数字签名 方案 . Nyberg 和 Rueppel 提出 了 一个 基本 的 基于 离散 对数 的 具有 消息 恢复 的 数字签名 方案 ［ 11 ］ ， 并 在 文献 ［ 12 ］ 中 给出 了 通用 的 方法 . 具有 消息 恢复 的 数字签名 的 基本 特点 就是 验证 公式 即 为 恢复 消息 . 然而 在 消息 中 必须 加进 一些 冗余 的 信息 ， 在 恢复 了 消息 之后 ， 将 检查 该 消息 是否 满足 冗余 的 特点 . 下面 简单 介绍 Nyberg - Rueppel 方案 . 
+ 　 　 选择 两个 素数 p 和 q ， 并且 有 q | p - 1 . 再 选择 GF ( p ) 中 的 的 一个 q 阶 生成元 g . 签名者 A 选择 xA 和 yA ， 分别 作为 他 的 私钥 和 公钥 . 假设 签名 的 消息 为 m   ( m 已 被 添加 了 冗余 消息 ) . A 将 选择 一个 随机数 k ， 并 计算 r ≡ g - km ( modp ) ， s ≡ k - rxA ( modq ) ， 所以 ( r , s ) 就是 A 对 m 的 签名 ， 接收者 B 获得 签名 后 将 计算 出 m ≡ gsyrAr ( modp ) ， 并 检查 m 的 冗余 性 ， ( p , q , g ) 是 公开 的 . 
+ 　 　 本文 方案 也 可 应用 在 任何 ( t , n ) 阈 方案 中 . 假设 分享 值 分配 中心 SDC 已 将 秘密 分享 值 si ( i = 1 , 2 , … , n ) 分配 给 各 成员 ui ( i = , 1 , 2 , … , n ) . 方案 中 也 要 用到 平方 剩余 定理 ， 有关 的 数学 定义 可 参见 文献 ［ 8 ］ . 另外 假设 系统 中 已 存在 了 Nyberg - Rueppel 数字签名 方案 的 参数 ， 且 SDC 的 私钥 和 公钥 分别 是 xSDC 和 ySDC . 下面 将分 两个 阶段 来 介绍 本文 方案 . 
+ 3.1 　 初始化 阶段 
+ 　 　 SDC 将 执行 以下 步骤 来 产生 系统 的 参数 ： 
+ 　 　 步骤 1 : 选择 两个 大 素数 p1 和 q1 ， 并 计算 ， 其中 N = p1 × q1 ， 其中 ( p1 + 1 ) mod4 = 0 ， ( q1 + 1 ) mod4 = 0 , N 的 比 特长 为 512 . 并 有 si ∈ ［ 1 , N - 1 ］ , i = 1 , 2 , … , n ； 
+ 　 　 步骤 2 : 对 每个 成员 的 si ( i = 1 , 2 , … , n ) 计算 ： hi ≡ s2i ( modN ) ； 
+ 　 　 步骤 3 : 选择 一个 素数 φ ， 且 有 φ > hi ( i = 1 , 2 , … , n ) ， 将 其 公开 ； 
+ 　 　 步骤 4 : 计算 
+ 　 　 步骤 5 : 将 T 作为 要 签名 的 消息 ， 加入 冗余 信息 ， SDC 对 T 产生 的 签名 是 ( r , s ) ， 并 公布 . 
+ 3.2 　 鉴别 阶段 
+ 　 　 假设 n 个 成员 中 的 任意 t 个 共同 来 恢复 秘密 . 不失 一般 的 ， 设为 ui ( i = 1 , 2 , … , t ) ， 他们 将 完成 以下 步骤 ： 
+ 　 　 步骤 1 : 他们 先 验证 签名 ( r , s ) 的 正确性 ， 即 恢复 出 T ≡ gsyrAr ( modp ) ， 并 检验 是否 满足 冗余 性 ； 
+ 　 　 步骤 2 :   ui ( i = 1 , 2 , … , t ) 呈交 上 他们 的 秘密 分享 值 si ； 
+ 　 　 步骤 3 : 对 每个 ui ( i = 1 , 2 , … , t ) ， 先 计算 ， 再 验证 ： hi ≡ ? s2i ( modN ) ， 如果 等式 成立 ， 表示 ui 呈交 了 正确 的 秘密 分享 值 ， 否则 他 是 欺诈 者 . 
+ 4 　 分析 
+ 4.1 　 正确性 分析 
+ 　 　 对于 用 Nyberg - Rueppel 签名 方案 来 对 T 签名 以及 验证 时 再 获得 T 值 的 正确性 的 过程 ， 可以 参见 文献 ［ 11 ］ . 我们 主要 给出 鉴别 阶段 时 步骤 3 的 正确性 . 
+ 
+ 其中 ： 
+ P = h1 φ 1 - i + … + hi - 1 φ － 1 , 
+ Q = hi + 1 φ + … + an φ n - i . 
+ 因为 φ > hi ( i = 1 , 2 , … , n ) ， 所以 有 ： 
+ 
+ 　 　 所以 ： 0 ≤ P ＜ 1 ， 
+ 
+ 　 　 通过 以上 过程 ， 我们 验证 了 方案 的 正确性 . 
+ 4.2 　 安全性 分析 
+ 　 　 Wu - Wu 方案 的 安全性 是 基于 单向 哈希 函数 ， 然而 正如 文献 ［ 9 ］ 中 分析 ， 单向 函数 是 基于 一个 循环 的 简单 函数 的 复杂性 ， 虽然 他们 在 开始 的 时候 似乎 很难 分析 ， 但 随着 时间 的 推移 ， 会 发现 他们 很 容易 遭受 某些 特殊 的 攻击 ， 所以 Wu - Wu 方案 是 不 安全 的 . 而本 方案 却是 基于 平方 剩余 定理 ， 即使 通过 式 很 容易 获得 hi ， 但是 必须 解 hi 模 N 的 平方根 才能 求得 si . 然而 寻找 模 N 的 平方根 相当于 分解 大 素数 的 乘积 的 难度 ［ 13 ］ . 
+ 　 　 另外 文献 ［ 8 ］ 中 指出 Wu - Wu 方案 中 ， 攻击者 可 改变 T ， 也 即 T 没有 完整性 保证 ， 即使 成员 呈交 了 正确 的 si ， 但是 也 无法 通过 检验 . 而 Chang - Hwang 方案 同样 有 公共 参数 完整性 的 问题 . 所以 本 方案 对 T 进行 签名 ， 保证 了 它 的 完整性 ， 也 就是 别人 无法 改变 值 T . 
+ 　 　 任何 成员 呈交 上 不 正确 的 si ， 在 验证 过程 的 步骤 3 都 将 被 检测 出 . 假设 成员 ui 想 呈交 不 正确 的 分享 值 s ′ i ， 他 为了 不 在 验证 过程 的 步骤 3 将 被 检测 出 ， 必须 修改 T 为 T ′ ， 使得 ， 但是 T 由 SDC 签名 ， 任何人 无法 修改 . 
+ 4.3 　 计算 复杂度 分析   
+ 　 　 本 方案 中要 用到 两种 类型 的 计算 ， 一种 是 一般 的 整数 计算 ， 一种 是 有限 域 内 的 整数 计算 . 让 Ob 表示 比特 运算 的 时间 复杂度 ， 文献 ［ 14 ］ 中 ， Aho 等 人 指出 一般 的 整数 乘除 的 时间 复杂度 是 Ob ( b × logb × loglogb ) ， 其中 b 是 操作数 的 比特 长度 . 计算 模 的 幂 乘 所 需 的 计算 量 为 次模 p 的 模乘 ， 而求模 p 的 乘 逆 需要 次模 p 的 模乘 ［ 15 ］ ， 在 方案 中 ， g － 1modp 可 事先 计算 好 并 保存起来 . 所以 本 方案 在 初始化 阶段 ， 需要 的 计算 量 为 Ob ( n × b × logb × loglogb ) ( 用来 产生 T ) + O ( n ) 模 N 乘 ( 用来 计算 hi ) + 次模 p 的 乘法 ( 用来 产生 T 的 签名 ) . 而 验证 时 需要 的 计算 量 为 Ob ( 2t × b × logb × loglogb ) ( 用来 产生 hi ) + O ( t ) 模 N 乘 ( 用来 计算 s2i ) + ) 次模 p 的 乘法 ( 用来 验证 T 的 签名 ) . 实际上 本 方案 主要 的 计算 量 是 在 对 T 签名 和 验证 的 过程 ， 而 签名 只是 为了 保证 T 的 完整性 ， 避免 Wu - Wu 方案 以及 Chang - Hwang 方案 的 缺点 . Wu - Wu 方案 以及 Chang - Hwang 方案 的 计算 量分析 参见 文献 ［ 8 ］ . Chang - Hwang 方案 的 主要 优点 是 验证 时 所 需 的 计算 量 很小 ， 但 SDC 进行 初始化 时 的 计算 量 并 不小 . 随着 计算机 软硬件 的 发展 ， 成员 的 计算能力 也 是 很大 的 ， 所以 仅 把 成员 计算 的 高效 作为 评判 条件 ， 而 忽视 SDC 的 计算 量 ， 这 是 不 完善 的 . 如果 Chang - Hwang 方案 也 对 公共 参数 进行 完整性 保护 ， 那么 它 的 计算 量 将 大大 超过 本文 方案 . 
+ 4.4 　 通信量 分析 
+ 　 　 Chang - Hwang 方案 的 初始化 过程 中 ， SDC 将 总共 传送 3nlog2Nbit 的 信息 ， 验证 过程 中 ， t 个 成员 所 传送 的 总 的 信息量 为 3tlog2Nbit . 而 本文 方案 ， 初始化 过程 中 ， SDC 将 总共 传送 2log2pbit ， 验证 过程 中 ， t 个 成员 所 传送 的 总 的 信息量 为 tlog2N ′ bit ( N ′ 是 求 si 时所选 的 有限 域 大小 ) . 所以 本 方案 通信量 比 Chang - Hwang 方案 小 . 
+ 4.5 　 扩 　 　 展 
+ 　 　 Chang - Hwang 方案 虽然 在 欺诈 识别 的 验证 过程 中 ， 所 需 的 计算 很 简单 ， 但 初始化 时 所 需 的 计算 量 却 很大 ， 而且 生成 的 参数 也 较 多 ， 这 不利于 扩展 到 分享 多个 秘密 的 情况 . 而 在 实际 中 ， 一个 秘密 被 揭示 后 就 不能 被 再 使用 ， 相应 于 它 所 生成 的 公共 参数 和 秘密 分享 值 将 全部 放弃 ， 所以 不得不 再 分享 新 的 秘密 ， 以 保证 安全 需求 . 方案 的 简单 ( 包括 计算 与 通信量 的 大小 ) 将 保证系统 的 灵活性 和 实用性 . 而本 方案 的 初始化 过程 较为简单 ， 只是 需要 生成 并 签名 ， 验证 时 涉及 的 参数 也 不 多 . 所以 本 方案 更 容易 应用 到 分享 多个 秘密 的 情况 ［ 16 ～ 18 ］ . 
+ 5 　 结论 
+ 　 　 阈 方案 主要 是 用来 保护 某个 秘密 不会 丢失 、 损坏 或 修改 ， 它 可以 应用 在 很多 场合 ， 但是 该 方案 要 正确 使用 ， 必须 要 解决 欺诈 识别 的 问题 . 本文 提出 了 一种 有效 的 基于 平方 剩余 定理 的 欺诈 识别 方案 ， 对 它 进行 攻击 的 难度 相当于 分解 两个 大 素数 的 乘积 . 方案 中 无须 使用 单向 哈希 函数 ， 并且 对 公共 参数 的 完整性 给予 保证 ， 这样的话 可以 阻止 阴谋 者 起诉 陷害 某个 特殊 的 成员 . 它 较 容易 扩展 到 分享 多个 秘密 的 情况 ， 所 需 的 通信量 也 较 小 . ■ 
+ 基金项目 ： 谭凯军 ，   女 ， 1972 年 6 月生 ， 博士 研究生 ， 研究 方向 为 网络 和 信息安全 、 密码学 . 
+ 　 　 　 　 　 诸 鸿文 ，   男 ， 1939 年 11 月生 ， 上海交大 电子 工程系 首席 科学家 ， 博士生 导师 ， 研 　 　 　 　 　 　 究 方向 为 计算机 通信网 、 CSCW 、 网络安全 .   
+ 　 　 　 　 　 顾尚杰 ，   男 ， 1940 年 6 月生 ， 上海交大 电子 工程系 教授 ， 博士生 导师 ， 研究 方向 为 　 　 　 　 　 　 计算机 通信网 、 ATM 技术 . 
+ 作者简介 ： 谭凯军 ， 女 ， 1972 年 6 月生 ， 博士 研究生 ， 研究 方向 为 网络 和 住处 安全 、 密码学 
+ 　 　 　 　 　 诸 鸿文 ， 男 ， 1939 年 11 月生 ， 上海交大 电子 工程系 首席 科学家 ， 博士生 导师 ， 研究 　 　 　 　 　 　 方向 为 计算机 通信网 ， 、 CSSW 、 网络安全 
+ 　 　 　 　 　 顾尚杰 ， 男 ， 1940 年 6 月生 ， 上海交大 电子 工程系 教授 ， 博士生 导师 ， 研究 方向 为 　 　 　 　 　 　 计算机 通信网 、 ATM 技术 
+ 作者 单位 ： 谭凯军 ( 上海交通大学 电子 工程系 　 上海 　 200030 ) 
+ 　 　 　 　 　 诸 鸿文 ( 上海交通大学 电子 工程系 　 上海 　 200030 ) 
+ 　 　 　 　 　 顾尚杰 ( 上海交通大学 电子 工程系 　 上海 　 200030 ) 
+ 参考文献 ： 
+ ［ 1 ］ Shamir   A .   How   to   share   a   secret .   Comm   ACM ,   1979 ,   22 ( 11 ) :   612 ～ 613 
+ ［ 2 ］ Blakley   G   R .   Safeguarding   cryptographic   keys .   In :   Proc   AFIPS   1979   Natl   Comput   Conf ,   New   York ,   1979 .   313 ～ 317 
+ ［ 3 ］ Tompa   M ,   Woll   H .   How   to   share   a   secret   with   cheaters .   J   Crypt ,   1988 ,   1 :   133 ～ 138 
+ ［ 4 ］ Brickell   E   F ,   Stinton   D   R .   The   detection   of   cheaters   in   threshold   schemes .   In :   Advances   in   Cryptology - Crypto   ' 88 ,   Berlin :   Springer - Verlag ,   1988 .   2017 ～ 2018 
+ ［ 5 ］ Su   H   M ,   Shieh   S   P .   Construction   of   dynamic   threshold   schemes .   Electron   Lett ,   1994 ,   30 ( 24 ) :   2023 ～ 2024 
+ ［ 6 ］ Wu   T   C ,   Wu   T   S .   Cheating   detection   and   cheater   identification   in   secret   sharing   schemes .   IEE   Peoc   E   Comput   Digit   Tech ,   1995 ,   142 ( 5 ) :   367 ～ 369 
+ ［ 7 ］ Hwang   S   J ,   Chang   C   C ,   Yang   W   P .   New   cheater   identification   in   threshold   schemes .   National   Chung   Hsing   University ,   TaiChung ,   Technical   Report   of   the   Institute   of   Computer   and   Information   Science ,   1995 
+ ［ 8 ］ Chang   C   C ,   Hwang   R   J .   Efficient   cheater   identification   method   for   threshold   schemes .   IEE   peoc   E   Comput   Digit   Tech ,   1997 ,   144 ( 1 ) :   23 ～ 27 
+ ［ 9 ］ Harn   L .   Digital   signature   for   Diffie - Hellman   public   keys   without   using   a   one - way   function .   Electron   Lett ,   1997 ,   33 ( 2 ) :   125 ～ 126 
+ ［ 10 ］ Dobbertin   H .   The   status   of   MD5   after   a   recent   attack .   CryptoBytes ,   1996 ,   2 ( 2 ) :   1 ～ 6 
+ ［ 11 ］ Nyberg   K ,   Rueppel   R   A .   A   new   signature   scheme   based   on   the   DSA   giving   message   recovery .   In :   1st   ACM   Conference   on   Computer   and   Communications   Security ,   Fairfax ,   USA ,   1993 
+ ［ 12 ］ Nyberg   K ,   Rueppel   R   A .   Message   recovery   for   signature   schemes   on   the   discrete   logarithm .   In :   Pre - proceeding   of   Eurocrypt ′ 94 ,   Perugia ,   Italy ,   1994 .   175 ～ 190 
+ ［ 13 ］ Rabin   M   O .   Digitized   signatures   and   public - key   functions   as   intractable   as   factorization .   MIT   Laboratory   Technical   Report :   LCS / TR - 212 ,   1979 
+ ［ 14 ］ Aho   A   V ,   Hopcroft   J   E ,   Ullman   J   D .   The   Design   and   Analysis   of   Computer   Algorithms .   Reading ,   MA :   Addison - Wesley ,   1974 
+ ［ 15 ］ Pohlig   S   C ,   Hellman   M   E .   An   improved   algotithms   over   GF ( p )   and   its   cryptographic   significance .   IEEE   Transactions   on   Information   Theory ,   1978 ,   IT - 24 ( 1 ) :   106 ～ 110 
+ ［ 16 ］ He   J ,   Dawson   E .   Multisecret - sharing   scheme   based   on   one - way   function .   Electron   Lett ,   1995 ,   31 ( 2 ) :   93 ～ 94 
+ ［ 17 ］ Harn   L .   Comment :   Multistage   secret   sharing   based   on   one - way   function .   Electron   Lett ,   1995 ,   31 ( 4 ) :   262 
+ ［ 18 ］ He   J ,   Dawson   E .   Multistage   secret   sharing   based   on   one - way   function .   Electron   Lett ,   1995 ,   31 ( 19 ) :   1591 ～ 1592 
+ 收稿 日期 ： 1998 - 10 - 15 
+ 修稿 日期 ： 1999 - 01 - 18 

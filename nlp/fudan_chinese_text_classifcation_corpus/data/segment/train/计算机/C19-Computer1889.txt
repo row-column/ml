@@ -1,0 +1,117 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000 　 Vol.19 　 No.4 　 P.42 - 44 
+ 
+ 
+ 
+ 基于 Ｂ ／ Ｓ 和 Ｃ ／ Ｓ 的 公众 电子信箱 系统 
+ 王凯 　 秦耕 　 白庆华 
+ 摘   要 ：   一个 基于 Ｂ ／ Ｓ 和 Ｃ ／ Ｓ 的 公众 电子信箱 系统 的 实现 过程 ， 对 其 涉及 到 的 众多 技术 的 结合 与 应用 作 了 详尽 的 阐述 。 
+ 关键词 ：   Ｗ Ｅ Ｂ   公众 电子信箱 系统   浏览器 ／ 服务器   客户 ／ 服务器 
+ 　 　 随着 网络 技术 的 日趋 成熟 和 广泛应用 ， 以 计算机网络 为 基础 的 通信 方式 逐渐 被 人们 所 接受 。 从 商务信息 的 交换 、 国外 大学 的 申请 到 朋友 之间 的 小 叙 ， 人们 更多地 利用 Email 来 进行 沟通 ， 因为 它 有着 传统 邮政 信件 无法比拟 的 优点 ， 如省 时 、 省钱 、 省力 等 。 
+ 　 　 Email 的 普及 ， 尤其 在 商业机构 、 学校 、 政府 机关 等 高素质 人才 集聚 地 的 广泛应用 ， 不断 地 推动 着 我们 去 改进 一些 相关 服务 以 适应 这种 新 的 沟通 方式 ， 公众 电子信箱 便是 对 传统 的 公众 意见箱 的 替代 和 改进 。 借助 Email 的 便捷 ， 这种 新型 的 意见箱 不再 只是 单向 的 信息 收集 ， 而是 有着 更为 灵活 的 信息沟通 与 反馈 功能 。 
+ 　 　 这里 我们 提供 一种 实用 简便 的 系统 设计 实施方案 ， 无论是 政府 、 公司 还是 学校 ， 只要 有 自己 的 局域网 和 1 台 NT 服务器 便 可以 马上 开通 公众 电子信箱 。 考虑 到 要 提供 强大 的 信件 处理 功能 和 防止 非法 用户 在 网上 的 操作 ， 我们 采用 Browse ／ Server 和 Client ／ Server 相结合 的 方式 构造 系统 ， 如图 1 所示 。 
+ 
+ 图 1 　 系统 的 构造 
+ 　 　 下面 我们 用 已 开发 成功 的 同济大学 经济 与 管理 学院 “ 院长 信箱 ” 为例 介绍 系统 各 部分 实现 的 具体步骤 （ 实例 中 的 特定 参数 将 用 在 后面 的 程序代码 或 设置 中 ） 。 
+ 1 　 服务器 设置 
+ 　 　 我们 选用 Microsoft 公司 的 系列产品 作为 本 系统 的 开发 平台 。 首先 为 作为 服务器 的 计算机 安装 WindowsNT   Server   4 ． 0 ， 这里 NT 自带 的 IIS （ Internet   Information   Server ） 2 ． 0 和 Microsoft   mail 邮局 就 可以 作为 本 局域网 的 WEB 服务器 和 Email 服务器 ， 然后 安装 SQLServer 作为 数据库 服务器 ， 最后 在 服务器 的 数据 盘 上 建立 2 个 共享 目录 D ： ＼ web 和 D ： ＼ post 分别 作为 WEB 文件 和 邮局 的 物理 存放 地 。 
+ 1 ． 1 　 WEB 服务器 设置 
+ 　 　 在 服务器 “ 开始 ” 菜单 中 找到 Microsoft   Internet   Server ／ Internet 服务 管理器 ， 运行 后 双击 WWW 服务 进入 “ WWW 服务 属性 ” 窗口 ， 在 “ 目录 ” 页 中 单击 “ 添加 ” ， 进入 “ 目录 属性 ” 窗口 ； 在 目录 框 填写 D ： ＼ web ， 选取 “ 主目录 ” 选项 ， 访问 栏 增选 “ 执行 ” 项 。 回到 “ WWW 服务 属性 ” 窗口 后 确认 “ 默认 文档 ” 为 default ． htm 。 这时 在 局域网 的 任何 1 台 计算机 的 浏览器 URL 地址 中 输入 “ http ： ／ ／ 服务器 主机名 或 IP地址 ” 都 可 浏览 到 服务器 D ： ＼ web ＼ 目录 下 的 default ． htm 文件 （ 即本 网站 主页 ） 。 如果 要 用 域名 表示 URL 地址 则 需要 启动 NT 中 的 域名 服务器 将 服务器 IP地址 和 域名 映射 起来 ， 并 在 局域网 内 其它 计算机 的 “ 控制面板 ／ 网络 ／ TCPIP 属性 ／ DNS 配置 ” 的 “ DNS 服务器 搜索 顺序 ” 中 添加 本 服务器 的 IP地址 。 
+ 1 ． 2 　 数据库 服务器 设置 
+ 　 　 在 服务器 “ 开始 ” 菜单 中 运行 “ Microsoft   SQL   Server ／ SQL   Enterprise   Manager ” ， 在 Database   Device 中 新建 一个 设备 Semdevice ， 然后 在 Database 中以 Semdevice 为 设备 名建 一个 数据库 SEMMIS 。 数据库 建好 后 还要 将 其 设置 成 数据源 ， 在 “ 控制面板 ／ ODBC ” 中 添加 “ 系统 数据源 （ DSN ） ” ， 令 Data   Source   Name 为 Sem ， Server 为 Local ， option 中 Database   Name 为 SEMMIS 。 
+ 1 ． 3 　 Email 服务器 设置 
+ 　 　 Microsoft   Mail 是 1 个 工作组 邮件系统 。 要 利用 它 收发 Email 首先 要 设置 1 个 邮局 并 为 邮局 添加 用户 ， 然后 为 每个 用户 生成 1 个 配置文件 以 指定 信件 和 通信录 的 存放 地 。 当 用户 选用 此 配置文件 进入 收件箱 时 就 能 看到 自己 的 信箱 内容 。 
+ 　 　 首先 在 服务器 “ 控制面板 ” 中 打开 “ Microsoft   mail 邮局 ” ， 选择 “ 创建 新 的 工作组 邮局 ” ， 逐步 完成 如下 操作 ： 将 邮局 路径 设为 D ： ＼ post （ 注意 先 将 其设 为 共享 目录 ） ， 系统 将 自动 在 其下 创建 1 个 名为 wgpo0000 的 目录 ； 指定 管理员 信息 ； 在 “ 邮局 管理程序 ” 中 添加 用户 ， 其中 用户 “ 姓名 ” 将 作为 收件箱 中 收信人 ／ 发信人 标识 ， “ 邮箱 ” 名则 是 应用程序 向 邮局 发送 邮件 时 用到 的 重要 参数 。 
+ 　 　 为 能 在 收件箱 （ 或 outlook ） 中 看到 邮局 用户 的 信件 还要 设置 “ 配置文件 ” 。 用户 在 哪台 计算机 上 收发 Email ， 就要 在 哪台 计算机 上 为 其 设置 配置文件 。 但 要 注意 的 是 同一 邮局 用户 在 不同 计算机 上 的 配置文件 要 使用 同 1 个 个人 文件夹 文件 （ ． pst ） 和 个人 通信录 文件 （ ． pab ） 。 配置文件 的 设置 过程 如下 ： 在 “ 控制面板 ” 中 打开 “ 电子邮件 ” ， 单击 “ 显示 配置文件 ” ， 单击 “ 添加 ” ， 进入 Microsoft   Exchange   Setup   Wizard 窗口 ， 选择 “ Microsoft   Mail ” ， 如果 没有 安装 Exchange   Server 也 没有 Internet 上 的 Email 帐号 ， 则 将 这 二项 取消 。 然后 指定 1 个 配置 文件名 ； 以 服务器 上 的 D ： ＼ post ＼ wgpo0000 作为 邮局 路径 ， 在 用户 列表 中 选取 1 个 用户名 ， 输入 正确 的 密码 后 为 其 指定 个人 通信录 和 个人 文件夹 文件 的 路径 及 名称 ， 路径 可 使用 系统 提供 的 D ： ＼ Exchange ＼ ， 名称 建议 使用 可 识别 文件名 （ 系统 缺省 设置 文件名 均 为 mailbox ） ， 如为 用户 sa 建立 sabox ． pab 和 sabox ． pst 以便 区分 同 1 台 计算机 上 多个 用户 的 个人 通信录 和 个人 文件夹 。 
+ 2 　 数据库 建立 
+ 　 　 运行 PowerBuilder ， 在 DB   profile 中 新建 1 个 MSS   MS   SQL   Server 的 配置文件 ， 填写 如下 内容 ： Connection 页 Profile   Name 为 “ SemMis ” ， server 为 服务器 名 ， LoginID 为 “ sa ” （ 系统 默认 用户 ） ， Database 为 “ SEMMIS ” ； System 页 PowerBuilderCatalog   Table   Owner 为 “ dbo ” （ 系统 默认值 ） 。 配置文件 生成 后 单击 Connect ， 这时 打开 PB 中 的 Database 就 进入 了 SEMMIS 数据库 。 新建 1 个 名为 mail 的 表 ， 字 段 设置 如下 ： 
+ 　 　 来信 日期 ： mail ＿ date 
+ 　 　 来信 标题 ： title 
+ 　 　 来信 内容 ： send ＿ con 
+ 　 　 来信 人 姓名 ： sender ＿ name 
+ 　 　 来信 人 Email 地址 ： sender ＿ adr 
+ 　 　 回信 内容 ： answer ＿ con 
+ 　 　 标志 位 ： flag （ 0 ： 最新 信件 ， 1 ： 待处理 信件 ， 2 ： 公开 发布 信件 ， 3 ： 回信 保留 信件 ） 
+ 3 　 WEB 站点 建设 
+ 　 　 “ 院长 信箱 ” 作为 本院 网站 的 2 级 链接 主页 提供 二项 服务 ： （ 1 ） 输入 及 发送给 院长 的 信件 ； （ 2 ） 浏览 公开 发布 的 信件 。 我们 利用 IIS 提供 的 数据库 连接器 （ IDC ） 实现 数据 的 传递 和 页面 的 动态 更新 。 IDC 使用 二类 文件 控制 如何 访问 数据库 及 如何 构造 输出 WEB 页面 ， 这些 文件 是 Internet 数据库 连接器 文件 （ ． idc ） 和 HTML 扩展名 文件 （ ． htx ） 。 数据库 连接器 文件 既 包含 连接 适当 ODBC 数据源 和 执行 SQL 语句 所 必需 的 信息 ， 也 包含 HTML 扩展名 文件 的 名称 和 位置 。 HTML 扩展名 文件 是 HTML 文档 的 模板 ， HTML 文档 用 IDC 将 数据库 信息 并入 之后 返回 WEB 浏览器 。 本例 中 各 文件 调用 关系 和 数据传输 关系 如图 2 所示 。 
+ 
+ 图 2 　 文件 调用 和 数据传输 
+ 　 　 下面 给出 各 文件 的 说明 和 部分 代码 。 
+ 　 　 文件 CI2001 ． htm 是 院长 信箱 主页 。 用户 要 浏览 公开 发布 的 信件 ， 就 调用 CI2002 ． idc ； 用户 要 给 院长 写信 就 链入 CI2003 ． htm 。 
+ 　 　 文件 CI2002 ． idc 负责 从 数据库 中 读出 可 公开 发布 的 信件 （ flag 为 “ 2 ” ） ， 并 将 所得 数据 与 HTML 扩展 文件 CI2002 ． htx 合并 传到 WWW 服务 返回 给 用户 。 代码 如下 ： 
+ 　 　 datasource ： Sem   ／ ／ 在 ODBC 中 设置 的 数据源 名称 
+ 　 　 template ： ci2002 ． htx   ／ ／ 数据 返回 所 使用 的 HTML 模板 
+ 　 　 username ： sa   ／ ／ 数据库 登录 使用 系统 默认 的 用户 ID 
+ 　 　 SQLStatement ： select   title ， send ＿ con ， answer ＿ con 
+ 　 　 ＋ from   SemMis ． DBO ． mail   ／ ／ 数据库 名 ． 所有者 ． 表名 
+ 　 　 ＋ where   flag   like   ′ 2 ′ 
+ 　 　 文件 CI2002 ． htx 是 含 附加 标志 ＜ ％ ％ ＞ 的 HTML 文档 ， ． idc 文件 用此 形式 将 动态数据 添加 到 文档 ， 部分 代码 如下 ： 
+ 　 　 ＜ ％ begindetail ％ ＞   ／ ／ ． htx 格式 关键字 
+ 　 　 　 ／ ／ 这 之间 将 按规定 的 数据格式 从 第 1 条到 最后 1 条 
+ 　 　 　 　 　 　 　 　 　 　 　 　 ／ ／ 循环 显示 满足条件 的 记录 
+ 　 　 ＜ ％ title ％ ＞   ／ ／ 信件 标题 
+ 　 　 ＜ ％ send ＿ con ％ ＞   ／ ／ 来信 内容 
+ 　 　 ＜ ％ answer ＿ con ％ ＞   ／ ／ 回信 内容 
+ 　 　 ＜ ％ enddetail ％ ＞   ／ ／ ． htx 格式 关键字 
+ 　 　 文件 CI2003 ． htm 是 1 个 带 若干 输入框 的 超 文本文件 ， 输入框 的 文本 描述 为 
+ 　 　 ＜ input   type ＝ ″ text ″   name ＝ ″ sender ＿ name ″ … ＞ 
+ 　 　 ＜ input   type ＝ ″ text ″   name ＝ ″ sender ＿ adr ″ … ＞ 
+ 　 　 ＜ input   type ＝ ″ text ″   name ＝ ″ title ″ … ＞ 
+ 　 　 ＜ textarea   rows ＝ ″ 10 ″   name ＝ ″ send ＿ con ″   cols ＝ ″ 72 ″ … ＞ 
+ 　 　 文件 CI2004 ． idc 负责 把 在 CI2003 ． htm 页面 输入 的 字 段 内容 写入 数据库 ， 并 以 CI2004 ． htx 作为 信件 接收 回执 页面 的 模板 。 其 代码 如下 ： 
+ 　 　 datasource ： Sem 
+ 　 　 username ： sa 
+ 　 　 template ： ci2004 ． htx 
+ 　 　 sqlstatement ： 
+ 　 　 ＋ insert   into   SemMis ． DBO ． mail （ mail ＿ date ， flag ， 
+ 　 　 　 　 　 　 　 sender ＿ name ， sender ＿ adr ， title ， send ＿ con ） 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ／ ／ 向 数据库 插入 1 条 记录 
+ 　 　 ＋ values （ getdate （ ） ， ′ 0 ′ ， ′ ％ sender ＿ name ％ ′ ， ′ ％ sender ＿ adr ％ ′ ， ′ ％ title ％ ′ ， ′ ％ send ＿ con ％ ′ ） 
+ 　 　 ／ ／ 取 系统 时间 作 来信 日期 ， 以 “ 0 ” 表示 此 记录 为 最新 ， 
+ 　 　 ／ ／ 其它 用 ％ ％ 括起 的 是 CI2003 ． htm 文件 各 输入框 name 
+ 　 　 　 　 　 　 　 ／ ／ 变量名 ， 传递 的 是 用户 输入 的 内容 。 
+ 　 　 文件 CI2004 ． htx 通知 用户 来信 已 被 接收 ， 其中 的 动态 信息 是 将 IDC 文件 中 传递 的 变量 以 HTML 文本格式 显示 ， 如 ： 用 ＜ ％ idc ． sender ＿ name ％ ＞ 代表 CI2004 ． idc 中 的 ％ sender ＿ name ％ ， 即 CI2003 ． htm 中 name 为 sender ＿ name 的 输入框 值 。 
+ 4 　 应用程序 编写 
+ 　 　 利用 PowerBuilder   6 ． 0 可以 快速 开发 出 1 个 信件 处理程序 。 本例 中 我们 将 查看 信件 和 分类 处理 结合 在 一起 ， 将 所有 来信 分为 4 种 状态 （ 由 flag 值 标识 ） ， 针对 每 1 种 状态 提供 相应 的 处理 功能 。 用户界面 及 说明 如图 3 所示 。 
+ 
+ 图 3 　 用户界面 说明 
+ 　 　 （ 1 ） 最新 来信 ： 查看 自 网上 发来 的 最新 信件 ， 视 不同 情况 而 做 暂存 （ 转入 有待 处理 状态 ） 、 回信 、 删除 处理 。 
+ 　 　 （ 2 ） 有待 处理 ： 对 以前 收到 但 没有 及时处理 （ 或 没 处理 完 ） 的 信件 做 发送 （ 转入 回信 保留 状态 ） 、 回信 、 删除 处理 。 
+ 　 　 （ 3 ） 回信 保留 ： 对 已 回复 过 的 信件 做 发布 （ 转入 公开 发布 状态 ） 、 重写 、 删除 处理 。 
+ 　 　 （ 4 ） 公开 发布 ： 对 可 在 网上 浏览 到 的 信件 做 撤消 （ 转入 回信 保留 状态 ） 、 重写 、 删除 处理 。 
+ 　 　 其中 回信 和 重写 都 会 调用 1 个 回信 窗口 ， 并 提供 按 标题 查询 及 转 拷 以往 信件 内容 的 功能 。 怎样 设计 和 实现 这些 信件 处理 功能 可 按 需 调整 ， 这里 就 不再 赘述 了 。 下面 我们 着重 介绍 一下 如何 利用 PowerBuilder   6 ． 0 中 提供 的 mail 函数 进行 邮件 的 发送 。 
+ 　 　 令 院长 个人 在 Microsoft   mail 邮局 的 用户 信息 为 ： 姓名 （ 院长 ） ， 邮箱 （ master ） ， 密码 （ semmaster ） 。 下面 的 程序运行 后 将 在 收件人 （ 由 程序 中 的 变量 指定 ） 的 信箱 中 出现 发件人 为 “ 院长 ” 的 邮件 。 在 应用程序 “ 发送 ” 按钮 的 clicked 事件 中 加入 如下 代码 ： 
+ 　 　 …   … 
+ 　 　 mailSession   mSes   ／ ／ 会话 对象 
+ 　 　 mailMessage   mMsg   ／ ／ 邮件 数据结构 
+ 　 　 …   … 
+ 　 　 mSes ＝ CREATE   mailSession ／ ／ 创建 1 个会话 对象 
+ 　 　 mRet ＝ mSes ． mailLogon （ ″ master ″ ， ″ semmaster ″ ， mailNewSession ！ ） ／ ／ 以 院长 的 “ 信箱 ” 和 “ 密码 ” 登录 
+ 　 　 IF   mRet   ＜ ＞ mailReturnSuccess ！ THEN 
+ 　 　 　 　 MessageBox （ ″ 邮件 ″ ， ′ 登录 失败 ． ′ ） 
+ 　 　 　 　 RETURN 
+ 　 　 END   IF 
+ 　 　 mMsg ． Subject ＝ 信件 标题 
+ 　 　 mMsg ． notetext ＝ 信件 内容 
+ 　 　 mMsg ． Recipient ［ 1 ］ ． Name ＝ 收件人   ″ 信箱 ″   
+ 　 　 　 ／ ／ 一封信 可以 有 1 组 接收器 （ 表示 收件人 地址 信息 的 ／ ／ 数据结构 ） ， 这里 给 第 1 个 接收器 的 Name 赋值 
+ 　 　 mRet ＝ mSes ． mailAddress （ mMsg ） ／ ／ 检测 收件人 地址 的 有 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ／ ／ 效性 
+ 　 　 IF   mRet ＜ ＞ mailReturnSuccess ！ THEN 
+ 　 　 　 　 MessageBox （ ″ 邮件 ″ ， ′ 邮件地址 无效 ． ′ ） 
+ 　 　 　 　 RETURN 
+ 　 　 END   IF 
+ 　 　 mRet ＝ mSes ． mailSend （ mMsg ） ／ ／ 发送 邮件 
+ 　 　 IF   mRet ＜ ＞   mailReturnSuccess ！ THEN 
+ 　 　 　 　 MessageBox （ ″ 邮件 ″ ， ′ 发送 邮件 失败 ． ′ ） 
+ 　 　 　 　 RETURN 
+ 　 　 END   IF 
+ 　 　 mSes ． mailLogoff （ ） 
+ 　 　 DESTROY   mSes 
+ 　 　 …   … 
+ 　 　 公众 电子信箱 系统 虽然 涉及 到 多种 计算机网络 及 应用 技术 ， 但是 按照 本文 提供 的 各 步骤 进行 仍能 方便 而 快速 地 实现 这一 系统 。 如今 网络 技术 已 发展 到 相对 成熟 的 阶段 ， 各 单位 纷纷 建立 了 自己 的 Intranet 。 要 使 Intranet 真正 发挥 企业 内部 沟通 和 信息 共享 的 作用 ， 就要 从 各个方面 来 利用 它 ， 公众 电子信箱 便是 一个 很 好 的 应用 。 我们 期待 能 建立 更 多 的 院长 信箱 、 经理 信箱 、 市长 信箱 ， 创建 出 更 多 更 畅通 的 民主 沟通 渠道 。 
+ 王凯 （ 上海 同济大学 经济 与 管理 学院  200092 ） 
+ 秦耕 （ 上海 同济大学 经济 与 管理 学院  200092 ） 
+ 白庆华 （ 上海 同济大学 经济 与 管理 学院  200092 ） 
+  收稿 日期 ： １ ９ ９ ９ － １ ０ － １ ６ 

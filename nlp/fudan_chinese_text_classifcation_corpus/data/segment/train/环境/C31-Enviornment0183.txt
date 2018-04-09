@@ -1,0 +1,48 @@
+土壤 与 环境 
+ SOIL   AND   ENVIRONMENTAL   SCIENCES 
+ 1999 年 　 第 4 期 　 第 8 卷 　 Vol.8 　 No.4 　 1999 
+ 
+ 
+ 
+ 几种 改性 磷肥 肥效 研究 初报 
+ 毛小云 　 吴平霄 　 廖宗文 
+ 　 　 摘要 ： 在 与 过磷酸钙 生产 类似 的 工艺 条件 下 ， 在 磷矿粉 中 加入 一定 比例 的 添加剂 ， 研制 出 3 种 改性 磷肥 。 化学分析 结果表明 ， 在 改性 磷肥 有效 磷中 ， 水溶性 磷 比例 下降 。 盆栽 试验 结果显示 ， 在 等 质量 施肥 条件 下 ， 3 种 改性 磷肥 均 有 较 大幅度 的 增产 ， 且 植株 吸磷量 和 磷 含量 有 显著 的 增加 。 
+ 　 　 关键词 ： 改性 磷肥 ； 肥效 ； 吸磷量 ； 磷 含量 
+ 　 　 中 图 分类号 ： S143.2 + 2 　 文献 标识码 ： A 
+ Preliminary   Report   on   Efficiency   of   Modified   Phosphorus   Fertilizers   
+ MAO   Xiao - yun ， WU   Ping - xiao ， LIAO   Zong - wen   
+ （ College   of   Natural   Resources   and   Environmental   Science ,   South   China   Agricultural   University ,   Guangzhou   510642 ,   China ） 
+ 　 　 Abstract : 　 In   the   process   similar   to   the   production   of   superphosphate ,   different   proportional   additives   were   added   to   ground   phosphate   rock   to   produce   three   modified   phosphorus   fertilizers .   The   chemical   analysis   shows   that   the   proportion   of   water - soluble   phosphorus   in   available   phosphorus   in   the   modified   phosphorus   fertilizers   has   been   decreased .   Meanwhile   the   pot   experiment   shows   that   three   modified   phosphorus   fertilizers   have   more   positive   effect   on   increasing   biomass   than   that   of   ordinarily   superphophate   under   the   condition   of   equivalent   mass .   Moreover ,   phosphorus   uptake   by   plant   and   phosphorus   content   of   plant   also   increases   remarkably .   
+ 　 　 Key   words : 　 modified   phosphorus   fertilizers ;   fertilizer   efficiency ;   phosphorus   uptake ;   phosphorus   content 
+ 　 　 我国 土壤 缺磷 现象 十分 普遍 ， 特别 是 在 南方 红壤 地区 ， 由于 土壤 Fe 、 Al 含量 高 ， 普通 磷肥 施入 土壤 极易 被 固定 ， 有效性 低 ， 缺磷 现象 严重 。 在 我国 磷矿 资源 不足 ， 品位 较 低 的 条件 下 ， 提高 低 品位 磷矿粉 中 磷 的 释放 ， 使 它 的 肥效 接近 或 高于 同等 量 的 化学 磷肥 ， 对于 充分利用 我国 的 磷矿 资源 具有 重要 的 意义 [ 1 ～ 2 ] 。 解决 这一 问题 的 关键在于 改进 磷肥 的 性状 ， 提高 其 在 土壤 中 的 抗 固定 能力 ， 从而 提高 其 有效性 。 我们 仿照 湿法 过磷酸钙 生产工艺 ， 利用 有机 和 无机 （ 矿物 ） 改性 材料 活化 （ 促释 ） 磷矿粉 在 实验室 条件 下 ， 研制 出 3 种新 制备 改性 磷肥 ， 其 物理 、 化学 性状 均 有 较大 的 改变 ， 在 固磷性 极强 和 有效 磷 含量 极低 的 红壤 上 表现 了 较 好 的 肥效 ， 显示 出 良好 的 应用 前景 。 
+ 1   材料 与 方法 
+ 　 　 供试 磷矿粉 为 云南 昆阳 磷矿粉 ， 添加剂 包括 一种 有机 添加剂 A ， 一种 有机 － 无机 复合 添加剂 B 和 一种 无机 添加剂 C 。 供试 玉米 品种 为 超甜 43 号 。 供试 土壤 为 花岗岩 母质 发育 的 旱地 赤 红壤 ， 其 有机质 的 质量 分数 为 1.37 × 10 - 3 ， 全磷 （ P2O5 ） 为 7.1 × 10 - 4 ， 速效 磷 （ P2O5 ） 为 3.5 × 10 - 6 。 
+ 　 　 改性 磷肥 的 制作 ： 取 添加剂 A   20   g 与 100   g 磷矿粉 混匀 ， 加水 100   ml ， 搅拌 均匀 ， 缓缓 加入适量 浓硫酸 ， 边加边 搅拌 ， 风干 即制 得 改性 磷肥 1 。 仿上法 分别 制得 改性 磷肥 2 和 改性 磷肥 3 ， 3 种 改性 磷肥 分别 记为 GX1 、 GX2 、 GX3 ， 以不加 添加剂 的 处理 得 酸处理 磷肥 ， 记为 CKH 。 4 种 磷肥 经 20   d 后 熟期 后 取样 分析 。 
+ 　 　 盆栽 试验 ： 设 5 个 处理 ， 3 次 重复 ， 每盆装 风干 土 1.5   kg ， N 、 K2O 施肥量 均 为 0.225   g / 盆 。 自 处理 1 至 处理 5 分别 施 普通 过磷酸钙 CK1 、 CKH 、 GX1 、 GX2 、 GX3 ， 施用量 均 为 0.65   g / 盆 。 盆栽 玉米 于 1999 年 3 月 20 日 播种 ， 每盆 3 株 ， 1999 年 4 月 23 日齐土 剪下 玉米 苗 ， 称 鲜重 ， 全 生长期 34   d 。 
+ 2   结果 与 分析 
+ 2.1   改性 磷肥 中 有效 磷 ， 水溶性 磷 含量 
+ 　 　 过磷酸钙 一般 检检 标准 不仅 要求 其 有效 磷 达到 特定 的 指标 （ 质量 分数 为 0.12 以上 ） ， 而且 要求 水溶性 磷 占 有效 磷 的 质量 分数 超过 0.8 以上 。 我们 研制 的 3 种 改性 磷肥 及 对照 酸处理 磷肥 的 有效 磷 和 水溶性 磷 含量 见图 1 （ 图中 数据 的 多重 比较 采用 SSR 法 ， P ＝ 0.05 ） 。 从图 1 可以 看出 ， 与 CKH 相比 ， 3 种 改性 磷肥 水溶性 磷有 较 大幅度 的 下降 ， 质量 分数 分别 降低 0.051 、 0.165 、 0.158 。 而 有效 磷 降低 幅度 不 大 （ 仅 降低 0.013 、 0.008 和 0.048 ） 。 产生 这一 结果 可能 存在 三 方面 的 原因 ： 一是 添加剂 的 加入 使 改性 磷肥 中 磷 的 含量 相对 减少 ， 全磷量 降低 ； 二是 添加剂 在 反应 过程 中 与 磷 结合 ， 这种 结合态 水溶性 弱 但 不失 有效性 ； 三是 由于 加入 添加剂 ， 使 浓 H2SO4 与 磷矿粉 反应 的 量 相对 减少 ， 以致 转化 的 结果 使 游离 H2PO4 - 等 减少 。 
+ 
+ 图 1 　 4 种 磷肥 有效 磷 和 水溶性 磷 含量 
+ 2.2   盆栽 试验 结果 
+ 2.2 . 1   各 处理 玉米 生物量 
+ 　 　 磷 在 土壤 中 极易 被 固定 而 无效 ， 故 一种 磷肥 的 肥效 并 不 决定 于 其 本身 的 化学 有效性 而 取决于 其 生物 有效性 。 5 种 磷肥 在 赤 红壤 上 的 盆栽 结果 见图 2 （ 图中 数据 的 多重 比较 采用 SSR 法 ， P ＝ 0.05 ） 。 
+ 
+ 图 2 　 5 种 磷肥 盆栽 生物量 
+ 　 　 图 2 中 ， CKH 较 CK1 生物量 的 质量 分数 增加 0.0922 ， 3 种 改性 磷肥 较 CKH 增加 0.20 以上 ， 较 CK1 增加 0.30 以上 ， 说明 改性 磷肥 中 的 磷 具有 极高 的 生物 有效性 。 
+ 2.2 . 2   各 处理 玉米地 上部 吸磷量 
+ 　 　 图 3 、 图 4 为 各 处理 的 玉米地 上部 植株 磷 含量 及其 吸磷量 （ 图中 数据 的 多重 比较 采用 SSR 法 ， P ＝ 0.05 ） 。 从表中 可以 看出 ， 处理 GX2 植株 含磷量 和 吸磷量 均 为 最高 ； 其次 为 处理 GX3 和 处理 GX1 。 而 施用 普通 过磷酸钙 的 处理 SP （ CK1 ） ， 地上 部 植株 磷 含量 和 吸磷量 均 为 最低 。 
+ 
+ 图 3 　 各 处理 玉米 植株 含磷量 
+ 
+ 图 4 　 各 处理 玉米地 上部 吸磷量 
+ 3   讨论 
+ 　 　 图 2 中 CKH 较 CK1 生物量 增加 也许 与 二者 有效 磷 含量 不同 有关 ， 3 种 改性 磷肥 处理 较 CKH 处理 的 生物量 有 较 大幅度 的 增加 ， 显然 不能 简单 地用 化学 有效性 解释 。 图 3 中 ， 3 种 改性 磷肥 处理 较 CKH 处理 中 植株 磷 含量 及其 吸磷量 也 有 较 大幅度 的 增加 ， 说明 在 改性 磷肥 中 ， 磷 的 生物 有效性 有 较大 的 提高 。 不同 形态 的 磷 在 土壤 中 被 固定 的 速度 是 不同 的 。 从 化学分析 和 晶体结构 分析 可以 看出 [ 3 ] ， 酸处理 磷肥 的 有效 磷中 游离 H2PO4 - 离子 含量 高 ， 施入 土壤 后 与 Fe 、 Al 等易 迅速 反应 产生 沉淀 而 固定 快 。 在 三种 改性 磷肥 中 ， H2PO4 - 、 HPO42 - 离子 可能 通过 Ca2 + 与 添加剂 形成 多元 络 （ 螯 ） 合物 ， 或 通过 表面 吸附 及 包被 作用 减少 了 其 有效 磷 在 土壤 中 的 固定 ， 从而 大大增加 了 其 生物 有效性 。 
+ 基金项目 ： 中国 博士后 科学 基金项目 （ 中博基 [ 1999 ] 10 号 ） 和 广东省 自然科学 基金 博士 启动 基金项目 （ 994161 ） 
+ 作者简介 ： 毛小云 （ 1972 ～ ） ， 男 ， 硕士 研究生 
+ 作者 单位 ： 华南农业大学 资源 环境 学院 ， 广州   510642 
+ 参考文献 
+ [ 1 ]   章守陶 .   我国 磷肥 工业 的 现状 与 前景   [ J ] .   化肥 与 催化 ， 1991 ,   2 :   60 ～ 61 . 
+ [ 2 ]   王光龙 .   表面 吸附 层 对 磷矿石 磷素 释放 的 影响   [ J ] .   土壤学 报 ， 1998 ,   35 ( 1 ) :   65 ～ 69 . 
+ [ 3 ]   吴平霄 ， 毛小云 ， 廖宗文 .   几种 改性 磷肥 的 X射线 衍射 特征 初报   [ J ] .   土壤 与 环境 ， 1999 ,   8 ( 4 ) :   316 ～ 317 
+ 收稿 日期 ： 1999 - 10 - 11 

@@ -1,0 +1,200 @@
+宇   航   学   报 
+ JOURNAL   OF   ASTRONAUTICS 
+ 1998 年 4 月     第 19 卷     第 2 期 科技期刊 
+ 
+ 
+ 钛合金 表面 等离子 喷涂 ZrO ２ - NiCoCrAIY 
+ 梯度 涂层 的 抗热 震 行为 
+ 向 兴华   全成军   朱景川   尹钟 大 
+ ( 哈尔滨工业大学 材料科学 与 工程学院 * 哈尔滨 * 150001 ) 
+ 来忠红 
+ ( 哈尔滨工业大学 分析测试 中心 * 哈尔滨 * 150001 ) 
+ 摘     要     ZrO ２ - 梯度 涂层 的 成分 沿 厚度 方向 呈 连续梯度 化 分布 ， 
+ 提高 了 涂层 与 基体 的 粘结 强度 和 涂层 的 内聚 强度 ， 其 抗热 震 性能 优于 双层 
+ 涂层 。 在 较大 热 冲击 应力 作用 下 ， 梯度 涂层 整体 自 基体 表面 剥落 而 失效 ； 
+ 在 较 小热 冲击 应力 作用 下 ， 由于 NiCoCrAIY 底层 与 TC4 合金 基体 发生 了 热相 
+ 互 作用 ， 改善 了 涂层 与 基体 的 结合 状况 ， 梯度 涂层 纵向 断裂 并 部分 自 基体 
+ 表面 剥落 而 失效 。 
+ 
+ 主题词     等离子 喷涂     热障 涂层     抗热 震 性能       ZrO ２ 陶瓷     Ni 基合金 
+ 
+ 　 
+ THERMAL   SHOCK   BEHAVIOUR   OF   PLASMA 
+ SPRAYED   ZrO2 - NiCoCrAIY   GRADED 
+ COATING   ON   Ti - 6AL - 4V   SUBSTRATE 
+ Xiang   Xinghua   Quan   Chengjun   Zhu   Jingchuan   
+ Yin   Zhongda 
+ ( School   of   Materials   Science   and   Engineering , Harbin   Insti 
+ tute   of   Technology * Harbin * 150001 ) 
+ Lai   Zhonghong 
+ ( Center   of   Analysis   and   Test , Harbin   Institute   of   Technology 
+ * Harbin * 150001 ) 
+ Abstract     Since   the   components   in   ZrO ２ - NiCoCrAlY   graded   coating   distribute   gradually   
+ along   the   direction   of   thickness , the   adherent   strength   of   coating   and   the   coherent   strength   
+ between   coating   and   substrate   are   improved , and   the   thermal   shock   property   of   the   graded   
+ coating   is   superior   to   that   of   the   duplex   coating . Under   the   condition   of   greater   thermal   
+ shock   stress , the   coating   spalls   integrally   from   the   surface   of   Ti - 6Al - 4V   substrate ; Under   
+ the   condition   of   weaker   thermal   shock   stress , the   coating   fractures   and   spalls   partly   from   
+ the   surface   of   the   substrate . 
+ 
+ Key   words     Plasma   spraying     Thermal   barrier   coatings   Thermal   shock   property     
+ ZrO ２   ceramics     Ni - base   alloy 
+ 
+ 1     引言 
+ 
+         等离子 喷涂 陶瓷 - 金属 梯度 涂层 是 应 航空 、 航天 、 兵器 等 高技术 迅速 发展 
+ 的 需要 于 近年来 开发 出来 的 一种 新型 热障 涂层 ， 其 成分 ( 或 组元 ) 沿 厚度 方向 呈 
+ 梯度 化 分布 ， 能够 充分 缓和 因 温度梯度 形成 的 热应力 ［ １ － ４ ］ 。 考察 梯度 涂 
+ 层 的 抗热 震 性能 ， 研究 其热震 失效 机理 ， 对于 优化 梯度 涂层 的 成分 分布 ， 开 
+ 发 涂层 的 后处理 新工艺 ， 进一步提高 涂层 的 抗热 震 性能 、 延长 其 使用寿命 和 
+ 扩大 其 应用 范围 具有 重要 意义 。 本文 通过 热循环 试验 探讨 了 钛合金 表面 等离子 
+ 喷涂 ZrO ２ - NiCoCrAIY 梯度 涂层 的 抗热 震 行为 。 
+ 
+         
+ 2     实验 方法 
+ 
+ 　 　 本文 采用 大气 等离子 喷涂 法在 5mm 厚 TC4 ( Ti - 6Al - 4V ) 基体 表面 制备 了 两 
+ 种 成分 分布 方式 的 热障 涂层 ， 分别 称之为 双层 涂层 ( 记为 DC ) 和 梯度 涂层 ( 记 为 
+ GC ) ， 如表 1 所示 。 涂层 总 厚度 为 1.4 mm 左右 ， 其中 每 一层 的 实际 厚度 与 设计 厚 
+ 度 的 误差 控制 在 0.015 mm 之内 。 DC 试样 与 GC 试样 的 厚度 一致 ， 目的 是 在 相同 试 
+ 验 条件 下 具有 可比性 。 
+ 
+         
+ 
+ 表 1   等离子 喷涂 热障 涂层 的 组成 分布 设计 
+ 涂层 结构 底层 第二层 第三层 第四层 第五层 表面层 
+ 成份 含量 ( vol% ) 100% N20% Z + N40% Z + N60% Z + N80% Z + N100% Z 
+ 厚度 
+ ( mm ) GC0.20 . 20.20 . 20.20 . 4 
+ DC0.6 - - - - 0.8 
+ 
+ 
+ 
+ 图 1   拉伸 强度 测试方法 示意图 
+ ( a ) 粘结 强度 ； ( b ) 内聚 强度 
+ 1 - 拉伸 偶 ； 2 - 涂层 ； 3 - 基体 
+ 将 涂层 侧面 磨光 制备 金 相 试样 ， 采用 光学 显微镜 观察 梯度 涂层 的 组织 分布 状 
+ 况 。 在 Instron - 1186 电子 万能 试验机 对 两类 涂层 进行 拉伸 试验 ( 试验 方法 如图 1 
+ 所示 ) ， 测定 涂层 与 基体 的 粘结 强度 ( 图 1a ) 和 涂层 的 内聚 强度 ( 图 1b ) 。 试样 
+ 直径 为  φ 17mm ， 试样 与 拉伸 偶 之间 用 环氧树脂 胶结 。 采用 试样 整体 加热 、 
+ 淬 水冷却 的 热循环 方式 进行 热震 试验 ， 考察 梯度 涂层 与 双层 涂层 在 不同 受热 
+ 温度 条件 下 的 热震 行为 。 将 试样 分别 于 700 ° C 、 900 ° C 、 1000 ° C 、 1100 ° C 和 
+ 1200 ° C 保温 20min 后 取出 淬水 ， 如此 反复 循环 直至 涂层 剥落 或 破坏 ， 记录 热循 
+ 环 次数 。 涂层 试样 尺寸 为 15 × 8 × 6.4 ｍ ｍ ３ ， 采用 扫描电镜 ( SEM ) 和 能谱仪 ( ED ) 
+ 研究 涂层 的 热震 失效 特征 。 
+ 
+ 3     结果 与 分析 
+ 3.1     梯度 涂层 的 宏观 组织 特征 
+ 
+ 图 2 为 梯度 涂层 的 宏观 金 相 组织 照片 。 图中 左部 为 TC4 基体 ， 涂层 中 呈 白色 
+ 的 组织 为 NiCoCrAlY ， 呈 灰色 的 组织 是 ZrO ２ 。 从 基体 至 涂层 表面 ， 沿 涂层 
+ 厚度 方向 ， ZrO ２ 的 含量 逐渐 增多 ， NiCoCrAlY 的 含量 则 逐渐 减少 ， 表现 出 
+ 组元 成分 的 连续梯度 化 分布 。 而 双层 涂层 中因 陶瓷 表面层 与 金属 底层 直接 结 
+ 合 ， 致使 在 涂层 中 存在 着 成分 的 突变 和 由此 形成 的 宏观 界面 ， 如图 3 所示 。 由 
+ 此 可见 ， 成分 梯度 化 分布 将 涂层 间 的 宏观 结合 方式 转化成 了 喷涂 粒子 间 的 微 
+ 观 结合 方式 ， 并且 其 微观 结合 界面 弥散 分布 于 各 成分 区域 之中 ， 从根本上 消 
+ 除了 涂层 中 的 成分 跃变 现象 和 由此 造成 的 宏观 结合 界面 。 
+ 
+ 
+ 图 2   ZrO ２ - Ｎ ｉ Ｃ ｏ Ｃ ｒ Ａ ｌ Ｙ 梯度 涂层 的 截面 金 组织 照片 
+ 图 3   ZrO ２ - Ｎ ｉ Ｃ ｏ Ｃ ｒ Ａ ｌ Ｙ 双层 涂层 的 金相 组织 照片 
+ 图 4   两种 热障 涂层 的 拉伸 试验 结果 
+ 3.2     梯度 涂层 的 结合 强度 
+ 
+ 　 　 涂层 的 结合 强度 包括 涂层 与 基体 的 结合 强度 ( 即 粘结 强度 ， 记作 CS ) 和 涂层 
+ 层间 结合 强度 ( 即 内聚 强度 ， 记作 AS ) ， 采用 拉伸 试验 对 涂层 的 两种 结合 强度 进 
+ 行 了 评价 ， 如图 4 所示 。 由图 可见 ， 梯度 涂层 的 两种 结合 强度 均 高于 双层 涂层 
+ 的 强度 。 内聚 强度 取决于 层间 粒子 的 结合 强度 ， 粘结 强度 取决于 NiCoCrAl 
+ Y 粒子 与 TC4 基体 的 结合 状况 ， 并 都 受到 涂层 中 残余 应力 的 影响 。 成分 梯度 化 
+ 分布 消除 了 涂层 中 的 宏观 层间 界面 ， 和 由此 造成 的 物理性质 突变 ， 因此 改善 
+ 了 层间 粒子 结合 状况 ， 缓和 了 涂层 中 的 制备 应力 ， 使 涂层 的 结合 强度 得以 提 
+ 高 。 
+ 
+ 　 　 两种 涂层 的 内聚 强度 值均 大于 粘结 强度 值 ， 并且 测定 粘结 强度 时 ， 在外 
+ 加拉 应力 的 作用 下 ， 两种 涂层 的 拉伸 断裂 位置 均 处于 涂层 与 基体 的 结合 界面 ， 
+ 涂层 与 基体 发生 机械 分离 ， 这 说明 NiCoCrAlY 底层 与 钛合金 基体 的 结合 界 
+ 面是 整个 涂层 - 基体 体系 中 的 最 薄弱 之 处 。 
+ 
+ 3.3     梯度 涂层 的 抗热 震 行为 
+ 
+ 　 　 图 5 为 两类 热障 涂层 的 抗热 震 循环 试验 结果 。 由图 可见 ， 梯度 涂层 的 抗热 
+ 震 温度 高于 双层 涂层 ， 即 双层 涂层 在 1100 ° C 、 1 次 循环 后 失效 ， 而 梯度 涂层 在 
+ 1200 ° C 、 1 次 循环 后 方才 失效 ； 在 相同 热震 试验 温度 下 ， 梯度 涂层 的 抗热 震循 
+ 环 次数 明显 多于 双层 涂层 ， 并且 随 试验 温度 的 降低 ， 梯度 涂层 的 抗热 震 循环 
+ 次数 更 显著 的 增多 ， 尤其 在 900 ° C 试验 时 ， 梯度 涂层 经历 了 近 55 次 热循环 后方 
+ 才 失效 ， 而 双层 涂层 仅仅 经受 了 大约 10 次 热循环 即 失效 。 由此可见 ， 梯度 涂 
+ 层 的 抗热 震 性能 优于 双层 涂层 。 
+ 
+ 　 　 涂层 的 抗热 震 性能 取决于 涂层 中 热应力 的 大小 和 涂层 的 结合 强度 ［ ８ ］ 。 
+ 在 热震 试验 条件 下 ， 由于 ZrO ２ 、 Ｎ ｉ Ｃ ｏ Ｃ ｒ Ａ ｌ Ｙ 和 TC4 基体 的 热膨胀 系 
+ 数 不 相同 ， 导致 在 涂层 的 各 部分 内部 形成 热应力 ， 并 在 结合 界面 上 形成 应力 
+ 集中 。 梯度 涂层 的 成分 呈 梯度 化 分布 ， 克服 了 陶瓷 表面层 与 金属 底层 间 的 物 
+ 理 性质 突变 现象 ， 缓和 了 涂层 中 的 热应力 及 界面 应力 集中 ， 因此 其 抗热 震性 
+ 能 得以 显著 提高 ［ ５ ］ 。 
+ 
+         
+ 
+ 图 5   两种 热障 涂层 的 热震 试验 结果 
+ 
+ 另外 ， 由图 5 还 可 看出 ， 两类 涂层 的 热循 
+ 环 次数 随着 试验 温度 的 变化趋势 不同 ， 随着 试验 温度 的 升高 ， 双层 涂层 的 循 
+ 环 次数 基本上 呈 线性 降低 ， 而 梯度 涂层 的 循环 次数 则 呈 非线性 变化 。 这种 变 
+ 化 趋势 可能 与 涂层 的 热震 失效 方式 随 温度 的 变化 有关 。 在 900 - 1100 ° C 的 
+ 试验 温度 范围 内 ， 双层 涂层 的 失效 方式 未 发生变化 ， 均 表现 为 涂层 整体 自基 
+ 体 表面 剥落 ， 断面 较为 平整 ， 表明 涂层 与 基体 为 机械 分离 。 梯度 涂层 的 失效 
+ 方式 则 随 试验 温度 的 改变 而 变化 ， 在 1100 ° C 和 1200 ° C 试验 时 ， 梯度 涂层 
+ 整体 自 基体 表面 剥落 ， 剥离 面 平整 ， 表现 为 涂层 与 基体 的 机械式 分离 ； 在 10 
+ 00 ° C 试验 时 ， 梯度 涂层 也 自 基体 表面 剥落 ， 但 其 剥离 面 凹凸不平 ， 表现 为 
+ 部分 区域 发生 涂层 与 基体 机械 分离 ， 而 另 一部分 区域 则 以 撕裂 基体 表面层 的 
+ 方式 发生 剥离 ； 在 900 ° C 试验 时 ， 其 失效 方式 发生 了 较大 的 改变 ， 表现 为 涂 
+ 层 的 纵向 断裂 和 一部分 涂层 自 基体 表面 剥落 ， 如图 6 所示 。 梯度 涂层 的 失效 方 
+ 式 随 试验 温度 的 改变 而 发生变化 的 现象 反映 出 涂层 在 经受 不同 程度 的 热 冲击 
+ 应力 的 作用 时 ， 其 失效 行为 有所不同 。 
+ 
+ 
+ 图 6   梯度 涂层 试样 于 900 ° C 试验 时 的 热震 失效 形貌 
+ 
+ 图 7   经 900 ° C ， 25 次 热循环 后 梯度 涂层 与 
+ 基体 结合 区域 的 截面 SEM 形貌 
+ 
+ 梯度 涂层 在 900 ° C 热震 试验 时 ， 其 抗热 震 循环 次数 显著 增多 与 在 涂层 与 基体 
+ 结合 界面 形成 了 元素 富集区 有关 。 图 7 为经 900 ° C 、 25 次 热循环 后 涂层 与 基 
+ 体 结合 区 截面 的 SEM 形貌 。 由图 可见 ， 经 高温 反复 多次 热循环 后 ， 在 NiCoC 
+ rAlY 底层 与 TC4 基体 结合 区 形成 了 既 不同于 涂层 组织 ， 也 不同于 基体 组织 的 
+ 新相区 ， 采用 能谱仪 对 该 区域 的 合金 元素 含量 进行 测定 ， 其 结果 为 ( at% ) : N 
+ i : 48.6% ， Ti : 27.4% ， Al : 10.1% ， Cr ： 8.2% ， Co ： 0.9% ， Y ： 0.35% ， 
+ V ： 0.4% ， 杂质 ( Fe , Si 等 ) ： 其余 。 可见 该 区域 富含 元素 Ni 、 Ti 和 Al 等 ， 这 
+ 表明 梯度 涂层 经 900 ° C 长时间 热循环 后 ， NiCoCrAlY 底层 与 TC4 合金 基体 
+ 发生 了 热 相互作用 。 这种 热 的 相互作用 改善 了 涂层 与 基体 的 结合 状况 ， 提高 
+ 了 涂层 与 基体 的 结合 强度 ， 从而 提高 了 涂层 的 抗热 震 性能 。 
+ 
+         
+ 4     结论 
+ 
+ 　 ( 1 ) ZrO ２ - Ｎ ｉ Ｃ ｏ Ｃ ｒ Ａ ｌ Ｙ 梯度 涂层 的 成分 呈 连续梯度 化 分布 ， 消除 了 
+ 双层 涂层 中 的 成分 跃变 现象 和 由此 造成 的 宏观 结合 界面 ， 提高 了 涂层 与 基体 
+ 的 粘结 强度 和 涂层 的 内聚 强度 ， 其 抗热 震 性能 优于 双层 涂层 。 
+ 　 ( 2 ) ZrO ２ - Ｎ ｉ Ｃ ｏ Ｃ ｒ Ａ ｌ Ｙ 梯度 涂层 的 热震 失效 方式 随 试验 温度 的 改变 
+ 而 有所 变化 。 在 较大 热 冲击 应力 作用 下 ， 涂层 整体 自 基体 表面 剥落 而 失效 ； 
+ 在 较 小热 冲击 应力 下 ， 由于 Ｎ ｉ Ｃ ｏ Ｃ ｒ Ａ ｌ Ｙ 底层 与 TC4 合金 基体 发生 了 
+ 热 相互作用 ， 改善 了 涂层 与 基体 的 结合 状况 ， 涂层 纵向 断裂 并 部分 自基 体表 
+ 面 剥落 而 失效 。 
+ 
+ 本文 于 1996 年 12 月 2 日 收到 
+ 参考文献 
+ 1     Masanobu   Taki , Yoshiaki   Fujisawa , Yasushi   Sofue , Toyoaki   Yoshida . A   fundamental   
+ study   on   the   application   of   FGM   to   high - temperature   rotating   members . in : M . Yamanouchi , 
+ M . kaoizumi , T . Hirai   and   I . Shiota   ed . Proc . of   the   first   Inter . Symp . on   FGM , Sendai , Japan , 
+ 1990 : 353 - 358 
+ 2     K   Kokini , Y   Takeuchi . Mulitilayer   ceramic   thermal   barrier   coatings   under   transient   
+ thermal   loads . in : M . Yamanouchi , M . kaoizumi , T . Hirai   and   I . Shiota   ed . Proc . of   the   first   
+ Inter . Symp . on   FGM , Sendai , Japan , 1990 : 31 - 36 
+ 3     M   I   Mendelson , T   N   Mckechnie . Functionally   gradient   thermal   barrier   coatings : design . 
+ Ceramic   Transactions ( Functionally   Gradient   Materials ) , J . Birch   Holt , Mitsus   Koizumi , 
+ Toshio   Hirai , Zuhair   A . Munir   ed . the   American   Ceramic   Society , Westerville , Ohio , USA , 
+ 1995 ; ( 34 ) 417 - 424 
+ 4     H   D   Steffens , Z   Babiak , U   Fischer . Influence   of   residual   and   thermal   stresses   on   the   
+ thermal   shock   resistance   of   ZrO ２ - 7 Ｙ ２ Ｏ ３   thermal   barrier   coatings . Surface   Engineering , 
+ 1987 , ( 7 ) : 471 - 482 
+ 5     M   Fukumoto , 刘世永译 . 涂层 结构 和 热处理 对 等离子 喷涂 陶瓷 涂层 耐热 冲击 
+ 性能 的 影响 . 表面工程 ， 上海 ： 上海交通大学 出版社 ， 1988 ： 139 - 143 

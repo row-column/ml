@@ -1,0 +1,71 @@
+计算机 工程 
+ Computer   Engineering 
+ 1999 年 　 第 25 卷 　 第 4 期 　 Vol.25 　 No.4 　 1999 
+ 
+ 
+ 
+ 基于 Web 的 部件 重用 中 的 继承 机制 
+ 艾丽蓉 　 何华灿 　 彭亮 
+ 摘 　 要 　 集中 讨论 了 在 Web 环境 下 的 部件 重用 模型 中 引入 分布式 继承 机制 的 必要性 ， 并 以 基于 Java 平台 的 部件 重用 模型 JavaBeans 为 代表 提出 并 论述 了 一个 以 VisualAge   for   Java 为 开发 环境 的 分布 继承 模型 的 实现 途径 ， 最后 指出 进一步 的 研究 方向 。 
+ 关键词 　 环球 信息网 WWW （ Web ） 部件 重用 继承 机制 
+ Inheritance   Mechanism   Based   on   WWW   in   Reusable   Components 
+ Ai   Lirong   He   Huacan   PengLiang 
+ （ Department   of   computer   Science & Engineering , Northwestern   Polytechnical   University   Xian   710072 ) ( Software   Engineering   Institute , Xidian   University   Xian   710071 ) 
+ Abxtract : This   paper   discusses   the   necessity   of   ymcorporating   distributed   inheritance   mechanism   into   reusable   components   models   in   WWW ( Web )   environment . Using   JavaBeans , a   reusable   component   model   based   on   Java   platform , as   a   representative , it   proposes   the   implementation   method   of   a   distributed   inheritancd   inheritance   model   under   the   deveopment   envionment   of   VisualAge   for   Java . Finally , it   points   out   further   research   directions . 
+ Key   words : World   Wide   Web ( WWW ) ; Component   reuse ; Inheritance   mechanism 
+ 　 　 本文 以 建立 在 Java 平台 上 的 部件 重用 模型 - JavaBeans 为 代表 ， 针对 其 现有 的 问题 着重 讨论 了 分布 环境 中 的 继承 机制 。 
+ 1 　 基于 Java 平台 的 部件 重用 模型 - JavaBeans 
+ 1.1 　 基于 部件 重用 的 软件开发 
+ 　 　 随着 软件开发 的 规模 日益 增大 ， 难度 日益 提高 ， 基于 部件 的 软件技术 得到 越来越 广泛 的 运用 。 它 通过 将 可 重用 的 软件 部件 ( Parts ) 组装 到 新 的 应用 中来 构造 应用程序 。 由于 基于 部件 的 软件技术 强调 软件 的 模块性 、 可 重用 性 和 可靠性 以及 在 网络 环境 中 的 功能 ， 这种 部件 重用 技术 在 基于 网络 的 软件开发 中 越来越 重要 。 随着 面向 网络 计算 的 Java 技术 的 兴起 ， 在 Java 平台 上 也 有 相应 的 部件 重用 模型 ， 即 JavaBeans 。 
+ 1.2 　 JavaBeans 
+ 　 　 JavaBeans 将 基于 组件 的 软件 范型 扩展 到 平台 中立 的 网络 计算 中 ， 在 JavaBeans 这一 部件 重用 模型 中 ， 重用 的 基本 单位 是 Bean ， 即 一个 部件 就是 一个 Bean , Bean 在 Java 语言 中是 以类 的 形式 存在 的 ， 也就是说 ， JavaBeans 归根到底 是 Java 类 。 由于 Java 语言 及 环境 的 平台 中立性 、 可 流动性 、 动态性 等 特征 ， 使得 建立 在 它 之上 的 JavaBeans 自然 地 成为 一个 面向 Internet / Intranet 的 部件 重用 模型 。 
+ 1.3 　 JavaBeans 面临 的 问题 
+ 　 　 虽然 JavaBeans 比起 其他 组件 模型 ( 如 基于 COM 的 ActiveX ) 来 最大 的 优点 是 面向 多 平台 的 网络 环境 ， 但是 其 自身 仍 存在 一些 问题 。 
+ 　 　 JavaBeans 之间 的 关系 总的来说 大致 可以 分为 两类 ： 动态 的 关联 和 静态 的 关联 。 动态 的 关联 指 的 是 在 开发 环境 中将 不同 的 Beans 通过 事件 响应 关联 起来 ， 这样 当 某个 Bean 中有 特定 事件 发生 时会 激发起 另外 Bean 的 响应 。 静态 的 关联 则 主要 是 指本 开发 环境 中 构造 应用程序 时 ， 确定 部件 之间 的 组装 关系 ( 即 某个 部件 由 其他 部件 组装 而成 ) 或 继承 关系 ( 即 某个 部件 由 其他 部件 派生 而 来 ) 。 要 实现 Java 部件 之间 的 继承 关系 必须 解决 这样 一个 问题 ， 即当 Java 部件 分布 在 万维网 Web 中 不同 的 主机 上时 ， 如何 实现 继承 。 JavaBeans   本身 的 规格 说明 中 并未 提供 这种 分布 继承 机制 ， 它 只是 把 JavaBeans 当成 一般 的 Java 对象 ( 如 Applet ) 或 以 JAR 文件 的 形式 在 网络 传输 ， 分布 环境 下 Beans 之间 的 继承 关系 最终 归结为 分布 环境 下 Java 对象 间 的 继承 关系 。 
+ 2 　 基于 Web 的 对象 继承 模型 
+ 　 　 实现 分布 环境 下 的 继承性 必须 考虑 到 分布 系统 的 性能 、 可靠性 、 安全性 、 灵活性 、 透明性 等 因素 。 这些 因素 直接 影响 到 分布 继承 模型 中 的 各种 策略 。 
+ 2.1 　 传统 的 分布 继承 方案 
+ 　 　 一种 方案 是 使 被 继承 的 类 在 每 一个 使用 它 的 逻辑 结点 上 都 有 一份 拷贝 ， 然后 各 结点 可以 互不 干扰 地 在 其 内部 生成 该类 的 实例 或 派 生出 子类 ， 如图 1 所示 。 
+ 
+ 图 1 　 一种 传统 的 分布 继承 方案 
+ 　 　 显然 这种 方案 存在 严重 问题 。 由于 同一个 类 在 不同 结点 上 都 有 拷贝 ， 因此 保持 它们 之间 的 一致性 成为 首要 的 问题 ， 因为 每 一个 结点 上 的 拷贝 都 可能 被 更改 ， 它们 之间 及 它们 的 派生类 之间 的 兼容性 无法 保证 ， 所以 ， 在 一个 结点 上 生成 的 实例 移动 到 另 一 结点 后 可能 将 产生 冲突 。 因此 ， 要 使 这种 方案 实际 可行 ， 必须 能 确保 两个 对象 的 兼容性 并且 不 以 高度 可 流动性 作为 系统 设计 的 主要 目标 。 
+ 　 　 也 有 的 方案 并 不是 将类 拷贝到 远程 结点 上 ， 而是 在 远程 结点 上 保存 一个 指向 某 被 引用 类 的 指针 ， 如图 2 所示 。 
+ 
+ 图 2 　 传统 的 分布 继承 方案 的 变种 
+ 　 　 这种 方案 看起来 解决 了 实例 在 结点 间 移动 时类 的 冲突 问题 ， 但是 又 带来 了 新 的 问题 。 因为 类 和 实例 一样 也 可以 在 结点 间 移动 ， 当类 移动 时 所有 其他 结点 上 指向 它 的 指针 都 必须 更改 ， 这样 做 的 开销 很大 。 系统 必须 不断 地为 那些 带有 这 类 指针 的 对象 查看 整个 网络 以 监视 被 指向 类 是否 发生变化 。 这样 做 使得 系统 的 性能 很 低 。 
+ 2.2 　 基于 Web 的 分布 继承 模型 
+ 　 　 Web 环境 的 特点 是 动态性 强 ， 复杂性 高 ， 开放 程度 高 。 随着 Java 的 发展 ， 类 、 对象 在 网络 中 的 移动 变得 更加 自然 。 在 Java 语言 中是 先 查看 本地 是否 有 被 继承 或 引用 的 类 ， 若 没有 则 通过 URL 查找 远程 结点 并 对 其 载入 到 本地 。 传统 分布 环境 中 典型 的 做法 是 在 本地 生成 远程 类 的 proxy ， 通过 对 proxy 的 操作 来 实现 对 远程 类 的 继承 。 这样 做 的 优点 是 对 本地 使用者 的 透明 程度 高 ， 但是 当 使用者 对 远程 类 操作 频繁 时 效率 会 明显降低 。 
+ 　 　 在 Web 环境 中 的 分布 继承 机制 应该 是 透明性 、 灵活性 、 高效性 的 统一 。 所谓 透明性 ， 就是 让 使用者 感觉 不到 分布 的 存在 ， 在 上层 开发 环境 中 ( 如 VAJ ) ， 使用者 可以 像 浏览 本机 的 类 层次结构 一样 浏览 网络 分布 类 层次结构 ， 并且 还 应能 在 一定 权限 范围 内 操纵 。 为了 实现 这 一点 ， 首先 必须 有 一套 作用 于 整个 网络 的 机制 ， 使得 各 结点 都 能 向 外 发布 本地 的 类 层次结构 ， 然后 才 有 可能 在 上层 的 开发 环境 中将 各地 的 类 层次 综合 起来 ， 组织 成 整个 网络 的 类 层次 。 其中 包括 ： 
+ 　 　 ( 1 ) 网络 上 各 结点 向外 expose 本地 的 类 层次 。 在 expose 的 过程 中 ， 可以 为 每 一个 类 都 生成 相应 的 proxy 若 expose 的 是 Beans ， 可以 根据 相应 的 BeanInfo 生成 相应 的 proxy ) ， 再 将 各自 的   proxy   编译成 . class 文件 。 下面 是 一个 proxy 类 的 模型 。 
+ 　 　 　 class   proxyA   extends   classB { 
+ 　 　 　 　 private   URL   arl ; 
+ 　 　 　 　 private   string   Name ; 
+ 
+ 　 　 　 　 public 　 URL 　 geturl { … } ; 
+ 　 　 　 　 public 　 String   getName { … } ; 
+ 　 　 　 } 
+ 　 　 此外 ， 还 应 将 类 层次结构 序列化 。 即 拓扑 排序 以后 expose ， 因为 在 迁移 整个 类 层次 时 需 按 一定 的 先后 次序 迁移 ， 确切 地说 应先 迁移 父类 后 迁移 子类 。 所以 ， 在 各 结点 expose 本地 类 层次 时 ， 应先 从 根 开始 。 
+ 　 　 ( 2 ) 将 用户 在 IDE 中对类 层次 的 使用 转换成 对 远程 类 的 引用 ， 以 VA   Java 为例 ， 用户 应 可以 直接 在 Visual   Composite   Editor 中 操作 网络 类 层次结构 。 因为 VA   Java   本身 并未 提供 这种 支持 ， 故 可以 另 设计 一个 bean ， 在 该 bean 中能 可视 地 操作 类 层次 ( 如 从 现有 的 远程 beans 中 派生 出新 的 bean ) ， 当 这些 操作 涉及 远程 的 类时 ， 需在 底层 建立 与 远程 proxy 的 联系 ， 并 将 被 引用 远程 类 的 proxy 或 它 的 一个 拷贝 装载 到 本地 。 这些 底层 操作 均 对 使用者 透明 。 在 这里 也 可以 给 用户 提供 更 多 的 自主权 来 决定 一些 总体 策略 ( 比如 ， 是 迁移 类 的 proxy 还是 其 拷贝 ) 。 
+ 　 　 ( 3 ) 在 移动 类 的 过程 中 ， 先是 根据 远程 类 的 URL 及其 类名 找到 相应 类 的 proxy , 再 根据 继承 关系 查找 其 所有 直接 或 间接 的 父类 及其 实现 的 接口 。 由于 Java 语言 只 支持 类 的 单重 继承 而 不 支持 多重 继承 ， 其类 层次 拓扑 结构 为树型 结构 ， 故可沿 该类 所在 结点 至根 的 路径 查找 ， 将 整个 类 层次结构 逐一 迁移 ， 具体 查找 时 可 按 以下 算法 ： 
+ 　 　 　 move   Hierachy ( url , name ) { 
+ 　 　 　 　 　 通过 url , name 找出 该类 的 proxy 类 ； 
+ 　 　 　 　 　 if   ( 该类 还有 父类 ) { 
+ 　 　 　 　 　 　 move   Hierachy ( url , 父类   name ) ; } 
+ 　 　 　 　 　 装载 该类 至 本地 ； 
+ 　 　 　 } 
+ 　 　 ( 4 ) 名字 与 目录 服务 。 名字 与 目录 服务 是 分布式系统 中 对象 间 互操作 的 一个 重要 组成部分 。 JNDI ( Java   Naming   and   Directory   Interface ) 为 多重 名字 与 目录 服务 提供 了 一个 统一 的 接口 。 用户 可以 通过 它 建立 名字 与 对象 间 的 绑定 ( Binding ) ， 根据 特定 名字 查找 对象 等等 。 应用程序 可以 通过 JNDI 提供 的 为 特定 目录 或 名字 服务 的 实现 无关 的 目录 服务 API 来 访问 特定 的 目录 或 名字 服务 系统 ， 如 LDAP 、 NDS 或 NIS 。 JNDI 的 体系结构 如图 3 所示 ： 
+ 
+     图 3 　 JNDI 体系结构 
+ 综上所述 ， 我们 不难 构造 出 整个 基于 Web 的 分布 继承 模型 的 结构 ( 如图 4 ) . 
+ 
+ 图 4 　 基于 Web 的 分布 继承 模型 的 体系结构 
+ 3 　 进一步 的 工作 
+ 　 　 值得 指出 的 是 ， 以上 模型 的 提出 虽然 是 以 VAJava 为例 ， 但 整体 思路 同样 适合 于 其他 支持 Java   Beans 的 集成 开发 环境 。 
+ 　 　 以上 仅 就 Web 环境 下 部件 重用 技术 中 的 继承 机制 展开讨论 。 如前所述 ， JavaBeans 之间 的 关联 除了 静态 关联 以外 还有 动态 的 关联 。 在 Web 环境 下 ， 这种 动态 关联 可能 是 这样 一种 情形 ： 用户 在 VAJ 的 IDE 中 建立 两个 Bean 之间 的 事件 关联 ， 而 互相 关联 的 两个 bean 在 Web 上 不同 的 主机 中 ， 因此 需要 有 相应 的 机制 来 支持 这种 分布 环境 下 的 部件 间 的 事件 关联 ， 这样 整个 分布 环境 下 部件 重用 模型 才 趋于 完备 ， 这 正是 有待于 下 一步 继续 探讨 的 问题 。 
+ 作者简介 ： 艾丽蓉 　 女 ， 27 岁 ， 主攻 软件工程 、 分布式计算 及 人工智能 
+ 作者 单位 : 西北工业大学 计算机系 　 西安 　 710072 ， 西安电子科技大学 软件 所 　 西安 　 710071 
+ 参考文献 
+ 　 1 　 Taivalsaari   A . On   the   Notion   of   Inheritance .   ACM   Computing   Surveys ， 1996 ， 28 ( 3 ) ： 438 - 479 
+ 　 2 　 Object   Management   Group . The   Common   Object   Request   Broker ： Architecture   and   Specification   Revision   2.0   .   OMG   Technical   Document   ptc / 96 - 08 - 04 ， 1996 - 07 . URL : ftp : / / ftp .   omg . org / pub / docs / ptc / 96 - 08 - 04 . pdf . gz 
+ 　 3 　 JavaSoft . Javasoft   JavaBeans   Version   1.00 - A . JavaSoft ， 1996 
+ 收稿 日期 : 1998 - 08 - 04 

@@ -1,0 +1,41 @@
+上海 航天 
+ AEROSPACE   SHANGHAI 
+ 2001   Vol.18   No.2   P.24 - 28 
+ 
+ 
+ 
+ 
+ FY - 1C 卫星 空间 粒子 成分 监测器 及其 探测 结果 
+ 王世金 　   朱光武 　   梁金宝 　   张微 　   李保权 　   舒 伟民 　   
+ 摘 　 要 ： 简要 介绍 了 FY - 1C 星 空间 粒子 成分 监测器 的 任务 目标 、 工作 原理 、 创新 特色 及 在 轨 探测 结果 。 空间 粒子 成分 监测器 用于 卫星 轨道 空间 的 带电粒子 辐射 监测 ， 为 卫星 的 在 轨 安全 和 抗辐射 加固 设计 服务 。 监测器 在世界上 首次 实现 用 1 套 传感器 完成 对 高能 电子 、 质子 、 α 粒子 至铁 离子 的 全 成分 监测 ， 使 我国 首次 获得 了 870km 高 太阳 同步 轨道 全空间 的 各种 重离子 分布 、 质子 能谱 分布 和 电子 通量 分布 ， 捕捉到 大量 的 地 磁暴 和 太阳 质子 事件 ， 获得 一批 重要 的 探测 成果 。 
+ 关键词 ： 监测器 ； 空间 粒子 ； 地球 辐射 带 ； 太阳 质子 事件 ； 磁暴 
+ 分类号 ： V520.6 　 文献 标识码 ： A 
+ 文章 编号 ： 1006 － 1630 ( 2001 ) 02 － 0024 － 05 
+ FY - 1C   Space   Particle   Composition   Monitor   and   the   Results   Detected 
+ WANG   Shi - jin （ Center   for   Space   Science   and   Applied   Research ,   Chinese   Academy   of   Sciences ,   B   eijing   100080 ,   China ） 　 
+ ZHU   Guang - wu （ Center   for   Space   Science   and   Applied   Research ,   Chinese   Academy   of   Sciences ,   B   eijing   100080 ,   China ） 　 
+ LIANG   Jin - bao （ Center   for   Space   Science   and   Applied   Research ,   Chinese   Academy   of   Sciences ,   B   eijing   100080 ,   China ） 　 
+ ZHANG   Wei （ Center   for   Space   Science   and   Applied   Research ,   Chinese   Academy   of   Sciences ,   B   eijing   100080 ,   China ） 　 
+ LI   Bao - quan （ Center   for   Space   Science   and   Applied   Research ,   Chinese   Academy   of   Sciences ,   B   eijing   100080 ,   China ） 　 
+ SHU   Wei - min （ No.509   Institute   of   SAST ,   Shanghai   200240 ,   China ） 　 
+ 
+ Abstract ： It   presents   in   brief   the   mission ,   principle ,   innovation   and   the   re   sults   detected   of   the   SPM   ( Space   Particle   Composition   Monitor )   onboard   FY - 1C   sa   t   ellite .   The   SPM   is   used   to   monitor   space   charged   particles ,   serves   orbital   satel   lites '   safety   and   radiation   tolerance   design .   It   has   been   realized   firstly   in   th   e   world   to   use   a   set   of   sensors   to   detect   high   energy   electron ,   proton ,   alpha   pa   rticle   and   all   kinds   of   heavy   ions   simultaneously .   According   to   the   detected   res   ults   of   the   SPM   the   space   distribution   of   the   heavy   ions ,   proton   and   electron   in   sun - synchronous   orbit   at   870   km   altitude   have   been   obtained .   A   multitude   of   ma   gnetic   storm   and   the   solar   proton   events   have   also   been   monitored   by   the   SPM . 
+ Keywords ： Monitor ； Space   particle ； Earth   radiation   belt ； Sun   proton   event ；   Magnetic   storm 
+ 作者简介 ： 王世金 ( 1965 - ) ， 男 ， 研究员 ， 研究 领域 ： 空间 环境 及 航天器 效应 。   
+ 作者 单位 ： 王世金 （ 中国科学院 空间科学 与 应用 研究 中心 ， 北京   100080 ） 　 
+ 　 　 　 　 　 朱光武 （ 中国科学院 空间科学 与 应用 研究 中心 ， 北京   100080 ） 　 
+ 　 　 　 　 　 梁金宝 （ 中国科学院 空间科学 与 应用 研究 中心 ， 北京   100080 ） 　 
+ 　 　 　 　 　 张微 （ 中国科学院 空间科学 与 应用 研究 中心 ， 北京   100080 ） 　 
+ 　 　 　 　 　 李保权 （ 中国科学院 空间科学 与 应用 研究 中心 ， 北京   100080 ） 　 
+ 　 　 　 　 　 舒 伟民 （ 上海 航天技术 研究院 509 所 ， 上海   200240 ） 　 
+ 
+ 参考文献 ： 
+ ［ 1 ］ 臧振群 , 古士 分 , 师立勤 , 等 .   航天器 异常 与 空间 环境 [ J ] . 空间科学 学报 , 1998 , 18 ( 4 ) ： 342 - 347 . 
+ ［ 2 ］ Julian   M   W .   The   national   space   weather   program [ R ] .   Federal   Coordinator   for   Meteorological   Services   and   Supporting   Research ,   FCM - P31 - 1977 ,   Washington ,   DC   ,   1997 . 
+ ［ 3 ］ Steve   Pearson .   NASA ' s   space   environments   and   effects   ( SEE )   program   [ R ] .   Geor   ge   C .   Marshall   Space   Flight   Center ,   NP - 1999 - 06 - 74 - MSFC ,   Huntsville ,   Al   35812   ,   1998 . 
+ ［ 4 ］ 叶宗海 .   空间 粒子 辐射 探测 技术 [ M ] .   北京 :   科学出版社 , 1986.148   - 198 . 
+ ［ 5 ］ Sawyer   D   M ,   Vette ,   J   I .   AP - 8   Trapped   proton   environment   for   solar   m   aximum   an   d   solar   minimum [ R ] .   National   Space   Science   Data   Center ,   NSSDC / WDC - A -   R & S   76 - 06 ,   Greenbelt ,   MD ,   1976 . 
+ 
+ 收稿 日期 ： 2000 年 11 月 17 日 
+ 修稿 日期 ： 2001 年 1 月 19 日 
+ 出版日期 ： 2001 年 4 月 25 日 

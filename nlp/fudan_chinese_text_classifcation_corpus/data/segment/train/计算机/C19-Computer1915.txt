@@ -1,0 +1,100 @@
+微型机 与 应用 
+ WEIXINGJI   YU   YINGYONG 
+ 2000 　 Vol.19 　 No.5 　 P.55 - 56 , 57 
+ 
+ 
+ 
+ 
+ BBS 站点 的 建设 和 管理 初论 
+ 梁 意文  李欢  汤远闲 
+ 摘   要 ： 阐述 了 BBS 站点 建设 的 有关 技术 ， 其中 包括 BBS 软件 的 安装 ， BBS 的 外挂 程序 、 邮件 功能 和 转信 功能 的 设置 以及 可能 碰到 的 问题 ， 最后 介绍 一些 关于 BBS 站点 管理 的 方法 和 经验 。 
+ 关键词 ： BBS 公告牌 系统   电子邮件   NEWS 
+ 1   BBS 软件 的 安装 
+ 　 　 BBS 软件 可以 在 许多 操作系统 上 运行 ， 如 Windows   NT ， Sco   Unix ， Soloris ， Linux 等 。 本文 以 Linux 为例 ， 讲述 BBS 站点 的 安装 和 设置 过程 。 
+ 　 　 （ 1 ） 安装 前 的 准备 工作 
+ 　 　 在 安装 BBS 之前 ， 一般 需要 在 系统 中 加入 3 个 用户 帐号 ： bbs ， bbsuser ， bbsadm ， 即 在 ／ etc ／ passwd 文件 中 加入 以下 几行 ： 
+ 　 　 bbsadm : : 9990 : 99 : BBS   administrator   and   developer : / home / bbsadm : / bin / csh 
+ 　 　 bbsadm : : 9990 : 99 : BBS   user : / home / bbs / bin / bbsrf 
+ 　 　 bbsadm : : 9990 : 99 : BBS   user : / home / bbs : / bin / csh 
+ 　 　 分别 为 bbsadm 和 bbsuser 设定 好 密码 。 帐号 bbs 是 专门 用来 登录 BBS 站 使用 的 ， 一般 不设 密码 。 而 bbsadm 用来 维护 BBS 程序 的 帐号 ； bbsuser 与 bbs 拥有 相同 的 用户 ID ， 但 bbsuser 的 shell 是 一般 的 shell ， 而 bbs 的 shell 则 是 bbsrf ， 当 系统 需要 以 bbs 身份 来 做 内部 处理 时 ， 就 需要 这个 帐号 了 。 
+ 　 　 另外 ， 在 ／ etc ／ group 文件 中 设定 BBS 的 group ， 如 ： 
+ 　 　 bbs ： ＊ ： 99 ： bbs ， bbsuser ， bbsadm 
+ 　 　 然后 在 ／ home 下 建立 2 个 目录 bbsadm 和 bbs ， 分别 用来 管理 BBS 和 存放 BBS 的 应用程序 。 
+ 　 　 （ 2 ） BBS 软件 的 获取 
+ 　 　 BBS 软件 属于 自由软件 ， 没有 版权 的 限制 ， 也 不 需要 任何 费用 。 人们 可以 轻易 地 从 Internet 上 下载 各种类型 的 BBS 软件 ， 并且 可以 自由 地 修改 BBS 程序 以 适应 自己 特定 的 需要 。 
+ 　 　 BBS 软件 的 版本 比较 多 ， 目前 我国 使用 较 多 的 是 Firebird   BBS （ 火鸟 BBS ） 和 Maple   BBS （ 枫叶 BBS ） 。 相 比较而言 ， Firebird 的 功能 较 Maple 更为 完善 ， 易于 管理 大型 站点 中 的 事务 ， 而 Maple 的 运行 效率 更高 、 更 稳定 ， 适合 中小 网站 使用 。 
+ 　 　 Firebird   BBS 、 Maple   BBS 等 各种 BBS 软件 可以 从 下面 的 地址 获得 ： 
+ 　 　 ftp ： ／ ／ ftp ． whu ． edu ． cn ／ pub ／ Linux ／ bbs ／ 
+ 　 　 解压 后 会 自动 在 当前目录 下 建立 1 个 目录 bbs ＿ src ， 内含 bbs 程序 和 各种 工具 程序 。 
+ 　 　 （ 3 ） 设定 及 安装 BBS 
+ 　 　 ① 设定 BBS 的 主要 资料 
+ 　 　 以 bbsadm 帐号 登录 ， 在 bbs ＿ src ／ CONFIG ／ 下 执行命令 
+ 　 　 ． ／ configure 
+ 　 　 然后 按照 系统 的 提示信息 分别 设置 BBS 所在 的 目录 、 BBS 站点 英文 代号 、 BBS 站点 中文名称 、 域名 、 IP地址 、 最大 上 站 人数 、 最大 开版数 等等 。 之后 软件 会 根据 所 设定 的 信息 生成 安装 BBS 所 必需 的 文件 Makefile 。 
+ 　 　 ② 编译 BBS 软件 
+ 　 　 在 bbs ＿ src ／ 下 执行 make 命令 ， 将 程序 编译成 二进制 文件 。 一般 有 4 个 可执行文件 bbs ， bbsrf ， chatd 和 threatd 
+ 　 　 ③ 安装 BBS 软件 
+ 　 　 执行 make   install 命令 ， 安装程序 会 自动 将 已经 编译 好 的 软件 复制到 指定 的 目录 。 至此 ， BBS 软件 的 主要 部分 已经 安装 。 
+ 　 　 需要 注意 的 是 ， 以 bbs 登陆 系统 后 ， 操作系统 会 自动 执行 bbsrf 文件 ， 启动 一个 bbs 进程 ， 该 进程 将 一直 存在 ， 直到 用户 退出 BBS 系统 。 如果 用户 以 非常规 方法 退出 BBS ， 则 这个 进程 就 将 成为 一个 死 进程 而 一直 存在 于 操作系统 中 。 随着 时间 的 推移 ， 这种 死 进程 会 越来越 多 ， 严重 影响 整个 系统 的 性能 。 所以 ， 定期 清理 死 进程 ， 重新启动 操作系统 是 必要 的 。 
+ 2   BBS 外部 工具 的 使用 
+ 　 　 一个 完整 的 BBS 的 许多 功能 需要 由 外挂 软件 来 完成 。 这些 软件 通常 是 每隔 若干 时间 运行 1 次 ， 其 运行 的 结果 通过 修改 BBS 的 一些 数据文件 来 使 BBS 具有 动态显示 和 统计 的 功能 ， 具体方法 如下 。 
+ 　 　 （ 1 ） 以 bbsuser 的 身份 登录 ， 建立 1 个 资源 文件 cron ． bbs ， 例如 ： 
+ 　 　 1 ＊ ＊ ＊ ＊ bin ／ account   每个 小时 第 1 分 执行 上 站 人次 统计 
+ 　 　 10 ＊ ＊ ＊ ＊ bin ／ poststat   每个 小时 第 10 分 执行 热门话题 统计 
+ 　 　 0   3 ＊ ＊ ＊ bin ／ topusr   10   每天 早上 三点 整 执行 使用者 排行榜 更新 
+ 　 　 ＊ ／ 5 ＊ ＊ ＊ ＊ ／ home ／ bbs ／ innd ／ bbslink ／ home ／ bbs   每 小时 的 5 , 15 , 25 , 35 , 45 , 55 分 执行 bbslink 转入 文章 
+ 　 　 ＊ ／ 5 ＊ ＊ ＊ ＊ ／ innd / bbsnnrp   news . ustc . edu . cn   innd / active ． bbs   每 10 分钟 从 news ． ustc ． edu ． cn 中读 信 
+ 　 　 （ 2 ） 执行命令 crontab   cron ． bbs ， 此时 用户 所 指定 的 自动 程序 就 会 被 加到 系统 中 。 值得注意 的 是 ， 谁 执行 这 条 命令 ， 自动 程序 就 会 加入 谁 的 自动 程序 中 ， 以后 系统 自动 执行程序 时 ， 也 会 以 那个 人 的 身份 来 执行 。 因此 ， 在 这里 我们 要 确认 此时 是 以 bbsuser 的 身份 来 执行 。 
+ 3   BBS 的 邮件 功能 
+ 　 　 任何 一个 BBS 站 内 的 用户 都 可以 向 Internet 收发 邮件 ， 这 是因为 BBS 软件 拥有 和 本 系统 内部 的 邮件 服务器 （ 如 ： sendmail ） 相连 通 的 工具 ， 使 每 一个 站 内 用户 都 拥有 一个 形式 为 “ 用户名 ． bbs ＠ BBS 邮件地址 ” 的 邮件 箱 。 BBS 收发 邮件 的 大致 流程 如下 ： 
+ 　 　 发送 ： 
+ 　 　 BBS 站 内 用户 （ 用户 ． bbs ） → Sendmail （ bbs ） → Sendmail （ 站外 用户 ） → 站外 用户 
+ 　 　 接收 ： 
+ 　 　 站外 用户 → Sendmail （ 站外 用户 ） → Sendmail （ bbs ） → bbsmail → Mail2bbs → BBS 站 内 用户 （ 用户 ． bbs ） 
+ 然而 ， 未 经过 修改 的 sendmail ． cf 是 无法 接收 格式 为 xxx ． bbs 的 收 信者 的 信件 的 。 因此 ， 需要 修改 邮件 服务器 的 配置文件 sendmail ． cf 。 
+ 　 　 修改 方法 如下 ：   
+ 　 　 （ 1 ） 找寻 下面 的 段落 
+ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ 
+ ＃ ＃ ＃ 　 　 　 　 Local   and   Program   Mailer   specification 　 　 　 　 ＃ ＃ ＃ 
+ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ 
+ 　 　 　 　 其后 加入 ： 
+ 　 　 Mbbsmail ， P ＝ ／ usr ／ local ／ sendmail ／ bbs ／ bbsmail ， 
+ 　 　 F ＝ lsSD   FMuhP ， S ＝ 10 ， R ＝ 20 ， A ＝ bbsmail   － d   ＄ u   ＄ s   
+ 　 　 （ 2 ） 找寻 下面 的 段落 
+ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ 
+ ＃ ＃ ＃ 　 　 　 　 　 Ruleset   0   － －   Parse   Address 　 　 　 　 　 ＃ ＃ ＃ 
+ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ ＃ 
+ 　 　 　   　 其后 加入 ： 
+ 　 　 S0 
+ R ＄ ＋ ． bbs ＜ ＠ ＞ ＄ ＊   ＄ ＃ bbsmail   ＄  ＄ 1   bbs   mail   gateway 
+ … 
+ ＃   short   circuit   local   delivery   so   forwarded   email   works 
+ R ＄ ＋   ＜   ＠   ＄ ＝ w   ．   ＞   ＄ ： ＄ 1   ＜   ＠   ＄ 2   ＠   ＄ H   ＞   first   try   hub 
+ R ＄ ＋ ． bbs ＜   ＄ ＋   ＠   ＄ ＋   ＞   ＄    ＄ ＃ bbsmail   ＄ ： ＄ 1   bbs   mail 
+ gateway 
+ R ＄ ＋ ． bbs ＜   ＄ ＋   ＠   ＞ ＄    ＄ ＃ bbsmail   ＄ ： ＄ 1   bbs   mail 
+ gateway 
+ … … 
+ ＃   everything   else   is   a   local   name 
+ R ＄ ＋ ． bbs   ＄ ＃ bbsmail   ＄ ： ＄ 1   bbs   mail   gateway 
+ 　 　 修改 时有 一点 要 特别 注意 ： 在 sendmail ． cf 中 ， 所有 的 间隔 都 使用 符号 TAB ， 而 不是 空格 。 
+ 4   BBS 的 转信 功能 
+ 　 　 转信 功能 是 BBS 站点 之间 进行 交流 的 主要 方法 。 转信 按照 方式 的 不同 可以 分为 二类 ： 
+ 　 　 本 BBS 站点 ← → 转信 软件 ← → News   Server ← → 转信 软件 ← → 其它 BBS 站点 
+ 　 　 主动 取信 （ client   gateway ） 和 被动 等 信 （ server   gateway ） 。 二者 各有 优缺点 ， client   gateway 自主性 高 ， 可以 主动 决定 何时 去 取信 ， 要取 哪些 信 ， 而 server   gateway 无需 保存 读取 的 记录 ， 只要 等待 上游 站点 把 新信 送过来 。 转信 软件 的 工作 流程 如下 ： 
+ 　 　 Innbbsd 是 BBS 转信 软件 的 一种 ， 它 集成 了 client   gateway 和 server   gateway 的 功能 ， 可以 根据 不同 的 情况 而 采取 不同 的 转信 方式 ， 具体 设置 方法 如下 ： 
+ 　 　 （ 1 ） 修改 文件 bbsname ． bbs 为本 BBS 站点 的 名称 ； 
+ 　 　 （ 2 ） 设定 nodelist ． bbs ， 定义 本站 地址 和 各 News   Server 的 名称 地址 ； 
+ 　 　 （ 3 ） 设定 newsfeeds ． bbs ， 定义 将 站 内 的 哪 一个 版 从 Cernet 的 哪个 讨论区 转 进 ， 及要 送到 哪 一个 News   Server ； 
+ 　 　 （ 4 ） 对于 每个 News   Server 都 要 建立 一个 对应 的 active ， 它 定义 从 哪个 News   Server 取 哪些 版 ；   
+ 　 　 （ 5 ） 执行 innbbsd 。 
+ 5   BBS 的 管理 
+ 　 　 应该 说 ， 在 BBS 中 ， 管理所 占 的 地位 是 最 重要 的 。 这 是因为 BBS 是 一个 言论 的 集中地 ， 在 这里 可以 看到 有关 各行各业 带有 各种各样 观点 的 文章 ， 包括 学术 、 计算机技术 、 体育 、 新闻 、 休闲 、 情感 等 ， 涉及 范围 非常 广泛 。 在 人工智能 停滞不前 ， 计算机无法 对 信息处理 做出 多少 有益 工作 的 今天 ， 对 这些 信息 的 组织 、 整理 以及 对 网上 用户 的 管理 和 约束 ， 就 成为 网络 管理者 义不容辞 的 责任 。 
+ 　 　 目前 我国 大部分 的 BBS 站点 分布 在 各 大专院校 中 ， 其 目的 是 为了 活跃 我国 的 学术 气氛 ， 增强 全国 范围 内 的 信息 交流 。 这 其中 ， 几乎 所有 的 BBS 站点 都 属于 纯 服务 、 非盈利性 的 机构 。 管理 大师 彼得 杜拉克 曾经 说 ： “ 在 非盈利 机构 中 最 重要 的 一个 要素 就是 组织 的 使命感 。 它 就 像 一把 舵 ， 去 指引 组织 方向 ， 告诉 组织 应 如何 去 分配 其所 拥有 的 资源 ” 。 我国 的 BBS 系统 之所以 有 今天 这么 生气蓬勃 的 场面 ， 这 与 以 学生 为主 的 系统 管理者 在 台前 与 幕后 的 默默耕耘 与 付出 是 密不可分 的 。 
+ 　 　 BBS 的 管理者 大致 上 可以 分为 站长 （ SYSOP ） 、 站长 对 等 账号 （ SYSOP   equilvalent ） 、 账号 管理员 （ Account   Manager ） 、 板主 （ Board   Manager ） 、 讨论区 管理员 （ General   Board   Manager ） 和 活动 看 板 管理员 （ Welcome   ＆   Movie   Board   Manager ） 等 。 
+ 　 　 以上 管理员 分别 负责 BBS 站务 中 的 不同 部分 ， 拥有 不同 的 权限 ， 共同 维护 整个 站点 的 正常 运作 。 其中 板主是 负责 各个 讨论区 的 维护 工作 ， 站点 的 成功 与否 与 他们 的 工作 息息相关 ， 因此 ， 他们 构成 了 BBS 管理工作 的 主要 部分 。 
+ 　 　 BBS 站点 上 的 纪律 维护 也 是 非常 重要 的 。 大多数 BBS 都 采用 了 真名 注册 假名 发言 的 方式 。 要求 使用者 以 真实 的 身份 注册 并 取得 一个 或 多个 假名 ， 在 自己 发表 言论 时 使用 假名 ， 从而 在 一定 程度 上 对 讨论 者 进行 保护 ， 同时 也 迫使 讨论 者 对 自己 的 言论 要 负责 。 
+ 梁 意文 （ 武汉大学 计算机科学 与 技术 系  430072 ） 
+ 李欢 （ 武汉大学 计算机科学 与 技术 系  430072 ） 
+ 汤远闲 （ 武汉大学 计算机科学 与 技术 系  430072 ） 
+ 收稿 日期 ： 1999 － 11 － 10 

@@ -1,0 +1,32 @@
+上海 航天 
+ AEROSPACE   SHANGHAI 
+ 2001   Vol.18   No.1   P.61 - 64 
+ 
+ 
+ 
+ 
+ 二级 燃料箱 后底 顶盖 成形 工艺 研究 
+ 侯正全 　   朱芝松 　   
+ 摘 　 要 ： 介绍 了 某 型号 运载火箭 二级 燃料箱 后底 顶盖 成形 方法 改进 及 工艺 试验 过程 。 在 分析 了 原 顶盖 不足之处 后 ， 提出 了 采用 过弯法 抵消 弯曲 回弹 ， 采用 翻边法 提高 焊接 质量 的 成形 方法 ， 给出 了 经 大量 工艺 试验 后 确定 的 工艺 参数 ， 并 分析 、 介绍 了 模具设计 过程 。 该 方法 已 成功 应用 于 某 型号 运载火箭 二级 燃料箱 后底 。 
+ 关键词 ： 燃料箱 ； 结构 改进 ； 成形 工艺 ； 翻边 成形 
+ 分类号 ： V421.3 + 3 　 文献 标识码 ： A 
+ 文章 编号 ： 1006 － 1630 （ 2001 ） 01 － 0061 － 04 
+ Shaping   Technology   Research   about   the   Bottom   Cap   of   Second   Stage   Fuel   Tank 
+ HOU   Zheng - quan （ No.800   Institute   of   SAST ,   Shanghai   201600 ,   China ） 　 
+ ZHU   Zhi - song （ No.800   Institute   of   SAST ,   Shanghai   201600 ,   China ） 　 
+ 
+ Abstract ： The   paper   introduces   the   shaping   method   improvement   and   technological   trial   course   of   bottom   cap   of   certain   model   of   carrier   rocket ' s   fuel   tank .   After   the   primary   cap ' s   deficiencies   are   analysed ,   the   make - up   method   to   offset   winding   spring   is   put   forward .   And   the   flanging   method   is   used   to   improve   the   welding   quality .   According   to   its   characteristics ,   the   author   analyses   and   introduces   the   course   of   die   design .   With   a   large   number   of   technology   trials ,   reasonable   technology   parameters   are   determined .   The   bottom   cap   is   applied   successfully   to   second   stage   fuel   tank   of   certain   model   of   carrier   rocket . 
+ Keywords ： Fuel   tank ;   Design   improvement ;   Shaping   technology ;   Flanging   forming 
+ 作者简介 ： 侯正全 ( 1975 - ) , 男 , 助工 , 钣 金 工艺师 , 研究 领域 ： 钣 金 工艺 研究 。   
+ 作者 单位 ： 侯正全 （ 上海 航天技术 研究院 800 所 ， 上海   201600 ） 　 
+ 　 　 　 　 　 朱芝松 （ 上海 航天技术 研究院 800 所 ， 上海   201600 ） 　 
+ 
+ 参考文献 ： 
+ ［ 1 ］ 陈炎 嗣 , 郭景仪 . 冲压 模具设计 与 制造 技术 [ M ] . 北京 ： 北京出版社 , 1991 . 
+ ［ 2 ］ 解汝 昇 . 冲压 模具设计 与 制造 技术 [ M ] . 北京 ： 中国 标准 出版社 , 1997 . 
+ ［ 3 ］ 中国 机械工程 学会 焊接 协会 、 焊接 结构设计 制造 （ XV ） 委员会 . 焊接 结构设计 手册 [ M ] . 北京 ： 机械 工业 出版社 , 1990 . 
+ ［ 4 ］ 吴诗谆 . 冲压 工艺学 [ M ] . 西安 ： 西北工业大学 出版社 , 1991 . 
+ 
+ 收稿 日期 ： 2000 年 4 月 21 日 
+ 修稿 日期 ： 2000 年 9 月 12 日 
+ 出版日期 ： 2001 年 2 月 25 日 

@@ -1,0 +1,128 @@
+计算机 工程 
+ Computer   Engineering 
+ 1999 年 　 第 25 卷 　 第 9 期 　 Vol.25   No.9     1999 
+ 
+ 
+ 
+ 基于 局域网络 应用 Java 语言 实现 远程 智能 终端 的 控制 
+ 邹华军 　 曾育星 
+ 　 　 摘 　 要 ： 在 简要 介绍 Java 语言 和 PCL839 卡 的 基础 上 ， 通过 编程 来 实现 对 智能 节点 PCL839 卡 的 远程 控制 ． 
+ 　 　 关键词 ： ava ； PCL839 ； 远程 控制 ； 本地 方法 
+ Remote   Controlling   the   Intelligent   Terminal   by   Java   Based   on   LAN 
+ Zou   Huajun ,   Zeng   Yuxing 
+ ( Dept .   of   Mechanical   ＆   Electronical   Engineering ,   Guangdong   Industrial   University ,   Guangzhou   510090 ) 
+ 　 　 Abstract 　 Based   on   briefly   introducing   Java   and   PCL839   card ,   a   method   of   remote   controlling   the   intelligent   terminal   ( PCL   839   card )   is   describe . 
+ 　 　 Key   word 　 Java ;   PCL839 ;   Remote   control ;   Mative   Method 
+ 　 　 当前 Internet 的 技术 发展 异常 迅猛 ， 对 Internet 技术 的 利用 也 如火如荼 。 许多 集 科研 与 生产 为 一体 的 部门 本身 就 存在 着 一个 网络 ， 然而 对 这些 网络 的 利用 还 远远 没有 充分发挥 Internet 网络 的 潜力 , 尤其 在 控制 领域 。 目前 计算机 界 流行 着 SUN 公司 的 一句 名言 " 网络 就是 计算机 " ， 而 随着 控制 领域 应用 网络 技术 的 进一步 研究 ， 又 迎来 了 新 的 一句 名言 " 网络 就是 控制 " 。 本文 正是 以此 为 起点 ， 在 现有 局域网络 的 基础 上 ， 应用 Java 编程语言 ， 实现 对 智能 或 可编程 远程 终端 的 控制 。 下面 以 可编程 的 PCL839 卡为例 ， 介绍 实现 其 远程 控制 的 一种 方案 。 
+ 1   Java 语言 
+ 　 　 Java 语言 是 SUN 公司 于 1995 年 5 月 推出 的 新一代 面向对象 的 计算机 通用 编程语言 ， 是 继 WWW 之后 又 一 引起 世界 轰动 的 产品 。 Java 语言 的 特点 是 跨平台 和 强大 的 网络 编程 功能 。 在 Java 语言 诞生 之前 ， Internet 已 存在 ， 所以 Java 语言 本身 就 封装 了 大量 进行 网络 编程 的 类库 ， 使得 网络 编程 功能强大 ， 同时 又 简化 了 网络 编程 的 操作 。 因此 利用 Java 语言 可以 开发 出 功能强大 的 网络应用 程序 。 
+ 2   PCL839 卡 
+ 　 　 研华 公司 的 PCL839 卡是 一种 高速 步进 电机 驱动 卡 ， 采用 光隔 保护 ， 抗干扰能力 强 ， 具有 数字 I / O 口 ， 可以 采样 其他 现场 数据 等 。 它 简化 了 步进 电机 的 控制 。 PCL839 卡 内部 有 3 个 独立 的 脉冲 发生器 ， 能够 同步 产生 脉冲 控制 3 个 电机 ， 每个 脉冲 发生器 每秒 可以 产生 1 至 16k 个 脉冲 。 
+ 3   远程 控制 
+ 3.1   远程 控制机 和 现场 工控机 的 互连 
+ 　 　 在 现有 局域网络 基础 上 构成 的 互连 系统 如图 1 。 实现 远程 控制 ， 首先 必须 实现 远程 控制机 对 现场 工控机 的 控制 ， 再 由 工控机 对 PCL839 卡 加以控制 。 
+ 　 　 应用 Java 语言 进行 网络 程序 的 开发 可以 采取 3 种 方法 ： URL ( 统一 资源 定位器 ) 、 Socket ( 套 接字 ) 、 Datagram ( 数据包 ) 。 URL 一般 用于 Web 上 某 一 特定 资源 的 获取 ， 不 适合 于 底层 应用程序 的 开发 ； Datagram 是 以 不 可靠 传输 协议 UDP 为 基础 的 ， 但 对于 现场 中 的 数据 ， 必须 保证 传输 的 可靠 和 准确 ， 因此 对于 该 网络通信 程序 一般 采用 基于 可靠 传输 协议 TCP 基础 上 的 Socket 编程 加以 实现 。 
+ 
+ 图 1   远程 控制机 和 现场 工控机 互连 结构图 
+ 　 　 对本 方案 网络应用 程序 的 开发 ， 采用 Server / Client 方式 ， 以 远程 控制 主机 为 服务器 ， 每个 工控机 为 客户端 。 客户机 的 程序开发 如下 所示 ： 
+ 　 　 public   class   agnetclass   
+ 　 　 { public   static   void   main ( String   args [ ] ) 
+ 　 　 { try   { 
+ 　 　 　 　 　 　 　 Socket   agentsocket = new   Socket 
+ 　 　 ( " remotecontrolcomputer " , 5555 ) ; 
+ 　 　 　 　 　 　 　 PrintStream   os = new   PrintStream ( agentsocket . getOutputStream ( ) ) ; 
+ 　 　 　 　 　 　 　 DataInputStream   is = new   DataInputStream ( agentsocket . getInputStream ( ) ) ; 
+ 　 　 　 　 　 　 　 StringBuffer   buf = new   stringBuffer ( 50 ) ; 
+ 　 　 　 　 　 ................ 
+ 　 　 　 　 　 　 　 } catch ( IOException   e ) { } ; 
+ 　 　 } 
+ 　 　 } 
+ 　 　 在 该 程序段 中 , 首先 定义 一个 客户端 socket , 通过 该 agent   socket 与 远程 控制机 remote   control   computer 建立 连接 ， 并且 指定 程序 使用 的 端口号 ， 该 端口号 应 大于 1024 ， 以 避免 与 系统 的 端口号 发生冲突 ； 然后 定义 输出 和 输入 流 os 和 is   ， 输出 流 是从 客户机 向 服务器发送 信息 的 通道 ， 输入 流是 服务器 向 客户机 传递 命令 和 参数 的 途径 ； 再 定义数据 缓存 区 ， 用于 把 服务器 传过来 的 命令 和 参数 与 其它 程序段 进行 交互 。 在 整个 程序段 中用 try   catch 语句 进行 异常 捕获 。 
+ 　 　 服务器 段 的 程序编制 应 与 客户端程序 的 编制 相适应 ， 由于 一个 远程 控制机 可以 控制 多台 现场 工控机 ， 所以 服务器程序 必须 采用 多线程 机制 ， 这 也 是 Java 语言 的 一大 特色 。 服务器端 的 程序 编写 如下 ： 
+ 　 　 public   class   serverclass   
+ 　 　 { public   static   void   main ( String   args [ ] ) 
+ 　 　 {   boolean   listen ; 
+ 　 　 try   { 
+ 　 　 　 　 ServerSocket   serversocket   = new   ServerSocket ( 5555 ) ; 
+ 　 　 　 　 } catch ( IOException   e ) { } ; 
+ 　 　 　 　 　 　 　 while ( listen ) 
+ 　 　 { 
+ 　 　 Socket   agentsocket = serversocket . accept ( ) ; 
+ 　 　 } catch ( IOException   e ) { } ; 
+ 　 　 new   serverthread ( agentsocket ) . start ( ) ; 
+ 　 　 .......... 
+ 　 　 } } 
+ 　 　 class   serverthread   extends   Thread { 
+ 　 　 Socket   socket = null ; 
+ 　 　 serverthread ( Socket   socket ) 
+ 　 　 { super ( " serverthread " ) ; 
+ 　 　 this . socket = socket ; } 
+ 　 　 public   void   run ( ) { 
+ 　 　 　 　 　 　 try { 
+ 　 　 DataInputStream 　 　 is = new 　 　 DataInputStream ( new   BufferedOutputStream   ( socket .   getOutputStream ( ) ) ) ; 
+ 　 　 PrintStream   os = new   PrintStream   ( new   BufferedOutputStream   ( socket . getOutputStream   ( ) , 5555 ) , false ) ; 
+ 　 　 .......... 
+ 　 　 } catch ( IOException   e ) { } ;   } 
+ 　 　 该 程序段 由 两个 类 组成 ： 主类 和 线程 类 。 主类 负责 建立 服务器 套 接字 server   socket ， 端口号 必须 与 客户机 的 端口号 一致 ， 然后 通过 server   socket 的 accept 方法 创建 一个套 接字 接口 ， 专门 处理 与 客户机 的 通信 ； 线程 类 用于 创建 一个 新 的 线程 ， 负责 处理 各个 现场 工控机 的 输入 和 输出 请求 。 在线 程类 程序段 中 ， 首先 创建 一个 构造方法 ， 用于 初始化 一个 新 的 线程 ， 然后 再 定义 一个 输入 和 输出 流 。 该 服务器程序 的 设计 是 以 各 客户程序 用 同一个 端口号 向 服务器 发出 服务 请求 ， 服务器程序 在 端口 处 侦听 各个 客户 的 请求 ， 创建 多个 线程 ， 依次 处理 。 当然 各个 客户端 也 可以 采用 不同 的 端口号 向 服务器 发出请求 ， 服务器 相应 地 也 创建 不同 端口号 的 线程 与 端口号 一致 的 客户端 进行 通信 。 
+ 　 　 远程 控制 主机 服务器程序 必须 具有 与 数据库 进行 动态 交互 的 能力 。 数据库 中 存放 着 大量 的 现场 数据 以及 控制 现场 操作 的 参数 和 命令 等 。 服务器程序 中 的 某 一线 程体 负责 对 数据库 的 存取 、 修改 和 维护 等 操作 ， Java 语言 通过 JDBC 实现 与 数据库 的 连接 ， 该 功能 类 的 实现 方法 如下 ： 
+ 　 　 public   class   database   
+ 　 　 { public   void   drivedata ( ) 
+ 　 　 { String   url = " JDBC : odbc : component " ; 
+ 　 　 　 　 .......... 
+ 　 　 try { 
+ 　 　 Class . forName ( " sun . jdbc . odbc . JDBCODBCDriver " ) ; 
+ 　 　 Connection   con = DriverManager . getConnection ( url ) ; 
+ 　 　 　 　 .......... 
+ 　 　 } catch ( SQLException   se ) { } ; 
+ 　 　 } 
+ 　 　 该 程序段 最 主要 的 功能 是 加载 JDBC 数据库 驱动程序 ， 使得 Java 语言 能够 通过 驱动程序 访问 数据库 。 
+ 4   利用 Java 语言 的 本地 方法 技术 
+ 　 　 由于 Java 语言 的 跨平台 特性 ， 所以 使得 Java 语言 无法 操作 硬件 。 对 智能 节点 的 控制 只能 采用 第三方 语言 进行 ， 例如 C 或 汇编语言 。 而 整个 工控机 的 通信 部分 由 Java 语言 编写 ， 为 实现 远程 主机 对 智能 节点 的 控制 ， 就 必须 实现 Java 语言 与 其它 语言 的 结合 。 令人欣慰 的 是 Java 语言 扩充 了 这方面 的 功能 ， 可以 与 C 和 C++ 语言 完美无缺 地 结合 起来 ， 这 虽然 在 某种程度 上 牺牲 了 移植性 ， 却 使 Java 语言 能够 和 具体 的 环境 打交道 ， 具备 了 驱动 硬件 的 能力 。 在 本文 所 讨论 的 例子 中 ， PCL839 卡 的 应用 和 驱动程序 是 用 C语言 开发 的 ， Java 语言 把 C语言 编制 的 程序 做成 本地 方法 体 ， 从而 实现 对 PCL839 卡 的 控制 。 
+ 　 　 对 智能 节点 的 驱动程序 用 C语言 编写 , 程序 中 所 采用 的 函数 大部分 是 研华 公司 开发 的 C 库函数 ， 利用 这些 库函数 可以 开发 出 高效 的 应用程序 ， 驱动 步进 电机 完成 各种 操作 。 因此 把 这些 程序 集 成为 Java 本地 方法 体 ， 成为 用 Java 语言 实现 远程 控制 的 关键技术 。 其 程序段 如下 ： 
+ 　 　 int   pcl839dirve ( ) 
+ 　 　 　 {   … … … … … … … … … … 
+ 　 　 　 　 　 int   i   ; 
+ 　 　 　 　 　 clrscr ( ) ; 
+ 　 　 　 　 　 set _ base ( 0x2c0 ) ;   / *   设置 pcl839 的 基 地址 * / 
+ 　 　 set _ mode ( CH1 , DIR ) ;   / *   设置 pcl839 通道 1   " Direction "   mode   * / 
+ 　 　 set _ mode ( CH2 , DIR ) ;   / *   设置 pcl839 通道 2   " Direction "   mode   * / 
+ 　 　 set _ mode ( CH3 , PUS ) ;   / *   设置 pcl839 通道 3 " Pulse "   mode   * / 
+ 　 　 set _ speed ( CH123 , 600 , 3000 , 600 ) ;   / *   设置 pcl839 通道 速度   * / 
+ 　 　 pmove ( CH123   ,   P _ DIR , FH , 4000   ,   N _ DIR , FH , 2000   ,   P _ DIR , FH , 4000 ) ; 
+ 　 　 waitrdy ( CH123 ) ;   / *   等待 所有 通道 就绪 * / 
+ 　 　 cmove ( CH123   ,   N _ DIR , FH   ,   N _ DIR , FH   ,   N _ DIR , FH ) ; 
+ 　 　 … … … … … … … … … / * 进行 具体 的 现场 操作 , 以下 的 程序 语句 仅 作为 演示 * / 
+ 　 　 　 　 printf ( " 按 任何 键 降速 ... " ) ; 
+ 　 　 　 　 getch ( ) ; 
+ 　 　 　 　 printf ( " \ n " ) ; 
+ 　 　 　 　 slowdown ( CH123 ) ;   / *   把 通道 1 , 2 , 3 降速 到 低速 状态 * / 
+ 　 　 　 　 for ( i = 2999 ; i > - 1 ; i - - ) 
+ 　 　 　 　 　 {   cprintf ( " % d   \ r " , i ) ; 
+ 　 　 　 　 　 　 delay ( 1 ) ; 
+ 　 　 　 　 　 } 
+ 　 　 　 　 stop ( CH123 ) ;   / *   通道 停止 运行 * / 
+ 　 　 　 　 return ( 0 ) ; 
+ 　 　 } 
+ 　 　 对于 工控机 ， Java 程序 的 编写 必须 集成 本地 方法 。 对于 本地 方法 的 集成 采取 以下 步骤 ： 首先 在 一个 Java 程序 中 定义 一个 本地 的 方法 ， 编译 该 Java 代码 ； 然后 当用 JDK 环境 下 的 JavaH 命令 创建 一个 C语言 的 头文件 时 ， 必须 注意 其中 的 类 结构 和 函数 定义 ， 接着 创建 一个 Stub 文件 ， Stub 文件 中 包含 与其 C 结构 紧密联系 在 一起 的 C 代码 ； Stub 文件 建立 以后 ， 编写 相应 的 C 代码 ， 在 原有 的 C 代码 前面 必须 加上 《 stubpreamble . h 》 和 《 drive . h 》 两个 头文件 ； 最后 再 由 
+ V C++ 等 集成 开发 环境 将 C语言 程序 编译成 DLL 程序 ， 这样 就 实现 了 本地 方法 的 集成 。 对于 工控机 的 本地 程序 按 以上 步骤 完成 以后 ， 工控机 的 主 程序编制 如下 ： 
+ 　 　 public   class   main   
+ 　 　 { public   static   void   main ( String   args [ ] ) 
+ 　 　 {   ............. 
+ 　 　 / * 负责 与 远程 控制 主机 通信 部分 的 程序段 
+ 　 　 new   drive ( ) . pcl839drive ( ) ; 
+ 　 　 　 　 ............. 
+ 　 　 } } 
+ 　 　 public   class   dirve 
+ 　 　 { public   native   void   pcl839drive ( ) ; 
+ 　 　 ......... 
+ 　 　 static { 
+ 　 　 System . loadLibrary ( " drive " ) ; 
+ 　 　 ......... }   } 
+ 　 　 该段 程序 由主类 和 本地 方法 类 组成 ， 主类 除 完成 通信 部分 的 程序 外 ， 还 必须 实例 化 本地 方法 类 ， 并且 调用 本地 方法 ； 本地 方法 类 在 定义 本地 方法 时 ， 必须 加上 关键词 native ， 并且 程序段 中有 一段 静态 代码 ， 该 静态 代码 通过 系统 函数 为 本地 方法 类 加载 drive 库 。 
+ 　 　 通过 采用 Java 语言 编程技术 ， 就 可以 实现 本地 方法 的 集成 和 网络 的 通信 ， 有效 地 把 控制 主机 和 远程 主机 通过 网络连接 起来 ， 以 实现 远程 控制 。 该套 方案 是 在 已有 本地 局域网络 的 基础 上 建成 的 ， 充分利用 了 Java 网络 编程 和 集成 本地 方法 的 技术 ， 具有 经济 实惠 和 高效 的 特点 。 由于 Java 的 平台 无关 性 ， 使得 Java 在 与 本地 方法 的 集成 中 隐藏 了 大量 的 技术细节 。 因而 进一步 对 Java 的 关键技术 开展 研究 ， 充分 和 高效 地 利用 这一 富有 特色 的 语言 ， 实现 对 底层 智能 节点 的 控制 ， 达到 网络 监控 的 目的 ， 无疑 是 一个 非常 有 意义 的 课题 。 
+ 作者简介 ： 邹华军 ( 1973 ～ ) ， 男 ， 研究生 ， 主研 方向 ： 企业 信息网 和 控制 互 关联 技术 ， 远程 控制 ， 网络 制造 
+ 作者 单位 ： 广东 工业 大学 机电 系 ， 广州   510090 
+ 参考文献 
+ 1   李卫华 , 傅晓东 . Java 语言 基础 及其 应用 . 南宁 ： 广西 科学技术 出版   社 , 1998 - 07 
+ 2   Rodley   J 著 , 京京 翻译 组译 . Web 与 Intranet 数据库 开发 . 北京 ： 机械   工业 出版社 , 1997 - 08 
+ 收稿 日期 ： 1999 - 01 - 06 

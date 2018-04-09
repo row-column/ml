@@ -1,0 +1,78 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1999 年 　 第 19 卷 　 第 1 期   Vol.19   No.1   1999 
+ 
+ 
+ 
+ A . eutrophus   利用 有机 废水 生产 聚 羟基 烷酸 
+ 金大勇 　 陈   坚 　 伦 世仪 
+ 摘要 ： 对 真养 产碱 杆菌 ( A . eutrophus ) 利用 有机 废水 生产 聚 羟基 烷酸 ( PHA ) 的 机理 进行 了 探讨 . 比较 了 以 4 种 有机酸 为 碳源 生产 PHA 的 情况 , 并 研究 了 水力 停留时间 ( HRT ) 和 进水 碱度 两种 操作 条件 对 合成 废水 生产 PHA 的 影响 . 结果表明 , A . eutrophus 以 丁酸 为 最佳 碳源 , PHA 浓度 达 10.2   g / L ; 进水 碱度 对 合成 废水 生产 PHA 的 影响 比 HRT 更大 . HRT   5   h , 进水 碱度   8000   mg / L 时 得到 的 PHA 浓度 为 1.92   g / L . 
+ 关键词 ： 有机 废水 ； 聚 羟基 烷酸 ； 水力 停留时间 ； 碱度 
+ 中 图 分类号 ： X703   文献 标识码 ： A   文章 编号 ： 1000 -   6923 ( 1999 ) 01 -   0038 -   04 
+ Production   of   poly ( hydroxyalkanoate ) from   organic   wastewater   with   A . eutrophus . 
+ JIN   Da - yong , CHEN   Jian , LUN   Shi - yi   ( School   Biotechnology , Wuxi   University   Light   industry , Wuxi   214036 ,   China ) . China   Environmental   Science .   1999 , 19 ( 1 ) ： 38 ～ 41 
+ Abstract ： The   production   of   poly ( hydroxyalkanoate ) ( PHA )   from   organic   wastewater   by   Alcaligenes   eutrophus   was   theoretically   analyzed ,   and   the   production   of   PHA   from   four   major   acids   was   compared .   The   influences   of   hydraulic   retention   time ( HRT )   and   influent   alkalinity   on   production   of   PHA   from   synthetic   wastewater   were   studied .   The   results   indicated   that   the   optimal   acid   was   butyric   acid   with   the   concentration   of   PHA   10.2   g / L ; the   influence   of   influent   alkalinity   was   greater   than   HRT ; and   1.92   g / L   PHA   was   obtained   at   HRT   of   5   h ,   and   alkalinity   of   8000   mg / L . 
+ Key   words ： organic   wastewater ； poly ( hydroxyalkanoate ) ； hydraulic   retention   time ； alkalinity 
+ 　 　 聚 羟基 烷酸 ( PHA ) 是 许多 微生物 在 碳源 充足 而 氮源 、 氧气 或 磷源 缺乏 的 条件 下 产生 的 储藏 于 细胞 内 的 能量 物质 , 它 不但 具有 与 聚丙烯 相似 的 性质 , 而且 具有 生物 可降解 性 、 光学 活性 和 生物 可 相容性 等 特点 , 可 作为 塑料 的 替代物 , 因此 引起 人们 越来越 大 的 兴趣 . 但 PHA 的 生产成本 阻碍 了 它 的 广泛 使用 , 降低 其 生产成本 的 一个 主要 方面 是 寻求 廉价 的 原料 . 
+ 　 　 有机 废水 厌氧 消化 经历 酸化 ( 产酸 ) 和 甲烷 化 ( 产甲烷 ) 两 阶段 [ 1 ] . 有机 废水 的 厌氧 酸化 产生 挥发性 有机酸 ( VOA ) 、 乳酸 及其 它 可溶性 有机物 , 而已 有 报道 真养 产碱 杆菌 ( A . eutrophus ) 能 利用 VOA 和 乳酸 生长 并 积累 PHA [ 2 , 3 ] . 因此 , 如果 在 厌氧 条件 下 , 将 有机 废水 中 的 可降解 大分子 物质 转变 为 VOA 和 乳酸 , A . eutrophus 再进一步 利用 它们 合成 PHA , 不仅 可以 极大 地 降低 PHA 的 生产成本 , 开拓 有机 废水 资源化 技术 , 而且 具有 减少 有机 废水 、 塑料 废物 污染 的 双重 意义 . 至今 , 关于 这方面 的 研究 国内 尚无 报道 , 国外 的 研究 也 很少 . 
+ 　 　 本文 报道 了 有机 废水 两 阶段 生产 PHA 耦合 系统 的 初步 研究 . 
+ 1   材料 与 方法 
+ 1.1   废水 厌氧 酸化 
+ 　 　 上 流式 厌氧 污泥 床 ( UASB ) 酸化 反应器 合成 废水 浓缩液 : 葡萄糖 500   g , NHCl   10g , CaCl2   1   g , KH2PO4   10   g , MgSO42g 自来水 2000   mL , 用时 稀释 , 并 根据 需要 加 NaHCO3 调节 碱度 ( 以 CaCO3 计 , mg / L ) . 接种 污泥 取自 无锡 第二 制药厂 废水处理 车间 的 大型 单相 UASB 反应器 . 厌氧 酸化 反应器 操作温度 为 35 ℃ . 
+ 1.2   发酵 生产 PHA 
+ 　 　 菌种 : 真养 产碱 杆菌 ( A .   eutrophus )   WSH3 ( 本 研究室 保藏 号 ) . 种子 培养基 ( 1 / L ) : 酵母 膏 10g ,   蛋白 胨 10g , 牛肉 膏 5g , ( NH4 ) 2SO4   5g , pH   值 7.0 . 无机 元素 液 ( 1 / L ) : Na2HPO4 ×   7H2O   8.9 g ,   KH2PO4   1.5 g ,   MgSO4 ×   7H2O   0.2 g , 柠檬酸 铁铵 60mg , CaCl2 ×   2H2O   20mg , 及 1mL 微量元素 液 ( 内含 1 / L   H3BO3   0.3 g , CoCl2 ×   6H2O0.2 g , ZnSO4 ×   7H2O0.1 g , MnCl2 ×   4H2O30mg , NaMoO4 ×   2H2O30mg , NiCl2 ×   6H2O20mg , CuSO4 ×   5H2O   10mg ) . 单一 酸 发酵 培养基 : 无机 元素 液中 添加 0.2% ( NH4 ) 2SO4 为 氮源 , 单一 酸为 碳源 . 酸化 废水 发酵 培养基 : 酸化 废水 3000   r / min 离心 10min , 取上 清液 , 调节 pH 值为 7.0 . 培养 方法 :   接两环 生长 良好 的 菌体 至 装有 80   mL 种子 培养基 的 500   mL 三角瓶 中 , 摇瓶 转速 200   r / min , 30 ℃ 预 培养 24h , 按 10% 的 接种 量 接入 发酵 培养基 中 . 单一 酸 发酵 过程 中 进行 碳源 的 补加 ; 酸化 废水 分批发酵 , 中间 不补料 . 
+ 1.3   分析方法 
+ 　 　 葡萄糖 测定 : 3 , 5 - 二 硝基 水杨酸 法 ; 菌 体细胞 浓度 测定 : 发酵液 5mL , 5000   r / min 离心 10   min , 水洗 两次 , 80 ℃ 烘干 称重 ; PHA 测定 : 气相 色谱法 [ 4 ] . 
+ 2   结果 与 讨论 
+ 2.1   有机 废水 生产 PHA 的 机理 分析 
+ 2.1 . 1   废水 中 大分子 物质 在 厌氧 微生物 作用 下 转化 为 小 分子 有机酸   酸化 UASB 反应器 中 水解 和 / 或 发酵 细菌 , 将 复杂 的 含碳 大分子 有机物 首先 水解 为 简单 的 小 分子 单糖 、 氨基酸 、 脂肪酸 和 甘油 , 然后 再进一步 发酵 为 各种 有机酸 . 厌氧 微生物 己 糖 降解 最 重要 的 代谢 途径 是 EMP 和 HMP 途径 , 丙酮酸 为 其 限制 步骤 , 然后 形成 挥发性 有机酸 、 乳酸 [ 5 ] 等 . 控制 不同 酸化 条件 , 可以 使 不同 的 有机酸 成为 主要 酸化 产物 . 代谢 方程 分别 为 ∶ 
+ C6H12O6 + 4H2O   →   2CH3COO - + 2HCO3 - + 4H ++ 4H2 
+ C6H12O6 + 2H2   →   2CH3CH2COO - + 2H2O + 2H + 
+ C6H12O6 + 2H2O   →   CH3CH2CH2COO - + 2HCO3 -   + 3H +   + 2H2 
+ C6H12O6   →   2CH3CHOHCOO -   + 2H + 
+ 2.1 . 2   合成 PHA 代谢 途径   A . eutrophus 利用 小 分子 有机酸 合成 的 PHA 主要 为 聚 羟基 丁酸 ( PHB ) 、 羟基 丁酸 和 羟基 戊酸 的 共聚物 ( PHBV ) 2 种 , A . eutrophus 以 丙酸 [ 6 ] 为 碳源 时 合成 PHBV , 以 乙酸 [ 6 ] 、 乳酸 [ 3 ] 、 丁酸 [ 7 ] 为 碳源 时 , 合成 PHB , 乳酸 为 碳源 时 的 代谢 途径 未见 报道 , 作者 认为 乳酸 脱羧 后经 乙酰 CoA 合成 PHB . 合成 途径 如下 ∶ 
+ 
+ 
+ 
+ 
+ 　 　 根据 代谢 途径 和 辅酶 的 再生 , 可以 计算 出 乙酸 、 乳酸 和 丁酸 为 碳源 生产 PHB 的 理论 产率 分别 为 0.48 ( gPHB ) / ( g 乙酸 ) 、 0.477 ( gPHB ) / ( g 乳酸 ) , 0.65 ( gPHB ) / ( g 丁酸 ) ; 由于 PHBV 中 羟基 戊酸 的 比例 不同 ( HV 组分 占 0% ～ 50% ) , 丙酸 为 碳源 生产 PHBV 的 理论 产率 在 0.58 ～ 0.628 ( gPHBV ) / ( g 丙酸 ) 之间 . 因此 , 以 酸化 废水 的 几种 主要 产物 为 前体 发酵 生产 PHA , 丁酸 具有 最大 的 理论 产率 . 
+ 2.2   酸化 废水 生产 PHA 
+ 2.2 . 1   不同 有机酸 为 碳源 生产 PHA   由于 UASB 酸化 反应器 的 操作 条件 不同 , 乙酸 、 丙酸 、 乳酸 和 丁酸 都 有 可能 成为 主要 酸化 产物 . 因而 , 本 研究 首先 对 不同 有机酸 为 碳源 生产 PHA 的 细胞 干重 、 PHA 浓度 、 干细胞 中 PHA 的 百分 含量 进行 了 比较 ( 见表 1 ) . 
+ 表   1   不同 有机酸 为 碳源 生产 PHA 的 比较 
+ Table   1   Utilization   of   different   acids   by   A . eutrophus 
+ 项目 细胞 干重 ( g / L ) PHA 浓度 ( g / L ) 胞 内 PHA 含量 ( % ) 
+ 乙酸 6.52 . 132.3 
+ 丙酸 8.94 . 348.3 
+ 乳酸 9.75 . 253.6 
+ 丁酸 14.810 . 268.9 
+ 
+ 注 ∶ 分批 补料 发酵 , 初始 酸 浓度 为 0.5% , 分别 在 19 , 25 , 32 , 43 , 50h 加入   0.5% 的 酸 
+ 　 　 从表 1 可以 看出 ,   A . eutrophus 以 4 种酸为 碳源 生长 和 积累 PHA 的 情况 相差 很大 , 丁酸 为 碳源 时 ,   A . eutrophus 积累 的 PHA 浓度 达 10.2   g / L , 远远 超过 其它 3 种酸 . 因此 , 应 在 有机 废水 厌氧 酸化 阶段 控制 操作 条件 , 使 丁酸 为 主要 酸化 产物 . 
+ 2.2 . 2   酸化 废水 生产 PHA   产酸相 的 产物 是 生产 PHA 的 基质 , 因而 确定 一个 工艺 条件 , 使产酸 相 在 较佳 基质 转化 速率 下 , 达到 稳定 的 较佳 酸化 产物 分布 , 则 对 A . eutrophus 的 生长 和 PHA 的 积累 非常 有利 . 
+ 　 　 许多 研究 结果表明 , 在 一定 温度 下 , 水力 停留时间 ( HRT ) 和 碱度 对 酸化 产物 分布 的 影响 最 普遍 . 作者 在 以 1.5% 葡萄糖 合成 废水 进水 , 酸化 率 100% 的 条件 下 , 酸化 阶段 采用 不同 的 HRT 和 不同 的 进水 碱度 , 对 合成 废水 发酵 生产 PHA 进行 了 初步 的 研究 , 结果 如图 1 , 图 2 所示 . 
+ 
+ 图 1   酸化 HRT 对 发酵 阶段 PHA 浓度 的 影响 
+ Fig .   1   The   influence   of   HRT   on   production   of   PHA 
+ 
+ 图 2   进水 碱度 对 发酵 阶段 PHA 浓度 的 影响 
+ Fig .   2   The   influence   of   influent   alkalinity 
+ on   production   of   PHA 
+ 　 　 从图 1 , 图 2 中 可以 看出 , 当 废水 进水 碱度 为 6500   mg / L 时 , 有机 废水 厌氧 酸化 阶段 最佳 HRT 为 5   h , 此后 增加 HRT , 由于 酸化 产物 中 有机酸 组成 的 变化 , 导致 酸化 废水 生产 PHA 阶段 中 PHA 的 浓度 略有 下降 ; 碱度 的 变化 对 酸化 废水 中 有机酸 组成 的 影响 更大 , 而 A . eutrophus 利用 不同 有机酸 生长 和 积累 PHA 的 能力 不同 , 从而 以 酸化 废水 为 培养基 发酵 时 , PHA 浓度 的 变化 较大 . 在 HRT5h ,   碱度 8000mg / L 时 , A . eutrophus 利用 合成 废水 厌氧 酸化 产物 发酵 生产 的 PHA 浓度 最大 , 为 1.92   g / L . S .   Lee , J . Yu [ 8 ] 以 市政 污泥 生产 的 PHA 浓度 为 0.61 g / L . 
+ 3   结论 
+ 3.1   以 有机 废水 为 原料 可以 生产 生物 可 降解塑料 , 它 为 降低 PHA 生产成本 , 减少 有机 废水 和 塑料 废物 对 地球 环境 的 污染 , 提供 了 一条 新思路 . 
+ 3.2   对 代谢 途径 的 分析 显示 , A . eutrophus 以 4 种 有机酸 组成 的 变化 , 导致 酸化 废水 生产 PHA 阶段 中 PHA 的 浓度 略有 下降 ; 碱度 的 变化 对 酸化 废水 中 有机酸 组成 的 影响 更大 , 而 利用 A . eutrophus 有机酸 为 碳源 生产 PHA 时 , 丁酸 具有 最大 的 理论 转化率 . 
+ 3.3   A . eutrophus 以 丁酸 为 最佳 生长 和 积累   P - HA   的 碳源 , 其 最大 PHA 产量 为 10.2 g / L . 
+ 3.4   合成 废水 生产 PHA 时 , 应 控制 厌氧 酸化 条件 , 使 酸化 产物 具有 最佳 有机酸 分布 , 才能 获得 最大 PHA 产量 . 本 研究 控制 HRT 为 5   h , 进水 碱度 8000   mg / L , 获得 PHA   1.92 g / L . 
+ 基金项目 ： 国家自然科学基金 资助 项目 ( 29677011 ) , 国家教委 优秀青年 教师 基金 资助 项目 
+ 作者简介 : 金大勇 ( 1973 - ) , 男 , 江苏 姜堰 人 , 无锡 轻工 大学 生物 工程学院 研究生 , 主要 从事 环境 生物 技术 的 研究 . 参加 国家自然科学基金 资助 项目 “ 有机 废水处理 与 生物 可 降解塑料 生产 耦合 系统 的 研究 ” 的 研究 , 发表 论文 4 篇 . 
+ 作者 单位 ： ( 无锡 轻工 大学 生物 工程学院 环境 生物 技术 研究室 , 江苏   无锡   214036 ) 
+ 参考文献 ： 
+ 　 [ 1 ] 　 Ghosh   S . Improved   sludge   gasification   by   two - phase   anaerobic   digestion   [ J ] .   J . Environ .   Eng . ,   1987 ,   113 : 1265 -   1284 . 
+ 　 [ 2 ] 　 Akiyama   M , Taima   Y , Doi   Y . Production   of   poly ( 3 - hydroxyal   - kanoates )   by   a   bacterium   of   the   genus   Alkaligenes   utilizing   long - chain   fatty   acids   [ J ] .   Appl .   Microbiol .   Biotechnol . ,   1992 ,   37 :   698 -   701 . 
+ 　 [ 3 ] 　 Linko   S ,   Vaheri   H , Sepp ?   l ?   J .   Production   of   poly - β - hydro   xy -   butyrate   on   lactic   acid   by   Alkaligenes   eutrophus   H16   in   a   3 - L   bioreactor   [ J ] . Enzyme   microbiol . Technol . ,   1993 ,   15 :   401 -   406 . 
+ 　 [ 4 ] 　 堵国成 . A . eutrophus 生物 合成 聚 - β - 羟基 烷酸 ( PHAs ) 的 研究 [ D ] . 无锡 : 无锡 轻工 大学 ,   1997 . 
+ 　 [ 5 ] 　 Pipyn   P ,   Verstraete   W .   Lactate   and   ethanol   as   intermediates   in   two - phase   anaerobic   digestion   [ J ] .   Biotech .   Bioeng .   1981 ,   23 :   1145 -   1154 . 
+ 　 [ 6 ] 　 Doi   Y ,   Knioka   M ,   Nakamura   Y ,   et   al .   Biosyntheis   of   copolyester   in   Alcaligenes   eutrophus   H16   from   13C - labled   acetate   and   propionate   [ J ] .   Macromol .   1087 ,   20 :   2988 -   2991 . 
+ 　 [ 7 ] 　 Yamane   T . Yield   of   poly - D ( - ) - 3 - hydroxybutyrate   from   various   carbon   source :   a   theoretical   study   [ J ] .   Biotech .   Bioeng .   1993 ,   41 : 165 -   1170 . 
+ 　 [ 8 ] 　 Samuel   L , Jian   Y . Production   of   biodegradable   thermoplastics   from   municipal   sludge   by   a   two - stage   bioprocess   [ J ] .   Resourc - es .   Conservation   and   Recycling   1997 , 19 : 151 -   164 . 
+ 收稿 日期 ： 1998 - 04 - 03 

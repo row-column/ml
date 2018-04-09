@@ -1,0 +1,11 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000   Vol.19   No.2   P.47 
+ 
+ 
+ 
+ 
+ Linux   希望 之星 
+ 　 　 在 8086 至 80486 年代 ， 有 不少 在 PC 上 运行 的 操作系统 可 供选择 ， 较 多 人 熟悉 的 有 DR － DOS 、 PC － DOS 、 MS   － DOS 及 OS ／ 2 等 。 不过 ， 到 了 Pentium 年代 ， 就 只 剩下 Windows ， 令 用户 无可 选择 。 这个 情况 一直 持续 至 1998 年 ， 一个 新 的 作业 平台 终于 流行起来 ， 它 的 名字 叫 Linux 。 
+ 　 　 最近 多家 主要 电脑 生产商 宣布 支援 Linux ， 例如 IBM 刚 与 Red   Hat 签下 协议 ， IBM 将 把 Rde   Hat   Linux 用于 旗下 的 Netfinity 服务器 内 。 另外 ， Compaq 亦 宣布 新 推出 的 AlphaServer   DS20 及 AlphaServer   800 能 支持 Linux ， 并且 与 Linux 社群 紧密 合作 ， 令 Alpha 能 担当 Linux 首要 的 64 位元 系统 架构 。 很 明显 Linux 已 渐渐 露出 业界 巨人 的 影子 。 
+ （ 本刊 供稿 ） 

@@ -1,0 +1,107 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 10 期   Vol.25   No.10   1999 
+ 
+ 
+ 
+ 面向 CSCW 的 快速 应用 程序开发 系统 的 设计 
+ 陈弘 　 李建华 　 杨 宇航 
+ 摘要 ： 提出 了 一种 面向 会议 系统 的 基于 TCP / TK 脚木 语言 的 跨平台 、 可 扩展 、 可视化 的 CSCW 快速 应用 程序开发 系统 的 模型 和 结构 ， 并 给出 了 设计 的 方法 。 
+ 关键词 ： 计算机 支持 协同工作 ； TCL / TK ； 快速 应用 程序开发 ； 可视化 
+ Design   of   CSCW - oriented   Rapid   Application   Development   System 
+ Chen   Hong   Li   Jianhua   Yang   Yuhang 
+ ( Dept . of   Electronic   Engineering , Shanghai   Jiaotong   University , Shanghai200030 ) 
+ 【 Abstract 】 We   proposed   the   model   and   architecture   of   a   cross - platform , extensible   CSCW   rapid   application   development   system , which   was   conference - oriented   and   based   on   TCP / IP   protocol   and   TCP / TK   scripting   language . We   also   describe   the   idea   about   how   to   design   and   develop   this   system . 
+ 【 Key   words 】 Computer   supported   cooperative   word ( CSCW ) ; TCL / TK ; Rapid   application   development ( RAD ) ; Visual 
+ 　 　 近年来 ， 在 各种 操作系统 平台 上 都 出现 了 以 可视化 为 特征 的 快速 应用 程序开发   ( Rapid   Application   Development ， 以下 简称 RAD ) 的 环境 ， 如 基于 Windows 平台 的 Visual   Basic 、 Delphi ,   基于 Xwindow 系统 的 Visual   TCL ， 然而 目前 在 CSCW 开发 领域 还是 空白 。 常见 的 CSCW 开发 系统 有 以下 几种 ： Rendezvous 、 GroupKit [ 1 ] 、 Egret [ 2 ] 、 ClockWorks [ 3 ] 和 商用 的 Lotus   Notes 。 本文 主要 研究 一种 基于 TCP / IP 协议 和 TCL / TK 语言 的 CSCW   RAD 系统 的 模型 和 结构 ， 以及 设计 和 实现 的 思路 。 
+ 1   RAD 功能 需求 分析 
+ 　 　 通过 对 现有 系统 的 分析 比较 ， 面向 CSCW 的 RAD 系统 应 满足 以下 要求 ： 
+ 　 　 ( 1 )     跨平台 性 
+ 　 　 目前 绝大多数 CSCW 开发 系统 开发 的 应用程序 是 与 平台 相关 的 ， 限制 了 CSCW 应用 的 推广 ， 为此 ， CSCW 应用 的 开发 平台 应 具有 跨平台 特性 ， 使 开发 出来 的 系统 可以 不 加 修改 或 少量 修改 就 能 运行 于 其它 平台 。 
+ 　 　 ( 2 )     友好 的 开发 系统 界面 ， 快速 应用 程序开发 
+ 　 　 当前 软件技术 竞争 要求 有效 地 降低 开发成本 和 缩短 开发周期 ， 这使 RAD 成为 商品化 软件开发 的 主流 。 如果 CSCW 开发 能 达到 RAD 的 标准 ， 使 开发人员 能 根据 要求 迅速 调整 代码 ， 可以 大大增加   CSCW 应用 的 实用性 。 
+ 　 　 ( 3 )     灵活 的 扩展性 和 伸缩性 
+ 　 　 这里 的 扩展性 是 指 系统 能够 随时 由 开发人员 或 用户 进行 扩展 甚至 现场 修改 ； 伸缩性 是 指 系统 能够 根据 用户 需求 对 CSCW 系统 进行 裁剪 ， 使 系统 在 满足 应用 要求 的 条件 下 ， 消耗 最小 的 资源 。 
+ 　 　 ( 4 )     与 现有 的 软硬件 技术 集成 
+ 　 　 CSCW 应用 和 开发 系统 应 能 随时 加入 对 成熟 的 和 新兴 的 软硬件 技术 的 支持 ， 如 语音 识别 、   DCOM / CORBA 、 ATM   Native   API 等 。 最好 是 能 直接 利用 现成 的 软硬件 资源 ， 以 一种 有效 的 方式 集成 进 原有 的 CSCW 系统 ， 开发人员 仅 需 增加 模块 间 协调 通信 的 代码 ， 这 就是 所谓 的 " 集成 " 的 概念 。 
+ 　 　 为此 提出 了 一种 面向 CSCW 的 应用 和 开发 的 系统 模型 。 
+ 2     应用 系统 模型 
+ 2.1   设计 思路 
+ 　 　 各种 CSCW 应用 系统 其 核心 功能 基本相同 ， 抽取 其 公有 的 一组 系统 调用 、 可 重用 模块 和 基本 的   CSCW 应用 框架 ， 以此 为 基础 实现 一个 通用 的 CSCW 开发 平台 。 CSCW   RAD 系统 分为 两 部分 ： 框架 性 的   CSCW 应用 系统 和 CSCW   RAD 系统 。 
+ 2.2   CSCW 应用 系统 模型 
+ 　 　 通过 对 计算机 会议 系统 的 抽象 ， 参考 ITU - T 制定 的 T.120 系列 标准 和 H.200 系列 标准 中 的 多点 多媒体 会议 、 GroupKit 等 群件 开发 系统 的 群件 模型 ， 提出 了 一种 CSCW 应用 系统 模型 ， 如图 1 所示 。 这一 模型 比较 注重 于 同步 和 实时 能力 ， 本 系统 可以 支持 多个 应用 系统 模型 ， 如 计算机 会议 系统 、 远程教育 系统 、 协同 写作 的 讨论 系统 。 由 上 图 可以 看出 ， 整个 CSCW 应用 系统 模型 体现 了 一种 分形 迭代 的 结构 ， 各层次 的 相似性 十分 有利于 面向对象编程 实现 ， 从而 提高 系统 的 可靠性 。 
+ 
+ 图   1   CSCW   应用 系统 模型 
+ 　 　 ( 1 )   会话 ( Session ) 和子会 话 ( Sub - Session ) 
+ 　 　 会话 就是 围绕 某一 主题 的 CSCW 过程 ， 子会 话 是 以 某种 手段 进行 的 会 话 ， 是 会 话 的 具体 形式 ， 如 视频会议 、 电子白板 等 ， 一个 会话 至少 要 有 一个 子会话 。 
+ 　 　 ( 2 )   域 ( Domain ) 
+ 　 　 由 参与 CSCW 的 一组 实体 和 活动 组成 的 空间 的 对象 ， 主要 由 管理员 、 环境 组成 。 
+ 　 　 ·   全局 域 ( Global   Domain ) ： 由 不同 主题 的 各个 会话域 组成 ； 
+ 　 　 ·   会话域 ( Session   Domain ) ： 围绕 同一 主题 展开 的 CSCW 的 空间 ； 
+ 　 　 ·   子会 话域 ( Sub - Session   Domain ) ： 同一 媒体 手段 围绕 同一 主题 展开 的 CSCW 空间 。 
+ 　 　 ( 3 )   管理员 ( Manager ) 
+ 　 　 管理 本域 内 CSCW 活动 的 对象 。 
+ 　 　 ·   全局 管理员 ( Global   Manager ) ： 用户 的 认证 、 根据 用户 请求 分配 会话 权限 和 环境 ； 
+ 　 　 ·   会话 管理员 ( Session   Manager ) ： 协调 各子会 话 管理员 ， 维护 成员 间 的 会 话 ； 
+ 　 　 ·   子会话 管理员 ( Sub - session   Manager ) ： 同一 会话 管理员 的 子会话 管理员 分管 不同 类型 的 媒体 活动 。 
+ 　 　 ( 4 )   环境 ( Environment ) 
+ 　 　 记录本 域 内 CSCW 成员 和 相关 活动 的 信息 的 对象 。 
+ 　 　 ·   全局 域 的 环境 ( Global   Environment ) ： 是 静态 的 目录 服务 ； 
+ 　 　 ·   会话域 的 环境 ( Session   Environment ) ： 是 动态 的 ， 包括 本次 会话 的 标志 符号 ， 成员 个人信息 ， 会话 等级 等 ； 
+ 　 　 ·   子会 话域 的 环境 ( Sub - session   Environment ) ： 是 动态 的 ， 包括 会话 类型 ( 一般 数据 、 音频 、 视频 ) ， 会话域 内 分布 的 进程 信息 、 主席 令牌 信息 以及 会话 的 共享 数据 等 。 
+ 　 　 ( 5 )   代理 ( Agent ) 
+ 　 　 代理 用户 参加 某个 域 的 CSCW 活动 的 进程 ， 并 通过 GUI 与 用户 交互 。 
+ 3     面向 CSCW 的 快速 应用 程序开发 系统结构 
+ 3.1   RAD 系统 分层 结构 
+ 　 　 如图 2 所示 ， 整个 RAD 系统 分为 平台 相关 和 平台 无关 两 大部分 。 平台 相关 部分 包括 TCL / TK 库 和 解释器 ； 平台 无关 部分 包括 框架 性 的 CSCW 应用 系统 和 可视化 CSCW 开发 环境 。 网络操作系统 及其 支持 的 TCP / IP   Socket 等 系统 接口 是 支持 RAD 的 具体 平台 。 
+ 
+ 图 2   RAD 系统 分层 结构 
+ 　 　 ( 1 )   平台 相关 部分 
+ 　 　 作用 是 屏蔽 底层 操作系统 的 差异 ， 向 CSCW 应用 的 开发者 提供 一组 与 平台 无关 的 TCL / TK 命令 和 系统 调用 。 TCL / TK 标准 库 和 TCL / TK 解释器 ( tclsh 和 wish ) 是 TCL / TK 的 标准 部分 ， 用于 实现 基本 的 图形界面 、 基于 Socket 的 TCP / IP 网络通信 等 功能 ； TCL / TK 扩展 库 和 扩展 解释程序 可 从 第三方 获得 或 编程 实现 。 
+ 　 　 ( 2 )   平台 无关 部分 
+ 　 　 平台 无关 部分 主要 是 一组 用 TCL / TK 语言 编写 的 程序包 ， 包括 具备 基本 CSCW 应用 功能 的 一组 程序 ( 电子白板 、 视频会议 等 ) 、 可视化 的 CSCW 开发 集成 环境 。 另外 还 包括 用 TCL / TK 脚本 编写 的   TCL / TK 的 扩展 。 
+ 3.2   RAD 系统 设计 与 实现 
+ 　 　 ( 1 )     应用 系统 对象 的 编程 实现 
+ 　 　 由 应用 系统 模型 中 的 对象 相似性 抽取 其中 的 公有 部分 封装 成 3 个 主要 的 基类 ： domain 类 、 manager 类 、 environment 类 ， 然后 从 这 3 个 基类 派 生出 基于 会议 的 CSCW 应用 系统 的 9 个 基本 对象 。 建立 应用 系统 时 ， 采用 三级 客户机 / 服务器 体系 ， 用 C++ 编程 示意 如下 ： 
+ 　 　 1 )   由 全局 域 对象 生成 全局 管理员 和 全局 环境 对象 后 ， 打开 全局 域 进程 ， 监听 服务 请求 。 
+ 　 　 CGlobalDomain * pGlobalDomain ; 
+ 　 　 pGlobalDomain - > SetXXX (   …   ) ; 
+ 　 　 CGlobalManager * pGlobalManager = pGlobalDomain - > CreateManager (   …   ) ; 
+ 　 　 CGlobalEnvironment * pGlobalEnvironment = pGlobalDomain - > CreateEnvironment (   …   ) ; 
+ 　 　 pGlobalManager - > SetXXX (   …   ) ; 
+ 　 　 pGlobalEnvironment - > SetXXX (   …   ) ; 
+ 　 　 pGlobalDomain - > Open ( ) ; 
+ 　 　 2 )   全局 域 对象 收到 服务 请求 后 创建 会话域 对象 。 
+ 　 　 CSessionDomain * pSessionDomain = pGlobalDomain - > Spawn (   …   ) ; 
+ 　 　 pSessionDomain - > SetXXX (   …   ) ; 
+ 　 　 CSessionManager * pSessionManager = pSessionDomain - > CreateManager (   …   ) ; 
+ 　 　 CSessionEnvironment * pGlobalEnvironment = pSessionDomain - > CreateEnvironment (   …   ) ; 
+ 　 　 pSessionManager - > SetXXX (   …   ) ; 
+ 　 　 pSessionEnvironment - > SetXXX (   …   ) ; 
+ 　 　 3 )   会话域 对象 创建 基本 的 子会 话域 ， 然后 打开 。 
+ 　 　 CSubSessionDomain * pSubSessionDomain = pSessionDomain - > Spawn (   …   ) ; 
+ 　 　 … 
+ 　 　 pSessionDomain - > Open ( ) ; 
+ 　 　 ( 2 )   基于 TCL / TK 进行 混合 编程 
+ 　 　 选择 TCL / TK 脚本语言 作为 基本 的 开发 平台 ， 结合 C / C++ 等 编译 型 的 系统 编程语言 开发 其中 底层 的 扩展 库 。 设计 思想 如下 。 
+ 　 　 1 )   跨平台 
+ 　 　 TCL / TK 源代码 可以 编译成 类似 Java 的 与 平台 无关 的 二进制 代码 ， 或 直接 作为 系统 最终 的 执行 对象 ， 后者 执行 效率 依赖于 解释器 和 库 的 效率 ， 在 开发 调试 阶段 具有 即 改即 用 的 优势 ， 可 实现 现场 编程 ， 脚本语言 易学 易用 ， 其 解释器 采用 字符串 方式 处理 或 解释程序 [ 4 ] ， 便于 实现 计算机 代码 辅助 生成 ， 开发 效率 较 高 ， 据统计 [ 5 ] , TCL / TK 编程 其 开发 效率 是 编译 型 的 系统 编程语言 如 C / C++ 的   5 到 10 倍 。 
+ 　 　 2 )   扩展性 和 伸缩性 
+ 　 　 为了 保持 跨平台 的 特性 ， 不 改写 TCL / TK 的 标准 库 ， 而是 采用 C / C++ 编写 TCL / TK 扩展 库 [ 6 ] ， 实现 基于 会议 的 应用 系统 对象 库 ， 对 新 的 软硬件 系统 接口 的 支持 ， 以及 H 系列 、 T 系列 、 Remote   GUI (   遵循 RFB 协议 ) 、 RTP / RTCP 实时 通信 模块 ， 并 使用 了 一些 第三方 的 扩展 ， 加入 对 数据库 处理 、 某些 多媒体 功能 的 支持 。 通过 对 这些 库 的 裁剪 ， 就 实现 了 系统 的 伸缩性 。 
+ 　 　 3 )   可视化 编程 
+ 　 　 由于 Visual   TCL 完全 用 TCL / TK 脚本 写成 ， 源代码 完全 公开 ， 通过 改写 这些 代码 可以 开发 出   Visual   CSCW 的 集成 环境 。 
+ 　 　 4 )     集成 现有 的 软硬件 资源 
+ 　 　 通过 TCK / TK 进程 控制 和 TCL / TK 的 Expect 扩展 在 脚本语言 的 级别 上 实现 与 这些 应用程序 的 集成 ， 对于 特殊 设备 的 驱动程序 ， 则 要求 写 一些 TCL / TK 扩展 。 
+ 4     结语 
+ 　 　 本文 分析 了 CSCW 应用 和 开发 系统 应 满足 的 要求 ， 提出 了 相应 的 CSCW   RAD 系统 。 在 设计 和 实现 过程 中 ， 发现 如何 更 有效 地 组织 应用 对象 库 ， 如何 制定 用以 在 可视化 环境 中 自动 生成 应用 对象 之间 的 调用 关系 的 语法 规则 ， 都 还 值得 进一步 研究 。 
+ 基金项目 ： 东南大学 国家 计算机网络 及 信息 集成 开放 实验室 基金 
+ 作者简介 ： 陈弘 （ 1977 ～ ） ， 男 ， 研究生 ， 主攻 CSCW ， 网络安全 
+ 作者 单位 ： 上海交通大学 电子 工程系 ， 上海 200030 
+ 参考文献 
+ 1   Roseman   M , GroupKit   5.0   Documentation.1998 , http : / / www . cpsc .   ucalgary . ca / projects / grouplab / groupkit / gk5doc / 
+ 2   Johnson   P   M . Egret : A   Framework   for   Advanced   CSCW   Application . ACM   Software   Engineering   Notes , 1996 , 21 ( 2 ) : 238 
+ 3   Nicholas   T   C , Urnes   T . Clock   Project   Thesis   Ideas , 1998 . http : / /   www . qucis . queensu . ca / home / graham / ideas . html 
+ 4   Ousterhout   J   K . Tcl   and   the   Tk   Toolkit . Addison - wesley   Publishing   Company   Inc , 1993 
+ 5   Ousterhout   J   K . Scripting : Higher   Level   Programming   for   the   21st   Century . IEEE   Computer , 1998 - 03 
+ 6   Wippler   J   C . How   to   Use   Extensions   in   Tcl.1998 - 05 , http : / / www .   equi4 . com / jcw / extuse . html 
+ 收稿 日期 ： 1999 - 01 - 18 

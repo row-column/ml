@@ -1,0 +1,113 @@
+　 宇航学 报 
+ JOURNAL   OF   ASTRONAUTICS 
+ 1999 年   第 20 卷   第 3 期   vol.20   No.3   1999 
+ 
+ 
+ 
+ 　 　 万有引力 场中带 挠性 太阳 帆板 
+ 航天器 的 姿态 稳定性 * 
+ 戈 新生 　 刘延柱 
+ 　 　 摘 　 要 　 本文 讨论 带 双侧 挠性 太阳 帆板 航天器 在 万有引力 场中 的 姿态 运动 。 建立 带 挠性 帆板 航天器 的 欧拉 方程 和 帆板 强迫 振动 方程 。 利用 Galerkin 方法 对 动力学 方程 离散 化 ， 利用 Kelvin - Tait - Chetayev 定理 判断 航天器 在 轨道 坐标系 内 相对 平衡 的 稳定性 。 导出 适用 于 任意 阶 模态 的 解析 形式 稳定性 充分条件 。 
+ 　 　 主题词 　 姿态 稳定性 　 挠性 多体 动力学 　 Kelvin - Tait - Chetayev 定理 
+ ATTITUDE   STABILITY   OF   SPACECRAFT   
+ WITH   TWO   FLEXIBLE   SOLAR   ARRAYS   
+ IN   GRAVITATIONAL   FIELD 
+ Ge   Xinsheng 
+ ( Beijing   Institute   of   Machinery   Industry . Beijing.100085 ) 
+ Liu   Yanzhu 
+ ( Shanghai   Jiaotong   University . Shanghai.200030 ) 
+ 　 　 Abstract 　 The   attitude   motion   of   a   spacecraft , composed   of   the   main   rigid   body   and   two   flexible   solar   arrays   in   gravitational   field   is   discussed   in   the   present   paper . The   Euler ' s   equations   of   spacecraft   with   two   flexible   solar   arrays   and   the   equations   of   forced   vibration   are   obtained . The   dynamical   equations   are   discretized   vis   use   of   Galerkin ' s   method , and   the   stability   of   relative   equilibrium   of   the   spacecraft   in   the   orbit   frame   is   determined   by   Kelvin - Tait - Chetayev   theorem . A   sufficient   condition   of   stability   in   analytical   form   for   arbitrary   number   of   modes   is   obtained . 
+ 　 　 Key   words 　 Attitude   stability   Flexible   multibody   dynamics   Kelvin - Tait - Chatayev   theorem 
+ 　 　 1 　 引言 
+ 　 　 自 美国 发射 的 探险者 1 号 卫星 失稳 以后 ， 关于 挠性 附件 的 弹性 变形 对 航天器 姿态 稳定性 的 影响 问题 ， 引起 了 科技界 的 极大 关注 。 随着 航天技术 中 大面积 太阳能 电池 阵 的 普遍 采用 ， 带 挠性 帆板 航天器 的 姿态 动力学 与 控制 的 研究 受到 广泛 重视 。 Cherchas , Houghes ［ 1 ］ 和 Pfeiffer , Pohl ［ 2 ］ 利用 模态 分析 将 连续 体 的 分布 参数 集中 化为 离散系统 并用 数值 方法 讨论 带 挠性 太阳 翼 的 双 自旋 卫星 和 飞轮 控制 卫星 的 姿态 运动 。 Ibrahim , Misra ［ 3 ］ 通过 理论 和 实验 研究 了 航天器 的 天平 动 与 太阳 帆板 的 振动 等 诸 因素 的 耦合 作用 对系统 的 稳定性 影响 。 刘延柱 ［ 4 ， 5 ］ 分别 讨论 了 万有引力 场中带 单侧 挠性 板非 轴对称 航天器 和 陀螺 体在 轨道 坐标系 中 相对 平衡 的 稳定性 ， 导出 解析 形式 稳定性 判据 。 本文 讨论 在 圆 轨道 中 运行 的 带 双侧 挠性 太阳 帆板 的 航天器 在 万有引力 矩 作用 下 的 姿态 稳定性 。 首先 建立 带 太阳 帆板 航天器 的 姿态 动力学 方程 和 帆板 强迫 振动 方程 ， 利用 Galerkin 方法 对 其 进行 离散 化 ， 并 利用 Kelvin - Tait - Chetayev 定理 判断 航天器 在 轨道 坐标系 中 相对 平衡 的 稳定性 ， 导出 适用 于 任意 阶 模态 的 解析 形式 稳定性 充分条件 ， 分析 帆板 的 弹性 变形 对 航天器 姿态 稳定性 的 影响 。 
+ 　 　 2 　 带 挠性 太阳 帆板 航天器 的 欧拉 方程 
+ 　 　 讨论 万有引力 场内 带 挠性 帆板 的 轨道 静止 航天器 在 圆 轨道 中 的 姿态 运动 。 设 航天器 由主 刚体 B0 和 沿 主轴 双侧 对称 固定 的 矩形 挠性 帆板 B1 、 B2 组成 ( 见图 1 ) 。 挠性 帆板 Bi ( i = 1 , 2 ) 为 悬臂 薄板 结构 ， 其 长度 、 高度 和 厚度 分别 为 a 、 b 、 h ， 中面 固定 端的 中点 O ′ 距 系统 质心 O 的 距离 为 r 。 沿主 刚体 B0 质量 远大于 帆板 Bi ( i = 1 , 2 ) 的 质量 ， 忽略 帆板 弹性 变形 对 质心 偏移 的 影响 。 以 O 为 原点 建立 轨道 坐标系 ( O - XYZ ) ， 其中 X 轴 沿地心 O0 至 O 的 矢径 方向 ， Y 轴 沿 轨道 运动 的 切线 ， Z 轴 沿 轨道 平面 法线 。 将主 刚体 的 主轴 坐标系 ( O - xyz ) 选作 浮动 坐标系 ， z 轴 平行 于 帆板 Bi ( i = 1 , 2 ) 的 固定 边 ， x 轴 沿 帆板 弹性 位移 方向 。 设 帆板 未 变形 时中面 为 ( y , z ) 坐标 面 ， 其上 任意 点 Pi 的 位置 用矢径 表示 ， 为 Pi 点 的 弹性 位移 ， 则 变形 后 帆板 中 面上 任意 点 Pi 相对 O 点 的 矢径 可 写 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 , 　 ( i = 1 , 2 ) 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 其中 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 2 ) 
+ 
+ 图 1 　 带 挠性 太阳 帆板 航天器 
+ 　 　 主轴 坐标系 ( O - xyz ) 相对 轨道 坐标系 ( O - XYZ ) 的 姿态 以 卡尔丹 角 θ 、 ψ 、 φ 表示 ( 见图 2 ) 。 轨道 坐标系 以 角速度 ω c 绕 Z 轴 匀速转动 ， 只 保留 θ 、 ψ 、 φ 的 一次 项 ， 主 刚体 角速度 相对 ( O - xyz ) 各轴 的 投影 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 3 ) 
+ 
+ 图 2 　 参考 坐标系 
+ 　 　 利用 系统 相对 质心 O 的 动量矩 定理 ， 得到 带 太阳 帆板 航天器 系统 相对 O 点 的 欧拉 方程 
+ 　 　 　 　 　 　 　 　 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 4 ) 
+ 其中 “  ” 表示 相对 浮动 坐标系 ( O - xyz ) 的 相对 导数 ， γ 为 帆板 的 体 密度 。 积分 域 S1 、 S2 分别 为 帆板 B1 和 B2 变形 前 的 中面 ， 即 S1 : r ≤ y ≤ r + a , ; S2 : - r - a ≤ y ≤ - r , 。 为主 刚体 连同 变形 后 的 挠性 板 相对 质心 O 的 惯性 张量 ， 忽略 弹性 变形 引起 系统 主 惯性矩 A 、 B 、 C 的 附加 惯性矩 微小 变化 ， 则 相对 ( O - xyz ) 的 分量 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 5 ) 
+ 其中 Jij 为 帆板 弹性 变形 产生 的 惯性 积 
+ 　 　 　 　 　 　 　 　 　 　 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 6 ) 
+ 　 　 　 　 　 　 　 　 　 　 ( 6 ) 
+ 为 作用 于 系统 的 万有引力 对 O 点 的 主矩 ， 其 相对 ( O - xyz ) 各轴 的 投影 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 7 ) 
+ 将式 ( 2 ) 、 ( 3 ) 、 ( 5 ) 、 ( 7 ) 代入 方程 ( 4 ) ， 导出 带 双侧 挠性 帆板 航天器 姿态 运动 的 动力学 方程 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 8 ) 
+ 　 　 　 　 　 　 　 　 　 　 
+ 　 　 3 　 帆板 的 振动 方程 
+ 　 　 为 使 方程组 ( 8 ) 封闭 ， 考虑 挠性 帆板 Bi ( i = 1 , 2 ) 的 强迫 振动 方程 。 设 作用 于 帆板 Bi 上 的 分布 载荷 为 ( y , z , t ) , 沿 x 轴 的 弹性 位移 为 ui ( y , z , t ) ， 列出 帆板 Bi ( i = 1 , 2 ) 的 横向 振动 方程 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 9 ) 
+ 其中 D 为 帆板 的 弯曲 刚度 ， 定义 为 ： 
+ 
+ E 、 v 分别 为 帆板 的 弹性模量 和 泊松比 。 ( y , z , t ) 为 惯性力 和 万有引力 引起 的 沿 x 轴 方向 的 分布 载荷 ， 分别 记作 和 ( i = 1 , 2 ) ， 即 
+ 　 　 　 　 　 　 　 　 　 　 　 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 10 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 
+ 其中 μ 为 万有引力 参数 ， 、 分别 为 帆板 Bi 中 面上 任意 点 Pi 和 质心 O 相对 地心 O0 的 矢径 ， 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 11 ) 
+ 将式 ( 2 ) 、 ( 3 ) 、 ( 11 ) 代入 式 ( 10 ) ， 并 注意 ， 化简 后 得到 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 12 ) 
+ 将 帆板 Bi 的 强迫 振动 方程 ( 9 ) 中 的 分布 载荷 以式 ( 12 ) 代入 ， 导出 
+ 　 　 　 　 　 　 　 　 
+ 　 　 　 　 　 　 　 　 　 　 　 ( 13 ) 
+ 　 　 4 　 方程 的 离散 化 
+ 　 　 设 挠性 帆板 B1 和 B2 有 相同 的 模态 函数 ， 利用 迦 辽金 离散 化 方法 ， 将 惯性力 和 万有引力 作用 下 的 帆板 Bi 强迫 振动 特解 ui ( y , z , t ) 写成 一端 固定 的 悬臂 板 自由 振动 模态 Φ j ( y , z ) , ( j = 1 , … , N ) 的 线性组合 ［ 6 ］ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 14 ) 
+ 其中 qij ( i = 1 , 2 , j = 1 , … , N ) 为 帆板 Bi 各阶 模态 坐标 。 模态 Φ j 满足 以下 正交 条件 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 15 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 
+ 其中 δ jk 为 克罗 尼克 符号 ， σ j 为板 自由 振动 的 第 j 阶 固有频率 。 将式 ( 14 ) 代入 方程 ( 8 ) 和 ( 13 ) ， 式 ( 13 ) 各项 再 依次 乘以 Φ j ( j = 1 , … , N ) , 并 沿 帆板 中 面对 y , z 积分 ， 利用 式 ( 15 ) 进行 简化 ， 导出 离散 化 的 动力学 方程 
+ 　 　 　 　 　 　 ( 16 ) 
+ 其中 参数 mj , nj 定义 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 17 ) 
+ mj 和 nj 是 由 对称 和 反对 称 模态 构成 的 积分 ， 分别 由 帆板 的 弯曲 变形 和 扭转 变形 引起 。 
+ 　 　 5 　 姿态 稳定性 条件 
+ 　 　 将 方程组 ( 16 ) 写作 矩阵 形式 ， 其中 的 δ jk 以 1 或 0 代替 ， 得到 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 18 ) 
+ 其中 q 为 由 2N + 3 个 广义坐标 qj 排列 而成 的 广义坐标 列阵 ， M 为 2N + 3 阶 对称 惯量 阵 ， G 为 2N + 3 阶反 对称陀螺 阵 ， K 为 2N + 3 阶 对称 刚度 阵 。 各 矩阵 定义 为 
+ 
+ 　 　 　 　 
+ 　 　 　 　 　 　 ( 19 ) 
+ 　 　 　 
+ 　 　 利用 Kelvin - Tait - Chetayev 定理 判断 系统 在 轨道 坐标系 内 相对 平衡 的 稳定性 ［ 7 ］ 。 质量 阵 M 的 正 定性 条件 通过 初等变换 整理 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 20 ) 
+ 由于 、 、 与 挠性 帆板 的 惯性矩 同 数量级 ， 后者 已 包含 于 系统 的 总 惯性矩 A 、 B 、 C ， 因此 惯量 阵 M 必 正定 。 系统 的 稳定性 取决于 刚度 阵 K 的 正交 性 ， 由式 ( 19 ) 刚度 阵 K 的 正 定性 可 导出 以下 条件 
+ 　 　 　 　 　 　 　 　 　 　 ( 21 ) 
+ 根据 Kelvin - Tait - Chetayev 定理 ， 条件 ( 21 ) 为 带 双侧 帆板 航天器 轨道 坐标系 内 相对 平衡 稳定性 的 充分条件 。 
+ 　 　 讨论 两种 特例 ： 
+ 　 　 1 ) 令 nj = 0 ( j = 1 , … , N ) ， 则 挠性 帆板 退化 为 沿 x 轴 方向 弯曲 变形 的 挠性 杆 ， 条件 ( 21 ) 转化 为 带 一对 挠性 杆 航天器 姿态 稳定性 条件 ［ 8 ］ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 22 ) 
+ 　 　 2 ) 令 mj = nj = 0 , ( j = 1 , … , N ) ， 条件 ( 21 ) 则 化为 周知 的 万有引力 场中 刚体 卫星 姿态 稳定性 条件 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 C ＞ B ＞ A 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 23 ) 
+ 　 　 引入 以下 无纲 参数 λ 、 β 、 δ 、 ε 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 24 ) 
+ 　 　 若 挠性 帆板 的 惯性矩 在 系统 的 总 惯性矩 中所 占 比例 较 小 ， 则 δ 、 ε 为 小 参数 ， 只 保留 δ 、 ε 的 一次 项 ， 稳定性 条件 ( 21 ) 可简化 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 25 ) 
+ 　 　 以 λ 、 β 为 坐标轴 建立 参数 平面 ( λ ， β ) ， 图 3 ( a ) 给出 以 δ 为 参变量 的 ( λ ， β ) 参数 平面 内 的 稳定 域 边界 ， 图中 表示 了 帆板 弯曲 变形 对 航天器 姿态 的 影响 。 图 3 ( b ) 给出 以 ε 为 参变量 的 ( λ ， β ) 参数 平面 内 的 稳定 域 边界 ， 图中 表示 了 帆板 扭转 变形 对 航天器 姿态 的 影响 。 通过 本文 的 讨论 可以 看出 由 刚体 航天器 在 ( λ ， β ) 参数 平面 上 围成 的 三角形 拉格朗 日区 随着 帆板 的 变形 的 增大 而 逐渐 缩小 ， 分别 体现 出 帆板 的 弯曲 变形 和 扭转 变形 对 航天器 姿态 稳定性 的 不利 影响 ， 从而 为 带 挠性 太阳 帆板 航天器 的 失稳 现象 提供 了 理论 解释 。 
+ 　 　 　 　 　 　 　 　 　 　 
+ 　 　 ( a ) 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( b ) 
+ 图 3 　 带 挠性 太阳 帆板 航天器 的 稳定 域 
+ * 国家自然科学基金 资助 项目 
+ 作者 单位 ： 戈 新生 ： 北京 机械 工业 学院 . 北京 . 100085 
+ 　 　 　 　 　 刘延柱 上海交通大学 . 上海 . 200030 
+ 参考文献 
+ 　 　 1 　 Cherchas   D   B , Houghes   P   C . Attitude   stability   of   a   dual - spin   satellite   with   a   large   flexible   solar   array . J   Spacecraft   and   Rockets , 1973 , 10 ( 2 ) ; 126 ～ 132 
+ 　 　 2 　 Pfeiffer   F , Pohl   A . Dynamics   of   a   satellite   with   a   flywheel   and   flexible   solar   array . Raumfahrtforschung , 1974 , ( 6 ) ; 277 ～ 285 
+ 　 　 3 　 Ibrahim   A   E , Misra   A   K . Attitude   dynamics   of   satellite   during   deployment   of   large   plate - type   structures . J . Guidance , Control   and   Dynamics , 1982 , 5 ( 5 ) ; 442 ～ 447 
+ 　 　 4 　 刘延柱 . 万有引力 场中带 挠性 板非 轴对称 航天器 的 姿态 稳定性 . 固体 力学 学报 ， 1994 ， ( 15 ) 4 ： 296 ～ 302 
+ 　 　 5 　 刘延柱 . 万有引力 场中带 挠性 板 陀螺 体 的 稳定性 . 非线性 动力学 学报 ， 1995 ， ( 增刊 ) ， 166 ～ 172 
+ 　 　 6 　 Meirovitch   L . Elements   of   Vibration   Analysis . McGraw - Hill , 1975 
+ 　 　 7 　 Zajac   E   E . The   Kelvin - Tait - Chetayev   theorem   and   extensions . J   Astronaur   Science , 1964 , 11 ( 2 ) ; 46 ～ 49 
+ 　 　 8 　 刘延柱 . 航天器 姿态 动力学 . 北京 ： 国防工业 出版社 ， 1995 
+ 收稿 日期 : 1997 年 2 月 24 日 , 修回 日期 : 1998 年 3 月 23 日 

@@ -1,0 +1,137 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 9 期   Vol.36   No.9   1999 
+ 
+ 
+ 
+ 汉语 词语 边界 自动 划分 的 模型 与 算法 
+ 付国宏 　 王晓龙 
+ 摘 　 要 　 在 引入 词形 和 汉字 结合点 等 概念 基础 上 ， 文中 分别 描述 了 一个 基于 字串 构词 能力 的 词形 模型 和 一个 基于 词语 内部 、 外部 汉字 结合 度 的 汉字 结合点 模型 ， 并 采用 线性插值 方法 将 两种 模型 融合 于 一体 进行 汉语 词语 边界 划分 . 在 分析 汉语 切分 候选 空间 的 基础 上 ， 文中 还 给出 了 相应 的 优化 搜索算法 . 与 一般 的 统计 方法 相比 ， 文中 方法 的 模型 参数 可 直接 从 未经 加工 粗 语料 中 得到 ， 具有 较强 的 适应能力 . 初步 试验 表明 该 方法 是 有效 和 可靠 的 . 
+ 关键词 　 汉语 分词 ， 词形 ， 字 结合点 
+ 中图法 分类号 　 TP391 ； TP301.6 
+ MODELS   AND   ALGORITHM   FOR   ASSIGNING   WORD   BREAKS   TO   CHINESE   TEXT 
+ FU   Guo - Hong   and 
+ ( Department   of   Computer   Science   and   Engineering ,   Harbin   Institute   of   Technology ,   Harbin   150001 ) 
+ WANG   Xiao - Long 
+ ( Department   of   Computer   Science ,   Hong   Kong   Polytechnic   University ，   Hong   Kong ) 
+ Abstract 　 In   this   paper ,   the   word   form   model   ( WFM )   based   on   word   formation   power   of   Chinese   character   string   and   the   character   juncture   model   ( CJM )   based   on   the   affinity   of   the   Chinese   character   pairs   inside   or   outside   words   are   described   respectively .   Then   a   linear   interpolation   method   is   applied   to   combine   these   two   models   together   to   assign   word   breaks   to   Chinese   text .   The   relative   searching   algorithm   is   also   given   after   the   searching   space   is   analyzed .   Compared   with   general   statistic   models ,   the   parameters   of   the   models   proposed   can   be   directly   trained   from   raw   corpus ,   which   results   in   a   strong   adaptability .   The   approach   has   proven   both   reliable   and   efficient   by   experiments .   
+ Key   words 　 Chinese   word   segmentation ,   character   juncture ,   word   form 
+ 1 　 引言 
+ 　 　 词是 自然语言 中有 意义 的 、 可以 独立 运用 的 最小 单位 . 大多数 自然语言 处理 系统 ， 如 机器翻译 、 语音 识别 等 都 将 词 作为 基本 的 处理 单位 . 但是 汉语 文本 是 基于 字 的 ， 词 与 词 之间 除了 标点 外 没有 其它 界限 标志 . 因而 对于 大多数 汉语 处理 ， 首先 要 解决 的 问题 是 汉语 分词 . 
+ 　 　 目前 ， 汉语 分词 主要 有 三大类 方法 ： 基于 词典 与 规则 的 方法 ［ 1 ～ 3 ］ 、 基于 统计 的 方法 ［ 4 ， 5 ］ 和 混合 方法 ［ 6 ］ . 虽然 汉语 分词 的 研究 已 取得 巨大成就 ， 但 由于 汉语 词 定义 的 模糊 以及 词语 链 现象 和 汉语 词典 覆盖 能力 的 限制 ， 迄今 还 没有 比较 实用 的 分词 系统 出现 . 
+ 　 　 汉语 的 分词 实际上 是 一个 汉语 词语 边界 划分 过程 . 针对 其中 存在 的 切分 歧义 问题 ， 本文 引入 汉字 结合点 和 词形 等 概念 ， 在 分析 了 汉语 字串 的 构词 能力 、 词语 内部 汉字 间 结合 能力 和 相邻 词 的 边界 字 影响 基础 上 ， 分别 描述 了 词形 模型 和 汉字 结合点 模型 ， 并 采用 线性插值 方法 将 两种 模型 融合 于 一体 进行 汉语 词语 边界 划分 . 同时 对 汉语 分词 的 切分 候选 空间 进行 了 分析 ， 并 给出 相应 的 优化 搜索算法 . 与 传统 的 统计 方法 相比 ， 本文 提出 的 方法 所 需 参数 可 直接 通过 未经 加工 的 粗 语料 训练 ， 具有 较强 的 适应能力 . 理论 推导 和 初步 的 实验 表明 ， 本文 提出 的 方法 是 有效 和 可靠 的 . 
+ 2 　 基于 统计 的 汉语 词语 边界 划分 模型 
+ 2.1 　 汉语 词语 边界 划分 的 概率 框架 
+ 　 　 定义 1 .   设有 一 含有 n 个 汉字 待 切分 的 输入 句子 S = Cn1 = c1c2 … cn ， 其中 每一 相邻 汉字 对 cici + 1 ( 1 ≤ i ≤ n ) 称为 字 结合点 ( character   juncture ) . 结合点 有 两种 类型 ： 词语 边界 结合点 和 非 词语 边界 结合点 ， 分别 记 作 ： tb = “ / ” 和 tf = “ ” . 
+ 　 　 定义 2 . 设 汉语 分词 词典 为 D ， 若 存在 汉字 字串 Cji ∈ D ， 则 称 该 字串 为 词形 ( word   form ) ， 记作 f . 若 存在 f ∈ S ， 词形 f 表示 的 实际上 是 句子 S 中 的 一个 切分 候选 词语 . 
+ 　 　 对于 某一 词语 w = Cji ( 1 ≤ i ≤ j ≤ n ) ∈ S ， 其 内部 各 汉字 结合点 标记 为 tf ， 而 其 边界 结合点 cjcj + 1 标记 则 为 tb . 于是 ， 汉语 分词 可以 描述 为 这样 一个 汉语 词语 边界 划分 过程 ： 利用 汉字 结合点 标记 tb 或 tf 将 句子 S 切 分成 一系列 字串 Cji = ci … cj ( 1 ≤ i ≤ j ≤ n ) ， 使得 字串 所 构成 的 词 所 形成 的 词串 W = Wm1 = w1w2 … wm 满足 汉语 语言学 要求 . 设 F = Fm1 = f1f1 … fm 为 W 对应 的 词形 串 ， T 为 相应 的 汉字 结合点 标记 串 ， 则 切分 词串 W 可 表示 为 二元 组 〈 F , T 〉 . 设 W ^ 为 句子 S 的 最佳 切分 候选 ， 则 ： 
+ = argwmaxWPr ( W ｜ C ) = argwmaxWPr ( F , T ｜ C ) 
+ = argwmaxWPr ( F ｜ C ) Pr ( T ｜ F , C ) 
+ = argwmaxWPr ( F ｜ C ) Pr ( T ｜ F ) 
+ ( 1 ) 
+ 式 中 Pr ( . ) 表示 概率 , arg   max ( . ) 表示 ( . ) 最大 最优 . 式 中 第一步 推导 利用 了 概率 乘法 公式 ， 第二步 推导 则 假设 结合点 标记 只 在 词形 这一 层面 有 意义 . 下面 本文 将 分别 从 汉字 串 构词 能力 （ 词形 模型 ） 和 汉字 结合点 的 影响 （ 结合点 模型 ） 给出 式 ( 1 ) 中 概率 和 的 计算公式 ， 最后 给出 两者 结合 的 计算 模型 . 
+ 2.2 　 汉语 字串 的 构词 能力 描述 — — 词形 模型 ( WFM ) 
+ 　 　 对于 给定 的 输入 字串 ， 有 Pr ( F ｜ C ) = Pr ( F ) = Pr ( W ) ， 这 实际上 是 一个 基于 词频 的 分词 模型 ［ 7 ］ . 该 模型 的 关键 是 词频 参数估计 ， 一般 通过 分 词语 料 的 有 导师 学习 ， 但 目前 大规模 的 汉语 分 词语 料 还 很 难 获得 . 文献 ［ 4 ］ 曾 采用 串频 的 方法 近似 地 估计 词频 ， 虽然 这种 方法 能 实现 无 导师 的 学习 ， 但 这种 方法 某种程度 上 是 一种 短词 优先 的 方法 ， 因而 易 产生 短词 较 多 的 分词 结果 . 文献 ［ 7 ］ 提出 了 最大 匹配 串频 的 改进 方法 ， 虽然 能 避免 分词 结果 中短词 的 大量 出现 ， 但 该 方法 容易 产生 这样 的 数据 稀疏 ： 当词 w1 是 词 w2 的 一个 子串 ， 而 在 训练 语料 中 w1 总是 作为 w2 的 子串 出现 ， 那么 w1 的 词频 Pr ( w1 ) = 0 ［ 4 ］ . 基于 上述 问题 ， 我们 采用 汉字 字串 构词 能力 的 方法 近似 估计 词频 . 
+ 　 　 从 统计 角度 ， 词形 f = Cji 的 构词 能力 ( word   formation   power ， WFP ) 大小 不仅 与 词形 的 实际 使用 频度 有关 ， 而且 与 包含 该 词形 的 词形 使用 程度 有关 . 设 Pf ( f ) 表示 词形 f 的 构词 能力 ， f ′ 表示 包含 词形 f 的 词形 ， 即 f  ( f ′ ∈ D ) , N ( \ 5 ) 表示 词形 所 含 字串 的 频度 ， 可 直接 从未 加工 的 文本 中 学习 得到 ， 则 
+ 
+ ( 2 ) 
+ 设 F = f1f2 … fm 为 句子 S 的 某 一 词形 串 ， 假设 忽略 相邻 词形 的 相互影响 ， 则 
+ Pr ( F ｜ C ) = Pr ( f1f2 … fm ｜ Cn1 ) = Pr ( fk ｜ Cn1 ) ≈ Pf ( fk ) 
+ ( 3 ) 
+ 式 ( 3 ) 即 词形 模型 ， 它 从 汉字 字串 构词 能力 角度 描述 句子 S 切 分成 词形 串 F 所 对应 的 词串 W 的 可能性 . 
+ 2.3   汉字 结合点 模型 ( CJM ) 
+ 　 　 设 t ( cici + 1 ) 表示 汉字 结合点 的 类型 ， 若 某 一 候选词 形是 为 词 f = Cji ∈ S ( 1 ≤ i ≤ j ≤ n ) 是 为 词 ， 则  i ≤ l ＜ j , t ( clcl + 1 ) = tf ， 而 t ( cjcj + 1 ) = tb . 设 Pj ( f ) 为 词形 f 所 对应 的 字 结合点 标记 串 的 概率 ， 则 
+ Pj ( f ) = Pr ( t ( cjcj + 1 ) ) = tb ｜ cjcj + 1 ) Pr ( t ( clcl + 1 ) = tf ｜ clcl + 1 ) 
+ ( 4 ) 
+ 　 　 显然 ， Pj ( f ) 越大 ， 词形 f 越有 可能 被切 分为 词语 . 假设 相邻 词形 的 相互影响 只 作用 在 词形 边界 结合点 ， 则 
+ Pr ( T ｜ F ) = Pj ( fk ) 
+ ( 5 ) 
+ 式 ( 5 ) 即 汉字 结合点 模型 . 它 反映 了 相邻 汉字 结合 程度 和 词 边界 相互影响 ， 该 模型 实际上 是 一个 无 词典 分词 模型 . 式 中 参数 必须 通过 已分 完词 的 熟 语料 进行 训练 ， 而 大规模 的 语料 很难 得到 . 为了 避免 这种 情况 ， 本文 引入 汉字 互信息 来 简化汉字 结合点 模型 . 
+ 　 　 对于 字 结合点 cici + 1 ， 设 MI ( cici + 1 ) 为 相应 的 互信息 ， 则 
+ 
+ ( 6 ) 
+ 一般 地 ，  cici + 1 , Pr ( t ( cici + 1 ) = tf ) ∝ MI ( cici + 1 ) . 这 意味着 ， 词语 内部 的 各字 对 的 互信息 较大 ， 而 在 相邻 词间 字 对 的 互信息 相对 较 小 . 于是 ， 式 ( 4 ) 可简化 为 ： 
+ Pj ( f ) = MI ( clcl + 1 ) - MI ( cjcj + 1 ) 
+ ( 7 ) 
+ 2.4   两种 模型 相 融合 的 计算 模型 
+ 　 　 由 以上 分析 可以 看出 ： 词形 模型 Pf 只 考虑 字串 的 构词 能力 ， 而 忽视 了 上下文 的 影响 ； 而 词语 边界 模型 Pb 则 只 强调 相邻 词形 边界 和 词形 内部 相邻 字间 结合 能力 的 相互影响 ， 忽视 词形 的 整体 构词 能力 . 因此 ， 有 必要 将 两种 模型 融合 . 但 实际 中 两者 的 数量级 和 影响 程度 不同 ， 同时 为了 保证 它们 的 单调 性 一致 ， 因此 本文 将式 ( 3 ) 取负 对数 之后 ， 采用 线性插值 的 方法 将 词形 模型 和 词语 边界 模型 融合 在 一起 ， 近似 地 逼近 式 ( 1 ) ， 即 
+ = argwminW ｛ - λ logPf ( fk ) - ( 1 - λ ) Pj ( fk ) ｝ 
+ ( 8 ) 
+ 式 ( 8 ) 即 本文 的 汉语 词语 边界 划分 计算 模型 . 其中 ， 数 λ ( 1 ≤ λ ≤ 1 ) 为 插值 系数 ， 可 通过 实验 确定 ， 如表 2 所示 ， 本文 取 λ = 0.9 ； arg   min ( . ) 表示 ( . ) 最小 最优 . 
+ 　 　 由于 式 ( 8 ) 中 词形 概率 采用 了 对数 形式 的 概率 描述 即 - logPf ( f ) ， 而字 结合点 概率 取 了 负数 ， 因而 对于 给定 的 输入 字串 ， 分词 的 目的 就 是从 所有 可能 的 切分 中 寻找 一个 切分 词串 ， 使式 ( 8 ) 的 计算 值 最小 . 
+ 　 　 式 ( 8 ) 所 使得 简化 模型 中 各 参数 可 直接 由 未经 加工 的 汉语 原始 文本 统计 得到 ， 而且 训练 空间 也 大大降低 ， 提高 了 模型 的 适应能力 . 设 Vc ， Vw 分别 表示 汉字 字库 和 汉语 词典 的 大小 ， 本文 模型 的 参数 训练 空间 ( 包括 词形 频度 、 汉字 共现 对 、 字频 等 ) 总共 为 V2c + 2Vw + Vc ， 低于 同 级别 基于 词 的 bi - gram 模型 的 训练 空间 V2w ， 因为 一般 情况 下 VcVw . 
+ 3 　 切分 候选 空间 与 搜索算法 
+ 3.1 　 切分 候选 空间 
+ 　 　 定义 3 . 在 给定 的 输入 句子 S = Cn1 中 ， 首尾相连 的 词形 所 构成 的 词形 串 F = Fm1 = f1f2 … fm 称为 该 句子 的 切分 候选词 串 . 
+ 　 　 定义   4 . 对于 含 n 个 汉字 的 输入 句子 S ， 其 切分 候选词 串 一般 有 多个 ， 我们 把 句子 S 的 所有 可能 的 切分 候选词 串 所 构成 的 集合 ｛ F ｝ 称为 句子 的 切分 候选 空间 ， 记 作 Γ n . 切分 候选 空间 的 大小 以 Φ n 表示 ， 即 Φ n = ｜ Γ n ｜ . 
+ 　 　 设在 给定 的 输入 句子 S = Cn1 = c1c2 … cn 中 ， lmax 表示 最大 词 长 ， 则 以 汉字 ci 为首 字 的 词形 集合 可 表示 为 { fk } = { Cji | Cji = ci … cj ∈ D , 1 ≤ i ≤ j ≤ n , 1 ≤ j - i + 1 ≤ lmax ｝ ， 相应 的 各 词形 长度 （ 字数 ） 为 lk ( 1 ≤ k ≤ ni ) ， ni 为 该 词形 集 的 大小 . 设 Φ ( i ) 为 字串 Cni 的 所有 候选词 串数 ， 则 
+ 
+ ( 9 ) 
+ 由式 ( 9 ) 通过 反向 递归 并 遍历 句子 S 从而 求得 切分 候选 空间 Γ n 和 相应 的 大小 Φ n = Φ ( 1 ) . 由此 可以 计算 句子 “ 中国 人民 生活 水平 进入 小康 ” 的 切分 候选 空间 大小 为 168 ， 即该 句子 有 168 种 切分 情况 ， 其 计算 过程 如表 1 所示 ， 其中 ni 通过 正向 词典 匹配 得到 . 
+ 表 1 　 切分 候选 空间 大小 Φ n 的 计算 
+ i123456789101112 
+ S 中国 人民 生活 水平 进入 小康 
+ ni322222222121 
+ Φ ( i ) 1688452322012844221 
+ 3.2   搜索算法 
+ 　 　 输入 句子 S 的 切分 过程 实际上 是 在 切分 候选 空间 Γ n 中 寻找 一个 最佳 的 切分 候选词 串 W ^ ， 使 其 满足 式 ( 8 ) . 解决 这 类 问题 比较 有效 的 方法 是 利用 网格 形式 表示 所有 的 候选 ， 并 给 网格 打分 ， 最后 采用 动态 规划 算法 或 其他 算法 遍历 网格 ， 从中 搜索 一条 最佳 路径 输出 . 本文 在 引入 词形 网格 和 全 切分 思想 的 基础 上 ， 采用 反向 动态 规划 算法 同 正向 栈 解码 算法 相结合 的 二次 扫描 算法 ， 算法 主要 分两 大步 ： ( 1 ) 利用 词典 匹配 和 定义 3 ， 生成 词形 网格 ， 并 由 统计 数据库 和 公式 ( 2 ) 、 ( 7 ) 给 各 网格 打分 ； ( 2 ) 采用 反向 动态 规划 算法 同 正向 栈 解码 算法 相结合 的 二次 扫描 算法 遍历 整个 词形 网格 ， 从中 搜索 一条 满足 式 ( 8 ) 的 最佳 路径 输出 . 有关 词形 网格 的 定义 和 算法 我们 曾 在 文献 ［ 8 ］ 中作 过 具体 描述 ， 这里 不再 赘述 . 
+ 4 　 实验 结果 分析 
+ 　 　 依据 上面 所 论述 的 思想 ， 我们 实现 了 一个 面向 汉语 真实 文本 的 汉语 词语 边界 划分 系统 . 系统 字库 为 GB2312 - 80 字库 ( 含 6763 个 汉字 ） . 系统 词典 包括 57400 词 ， 主要 由 电子版 的 北京大学 《 现代汉语 语法 信息 词典 》 ［ 9 ］ 组成 ， 在 此基础 上 补充 了 空缺 的 GB2312 - 80   汉字 和 常用 的 5 ～ 7 字词 ， 以 使 词典 更加 完备 . 本文 采用 1993 年 电子版 《 人民日报 》 （ 共计 1874 多万 字 ） 对系统 词典 中 各词 所 包含 字串 的 构词 能力 和 系统 字库 各字 对 的 亲 合度 进行 了 训练 . 同时 采用 文献 ［ 10 ］ 中 已 完成 分词 的 语料 （ 共计 346427 词 ， 585936 字 ） 作为 主要 测试 语料 ， 并 采用 常用 的 汉语 分词 评价 指标 分词 准确率 α 和 消歧率 β 作为 本文 系统 的 评价 指标 ， 即 ： 
+ 
+ ( 10 ) 
+ 
+ ( 11 ) 
+ 测试 内容 主要 包括 两个 方面 ： 分词 准确率 的 影响 因素 和 模型 的 消歧 能力 . 本节 在 给出 系统 性能 评价 指标 的 基础 上 ， 分别 该出 上述 两 方面 的 实验 结果 ， 并 对 结果 进行 了 分析 . 
+ 4.1 　 切分 准确率 α 的 影响 因素 
+ 　 　 影响 切分 准确率 α 的 因素 有 很多 ， 本文 的 实验 主要 包括 插值 系数 、 模型 和 未 登录 词 （ 新词 ） 等 方面 ， 实验 结果 如表 2 和表 3 所示 . 
+ 　 　 表 2 给出 了 词典 覆盖 测试 语料 所有 词语 时 切分 正确率 α 随 插值 系数 λ 的 变化趋势 . 从表中 数据 可以 看出 ： 当 λ = 0.9 时 ， 在 不 考虑 未 登录 词 的 情况 下 切分 正确率 α 达到 最大值 99.75% ， 分别 高于 汉字 结合点 模型 （ λ = 0.0 ） 的 98.39% 和 词形 模型 （ λ = 1.0 ） 的 99.62% . 
+ 表 2 　 准确率 α 与 插值 系数 λ 的 关系 
+ 
+ λ 0.00 . 10.20 . 30.40 . 50.60 . 70.80 . 91.0 
+ α ( % ) 98.3998 . 4498.4998 . 5698.6998 . 8098.9899 . 1699.4499 . 7599.62 
+ 
+ 　 　 表 3 给出 了 词典 未 登录 词 和 分词 模型 对 准确率 α 的 影响 实验 结果 . 从表中 数据 可以 看出 ： ( 1 )   词形 模型 和 无 词典 的 结合点 模型 均 取得 了 较 好 的 实验 结果 ， 说明 两种 模型 是 有效 的 ； ( 2 ) 词形 模型 与 结合点 模型 的 结合 有利于 提高 切分 性能 ， 混合 模型 的 切分 正确率 高出 同 条件 下 的 最大 匹配 分词 0.44 个 百分点 ； ( 3 ) 未 登录 词对 准确率 影响 较大 . 
+ 表 3 　 未 登录 词 、 模型 对 准确率 α ( % ) 的 影响 ① 
+ 
+ 方法 或 模型 最大 匹配 结合点 模型 词形 模型 混合 模型 
+ 词典 覆盖 未 登录 词 99.3298 . 3999.6299 . 75 
+ 词典 不含 未 登录 词 97.5196 . 9897.8097 . 95 
+ 
+ 4.2 　 汉语 边界 划分 模型 的 消歧 能力 
+ 　 　 本文 分别 从 训练 语料 和 测试 语料 抽取 两个 歧义 测试 样本 A 和 B 对模型 的 消歧 能力 进行 了 测试 ， 两个 样本 分别 包括 296 和 708 种 现象 不同 的 歧义 . 测试 结果 如表 4 所示 . 
+ 表   4 　 各 模型 的 消歧 能力 测试 结果 表 
+ 
+ 测   试 
+ 样   本 歧义 数 词形 模型 汉字 结合点 模型 混合 模型 
+ 消歧数 β ( ％ ) 消歧数 β ( ％ ) 消歧数 β ( ％ ) 
+ 样本 A29621973.9924683 . 1125686.49 
+ 样本 B70848269.0858282 . 2859684.18 
+ 
+ 　 　 从表中 数据 可 看出 ： ( 1 ) 混合 模型 的 综合消 歧 能力 ( 包括 交叉 歧义 和 组合 歧义 消解 ) 最高 ， 针对 两个 测试 样本 A 和 B ， 其 消歧率 分别 为 86.49% 和 84.18% ； ( 2 ) 样本 A 的 实验 结果 优于 样本 B 的 结果 ， 即 封闭 消歧 性能 好于 开放 ， 但 由于 本文 模型 可 直接 从 未经 加工 的 语料 中 训练 ， 如果 在 每次 分析 前 ， 实现 对待 切分 语料 进行 学习 ， 可 弥补 这个 差异 ； ( 3 ) 表中 数据 还 显示 ： 汉字 结合点 模型 的 消歧 能力 比 词形 模型 强 . 据 分析 ， 其 原因 可能 是 字 结合点 模型 不仅 考虑 了 汉字 对 的 结合 能力 ， 还 考虑 了 相邻 词 的 边界 影响 .   
+ 5 　 结论 与 展望 
+ 　 　 本文 提出 了 一个 汉语 词语 边界 自动 划分 的 统计 模型 ， 并 在 分析 了 有关 汉语 分词 的 搜索 空间 基础 上 ， 给出 相应 的 优化 搜索算法 . 本文 方法 的 显著特点 是 将 汉字 字串 的 构词 能力 和 词语 内部 各字间 结合 能力 以及 词语 外部 相邻 词 边界 字 的 影响 等 信息 融于 一体 ， 这些 统计 信息 可以 直接 从 未经 加工 的 粗 语料 中 得到 ， 而且 参数 训练 空间 不 大 ， 因而 具有 较强 的 适应能力 和 应用 前景 . 
+ 　 　 切分 歧义 和 词典 未 登录 词是 汉语 分词 的 两大 难题 ， 本文 主要 解决 的 是 切分 歧义 问题 . 表 3 的 实验 结果表明 ， 未 登录 词 的 影响 不可 忽视 . 未 登录 词 的 自动识别 及其 边界 的 划分 ， 可 考虑 拓展 本文 方法 ， 考虑 汉字 的 构词 能力 ， 并 引入 广义 词形 概念 ， 即 f ∈ S ,  f  D . 受 篇幅 所 限 ， 有关 未 登录 词 问题 将 在 另文 讨论 . 
+ ① 文中 的 所有 实验 结果 没有 考虑 系统 词典 与 测试 语料 定义 不 一致 的 影响 . 
+ 注 ： 本 课题 得到 国家 “ 八 六三 ” 项目 基金 资助 （ 项目编号   863 - 3060 - 3 - 02 - 1 ） . 
+ 作者简介 ： 付国宏 ,   男 ， 1968 年 3 月生 ， 博士 研究生 ， 主要 从事 计算 语言学 方面 的 研究 . 
+ 王晓龙 ， 男 ， 1955 年 3 月生 ， 教授 ， 博士生 导师 ， 主要 从事 人工智能 和 自然语言 理解 的 研究 . 
+ 作者 单位 ： 付国宏 　 哈尔滨工业大学 计算机科学 与 工程系 　 哈尔滨 　 150001 
+ 王晓龙 　 香港理工大学 计算机系 　 香港 
+ 参考文献 
+ 1 　 　 Wang   Xiaolong   et   al .   The   problem   of   separating   characters   into   fewest   words   and   its   algorithms .   Chinese   Science   Bulletin ,   1989 ,   34 ( 22 ) : 1924 ～ 1928 
+ 2 　 　 粱 南元 ,   郑延斌 .   一个 汉语 自动 分词 模型 CWSM 及 自动 分词 系统 PC - CWSS .   Communications   of   COLIPS ,   1991 ,   1 ( 1 ) :   51 ～ 55 
+ ( Liang   Nanyuan ,   Zheng   Yanbin .   A   Chinese   word   segmentation   model   CWSM   and   segmentation   system   PC - CWSS .   Communications   of   COLIPS ( in   Chinese ) ,   1991 ,   1 ( 1 ) :   51 ～ 55 ) 
+ 3 　 　 吴胜远 .   一种 汉语 分词 方法 .   计算机 研究 与 发展 ,   1997 , 33   ( 4 ) : 306 ～ 311 
+ ( Wu   Shengyuan .   A   Chinese   word   segmentation   method .   Computer   Research   and   Development ( in   Chinese ) ,   1997 , 33   ( 4 ) : 306 ～ 311 ) 
+ 4 　 　 Sproat   R ,   Shih   C ,   Gale   W ,   Chang   N .   A   stochastic   finite - state   word   segmentation   algorithm   for   Chinese .   Computational   Linguistics ,   1996 ,   22 ( 3 ) :   377 ～ 404 
+ 5 　 　 孙茂松 ,   黄 昌宁 ,   邹嘉彦 等 . 利用 汉语 二元 语法 关系 解决 汉语 自动 分词 中 的 交集 型 歧义 .   计算机 研究 与 发展 ,   1997 , 34   ( 5 ) :   332 ～ 339 
+ ( Sun   Maosong ,   Huang   Changning ,   Zhou   Jiayan   et   al .   Using   character   bi - gram   for   ambiguity   resolution   in   Chinese   word   segmentation .   Computer   Research   and   Development ( in   Chinese ) ,   1997 , 34   ( 5 ) :   332 ～ 339 ) 
+ 6 　 　 Wong   P   K ,   Chan   C   K .   Chinese   word   segmentation   based   on   maximum   matching   and   word   binding   force .   In :   Proc   of   COLING   ' 96 ,   16th   Int   Conference   on   Computational   Linguistics ,   Copenhagen ,   Denmark ,   1996 .   200 ～ 203 
+ 7 　 　 Nasaaki   Nagata .   A   self - organizing   Japanese   word   segmenter   using   heuristic   word   identification   and   re - estimation .   In :   Proc   of   the   5th   Workshop   on   Very   Large   Corpora ,   Beijing ,   1997 .   203 ～ 215 
+ 8 　 　 付国红 , 王晓龙 , 龚永红 .   基于 词形 的 汉语 文本 切分 方法 .   见 :   第五届 全国 人机 语音 通讯 学术会议 论文集 ( NCMMSC - 98 ) , 哈尔滨 , 1998 .   328 ～ 332 
+ ( Fu   Guohong ,   Wang   Xiaolong ,   Gong   Yonghong .   Word - form   based   Chinese   word   segmentation ( in   Chinese ) .   In :   Proc   of   the   5th   National   Conference   on   Man - Machine   Speech   Communication ,   Harbin ,   1998.328 ～ 332 ) 
+ 9 　 　 俞士 汶 等 .   现代汉语 语法 信息 词典 详解 .   北京 :   清华大学出版社 ,   1998 
+ ( Yu   Shiwen   et   al .   The   Grammatical   Knowledge - Base   of   Contemporary   Chinese — — A   Complete   Specification ( in   Chinese ) .   Beijing :   Tsinghua   University   Publishing   House ,   1998 ) 
+ 10   Hasan   M   M .   Multilayer   feedforward   neural   networks   in   part - of - speech   tagging   and   word   sense   disambiguation ［ Master   D   dissertation ] .   National   University   of   Singapore ,   Singapore ,   1997 
+ 11   Taylor   P ,   Black   A   W .   Assigning   phrase   breaks   from   part - of - speech   sequences .   Computer   Speech   and   Language ,   1998 , 12 ( 1 ) :   99 ～ 117 
+ 原稿 收到 日期 ： 1999 - 01 - 05 ； 修改稿 收到 日期 ： 1999 - 06 - 03 . 

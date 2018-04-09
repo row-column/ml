@@ -1,0 +1,52 @@
+计算机 工程 
+ Computer   Engineering 
+ 1999 年 　 第 25 卷 　 第 9 期 　 Vol.25   No.9     1999 
+ 
+ 
+ 
+ 算法 执行 过程 的 可视化 在 CAI 中 的 应用 
+ 陈丽娟 
+ 　 　 摘 　 要 ： 试图 利用 多媒体技术 中 的 可视化 方法 ， 用于 建立 数据结构 课程 中 算法 的 可视化 动态 执行 模型 ， 尽管 目前 这种 模型 只能 做到 部分 自动 生成 ， 但 这种 折衷 的 实现 方案 用于 该 课程 的 CAI 制作 还是 取得 了 有益 的 效果 ． 该 课件 内容 的 组织 和 呈现 采用 了 面向对象 的 建模 方式 ， 使得 整个 软件结构 清晰 简单 ． 其中 内容 以 对象 的 属性 表示 ， 呈现 方式 则 按 对象 的 操作 组织 起来 ， 既 可以 用 文本 方式 ， 又 可以 用 可视化 的 动态 模型表示 ， 最后 以 一个 统一 的 界面 提交 给 用户 ． 
+ 　 　 关键词 ： 计算机辅助 教育 ； 算法 ； 可视化 ； 数据结构 ； 对象 
+ Applying   the   Visualized   Algorithm   Execution   Process   to 
+ Computer - aided   Instruction 
+ Chen   Lijuan 
+ ( Department   of   Computer   Engineering ,   Jiangnan   College ,   Wuxi   214063 ) 
+ 　 　 Abstract 　 This   article   describes   an   effort   to   build   a   computer - aided   instruction   system   for   data   structure   course .   The   system   is   based   on   the   visualized   dynamic   execution   model   specially   estabished   for   the   algorithms   in   the   course   via   utilizing   the   visualization   method   of   multimedia   techniques .   Although   the   generation   of   the   model   can   only   be   automated   partially   now ,   this   compromised   implementation   way   works   satisfactorily   in   our   project .   The   overall   system   is   structured   into   serveral   types   of   objects   in   which   the   static   and   dynamic   behavior   knowledge   of   the   courseware   is   organized   as   object ＇ s   attributes ,   with   the   presentation   of   these   knowledge   content   as     object ＇ s   methods .   A   teaching   GUI   is   implemented   on   these   object   models ,   giving   both   student   and   techer   an   uniform   interface   to   intiate   various   teching   or   learning   activities . 
+ 　 　 Key   words 　 CAI ;   Algorithm ;   Visualization ;   Data   structure ;   Object 
+ 　 　 CAI ( Computer - Assisted   Instruction ) 这一 新颖 的 教育 技术 已 得到 越来越 多 的 运用 ， 60 — 80 年代 人工智能 技术 用于 CAI 领域 ， 使 传统 的 CAI 发展 成为 智能 CAI 。 进入 90 年代 后半期 ， 随着 网络 、 多媒体 、 HTML 技术 的 发展 ， 这些 相关 技术 也 融入 了 CAI 领域 ， 极大 地 丰富 了 教学内容 的 组织 手段 和 教学内容 的 呈现 方式 。 但 深层次 的 、 属于 问题 领域 ( 即 所 教授 的 内容 ) 的 模型 建立 依然 没有 得到 很 好 的 解决 ， 尤其 是 问题 领域 的 动态 ( 行为 或 功能 ) 模型 的 抽取 更 困难 ， 但 这 恰恰 是 成功 建立 CAI 软件 的 关键 。 
+ 　 　 历史 上 ， 人们 已 对 一些 简单 或 简化 的 问题 领域 建立 了 部分 思维 行为 模型 ( 如加 、 减法 辅导 、 纠错 、 指导 等 ) [ 6 ] ， 并 试图 涉足 程序设计 等 复杂 、 抽象 的 专业 领域 学习 的 知识 模型 建立 。 但 实现 非常 困难 ， 尤其 从 形式化 途径 ， 如 自动 生成 等 来看 不是 很 成功 。 当前 许多 CAI 系统 依然 还是 以 知识 的 文本 形式 表示 和 呈现 给 学生 ， 不能 从 深层次 反映 知识 的 动态 特性 。 这些 内容 仍要 靠 学生 自己 去 想象 、 发展 和 建立 。 以 数据结构 CAI 为例 ， 目前 面市 的 CAI 课件 [ 1 , 2 ] ， 依然 以 文本 作为 背景 ， 只是 增加 了 音乐 背景 及 旁白 ， 对 算法 的 动态 特性 基本 没有 表现 。 
+ 　 　 下面 从 系统 的 结构 、 可视化 模型 的 建立 ， 界面 的 设计 等 方面 逐一 介绍 数据结构 课程 中 算法 的 可视化 动态 执行 模型 。 
+ 1 　 系统结构 
+ 　 　 系统 的 总体 结构 如图 1 所示 。 整个 系统 以 知识库 为 中心 ， 教师 按 其 对 领域 知识 的 理解 建立 知识 模型 。 其中 领域 教学 知识库 的 组织 按 知识 的 体系结构 分块 ， 每块 为 一 知识 单元 ， 即 一个 对象 。 对象 之间 的 关系 为 知识点 的 关系 ， 有 前提 关系 、 一般 / 特殊 关系 、 组成 / 部分 关系 等 。 算法 执行 的 可视化 通过 算法 动态 演示 执行 模块 实现 ， 学生 或 教师 则 利用 图形界面 通过 知识 导航 模块 到达 相应 的 知识点 。 
+ 
+ 图 1 　 系统结构 
+ 
+ 图 2 　 可视化 模型 建立 过程 
+ 2 　 算法 可视化 动态 执行 模型 的 建立 
+ 　 　 要 自动 建立 算法 的 可视化 动态 执行 模型 相当 困难 ， 这里 采用 自动 和 人工 相结合 的 方式 设计 并 建立 每 一个 算法 的 可视化 动态 执行 模型 ， 用 相应 的 软件 ( 包括 声音 处理软件 、 动画 制作 软件 、 图片 处理软件 ) 建立 素材 。 用 Autherware 将 这些 素材 按 算法 可视化 模型 组织 起来 ， 形成 动态 执行 过程 ， 将 其 作为 对象 的 方法 嵌入 到 知识库 的 相应 知识 对象 中 。 
+ 3 　 界面设计 
+ 　 　 由于 系统 设计 时即 把 每 一 知识 单元 作为 一 对象 处理 ， 所以 非常容易 形成 一个 全 系统 统一 的 操作界面 。 根据 领域 识知 的 特点 ， 分别 设计 了 静态 知识 ( 即 文本 、 声音 、 图片 ) 表现 界面 和 动态 知识 表现 界面 ， 如图 3 、 4 、 5 所示 。 
+ 
+ 图 3 　 静态 知识 界面 
+ 　 　 图 3 为 静态 知识 界面 ， 领域 知识 的 文本 信息 都 通过 该 界面 展示 ， 这里 强调 界面 的 简洁 和 易 操作性 。 在 采用 图形用户界面 的 同时 又 兼顾 人们 的 书本 阅读 习惯 ， 将 各 部分 的 入口 按 目录 形式 列 于 屏幕 左方 ， 构成 知识 导航 区 。 左上方 为 一 不断 旋转 的 立体 章节 名称 ， 不管 处于 该 章节 的 何处 ， 只要 单击 该 图标 即可 回到 这一 章节 的 主 界面 。 左 中部 为 细节 标题 ， 单击 之可链 到 相关 内容 。 左下方 为 exit 标志 ， 单击 可 返回 系统 主 界面 。 右部 为 内容 呈现 部 ， 显示 所 选 章节 的 详细 内容 ， 提供 了 必需 的 超链 和 按键 ， 视 知识点 之间 的 关系 分别 进行 弹出式 和 跳转 式 转移 。 整个 界面 的 操作 与 现在 流行 的 浏览器 界面 一致 ， 操作 人员 不需 培训 即可 使用 。 
+ 　 　 算法 的 可视化 执行 是 本 软件 的 最大 特点 ， 尽管 各个 算法 有 其 不同 的 特性 ， 但 还是 抽取 其 共性 形成 统一 的 动态 知识 表示 界面 和 算法 动态 执行 界面 ， 如图 4 、 5 所示 。 
+ 
+ 图 4 　 动态 知识 表示 界面 
+ 
+ 图 5   算法 动态 执行 界面 
+ 　 　 软件 的 所有 算法 演示 都 采用 动态 知识 表示 界面 ， 见图 4 。 按 算法 执行 图标 后 即 开始 算法 的 可视化 执行 ， 为了 适应 教与学 以及 不同 个体 的 学习 进度 ， 设置 了 自动 与 手动 切换 开关 。 自动 状态 按 预定 的 程序 连续 进行 算法 的 单步 执行 ， 并 配合 语音 讲解 。 手动 状态 则 由 使用者 来 控制算法 的 执行 进度 ， 教师 可 加入 自己 的 观点 ， 学生 可 仔细 研究 算法 的 细节 。 
+ 　 　 每个 算法 采用 的 数据结构 不同 ， 所以 数据 的 表达方式 也 不同 ， 但 演示 过程 相同 。 用 字符 的 反显 来 体现 算法 的 执行 位置 ， 通过 操作 区 控制算法 的 执行 进度 及 终止 。 见图 5 。 
+ 　 　 为 增加 软件 的 吸引力 ， 设计 了 形象 生动 的 封面 及 封底 、 直观 的 主 界面 、 简洁 的 帮助 界面 。 封面 及 封底 每次 进入 系统 只 出现 一次 ， 因此 对 播放 时间 的 限制 不严 ， 且 制作 精良 的 封面 能 立即 吸引 学习者 的 兴趣 ， 所以 考虑 做 得 尽量 生动活泼 些 ， 用 三维动画 实现 并 加上 轻快 的 背景音乐 ， 若 使用者 想 越过 封面 或 封底 只 需 按 Esc 键 即可 。 软件系统 主 界面 则 完全 由 平面 及 立体 图形 构成 ， 提供 进入 各章 、 帮助 系统 、 综合测试 系统 的 手段 以及 系统 的 音乐 开关 ， 操作 直观 、 简便 。 
+ 4 　 结束语 
+ 　 　 领域 知识 的 动态 特性 较难 抽取 ， 而且 很难 表示 ， 但 如果 一个 CAI 系统 想要 成功 ， 这些 都 是 不可 绕过 的 关键问题 。 在 设计 数据结构 CAI 的 实践 中 ， 面向对象 的 建模 方式 能够 有效 地 组织 领域 知识 ， 而 多媒体技术 ， 尤其 是 可视化 技术 的 应用 可 使 领域 知识 具有 多种 生动 的 呈现 方式 ， 两者 的 结合 的确 提供 了 解决 上述 问题 的 途径 ， 不失为 一种 有益 的 探索 和 尝试 。 
+ 作者简介 ： 陈丽娟 ( 1964 ～ ) ， 女 ， 讲师 ， 主研 方向 为 算法 设计 ， 面向对象 技术 的 应用 
+ 作者 单位 ： 江南 学院 计算机 工程系 ， 无锡 　 214063 
+ 参考文献 
+ 1   数据结构 CAI 光盘 .   北京 ： 清华大学出版社 ， 1996   
+ 2   北京 智佳 电子 技术开发 公司 .   数据结构 教学软件 .   北京 ： 电子 工   业 出版社 ， 1996   
+ 3   Buhr   R   J   A ,   Casselman   R   S .   Use   Case   Maps   for   Object -   oriented   Systems .   北京 ： 清华大学出版社 ， 1997 
+ 4   Yourdon   E ， Arigila   C .   Case   Studies   in   Object - oriented   Analysis   &   Design .   北京 ： 清华大学出版社 ， 1996 
+ 5   Rumbugh   J .   OO   Modeling   and   Design .   北京 ： 清华大学出版社 ，   1996 
+ 6   Goldstein   I . The   Genetic   Graph ： A   Representation   for   the   Evolu -   tion   of   Procedural   Knowledge . Sleeman   D ,   Brown   J   S ( Eds ) , Intel -   ligent   Tutoring   Systems ， 1982 
+ 收稿 日期 ： 1999 - 04 - 06 

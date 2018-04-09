@@ -1,0 +1,119 @@
+环境 科学 学报 
+ ACTA   SCIENTIAE   CIRCUMSTANTIAE 
+ 1999 年   第 19 卷   第 5 期   Vol.19   No.5   1999 
+ 
+ 
+ 
+ 化感 物质 对 土壤 N2O 释放 影响 的 研究 * 
+ 黄益宗 　 张福珠 　 刘淑琴 　 曹美秋 
+ 摘要 　 选用 来自 作物 秸秆 腐解 过程 中 产生 的 化感 物质 ( 苯甲酸 和 对 叔 丁基 苯甲酸 ) ， 在 不同 浓度 和 水分 条件 下 对 其 减少 施用 尿素 土壤 中 N2O 释放 的 影响 进行 了 研究 . 结果表明 ， 化感 物质 对 土壤 N2O 释放 有 明显 的 抑制作用 ， 且 随着 浓度 的 增大 ， 其 抑制 效果 越 显著 . 在 土壤水分 为 16.5% 的 状态 下 ， 100ppm 、 250ppm 和 500ppm 浓度 的 苯甲酸 处理 ( 培养 温度 25 — 30 ℃ ) 可 减少 47.4% — 75.3%   N2O 从 土壤 中 释放 ； 而 当 土壤水分 为 100% 状态 时 ， 上述 浓度 处理 可 减少 50.2% — 91.1% 左右 . 当 培养 温度 为 18 — 20 ℃ 时 ， 对叔 丁基 苯甲酸 的 不同 浓度 处理 ( 100ppm 、 250ppm 、 500ppm 和 1000ppm ) 在 土壤水分 16.5% 和 100% 时 ， 可 分别 减少 47.8% — 74.9% 和 28.8% — 78.1%   N2O 释放 . 试验 还 表明 ， 化感 物质 可 减缓 土壤 中 NH4 + 向 NO3 - 氧化 ， 使 尿素 水解 后 释出 的 氨 能 在 土壤 中 保持 时间 更长 ， 对于 提高 肥料 的 利用率 和 减少 环境污染 都 具有 重大 的 现实意义 . 
+ 关键词 　 土壤 ； N2O 释放 ； 化感 物质 ； 影响 . 
+ Effect   of   allelochemicals   on   N2O   emission   from   soil 
+ HUANG   Yizong , ZHANG   Fuzhu , LIU   Shuqin , CAO   Meiqiu   ( Research   Center   for   Eco - Environmental   Sciences , Chinese   Academy   of   Sciences , Beijing   100085 ) 
+ Abstract 　 Benzoic   acid   and   p - tert - benzoic   acid   are   two   allelochemicals   which   can   be   produced   from   decomposition   of   crop   residue . N2O   emission   from   soil   was   determined   at   various   soil   moistures   when   the   two   allelochemicals   were   applied   at   various   concentration . The   results   showed   that   the   allelochemicals   could   inhibit   N2O   emission   from   the   soil , and   the   inhibiting   effects   increase   with   concentration . At   concentrations   of   100 , 250   and   500mg / kg , benzoic   acid   inhibited   42.78 ％ — 67.93%   of   the   N2O   emission   when   soil   moisture   was   16.5% . At   the   same   moisture , p - tert - benzoic   acid   reduced   45.27 ％ — 73.42%   of   N2O   emission , at   concentrations   of   100 , 250 , 500 , and   1000mg / kg . While   soil   moisture   was   100% , the   two   allelochemicals   reduced   44.67% — 89.78%   and   26.40% — 77.09%   N2O   emission , respectively . In   addition , allelochemicals   could   retard   oxidization   of   NH4 +   to   NO3 - . Therefore , as   one   of   hydrolystates   of   urea , ammonia   could   retain   longer   in   soil . Application   of   allelochemicals   would   improve   the   efficiency   of   fertilization   and   reduce   environmental   pollution . 
+ Keywords 　 N2O   emission   from   soil , allelochemicals , effect . 
+ 　 　 N2O 是 一种 重要 的 痕量 气体 ， 它 有 吸收 红外线 的 性质 ， 减少 地表 通过 大气 向 外空 的 热辐射 ， 产生 温室效应 . N2O 还 与 同温层 臭氧层 的 破坏 有关 . 目前 ， 大气 中 N2O 浓度 约 为 310ppb ， 且 以 每年 0.6 — 0.9 ppb 的 速度 增加 . N2O 的 寿命 很长 ， 达 166 年 左右 ［ 1 ］ . 土壤 是 N2O 的 一个 重要 来源 ， 由于 土壤 微生物 的 作用 ， 经过 硝化 和 反 硝化 过程 产生 的 N2O 占 全球 大气 N2O 的 90% ［ 2 ］ . 应用 硝化 抑制剂 可 减少 土壤 N2O 释放 ， 提高 氮素 肥料 的 利用率 ［ 3 — 7 ］ ， 这 可能 是 一条 控制 氮素 损失 ， 减少 其 对 环境污染 的 有效途径 . 
+ 　 　 化感 物质 ( Allelochemicals ) 指 一种 植物 ( 包括 微生物 ) 产生 对 另 一种 植物 有 直接 或 间接 作用 ( 包括 有害 或 有益 作用 ) 的 物质 ［ 8 ］ . 秸秆 还田 是 我国 农业 生产 中 的 一项 传统 技术 . 作物 秸秆 被 土壤 微生物 分解 后 ， 会 产生 许多 化感 物质 ［ 9 ］ . 苯甲酸 和 对 叔 丁基 苯甲酸 均 为 小麦 秸秆 腐解 过程 产生 的 化感 物质 . 它们 对 作物 种子 的 发芽 、 幼苗 的 生长 均 具有 一定 的 抑制作用 ［ 10 ］ . 本文 旨在 研究 这 两种 化感 物质 对 土壤 N2O 释放 的 影响 . 
+ 1 　 材料 和 方法 
+ 1.1 　 材料 
+ 　 　 供试 土壤 采自 北京市 北郊 农场 史 各庄 科技园 耕地 土壤 的 表土 ( 0 — 20cm ) . 供试 肥料 为 尿素 ； 化感 物质 采用 苯甲酸 和 对 叔 丁基 苯甲酸 . 
+ 1.2 　 苯甲酸 和 尿素 处理 
+ 　 　 称取 10g 土壤 ， 置入 50mL 试管 ， 尿素 按 1kg 土施 0.1 g 纯氮 量计算 . 苯甲酸 设 3 个 浓度 ： 100ppm 、 250ppm 和 500ppm ， 并 以 不加 苯甲酸 为 对照 ( CK ) . 土壤水分 设 2 个 等级 ： 16.5% ( 相当于 70% 该 土壤 田间 持水率 ) 和 100% ( 相当于 过饱和 水分 ) . 用 橡胶 塞 密封 试管 口 ， 在 温度 25 — 30 ℃ 的 生长 箱内 进行 培养 . 3 次 重复 . 本 试验 设置 每个 试管 仅供 采集 一次 气体 样品 ， 采完 气体 后 马上 分析 试管 内 土壤 的 NH4 + - N 和 NO3 - - N 含量 . 
+ 　 　 对叔 丁基 苯甲酸 和 尿素 处理 步骤 同 上 ， 对叔 丁基 苯甲酸 浓度 设 100ppm 、 250ppm 、 500ppm 和 1000ppm . 培养 温度 为 18 — 20 ℃ . 
+ 1.3 　 N2O 采集 和 测定 
+ 
+ 
+ 图 1 　 土壤水分 为 16.5% 时 土壤 N2O 释放 量 ( 苯甲酸 处理 ) 
+ Fig.1   Effect   of   benzoic   acid   on   N2O   emission   from   the   soil   ( soil   moisture   16.5 ) 
+ 　 　 定期 取出 各个 不同 浓度 化感 物质 处理 的 试管 ， 用 30mL 玻璃 注射器 采集 气体 样品 ， 样品 中 的 N2O 用 配有 8mci   Ni63 电子 捕获 检测器 ( 美国 Varian 公司 ) 的 SP - 3410 气相色谱仪 ( 北京 分析 仪器厂 ) 进行 测定 . 检测器 工作温度 320 ℃ . 玻璃 色谱 柱长 4m ， 内径 4mm ， 填充 50 — 80 目 Porapack   Q , 柱温 70 ℃ ， 进样量 2mL ， 高纯 氮 ( 99.999% ) 为 载气 ， 流速 25mL / min . 标准 气由 美国 Athesen 气体 生产 公司出品 ， 浓度 0.94 ppm ， 用 空气 稀释 后 使用 ， 分析 误差 ± 1% . 
+ 1.4 　 土壤 样品 测定 
+ 　 　 NH4 + - N 用纳氏 试剂 比色法 ， NO3 - - N 用酚 二 磺酸 法测定 . 
+ 2 　 结果 与 讨论 
+ 2.1 　 苯甲酸 不同 浓度 处理 对 土壤 N2O 释放 的 影响 
+ 2.1 . 1 　 土壤水分 为 16.5% 时 苯甲酸 不同 浓度 处理 对 土壤 N2O 释放 的 影响 　 从 动态变化 来看 ， 土壤 N2O 释放 随着 培养 时间 的 增加 而 提高 ( 图 1 ) . 第 20 天后 各 处理 仅 有 少量 的 N2O 释放 . 
+ 　 　 对 统计数据 进行 方差分析 ( 表 1 ) ， 苯甲酸 处理 在 土壤水分 为 16.5% 时 ， F 值为 9.18 ， 通过 置信度 为 0.01 水平 下 的 F 检验 ， 说明 在 此 水分 条件 下 苯甲酸 不同 浓度 处理 间 对 土壤 N2O 释放 的 影响 差异 极 显著 . 
+ 　 　 不同 浓度 苯甲酸 对 土壤 N2O 释放 的 影响 结果 见图 2 . 由图 2 可见 ， 在 土壤水分 16.5% 的 状况 下 ， N2O 的 释放 量 随着 苯甲酸 浓度 的 增加 而 减少 . 
+ 
+ 
+ 图 2 　 苯甲酸 不同 浓度 处理 对 土壤 N2O 释放 的 影响 
+ ( 培养 32 天 ， 温度 25 — 30 ℃ ) 
+ Fig.2   Effect   of   various   concentrations   of   benzoic   acid   on   N2O   emissions   from   the   soil   ( 32   days , 25 — 30 ℃ ) 
+ 表 1 　 不同 处理 因子 的 F 检验 
+ Table   1   The   F   test   on   various   treatment   factors 
+ 
+ 　 苯甲酸 对叔 丁基 苯甲酸 
+ 16.5% 的 
+ 土壤水分 100% 的 
+ 土壤水分 16.5% 的 
+ 土壤水分 100% 的 
+ 土壤水分 
+ F 值 9.185 . 121.843 . 30 
+ FaF ( 0.05 ) = 2.87 
+ F ( 0.01 ) = 4.38 F ( 0.05 ) = 2.61 
+ F ( 0.01 ) = 3.83 
+ 
+ 2.1 . 2 　 土壤水分 为 100% 时 苯甲酸 不同 浓度 处理 对 土壤 N2O 释放 的 影响 　 从图 3 可以 看出 土壤 N2O 释放 除了 500ppm 处理 在 整个 培养 期内 几乎 成 一条 直线 外 ， 其它 处理 均 在 第 13 天 出现 高峰 ， 第 20 天后 土壤 N2O 释放 量 很少 . 在 100% 的 土壤 饱和 水分 条件 下 ， 高浓度 的 苯甲酸 处理 对 土壤 N2O 释放 比 低浓度 处理 效果 更好 ( 图 2 ) ， 500ppm 处理 可抑制 91.1% 的 N2O 释放 . 这 是因为 苯甲酸 的 浓度 越大 ， 其 抑制 硝化细菌 和 反 硝化细菌 等 微生物 的 活动 越 有效 ， 导致 较少 的 N2O 释放 . 土壤水分 为 100% 时 N2O 释放 比 16.5% 时少 ， 这是 由于 渍水 土壤通气 条件 较差 ， 在 土壤 厌氧 条件 下 ， N2O 最终 被 还原 为 N2 ， 因此 N2O 的 释放 量 较 少 . 不少 学者 在 研究 淹水 水稻田 中 N2O 释放 时 也 得出 相似 的 结论 ［ 11 ， 12 ］ . 
+ 
+ 
+ 图 3 　 土壤水分 为 100% 时 土壤 N2O 释放 量 
+ ( 苯甲酸 处理 ) 
+ Fig.3   Effect   of   benzoic   acid   on   N2O   emission   from   soil   ( soil   moisture   100% ) 
+ 2.2 　 对叔 丁基 苯甲酸 不同 浓度 处理 对 土壤 N2O 释放 的 影响 
+ 2.2 . 1 　 土壤水分 为 16.5% 时 对 叔 丁基 苯甲酸 不同 浓度 处理 对 土壤 N2O 释放 的 影响 　 由图 4 可以 看出 ， 土壤 N2O 释放 除了 对照 在 第 13 天有 一个 释放 高峰 外 ( 31.498 mg * m - 3 ) ， 其它 处理 均 没有 明显 的 高峰 出现 . 第 20 天 各 处理 几乎 没有 N2O 从 土壤 释放 . 在 此 水分 条件 下 ， 对叔 丁基 苯甲酸 不同 浓度 处理 间 对 土壤 N2O 释放 的 影响 见图 5 ， 各 处理 对 土壤 N2O 释放 分别 比 对照 减少 47.8% 、 56.4% 、 70.1% 和 74.9% . 
+ 
+ 
+ 图 4 　 土壤水分 为 16.5% 时 土壤 N2O 释放 量 ( 对叔 丁基 苯甲酸 处理 ) 
+ Fig.4   Effect   of   p - tert - benzoic   acid   on   N2O   emission   from   soil   ( soil   moisture   16.5 ) 
+ 
+ 
+ 图 5 　 对叔 丁基 苯甲酸 不同 浓度 处理 对 土壤 N2O 释放 的 影响 ( 培养 20 天 ， 温度 18 — 20 ℃ ) Fig.5   Effect   of   various   concentration   p - tert - benzoic   acid   on   N2O   emissions   from   soil   ( 20   days , 18 — 20 ℃ ) 
+ 
+ 
+ 图 6 　 土壤水分 为 100% 时 土壤 N2O 释放 量 ( 对叔 丁基 苯甲酸 处理 ) 
+ Fig.6   Effect   of   p - tert - benzoic   acid   on   N2O   emission   from   soil   ( soil   moisture   100% ) 
+ 2.2 . 2 　 土壤水分 为 100% 时 对 叔 丁基 苯甲酸 不同 浓度 处理 对 土壤 N2O 释放 的 影响 　 从图 6 可见 ， 对照 在 第 13 天 也 有 一个 N2O 释放 高峰 . 100ppm 和 250ppm 的 对 叔 丁基 苯甲酸 浓度 处理 在 第 11 天前 促进 土壤 N2O 释放 ， 第 11 天后 则 表现 为 抑制作用 . 各 处理 对 土壤 N2O 的 影响 较 显著 ( F < 0.05 ) ( 表 1 ) . 
+ 　 　 高浓度 的 对 叔 丁基 苯甲酸 ( 500ppm 和 1000ppm ) 处理 能 显著 地 抑制 土壤 N2O 释放 ( 图 5 ) ， 而 低浓度 时 ( 100ppm 和 250ppm ) 对 土壤 N2O 释放 的 抑制作用 相对 差 一些 . 
+ 2.3 　 对叔 丁基 苯甲酸 不同 浓度 处理 对 土壤 NH4 + - N 和 NO3 - - 含量 变化 的 影响 
+ 　 　 图 7 表明 ， 在 土壤水分 为 16.5% 的 状态 下 ， 未 经过 对叔 丁基 苯甲酸 处理 的 对照 ， NH4 ＋ - N 含量 随着 培养 时间 的 增加 而 逐渐 减少 ， 由 第 2 天 的 43.90 mg / kg 减少 到 第 20 天 的 17.80 mg / kg ； NO3 - - N 含量 则 相反 ， 由 第 2 天 的 6.42 mg / kg 增加 到 第 20 天 的 73.45 mg / kg . 这是 由于 尿素 施入 土壤 后 ， 经过 水 解释 出 的 NH4 ＋ 被 硝化细菌 氧化 为 NO3 - ， 导致 土壤 中 NH4 + - N 含量 逐渐 减少 ， 而 NO3 - - N 含量 逐渐 增加 . 
+ 　 　 经过 不同 浓度 的 对 叔 丁基 苯甲酸 处理 后 ， 较之 对照 处理 均 能 显著 地 增加 土壤 的 吸附 态铵 ( P < 0.01 ) ， 从而 减少 土壤 中 硝酸盐 的 累积 ( P < 0.01 ) ， 且 随着 处理 浓度 的 增大 ， 这种 作用 越 明显 . 从 计算 土壤 中铵 的 硝化 率 影响 ( 表 2 ) 表明 ， 各 处理 铵 的 硝化 率均 随着 培养 时间 的 增加 而 提高 . 经过 不同 浓度 的 对 叔 丁基 苯甲酸 处理 后 ， 土壤 中铵 的 硝化 率均 明显 低于 对照 ( P < 0.001 ) ， 且 高浓度 处理 比 低浓度 处理 效果 更 显著 . 
+ 　 　 根据上述 研究 结果 可以 看出 ， 化感 物质 ( 对叔 丁基 苯甲酸 ) 可 通过 抑制 土壤 中 微生物 的 活动 ， 减缓 NH4 ＋ 向 NO3 - 氧化 ， 即 降低 土壤 中铵 的 硝化 率 ， 从而 使 尿素 水解 后 释出 的 氨 能 在 土壤 中 保持 时间 更长 . 前面 还 提到 ， 化感 物质 ( 苯甲酸 和 对 叔 丁基 苯甲酸 ) 能 减少 N2O 从 土壤 中 释放 . 因此 ， 化感 物质 对 提高 肥料 的 利用率 和 减少 环境污染 都 具有 重大 的 现实意义 . 
+ 表 2 　 对叔 丁基 苯甲酸 不同 浓度 处理 对 土壤 中铵 的 硝化 率 影响 ( 土壤水分 16.5% ) 
+ Table   2   Effect   of   various   concentrations   of   p - tert - benzoic   acid   on   nitrification   rate   of   soil   NH4 + - N   ( soil   moisure   16.5 ) 
+ 
+ 处理 浓度 ， 
+ ppm 铵 的 硝化 率 ， % 
+ 第 2 天第 4 天第 6 天第 9 天第 11 天第 13 天第 16 天第 18 天第 20 天 
+ 0 ( CK ) 12.822 . 136.953 . 359.782 . 180.681 . 080.5 
+ 10012.617 . 827.647 . 750.371 . 281.482 . 283.2 
+ 25013.216 . 726.439 . 947.472 . 271.577 . 584.2 
+ 50011.814 . 824.936 . 745.959 . 674.276 . 381.7 
+ 100010.113 . 117.527 . 332.337 . 867.274 . 478.5 
+ 
+ 注 ： 硝化 率 ( % ) = NO3 - - N / ( NH4 + - N + NO3 - - N ) × 100% 
+ 
+ 
+ 
+ 图 7 　 土壤 释放 的 NH4 ＋ - N 量 ( a ) 和 NO3 - - N 量 ( b ) ( 对叔 丁基 苯甲酸 处理 ， 土壤水分 为 16.5% ) 
+ Fig.7   Effect   of   p - tert - benzoic   acid   on   content   of   NH4 +   ( a )   and   NO3 -   ( b )   in   soil   ( soil   moisture   16.5% ) 
+ 3 　 结论 
+ 　 　 1 )   从 动态变化 来看 ， 无论 土壤水分 为 16.5% 还是 100% ， 土壤 N2O 释放 在 培养 前期 随着 时间 的 推移 而 增加 ， 高峰 出现 在 第 13 天 左右 ， 第 20 天后 几乎 没有 N2O 释放 . 
+ 　 　 2 )   在 土壤水分 为 16.5% 的 状态 下 ， 100ppm 、 250ppm 和 500ppm 浓度 的 苯甲酸 处理 ( 培养 温度 25 — 30 ℃ ) 可 减少 47.4% — 75.3%   N2O 从 土壤 中 释放 ； 而 当 土壤水分 为 100% 状态 时 ， 上述 浓度 处理 可 减少 50.2% — 91.1% 左右 的 N2O 释放 . 
+ 　 　 3 )   对叔 丁基 苯甲酸 的 不同 浓度 处理 研究 结果表明 ( 培养 温度 18 — 20 ℃ ) ， 在 土壤水分 为 16.5% 和 100% 时 ， 可 分别 减少 47.8% — 74.9% 和 28.8% — 78.1%   N2O 释放 . 
+ 　 　 4 )   在 土壤水分 为 16.5% 时 ， 化感 物质 ( 对叔 丁基 苯甲酸 ) 可 减缓 土壤 中 NH4 + 向 NO3 - 氧化 ， 从而 增加 土壤 的 吸附 态铵 ， 并 减少 土壤 中 硝酸盐 的 累积 . 
+ *   国家自然科学基金 资助 项目 ( 项目 号   39790100 ) 
+ 作者 单位 : 中国科学院 生态环境 研究 中心 ， 北京 　 100085 
+ 参考文献 
+ 1 　 Prinn   R   D , Cunnold   R , Rasmussen   R   et   al . Atmospheric   emissions   and   trends   of   nitrous   oxide   deduced   from   10   years   of   ALE - GAGE   data . J   Geophys   Res , 1990 , 95 : 18369 — 18385 
+ 2   Bouwman   A   F . Bouwman   A   F ( ed ) .   In   soils   and   the   greehouse   effect . Wiley , Chichester.1990 . 61 
+ 3   Bremner   J   M , Blackmer   A   M . Nitrous   oxide : emission   from   soil   during   nitrification   of   fertilizer   nitrogen . Science , 1978 , 199 : 295 — 296 
+ 4 　 Bronson   K   F , Mosier   A   R , Bishnoi   S   R . Nitrous   oxide   emissions   in   irrigated   corn   as   affected   by   nitrification   inhibitors . Soil   Sci   Soc   Am   J , 1992 , 56 : 161 — 165 
+ 5 　 De   Klein   C   A   M , Van   Logtestijn   R   S   P   et   al . Nitrogen   losses   due   to   denitrification   from   cattle   slurry   injected   into   grassland   soil   with   and   without   a   nitrification   inhibitor . Plant   and   Soil , 1996 , 183 : 161 — 170 
+ 6 　 Wallters   D   T , Malzer   G   L . Nitrogen   mangement   and   nitrification   inhibitor   effects   on   nitrogen - 15   Urea : I . yield   and   fertilizer   use   efficiency . Soil   Sci   Soc   Am   J , 1990 , 54 : 115 — 122 
+ 7 　 Wallters   D   T , Malzer   G   L . Nitrogen   mangement   and   nitrification   inhibitor   effects   on   nitrogen - 15   Urea : Ⅱ . Nitrogen   leaching   and   balance . Soil   Sci   Soc   Am   J , 1990 , 54 : 122 — 130 
+ 8 　 Kimber   R   W   L . Phytotoxlcity   from   plant   residues   ( 11 ) : The   relative   effect   of   toxins   and   nitrogen   immobilization   on   the   germination   and   growth   of   wheat . Plant   and   Soil , 1973 , 38 : 347 — 361 
+ 9 　 马瑞霞 ， 刘秀芬 ， 袁光林 等 . 小麦 根区 微生物 分解 小麦 残体 产生 的 化感 物质 及其 生物 活性 的 研究 . 生态学 报 ， 1996 ， 16 ( 6 ) ： 632 — 639 
+ 10 　 刘秀芬 ， 马瑞霞 ， 袁光林 等 . 根际区 他 感 化学物质 的 分离 、 鉴定 与 生物 活性 的 研究 . 生态学 报 ， 1996 ， 16 ( 1 ) ： 1 — 10 
+ 11 　 陈冠雄 ， 黄国宏 等 . 稻田 CH4 和 N2O 的 排放 及养萍 和 施肥 的 影响 . 应用 生态学 报 ， 1995 ， 6 ( 4 ) ： 378 — 382 
+ 12 　 Khalil   et   al . Emissions   of   trace   gases   from   chinese   rice   fields   and   biogas   generation : CH4 , CO , CO2 , chlorocarbons , and   hydrocarbons . Chemosphere , 1990 , 20 : 207 
+ 1998 - 03 - 06 收到 原稿 
+ 1998 - 07 - 24 收到 修改稿 

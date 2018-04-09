@@ -1,0 +1,109 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 6 期   第 10 卷   Vol.10   No.6   1999 
+ 
+ 
+ 
+ 基于 生态 竞争 模型 的 遗传 强化 学习 * 
+ 曹先彬 　 高 　 隽 　 王煦法 
+ 　 　 摘要 　 未成熟 收敛 和 收敛 速度慢 是 目前 遗传算法 的 明显 缺点 . 借鉴 生物 在 环境 生态系统 中 的 生长 模式 , 文章 提出 一种 生态 竞争 模型 . 该 模型 认为 ， 竞争 行为 在 生物 的 成长 中 占有 十分 重要 的 地位 , 在 子群 内 实现 了 个体 层次 的 先天 遗传 进化 和 后天 竞争 学习 , 在 种群 层次 实现 进一步 的 竞争 强化 学习 . 实验 结果显示 了 该 模型 在 解决 收敛性 问题 时 的 有效性 . 
+ 　 　 关键词 　 遗传算法 , 收敛性 , 生态 竞争 , 强化 学习 , 函数 优化 . 
+ 　 　 中图法 分类号 　 TP18 
+ An   Ecological   Competition   Model   for   Genetic   Reinforcement   Learning 
+ CAO   Xian - bin1 　 GAO   Jun2 　 WANG   Xu - fa1 
+ 1 ( Department   of   Computer   Science   and   Technology   University   
+ of   Science   and   Technology   of   China   Hefei   230027 ) 
+ 2 ( Department   of   Computer   and   Information   Hefei   University   
+ of   Technology   Hefei   230009 ) 
+ 　 　 Abstract   　 Premature   convergence   and   low   converging   speed   are   the   distinct   weaknesses   of   the   genetic   algorithms .   Using   the   living   things '   growth   pattern   for   reference ,   a   new   model   called   ECM ( ecological   competition   model )   is   proposed ,   in   which   the   competition   is   considered   to   be   in   important   position .   In   the   ECM   model ,   the   congenital   genetic   evolution   and   the   postnatal   competition   learning   on   individuals '   level   are   realized   in   each   sub - population ,   moreover ,   the   competition   reinforcement   learning   on   population   level   is   realized .   The   experimental   results   show   the   ECM   model ' s   effectiveness . 
+ 　 　 Key   words 　 Genetic   algorithms ,   convergence ,   ecological   competition ,   reinforcement   learning ,   function   optimization . 
+ 　 　 目前 ， 以 遗传算法 ( GA ) 为 代表 的 进化 算法 发展 很快 , 但 它 的 理论 基础 还 很 不 完善 . 在 应用 中 体现 出 的 最 明显 的 缺点 是 它 的 收敛性 问题 , 包括 收敛 速度慢 且 存在 未成熟 收敛 ［ 1 , 2 ］ . 其 根本原因 就 在于 ， 进化 算法 是从 群体 的 全局 散布 性 出发 , 而 遗传 进化 是 采用 定向 性 操作 算子 , 这 两者 是 相互 冲突 的 . 前者 保证 GA 有 较大 的 搜索 范围 , 使 群体 不易 落入 局部优化 区域 , 后者 又 强制 将 群体 引入 某一 特定 子 空间 . 正因如此 , 目前 有 很多 相关 的 改进 工作 , 主要 集中 在 3 个 方面 ［ 3 ～ 5 ］ : ①   调整 算法 中 的 操作 参数 , 如 遗传操作 概率 、 集团 大小 、 适应度 函数 定标 等 ; ②   进一步 维持 算法 进行 中 的 个体 多样性 , 如 增加 种群 规模 、 增大 配对 个体 距离 . 但 这些 都 是 经验 方法 , 既 增加 了 计算 量 , 又 降低 了 算法 的 隐 并行性 ; ③   引入 子群 ( sub - population ) 概念 , 每个 子群 独立 进行 遗传 进化 . 这种 方法 可 使 未成熟 收敛 局部 化 , 但 仍然 不易 获得 全局 收敛 , 所以 仍 未 解决 这一 问题 . 要 想 更好 地 加以解决 , 有 必要 引进 新 的 思想 . 
+ 　 　 本文 在 分析 环境 生态系统 的 基础 上 提出 一种 生态 竞争 模型 , 认为 生物 在 不同 层次 上 都 存在 着 相互协作 与 竞争 . 该 模型 在 个体 层次 上 实现 了 生物 的 先天 遗传 进化 和 后天 竞争 学习 , 同时 又 在 种群 层次 上 实现 了 子群 之间 的 进一步 竞争 强化 学习 . 基于 本 模型 的 算法 能 在 很大 程度 上 加速 收敛 , 解决 未成熟 收敛 的 问题 . 
+ 1   生态 竞争 模型 
+ 　 　 作为 一种 搜索 性 算法 , GA 是 通过 模拟 生物 自然选择 机制 而 提出 的 , 但 它 实际上 只 考虑 了 生物进化 机制 的 一个 侧面 . 我们 从 环境 生态系统 中 得到 启示 , 认为 生物 在 自然界 中 的 成长 过程 至少 应 包括 以下几点 : 
+ 　 　 ( 1 )   生物进化 不仅 要 考虑 个体 的 进化 行为 , 而且 要 考虑 生物 的 集团 进化 行为 ; 
+ 　 　 ( 2 )   生物 在 生态环境 中 进化 时 , 其 活动 范围 是 局部 的 和 可变 的 ; 
+ 　 　 ( 3 )   竞争 在 环境 生态系统 中 占有 很 重要 的 地位 , 这种 竞争 既 存在 于 个体 之间 , 也 存在 于 群体 之间 , 竞争 的 强度 是 动态 的 ; 并且 这种 竞争 绝对 不仅 是 GA 的 自然 淘汰 策略 , 而是 一种 相互协作 与 竞争 的 关系 ; 
+ 　 　 ( 4 )   生物进化 是 一个 在 环境 生态系统 中 结合 先天 遗传 进化 和 后天 竞争 学习 的 复杂 过程 . 
+ 　 　 对应 于 上面 几点 , GA 主要 模拟 了 个体 进化 行为 和 生物 的 先天 遗传 进化 , 竞争 主要 体现 在 取代 ( replacement ) 机制 上 . 引入 子群 的 GA 又 模拟出 生物 活动 范围 的 局部性 , 但 由于 未 考虑 竞争 和 后天 学习 的 重要性 , 目前 的 GA 搜索 能力 弱 , 而且 全局 收敛性 差 . 
+ 　 　 在 模拟 环境 生态系统 方面 , 文献 ［ 6 ］ 提出 的 ECO ( ecological ) 模型 是 相对 较 好 的 工作 , ECO 模型 完全 模拟 了 上面 的 ( 1 ) 、 ( 2 ) 和 ( 4 ) 的 先天 遗传 进化 , 但 它 同样 未 意识 到 竞争 的 复杂性 和 后天 学习 的 必要性 . 
+ 　 　 我们 提出 如下 的 生态 竞争 模型 ECM ( ecological   competition   model ) , 如图 1 所示 . ECM 考虑 到 生态环境 实际上 有 两个 层次 : 一个 是 局部 环境 之间 , 另 一个 是 局部 环境 内 的 个体 之间 . 同样 引入 子群 概念 , 将 完整 种群 分为 若干 子群 , 子群 的 初始 数目 和 规模 可 随机 设定 . 在 每 一 子群 内 首先 执行 下面 的 生态 竞争 算法 ECA ( ecological   competition   algorithm ) , 使 子群 能 很快 收敛 , 并且 子群 规模 是 自 适应 调整 的 . 在 每 一 子群 都 达到 收敛 后 , 由于 完整 种群 的 全局 收敛 点 依存 于 全部 子群 的 局部收敛 点 , 所以 , ECM 又 采用 一种 能 反映 所有 局部收敛 点间 相互竞争 关系 的 强化 学习 , 使 全局 收敛 点 体现 出来 . ECM 的 算法 框架 如图 2 所示 , 下面 分别 说明 . 
+ 　 　 　 
+ 图 1 　 生态 竞争 模型 ECM 　 　 　 　 　 　 图 2 　 ECM 的 算法 框架 　 　 
+ 1.1   初始 子群 生成 
+ 　 　 设 种群 规模 为 M , 随机 生成 k 个子 群 , 每个 子群 由 一个 代表 个体 和 其 周围 的 若干 个体 组成 . 若以 2 维 8 × 8 栅格 描述 , 则 首先 在 栅格 中 随机 选择 一 格 作为 子群 的 代表 个体 , 而 代表 个体 边缘 的 8 个 个体 是 它 的 局部 环境 , 这 9 个 个体 组成 一个 子群 , 如图 3 所示 . 图中 短 斜线 的 栅格 为 代表 个体 , 短 竖线 的 栅格 为 其 局部 环境 . 
+ 
+ 图 3 　 初始 子群 的 组成 
+ 1.2   生态 竞争 算法 
+ 　 　 ECA 根据 配对 个体 的 行为 将 个体 间 的 关系 分为 伙伴 和 对手 两种 . 伙伴 个体 通过 遗传 交配 生成 新 个体 , 这是 ECM 中 个体 的 先天 遗传 进化 . 对手 个体 之间 同时 存在 相互 激活 与 竞争 行为 , 结果 是 对手 个体 的 表现型 被 动态 地自 适应 调整 , 这是 个体 的 后天 竞争 学习 . ECA 对 每 一 子群 进行 以下 操作 : 
+ 　 　 Step   1 .   选择 伙伴 个体 . 以 代表 个体 为 父本 , 再 按照 门当户对 原则 , 选出 一个 最 接近 于 父本 的 个体 作为 母本 , 父本 和 母本 成为 一对 伙伴 . 
+ 　 　 Step   2 .   伙伴 个体 间 进行 交叉 、 变异 等 遗传操作 , 生成 新 个体 . 
+ 　 　 Step   3 .   运用 取代 机制 进行 群体 更新 . 
+ 　 　 Step   4 .   对手 个体 竞争 . 
+ 　 　 在 一个 子群 内 , 个体 之间 是 相互 联系 、 相互影响 的 . 它们 既 可能 相互协作 , 使 各自 的 表现型 都 得到 提升 , 也 可能 相互竞争 , 一方 抑制 另一方 的 成长 . 为 体现 对手 个体 间 的 相互协作 与 竞争 关系 , 自 适应 修正 对手 个体 的 动作 值 , 我们 将 个体 表现型 看作 个体 的 动作 值 , 并 引进 IAC 神经网络 中 的 Grossberg 公式 来 完整 描述 对手 个体 间 竞争 的 进展 ［ 7 ］ . Grossberg 公式 描述 的 是 神经元 之间 相互 兴奋 与 抑制 关系 , 在 将 神经元 与 个体 对应 后 , 我们 提出 以下 公式 : 
+ Δ f = ( max - f ) e - ( f - min ) c - decay ( f - rest ) . ( 1 ) 
+ 
+ 其中 f 是 个体 的 动作 值 , 可 直接 对应 适应度 函数 . max , min 分别 为 动作 的 最大 、 最小值 . e 为 其他 个体 对本 个体 的 兴奋性 输入 , 它 使本 个体 的 动作 值 朝着 最大值 的 方向 增加 . c 为 其他 个体 对本 个体 的 抑制性 输入 , 它 使本 个体 的 动作 值 朝着 最小值 的 方向 减少 . 规定 第 i 个 个体 接收 的 兴奋性 输入 为 , 其中 的 fj ≥ ( max + min ) ／ 2 . 若 fj ＜ ( max + min ) ／ 2 , 则 兴奋性 输入 转化 为 抑制性 输入 , 这时 . 另外 , rest 为 个体 在 无 输入 时 的 基本 值 , 称之为 静息 值 , 一般 规定 min ≤ rest ≤ 0 . decay 是 衰减 率 , 它 使 个体 的 动作 值 趋于 静息 值 水平 , 体现 个体 生长 期间 的 时间 衰减 关系 , 0 ≤ decay ≤ 1 . rest 和 decay 在 算法 中是 两个 可调 参数 , 如取 rest = min ／ 2 , decay = 0.4 . 
+ 　 　 可以 看出 , 在 公式 ( 1 ) 中 , 一个 输入 的 作用 不是 确定性 的 , 当 个体 的 动作 值较 低时 , 它 可能 是 兴奋 的 , 反之 ， 则 可能 是 抑制 的 . 其 动力学 系统 体现 出 了 相互协作 与 竞争 的 特性 : 考虑 竞争 中 的 两个 个体 a , b , 假设 它们 的 兴奋性 输入 分别 为 ea , eb , 但 在 强度 上 有 差别 , ea ＞ eb , 并设 其他 个体 对 a , b 的 抑制性 输入 都 为 r , 个体 a 对 b 的 抑制性 输入 为 cb = fa , 个体 b 对 a 的 抑制性 输入 为 ca = fb , 则 
+ 　 　 Δ fa = ( max - fa ) ea - ( fa - min ) ( r + ca ) - decay ( fa - rest ) 　 　 　 　 
+ = ( max - fa ) ea - ( fa - min ) ( r + fb ) - decay ( fa - rest ) , 
+ 　 　 Δ fb = ( max - fb ) eb - ( fb - min ) ( r + cb ) - decay ( fb - rest ) 　 　 　 　 
+ = ( max - fb ) eb - ( fb - min ) ( r + fa ) - decay ( fb - rest ) . 
+ 若 初始 fa = fb , 则 在 第 1 次 竞争 时 , Δ fb ＜ Δ fa , 使 个体 b 在 竞争 中 处于 劣势 , 而 个体 a 由于 在 竞争 初始 具有 优势 , 所以 在 竞争 过程中将 逐步 强化 这种 优势 . 但 随着 fa , fb 的 不断 变化 , 有 可能 Δ fa ＜ Δ fb , 这时 又 使 个体 b 具有 优势 . 
+ 　 　 在 公式 （ 1 ） 中 , 令 Δ f = 0 , 即 
+ ( max - f ) e - ( f - min ) c - decay ( f - rest ) = 0 , 
+ 则 
+ f = ( max . e + min . c + decay . rest ) ／ ( e + c + decay ) . 
+ 即 当 某 一个 体 的 动作 值 等于 这个 比例 时 , 它 就 达到 平衡 ; 当然 , 这 并 不 代表 所有 个体 都 达到 了 平衡 . 
+ 　 　 Step   5 .   子群 规模 调整 . 
+ 　 　 由 代表 个体 在 其 局部 环境 中 的 地位 重新 决定 子群 的 规模 . 以 2 维 栅格 为例 , 调整 策略 为 : 
+ 　 　 ( 1 )   在 子群 内 选择 一个 最佳 个体 作为 代表 个体 ; 
+ 　 　 ( 2 )   计算 代表 个体 适应度 fi 与 子群 平均 适应度 的 比例 fi ／ ; 
+ 　 　 ( 3 )   若 fi ／ ＜ 1 , 则 依次 以 概率 1 - fi ／ 随机 选择 子群 内 边缘 的 个体 , 并 将 其 删除 , 这样 使 子群 规模 缩小 ; 
+ 　 　 ( 4 )   若 fi ／ = 1 , 则 保持 子群 规模 不变 ; 
+ 　 　 ( 5 )   若 fi ／ ＞ 1 , 设 fi ／ = m . n , 则 依次 以 概率 0 . n 随机 选择 子群 外 边缘 的 m 个 个体 , 并 将 它们 加入 子群 , 像 这样 使 子群 规模 扩大 . 
+ 1.3   子群 层次 上 的 强化 学习 
+ 　 　 在 所有 子群 都 收敛 以后 , 需要 在 多个 局部收敛 点中 动态 选择 出 全局 收敛 点 , 这时 , 子群 内 和 子群 间 同样 存在 着 相互 刺激 与 竞争 . 一方面 子群 内 个体 间 的 关系 是 兴奋性 的 , 其 作用 是 使 子群 中 代表 个体 的 动作 ( 表现型 ) 更 特殊 . 而 子群 间 的 联系 是 抑制性 的 , 这 可 使 低 动作 的 子群 代表 个体 受到 抑制 , 高 动作 的 子群 代表 个体 得到 强化 , 从而 使 全局 收敛 点 体现 出来 , 这 就 实现 了 子群 之间 的 进一步 竞争 强化 . 这一 过程 如图 4 所示 . 
+ 
+ 图 4 　 ECM 中子 群 层次 上 的 强化 学习 
+ 1.4   ECM 的 收敛 能力 
+ 　 　 在 ECM 中 , 子群 的 引入 使 未成熟 收敛 局部 化 , 对 每 一 子群 而言 , 由于 规模 相对 较 小 , 其 收敛 速度 较 快 , 这 就是 一些 引入 子群 的 改进 遗传算法 的 优点 . 同时 , ECM 又 借鉴 Grossberg 对 神经元 间 相互 刺激 与 抑制 关系 的 描述 , 对 子群 内 的 个体 进行 后天 竞争 学习 , 使 个体 的 表现型 被 动态 地自 适应 调整 , 从而 大大 加快 了 子群 的 收敛 速度 . 子群 规模 调整 策略 的 执行 使 子群 规模 自 适应 于 环境 , 同时 也 使 子群 内 个体 越来越 相似 , ECO 就 采用 了 这 一 策略 . 另一方面 , 除 ECM 以外 的 其他 算法 都 没有 意识 到 子群 之间 的 复杂 竞争 关系 , 而 ECM 通过 对 子群 间 竞争 行为 的 分析 , 在 种群 层次 上 实现 了 子群 之间 的 进一步 竞争 强化 学习 , 使 各个 子群 的 行为 在 相互协作 与 竞争 中 得到 动态 调整 , 从而 使 全局 收敛 点 体现 出来 . 
+ 2   实 　 验 
+ 　 　 我们 以 函数 优化 问题 为例 , 来 考察 本文 提出 的 生态 竞争 模型 及 强化 学习 的 收敛 能力 . 将 GA 应用 于 函数 优化 的 工作 很多 , 其中 De   Jong 的 工作 最有 影响 , 我们 选择 他 在 文献 ［ 8 , 9 ］ 中 提出 的 多峰 函数 F5 : 
+ 
+ 　 　 De   Jong 发现 , SGA ( standard   genetic   algorithm ) 及 一些 改进 策略 在 收敛 速度 和 全局 收敛 方面 性能 都 不 高 . 因此 , 他 提出 用 “ 排挤 因素 模型 ( crowding   factor   model ) ” R5 . R5   限定 采用 二进制 数 编码表示 、 赌轮 选择 机制 、 一点 交叉 和 位点 变异 . 在 R5 中 , 当 一个 个体 诞生 时 , 便 选择 一个 个体 消亡 , 消亡 个体 为 随机 选取 的 n ／ CF 个 个体 中 与 新生 个体 最 相似 的 个体 , 其中 n 为 群体 规模 , CF 是 De   Jong 引入 的 一个 参数 . 另外 , De   Jong 还 使用 了 代沟 值 G = 0.1 . De   Jong 的 研究 表明 , 当 CF = 2 时 , 基于 R5 的 遗传算法 对 函数 F5 获得 了 一个 逼近 全局 最优 的 性能 . 
+ 　 　 我们 采用 ECM 来 优化 F5 . 为 评估 不同 算法 的 收敛性 , 在 此 采用 De   Jong 提出 的 离线 性能 评估 准则 F5 ( T ) : 
+ 
+ 其中 fe ( t )   是 第 t 代中 相应 于 环境 e 的 平均 适应度 函数 . 图 5 给出 了 基于 ECM 的 结果 , 同时 显示 出 ECO 的 结果 和 De   Jong 的 结果 . 可以 看出 , ECM 能 在 很大 程度 上 加速 收敛 . 在 算法 执行 过程 中 , 我们 可以 观察 到 如 第 1.4 节所 分析 的 ECM 的 收敛 能力 , 当 算法 趋于 局部 极值 点时 , ECM 通过 个体 间 的 竞争 使 个体 的 表现型 发生变化 , 从而 很快 脱离 局部 极值 点 . 表 1 给出 采用 SGA , ECO 和 ECM 在 优化 F5   时 的 全局 收敛性 , 表中 列出 的 是 进化 100 代时 算法 达到 全局 极值 点 的 次数 , 表明 ECM 的 全局 收敛 性能 最佳 . 
+ 表 1 　 3 种 方法 的 全局 收敛 性能 比较 
+ 
+ 实验 次数 SGAECOECM 
+ 1071010 
+ 50374147 
+ 100617592 
+ 
+ 　 　 　 　 　 
+ 图 5 　 ECM 的 收敛 性能 
+ 3   结束语 
+ 　 　 以 GA 为 代表 的 进化 算法 虽然 取得 了 一些 成功 , 但 也 存在 收敛 速度慢 和 未成熟 收敛 等 特殊 缺点 . 本文 在 分析 环境 生态系统 的 基础 上 , 认为 传统 进化 算法 和 目前 的 一些 改进 策略 没有 充分考虑 生物 在 环境 中 的 进化 模式 , 从而 提出 一种 生态 竞争 模型 ECM . ECM 强调 竞争 行为 在 生物进化 过程 中 的 重要性 , 这种 竞争 既 存在 于 局部 环境 内 的 个体 与 个体 之间 , 也 存在 于 子群 与 子群 之间 , 并且 竞争 的 环境 和 强度 是 动态 的 . 我们 引进 神经元 的 相互协作 与 竞争 思想 , 在 ECM 中 实现 了 个体 之间 的 竞争 和 子群 间 的 竞争 , 体现 出 生物 的 先天 遗传 和 后天 强化 学习 思想 . 实验 结果表明 , ECM 的 收敛 速度 很快 , 并 更 容易 趋于 全局 收敛 . 
+ 致谢   本文 的 研究 工作 得到 国家自然科学基金 资助 ， 此 项目编号 为 69671029 。 
+ * 　 本文 研究 得到 国家自然科学基金 和 安徽省 摼 盼 鍞 重点 攻关项目 基金 资助 . 
+ 作者简介 　 曹先彬 , 1969 年生 , 博士 , 讲师 , 主要 研究 领域 为 进化 计算 , 神经网络 , 专家   系统 . 
+ 　 　 　 　 　 高隽 , 1963 年生 , 副教授 ， 主要 研究 领域 为 神经网络 . 
+ 　 　 　 　 　 王煦法 , 1948 年生 , 教授 , 博士生 导师 , 主要 研究 领域 为 计算 智能 , 人工生命 . 
+ 本文 通讯联系 人 : 曹先彬 , 合肥   230027 , 中国 科学技术 大学 计算机科学 与 技术 系 
+ 作者 单位 ： 曹先彬 　 王煦法 （ 中国 科学技术 大学 计算机科学 与 技术 系   合肥   230027 ） 
+ 　 　 　 　 　 高 　 隽 ( 合肥工业大学 计算机 与 信息 系 　 合肥 　 230009 ) 
+ 参考文献 
+ 　 1 　 Goldberg   D   E .   Genetic   Algorithms   in   Search ,   Optimization   and   Machine   Learning .   Reading ,   MA :   Addison - Wesley   Publishing   Company ,   1989 
+ 　 2 　 Rudolph   G .   Convergence   analysis   of   canonical   genetic   algorithms .   IEEE   Transactions   on   Neural   Networks ,   1994 , 5 ( 1 ) : 96 ～ 101 
+ 　 3 　 Schradoph   N   N   et   al .   Dynamic   parameter   encoding   for   genetic   algorithms .   Machine   Learning ,   1992 , 9 ( 1 ) : 9 ～ 21 
+ 　 4 　 Srinivas   M   et   al .   Adaptive   probabilities   of   crossover   and   mutation   in   genetic   algorithms .   IEEE   Transactions   on   Systems ,   Man   and   Cybernetics ,   1994 , 24 ( 4 ) : 656 ～ 667 
+ 　 5 　 Cohoon   J   P   et   al .   A   multi - population   genetic   algorithm   for   solving   the   k - partition   problem   on   hyper - cubes .   In :   Belew   R   K   ed .   Proceedings   of   the   4th   International   Conference   on   Genetic   Algorithms .   San   Mateo ,   CA :   Morgan   Kaufmann   Publisher ,   Inc . ,   1991 .   244 ～ 248 
+ 　 6 　 Yural   Davidor .   An   ecological   model   for   evolutionary   computing .   シ ス テ ム / 制御 / 情报 ,   1993 , 31 ( 8 ) : 468 ～ 474 
+ ( Yural   Davidor .   An   ecological   model   for   evolutionary   computing .   System / Control / Information ,   1993 , 31 ( 8 ) : 468 ～ 474 ) 
+ 　 7 　 Rumelhart   D   E   et   al .   Explorations   in   Parallel   Distributed   Processing .   Cambridge ,   MA :   MIT   Press ,   1988 
+ 　 8 　 De   Jong .   An   analysis   of   the   behavior   of   a   class   of   genetic   adaptive   system   ［ Ph . D .   Thesis ］ .   University   of   Michigen ,   1975 
+ 　 9 　 陈国良 , 王煦法 等 . 遗传算法 及其 应用 . 北京 : 人民邮电出版社 , 1996 
+ ( Chen   Guo - liang ,   Wang   Xu - fa   et   al .   Genetic   Algorithms   and   Its   Applications .   Beijing :   People ' s   Post   and   Telecommunications   Publishing   House ,   1996 ) 
+ 本文 1998 - 04 - 20 收到 原稿 , 1998 - 06 - 29 收到 修改稿 

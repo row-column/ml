@@ -1,0 +1,237 @@
+宇   航   学   报 
+ JOURNAL   OF   ASTRONAUTICS 
+ 1998 年 4 月     第 19 卷     第 2 期 科技期刊 
+ 
+ 
+ 一种 采用 自动 筛选 技术 的 
+ 鲁棒 恒虚警 检测器 
+ 何   友   孟祥伟 
+ ( 海军航空工程学院 电子 工程系 * 烟台 * 264001 ) 
+ 摘     要 　 　   本文 基于 有序 统计 ( OS ) 和 筛选 平均 ( CM ) 提出 了 一种 新 的 恒虚警 
+ 检测器 ， 它 采用 OS 和 CM 方法 来 产生 局部 估计 ， 再 采用 二者 的 平均值 作为 对杂 
+ 波 功率 水平 的 估计 ， 并 应用 了 文献 ［ 5 ］ 提出 的 自动 筛选 技术 ， 在 Swerling Ⅱ 
+ 型 目标 假设 下 ， 本文 推导 出 了 它 的 Pfa 、 Pd 和 度量 ADT 的 解析 表达式 ， 并 与其 
+ 它 方案 进行 了 比较 。 分析 结果表明 ， 它 对 均匀 背景 和 多 目标 环境 均 具有 适应 
+ 性 ， 尤其 是 在 多 目标 引起 的 非 均匀 背景 场合 中 ， 它 呈现 较 好 的 锝 棒性 ， 它 的 
+ 性能 与 OS 相比 有 较大 的 改善 ， 并且 它 的 样本 排序 时间 不及 OS 、 CM 的 一半 。 
+ 
+ 主题词     雷达     检测     恒虚 警率       有序 统计 
+ 　 
+ A   ROBUST   CFAR   DETECTOR   WITH   AUTOMATIC 
+ CENSORING   TECHNIQUE 
+ He   You   Meng   Xiangwei 
+ ( Naval   Aeronautical   Engineering   Academy * Yantai * 264001 ) 
+ Abstract     In   this   paper   a   new   CFAR   detector ( MOSCM ) based   on   order   statistics ( OS ) and   
+ censored   mean ( CM ) is   proposed . It   selects   the   mean   value   of   OS   and   CM   local   estimations   
+ as   a   globle   noise   power   estimation   for   the   detector , and   it   also   uses   the   automatic   censoring   
+ technique   proposed   You   He ［ 5 ］ . Under   Swerling Ⅱ   assumption , the   analytic   expression   
+ of   Pfa , Pd   and   ADT   of   MOSCM   are   derived . By   comparison   with   other   schemes , the   results   
+ show   that   MOSCM - CFAR   detector   has   an   adaptability   for   both   homogeneous   background   
+ and   nonhomogeneous   background   caused   by   multiple   interfering   targets , particularly   in   
+ multiple   target   situations , it   exhibits   good   robustness , the   detection   performance   is   improved , 
+ and   its   sample   sorting   time   is   less   than   half   of   that   of   OS , CM . 
+ 
+ Key   words     Radar     Detection     CFAR     Order   statistics 
+ 
+ 1     前言 
+ 
+ 　 　 雷达 在 噪声 和 其它 干扰 背景 下 检测 目标 ， 总是 希望 无论 干扰 电平 如何 变 
+ 化 ， 检测 系统 的 虚警 概率 最好 能 维持 不变 ， 即使 变化 ， 也 希望 变化 较 小 ， 这 
+ 就 需要 采用 恒虚 警率 ( CFAR ) 处理 技术 。 近年来 人们 基于 有序 统计 ( OS ) 提出 了 
+ 一类 恒虚警 处理 技术 ， Rohling ［ 1 ］ 首先 提出 了 有序 统计 ( OS ) 方法 ， Rickard 
+ 和 Dillard ［ 2 ］ 提出 了 筛选 平均 ( CM ) 方法 ， Gandhi 和 Kassam ［ 3 ］ 提出 了 剔除 
+ 平均 ( TM ) 方法 ， 这些 方法 对 多 目标 或 杂波 边缘 情形 都 有 不同 程度 的 鲁棒性 。 
+ 文献 ［ 6 ］ 提出 了 基于 有序 统计 ( OS ) 和 单元 平均 ( CA ) 的 恒虚警 检测器 ( MOSCA ) ， 
+ 但 因 检测 概率 Pd 通常 小于 1 ， 仍会 有 干扰 目标 进入 后 沿滑窗 ， 会 导致 MOSCA 的 
+ 检测 性能 恶化 。 为些 ， 本文 基于 有序 统计 ( OS ) 和 筛选 平均 ( CM ) 提出 了 MOSCM - 
+ CFAR 检测器 ， 它 的 前沿 滑窗 和 后 沿滑窗 分别 采用 OS 和 CM 方法 产生 局部 估计 ， 
+ 再 对 二者 平均 来 实现 对 杂波 功率 水平 的 估计 ， 并 应用 了 文献 ［ 5 ］ 提出 的 自动 
+ 筛选 技术 ， 在 Swerling Ⅱ 型 目标 假设 下 ， 本文 推导 出 了 它 的 Pfa 、 Pd 和 平均 判 
+ 决 门限 ( ADT ) 的 解析 表达式 ， 分析 了 它 在 均匀 背景 和 多 目标 环境 中 的 检测 性能 ， 
+ 并 与 其它 方案 进行 了 比较 。 
+ 
+ 2       检测 原理 描述 和 基本 数学模型 
+ 
+ 
+ 图 1   MOSCM - CFAR 检测器 原理 方框图 
+ MOSCM 检测器 的 原理 框图 如图 1 所示 ， 图中 v 是 检测 单元 ， 两侧 是 参考 单元 ， 
+ 滑窗 长度 R = M + N , M 、 N 分别 为 前沿 和 后 沿 参考 滑窗 和 长度 ， 图中 的 停止 移位 
+ 控制器 和 参考 单元 移位 寄存器 一起 实现 自动 筛选 功能 ， 自 适应 判决 准则 为 
+ 
+ ( 1 ) 
+ 其中 H1 表示 有 目标 ， H0 表示 没有 目标 ， Z 是 干扰 功率 水平 估计 ， T 是 门限 参数 ， 
+ v 代表 检测 单元 采样 值 。           假设 背景噪声 检测 包络 服从 瑞利 分布 ， 目标 模型 
+ 为 Swerling Ⅱ 型 ， 检测 单元 和 各个 参考 单元 的 观测 是 统计 独立 的 ， 在 均匀 背 
+ 景中 ， 它们 具有 同 分布 ， 本文 仅 考虑 单脉冲 平方 检测 。 可 得出 检测 单元 的 二 
+ 元 假设检验 对 为 
+ 
+ ( 2 ) 
+ 其中 a = 1 + λ ， λ 是 信噪比 ， μ 代表 噪声 强度 。 由于 这里 考虑 的 是 均匀 环境 
+ 和 多 目标 情形 ， 不失 一般性 ， 可令 μ = 1 。 在 均匀 背景 中 ， 检测 单元 变量 v 和 
+ 参考 单元 变量 xi 、 yj ( i ∈ ， j ∈ ) 是 统计 独立 和 同 分布 的 随机变量 ， 它们 的 概 
+ 率 密度 函数 ( pdf ) 和 概率分布 函数 ( cdf ) 分别 为 
+ f ( x ) = e - x 　 　 　 　 x ＞ 0 
+ ( 3 ) 
+ F ( x ) = 1 - e - x 
+ ( 4 ) 
+ MOSCM 的 前沿 滑窗 采用 OS 方法 估计 杂波 功率 水平 ， 它 先 对 参考 单元 的 样本 按幅 
+ 值 大小 排序 ， 然后 选取 第 k 个 样本 作为 前沿 滑窗 对 杂波 功率 水平 的 局部 估计 
+ X = x ( k ) 
+ ( 5 ) 
+ 它 的 pdf 为 
+ 
+ ( 6 ) 
+ 后 沿滑窗 采用 CM 方法 估计 杂波 功率 水平 ， 先 筛 除掉 最大 的 r 个 样本 ， 
+ 对 剩下 的 ( N - r ) 个 样本 求 平均 ， 作为 后 沿滑窗 对 杂波 功率 水平 的 局部 估计 
+ 
+ ( 7 ) 
+ r ≠ 0 时 ， Y 的 pdf 为 ［ 7 ］ 
+ 
+ ( 8 ) 
+ 其中 
+ 
+ ( 9 ) 
+ MOSCM 检测器 取 两个 局部 估计 的 均值 作为 检测器 对 杂波 功率 水平 的 估 
+ 计 ， 可 将 均值 的 因子 1 ／ 2 归并到 门限 参数 中 去 ， 故有 
+ Z = X + Y 
+ ( 10 ) 
+ Z 的 pdf 为 
+ 
+ ( 11 ) 
+ 3     MOSCM - CFAR 检测器 在 均匀 背景 中 的 性能 分析 
+ 
+         设置 门限 的 统计 量 Z 是 随机变量 ， 检测器 的 性能 由 平均 检测 概率 和 平均 虚警 
+ 概率 决定 ［ 3 ］ ， 平均 虚警 概率 和 平均 检测 概率 分别 为 
+ 
+ ( 12 ) 
+ 计算 Pfa 和 Pd 的 关键 就 在于 求 fZ ( z ) 的 拉氏 变换 Φ Z ( u ) 由式 ( 11 ) ， 得 
+ Φ Z ( u ) = Φ X ( u ) Φ Y ( u ) 
+ ( 13 ) 
+ 其中 Φ x ( u ) 、 Φ y ( u ) 分别 是 fx ( x ) 、 fy ( x ) 的 拉氏 变换 ， 有 
+ 
+ ( 14 ) 
+ 由 ( 12 ) 式 和 ( 13 ) 式 ， 可得 MOSCM 检测器 的 平均 虚警 概率 和 平均 检测 概 
+ 率 分别 为 
+ 
+ ( 15 ) 
+ ( 16 ) 
+ 在 均匀 背景 下 ， 平均 判决 门限 ADT 常用 来 比较 不同 CFAR 检测器 的 检 
+ 测 性能 ， 可得 MOSCM 检测器 的 平均 判决 门限 ADT ［ 1 ］ 的 解析 表达式 
+ 
+ ( 17 ) 
+ 　 　 在 均匀 背景 中 ， 对于 任意 给定 的 Pfa ， 解式 ( 16 ) 可得 MOSCM 的 门限 参数 T 。 
+ 若 Pfa = 10 - 6 ， 参考 单元 总数 R = M + N = 32 ， 表 1 给出 了 MOSCM 的 部分 门限 参数 T 和 
+ ADT 的 值 。 从 ADT 的 结果 来看 ， MOSCM 检测器 在 均匀 背景 中 的 性能 是 比较 好 的 ， 
+ 例如 ， OS 在 R = 32 、 k = 27 时 的 ADT 最优 值为 19.025 ， GOSCA 在 M = N = 16 , k = l = 14 时 
+ 的 ADT 最优 值为 18.919 ， 而 MOSCM 在 M = 20 , N = 12 , k = 16 , r = 2 时 的 ADT 值为 18.902 。 
+ 还 可 看出 ADT 对于 k 的 变化 是 缓慢 的 ， 这 意味着 前沿 滑窗 可 容纳 较 多 的 干扰 目 
+ 标 ， 而 不 致使 检测 性能 下降 太 多 ， 对于 r 的 变化 反应 要 大 一些 ， 但 由于 采用 
+ 了 自动 筛选 技术 ， 使得 干扰 目标 进入 后 沿滑窗 的 机会 变小 ， 故 只 需 筛选 掉 有 
+ 限个 样本 即可 ， 这时 仍能 在 均匀 背景 中 保持 较 好 的 检测 性能 。 
+ 表 1   MOSCM 的 部分 门限 参数 T 和 ADT 的 值 ( Pfa = 10 - 6 , M = 20 , N = 12 ) 
+ M = 20k = 11k = 12k = 13k = 14k = 15k = 16k = 17k = 18k = 19k = 20 
+ r = 1 , T 
+ ADT12.3 
+ 19.411 . 3 
+ 19.110 . 4 
+ 18.99 . 6 
+ 18.78 . 8 
+ 18.68 . 0 
+ 18.67 . 2 
+ 18.66 . 5 
+ 18.85 . 7 
+ 19.34 . 8 
+ 21.0 
+ r = 2 , T 
+ ADT13.7 
+ 19.812 . 5 
+ 19.511 . 4 
+ 19.310 . 4 
+ 19.19 . 5 
+ 19.08 . 6 
+ 18.97 . 8 
+ 18.96 . 9 
+ 19.16 . 0 
+ 19.75 . 0 
+ 21.4 
+ r = 3 , T 
+ ADT15.0 
+ 20.213 . 7 
+ 19.912 . 4 
+ 19.611 . 3 
+ 19.410 . 2 
+ 19.39 . 2 
+ 19.28 . 2 
+ 19.37 . 3 
+ 19.56 . 3 
+ 20.05 . 2 
+ 21.8 
+ r = 4 , T 
+ ADT16.5 
+ 20.714 . 8 
+ 20.313 . 4 
+ 20.012 . 1 
+ 19.810 . 9 
+ 19.69 . 8 
+ 19.58 . 7 
+ 19.67 . 6 
+ 19.86 . 6 
+ 20.45 . 4 
+ 22.2 
+ 
+ 
+ 4     MOSCM - CFAR 检测器 在 多 目标 情况 下 的 性能 分析 
+ 
+ 　 这里 仅 分析 强 干扰 目标 的 影响 ， 即 假定 干扰 与 噪声 功率 比 很大 ， 干扰 目标 
+ 的 回波 总是 占据 有序 统计 量 的 最高 位置 ， 当 左边 干扰 目标 的 数目 IL 小于 或 等 
+ 于 ( M - k ) ， 右边 干扰 目标 的 数目 IR 小于 或 等于 r 时 ， 它们 所 产生 的 效果 相当于 
+ 减少 了 有序 统计 参考 单元 的 数目 ， 可以 用 通过 ( M - IL ) 和 ( N - IR ) 代替 式 ( 16 ) 
+ 中 的 M 和 N 来 获得 MOSCM 在 多 目标 环境 中 的 检测 性能 ， 对弱 干扰 目标 ， 检测 损 
+ 失将 变小 。 表 2 给出 了 在 Swerling Ⅱ 型 目标 条件 下 ， 几种 检测器 出现 多目 
+ 标时 的 CFAR 损失 。 为了 便于 比较 ， 使 几种 检测器 至少 具有 容纳 六个 干扰 目标 
+ 的 能力 ， MOSCM 选取 M = 8 , N = 24 , k = 2 , r = 2 ， GOSCA 选取 M = 8 , N = 24 , k = 2 , l = 22 , OS 选 
+ 取 R = 32 , k = 26 。 从表 2 中 的 结果 可以 看出 ， 随着 干扰 目标 的 增多 ， MOSCM 检测 
+ 器 的 恒虚警 损失 比 OS 和 GOSCA 增长 得 缓慢 ， 这 也就是说 它 对 干扰 目标 呈现出 
+ 较 好 的 鲁棒性 ， MOSCM 检测器 在 均匀 背景 中 的 恒虚警 损失 比 GOSCA 小 ， 在 多 
+ 目标 情况 下 从总体上 讲 也 是 优于 GOSCA 的 。 MOSCM 检测器 在 均匀 背景 中 的 恒虚 
+ 警 损失 比 OS ， CM 多 付出 一些 ， 在 多 目标 情况 下比 OS 有 较大 改善 ， 并 与 CM 相近 ， 
+ 但 它 的 样本 排序 时间 不及 OS 、 CM 的 一半 ， 便于 工程 实现 。 因而 ， 从总体上 看 ， 
+ 它 是 一种 鲁棒型 的 恒虚警 检测器 。 
+ 表 2   几种 检测器 在 多 目标 情况 下 的 CFAR 损失 ( dB ) , ( Pfa = 10 - 6 , Pd = 0.5 ) 
+ IL ， IR0 ， 01 ， 01 ， 12 ， 02 ， 12 ， 23 ， 03 ， 13 ， 24 ， 04 ， 14 ， 2 
+ MOSCM1.5691 . 7342.0651 . 9482.2652 . 7012.2402 . 5392.9512 . 6642.9383 . 318 
+ GOSCA1.6611 . 7342.4511 . 8322.5353 . 6871.9702 . 6543.7802 . 1792.8353 . 924 
+ CM1.2821 . 5321.8041 . 8042.1032 . 4402.1032 . 4402.8382 . 4402.8383 . 364 
+ OS1.3901 . 7522.1602 . 1602.6353 . 2122.6353 . 2123.9733 . 2123.9735 . 194 
+ MOSCM ： M = 8 , N = 24 , k = 2 , r = 2   GOSCA ： M = 8 , N = 24 , k = 2 , l = 22   OS ： R = 32 ， k = 26   CM ： R = 32 , r = 6 
+ 
+ 
+ 5     结论 
+ 
+ 　 　 本文 基于 有序 统计 ( OS ) 和 筛选 平均 ( CM ) 提出 了 一种 新 的 恒虚警 检测器 
+ MOSCM - CFAR ， 分析 结果表明 ， 它 对 均匀 背景 和 多 目标 环境 均 具有 适应性 ， 对 
+ 于 这 二种 环境 ， 通过 合适 的 参数 选择 ， 均 可 获得 较 好 的 性能 ， 但 它 突出 的 优 
+ 势 在于 多 目标 引起 的 非 均匀 背景 中 ， 它 对 干扰 目标 呈 出 较 好 的 鲁棒性 ， 它 可 
+ 以 均匀 背景 中较 小 的 代价 换取 了 在 多 目标 情况 下 性能 的 较大 改善 ， 如当 IL = 
+ 4 , IR = 2 时 ， 它 比 OS 改善 了 近 两个 分贝 ， 同时 ， 它 也 是 一种 比较 容易 实现 的 
+ CFAR 方案 。 由于 它 的 后 沿滑窗 采用 可 抗击 干扰 目标 的 筛选 平均 ( CM ) ， 使得 它 
+ 比 前沿 滑窗 采用 OS 、 后 沿滑窗 采用 CA 类 的 恒虚警 检测器 ［ 4 ］ 更 有效 。 由于 
+ 采用 了 自动 筛选 技术 ， 使得 干扰 目标 进入 后 沿滑窗 的 机会 变小 ， 它 的 后 沿滑 
+ 窗只 需 筛 除掉 最大 的 r 个 样本 ， 使得 它 的 样本 排序 时间 比 GOSCA 和 OS ， CM 大为 
+ 缩小 。 虽然 本文 以 Swerling Ⅱ 型 目标 为 研究 对象 ， 由于 恒虚警 检测器 对 目标 
+ 模型 不 敏感 ， 所得 结论 也 适用 于 其它 Swerling 目标 模型 情况 。 
+ 　 
+ 参考文献 
+ 1     Rohling   H . Radar   CFAR   thresholding   in   clutter   and   multiple - target   situations . IEEE   
+ Trans . on   AES , 1983 , 19 ( 4 ) ： 608 - 621 
+ 2     Rickard   J   T , Dillard   G   M . Adaptive   detection   algorithms   for   multiple - target   situations . 
+ IEEE   Trans . on   AES , 1977 , 13 ( 4 ) ： 338 - 343 
+ 3     Gandhi   P   P , Kassam   S   A . Analysis   of   CFAR   processors   in   nonhomogeneous   background . 
+ IEEE   Trans . AES , 1988 , 24 ( 4 ) ： 427 - 445 
+ 4     何友 ， 关键 ， Rohling   H . 一种 基于 排序 和 平均 的 新恒虚警 检测器 . 现代 雷 
+ 达 ， 1995 ， 17 ( 4 ) ： 32 - 36 
+ 5     He   You ( 何友 ) . Performance   of   some   generalised   modified   order   statistics   CFAR   
+ detectors   with   automatic   censoring   technique   in   multiple   target   situations . IEE   Proc . - F , Radar   
+ and   Signal   Processing , 1994 , 141 ( 4 ) ： 205 - 212 
+ 6     孟祥伟 ， 何友 . 基于 准 最佳 加权 有序 统计 的 最大 选择 CFAR 检测 算法 . 电子学 
+ 报 , 1997 , 25 ( 12 ) : 74 - 78   

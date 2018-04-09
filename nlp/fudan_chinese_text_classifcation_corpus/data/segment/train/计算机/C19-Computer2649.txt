@@ -1,0 +1,97 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 10 卷   第 8 期   Vol.10   No.8   1999 
+ 
+ 
+ 
+ 关系 型 多 数据库系统 IS - Global 的 设计 与 实现 
+ 吴 胜利 　 钟华 　 黄涛 　 孙 红艳 　 虞海江 
+ 摘要 　 文章 主要 讨论 IS - Global 的 设计 思想 和 关键 的 实现 技术 . IS - Global 是 一个 关系 型 多 数据库系统 , 其 目标 是 为 CIMS ( computer   integrated   manufacture   system ) 环境 下 企业级 应用 提供 一个 集成 的 、 能 屏蔽 网络 、 操作系统 和 数据库系统 异构 性 的 全局 信息系统 . IS - Global 的 主要 特点 是 ： ( 1 )   它 是 一个 紧 耦合 的 系统 , 具有 统一 的 全局 模式 , 对 不同 的 关系 型 数据库系统 , 如 Oracle , Sybase 和 SQL ( structured   query   language )   Server 等 可 进行 透明 访问 . ( 2 )   IS - Global 采用 两级 客户 / 服务器 结构 , 支持 并发 控制 和 安全性 机制 , 是 一个 多用户 系统 . ( 3 ) 可 同时 提供 图形化 界面 工具 、 ODBC ( open   database   connectivity ) 函数 接口 和 SQL 语言 交互式 访问 接口 . ( 4 ) 能 同时 支持 对 多个 局部 数据库 中 数据 的 联合 查询 . 
+ 关键词 　 异构 多 数据库系统 , 联邦 数据库系统 , 可 互操作 的 数据库系统 . 
+ 中图法 分类号 　 TP311 , TP132 
+ Design   and   Implementation   of   Relational   Multi - database   System   IS - Global 
+ WU   Sheng - li   ZHONG   Hua   HUANG   Tao   SUN   Hong - yan   YU   Hai - jiang 
+ ( Object   Technology   Center   Institute   of   Software   The   Chinese   Academy   of   Sciences   Beijing   100080 ) 
+ ( Laboratory   of   Computer   Science   Institute   of   Software   The   Chinese   Academy   of   Sciences   Beijing   100080 ) 
+ Abstract 　   In   this   paper ,   the   authors   discuss   IS - Global ' s   pivotal   technique   in   design   and   implementation .   IS - Global   is   a   relational   multi - database   system ,   which   provides   an   integrated   global   information   system   platform   for   enterprises   applying   CIMS   ( computer   integrated   manufacture   system ) ,   and   hides   the   detail   of   the   heterogeneity   of   network ,   local   operating   systems   and   database   systems .   The   major   characteristics   of   IS - Global   are   as   follows :   ( 1 )   It   is   a   tightly   integrated   system   with   unique   global   schema .   ( 2 )   Being   a   multi - user   system ,   IS - Global   possesses   two - lever   client / server   architecture   and   supports   concurrent   and   security   control   mechanisms .   ( 3 )   IS - Global   provides   graph - based   tools ,   ODBC   function   call   and   interactive   SQL   interface .   ( 4 )   IS - Global   supports   multi - location   queries . 
+ Key   words 　 Heterogeneous   multi - database   systems ,   federated   database   systems ,   interoperable   database   systems . 
+ 　 　 自从 80 年代 以来 , 异构 多 数据库系统 （ 也 称为 联邦 数据库系统 、 可 互操作 的 数据库系统 ） 一直 是 数据库 领域 的 一个 主要 研究 方向 . 进入 90 年代 后 , 由于 计算机网络 技术 , 特别 是 INTERNET 的 迅猛发展 , 对 数据库 又 有 了 新 的 要求 . 各种 数据库 中 的 信息 不仅 需要 在 INTERNET 上 发布 , 而且 大量 的 应用 需要 能 同时 访问 多个 数据库 中 的 内容 . 这样 , 异构 多 数据库系统 、 联邦 数据库系统 又 一次 成为 数据库 领域 的 一个 研究 热点 . 到 目前为止 , 已 研制 出 数十个 原型 系统 ［ 1 , 2 ］ , 各种 数据库 产品 也 或多或少 地 支持 一些 多 数据库 的 功能 , 其中 较 突出 的 是 IBM 公司 的 DB2 和 UniSQL 公司 的 UniSQL . DB2 中所 包含 的 数据 连接器 DataJoiner ［ 3 ］ 和 UniSQL 中 的 UniSQL / M 都 提供 较强 的 多 数据库 查询 功能 . 
+ 　 　 在 多 数据库系统 的 许多 方面 , 如 模式 〔 视图 〕 集成 、 模型 转换 、 语义 异构 、 查询处理 与 优化 、 扩充 事务 模型 、 并发 控制 和 安全性 等 已有 不少 的 研究 , 并且 目前 仍 在 大量 进行 . 但是 如何 在 一个 实用 系统 中 综合 考虑 这些 方面 的 内容 , 设计 和 实现 一个 有 特色 的 、 适合 国内 企业应用 的 多 数据库系统 也 是 一项 颇 有 难度 的 工作 . 
+ 　 　 在 如此 形势 下 , 我们 承担 了 国家 “ 863 ” CIMS （ computer   integrated   manufacture   system ） 主题 的 重大 科技 攻关项目 “ CIMS 应用软件 系统集成 平台 ” 中 的 主体 部分 “ 全局 信息系统 ” 的 研制 任务 . 针对 目前 各 企业 中 对 计算机 的 应用 已有 一定 基础 , 但是 由于 网络 环境 、 操作系统 和 应用软件 的 异构 性 , 整个 企业 范围 的 信息 流通 与 共享 还 存在 一定 的 困难 . 为了 在 全国 范围 内 进一步 推广 CIMS 技术 , 为 制造 型 工厂 提供 可用性 好 的 应用软件 系统集成 平台 , 本 项目 的 目标 定 位于 技术 与 应用 需求 相结合 , 在 现有 技术 基础 上 探讨 一些 实用 的 实现 技术 和 构想 . 首先 开发 “ CIMS 应用软件 系统集成 平台 ” 的 系统 原型 , 通过 在 一些 工厂 进行 试用 和 不断改进 , 最终 形成 实用 的 产品 . 本文 讨论 该 原型 系统 的 设计方案 和 其中 的 关键技术 , 包括 总体 结构 、 全局 数据模型 和 模式 集成 、 并发 控制 、 查询处理 与 优化 、 安全性 机制 和 全局 数据 字典 等 几个 部分 . 
+ 1   IS - Global 的 总体 结构 与 全局 模式 
+ 　 　 IS - Global 采用 两级 客户 / 服务器 结构 , 客户端 包括 图形化 工具 、 ODBC ( open   database   connectivity ) 函数 接口 和 交互式 语言 接口 的 前端 部分 , 它们 通过 底层 的 通信 系统 和 IS - Global 的 服务器进行 联系 , 将 用户 或 应用程序 访问 数据库 的 命令 传给 服务器 , 再 将 结果 回 传给 客户端 . IS - Global 的 主要 处理 功能 位于 IS - Global 服务器 上 . IS - Global 服务器 为 每 一个 联机 用户 建立 相应 的 线程 . 当 接收 到 来自 应用程序 中 的 数据库 访问 请求 或 其他 服务 时 , 相应 的 线程 分别 调用 存取控制 、 并发 控制 、 语法分析 和 查询处理 几个 子系统 . 多 数据库系统 的 软件 分布 情况 如图 1 所示 . 
+ 
+ 图 1 　 多 数据库系统 的 软件 分布 情况 
+ 　 　 IS - Global 服务器 在 进行 各种 操作 时 , 要 用到 全局 数据 字典 . 全局 数据 字典 由 一系列 表格 组成 , 不仅 多 数据库系统 在 实现 中要 频繁 使用 它们 , 它们 本身 的 某些 内容 也 对 用户 开放 . 多 数据库系统 提供 交互式 命令 和 图形化 界面 两种 形式 给 用户 进行 有关 的 操作 . 本文 后面 还要 对此 进行 更 详细 的 讨论 . 
+ 　 　 多 数据库系统 通过 标准 的 ODBC 接口 ［ 4 ］ 和 各个 局部 数据库系统 相连 . 目前 所 连接 的 几个 局部 数据库系统 均 采用 客户 / 服务器 方式 . 只要 符合 ODBC 接口标准 , 其他 种类 的 数据库系统 , 如 桌面 型 数据库 也 能 作为 本 系统 中 的 局部 数据库 使用 . 目前 已 实现 了 微机 Windows   NT 操作系统 平台 上 的 IS - Global 服务器 , 客户端 实现 了 微机 Windows   NT 和 Windows   95 环境 下 前述 所有 的 接口 软件 , 在 SGI 工作站 UNIX 操作系统 环境 下 实现 了 一个 类 ODBC 函数调用 接口 . 
+ 　 　 接下来 讨论 全局 模型 和 模式 问题 . 在 国外 , 目前 已 实现 或 正在 实现 的 多 数据库 原型 系统 绝大多数 采用 面向对象 模型 , 从 理论 上 说 , 面向对象 模型 由于 功能 较强 , 适合 作为 全局 模型 . 但 从 实用性 方面 考虑 , 目前 国内 企业 大都 采用 各种 关系 型 数据库 产品 , 采用 面向对象 数据库 产品 者 较 少 , 预计 这种 情况 在短期内 不会 有 明显 改变 . 所以 , IS - Global 采用 关系 模型 作为 全局 数据模型 . 对于 面向对象 数据库 作为 局部 数据库 的 问题 , 解决 方法 参见 文献 ［ 5 ］ . 
+ 　 　 根据 文献 ［ 6 ］ ,   一般 将 多 数据库系统 的 模式 分为 5 层 , 自下而上 , 它们 分别 是 各 局部 数据库 的 本地 模式 、 局部 模式 、 输出 模式 、 多 数据库系统 全局 模式 和 输出 模式 . 在 本 系统 中 , 由于 各 局部 数据库 模式 均 为 关系 模式 , 无需 再 进行 转换 , 所以 , 可 将 各 局部 数据库 的 本地 模式 和 局部 模式 合并 为 一 . 
+ 　 　 如何 实现 全局 模式 是 本 系统 的 重要 问题 . 它 对系统 的 可用性 和 实现 的 效率 、 难度 等 都 有 重要 影响 ［ 7 ］ . 综合 考虑 这个 问题 , 本 系统 设计 成 一个 紧 耦合 型 的 多 数据库系统 , 亦 即 整个 系统 具有 唯一 的 全局 模式 . 但 也 仅 提供 相对 较弱 的 模式 集成 功能 . 通过 前者 可 大大 增强 系统 的 可用性 , 适当 地 抑制 后者 可 降低 系统 的 实现 难度 , 提高 系统 的 实现 效率 . 另一方面 也 可 降低 对 用户 的 要求 , 使 系统 易于 使用 和 维护 . 在 功能 上 的 部分 缺陷 通过 语言 接口 等 办法 弥补 . 
+ 　 　 具体 的 集成 方法 是 , 可 将 局部 数据库 中 的 整个 表 （ 或 视图 ） 或 其中 的 一些 属性 （ 但 必须 包括 关键字 ） 定义 为 共享 表 （ 或 视图 ） . 也就是说 , 共享 是 以表为 单位 的 , 但 定义 该 共享 映射 时 必须 保证 一个 共享 表中 的 元组 与 局部 库中 相应 表 （ 或 视图 ） 中 一个 特定 的 元组 一一对应 . 否则 , 在 进行 数据库 访问 时会 发生 错误 . 用户 可 在 全局 表 的 基础 上 定义 全局 视图 , 但 未 提供 解决 语义 异构 性 问题 的 方法 . 
+ 2   并发 与 存取控制 
+ 　 　 并发 与 存取控制 是 多用户 系统 中 的 两个 主要 问题 . 
+ 　 　 目前 , 对于 多 数据库系统 的 并发 控制 已有 很多 的 讨论 ［ 8 ］ , 提出 了 不少 新 的 事务 模型 , 它们 大都 是 对 传统 的 事务 定义 有 某种程度 的 放宽 , 或 支持 复杂 应用 所 需要 的 长 事务 、 嵌套 事务 等 , 但 实际 应用 还 很少 . 
+ 　 　 多 数据库系统 的 并发 控制 机制 不同于 一般 的 数据库系统 . 一方面 , 各个 局部 数据库系统 都 具有 相应 的 并发 控制 和 事务 机制 , 多 数据库系统 中 的 事务 可 据此 建立 . 另一方面 , 仅仅 依靠 局部 数据库系统 中 的 并发 控制 和 事务 机制 是 不够 的 . 本 系统 支持 全局 事务 的 概念 , 一个 全局 事务 由 多个 局部 事务 组成 , 采用 两 阶段 提交 协议 实现 全局 事务 机制 . 另外 一个 要 考虑 的 问题 是 涉及 到 全局 数据 字典 的 情形 . 由于 在 实现 中 采用 了 SQL   Server 数据库系统 管理 这些 元 数据 , 所以 对于 元 数据 的 访问 也 可 组织 成 事务 的 方式 , 从而 简化 了 系统 的 实现 . 
+ 　 　 安全 机制 是 计算机系统 ( 包括 软件系统 ) 中 的 重要 机制 . 目前 对于 多 数据库系统 中 的 安全性 问题 已有 一些 研究 . 其中 较 有名 的 是 瑞士 的 Z ü rich 大学 和 澳大利亚 的 皇家 墨尔本 技术 学院 . CHASSIS 和 DOK 是 这 两个 单位 分别 研制 出 的 多 数据库 原型 系统 . 前者 仔细 探讨 了 多 数据库系统 环境 对 安全 子系统 的 要求 和 限制 ［ 9 ］ , 实现 了 一个 可 客户 化 的 多 数据库系统 的 安全性 子系统 , 而 后者 则 侧重于 讨论 安全 子系统 的 实现 技术 ［ 10 ］ . 
+ 　 　 在 数据库系统 中 , 实现 安全 管理 的 方法 主要 有 强制 （ mandatory   access   control ） 和 自决 ( discretionary   access   control ) 两种 . 产品化 数据库系统 大都 采用 自决 方式 , 并 逐步 融入 一些 强制 的 概念 . 近来 由于 支持 复杂 应用 的 需要 , 支持 基于 角色 、 域 、 工作组 、 任务 和 工作 流 的 安全 机制 也 多 有 讨论 ［ 11 ］ . IS - Global 支持 基于 用户组 的 自决 存取控制 机制 , 但 允许 分散 （ decentralize ） 授权 . 亦 即 最初 所有 的 存取 权利 集中 在 多 数据库 系统管理员 手中 , 但 他 （ 或 她 ） 可 把 部分 权利 转授 给 别的 用户 , 并且 这种 转授 过程 可 级联 进行 . 一个 用户 可 同时 参加 多个 用户组 , 而 用户组 的 成员 由 另 一些 用户组 或 用户 组成 , 亦 即 用户组 可 为 嵌套 结构 , 但 不能 形成 循环 . 授权 采用 正向 ( positive ) 授权 和 封闭 世界 假设 . 亦 即 对 任一 用户 的 访问 请求 , 如 未经 显式 授权 许可 , 则 予以 禁止 . 
+ 　 　 当 允许 一个 用户 同时 参加 多个 用户组 时 , 有时 会 导致 发生冲突 , 在 本 系统 中 , 根据 下面 两条 规则 解决 冲突 , 其中 第 1 条 规则 的 优先级 高于 第 2 条 . 
+ 　 　 ( 1 )   正向 显式 授权 高于 隐式 禁止 ； 
+ 　 　 ( 2 )   对 单个 用户 的 授权 高于 对 用户组 的 授权 ； 
+ 　 　 在 实现 上 , 采用 存取控制 矩阵 的 方式 . 用户组 和 用户 同等对待 , 均 视作 授权 主体 . 对于 局部 数据库 加入 多 数据库系统 , 必须 要 有 一个 代表 , 该 代表 可以 是 该 局部 库 的 管理员 , 也 可以 是 具有 某些 访问 权限 的 一般 用户 . 多 数据库 系统管理员 要 与 该 代表 协商 全局 模式 中 有关 该 局部 数据库 共享 信息 的 设置 . 多 数据库系统 中 所有 对 该 局部 数据库 的 访问 均 是 以 该 代表 的 身份 进行 的 . 这样 可 保证 全局 和 局部 两层 安全 管理 的 相对 独立性 . 
+ 3   查询处理 与 优化 
+ 　 　 多 数据库系统 的 查询处理 与 优化 比单 数据库系统 的 查询处理 与 优化 考虑 的 因素 要 更 多 、 更 复杂 , 目前 已有 一些 理论性 的 研究 ［ 12 ］ . 涉及 到 查询 实现 效率 的 因素 有 ： 数据 在 网络 上 传输 、 各 局部 数据库 的 查询 能力 （ 由于 各个 局部 数据库系统 的 异构 性 , 各个 数据库系统 各有特点 , 难有 一致 的 结论 ） 和 数据量 分布 等 因素 . 在 本 系统 中 , 我们 重点 考虑 局部 数据库 的 查询 能力 和 数据量 分布 这 两种 因素 , 本 节 后面 将 详述 这 一点 . 
+ 　 　 IS - Global 的 服务器 为 每 一个 用户 端的 应用 启动 相应 的 线程 进行 服务 . 对于 有些 服务 请求 , 如 查询 IS - Global 多 数据库系统 中 的 全局 共享 表 结构 信息 , 或 系统 中 的 用户组 和 用户 信息 , 直接 查询 数据 字典 中 有关 信息 就 可以 了 , 但 对于 一般 数据 的 访问 、 增加 、 删除 和 修改 , 则 需要 进行 更 多 的 处理 . 首先 , 服务器端 先 调用 语法分析 子系统 , 对 SQL 语句 进行 语法分析 和 语义 检查 , 然后 再 调用 存取控制 子系统 , 若 顺利 通过 这 两个 子系统 , 则 调用 并发 控制 子系统 , 它 选择 一个 适当 的 时机 调用 查询处理 子系统 进行 相应 的 处理 . 查询处理 子系统 的 输入 主要 是 语法分析 子系统 的 输出 , 主要 包括 SQL 语句 的 中间代码 和 一些 符号表 . SQL 语句 的 中间代码 组织 成 单向 链表 形式 , 每个 节点 为 最 基本 的 词法 分析 单位 . 符号表 中 含有 所 要 处理 的 表名 、 列名 和 它们 在 单向 链表 中 的 位置 等 信息 . 
+ 　 　 查询处理 子系统 首先 为 全局 表名 和 列名 查出 相应 局部 库中 的 表名 和 列名 , 再 判断 所 进行 的 处理 只 涉及 一个 局部 数据库 还是 涉及 多个 局部 数据库 . 如 只 涉及 一个 局部 数据库 , 则 根据 SQL 语句 的 中间代码 重组 对 相应 局部 数据库 的 访问 语句 ( 包括 删除 、 增加 和 修改 数据 ) 进行 相应 的 访问 , 得到 结果 后 将 其 回 传给 客户端 . 
+ 　 　 如为 查询 语句 , 可 涉及 多个 局部 数据库 中 信息 . 首先 , 根据 一定 的 准则 选定 一个 主 数据库 , 查询处理 的 主要 部分 在 此 进行 . 然后 , 确定 数据 所在 的 局部 数据库 , 先 进行 选择 和 投影 操作 除去 冗余 , 再 将 所 需要 的 数据 拷贝 至主 数据库 中 . 最后 , 在 主 数据库 中 进行 查询处理 . 因为 我们 所 实现 的 多 数据库系统 本身 没有 数据处理 的 功能 ( 访问 数据 字典 的 一些 功能 除外 ) , 所以 一般 的 数据处理 要 在 某个 局部 数据库 中 完成 . 根据 如下 两种 因素 选定 主 数据库 . 
+ 　 　 ( 1 )   该 局部 数据库 中 所 涉及 的 数据 体积 ( 字节数 ) , 大者 优先 ； 
+ 　 　 ( 2 )   该 局部 数据库 的 查询 能力 , 强者 优先 . 
+ 其中 第 1 项 因素 占 70 ％ , 第 2 项 因素 占 30 ％ . 一个 数据库 中 所 涉及 的 数据 体积 可 通过 一定 的 计算 得出 , 而 数据库 的 查询 能力 则 是 通过 运行 一些 特定 的 查询 实例 , 再 进行 比较 , 得到 一个 相对 的 比值 , 存储 在 全局 数据 字典 中 . 
+ 　 　 通过 IS - Global 的 接口 创建 基本 表有 一些 特殊 之处 . 主要 是因为 用户 不能 通过 SQL 语句 指出 在 何处 创建 该 基本 表 . 本 系统 的 解决办法 是 让 用户 通过 图形化 工具 接口 指出 他 （ 或 她 ） 将来 定义 基本 表 的 缺省 位置 . 删除 基本 表 操作 除了 真正 地 从 某个 局部 数据库 中 删除 该表外 , 还 将 删除 全局 数据 字典 中 的 有关 内容 . 和 定义 全局 模式 中 共享 表 相反 的 过程 是 断开连接 , 它 仅仅 使 该表 不可 再 全局 共享 , 但 不 将 该表 从 局部 数据库 中 删除 . 
+ 4   全局 数据 字典 
+ 　 　 全局 数据 字典 是 整个 多 数据库系统 的 全局 资源 , 主要 包括 下列 各项 内容 . 
+ 　 　 ( 1 )   各 局部 数据库 的 基本 情况 
+ 　 　 该项 中 的 内容 包括 各 局部 数据库 的 产品名称 、 版本号 、 网络地址 、 支持 ODBC 的 级别 以及 查询 能力 等 信息 . 
+ 　 　 ( 2 )   全局 模式 至 各 局部 模式 的 映射 
+ 　 　 该项 内容 包括 每 一个 全局 表与 局部 库中 的 基本 表 （ 或 视图 ） 的 对应 情况 . 
+ 　 　 ( 3 )   多 数据库系统 的 基本 情况 
+ 　 　 包括 MDBS 的 名称 、 版本号 、 支持 ODBC 的 级别 、 支持 SQL 语言 的 情况 等 . 
+ 　 　 ( 4 )   MDBS 的 存取控制 信息 
+ 　 　 包括 用户 和 用户组 的 名称 、 每个 用户 的 口令 、 每个 用户组 所含 的 成员 和 存取控制 矩阵 . 
+ 　 　 全局 数据 字典 全部 存放 在 一个 SQL   Server 数据库 中 , 并且 和 IS - Global 的 服务器 位于 同一 台 机器 上 . 这样 对于 一些 元 数据 的 访问 , IS - Global 服务器 只 需要 访问 本机 的 数据库 即可 ； 对于 一般 数据 的 操作 , IS - Global 服务器 也 常常 需要 访问 其中 的 数据 . 采用 数据库 管理 元 数据 的 优点 是 , 数据库 能 提供 事务 机制 , 大大 方便 了 系统 的 实现 , 提高 了 系统 的 可靠性 . 
+ 5   前端 接口 
+ 　 　 IS - Global 前端 接口 提供 图形化 界面 工具 、 ODBC 函数 接口 和 SQL 语言 交互式 访问 3 种 工具 . 
+ 　 　 图形化 界面 工具 为 多 数据库系统 提供 了 模式 集成 、 权限 管理 和 系统维护 等 功能 . 在 多 数据库 建立 之初 , 它 可 用于 定义 现有 各 局部 数据库系统 的 共享 信息 , 进行 模式 集成 , 形成 多 数据库系统 . 另外 , 在 多 数据库系统 建成 并 投入 运行 之后 , 局部 数据库 用户 对 局部 数据库系统 的 修改 也 需要 通过 模式 集成 工具 在 全局 系统 中 反映 出来 , 以便 使 全局 用户 可以 使用 . 
+ 　 　 IS - Global 系统管理员 有权 通过 图形化 界面 工具 进行 权限 管理 , 也 可以 访问 数据 字典 中 所有 的 数据 . 用户 可 通过 该 工具 查看 自己 的 访问 权限 和 多 数据库系统 的 有关 情况 , 也 能 将 一些 被 许可 的 授权 进一步 授权 给 系统 中 的 其他 用户 , 但 不能 直接 修改 数据 字典 中 的 内容 . 
+ 　 　 ODBC 是 Microsoft 公司 制订 的 一种 实现 异种 数据库 访问 的 接口 , 现已 成为 一种 事实上 的 标准 , 被 大量 应用 于 应用程序 和 开发工具 中 , 通过 在 IS - Global 前端 提供 标准 的 ODBC 接口 , 可以 使 这些 应用程序 和 工具 不 经 修改 就 能 连 到 IS - Global 多 数据库系统 上来 , 增强 了 IS - Global 的 功能 和 可用性 . 
+ 　 　 IS - Global   ODBC 主要 由 IS - Global   ODBC 驱动程序 、 数据编码 / 解码 模块 和 底层 通信 服务 模块 组成 . 应用程序 的 函数调用 由 ODBC 驱动器 管理器 传给 IS - Global   ODBC 驱动程序 , 对于 要 由 服务器 方 处理 的 函数 , 经过 数据编码 / 解码 模块 的 打包 , 由 底层 通信 服务 LCS ( local   communication   system ) 发送给 服务器 . 相反 地 , 服务器 产生 的 结果 或 错误信息 由 LCS 传回 , 经过 解包 后 由 IS - Global   ODBC   驱动程序 写入 应用程序 指定 的 内存 缓冲区 中 . 
+ 　 　 SQL 语言 交互式 访问 接口 是 IS - Global 系统 提供 的 一个 实用工具 , 通过 它 可以 方便 地 查询 多 数据库系统 的 数据 资源 , 其 实现 遵循 SQL92 标准 ［ 13 ］ . 运行 时 , 首先 连接 到 IS - Global 数据源 , 键入 查询 语句 并 执行 后 , 查询 结果 或 状态 信息 直接 显示 在 结果 窗口 中 . 
+ 6   结束语 
+ 　 　 本文 介绍 了 一个多 数据库系统 的 设计 与 实现 . 目前 , 对于 多 数据库 的 理论 研究 已经 取得 了 一些 成果 , 并且 在 一段时间 内 仍 将 继续下去 . 但 如何 将 这些 成果 有效 地 、 综合 地 应用 于 实用 的 系统 还 需 进一步 探讨 和 实践 , 本 项目 即 是 在 这方面 所作 的 有效 尝试 . 通过 本 项目 的 设计 与 实现 , 使 我们 取得 了 一些 宝贵 的 经验 , 为 以后 的 工作 打下 了 良好 的 基础 . 
+ 　 　 目前 , IS - Global 已 基本 实现 , 将 和 一些 应用程序 进行 连接 并 进行 试运行 . 今后 , 我们 将 在 下述 两 方面 对 IS - Global 进行 工作 ： ( 1 )   通过 在 工厂 使用 , 不断 地 发现 问题 , 加以改进 , 提高 系统 的 可靠性 ； ( 2 )   更 深入 地 探讨 实现 技术 , 提高 系统 效率 . 我们 计划 从 下面 两个 关键 方面 入手 , 即 在 客户端 提供 更 完善 的 数据 缓冲 机制 , 以及 进一步 探讨 涉及 多个 局部 数据库 的 数据 查询 优化 问题 . 
+ 致谢 　 本文 的 研究 工作 得到 国家 863CIMS 主题 重大 科技 攻关项目 基金 资助 , 此 项目编号 为 863 - 511 - 9704 - 002 - 02 , 并 得到 国家自然科学基金 资助 , 项目编号 为 69703006 . 
+ 注 ： 本文 研究 得到 国家自然科学基金 、 国家 863 高科技 项目 基金 和 博士后 科研 基金 资助 . 
+ 本文 通讯联系 人 : 钟华 , 北京 100080 , 中国科学院 软件 研究所 对象 技术 中心 
+ 作者简介 ： 吴 胜利 , 1963 年生 , 博士 , 副研究员 , 主要 研究 领域 为 数据库 , 面向对象 技术 , 工作 流 . 
+ 钟华 , 1971 年生 , 博士生 , 主要 研究 领域 为 分布式 数据库 , 面向对象 技术 . 
+ 黄涛 , 1965 年生 , 博士 , 副研究员 , 主要 研究 领域 为 软件工程 , 对象 技术 , 分布 计算 , 程序设计 语言 及 环境 . 
+ 孙 红艳 , 女 , 1973 年生 , 助工 , 主要 研究 领域 为 异构 多 数据库系统 . 
+ 虞海江 , 1974 年生 , 助工 , 主要 研究 领域 为 异构 多 数据库系统 . 
+ 作者 单位 ： 钟华 　 中国科学院 软件 研究所 对象 技术 中心 　 北京 　 100080 
+ 吴 胜利 　 黄涛 　 孙 红艳 　 虞海江 　 中国科学院 软件 研究所 计算机 开放 研究 实验室 　 北京 　 100080 
+ 参考文献 
+ 　 　 1 　 Bukhres ,   Elmagarmid   Ahmed   K   eds .   Object - oriented   Multi - database   Systems ,   Omran   A .   Englewood   Cliffs ,   NJ :   Prentice   Hall ,   1996 
+ 　 　 2 　 Proceedings   of   Research   Issues   in   Federated   Database   Systems ' 97   Workship .   http : / / www . iti . cs . uni - magdeburg . de / ～ cornad / EFDBS97 / 
+ 　 　 3 　 IBM   Inc .   DataJoiner :   A   Multidatabase   Server .   http : / / www . software . ibm . com / data / pubs / papers / # djlwp 
+ 　 　 4 　 Microsoft   Inc .   ODBC   3.0   SDK .   http : / / www . microsoft . com 
+ 　 　 5 　 吴 胜利 , 黄涛 . CIMS 环境 中 全局 信息系统 的 总体 结构 与 设计 . 清华大学 学报 , 1998 , 38 ( 3 ) : 108 ～ 111 
+ ( Wu   Sheng - li ,   Huang   Tao .   Structure   design   of   global   information   system   in   CIMS .   Journal   of   Tsinghua   University ,   1998 , 38 ( 3 ) : 108 ～ 111 ) 
+ 　 　 6 　 Sheth   A ,   Larson   J .   Federated   database   systems   for   managing   distributed .   Heterogeneous   and   Autonomous   Databases   ACM   Computing   Surveys ,   1990 , 22 ( 3 ) : 183 ～ 236 
+ 　 　 7 　 吴 胜利 , 王能斌 . 异构 分布式 数据库系统 中 语义 不 一致 问题 的 一种 解决办法 . 计算机 学报 , 1996 , 19 ( 5 ) : 363 ～ 368 
+ ( Wu   Shang - li ,   Wang   Neng - bin .   A   method   to   support   semantic   discrepant   data   in   heterogeneous   distributed   database   systems .   Chinses   Journal   of   Computers ,   1996 , 19 ( 5 ) : 363 ～ 368 ) 
+ 　 　 8 　 Zhang   A ,   Nodine   M ,   Bhargava   B   et   al .   Ensuring   relaxed   atomicity   for   flexible   transactions   in   multi - database   systems .   In :   Richard   T   S ,   Marianne   W   eds .   Proceedings   of   ACM   SIGMOD   Conference ,   Minnesota :   ACM   Press ,   1994.67 ～ 78 
+ 　 　 9 　 Jonscher   Dirk ,   Dittrich   Klaus   R .   Argos — — a   configurable   access   control   system   for   interoperable   environments .   In :   David   L   S ,   Steven   A   D ,   John   E   D   eds .   Database   Security   IX :   Status   and   Prospects ,   London :   Chapman   &   Hall ,   1996 .   43 ～ 60 
+ 　 10 　 Tari   Z ,   Fernandez   G .   Security   Enforcement   in   the   DOK   Federated   Database   System .   Database   Security   X ,   Status   and   Prospects ,   North   Holland ( Elsevier ) :   Chapman   &   Hall ,   1997 
+ 　 11 　 Thomas   R   K ,   Sandhu   R   S .   Task - based   authorization   controls ( TBAC ) :   a   family   of   models   for   active   and   enterprise - oriented   authorization   management .   In :   Proceedings   of   IFIP   WG   11.3   Workshop   on   Database   Security .   California :   Lake   Tahoe ,   1997 
+ 　 12 　 Evrendilek   C ,   Dogac   A ,   Nural   S   et   al .   Multi - database   query   optimization .   Journal   of   Distributed   and   Parallel   Databases ,   1997 , 5 ( 4 ) : 77 ～ 114 
+ 　 13 　 International   Standand   ISO / IEC   9075 ,   Information   Technology — — Database   Languages — — SQL .   1992 
+ 本文 1998 - 04 - 03 收到 原稿 , 1998 - 09 - 01 收到 修改稿 

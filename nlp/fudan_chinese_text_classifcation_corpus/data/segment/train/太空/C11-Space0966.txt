@@ -1,0 +1,83 @@
+航空 材料 学报 
+ JOURNAL   OF   AERONAUTICAL   MATERIALS 
+ 1999 年 　 第 19 卷 　 第 1 期 　 Vol.19 　 No.1 　 1999 
+ 
+ 
+ 
+ 硫对 IN718 合金 蠕变 性能 的 影响 
+ 宋洪伟 　 　 郭 守仁 　 　 胡壮 麒 
+ 
+ 摘要 ：   研究 了 常规 和 掺杂 0.02 wt% 硫 的 IN718 合金 的 蠕变 行为 。 结果表明 ， 硫 降低 IN718 合金 的 蠕变 抗力 ， 使 表观 蠕变 激活能 由 678.5 kJ / mol 减小 到 634.8 kJ / mol 。 计算 表明 ， 硫 的 危害 主要 来源于 其 对 晶界 扩散 的 促进作用 。 
+ 关键词 ：   IN718 合金 ；   硫 ；   蠕变 ；   晶界 扩散 
+ 中 图 分类号 ：   TG111.8 　 　 文献 标识码 ： A 　 　 文章 编号 ：   1005 - 5053 ( 1999 ) 01 - 0013 - 04 
+ Effect   of   sulfur   on   creep   behavior   of   IN718   alloy 
+ SONG   Hong - wei 　 　 GUO   Shou - ren 　 　 HU   Zhuang - qi 
+ ( Institute   of   Metal   Research ,   Chinese   Academy   of   Sciences ,   Shenyang   110015 ,   China ) 
+ Abstract ：   The   effect   of   sulfur   on   the   creep   behavior   of   IN718   alloy   has   been   investigated . The   results   show   that   sulfur   decreases   the   creep   resistance   of   IN718   alloy . Increasing   sulfur   content   to   0.02 wt%   causes   a   reduction   of   the   aparent   creep   activation   energy   from   678.5 kJ / mol   to   634.8 kJ / mol . The   harmful   effect   mainly   arises   from   the   enhanced   diffusion   along   grain   boundary   by   sulfur . 
+ Key   words :   IN718   alloy ；   sulfur ；   creep ；   grain   boundary   diffusion 
+ 
+ 　 　 硫 一直 是 高温 合金 中 公认 的 有害 元素 之一 ［ 1 ］ 。 事实上 ， 有关 硫对 工业 高温 合金 影响 的 系统 研究 只是 从 70 年代 才 真正 开始 ［ 1 ］ 。 最近 ， 有 一系列 文献 报告 了 有关 硫对 IN718 合金 影响 的 新 的 研究 结果 ［ 2 ～ 5 ］ 。 本文 重点 研究 了 常规 和 掺杂 0.02 wt% 硫 的 IN718 合金 的 蠕变 行为 。 有关 这 2 个 合金 持久性 能 的 试验 结果 已经 在 文献 ［ 5 ］ 中 做 了 详细 报告 。 
+ 1 　 试验 方法 
+ 1.1 　 试验 材料 的 准备 
+ 　 　 2 种 试验 合金 取自 同一 工业 IN718 母 合金 ， 并 经 真空 熔炼 成 每个 重 10kg 的 锭 。 其中 标号 为 M 的 试验 合金 不 掺杂 任何 元素 ( 残余 硫含量 为 0.002 wt% ) ， 标号 为 dS 的 合金 只 掺杂 0.02 wt% 硫 ； 2 种 合金 的 残余 磷 含量 都 是 0.003 wt% 。 试验 合金 经 1110 ℃ × 10h 均匀 化 处理 后 ， 在 1100 ℃ 锻造 成 截面 为 35mm × 35mm 的 棒料 ， 再 在 1100 ℃ 轧制 成  φ 16mm 的 棒材 。 蠕变 试棒 均 经过 标准 热处理 ： 965 ℃ × 1h 空冷 ， 720 ℃ × 8h 炉冷 ( 50 ℃ / h ) 至 620 ℃ × 8h 空冷 。 有关 试验 材料 制备 的 详细描述 参阅 文献 ［ 5 ］ 。 
+ 1.2 　 蠕变 试验 
+ 　 　 蠕变 试样 的 原始 截面 直径 为 8mm ， 原始 计算长度 为 100mm 。 采用 3 支 热电偶 控温 ， 另外 接出 3 支 热电偶 进行 温度 监测 。 所有 试验 均 进行 至 蠕变 第 3 阶段 。 
+ 2 　 试验 结果 
+ 　 　 图 1a 和 b 分别 给出 了 不同 试验 应力 和 温度 下 2 种 合金 的 稳态 蠕变 速率 。 显然 ， 在 相同 的 试验 条件 下 ， dS 的 稳态 蠕变 速率 总是 高于 M 。 由此可见 ， 掺杂 硫对 IN718 合金 的 蠕变 性能 有害 ， 但 这种 危害 并 不 十分 显著 ， 这 与 文献 ［ 5 ］ 的 持久 试验 结果 基本一致 。 
+ 
+ 图 1 　 稳态 蠕变 速率 对 试验 应力 ( a ) 和 对 温度 ( b ) 的 依赖 关系 
+ Fig.1 　 Stress   ( a )   and   temperature   ( b )   dependence   of   steady - state   creep   rate , 
+ where   creep   rate   in   ( b )   has   been   normalized   by   a   factor   of   μ b / kT 
+ 　 　 一般 地 ， 稳态 蠕变 速率 符合 如下 的 Dorn 方程 ［ 6 ］ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 式 中 ： σ 是 应力 ， n 是 应力 指数 ， D = D0exp ( - Q / RT ) 是 晶格 扩散系数 ， D0 是 频率 因子 ， Q 是 扩散 激活能 ( 即 表观 蠕变 激活能 ) ， μ 是 剪切模量 ， b 是 Burgers 矢量 ， k 是 Boltzmann 常数 ， T 是 绝对温度 ， A 是 一个 无量 纲常 数 ， 取 μ = 90190 - 30T ( 单位 为 MPa ) ， b = 0.249 nm ， 分别 对图 1a 和 b 的 数据 进行 线性 拟合 ， 结果 列于 表 1 。 由表 1 可见 ， 在 试验误差 范围 内 ， 硫对 应力 指数 n 没有 明显 影响 。 硫 的 作用 主要 集中 于 表观 蠕变 激活能 Q ： 掺杂 0.02 wt% 硫使 Q 值 由 678.5 kJ / mol 减小 到 634.8 kJ / mol ， 从而 降低 了 IN718 合金 的 蠕变 抗力 。 
+ 表 1 　 按 公式 ( 1 ) 确定 的 蠕变 参数 
+ Table   1 　 Creep   parameters   determined   according   to   Dorn   equation ( 1 ) 
+ 
+ AlloynQ / ( kJ . mol - 1 ) 
+ M6.21681 . 0 
+ dS6.23634 . 8 
+ 
+ 　 
+ 3 　 讨 　 论 
+ 　 　 尽管 硫 的 具体 作用 机制 目前 尚无 定论 ， 但 可以 肯定 的 是 ， 硫 的 作用 与 某种 晶界 效应 有关 ［ 1 ～ 5 ］ 。 Auger 分析 已经 证实 ， 硫偏 聚于 IN718 合金 的 晶界 ［ 7 ］ 。 然而 ， 前面 的 计算所 依据 的 Dorn 方程 ( 1 ) 并未 直接 包含 晶界 参数 。 为了 解决 这一 问题 ， 可以 应用 本文 导出 的 多晶体 蠕变 宏观 方程 ［ 8 ］ ： 
+ 　 　 　 　 = ( 1 + β   gb ) g 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 2 ) 　 　 
+ 式 中 ： 是 多晶体 总 的 宏观 稳态 蠕变 速率 ， β 是 与 试验 温度 和 应力 无关 的 材料 常数 ( 称为 晶内 - 晶界 交互作用 系数 ) ， g 和 ε b 分别 是 晶内 和晶界 的 平均 稳态 蠕变 速率 ， 二者 都 具有 Dorn 方程 ( 1 ) 的 形式 ， 即 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 3 ) 　 　 
+ 式 中 ： d 和 p 分别 是 晶粒 直径 和 晶粒 尺寸 指数 ， 其余 参数 的 意义 与 Dorn 方程 ( 1 ) 相似 ， 所 不同 的 只是 各个 材料 参数 要加 下标 g 或 gb 以 注明 晶内 或 晶界 。 为了 简化 计算 ， 假设 ： 就 稳态 蠕变 而言 ， 硫 只 影响 IN718 合金 的 晶界 扩散系数 Dgb ， 而 对 晶内 扩散系数 Dg 和 应力 指数 ng 以及 晶界 应力 指数 ngb 都 没有 影响 。 令 p = 0 ， μ g = μ gb = 90190 - 30T ( 单位 为 MPa ) ， 利用 一个 非线性 最小 二 乘法 程序 ， 用式 ( 3 ) 拟合 本文 图 1 所示 的 蠕变 数据 ， 结果 如表 2 所示 。 由表 2 可见 ， 掺杂 硫使 晶界 扩散 激活能 Qgb 有所 减小 。 根据 式 ( 2 ) 和 ( 3 ) ， 晶界 扩散 激活能 的 降低 将 促进 晶界 滑动 ， 从而 导致 试样 总 的 宏观 蠕变 速率 的 提高 。 
+ 　 　 文献 ［ 5 ］ 提出 的 硫 促进 IN718 合金 晶界 氧化 机制 可以 用 硫 对 晶界 扩散 的 影响 来 解释 。 在 空气 中 进行 持久 试验 时 ， 自 表面 沿 晶界 侵入 的 氧受 晶界 扩散 的 控制 ， 硫因 促进 晶界 扩散 而 促进 试样 表面 晶界 的 氧化 ， 从而 损害 了 IN718 合金 的 持久性 能 。 
+ 表 2 　 按 公式 ( 2 ) 和 ( 3 ) 确定 的 蠕变 参数 
+ Table   2 　 Creep   parameters   determined   according   to   equation   ( 2 )   and   ( 3 ) 
+ 
+ AlloyngngbQg / ( kJ . mol - 1 ) Qgb / ( kJ . mol - 1 ) 
+ M 
+ dS4.52 . 0415.02276 . 1 
+ 239.3 
+ 
+ 　 
+ 4 　 结 　 论 
+ 　 　 ( 1 ) 硫 降低 IN718 合金 的 蠕变 抗力 ， 掺杂 0.02 wt% 硫使 表观 蠕变 激活能 由 678.5 kJ / mol 减小 到 634.8 kJ / mol 。 
+ 　 　 ( 2 ) 计算 表明 ， 硫 的 危害 主要 来源于 其 对 晶界 扩散 的 促进作用 掺杂 0.02 wt% 硫使 晶界 扩散 激活能 由 276.1 kJ / mol 减小 为 239.3 kJ / mol 。 
+ 作者简介 ：   宋洪伟 ( 1962 - ) ，   男 ，   博士 研究生 ，   副教授 
+ 作者 单位 ： 中国科学院金属研究所 ，   沈阳 　 110015 
+ 参考文献 ： 
+ ［ 1 ］ Holt   R   T , Wallace   W . Impurities   and   trace   elements   in   nickel - base   superalloys . Int 
+ 　 　 　 Met   Rev , 1976 ( 21 ) : 1 ～ 24 
+ ［ 2 ］ Xie   X   S , Liu   X   B , Hu   Y   H , et   al . The   role   of   phosphorus   and   sulfur   in   Inconel   
+ 　 　 　 718 . In : Kissinger   R   D , Deye   D   J ,   Anton   D   L , et   al ，   ed . Superalloys   1996 .   
+ 　 　 　 TMS , Warrendale , PA , 1996 , 599 
+ ［ 3 ］ Hu   Z   Q , Sun   W   R , Guo   S   R . Effect   of   P , S   and   Si   on   the   solidification , 　 
+ 　 　 　 segregation , microstructure   and   mechanical   properties   in   Fe - Ni   base   superalloy . 
+ 　 　 　 Acta   Metall   Sinica , English   Letters , 1996 ( 9 ) : 443 ～ 452 
+ ［ 4 ］ Guo   S   R , Sun   W   R , Lu   D   Z ， et   al . Effect   of   minor   elements   on   microstructure   and   
+ 　 　 　 mechanical   properties   of   IN   718   alloy . In : Loria   E   A ， ed . Superalloys   718 , 625 , 706 
+ 　 　 　 and   Various   Derivatives . TMS , Warrendale , PA ， 1997 , 521 ～ 530 
+ ［ 5 ］ 宋洪伟 ， 郭 守仁 ， 卢德忠 等 . 掺杂 硫对 IN718 合金 的 影响 . 金属 学报 ， 1999 ， 35 ( 3 ) ： 281 ～ 284 
+ ［ 6 ］ Mukherjee   A   K , Bird   J   E , Dorn   J   E . Experimental   correlations   for   high - temperature   
+ 　 　 　 creep . Trans   ASM , 1969 ( 62 ) : 155 ～ 179 
+ ［ 7 ］ Thompson   R   G , Koopman   M   C , King   B   H . Grain   boundary   chemistry   of   alloy   718 - type   
+ 　 　 　 alloys . In : Loria   E   A ，   ed . Superalloys   718 , 625   and   Various   
+ 　 　 　 Derivatives . TMS , Warrendale , PA , 1991.53 ～ 70 
+ ［ 8 ］ Song   H   W , Gou   S   R , Hu   Z   Q .   Equation   for   non - diffusion   creep   of   polycrystals . 　 
+ 　 　 　 Submitted   to   Mater   Sci   Eng   A , 1999 , A252 
+ 收稿 日期 ：   1998 - 11 - 30 

@@ -1,0 +1,162 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1999 年 　 第 19 卷 　 第 1 期   Vol.19   No.1   1999 
+ 
+ 
+ 
+ BF4 - 废水 水解 法 实验 
+ 王雨泽 　 李亚红 　 邵怀启 
+ 摘要 ： 常温下 用水 解法 处理 BF4 - 废水 . 实验 采用 铝盐 作主 水解 剂 , 试剂 A 作助 水解 剂 , pH 值 小于 3 , 在 常温 条件 下 实现 了 对 BF4 - 的 高效 水解 . 研究 结果表明 , BF4 - ∶ Al3 + ∶ A 的 质量 比为 1 ∶ 0.8 ∶ 0.1 , 水解 时间 6 ～ 3h , 水解 率 达到 99.5% 以上 .   使用 助 水解 剂 A , 缩短 了 水解 时间 , 减少 了 铝 盐 用量 , 对 高浓度 的 BF4 - 废水 效果 尤为 显著 , 水解 时间 可 缩短 一半 , 主 水解 剂 用量 可 减少 1 / 5 , 处理 后出 水中 的 BF4 - 含量 可 降到 10mg / L 以下 . 
+ 关键词 ： BF4 - 废水 ； 主 水解 剂 ； 助 水解 剂 
+ 中 图 分类号 ： X703   文献 标识码 ： A   文章 编号 ： 1000 -   6923 ( 1999 ) 01 -   0056 -   03 
+ Normal   temperature   hydrolysis   treatment   on   tetrafluorboric   anion   wastewater . 
+ WANG   Yu - ze ,   LI   Ya - hong ,   SHAO   Huai - qi   ( Department   of   applied   Chemistry ,   Harbin   Institute   of   Technology ,   Harbin   150001 , China ) . China   Environmental   Science .   1999 , 19 ( 1 ) ： 56 ～ 58 
+ Abstract ： In   this   paper ,   a   hydrolysis   treatment   method   of   tetrafluorboric   anion   waste   water   at   normal   temperature   is   discussed .   In   experiments ,   aluminum   salt   was   used   as   main   hydrolyst   and   reagent   A   as   assistant   hydrolyst .   At   normal   temperature ,   with   acidity   less   than   3 ,   highly   efficient   hydrolysis   of   tetrafluorboric   anion   was   achieved .   The   results   showed   that   with   mass   ratio   1 : 0.8 : 0.1   of   BF4 - ： Al3 + ： A   and   hydrolysis   time   3 ～ 6h ,   the   hydrolysis   rate   reached   99.5   per   cent   or   above ,   and   assistant   reagent   A   could   shorten   the   hydrolysis   time   and   cut   down   the   adding   amount   of   aluminum   salt .   Especially ,   when   applied   on   tetrafluorboric   anion   waste   water   of   high   concentration , ,   the   method   could   obtain   a   desirable   effect .   The   hydrolysis   time   could   be   reduced   a   half   and   the   amount   of   main   hydrolyst   could   be   shortened   1 / 5 .   While   BF4 -   concentration   in   output   water   could   be   decreased   to   less   than   10mg / L . 
+ Key   words ： tetrafluorboric   anion   wastewater ； main   hydrolyst ； assistant   hydrolyst 
+ 　 　 由于 氟 硼酸 镀液 的 均 镀 能力 好 , 沉积 速度 快 , 镀液 稳定 , 即使 采用 高 电流 也 容易 获得 结晶 细密 的 镀层 , 因此 它 被 广泛 用于 Pb 、 Sn 、 Cu 等 的 电镀 工艺 以及 它们 的 二元 、 三元 合金 电镀 中 [ 1 ] . 生产 过程 排放 的 电镀 废水 中 含有 大量 的 BF4 - , 它 在 水中 会 缓慢 水解 , 水解 过程 中 释放 大量 的 F - , 从而 造成 严重 的 氟 污染 . 
+ 　 　 从 BF4 - 结构 的 键 参数 , 如 B , F 原子 半径 都 很小 , F - B - F 键角 为 109.5 °   , B - F 键键 长为 138pm , 可知 它 是 很 稳定 的 正四面体 结构 , 较 难 被 破坏 . BF4 - 的 稳定 常数 为 108 , 稳定性 很 好 . 其 处理 方法 有 加热法 [ 2 ] , 加热法 处理 时间 短 , 只 需 0.5 h , 但 耗能 大 , 设备 易 腐蚀 , 材质 要求 苛刻 等 ; 常温 法 处理 , 如 离子交换 法 [ 3 ] , 适于 低浓度 BF4 - 废水 ; 也 有用 一般 铝 盐水 解法 , 只是 水解 时间 长 , 需 8h , 铝盐 用量 大 , 限制 了 该法 的 应用 . 
+ 　 　 常温 高效 水解 法 处理 BF4 - 废水 国内 尚无 报道 , 本文 对 该法 进行 了 实验 研究 , 旨在 缩短 处理 时间 , 减少 主 水解 剂 铝 盐 用量 . 
+ 1   实验 材料 与 方法 
+ 1.1   实验 仪器 与 药品 
+ 　 　 PHS - 2C 型 酸度计 ( 上海 华侨 仪器厂 制造 ) ; 氟 硼酸 根 离子 选择 电极 ( 中国科学院 上海 冶金 研究所 制造 ) ; 饱和 甘汞 电极 ( 上海 电光 器件 厂 ) ; 玻璃 电极 ( 上海 电光 器件 厂 ) ; 磁力 恒温 搅拌器 ( 上海市 曹行 无线电 元件厂 ) . 
+ 　 　 NaBF4 ,   NH4HF2 ,   AlCl3.6 H2O 均 为 分析 纯 药品 . 
+ 1.2   实验 方法 
+ 1.2 . 1   BF4 - 离子 浓度 的 测定 　 采用 离子 选择 电极 法测定 水中 的 BF4 - 浓度 , 以 氟 硼酸 根 离子 选择 电极 作为 指示 电极 , 甘汞 电极 作为 参比电极 , NH4HF2 作为 离子 强度 调节 缓冲溶液 , 按 标准 曲线 法求 出 回归方程 . 然后 代入 所测 电位 值 计算 浓度 . 
+ 1.2 . 2   BF4 - 水解 率 K 的 计算   K = [ ( 初始 BF4 - 浓度 – 所测 浓度 ） × 100% ] / 初始 BF4 - 浓度 
+ 　 　 采用 NaBF4 试剂 配水 . 实验 中 , 配 水量 为 200mL . 
+ 2   结果 与 讨论 
+ 2.1   常温下 BF4 - 的 自然 水解 
+ 　 　 常温下 ( 15 ± 2 °   C ) 放置 , 不同 时间 取样 分析 , 半个 月 时 BF4 - 的 水解 率仅 为 17.0% , 1 个 月 、 2 个 月 、 4 个 月 、 6 个 月 时 水解 率 分别 为 21.8% 、 26.4% 、 29.8% 、 30.5% . BF4 - 可 自然 水解 , 水解 进行 得 非常 缓慢 . 
+ 2.2   主 水解 剂 对 水解 的 影响 
+ 　 　 BF4 - 离子 常温下 具有 缓慢 水解 F - 离子 的 趋势 , 有 水解 剂 参与 , 可 促进 水解 . 水解 剂 铝 盐 在 低 pH 值下 , Al ( III ) 主要 以 Al3 + 离子 形态 存在 , 可 与 F - 生成 稳定 的 氟 铝 络合 态 , 从而 使 BF4 - 完全 水解 , Howell   R . Clark 等 人 [ 4 ] 认为 Al ( III ) 对 BF4 - 水解 有 催化作用 , 如 [ H + ] = 1.0 M 时 , BF4 - 的 水解 速率 常数 提高 了 两个 数量级 . 
+ 　 　 水解 剂 铝 盐 及其 量 对 水解 的 影响 , 结果 如表 1 所示 . 
+ 表 1   铝盐量 对 水解 率 的 影响 
+ Table   1   Effects   of   hydrolysis   rate   by   using   different   amount   of   aluminum   salt 
+ 水解 时间 
+ （ h ） 水解 率 （ % ） 
+ BF :   Al3 + 
+ 1 : 0.21 : 0.41 : 0.61 : 0.81 : 1 
+ 2 
+ 4 
+ 6 
+ 836.9 
+ 36.9 
+ 41.1 
+ 41.153 . 9 
+ 62.6 
+ 67.5 
+ 71.776 . 2 
+ 84.4 
+ 87.8 
+ 90.886 . 9 
+ 93.5 
+ 96.9 
+ 98.093 . 9 
+ 98.0 
+ 98.9 
+ 99.0 
+ 
+ 注 ： 表中 BF4 - : Al3 + 为 质量 比 , BF4 - 浓度 为 800mg / L 
+ 　 　 除 铝 盐外 , 铁盐 也 可作 该 体系 的 水解 剂 , 但 水解 效果 不如 铝盐 . 
+ 　 　 从表 1 看出 , 随着 铝盐量 的 增加 , BF4 - 的 水解 率 不断 提高 , 但药 剂量 增大 , 将 提高 处理 费用 , 故 选用 铝盐 的 投加量 为 1 :   0.8 . 
+ 2.3   pH 值 对 水解 的 影响 
+ 　 　 pH 值 是 水解反应 的 条件 之一 . 实验 表明 , pH   值 对 BF4 - 的 水解 影响 很大 , 结果 如表 2 所示 . 
+ 表 2   pH 值 对 水解 率 的 影响 
+ Table   2   Effects   of   hydrolysis   rate   under   different   pH   value 
+ pH 值 水解 率 ( % ) pH 值 水解 率 ( % ) 
+ 1 
+ 2 
+ 3 
+ 4 
+ 595 
+ 93.2 
+ 92.2 
+ 83.5 
+ 48.06 
+ 7 
+ 8 
+ 9 
+ 　 32.0 
+ 25.3 
+ 19.8 
+ 17.6 
+ 　 
+ 
+ 　 　 由表 2 可知 , pH 值 < 3 时 , 有 较 高 水解 率 ; pH 值 > 4 时 , 水解 率 显著 降低 , 表明 低 pH 值 可 提供 酸催化 水解 条件 [ 4 , 5 ] . 其 水解 方程 为 ： 
+ BF4 -   +   nH2O → [ BF ( 4 - n ) ( OH ) n ] -   +   nHF 　 　 1 ≤ n ≤ 4 
+ 　 　 H + 是 F - 很 好 的 接受 体 . 这种 质子化 作用 , 使 F - 从 BF4 - 中 解离 , OH 基 取代 F 的 位置 , 产生 一系列 羟基 氟化物 . 
+ 2.4   助 水解 剂 A 对 水解 的 影响 
+ 　 　 在 pH 值 < 3 , 有主 水解 剂 铝 盐 时 , 加入 助 水解 剂 A , 达到 98% 水解 率 , 水解 时间 将 缩短 2 ～ 3h . 如表 3 所示 . 
+ 　 　 由表 3 可知 , 助 水解 剂 A 与 主 水解 剂 铝 盐 的 共同 作用 , 提高 了 水解 率 ; 助 水解 剂 的 使用 突破 了 一般 水解 法 的 不足 . 助 水解 剂 A 的 作用 机理 尚待 进一步 研究 . 
+ 表 3   助 水解 剂 A 对 水解 率 的 影响 
+ Table   3   Tetrafluorboric   anion   hydrolysis   effects   of   assistant   A 
+ 水解 时间 ( h ) 水解 率 ( % ) 
+ BF4 - : Al3 + : A 
+ 1 : 0.8 : 0.11 : 0.8 : 0.21 : 0.6 : 0.11 : 0.6 : 0.2 
+ 2 
+ 4 
+ 6 
+ 890.1 
+ 95.5 
+ 98.2 
+ 99.290 . 2 
+ 95.6 
+ 98.2 
+ 99.883 . 8 
+ 90.0 
+ 92.6 
+ 94.484 . 0 
+ 90.1 
+ 92.7 
+ 94.5 
+ 
+ 注 ： BF4 - : Al3 + : A 为 质量 比 
+ 2.5   助 水解 剂 的 用量 对 水解 的 影响 
+ 　 　 使用 助 水解 剂 A , 可 提高 水解 率 , 助剂 A 的 量 与 水解 率 的 关系 如表 4 . 
+ 表 4   助 水解 剂 的 用量 对 水解 率 的 影响 
+ Table   4   Tetrafluorboric   anion   hydrolysis   rate   effects   by   using   different   amount   of   assistant   A 
+ BF4 - : Al3 + : A 水解 率   ( % ) BF4 - : Al3 + : A 水解 率 
+ ( % ) 
+ 1 : 0.8 : 0.05 
+ 1 : 0.8 : 0.1 
+ 1 : 0.8 : 0.1695 . 0 
+ 95.5 
+ 95.61 : 0.8 : 0.2 
+ 1 : 0.8 : 0.3 
+ 　 95.6 
+ 95.7 
+ 
+ 　 　 由表 4 可 看出 , 助 水解 剂 使用量 不高 , 可 达到 较 好 的 效果 . 助 水解 剂 用量 为 BF4 - 量 的 1 / 10 ～ 1 / 5 即可 . 
+ 2.6   高浓度 BF4 - 水解 效果 
+ 　 　 在 印制 制版 行业 中 , 氟 硼酸 体系 电镀 废水 中 BF4 - 浓度 较 高 , 在 2000mg / L 左右 . 助 水解 剂 A 的 使用 , 使 高浓度 BF4 - 的 处理 效果 尤为 显著 . 不仅 水解 时间 缩短 一半 以上 , 而且 主 水解 剂量 节省 1 / 5 . 结果 如表 5 所示 . 
+ 表 5   助 水解 剂 A 对 高浓度 BF4 - 水解 率 的 影响 
+ Table   5   High   concentration   tetrafluorboric   anion   hydrolysis   effects   of   assistant   A 
+ 水解 时间 
+ ( h ) 水解 率 （ % ） 
+ BF4 - : Al3 + : A 
+ 1 : 0.8 : 0.11 : 0.8 : 0.2 
+ 2 
+ 3 
+ 499.2 
+ 99.5 
+ 99.799 . 3 
+ 99.6 
+ 99.7 
+ 
+ 注 ： BF4 - 浓度 为 2000mg / L 
+ 2.7   BF4 - 水解 最佳 参数 的 确定 
+ 　 　 经 多次 实验 和 正交 试验 , 当 BF4 - 浓度 为 2000mg / L 时 , 取 BF4 - :   Al3 + :   A = 1 :   0.8 :   0.1 ( 质量 比 )   pH 值 < 3 , 处理 时间 3h , 可 使出 水中 BF4 - 的 含量 降到 10mg / L 以下 . 
+ 3   结论 
+ 3.1   首次 采用 加入 主 水解 剂和助 水解 剂 , 常温下 使 BF4 - 达到 高效 水解 . 
+ 3.2   BF4 - 的 常温 水解 条件 , 可 采用 BF4 - :   Al3 + :   A 的 质量 比为 1 :   0.8 :   0.1 , pH 值 < 3 , 水解 时间 6 ～ 3h , 使出 水中 BF4 - 的 含量 低于 10mg / L . 
+ 3.3   该 方法 为 常温 、 高浓度 的 BF4 - 废水 处 提供 了 较 好 的 应用 前景 . 
+ 基金项目 ： 航天工业 总公司 科学基金 资助 项目 （ 94731 - 027 ） 
+ 作者简介 ： 王雨泽 ( 1944 - ) , 女 , 黑龙江 哈尔滨人 , 哈尔滨工业大学 应用 化学系 副教授 , 主要 从事 废水 治理 研究 和 环境 化学 教学 工作 . 承担 过 上海 新跃 仪表厂 的 “ 电镀 废水处理 工艺 研究 ” 项目 . 发表 论文 18 篇 .   
+ 作者 单位 ： ( 哈尔滨工业大学 应用 化学系 , 黑龙江   哈尔滨   150001 ) 
+ 参考文献 ： 
+ 　 [ 1 ] 　 Ilangovan   R , Govindarajan   G .   Treatment   and   recovery   of   fluobor - ate   spent   plating   baths   [ J ] .   Transactions   of   the   SAEST ,   1989 ,   24 ( 2 ) : 181 -   185 . 
+ 　 [ 2 ] 　 王雨泽 , 鲁丽珍 , 吴   瑶 . 加热 分解 法 处理 氟 硼酸 铅锡 合金 镀 的 废水   [ J ] . 化学 与 粘 和 ,   1991 , 37 ( 3 ) : 149 -   152 . 
+ 　 [ 3 ] 　 王雨泽 , 周   定 , 何   萍 .   电镀 漂洗 水中 BF4 - 的 回收   [ J ] . 化学 工程师 ,   1991 , 23 ( 5 ) : 24 -   26 . 
+ 　 [ 4 ] 　 Howell   R   Clark , Mark   M   Jones .   Ligand   substitution   catalysis   viahard   acid - hard   base   [ J ] . Interaction   J . Am . Chem . Soc . , 1970 ,   92 ( 4 ) : 816 -   822 . 
+ 　 [ 5 ] 　 S   Radosa   jevie ,   Secpanovic   V   J . Effect   of   boric   acid   on   tetrafluo - tetrafluoborate   ion   hydrolysis   in   solutions   of   tetrafluoroboric   acid   [ J ] .   J .   Fluorine   Chemistry ,   1979 , 13 ( 6 ) : 465 -   471 . 
+ 收稿 日期 ： 1998 - 09 - 07 

@@ -1,0 +1,100 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 1999 年   第 18 卷   第 1 期   Vol.18   No.1   1999 
+ 
+ 
+ 
+ 实现 Foxpro 与 Borland   C 接口 的 一种 方法 
+ 陈庆 　 贺红 
+ 　 　 摘 　 要 ： 在 Foxpro 中 打开 Borland   C 生成 的 DLL 动态链接库 ， 从而 实现 调用 C语言 函数 的 方法 。 
+ 　 　 关键词 ： Borland   C语言 　 Foxpro 数据库 　 动态链接库 DLL 
+ 　 　 笔者 参与 开发 的 油田 生产 管理系统 的 动态 图形 生成 部分 的 主要 功能 是 ： 按 输入 条件 查询 数据 ， 绘制 各种 油田 生产 曲线 图形 ， 并 在 AutoCAD 下 打印输出 。 由于 许多 功能模块 都 是 用 C语言 编写 的 ， 且 均 已 调试 通过 ， 因此 希望 能 在 Foxpro   for   Windows 程序 中 直接 调用 这些 模块 ， 以 避免 重复 工作 。 而 Foxpro 中 的 SET   LIBRARY 命令 可以 打开 外部 API 程序库 ， 因此 把 原来 的 C语言 程序 稍加 改动 ， 在 Borland   C   4.0   for   Windows 下 重新 编译 ， 生成 多个 DLL 动态链接库 ， 在 Foxpro 下 调用 这些 DLL 程序 ， 即可 实现 二者 的 接口 。 下面 详细 说明 这种 实现 方法 。 
+ 1 　 DLL 动态链接库 的 生成 
+ 　 　 DLL 动态链接库 是 1 个 可 执行 的 库 模块 ， 其中 包含 应用程序 。 生成 DLL 库 的 . cpp 源程序 结构 与 普通 程序 不同 。 首先 ， 它 没有 main 函数 ， 但 必须 包含 LibMain ( ) 函数 作为 DLL 的 主 入口 点 。 当 首次 装载 库时 ， Windows 将 调用 LibMain , 由 LibMain 负责 完成 对 DLL 的 初始化 工作 。 其次 ， 它 还 包含 1 个 出口 函数 WEP , Windows 在 从 内存 中卸出 DLL 之前 调用函数 WEP ( ) ， 以便 完成 一些 清理 工作 。 
+ 　 　 下面 以 Demo . cpp 为例 说明 如何 建立 1 个 DLL 库 。 
+ / * * * * * * * * * * * demo . cpp * * * * * * * * * / 
+ # include < windows . h > 
+ # include < stdio . h > 
+ # include < stdlib . h > 
+ extern “ C " { 
+ 　 　 int   FAR   PASCAL   example ( int ) ; 
+ } 　 　 　 　 　 　 　 　 　 / / 要 在 Foxpro 中 调用 的 自定义 的 子函数 
+ / / DLL 的 入口 函数 
+ int   FAR   PASCAL   LibMain ( 
+ HINSTANCE   hInstance , 　 　 / / DLL 实例 句柄 
+ WORD   wDataSeg , / / 数据 段 寄存器 ( DS ) 的 值 
+ WORD   cbHeapSize , / / . DEF 文件 中堆 ( HEAPsize ) 的 大小 
+ LPSTR   lpCmdLine ) / / 1 个 远程 指针 ， 几乎 不 使用 
+ { 
+ 　 　 if ( wHeapSize ! ＝ 0 ) / / 使用 数据 堆 ， 数据 段 可 移动 
+ 　 　 　 UnlockData ( 0 ) ; / / 解锁 数据 段 
+ 　 　 return   1 ; 　 　 　 　 　 　 　 / / 初始化 成功 完成 
+ 　 　 } 
+ / / WEP 是 DLL 的 出口 函数 
+ int   FAR   PASCAL   WEP ( int   bSystemExit ) 
+ { 
+ 　 　 retum   1 ; / / WEP 一定 返回 
+ 　 　 } 
+ int   FAR   PASCAL   example ( p1 ) / / 子函数 
+ int   p1 ; 
+ { 
+ … 
+ } 
+ 　 　 模块 定义 文件 demo . def 如下 所示 ： 
+ LIBRARY 　 　 　 demo 　 　 　 / / DLL 的 文件名 
+ DESCRIPTION ` DLL   Application   Program ' 
+ EXETYPEWINDOWS 
+ CODEPRELOAD   MOVEABLE   DISCARDABLE 
+ / / 定义 代码段 的 属性 
+ DATAPRELOAD   MOVEABLE   SINGLE 
+ / / 定义数据 段 的 属性 
+ HEAPSIZE4096 
+ EXPORTSWEP 
+ example / / 输出 函数 声明 
+ 　 　 把 以上 文件 在 Borland   C 下 编译 ， 即可 生成 demo . dll 。 
+ 2 　 在 Foxpro 中 调用 DLL 动态链接库 
+ 　 　 Foxpro 中 SET   LIBRARY 可以 打开 1 个 外部 的 API ( 应用 程序接口 ) 库 程序 。 这些 外部 的 API 库 程序 可以 是 用户 编写 的 外部 例程 或 自定义 函数 ， 也 可以 是 系统 自身 提供 的 。 在 Foxpro   for   DOS 下库 文件 的 缺省 扩展名 是 . PLB ， 在 Foxpro   for   Windows 和 Visual   Foxpro 下库 文件 的 缺省 扩展名 是 . FLL 。 
+ 　 　 FOXTOOLS . FLL 是 Foxpro 系统 提供 的 库 文件 ， 位于 Foxpro 主目录 下 。 FOXTOOLS . FLL 中有 2 个 函数 FegFn ( ) 和 CallFn ( ) ， 通过 这 2 个 函数 可以 调用 任何 Roxpro 支持 的 数据类型 的 Windows   DLL 中 的 函数 。 
+ 　 　 RegFn ( ) 注册 1 个 Windows   DLL 函数 ， CallFn ( ) 调用 该 函数 。 它们 的 语法 如下 ： 
+ 　 　 FnHandle = RegFn ( FunctionName , ArgTypes , ReturnType , DLLName ) 
+ 　 　 FnHandle 是 被 注册 函数 的 句柄 ， 用来 识别 该 函数 ， 如 注册 失败 ， RegFn ( ) 返回 - 1 并 提示 错误信息 。 FunctionName 是 要 注册 的 函数 名称 ， ArgTypes 是 1 个 表示 该 函数参数 数据类型 的 串 ， ReturnType 是 函数 返回值 的 数据类型 。 受 Foxpro 数据类型 的 限制 ， 只能 是 以下 类型 ： 
+ 　 　 ① I ： 整型 ； ② C ： 字符 型 ； ③ F ： 浮点 型 ； ④ D ： 双 精度 浮点 型 ； ⑤ L ： 长 整型 。 
+ 　 　 DLLName 是 DLL 库 的 名称 ， 同时 可 包含 DLL 程序 所在 目录 的 完整 路径 。 
+ 　 　 RetuVal = CallFn ( FnHandle , arg1 , arg2 ， … ) 
+ 　 　 FnHandle 是 调用 RegFn ( ) 获得 的 句柄 ； arg1 , arg2 … 是 在 RegFn ( ) 中 由 Argtypes 列出 的 参数 的 值 。 
+ 　 　 调用 demo . dll 中 函数 example ( ) 的 Foxpro 程序 demo . prg 如下 ： 
+ * * * * 　 　 demo . prg 　 　 * * * * 
+ set   talk   off 
+ clear   all 
+ DEFINE   WINDOW   mainwin ; 
+ 　 　 　 　 AT   0.000 , 0.000 ; 
+ 　 　 　 　 SIZE   30 , 100 ; 
+ 　 　 　 　 FONT   “ MS   Sans   Serif " , 10 ; 
+ 　 　 　 　 FLOAT ; 
+ 　 　 　 　 NOCLOSE ; 
+ 　 　 　 　 MINIMIZE ; 
+ 　 　 　 SYSTEM 
+ ACTIVATE   WINDOW   mainwin 
+ 　 　 　 @   2 ， 35   say   “ 示例 ”   font   “ 宋体 ” ， 14 
+ 　 　 　 @ 10 , 25   GET   A1 ; 
+ 　 　 　 PICTURE   “ @ * HN   调用 C语言 函数 " ； 
+ 　 　 　 SIZE   2 , 20 ; 
+ 　 　 　 DEFAULT   1 ; 
+ 　 　 　 FONT   “ MS   Sans   Serif " , 12 ; 
+ 　 　 　 STYLE   “ B " ; 
+ 　 　 　 VALID   cFunc ( ) 
+ 　 　 　 READ   CYCLE 
+ RELEASE   WINDOW   mainwin 
+ FUNCTION   cFunc ( ) 
+ 　 　 set   library   to   sys ( 2004 ) + “ foxtools . fll " 
+ 　 　 　 && 装入 foxtools . fll 库 文件 ， sys ( 2004 ) 是 返回 Foxpro 主目 
+ 　 　 　 && 录 的 路径 
+ 　 　 set   defa   to   c : ＼ 
+ 　 　 　 && 设置 demo . dll 所在 目录 为 缺省 路径 
+ 　 　 fh = RegFn ( “ example " , “ I " , “   ” , “ demo . dll " ) 
+ 　 　 = CallFn ( fh , “ 10 " ) 
+ return 
+ 3 　 结束语 
+ 　 　 通过 DLL 动态链接库 ， 实现 Foxpro 应用程序 与 C++ 的 接口 ， 使 二者 有机 地 结合 起来 ， 不失为 1 种 简单 、 高效 、 通用 的 方法 。 以此 方法 为 基础 可以 编写 Visual   Foxpro 和 Visual   C++ 等 应用程序 的 接口 。 
+ 作者 单位 ： 大庆油田 热电厂 科研所 计算站 ( 163000 ) 
+ ( 收稿 日期 ： 1998 - 07 - 17 ) 

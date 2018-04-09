@@ -1,0 +1,117 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 10 期   Vol.25   No.10   1999 
+ 
+ 
+ 
+ 基于 CORBA 标准 的 STEP 数据库 的 实现 研究 
+ 赵有珍 　 宋志杰 　 杨军 　 邓家 提 
+ 摘要 ： 为 解决 虚拟企业 间 跨 异构 平台 的 产品 数据共享 问题 ， 采用 面向对象 的 设计 方法 将 CORBA 标准 与 STEP 有机 地 结合 起来 ， 实现 了 基于 STEP   AP203 全局 数据模型 的 集成 虚拟企业 产品 数据 存储系统 - - STEP 数据库 。 对 STEP 数据库 的 主要 组成部分 ： STEP 服务 接口 、 STEP 模型 管理 、 核心 数据 区 组织 框架 进行 了 说明 。 
+ 关键词 ： 数据库 ； STEP 标准 ； CORBA 标准 ； SDAI ； 虚拟企业 产品 数据 存储 
+ A   COEBA   Based   STEP   Database   System 
+ Zhao   Youzhen   Song   Zhijie   Yang   Jun   Deng   Jiati 
+ ( 720   Instiute , Beijing   University   of   Seronautics   and   Astronautics , Beijing   100083 ) 
+ 【 Abstract 】 In   order   to   provide   one   solution   to   the   problem   about   sharing   product   data   between   inhomogeneous   application   platforms , this   paper   seamlessly   conjoins   two   international   standards , CORBA   and   STEP , to   implement   one   integrated   virual   enterprise   product   data   repository - - STEP   database , which   is   based   on   the   STEP   AP203   hlobal   data   model . The   three   main   parts   of   the   STEP   database ( the   STEP   services , the   STEP   model   management , and   the   core   data   area   organization   architecture ) are   introduced   in   this   paper . 
+ 【 Key   words 】 Database ; STEP   standard ; CORBAR   standard ; SDAI ; Virtual   enterprise   product   data   repository 
+ 　 　 随着 计算机网络 性能 的 快速 扩展 以及 数据表示 标准 的 出现 ， 企业 将 能够 电子化 地 连接起来 更加 迅速 有效 的 共同 开 创新 的 市场 和 生产 新 的 产品 。 这里 描述 的 企业 间 的 合作 被 称为 虚拟企业 。 虚拟企业 也 可以 被 描述 为 技术 数据 的 全球 网络 ， 这些 数据 利用 标准 来 集成 异构 的 数据源 。 
+ 　 　 实施 虚拟企业 的 关键 是 跨 网络 的 异构 系统 间 信息 的 集成 。 CORBA ( Common   Object   Request   Broker   Architecture ) 和 STEP ( ISO - 10303 ) 两个 国际标准 的 建立 为 虚拟企业 的 快速 实施 提供 了 可能 。 
+ 　 　 STEP 标准 着眼于 产品 的 整个 生命周期 ， 产品 数据 统一 模型 的 建立 ， 从而 为 不同 系统 之间 信息 的 自动 转换 和 共享 提供 了 标准 的 手段 。 
+ 　 　 STEP 标准 将 数据交换 的 实施 大致 分为 四级 ： 文件 交换 、 标准 数据 存取 接口 、 数据库 共享 和 知识库 共享 。 实现 基于 统一 的 STEP 产品 数据模型 的 共享 数据库 方式 是 系统集成 的 关键技术 之一 。 然而 ， STEP 在 实现 数据库 方面 存在 着 3 个 障碍 ： 信息 模型 的 范式化 、 EXPRESS 语言 的 特定 性质 以及 着重于 固定 的 数据交换 而 不是 共享 。 由于 范式化 将 数据 划分 为 更 小 的 元素 ， 因此 在 程序 中 更 难 处理 ； 而 EXPRESS 很难 在 产品 数据组织 之外 被 理解 ， 并且 EXPRESS 定义 的 数据 不能 在 WWW 浏览器 上 处理 。 
+ 　 　 STEP   DB   的 实现 中 ， 应用 了 EXPRESS - X 语言 ， Step 服务 及 在 Step 服务 中 开发 Step   浏览器 等 方法 ， 从而 克服 了 各个 障碍 。 
+ 　 　 数据库 是 集成 的 核心 ， 这里 选择 的 是 功能强大 的 Oracle 数据库 管理系统 。 
+ 　 　 整个 STEP   DB 系统 由 CORBA 和 STEP 结合 起来 提供 了 互联网 上 的 产品 数据共享 。 在 这种 结构 中 ， CORBA 提供 了 异构 平台 间 的 互联 框架 ， STEP 提供 了 进行 信息 交流 的 语言 。 系统 的 结构 简图 如图 1 。 
+ 
+ 图 1   STEP   DB 系统结构 简图 
+ 1 　 STEP 服务 
+ 1.1   STEP 服务 的 基本概念 
+ 　 　 STEP 服务 是 用 CORBA 标准 定义 的 、 IDL 描述 的 接口 集 ， 这些 接口 集是 在 模型 的 水平 上 对 STEP 数据库 进行 操纵 ， 使得 应用 向 数据库 寻找 、 删除 和 添加 模型 更加 容易 。 客户 应用程序 利用 STEP 服务 ， 通过 组装 模型 来 建立 数据库 ， 而 这些 模型 描述 了 产品 的 不同 侧面 。 
+ 　 　 被 索引 模型 是 一个 数据 块 ， 代表 STEP 产品 中 的 一个 功能 单元 。 IDL 方面 ， 一个 模型 是 一个 对象 ； STEP 方面 ， 它 是 一些 实体 实例 的 集合 ， 这些 实体 实例 描述 了 该 模型 的 内容 。 从 IDL 方面 来讲 ， 被 索引 的 模型 对象 拥有 一些 方法 ， 这些 方法 总结 了 该 模型 的 信息 以及 另外 的 一些 方法 ， 描述 了 在 数据库 中 这 一 模型 与 其它 模型 之间 的 关系 。 
+ 　 　 被 索引 的 实例 提供 可 被 用来 管理 代表 一个 产品 的 模型 集合 的 服务 。 基本 工作 流程 为 ( 以 内部化 过程 为例 ) ： 在 临时 ( Slate ) 索引 上 激活 内部化 服务 ， 从 包含 一个 STEP 文件 的 数据流 中 产生 模型 集合 ； 在 临时 索引 上 激活 导向 服务 来 发现 相关 的 模型 ； 在 持久 ( house ) 索引 上 激活 注册 服务 来 告诉 它 的 某个 ( 些 ) 模型 将 在 下 下 一个 选择 ( election ) 被 加入 持久 索引 ； 在 持久 索引 上 激活 导向 服务 来 发现 某个 ( 些 ) 模型 ； 在 持久 索引 上 激活 注册 服务 ， 告诉 它 某个 ( 些 ) 模型 将 在 下 下 一个 选择 被 从 持久 索引 中 删除 ； 在 持久 索引 上 激活 存储 服务 ， 来 删除 某个 ( 些 ) 模型 并 加入 某个 ( 些 ) 模型 。 
+ 　 　 在 STEP 服务器 中 使用 3 个 基本 的 被 索引 实例 ， 其 基本 作用 如下 ： 
+ 　 　 ·   临时 索引 用来 将 数据 从 外部环境 转移 到 服务器 。 
+ 　 　 ·   持久 索引 用来 索引 那些 描述 产品 的 模型 ， 这些 模型 存放 在 数据库 中 。 
+ 　 　 ·   平台 ( platform )   用来 将 一个 模型 集合 中 的 信息 与 外部 世界 进行 通信 。 
+ 1.2   STEP 服务 的 IDL 接口 
+ 　 　 ( 1 )   被 索引 实例 的 接口 
+ 　 　 interface   Indexed _ instance : Schema _ instance 
+ 　 　 {   void   internalize ( inout   stream   s ) ; 
+ 　 　 　 void   internalize ( in   sequence < SDAImodel > ) ; 
+ 　 　 stream   externalize ( ) ; 
+ 　 　 sequence < SDAImodel > externalize ( ) ; 
+ 　 　 Indexed _ model   findModel   ( in   string   key , in   string   type ) ; 
+ 　 　 sequence < Indexed _ model > allModel ( in   string   type ) ; 
+ 　 　 void   addModel   ( in   Indexed _ model   candidate ) ; 
+ 　 　 sequence < Indexed _ model > winners ( ) ; 
+ 　 　 boolean   start _ election ( ) ; 
+ 　 　 boolean   abort _ election ( ) ; 
+ 　 　 boolean   end _ election ( ) ; 
+ 　 　 … ; / / 其它 细节 略 
+ 　 　 } ; 
+ 　 　 Internalize ( 内部化 )   方法 从 外部 世界 引入 模型 集合 。 这些 模型 是从 数据流 中 发现 的 。 该 数据流 必须 是 STEP   Part   21   文件 或者 是 STEP   Part   21 文件 的 等同 物 。 Externalize ( 外部 化 ) 方法 用来 将 模型 集合 到 外部 世界 。 这些 模型 被 送入 流 对象 。 这个 流 可以 是 STEP   part   21   文件 或者 是 等同于 Part   21 文件 的 文件 。 
+ 　 　 ( 2 )   被 索引 " model " 的 接口 
+ 　 　 interface   Indexed _ model : Model 
+ 　 　 ｛ string   key ( ) ; string   user _ name ( ) ; 
+ 　 　 　 string   type ( ) ; boolean   isA ( in   string   s ) ; 
+ 　 　 　 sequence < Indexed _ instance > indexes ( ) ; } ; 
+ 　 　 user   _ name   方法 返回 一个 描述 该 模型 的 字符串 ， 它 可以 和键 ( key ) 值 相同 ， 也 可以 是 键值 的 便于 用户 理解 的 版本 ， 但是 它 不 保证 唯一性 。 
+ 　 　 ( 3 )   AP203 实例 
+ 　 　 interface   AP203 _ instance : Indexed _ instance { Advanced _ b _ representation   findAdvanced _ b _ representation   ( in   string   s ) ; … ; 
+ 　 　 Application _ context   findApplication _ context ( in   string   s ) ; 
+ 　 　 sequence < Advanced _ b _ representation > 
+ 　 　 allAdvanced _ b _ representation ( ) ; 
+ 　 　 … 
+ 　 　 sequence < Application _ context > allApplication _ context ( ) ; } 
+ 　 　 该 接口 中 ， 定义 了 两种 方法 。 第一种 方法 通过 传递 模型 的 键 ( key ) 值来 查找 该 模型 ， 如果 不能 发现 则 返回 NULL 。 第二种 方法 根据 给定 的 类型 返回 所有 具有 该 类型 的 模型 ， 如果 服务器 中 没有 指定 类型 的 模型 则 返回 列表 为空 。 
+ 2 　 模式 管理 
+ 　 　 从 本质 要求 来看 ， 产品 数据 的 表达 与 交换 标准 ， 如 STEP 必须 是 完整 且 无 二意性 的 。 这种 标准 是 巨大 的 ， 包含 了 许多 单个 的 应用 系统 不 需要 的 细节 。 产品 模型 的 简化 视图 省略 了 该 模型 的 不 需要 的 细节 ， 从 概念 上 来讲 更 容易 理解 和 处理 。 
+ 　 　 但是 一个 应用 系统 产品 模型 的 简化 视图 对 另 一个 应用 系统 来说 并不一定 具有 同样 的 优化 效果 ， 即便 这 两个 系统 是 有着 关系 的 。 因此 可 容易 生成 产品 模型 的 视图 ， 且 可 剪裁 到 单个 的 应用 系统 ， 这 将 提高 STEP 标准 的 可用性 。 
+ 　 　 那么 ， 如何 描述 局部 简化 视图 与 全局 数据模型 之间 、 以及 不同 简化 视图 之间 的 对应 关系 呢 ？ 又 如何 将 传统 的 数据模型 向 STEP 的 数据模型 转换 呢 ？ 在 STEP 中 ， 产品 模型 是 用 EXPRESS 定义 的 。 这 就 意味着 ， 产品 模型 的 视图 必须 基于 该 产品 模型 的 EXPRESS 定义 。 因此 对 STEP 来说 ， 需要 一种 语言 来 帮助 EXPRESS 信息 模型 的 视图 定义 。 这 便是 EXPRESS - X 语言 的 最初 目的 。 EXPRESS - X 语言 是 EXPRESS 的 扩展 ， 包括 了 定义 EXPRESS 信息 模型 视图 的 结构 。 它 不仅 可以 用来 描述 不同 EXPRESS 模型 中 实体 的 映射 ， 这些 映射 可以 被 用来 生成 一个 数据 集合 的 可 供选择 的 其它 表示 ； 而 还 可以 用来 描述 传统 数据模型 与 STEP 数据模型 之间 以及 传统 数据模型 之间 的 映射 。 
+ 　 　 虚拟企业 产品 存储 是 用 STEP   AP203 定义 的 。 AP203 为 配置 控制 装配 定义 一个 数据模型 ， 该 模型 包括 了 大约 500 个 数据 定义 。 在 定义 VEPR ( 虚拟企业 存储 ) 的 外部 接口 时 ， 采用 了 STEPAP203   14 个 UoF ( 功能 单元 ) 的 大约 40 个 应用 对象 。 这些 对象 描述 了 人员 、 组织 、 产品 、 产品 版本 、 形状 、 父子 装配 关系 等 属性 。 这 40 个 对象 是 通过 EXPRESS - X 的 映射 来 与 500 个 数据 定义 相关联 的 。 其中 ， 内部化 区域 的 EXPRESS - X 过滤器 负责 将 符合 不同 应用 数据模型 的 数据流 转换 为 符合 由 40 个 对象 实体 描述 的 AP203 应用 参考模型 ( ARM ) 的 数据 ， 并 将 这些 ARM 数据 转换 到 AIM 数据模型 中去 在 核心 数据 区域 存放 起来 ； 外部 化 区域 的 EXPRESS - X 过滤器 的 工作 过程 恰恰相反 ， 它 首先 将 核心 数据 区域 符合 AIM 的 数据 转换 为 ARM   的 数据 ， 然后 再 将 其 转换 为 具体 应用 系统 模型 所 需 的 数据 。 在 转换 过程 中 ， 所 需 的 模式 信息 都 被 事先 存放 到 核心 数据 区域 中 了 。 
+ 　 　 模式 管理 内嵌 于 VEPR 。 模式 管理器 管理 着 已经 或 正在 标准化 的 应用 协议 、 集成 资源 以及 不同 的 局部 应用 模型 之间 、 局部 应用 模型 与 全局 数据模型 之间 的 映射 规则 ， 作为 定义 、 修改 应用 模型 以及 不同 模型 之间 进行 数据 转换 的 基础 。       模式 管理器 的 功能 包括 ： 模式 的 录入 ， 模式 数据 字典 的 生成 ， 模式 间 映射 的 生成 ， 映射 字典 的 生成 ， 模式 映射 的 修改 ， 模式 的 一致性 维护 ； 如 维护 某一 模式 是 STEP   AP203 模式 的 子集 。 
+ 3 　 核心 数据 区 框架结构 
+ 　 　 EXPRESS 信息 模型 描述 的 是 产品 全 生命期 的 逻辑 模型 ， 这些 逻辑 模型 在 能 使用 之前 必须 被 映射 为 软件 实现 技术 。 EXPRESS 模型 有 4 个 实现 级别 ， 如图 2 所示 。 
+ 
+ 图 2   STEP 实现 级别 
+ 　 　 级别 一是 最 简单 的 实现 。 在 这 一 级别 ， EXPRESS 定义 的 数据 是 通过 STEP   Part   21 格式文件 在 不同 的 应用 系统 之间 进行 交换 。 应用 系统 内 产品 数据 的 表达 没有 任何 约束 。 级别 二 的 实现 方式 具备 了 级别 一 实现 方式 的 所有 特点 ， 并 附加 了 在 内存 工作 区 操纵 基于 EXPRESS 信息 模型 数据 的 能力 。 级别 三 的 实现 方式 具备 了 级别 二 所有 的 特点 ， 并 附加 了 处理 存储 在 数据库 管理系统 中 数据 的 能力 。 集成 产品 数据库 可以 存放 工程 生命周期 中 许多 方面 的 数据 。 多个 应用 系统 可以 存取 产品 数据 ， 且 可以 充分利用 数据库 的 特点 ， 例如 ： 查询处理 。 级别 四 的 实现 方法 具备 了 所有 较 低 实现 级别 的 特点 以及 对 EXPRESS 所有 约束 的 验证 ， 它 必须 能 对 数据库 的 内容 进行 推理 。 
+ 　 　 围绕 EXPRESS 信息 模型 构建 工程 数据库 必须 完成 ， 从 EXPRESS 定义 数据库 结构 及 提供 数据库 的 SDAI 存取 接口 。 
+ 3.1   EXPRESS 到 数据库 模式 的 转换 
+ 　 　 将 EXPRESS 信息 模型 转换 为 目标 数据库 的 模式定义 。 这种 转换 需要 EXPRESS 语言 到 目标 数据库 数据 定义语言 ( DDL ) 的 映射 。 
+ 　 　 EXPRESS 的 特点 必须 被 编码 或 需要 其它 的 操作 来 保存 原始 信息 。 
+ 　 　 ( 1 ) ENTITY ( 实体 ) 　 每 一个 实体 都 被 映射 为 一个 表 ， 表中 的 列 对应 着 实体 的 本地 ( local ) 属性 ， 系统 向 实体 增加 具有 唯一 标志 的 列来 标识 每 一个 实体 实例 。 简单 数据类型 的 属性 被 直接 存放 起来 ； 复合 值 ( 如 ， 实体 实例 、 选择 、 聚集 等 ) 作为 包含 唯一 实例 标志 的 外部 键 存放 起来 。 ( 2 ) Inheritance ( 继承 ) 　 继承 意味着 父类 与 子类 之间 属性 的 复制 ， 所以 系统 必须 进行 范式化 的 工作 。 父类 和 子类 各有 一表 ， 每个 表只 含有 对应 实体 的 本地 属性 。 一个 具有 继承 属性 的 实体 实例 ， 可以 对 通过 类型 层次 中 所有 表 的 实例 标识 进行 连接 获得 。 
+ 　 　 ( 3 ) Primitive   Type ( 简单 类型 ) 　 系统 必须 对 简单 类型 或 由 简单 类型定义 的 类型 进行 编码 。 
+ 　 　 表 1 描述 了 EXPRESS 简单 数据类型 到 数据库 相应 类型 的 对应 。 由 简单 类型定义 的 类型 作为 基本 简单 类型 处理 。 
+ 表 1   EXPRESS 简单 数据类型 到 数据库 类型 的 映射 
+ EXPRESS   类型 数据库 类型 
+ realfloat / double 
+ booleaninteger 
+ logicalinteger 
+ integerinteger 
+ stringvarchar 
+ binarynumber 
+ enumerationvarchar 
+ 　 　 ( 4 ) Enumeration ( 枚举 ) 　 系统 采取 使用 外键 指向 单独 枚举 表 的 方法 模拟 枚举 类型 在 数据库 中 的 表示 。 
+ 　 　 ( 5 ) Select ( 选择 ) 　 系统 采取 选择 表来 模拟 选择 数据类型 在 数据库 中 的 表达 。 选择 中 的 每个 成员 类型 都 对应 着 表中 的 一列 。 表中 的 每 一行 只有 一列 含有 值 ， 其它 的 列为 空 。 含值 的 列 即 为 要 选取 类型 的 实例 。 
+ 　 　 ( 6 ) Aggregate ( 聚集 ) 　 聚集 必须 采用 一些 技术 在 数据库 中 进行 模拟 。 数据库 中 采用 了 一种 特殊 格式 的 表来 存放 聚集 的 值 。 例如 ：   
+ 表 2   某 列表 在 数据库 中 表达 的 示例   
+ ListIDElementIDNextListID 
+ List _ ID _ 1Point _ ID _ 1List _ ID _ 2 
+ List _ ID _ 2Point _ ID _ 2   NULL 
+ 　 　 表 2 表示 某一 类型 为 ListOfPoint 的 属性 值 在 数据库 中 的 存放 情况 ， 该 列表 包含 两个 Point ， ID 号 分别 是 Point _ ID _ 1 和 Point _ ID _ 2 。 
+ 　 　 另外 ， 依据 数据库 实现 还 能够 定位 Derived 属性 、 local 和 Global 约束 、 以及 unique 或 inverse 句子 。 
+ 3.2   SDAI 存取 框架 
+ 　 　 基于 数据 的 特点 以及 传输 时间 要求 ， 有 3 种 框架结构 可 供选择 ： 
+ 　 　 ·   整个 模型 ， 非 在线 的 批量 传输 - - 文件 上载 / 下载 SDAI 联编 ； 
+ 　 　 ·   整个 模型 ， 在线 的 批量 传输 - - 缓存 的 SDAI 联编 ； 
+ 　 　 ·   单个 数值 ， 在线 传输 - - 直接 的 SDAI 联编 。 
+ 　 　 另外 ， 系统 采用 了 早联编 ( early   binding ) 与 晚联编 ( late   binding ) 的 混合 联编 方式 来 解决 数据库 存取 软件 对 不同 的 EXPRESS 结构 定义 的 适应性 问题 ， 并且 提供 了 有限 的 约束 检查 功能 。   
+ 4 　 结论 
+ 　 　 CORBA 标准 提供 Internet / Intranet 网上 异构 平台 间 强大 的 对 用户 透明 的 连接 、 通信 、 互操作 框架 ， STEP 提供 产品 全 生命期 的 全局 数据模型 。 STEP   DB 的 实现 提供 了 跨 网络 的 集中 的 数据库 管理 功能 ， 严格 地 保证 了 共享 的 全局 数据 的 完整性 、 一致性 。 系统 的 实现 为 成功 的 实施 虚拟企业 数据 存储 提供 理论 上 的 探索 以及 具体 技术 上 的 示范作用 ， 最终 提供 了 一个 基于 STEP   AP203 全局 数据模型 的 集成 的 虚拟企业 产品 数据 存储系统 。 
+ 基金项目 ： 国家 863 项目 
+ 作者简介 ： 赵有珍 （ 1972 ～ ） ， 男 ， 博士 ， 研究 方向 为 虚拟企业 中 的 数据库 技术 
+ 作者 单位 ： 北京航空航天大学 720 研究所 ， 北京 100083 
+ 参考文献 
+ 1   Hardwick   M . The   STEP   Services   Reference   Manual . Teck . Report96004 , Laboratory   for   Industrial   Information   Infrastructure , Rensselaer   Polytechnic   Institute , Troy , New   York , 1995 
+ 2   Shah   Jami   J , Jeon   Dae   K , Urban   Susan   D , et   al . Database   Infrastructure   for   Supporting   Engineering   Design   Histories . Computer - Aided   Design , 1996 , 28 , ( 5 ) : 347 - 360 
+ 3   Martin   H , Spooner   D   L , Rando   T , Morris   KC . Sharing   Manufacturing   Information   in   Virtual   Enterprises . Communications   of   the   ACM , 1996 , 15 ( 5 ) 
+ 4   Martin   H , Spooner   D   L , Rando   T . et   al . Lessons   learned   Developing   Protocols   for   the   Industrial   Virtual   Enterprise . http : / / www . steptools . com , 1998 
+ 收稿 日期 ： 1999 - 0126 

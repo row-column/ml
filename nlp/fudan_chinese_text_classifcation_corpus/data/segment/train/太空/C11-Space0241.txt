@@ -1,0 +1,105 @@
+　 宇航学 报 
+ JOURNAL   OF   ASTRONAUTICS 
+ 1999 年   第 20 卷   第 3 期   vol.20   No.3   1999 
+ 
+ 
+ 
+ 　 　 基于 FBM 的 分形 地形 模拟 原理 研究 
+ 佘 龙华 　 沈林成 　 常文森 
+ 　 　 摘 　 要 　 本文 通过 分析 FBM ( Fractional   Brownian   Motion ) 的 数学 特征 ， 指出 它 能 基本 吻合 真实 地形 的 数学 特征 。 在 此基础 上 ， 详细 研究 当 地形 初始 数据 集由 DEM ( Digital   Elevation   Model ) 给 定时 基于 FBM 的 分形 地形 模拟 的 基本原理 。 
+ 　 　 主题词 　 DEM 　 FBM 　 分形 　 地形 　 插值 
+ FBM — BASED   FRACTAL   SIMULATION   OF   TERRAIN 
+ She   Longhua   Shen   Lincheng   Chang   Wensen 
+ ( National   University   of   Defense   Technology . Changsha.410073 ) 
+ 　 　 Abstract 　 This   paper   analyses   the   mathematical   characteristics   of   realistic   terrain   and   FBM ( Fractional   Brownian   Motion ) . The   the   basic   principle   of   FBM — based   fractal   simulation   of   terrain   is   introduced . 
+ 　 　 Key   words 　 DEM 　 FBM 　 Fractal   Terrain   Interpolation 
+ 　 　 1 　 引言 
+ 　 　 地形 模拟 有着 广泛 的 应用 价值 ， 主要 体现 在 如下 方面 ： ( 1 ) 地形 研究 ， 这 主要 是 指 如何 根据 DEM 研究 地形 的 特征 和 构造 ； ( 2 ) 地形 视景 仿真 ， 这 主要 是 指 如何 根据 DEM 构造 颇具 真实感 的 地形模型 ， 从而 提高 如 飞行 可视化 仿真 、 动画 制作 、 电影 场面 、 电子 沙盘 等同 地景 相关 的 画面 的 品质 ； ( 3 ) 地形 特征 仿真 ， 这 主要 是 指 如何 构造 符合 真实 地形 特征 的 地形模型 ， 使得 它 在 诸如 卫星 遥感 地面 仿真 、 地形匹配 地面 仿真 等 实验 中 具有 较 高 的 置信度 。 
+ 　 　 地形 模拟 在 这 三 方面 的 应用 ， 又 可 分为 两类 ： ( 1 ) 地形 初始 数据 集是 由 算法 随机 生成 的 ； ( 2 ) 地形 初始 数据 集是 由 DEM 给定 的 ， 本文 着重 研究 后者 。 经典 的 DEM 地形 模拟 方法 是 线性插值 和 随机 插值 ， 然后 在 此基础 上 进行 三角形 剖分 ， 二者 的 共同 不足之处 是 不能 保持 自然 地形 表面 的 大部分 数学 特征 ， 从而 使得 它们 在 仿真 实验 中 真实感 较差 或 置信度 不能 满足要求 。 自然 景物 具有 分形 的 特征 启发 人们 用 分形 插值 模拟 地形 。 以前 关于 这方面 的 文献 着重 研究 各种 具体 的 分形 插值 方法 ， 具有 算法 的 性质 ［ 7 ］ ［ 8 ］ ， 本文 详细 研究 了 基于 FBM 的 分形 地形 模拟 方法 的 可行性 和 基本原理 ， 从而 为 分形 地形 模拟 算法 提供 了 理论依据 ， 并 为 进一步 设计 各种 算法 提供 指导 。 
+ 　 　 2 　 真实 地形 与 FBM 
+ 　 　 2.1 　 真实 地形 的 数学 特征 
+ 　 　 到 目前为止 ， 还 没有 一种 从 纯理论 角度 推导 真实 地形 数学 特征 的 方法 ， 所以 许多 地球 物理学家 从 跨越 大 范围 时间 和 空间 尺度 的 地形 数据分析 入手 ， 总结 了 大量 与 真实 地形 相关 的 数学 特征 ［ 4 ］ ［ 5 ］ ， 现 枚举 如下 ： 
+ 　 　 ( 1 ) 分数 维 
+ 　 　 ( 2 ) 多级 分形 
+ 　 　 ( 3 ) 各向异性 
+ 　 　 ( 4 ) 一定 标度 范围 内 统计 自 相似 
+ p ( X ( t ) ＜ x ) = p ( X ( γ t ) ＜ γ α x 
+ 　 　 ( 5 ) 变异 差 满足 
+ E ［ X ( t + h ) - X ( t ) ］ 2 = k | h | 2 α 
+ 　 　 ( 6 ) 剖面 功率 谱 密度 满足 
+ G ( ω ) = 2 π k ω - α 
+ 　 　 ( 7 ) 非 平稳 过程 
+ 　 　 ( 8 ) 增量 平稳 
+ 　 　 地形 模拟 要 解决 的 问题 就是 如何 构造 地形模型 ， 使该 模型 尽可能 地 具备 上述 数学 特征 或者 具备 实际 应用领域 所 需要 的 数学 特征 。 
+ 　 　 2.2 　 FBM 的 数学 特征 
+ 　 　 FBM 是 定义 在 某 概率 空间 上 的 一 随机 过程 X ∶ ［ 0 , ∞ ］ → R , 且 满足 如下 条件 ： 
+ 　 　 ( a ) 以 概率 1 ， X ( t ) 连续 且 X ( 0 ) = 0 
+ 　 　 ( b ) 对 任何 t ≥ 0 和 h ＞ 0 , X ( t + h ) - X ( t ) 服从 如下 分布 ： 
+ 　 　 　 ( 0 ＜ α ＜ 1 ) 　 　 　 ( 2 - 1 ) 
+ 　 　 FBM 的 性质 之一 　 X ( t ) ～ N ( 0 , t2 α ) 
+ 　 　 证明 ： 对式 ( 2 - 1 ) 取 t = 0 得 ： 
+ 
+ 　 　 因为 FBM 的 条件 ( b ) 已经 指出 式 ( 2 - 1 ) 对 任何 h ＞ 0 均 成立 ， 所以 可 将 上式 中 的 h 置换 成 t ， 从而 
+ 
+ 即 X ( t ) ～ N ( 0 , t2 α ) 
+ 　 　 FBM 的 性质 之二 　 增量 平稳 
+ 　 　 证明 ： 式 ( 2 - 1 ) 表明 X ( t + h ) - X ( t ) 的 分布 与 t 无关 ， 故 结论 成立 。 
+ 　 　 FBM 的 性质 之三 　 统计 自 相似 
+ 　 　 证明 ： 
+ 　 ( u = γ - α u1 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 
+ 　 　 　 　 　 　 　 　 　 　 　 　 
+ 
+ 对 上式 两边 取 t = 0 ， 然后 将 h 置换 为 t 得到 ： 
+ p ( X ( t ) ＜ x ) = p ( X ( γ t ) ＜ γ α x ) 
+ 此即 所谓 的 统计 自 相似 。 
+ 　 　 FBM 的 性质 之四 　 平方 变异 差为 h2 α ， 绝对 变异 差为 
+ 　 　 证明 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 根据 式 ( 2 - 1 ) ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 
+ 　 　 　 　 　 　 　 　 　 　 　 　 ( 根据 式 ( 2 - 1 ) ) 
+ 
+ 　 　 FBM 的 性质 之五 　 FBM 曲面 的 Hausdorff 维数 和 盒维数 以 概率 1 等于 ( 3 - α ) 
+ 证明 ： 用 坐标 变量 ( x , y ) 代替 时间 变量 t ， 则 随机变量 X ( x , y ) 可 被 认为 曲面 在 点 ( x , y ) 的 高度 ， 因此 FBM 曲面 可以 描述 如下 ： 
+ 　 　 ( a ) 以 概率 1 ， X ( 0 , 0 ) = 0 且 X ( x , y ) 为 ( x , y ) 的 连续函数 
+ 　 　 ( b ) 对 ( x , y ) ， ( h , k ) ∈ R2 , 高维 增量 X ( x + h , y + k ) - X ( x , y ) 服从 如下 分布 
+ 　 　 　 　 　 　 　 
+ 　 　 　 　 　 　 　 　 　 ( 0 ＜ α ＜ 1 ) 
+ 在 此基础 上 ， 可以 推证 FBM 曲面 的 维数 为 3 - α ( 由于 推证 过程 需要 用到 许多 复杂 的 数学 概念 ， 在 此 暂略 之 ) ［ 3 ］ 。 FBM 还 具有 许多 数学 特征 ， 这里 暂 不 推证 。 
+ 　 　 2.3 　 用 FBM 模拟 真实 地形 的 可行性 分析 
+ 　 　 从 2.1 和 2.2 的 分析 可以 发现 ， FBM 在 五个 性质 依次 满足 了 真实 地形 的 数学 特征 ( 7 ) 、 ( 8 ) 、 ( 4 ) 、 ( 5 ) 、 ( 1 ) 。 因此 ， 从 原理 上 讲 ， 用 分形 插值 的 方法 产生 FBM 曲面 模拟 地形 具有 较 好 的 真实感 和 置信度 。 
+ 　 　 3 　 基于 FBM 的 分形 地形 模拟 的 基本原理 
+ 　 　 为了 在 从 较 粗糙 的 DEM 数据 集 得到 具有 任意 分辨率 的 DEM 数据 集 的 过程 中 ， 保持 给定 数据 集 的 分形 特征 和 统计 特征 ， 或 适当 增强 这 两 方面 的 特征 ， 首先 应该 从原 DEM 数据 集 抽取 特征参数 。 在 此基础 上 ， 根据 特征参数 选择 基于 原 DEM 数据 集 进行 插值 方法 和 插值 参数 ， 从而 可以 获得 新 的 DEM 数据 集 。 
+ 　 　 3.1 　 抽取 DEM 的 特征参数 
+ 　 　 DEM 数据 集 表示 为 
+ 
+ 　 　 FBM 的 分形 维数 在 任何 标度 下 具有 不变性 ， 但 真实 地形 并非如此 ， 它 只 在 一定 标度 范围 内 具有 恒定 的 分形 维数 ， 这里 假设 所 给定 的 DEM 数据 集 的 分形 标度 范围 已 用 某种 方法 求 出 ， 记 为 ‖ Δ X ‖ min , ‖ Δ X ‖ max 。 根据 2 - 2 中 指出 FBM 的 性质 之四 ， 有 如下 关系 成立 ： 
+ 
+ 此处 ， σ 2 为 Z ( X + Δ X ) - Z ( X ) 的 方差 ， α 为 一 特征参数 。 对 上式 两边 取 对数 得 ： 
+ 
+ 由此可见 ， logE ［ | Z ( X + Δ X ) - Z ( X ) | ］ 与 log ‖ Δ X ‖ 成 线性关系 ， 因此 可 采用 最小 二 乘法 。 
+ 最小 方差 为 
+ 
+ 
+ 通过 最小化 e2 可以 求 出 α 和 σ ， 再 根据 FBM 的 性质 之五 可以 求出 其 相应 的 分形 维数 α 为 D = 3 - α 。 
+ 　 　 3.2 　 基于 DEM 的 分形 插值 
+ 　 　 在 抽取 了 σ 和 D 以后 ， 就 可以 对 DEM 进行 插值 ， 假设 Xk = ( x , y ) 为 待 插值 点 ， Xi ( i = 1 , … , k - 1 ) 为 Xk 的 邻近 点 ， 那么 一般 的 插值 方法 可 统一 表示 为 ： 
+ Z ( Xk ) = F ( Z ( Xi ) ) 　 　 ( i = 1 , … , k - 1 ) 
+ 其中 F 是 某种 类型 的 可 递归函数 ， 通过 选择 不同 的 F ， 可以 产生 具有 各种 特性 的 地形模型 。 基于 FBM 的 分形 地形 模拟 可 表示 成下式 ： 
+ Z ( Xk ) = ∑ λ iZ ( Xi ) + Y = LTZ + Y 
+ 其中 LT 为 系数 矢量 ， Z 为 Xk 的 邻接 点 矢量 ， Y 为 一 分数 布朗 函数 。 为了 保证 DEM 数据 集 的 宏观 标度 特征 ， 要求 Y 为 零 均值 且 独立 于 Z ， 为了 保证 初始 DEM 数据 集 的 分形 特征 ， 要求 Y 的 参数 由 D 和 σ 决定 。 
+ 　 　 4 　 结论 
+ 　 　 本文 研究 了 基于 DEM 的 分形 地形 模拟 的 可行性 和 基本原理 ， 为 设计 各种 地形 模拟 所 采用 的 分形 插值 算法 提供 了 依据 。 最后 指出 ， 有待 进一步 研究 的 两个 问题 ： 
+ 　 　 ( 1 ) 真实 地形 是 各向异性 的 ， 但 按 上述 原理 模拟出 的 地形 是 各向同性 的 ， 因此 ， 需要 进一步 研究 如何 构造 有 方向 特征 的 模拟 方法 。 
+ 　 　 ( 2 ) 真实 地形 的 分形 特征 是 全域 不 一致 的 ， 但 上述 原理 模拟出 的 地形 特征 是 全域 一致 的 ， 因此 ， 需要 进一步 研究 如何 为 DEM 数据 集 分块 ， 抽取 各个 局部 的 分形 特征 ， 从而 实现 局部 分形 地形 模拟 。 
+ 作者 单位 ： 国防科技大学 自动控制 系 . 长沙 . 410073 
+ 参考文献 
+ 　 　 1 　 Mandelbrot   B   B . The   fractal   geometry   of   nature . Freeman , San   Franciso , 1982 
+ 　 　 2 　 Pentland   A   P . Fractal   based   description   of   nature   scenes . IEEE   Transaction   on   Pattern   Analysis   and   Machine   Intelligence , 1984 , 6 ( 6 ) : 666 - 674 
+ 　 　 3 　 Falconer   K . Fractal   geometry - mathematical   foundations   and   applications . New   York : John   Wiley   &   Sons , 1990 
+ 　 　 4 　 Sayles   R   S , Thomas   T   R . Surface   topography   as   a   nonstationary   random   process . Nature , 1987 , 271 : 431 - 434 
+ 　 　 5 　 Berry   M   V , Hannay   T   R . Topography   of   random   surface . Nature , 1978 , 273 
+ 　 　 6 　 NAOKAZU   YOKOYA , KAZUHIKO   YAMAMOTO . Fractal - based   analysis   and   interpolation   of   3D   natrual   surface   shapes   and   their   application   to   terrain   modeling . CVGIP   1989 , 46 : 284 - 302 
+ 　 　 7 　 郑卓嘉 等 . 自然 景物 三维 逼真 图形 的 计算机 产生 和 显示 . 计算机 学报 ， 1989 ， 5 ： 367 - 375 
+ 　 　 8 　 丁德 恒等 . 三维 复杂 表面 形状 的 分数 维 分析 和 内 插 . 计算机 学报 ， 1991 ， 9 ： 710 - 716 
+ 收稿 日期 : 1997 年 11 月 18 日 , 修回 日期 : 1998 年 10 月 19 日 

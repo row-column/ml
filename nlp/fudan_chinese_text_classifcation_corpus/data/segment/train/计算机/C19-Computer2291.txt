@@ -1,0 +1,105 @@
+计算机 应用 研究 
+ APPLICATION   RESEARCH   OF   COMPUTERS 
+ 2000 　 Vol.17 　 No.5 　 P.109 - 111 
+ 
+ 
+ 
+ XML   查询语言 技术 与 实例 分析 
+ 张璞 　 庄成 三 
+ 摘     要     随着 Internet   和 WWW 的 飞速发展 , 作为 HTML 的 补充 , XML 以其 自身 的 特点 ,   为 Web 页面 的 管理 、 搜索 、 以及 Web 上 的 各种 应用 的 连接 提供 了 便利 , 从而 得到 了 广泛应用 。 Web 上 已经 积累 了 大量 的 XML 数据 ， 人们 需要 有 一种 查询语言 来 帮助 Web 用户 有效 地 查询 XML 数据 ， 为 Web 应用 开发人员 开发 XML 应用 提供 支持 。 针对 以上 两种 要求 而 提出 了 一种 查询语言 ： XML 查询语言 。 阐述 了 XML 查询语言 的 必要性 和 设计 原则 ， 并 对 两个 实例 ( XQL ， XML _ QL ) 进行 了 分析 。 
+ 关键词     XML     XML 查询语言     XML 应用     XQL       XML _ QL     半 结构化 数据 
+ 1     引言 
+ 　 　 XML ( eXtensible   Markup   Language , 可 扩展 标签 语言 ) ， 是 一种 能 更好 地 描述 结构化 数据 的 语言 ， 作为 SGML ( Standard   Generalized   Markup   Language , 通用 标签 语言 ) 的 一个 子集 , 1998 年 成为 W3C ( World   Wide   Web   Consortium ) 认可 的 一个 标准 。 作为 HTML 语言 的 一种 补充 ， 由于 XML 具有 一系列 特性 ， 如 可扩展性 ， 简单 性 ， 开放性 ， 互操作性 ， 支持 多 国 语言 ， 从而 能够 较 好地解决 HTML   语言 的 一些 缺陷 ， 如 文件 的 移动 将 造成 Web 页面 的 链路 链接 失败 而 出现 广为人知 的 “ 404 ” 错误 ， 不能 支持 多 国 语言 ， 难以 有效 地 支持 搜索引擎 的 查询 等 。 因而 XML 得到 了 研究 人员 和 产业界 的 广泛 关注 ， 并 已 在 Web 页面 上 得到 了 广泛应用 。 现在 主要 的 浏览器 厂家 ( Microsoft ,   Netscape ) ， 都 在 各自 的 浏览器 中 不同 程度 地 支持 XML ，   IBM ， ORALE 等 数据库 厂商 都 在 各自 的 数据库 产品 中 都 加入 了 处理 XML 数据 的 功能 。 Web 上 出现 了 大量 用 各种 语言 ( JAVA ， C++ ， PERL ， C 等 ) 编写 的 XML 解析器 , 组件 开发人员 也 为 XML 开发 了 大量 的 ActiveX 控件 和 Java   Bean 。 除了 在 Web 页面 上 的 广泛应用 以外 ， XML 正在 逐渐 成为 Web 上 支持 数据交换 的 一种 标准 ， 适用 于 许多 重要 的 应用 ， 如 EDI ( Electronic   Data   Interchange ) 。 由于 其 结构化 描述 数据 的 方式 易于 加上 数字签名 信息 ， 能 对 一段 XML 文档 甚至 整个 XML 文档 进行 加密 ， XML 正在 电子商务 中 扮演着 愈来愈 重要 的 角色 ， 而且 还 出现 了 一些 新 的 应用 ， 如 RDF ( Resource   Definition   Format ) ， Microsoft   公司 的 CDF ( Channel   Definition   Format ) 等 ， 可以 预见 会 有 更 多 的 新 的 XML 应用 出现 。 
+ 　 　 和 HTML 不 一样 ， 由于 XML 主要 是 描述 数据 本身 而 不是 描述 数据 的 显示 格式 ， 所以 XML 文档 已经 将 数据 和 文档 的 界限 缩小 了 , 有时 可以 将 XML 文档 看作 数据 或 将 数据 看作 XML 文档 。 一些 XML 文档 很 适合 于 表示 存储 于 数据库 中 的 数据 ， 而 一些 非 结构化 文档 用 XML 文档 存储 后 ， 常常 能 提供 更 大程度 上 的 信息 共享 。 随着 XML 的 广泛应用 ， Web   上 大量 的 信息 都 将 通过 XML 文档 来 进行 存储 、 交换 ， 或者 通过 各种 应用 接口 用 XML 来 表现 。 在 XML 数据源 中 对 大量 的 信息 进行 有效 地 查询 对 用户 而言 就 显得 很 重要 了 ， 它 能 帮助 用户 更 方便 地 浏览 信息 ， 更 有效 地 获取信息 ， 使 用户 不致于 迷失 在 信息 的 海洋 之中 。 另一方面 ， 许多 应用 需要 能 对 XML 数据源 进行 查询 ， 例如 用来 解析 XML 数据 的 Java   Applet ， 使用 XML 数据 来 作 数据 采集 和 知识 发现 的 智能 代理 等 。 另外 当 具有 不同 权限 的 用户 存取 同一 文档 时 ， 通常 需要 让 不同 用户 有 不同 的 视图 时 ， 用 查询语言 来 定义 视图 也 是 一种 较 好 的 方法 。 大量 的 XML 数据 ， 各种 XML 应用 的 出现 ， 以及 XML 正 逐渐 成为 通用 的 数据交换 格式 ， 都 要求 有 一种 XML 查询语言 来 查询 相关 数据 。 
+ 2     XML 查询语言 的 特征 
+ 　 　 每 一种 数据 查询语言 都 相应 地 对应 着 一种 数据模型 ， 如 结构化 查询语言 ( SQL ) 对应 着 关系 数据模型 ； 面向对象 查询语言 ( OQL ) 对应 着 对象 模型 ； XML 查询语言 对应 的 数据模型 既 不同于 关系 模型 ， 也 不同于 对象 模型 ， 而是 和 近几年来 数据库 研究 人员 进行 了 大量 研究 的 半 结构化 数据模型 很 相似 。 在 半 结构化 数据模型 中 ， 大都 将 半 结构化 数据 表现 为 某种 图 或 树 的 结构 。 与其 相似 ， XML 文档 也 可 表现 某种 图 或 树 的 结构 。 例如 有 下面 的 一段 XML 文档 ， 为 方便 起 见 ， 将 其 命名 为 book   shop . xml ： 
+ < book   shop > 
+ 　 　 < book > 
+ 　 　 < title > An   Introduction   to   the   Database   < / title > 
+ 　 　 　 　 < author > < lname > Ulleman < / lname > < / author > 
+ 　 　 < publisher > < name > Addison   Wesley < / name > < / publisher >   
+ < / book > 
+ < book > 
+ 　 　 　 　 < title > Learning   Visual   C++   < / title > 
+ 　 　 　 　 < author > < lname >   Wang < / lname > < / author > 
+ 　 　 　 　 < publisher > < name >   Addison _ Wesley   < / name > < / publisher > 
+ 　 　 < / book > 
+ < / book   shop > 
+ 　 　 则 对应 着 图 1 的 结构 。 
+ 
+ 图 1 
+ 　 　 通常 情况 下 ，   XML 查询语言 应 具有 如下 的 一些 特征 : 
+ 　 　 ( 1 ) 查询 的 对象 为 XML 文档 ， 查询 返回 的 结果 也 应为 XML 文档 ， 即 XML 查询语言 应 具有 封闭 特性 。 
+ 　 　 ( 2 ) 查询 过程 应该 是 说明性 的 ， 而 非 过程 性 的 。 即 用户 只 需 说明 想得到 什么 ， 而 不必 说明 如何 得到 。 
+ 　 　 ( 3 ) 应 具有 潜在 的 代数 基础 。 
+ 　 　 ( 4 ) 应 简单 ， 通用 ， 易于 被 解析器 进行 解析 。 
+ 　 　 ( 5 ) 应 支持 选择 、 重构 、 连接 、 析取 等 操作 ， 还应 支持 复杂 选择 条件 和 布尔 操作 。 
+ 　 　 ( 6 ) 支持 各种 简单 的 数据类型 ， 并 提供 一种 可 扩充 数据类型 的 机制 。 
+ 　 　 ( 7 ) 查询 范围 应该 能够 覆盖 单一 的 XML 文档 和 一系列 的 XML 文档 。 
+ 　 　 ( 8 ) 应使 其能 以 多种 方式 使用 ， 如 在 URL 中 使用 ， 或 以 命令 方式 使用 ， 在 程序 中 使用 ， 以 图形化 界面 方式 进行 使用 。 
+ 　 　 ( 9 ) 应能 在 客户端 和 服务器端 运行 。 
+ 　 　 ( 10 ) 应 易于 被 优化 。 
+ 　 　 和 半 结构化 数据 查询语言 相 类似 ， XML 查询语言 通常 也 以 下面 这 两种 途径 来 进行 研究 ： 
+ 　 　 ( 1 ) 以 另 一种 基于 XML 数据 形式 计算 概念 的 语言 为 基础 ， 将 其 语法 进行 适当 地 变形 ， 成为 一种 便于 使用 的 查询语言 。 典型 的 如 XQL 语言 。 
+ 　 　 ( 2 ) 以 SQL 或 OQL 为 基础 ， 添加 必要 的 机制 ， 使 其 能够 表达 一组 有用 的 查询 ， 典型 的 如 XML — QL 语言 。 
+ 　 　 下面 对 分别 采用 上述 两种 方法 进行 研究 的 语言 XQL 和 XML — QL 的 主要 设计 思想 作 概括 介绍 ， 并 分别 给出 一些 具体 例子 。 
+ 3     实例 介绍 
+ 　 　 XQL 是 由 Microsoft . Texcel 等 公司 提出 的 一种 XML 查询语言 ， 它 是 对 XSL ( eXtensible   StyleSheet   Language ) 的 一种 自然 的 扩充 。 XSL 模式语言 提供 了 一种 描述 一类 将 需要 处理 的 结点 的 好 方法 。 它 是 说明性 的 ， 而 非 过程 性 的 ， 例如 要 找到 上述 的 book   shop . xml 文档 中 的 所有 书籍 ， 则 只 需 给出 / book   shop / book   则 可 。 但 XSL 也 有 许多 不足之处 ， 如 不 支持 表达式 ， 不能 在 结点 间 进行 等值 连接 ， 对 多个 分散 的 XSL 文档 没有 一个 形式化 的 查询 机制 , 没有 支持 聚集 操作 等 。 XQL 则 在 XSL 基础 上 提供 了 筛选 操作 ， 布尔 操作 ， 对 结点 集 进行 索引 ， 并 为 查询 、 定位 等 提供 了 单一 的 语法 形式 。 因而 在 一定 意义 上 可 将 XQL 看作 XSL 的 超集 。 
+ 　 　 XQL 主要 针对 解决 以下 四个 问题 域 而 提出 ： 
+ 　 　 ( 1 ) 在 单个 XML 文档 中 进行 查询 。 如 在 XML 浏览器 和 编辑器 中 对 所 处理 的 XML 文档 进行 查询 。 另外 ,   Script 也 能 利用 这种 性质 给出 一个 非 过程 性 的 存取 文档 数据 和 结构 的 方法 。 
+ 　 　 ( 2 ) 在 XML 文档 集中 进行 查询 。 如 在 XML 文档 仓储 ( Repository ) 中 进行 查询 。 
+ 　 　 ( 3 ) 能 在 XML 文档 间 对 结点 进行 定位 。 在 HTML 文档 中 ， 常常 用 HyperLink 来 定位 其它 文档 ， 而 在 已有 的 XML 中 ， 链接 形式 更 多样化 ， 有 TEL   Links ,   HyTime   Links , XML     Linking ， 这些 都 允许 链接 有 更 大 的 灵活性 。 XQL 则 主要 是 想 通过 给出 一 已知 位置 的 相对路径 ， 或 通过 一 绝对路径 来 在 文档 中 定位 任一 结点 。 
+ 　 　 ( 4 ) 以 字符串 语法 形式 表达 ， 使 其能 在 URL 中 应用 在 XSL 模板 中 及其 它 地方 应用 。 
+ 在 介绍 例子 查询 之前 ， 对 XQL 中 的 一个 重要 的 概念 : Context   作一 了解 。 ContextB 即 查询 指定 的 一系列 结点 。 XQL 的 基本 语法 模仿 了 URI ( Unified   Resource   Identifier ) 目录 导航 语法 ， 通过 Context ， XQL 可以 指定 XQL 查询 是 以 XML 树结构 中 哪 一层 开设 作为 查询 范围 ( 例如 ， 从树 的 根 结点 或 儿子 结点 ) 。 XQL 中以   /   表示 根 环境 ( Root   context ) , 以 . /   表示 当前 环境 ( Current   context ) 。 由于 篇幅 所 限 ， 下面 只能 给出 少许 例子 查询 ， 使 读者 对 XQL 的 查询 方式 有 一个 感性认识 。 
+ 　 　 例 1 :   找出 所有 书籍 
+ / book   shop / book 
+ 　 　 XQL 中以   /   表示 根 环境 ， 返回 结果 为 book   shop . xml 
+ 　 　 例 2 .   找出 Wang 姓 作者 著作 的 书籍 
+ / book   shop / book [ author [ lname   $ eq $   & quot ; wang & quot ; ] ] 
+ 　 　 XQL 中以   $ eq $   表示 等于 ， / /   表示 当前 环境 下 的 所有 后代 。 返回 结果 为 
+ < book > 
+ 　 　 　 < title > Learning   Visual   C++   < / title > 
+ 　 　 　 < author > < lname >   Wang < / lname > < / author > 
+ 　 　 　 < publisher > < name >   Addison _ Wesley   < / name > < / publisher > 
+ < / book > 
+ 　 　 例 3 .   找出 作者 名有 姓 的 第二个 作者 
+ author [ lname ] [ 2 ]   
+ 　 　 返回 结果 为 
+ < author > 
+ 　 　 　 < lname > wang < / lname > 
+ < / author > 
+ 　 　 值得注意 的 是 ， XQL 在 IE   5.0 中 已 得到 部分 应用 。   有关 XQL 的 形式化 描述 可 参见 本文 的 参考文献   。   
+ 　 　 XML _ QL 是 由 AT & amp ; T 实验室 为首 的 研究 机构 提出 的 XML 查询语言 。 与 XQL 不 一样 ， XML _ QL 是 面向 SQL 的 ， 与 SQL 语言 中 的 SELECT   语句 中 的 WHERE 子句 格式 比较 相像 ， 并 借鉴 了 一些半 结构化 数据 查询语言 的 思想 。 在 XML _ QL 中 ， 将 XML 文档 集 看作 数据库 ， 以半 结构化 数据模型 作为 数据模型 ， 将 DTD ( Document   Type   Definition ) 文档 看作 数据库 模式 。 XML _ QL 中 XML 文档 用 图作 数据结构 来 描述 ， 有 一个 根 结点 ， 每条 边上 都 标有 元素 标记 ， 每个 叶子 结点 都 标有 值 ， 并且 每个 结点 有 一 唯一 的 对象 标识符 。 图 ( 1 ) 即为 XML _ QL 中 一个 文档 结构图 。 需要 指出 的 是 ， 尽管 XQL 中 采用 树 这种 数据结构 来 为 XML 文档 建模 ， 与 XML _ QL 中用 图来 为 XML 文档 建模 有 一些 区别 ， 但 对于 本文 所 给 例子 ， 在 不 影响 问题 叙述 的 前提 下 ， 将 图 1 既 当成 XQL 中 的 树结构 ， 又 当成 XML _ QL 中 的 图 结构 。 
+ 　 　 XML _ QL 中 主要 是 针对 以下 几个 方面 而 提出 的 ： 
+ 　 　 ( 1 ) 能 从 大量 XML 文档 中 析取 数据 。 无论是 对 关系数据库 ， 面向对象 数据库 ， 还是 对 Web “ 数据库 ” 而言 ， 一种 查询语言 都 必须 具有 这种 特性 。 
+ 　 　 ( 2 ) 能 对 XML 数据 进行 转换 。 例如 ， 将 附有 某一 DTD 文档 的 XML 文档 转换 成为 具有 不同 的 DTD 文档 的 XML 文档 。 
+ 　 　 ( 3 ) 将 XML 数据 在 多个 XML 数据源 中 进行 集成 。 这 对于 XML 数据 仓储 ， 数据挖掘 等 均 很 重要 。 
+ 　 　 ( 4 ) 客户端 通过 发送 查询 到 XML 数据源 ( 可以 是 一个 Web 站点 ， 也 可以 是 多个 Web 站点 ) 存取 大量 的 数据 。 
+ 　 　 下面 以 book   shop . xml   文档 为例 ， 举 一个 XML _ QL 语言 的 查询 例子 。 假设 该 文档 的 URL 为 
+ 　 　 www . abcd .   com / book   shop . xml 
+ 　 　 例 ： 
+ 　 　 查询 作者 姓王 的 书 的 名称 
+ where   < book > 
+ 　 　 < author > < lname > wang < / lname > < / author > 
+ 　 　 < title > $ t < / title > 
+ 　 　 < / book >   in   www . abcd . com / book   shop . xml 
+ 　 　 construct   < result > $ t < / result > 
+ 　 　 例中 $ t 所起 的 作用 类似 于 程序设计 语言 中 的 变量 一样 ， construct   是 XML   _ QL 中 的 保留 关键字 。 
+ 　 　 返回 结果 为 < result > learning   visual   c++ < / result > 
+ 　 　 XML _ QL 的 形式化 描述 可 参见 本文 的 参考文献   。 
+ 4     结束语 
+ 　 　 XML 查询语言 的 各种 规范 都 正在 制定 中 ， 都 相对 不 成熟 ， 对 许多 问题 如 开发 合适 的 说明性 语言 和 弱 一致 事务 模型 以 支持 XML 的 更新 操作 ， Web 环境 的 语义 表达 ， 对 处理 不同 类 的 ， 能 嵌套 很 深层次 的 对象 集合 等 都 需要 进行 更 深入 地 研究 。 由于 Web 上 技术 的 日新月异 的 发展 ， 现在 仍然 不能 对 将来 的 XML 查询语言 标准 作出 精确 的 预测 。 但 随着 技术 的 发展 和 产业界 的 支持 ( 如 IE   5.0   就 支持 部分 XQL 功能 ) , 相信 XML 查询语言 对 未来 Web 和 Internet   应用领域 的 发展 必然 将 起 着 相当 重要 的 作用 。 
+ 张璞 ( 四川大学 计算机系     成都   610065 ) 
+ 庄成 三 ( 四川大学 计算机系     成都   610065 ) 
+ 参考文献 
+ 1 ， Bert   Bos .   XML - in - 10 - points   http : / / www . w3 . org / XML / 1999 /   XML - in - 10 - points 
+ 2 ， The   XML   1.0   Recommendation ,   Available   at :   http : / / www . w3 .   org / TR / 1998 / REC - xml - 19980210 . xml 
+ 3 ， Jon   Bosak .   XML ,   Java   and   the   Future   of   the   Web ,   http : / /   sunsite . unc . edu / pub / sun - info / standards / xml / why / xmlapps . html 
+ 4 ， Jon   Bosak ,   Tim   Bray .   XML   and   the   Second - Generation   Web ,   http : / / www . sciam . com / 1999 / 0599issue / 0599bosak . html 
+ 5 ， Adam   Bosworth .   Microsoft ' s   Query   Language   98   Position   Paper ,   http : / / www . w3 . org / tands / 1998 / pp / microsoft _ extensions . html 
+ 6 ， Jonathan   Robie , Joe   Lapp , David   Schach .   XML   Query   Language   ( XQL )   http : / / www . w3 . org / TandS / QL / QL98 / pp / xql . html 
+ 7 ， Jonathan   Robie ,   The   Design   of   XQL   http : / / www . texcel . no /   whitepapers / xql - design . html 
+ 8 ， Alin   Dewtsh ,   Mary   Fernandez , Daniela   Florescu .   XML _ QL : A   Query   Language   For   XML   http : / / www . w3 . org / tr / 1998 / NOTE _   XML _ QL _ 19980819 . html 
+ 9 ， 卢海鹏 ， 周之英 .   WWW 应用 与 标记 语言 .   计算机科学 ,   1999 ,   26 ( 1 ) 
+ 10 ， 杨 冬青 ,   裴     健 ,   唐世渭 .   未来 十年 数据库系统 研究 方向盘 .   计算机科学 ,   1999 ,   26 ( 9 ) 
+ 收稿 日期 ： 1999 - 11 - 25 

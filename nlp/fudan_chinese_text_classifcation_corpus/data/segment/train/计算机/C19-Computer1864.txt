@@ -1,0 +1,288 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000   Vol.19   No.3   P.29 - 32 
+ 
+ 
+ 
+ Perl 在 Web 上 的 应用 
+ 杜轩华 　 袁方 
+ 　 　 摘 　 要 ： 从 正则表达式 入手 , 阐述 了 Perl 在 文本处理 上 的 强大 功能 , 并 结合 Web 上 的 常见 应用 , 给出 了 几个 典型 的 Perl   CGI 脚本 程序 。 
+ 　 　 关键词 ： 正则表达式   CGI 接口   Perl 语言 
+ 　 　 Perl （ Practical   Extraction   and   Report   Language ） 源于 UNIX 系统 , 是 一种 解释性 语言 。 由于 其 使用方便 , 编制 的 程序 短小精悍 , 特别 是 由于 其 强大 的 文本处理 能力 , 因而 成为 编制 CGI （ Common   Gateway   Interface ） 程序 的 主要 语言 之一 。 目前 , 几乎 在 每 一种 流行 的 计算机 平台 上 都 有 相应 的 Perl 语言 解释器 , 使得 用 Perl 编制 的 CGI 程序 具有 极好 的 可移植性 , Perl 于是 成为 Web 上 颇受欢迎 的 工具 之一 。 而 Perl 强大 的 文本处理 能力 则 来自 于 正则表达式 （ regular   expressions ） , 因此 , 正确 掌握 和 使用 正则表达式 就 成 了 编制 Perl 程序 的 关键 。 
+ 1   正则表达式 简介 
+ 　 　 正则表达式 用于 描述 给定 字符串 的 组成 模式 , 其 构成 类似 于 算术 表达式 , 通过 使用 各种 运算符 来 组合 较 小 的 表达式 。 利用 正则表达式 可以 在 文本 行 的 开头 或 结尾处 查找 给定 的 字符串 , 也 可以 查找 出现 给定 次数 的 字符串 。 
+ 1.1   匹配 运算 
+ 　 　 匹配 运算 有 2 个 操作数 : 1 个 目的 字符串 操作数 和 1 个 正则表达式 操作数 。 例如 : 
+ 　 　 $ target _ string = - / regular _ expression / ; 
+ 　 　 或 / regular _ expression / ; # 把 变量 “ $ _ ” 中 的 字符串 作为 缺省 的 目的 字符串 。 
+ 　 　 如果 存在 匹配 , 即 如果 在 目的 字符串 中 存在 如 正则表达式 所 描述 的 字符串 模式 , 则 返回 真 , 否则 返回 假 。 匹配 时 还 可以 使用 修饰符 , 以 改变 整个 正则表达式 的 行为 。 例如 : 
+ 　 　 / I 表示 匹配 时不分 大小写 
+ 　 　 / g 表示 进行 全局 匹配 （ 即 不 在 第 1 次 匹配 后 停止 ） 
+ 1.2   候选 和 分组 
+ 　 　 正则表达式 中 的 各 候选 项 之间 用 竖线 “ | ” 隔开 ; 当 需要 把 模式 中 的 某些 部分 隔离 时 , 可以 使用 圆括号 “ （   ） ” 。 在 Perl 中 可用 变量 $ 1 、 $ 2 、 S3 等 分别 依次 引用 各 “ （   ） ” 中 指明 的 匹配 。 例如 : 
+ 　 　 $ target _ string = - / regex1 | regex2 | regex3 / ; 
+ 　 　 $ target _ string = - / something   （ regex1 | regex2 | regex3 ）   something   else / ; 
+ 　 　 例 1 : 匹配 运算 
+ 　 　 / we   have   lettuce | cabbage | potatoes   for   you / 
+ 　 　 将 匹配 : 
+ 　 　 we   have   lettuce 
+ 　 　 … … we   have   lettuce … … 
+ 　 　 cabbage 
+ 　 　 … … cabbage … … 
+ 　 　 potatoes   for   you 
+ 　 　 … … potatoes   for   you … … 
+ 　 　 例 2 : 匹配 运算 
+ 　 　 / we   have   （ lettuce | cabbage | potatoes ）   for   you / 
+ 　 　 将 匹配 
+ 　 　 we   have   lettuce   for   you 
+ 　 　 … … we   have   lettuce   for   you … … 
+ 　 　 we   have   cabbage   for   you 
+ 　 　 … … we   have   cabbage   for   you … … 
+ 　 　 we   have   potatoes   for   you 
+ 　 　 … … we   have   potatoes   for   you … … 
+ 1.3   定位 符 
+ 　 　 定位 就是 将 正则表达式 限定 在 目的 字符串 的 特定 位置 上 进行 匹配 。 例如 : 
+ 　 　 ^ 表示 在 目的 字符串 的 开始 处 进行 匹配 
+ 　 　 $ 表示 在 目的 字符串 的 结尾处 进行 匹配 
+ 　 　 \ b 表示 匹配 单词 的 边界 
+ 　 　 \ B 表示 匹配 非 单词 的 边界 
+ 　 　 例 3 : 匹配 运算 
+ 　 　 / ^ we   have   lettuce | cabbage | potatoes   for   you $ / 
+ 　 　 将 匹配 : 
+ 　 　 we   have   lettuce 
+ 　 　 we   have   lettuce … … 
+ 　 　 cabbage 
+ 　 　 … … cabbage … … 
+ 　 　 potatoes   for   you 
+ 　 　 … … potatoes   for   you 
+ 　 　 例 4 : 匹配 运算 
+ 　 　 / ^ we   have   （ lettuce | cabbage | potatoes ）   for   you $ / 
+ 　 　 将 匹配  
+ 　 　 we   have   lettuce   for   you 
+ 　 　 we   have   cabbage   for   you 
+ 　 　 we   have   potatoes   for   you 
+ 1.4   字符 类 
+ 　 　 可 使用 方括号 “ [ ] ” 在 正则表达式 中 创建 特定 的 字符 类 ; 出现 在 字符 类中 的 “ - ” 表示 范围 , 而 出现 在 字符 类中 的 “ ^ ” 表示 非 的 含义 。 例如 : 
+ 　 　 ［ A - Za - z ］ 表示 由 全部 大写 和 小写 英文字母 所 构成 的 类 
+ 　 　 ［ aeiou ］ 表示 由 元音 字母 所 构成 的 类 
+ 　 　 ［ ^ 0 - 9 ］ 表示 由非 数字 字符 所 构成 的 类 
+ 1.5   类 缩写 
+ 　 　 某些 特定 的 字符 类 可以 采用 缩写 形式 表示 。 例如 : 
+ 　 　 。   表示 匹配 任何 单个 字符 
+ 　 　 \ w   表示 匹配 任何 单个 字母 数字 字符 ［ a - zA - Z0 - 9 ］ 
+ 　 　 \ W 表示 匹配 任何 单个 非 字母 数字 字符 ［ ^ a - z ^ A - Z ^ 0 - 9 ］ 
+ 　 　 \ s   表示 匹配 任何 单个 空白 字符 ［ \ r \ t \ n \ f ］ （ 即 空格 , 回车 , 
+ 　 　 　 　 制表 , 换行 , 换页 ） 
+ 　 　 \ S   表示 匹配 任何 单个 非 空白 字符 ［ ^   ^ \ r ^ \ t ^ \ n ^ \ f ］ 
+ 　 　 \ d   表示 匹配 任何 单个 数字 字符 ［ 0 - 9 ］ 
+ 　 　 \ D   表示 匹配 任何 单个 非 数字 字符 ［ ^ 0 - 9 ］ 
+ 1.6   数量词 
+ 　 　 用以 指明 其 前面 的 字符 或 字符 类 在 匹配 时需 出现 的 次数 , 并 在 尽量 接近 目的 字符串 的 结尾处 进行 匹配 。 例如 : 
+ 　 　 ｛ min , max ｝ 表示 至少 出现 min 次 , 但 不 超过 max 次 
+ 　 　 ｛ min , ｝ 表示 至少 出现 min 次 
+ 　 　 ｛ n ｝ 表示 恰好 出现 n 次 
+ 　 　 * 　 　 相当于 ｛ 0 , ｝ 
+ 　 　 + 　 　 相当于 ｛ 1 , ｝ 
+ 　 　 ? 　 　 相当于 ｛ 0 , 1 ｝ 
+ 　 　 例 5 : 假设 
+ 　 　 $ string _ 1 = ″ The   quick   brown   fox ″ ; 
+ 　 　 $ string _ 2 = ″ The   quick   brown   and   silver   fox   was   brown   
+ 　 　 and   silver ″ ; 
+ 　 　 $ string _ 1 = - / . * brown / ; 
+ 　 　 $ string _ 2 = - / . * brown / ; 
+ 　 　 则 在 $ string _ 1 上将 匹配 : The   quick   brown 
+ 　 　 而 在 $ string _ 2 上将 匹配 : The   quick   brown   and   silver   fox   was   brown 
+ 1.7   替换 运算 
+ 　 　 用以 同时 进行 匹配 和 替换 。 例如 : 
+ 　 　 $ target _ string = - / regular _ expression / replacement _ string / ; 
+ 　 　 或 / regular _ expression / replacement _ string / ; 
+ 　 　 修饰符 / e 可以 用以 表示 替换 字符串 是 1 个 表达式 , 应该 使用 其值 进行 替换 。 
+ 　 　 例 6 : 替换 运算 
+ 　 　 $ target _ string = - s / \ + /   / g ; 
+ 　 　 将 目的 字符串 中 所有 的 “ + ” （ 由于 “ + ” 在 正则表达式 中 具有 特殊 含义 , 因此 这里 需用 转义字符 “ \ ” 以 解除 其 特殊 含义 ） 换成 空格 。 
+ 2   CGI 基本原理 
+ 　 　 CGI 是 Web 服务器 的 一部分 , 它 是 Web 服务器 与 主机 应用程序 之间 进行 信息 交换 的 一种 接口标准 或 规范 。 通过 CGI , 主机 应用程序 可 从 HTML 文档 （ 利用 表单 ） 获取 用户 提交 的 数据 , 随后 又 将 该 程序 的 响应 （ 输出 ） 返回 给 该 用户 （ 浏览器 ） 。 
+ 2.1   CGI 方法 
+ 　 　 所谓 CGI 方法 指 的 是 调用 主机 应用程序 （ CGI 程序 ） 时 , Web 服务器 向 其 传递数据 的 方法 和 途径 。 主要 采用 的 方法 有 GET 和 POST 。 
+ 　 　 1 . GET 
+ 　 　 使用 该 方法 时 , Web 服务器 将 用户 提交 的 数据 存入 环境变量 QUERY _ STRING 中 , CGI 程序 需从 该 环境变量 中 获取 所 需 的 数据 。 当 提交 的 数据 不太长 （ 小于 1024 个字符 ） 时 , 可 采用 该 方法 。 
+ 　 　 2 . POST 
+ 　 　 使用 该 方法 时 , Web 服务器 通过 标准 输入 （ STDIN ） 向 CGI 程序 传递数据 , CGI 程序 通过 标准 输入 （ STDIN ） 获取数据 。 数据 的 长度 在 环境变量 CONTENT _ LENGTH 中 指明 。 采用 该 方法 时 , 所 提交 的 数据 不 受 长度 限制 。 
+ 2.2   URL 编码 
+ 　 　 在 用户 数据 发往 Web 服务 之前 , 浏览器 将 对 数据 信息 进行 专门 的 处理 , 其中 可能 会 导致 CGI 程序 出错 的 字符 被 替换 , 并且 将 数据组织 得 便于 CGI 程序处理 , 这 就是 所谓 的 URL 编码 。 
+ 　 　 1 . 构成 “ 名 = 值 ” 对 
+ 　 　 将 数据组织 成由 “ & ” 隔开 的 、 有序 排列 的 “ 名 = 值 ” 对 , 这里 的 “ 名 ” 指 的 是 HTML 表单 中 数据 输入 区域 的 名字 （ 由 NAME 属性 指定 ） , 而 “ 值 ” 指 的 是 用户 提交 的 数据 。 “ 名 ” 和 “ 值 ” 用 “ = ” 加以 连接 , 构成 “ 名 = 值 ” 对 , “ 名 = 值 ” 对 按 表单 元素 的 先后 次序 排列 。 例如 : 
+ 　 　 Name1 = Value1 & Name2 = Value2 & Name3 = Value3 & etc 
+ 　 　 2 . 对 数据 字符 的 处理 
+ 　 　 数据 中 的 空格 用 “ + ” 取代 ; 任何 ASCII 值 大于 7FH 或 小于 21H 的 字符 都 将 被 编码 成 %## （ ## 为 相应 的 十六进制 ASCII 值 ） 的 形式 ; 另外 , 数据 中 出现 的 与 保留 字符 （ “ & ” 、 “ = ” 、 “ % ” 、 “ + ” ） 相同 的 字符 也 将 被 编码 成 %## 的 形式 。 
+ 2.3   环境变量 
+ 　 　 环境变量 是 由 Web 服务器 激活 CGI 程序 时所 设置 的 与 系统 有关 的 变量 （ 在 Perl 中 , 可 通过 关联 数组 % ENV 获取 所有 的 环境变量 及其 相应 的 值 ） , Web 服务器 与 CGI 程序 交换 信息 的 协作 方式 是 通过 环境变量 来 实现 的 。 例如 :   
+ 　 　 GATEWAY _ INTERFACE   指明 服务器 所 遵循 的 CGI 版本 
+ 　 　 SERVER _ SOFTWARE   指明 服务器 的 名字 和 版本 
+ 　 　 HTTP _ ACCEPT   指明 客户机 浏览器 可 接受 的 MIME 类 
+ 　 　 　 　 　 　 　 　 型 列表 
+ 　 　 HTTP _ USER _ AGENT   指明 客户机 浏览器 软件 的 名字 
+ 　 　 　 　 　 　 　 　 　 　 和 版本 
+ 　 　 REQUEST _ METHOD   指明 传递数据 所 采用 的 CGI 方法 
+ 　 　 QUERY _ STRING   采用 GET 方法 时 存放 传递 给 CGI 
+ 　 　 　 　 　 　 　 　 　 程序 的 数据 
+ 　 　 CONTENT _ LENGTH   采用 POST 方法 时 指明 通过 标准 
+ 　 　 　 　 　 　 　 　 　 　 输入 所 传递 的 数据 长度 
+ 2.4   MIME 类型 和 头部 信息 
+ 　 　 MIME （ Multipurpose   Internet   Mail   Extension ） 标准规定 了 Web 服务器 和 浏览器 以及 Web 服务器 和 CGI 程序 之间 进行 通信 的 规则 。 MIME 定义 了 发送给 Web 服务器 的 数据类型 , 一些 常用 的 MIME 类型 / 子 类型 为 : 
+ 　 　 text / html 、 text / plain 、 image / gif 和 image / jpeg 等 
+ 　 　 MIME 头部 信息 用以 告知 Web 服务器 所 发送 的 数据类型 , 最 简单 的 头部 可以 只 包含 1 个 指明 MIME 类型 的 命令行 , 如 : 
+ 　 　 Content - type : text / html 
+ 　 　 MIME 头部 块 必须 以 1 个 空行 作为 结束 。 
+ 　 　 例 7 : 1 个 显示 环境变量 的 Perl   CGI 程序 
+ 　 　 #  / user / bin / perl 
+ 　 　 print   ″ Content - type : text / html \ n \ n ″ ; 
+ 　 　 print   ″ < HTML > ″ ; 
+ 　 　 print   ″ < HEAD > ″ ; 
+ 　 　 print   ″ < TITLE > About   this   server < / TITLE > ″ ; 
+ 　 　 print   ″ < / HEAD > ″ ; 
+ 　 　 print   ″ < BODY > ″ ; 
+ 　 　 print   ″ < H1 > About   this   server < / H1 > ″ ; 
+ 　 　 print   ″ < HR > ″ ; 
+ 　 　 print   ″ CGI   Revision : $ ENV   ｛ ′ GATEWAY _ INTER - 
+ 　 　 　 　 　 　 FACE ′ ｝ < BR > ″ ; 
+ 　 　 print   ″ Server   Software : $ ENV ｛ ′ SERVER _ SOFT - 
+ 　 　 　 　 　 　 WARE ′ ｝ < BR > ″ ; 
+ 　 　 print   ″ Client \ ′ s   MIME   Types : $ ENV ｛ ′ HTTP _ AC - 
+ 　 　 　 　 　 　 CEPT ′ ｝ < BR > ″ ; 
+ 　 　 print   ″ Client \ ′ s   Browser : $ ENV ｛ ′ HTTP _ USER _ AGENT ′ ｝ 
+ 　 　 　 　 　 　 < BR > ″ ; 
+ 　 　 print   ″ Request   Method : $ ENV ｛ ′ REQUEST _ METHOD ′ ｝ 
+ 　 　 　 　 　 　 < BR > ″ ; 
+ 　 　 print   ″ Query   String : $ ENV ｛ ′ QUERY _ STRING ′ ｝ < BR > ″ ; 
+ 　 　 print   ″ Content   Length : $ ENV ｛ ′ CONTENT _ LENGTH ′ ｝ 
+ 　 　 　 　 　 　 < BR > ″ ; 
+ 　 　 print   ″ < / BODY > ″ ; 
+ 　 　 print   ″ < / HTML > ″ ; 
+ 3   几个 Perl 程序 
+ 　 　 由于 使用 了 UNIX 中 的 正则表达式 , 使得 Perl 具有 极强 的 文本处理 能力 。 下面 给出 几个 典型 的 Perl 程序 。 为了 简明 起 见 , 只 给出 主要 的 程序段 。 
+ 3.1   对 输入 数据 进行 解码 的 Perl 程序 
+ 　 　 CGI 程序 对 Web 服务器 传递 的 用户 数据 在 正式 处理 之前 必须 先 进行 解码 。 
+ 　 　 1 . GET 方式 下 的 解码程序 
+ 　 　 $ QueryString = $ ENV （ ′ QUERY _ STRING ′  ; # 从 % ENV 
+ 　 　 　 　 　 中 获取 QUERY _ STRING 中 的 数据 
+ 　 　 @ NameValuePairs = split （ / & / , $ QueryString ） ; # 按 ″ 名 = 
+ 　 　 　 　 　 值 ″ 对 分离 构造 1 个 数组 
+ 　 　 foreach   $ NameValue   （ @ NameValuePairs ） 
+ 　 　 　 ｛ 
+ 　 　 　 　 （ $ Name , $ Value ） = split （ / = / , $ NameValue ） ; # 进一 
+ 　 　 　 　 　 步 把 ″ 名 ″ 和 ″ 值 ″ 分离 
+ 　 　 　 　 $ Value = － s / \ + /   / g ; 
+ 　 　 　 　 $ Value = － s / % （ .. ） / pack （ ″ C ″ , hex （ $ 1 ） ） / eg ; # 恢复 
+ 　 　 　 　 　 　 　 编码 成 ″ %## ” 的 字符 
+ # 或 $ Value = － s / % （ ［ \ dA - Fa - f ］ ［ \ dA - Fa - f ］ ）   / pack （ ″ C ″ , hex 
+ 　 　 　 　 　 （ $ 1 ） ） / eg ; 
+ 　 　 print   ″ Name = $ Name , Value = $ Value \ n ″ ; 
+ 　 　 ｝ 
+ 　 　 2 . POST 方式 下 的 解码程序 
+ 　 　 $ DataLen = $ ENV  ′ CONTENT _ LENGTH ′  ; # 从 % ENV 
+ 　 　 　 　 　 　 　 中 获取 CONTENT _ LENGTH 的 值 
+ 　 　 read   （ STDIN , $ QueryString , $ DataLen ） ; # 从 标准 输入 中 
+ 　 　 　 　 　 　 　 读入 全部 数据 
+ 　 　 @ NameValuePairs = split （ / & / , $ QueryString ） ; 
+ 　 　 for   （ $ n = 0 ; $   NameValuePairs    $ n  ; $ n ++ ） 
+ 　 　 　 ｛ 
+ 　 　 　 （ $ Name , $ Value ） = split （ / = / , $ NameValuePairs  $ n  ） ; 
+ 　 　 　 　 $ Value = - s / \ + /   / g ; 
+ 　 　 　 　 $ Value = - s / % （ .. ）   / pack （ ″ C ″ , hex （ $ 1 ） ）   / eg ; 
+ 　 　 　 　 $ InfoArray   ［ $ n ］ = $ Value ;   # 将 解码 后 的 数据 存放 在 
+ 　 　 　 　 　 　 　 　 　 　 @ InfoArray 数组 中 
+ 　 　 ｝ 
+ 3.2   解决 表单 安全性 问题 的 Perl 程序 
+ 　 　 如果 Perl 脚本 程序 随意 接收 表单 中 的 任何 数据 , 则 有 可能 危害 到 系统 的 安全性 。 为了 避免 这种 情况 发生 , 最 简单 的 办法 就是 剔除 那些 不 希望 在 文本 域 中 出现 的 字符 。 
+ 　 　 @ NameValuePairs = split （ / & / , $ QueryString ） ;   # 假设 数 
+ 　 　 　 　 　 　 　 据 已 在 $ QueryString 中 
+ 　 　 for   （ $ n = 0 ; $ NameValuePairs  $ n  ; $ n ++ ） 
+ 　 　 ｛ 
+ 　 　 （ $ Name , $ Value ） = split （ / = / , $ NameValuePairs  $ n  ） ; 
+ 　 　 $ Value = - s / \ + /   / g ; 
+ 　 　 $ Value = - s / % （ .. ）   / pack （ ″ C ″ , hex （ $ 1 ） ）   / eg ; 
+ 　 　 if   （ $ Value = － / ［ ; < > & \  ＇ \ | ］   / ）   # 查找 是否 有 非法 的 ; 
+ 　 　 　 　 　 　 　 、 < 、 > 、 & 、  、 ′ 或 | 字符 
+ 　 　 　 ｛ 
+ 　 　 　 　 print   ″ Illegal   entry  \ n ″ ; 
+ 　 　 　 　 exit ; 
+ 　 　 　 ｝ 
+ 　 　 $ InfoArray ［ $ n ］ = $ Value ;   # 将 解码 后 的 合法 数据 存放 
+ 　 　 　 　 　 　 　 　 　 在 @ InfoArray 数组 中 
+ 　 　 ｝ 
+ 3.3   解读 日志 文件 的 Perl 程序 
+ 　 　 Web 服务器 的 日志 文件 中 包含 了 丰富 的 信息 , 可以 按照 自己 的 需要 充分 加以 利用 。 不同 日志 文件 的 信息格式 各不相同 , 下面 给出 Sambar 服务器 日志 记录 的 格式 。 
+ 　 　 140.172 . 165.58 - admin ［ 27 / Apr / 1997 : 20 : 47 : 43 - 0700 ］ 
+ 　 　 ″ GET   session \ adminlogin   HTTP / 1.0 ″   200   0   160 
+ 　 　 记录 中 每一项 的 含义 如下 : 
+ 　 　 客户端 的 IP地址 （ 140.172 . 165.58 ） 
+ 　 　 用户名 （ admin ） 
+ 　 　 访问 请求 的 日期 和 时间 （ 27 / Apr / 1997 : 20 : 47 : 43 ） 
+ 　 　 时 区 （ - 0700 ） 
+ 　 　 请求 的 方法 （ GET ） 
+ 　 　 操作 的 对象 （ session \ adminlogin ） 
+ 　 　 HTTP 协议 的 版本 （ HTTP / 1.0 ） 
+ 　 　 Web 服务器 的 状态 码 （ 200 ） 
+ 　 　 Windows   NT 的 状态 码 （ 0 ） 
+ 　 　 传输 信息 的 字节数 （ 160 ） 
+ 　 　 则 解读 该 日志 文件 的 Perl 程序 如下 : 
+ 　 　 open   （ LOG , $ LogFile ）   | |   # 假设 $ LogFile 中 已经 包含 了 
+ 　 　 日志 文件名 
+ 　 　 die   ″ Can ′ t   open   $ LogFile  \ n ″ ; 
+ 　 　 while   （ < LOG > ） 
+ 　 　 ｛ 
+ 　 　 $ LogLine = $ _ ; 
+ 　 　 $ LogLine = - s / \ ［ | \ ］   |   \ ″ / / g ; # 剔除 记录 中 的  、  和 ″ 字符 
+ 　 　 chop   （ $ LogLine ） ; # 剔除 行尾 的 换行符 \ n 
+ 　 　 （ $ ClientIP , $ Dummy , $ UserName , $ DateTime , $ Time - 
+ 　 　 Zone , $ Operation , 
+ 　 　 $ Target , $ HTTPVers , $ SrvrStatus , $ NTStatus , 
+ 　 　 $ BytesXfer ） = split （ / ［ ］ + / , $ LogLine ） ; # 分离 出 记录 
+ 　 　 　 　 　 　 　 　 　 　 　 　 的 每 1 项 
+ 　 　 print   ″ Client \ ′ s   IP   address = $ ClientIP \ n ″ ; 
+ 　 　 print   ″ Name   of   user   on   client = $ UserName \ n ″ ; 
+ 　 　 print   ″ Date   and   time   of   request = $ DateTime \ n ″ ; 
+ 　 　 print   ″ Operation   requested = $ Operation \ n ″ ; 
+ 　 　 print   ″ Operation   target = $ Target \ n ″ ; 
+ 　 　 Print   ″ Server   returned   status   of   $ SrvrStatus \ n ″ ; 
+ 　 　 print   ″ Windows   NT   returned   status   code   $ NTStatus \ n ″ ; 
+ 　 　 print   ″ Transferred   $ BytesXfer   bytes   of   data \ n \ n ″ ; 
+ 　 　 ｝ 
+ 　 　 close   （ LOG ） ; 
+ 3.4   检索 ASCII 数据库 的 Perl 程序 
+ 　 　 在 Web 上 非常 流行 的 小 文本 数据库 对于 许多 中小型 任务 来说 非常 有用 , 只要 知道 了 数据库 所 采用 的 格式 , 就 可以 方便 地 对 其 进行 检索 。 假设 数据库 的 记录 格式 如下 : 
+ 　 　 0 : Elmer   J .   Fudd : 555 - 1234 : 42   Jones   Lane : Chuckville : 
+ 　 　 　 　 　 　 　 CA : 90210 
+ 　 　 则 检索 该 数据库 的 Perl 程序 : 
+ 　 　 open   （ DAT , $ Database ）   | |   # 假设 $ Database 中 已 包含 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 所 要 检索 的 文本 数据库 名 
+ 　 　 die   ″ Can ′ t   open   $ Database  \ n ″ ; 
+ 　 　 while   （ < DAT > ） 
+ 　 　 ｛ 
+ 　 　 $ Record = $ _ ; 
+ 　 　 if   （ $ Record =   / $ Search / ）   # 判断 是否 检索 到 , 设 关键字 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 已 在 $ Search 中 
+ 　 　 　 ｛ 
+ 　 　 　 chop   （ $ Record ） ; 
+ 　 　 　 @ Field = split   （ / : / , $ Record ） ; 
+ 　 　 　 $ Result  ′ Number ′  = $ Field ［ 0 ］ ; # 将 检索 到 的 结果 存 
+ 　 　 　 在 关联 数组 % Result 中 
+ 　 　 　 $ Result   ｛ ′ Name ′ ｝ = $ Field ［ 1 ］ ; 
+ 　 　 　 $ Result   ｛ ′ Phone ′ ｝ = $ Field ［ 2 ］ ; 
+ 　 　 　 $ Result   ｛ ′ Street ′ ｝ = $ Field ［ 3 ］ ; 
+ 　 　 　 $ Result   ｛ ′ City ′ ｝ = $ Field ［ 4 ］ ; 
+ 　 　 　 $ Result   ｛ ′ State ′ ｝ = $ Field ［ 5 ］ ; 
+ 　 　 　 $ Result   ｛ ′ Zip ′ ｝ = $ Field ［ 6 ］ ; 
+ 　 　 　 last ; # 退出 循环体 
+ 　 　 　 ｝ 
+ 　 　 ｝ 
+ 　 　 close   （ DAT ） ; 
+ 　 　 以上 从 介绍 正则表达式 入手 , 阐述 了 Perl 在 文本处理 上 的 强大 功能 , 并 结合 Web 上 的 常见 应用 , 给出 了 几个 典型 的 Perl   CGI 脚本 程序段 。 在 这些 程序段 的 基础 上 , 结合 具体 的 应用 任务 , 就 可以 方便 地 编制 出 功能 各异 的 CGI 脚本 程序 。 
+ 杜轩华 （ 上海大学 计算机 学院  200072 ） 
+ 袁方 （ 上海大学 计算机 学院  200072 ） 
+ 参考文献 
+ 1 ， strom   E 著 , 杜毅译 . Perl   CGI 轻松 进阶 . 北京 : 电子 工业 出版社 , 1999 
+ 2 ， Gundavaran   S 著 , 宋荣译 . 在 万维网 上 进行 CGI 编程 . 北京 : 电子 工业 出版社 , 1998 
+ 3 ， Daniel   J . Berlin 著 , 丁一强 译 . 精通 CGI 编程 . 北京 : 清华大学出版社 , 1998 
+ 收稿 日期 ： 1999 - 11 - 28 

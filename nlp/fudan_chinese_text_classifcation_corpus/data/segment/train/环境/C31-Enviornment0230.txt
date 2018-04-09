@@ -1,0 +1,101 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1998 年   第 18 卷   第 2 期   No.2   Vol.18   1998 
+ 科技期刊 
+ 
+ 硝基 芳烃 对 鲤鱼 鱼鳃 ATPase 的 活性 抑制 和 QSARs * 
+ 徐镜波 　 （ 东北师范大学 环境 科学系 ， 长春   130024 ） 
+ 景体 淞 　 （ 长春 科技 大学 环境 与 建设 工程学院 ， 长春   130026 ） 
+ 文 　 摘 　 在 离体 实验 条件 下 ， 测定 了 20 种 硝基 芳烃 化合物 对 鲤鱼 鱼鳃 ATPase 活性 的 半 抑制 浓度 - logIC50 值 ， 以 一阶价 分子 连接性 指数 1X Ⅴ ， 取代 基 常数 总和 ∑ σ - 、 指示 变量 I 、 分子 分支 指数 1Ka 、 分子 最 低空 轨道 能 ELUMO 及 辛醇 ─ 水 分配 系数 logP 为 参数 ， 进行 定量 结构 活性 相关性 （ QSAR ） 研究 。 结果表明 ， 硝基 芳烃 的 毒性 和 ∑ σ - 、 I 、 ELUMO   3 个 参数 密切相关 。 在 上述 基础 上 ， 成功 地 建立 了 20 种 硝基 芳烃 的 QSAR 方程 ， 其 相关系数 为 0.927 。 
+ 关键词 　 硝基 芳烃 化合物 　 鲤鱼 　 ATPase 　 IC50 　 QSAR 
+ The   inhibition   of   nitroaromatics   to   the   enzymic   activity   of   ATPase   of   carp   gill   and   QSARs   study .   Xu   Jingbo ( Department   of   Environmental   Science ,   Northeast   Normal   University   Changchun   130024 ) ； Jing   Tisong ( College   of   Environment   and   Construction   Engineering , Changchun   University   of   Science   and   Technology , Changchun   130026 ) . China   Environmental   Science.1998 , 18 ( 2 ) : 158 ～ 161 
+ Abstract — IC50   values   of   20   nitroaromatic   compounds   to   the   enzymic   activity   of   APTase   of   carp   gill   were   measured   In   vitro .   The   Quantitative   Structure   Activity   Relationship   ( QSAR )   studies   were   carried   out   with   the   - logIC50   values   of   20   nitroaromatic   compounds   to   the   enzymic   activity   of   ATPase   using   the   first - order   valence   molecular   connective   index   １ X Ⅴ ,   the   sum   of   substituent   constant   ∑ σ - ,   the   indicator   variable   I ,   the   molecular   shap   index 　 １ Ka ,   the   energy   of   lowest   unoccupied   orbital   ELUMO   and   the   octanol / water   partition   coefficients   logP   as   variables .   The   results   showed   that   the   ∑ σ - 、 I   and   ELUMO   were   closely   correlated   with   toxicity   of   nitroaromatic   compounds ,   Successful   QSARs   were   developed   with   correlation   coefficient   r   of   0.927 , for   20   nitroaromatic   compounds   based   on   IC50   values   of   ATPase   activities   of   carp   gill . 
+ Key   words : nitroaromatic   compounds 　 carp 　 ATPase 　 IC50 　 QSAR 
+ 　 　 苯 的 硝基 衍生物 为 重要 的 环境 污染物 ， 在 我国 第二松花江 中游 硝基 芳烃 检出率 较 高 ， 是 美国 EPA 规定 的 优先 监测 污染物 之一 。 1984 年 以来 ， 国外 学者 系列报道 了 硝基 芳烃 化合物 对 黑头 呆 鱼 、  类 、 藻类 、 发光 菌 的 急性毒性 数据 及 构效 关系 研究 〔 1 ～ 6 〕 ； 国内 学者 1994 年 以来 ， 也 报道 了 这些 化合物 对 鲤鱼 的 急性毒性 数据 及 QSAR 分析 〔 7 〕 。   但 以 ATPase 作为 生物 指标 （ Biomarker ） ，   反映 硝基 芳烃 亚 致死 剂量 的 生态 效应 及 QSAR 分析 的 研究 报道 国内外 尚 少见 。 作者 在 离体 条件 下 ， 测定 了 硝基 芳烃 对 鲤鱼 鱼鳃 ATPase 活性 的 半 抑制 浓度 IC50 值 ， 并 应用 6 种 物理化学 参数 作为 描述符 ， 进行 QSAR 研究 ， 建立 模式 ， 预测 毒性 ， 探讨 硝基 芳烃 的 毒性 机制 。 
+ 1 　 材料 与 方法 
+ 1.1 　 试验 材料 
+ 　 　 试验 用 鲤鱼 由 长春市 水产 所 养殖 基地 提供 ， 平均 体长 为 6.25 ± 0.14 cm ， 体重 为 21.28 ± 0.12 g 。 试验 鱼经 5 ％ 食盐水 消毒 后 在 实验室 条件 下 驯养 两周 ， 此 期间 死亡率 低于 5 ％ ， 水质 符合 渔业 水质标准 。 
+ 1.2 　 实验 方法 
+ 　 　 根据 被 测物 LC50 和 预 实验 结果 ， 按 等 对数 间距 将 被 测物 配制 成 5 个 以上 浓度 ， 包括   0 ％ 、 100 ％ 酶 活性 抑制 浓度 ， 并设 对照 。 以 丙酮 为助 溶剂 ， 其 用量 为 0.05 ％ ～ 0.1 ％ 。 
+ 　 　 鱼 样品 杀死 后取 其 鳃 ， 按 文献 〔 8 ， 9 〕 方法 ， 进行 ATPase 活力 测定 ； 通过 图解 内 插 和 直线 回归 分析 ， 计算 半数 抑制 浓度 IC50 值 。 
+ 　 　 统计 计算 使用 STATGRAPHICS 软件 。 
+ 2 　 结果 与 讨论 
+ 2.1 　 实测 IC50 结果 
+ 　 　 表 1 给出 20 种 硝基 芳烃 化合物 对 鲤鱼 鱼鳃 ATPase 抑制 实测值 和 预测值 （ - logIC50 ， 表中 方程 分别 见 文中   2.2   QSARs 模型 所 列 ） 。 结果表明 ， 各类 硝基 芳烃 对 ATPase 的 抑制作用 有所不同 ， 其 毒性 大小 与 取代 基的 种类 ， 位置 有关 。 含有 硝基 的 芳烃 ， 不同 取代 基对 酶 的 抑制 程度 有 如下 趋势 ： 二硝基苯 （ 间 － 二硝基苯 除外 ） ＞ 二氯 硝基苯 ＞ 二硝基苯 胺 ＞ 二 硝基 甲苯 ≈ 硝基 氯苯 ≈ 硝基 溴苯 ＞ 硝基 甲苯 ≈ 硝基苯 酚 （ 间 － 硝基苯 酚 除外 ） ＞ 硝基苯 胺 （ 邻 硝基苯 胺 除外 ） ＞ 硝基苯 。 
+ 表 1 　 鲤鱼 鱼鳃 ATPase 的 IC50 值   
+ Table   1 　 IC50 　 of   ATPase   of   Carp   gill 
+ 
+ 序号 化合物 名称 实测值 
+ - logIC50 ( mol ／ L )   预测值 ( 方程 1 ) 
+ - logIC50 ( mol ／ L )   实测值 － 预测值 
+ 1 硝基苯 ( NB )   3.14   3.54   - 0.40 
+ 2 对 硝基 甲苯 ( P - NT )   3.54   3.47   0.09 
+ 3 邻 - 二硝基苯 ( o - DNB ) 5.175 . 23   - 0.06 
+ 4   间 - 二硝基苯 ( m - DNB )   4.10   4.21   - 0.11 
+ 5   对 - 二硝基苯 ( p - DNB ) 6.05   5.90   0.15 
+ 62 ， 4 - 二 硝基 甲苯 ( 2 ， 4 - DNT )   3.86   4.17 - 0.31 
+ 7   2 ， 6 - 二 硝基 甲苯 ( 2 ， 6 - DNT ) 3.90   4.13 - 0.23 
+ 8 邻 - 硝基 氯苯 ( o - NCB ) 3.78   3.80   - 0.02 
+ 9   间 - 硝基 氯苯 ( m - NCB ) 3.833 . 86   - 0.03 
+ 10   对 - 硝基 氯苯 ( p - NCB ) 3.783 . 78   0   
+ 113 ， 4 - 二氯 硝基苯 ( 3 ， 4 - DCNB )   4.314 . 060.25 
+ 122 ， 5 - 二氯 硝基苯 ( 2 ， 5 - DCNB )   4.53   4.64 - 0.11 
+ 132 ， 4 - 二氯 硝基苯 ( 2 ， 4 - DCNB ) 5.28   5.010 . 27 
+ 14 邻 - 硝基苯 胺 ( o - NAn ) 3.90   3.49   0.41 
+ 15   间 - 硝基苯 胺 ( m - NAn )   3.33   3.41 - 0.08 
+ 16   对 - 硝基苯 胺 ( p - NAn ) 3.153 . 65 - 0.50 
+ 17   2 ， 4 - 二硝基苯 胺 ( 2 ， 4 - DNAn ) 4.23   4.29 - 0.06 
+ 18 邻 - 硝基苯 酚 ( o - NPh )   3.573 . 14   0.43 
+ 19   间 - 硝基苯 酚 ( m - NPh ) 3.91   3.64   0.27 
+ 20   对 - 硝基 溴苯 ( p - NBrB ) 3.90   3.820 . 08 
+ 
+ 2.2 　 QSARs 模型 研究 
+ 　 　 在 有关 文献 报道 〔 5 ， 6 〕 的 基础 上 ， 选用 6 种 物理化学 描述符 就 所 实测 的 硝基 芳烃 化合物 对 鲤鱼 ATPase   的   IC50 值 进行 定量 结构 活性 相关 模式分析 。   表 2 中 ， logP 为 辛醇 ／ 水 分配 系数 ， 带 * 号者 为 本文 应用 碎片 常数 法 计算 ， 括号 内 的 数字 是 指 取自 该 文献 ， 其余 数值 均 取自 文献 〔 10 〕 。 1X Ⅴ 为 一阶价 分子 连接性 指数 ， 是 表征 分子 整体 性质 的 参数 。   I 为 指示 变量 ， 是 反映 硝基 的 数目 及 位置 关系 的 经验 指数 ， 取自 文献 〔 3 〕 或 按 〔 3 〕 规则 计算 。 １ Ka 为 分子 形状 指数 ， 按 文献 〔 3 〕 规则 计算 。   ∑ σ - 栏中 ， 加 # 注 的 按 文献 〔 11 〕 所 列 规则 计算 ， 其余 数值 均 取自 文献 〔 5 〕 ， 取代 基 常数 总和 ∑ σ - 是 除 NO2 外 苯环 上 其它 取代 基 σ - 值 总和 ， 为 取代 基 电子效应 参数 。   ELUMO 是 LUMO 能 ， 与 分子 对 电子 的 亲和力 成正比 ， 为 电子效应 参数 ， 其值 越负 ， 表明 电子 进入 该 轨道 后 体系 能量 降低 得 越 多 ， 即该 分子 接受 电子 的 能力 越强 。 
+ 表 2 　 六种 物理化学 描述符 
+ Table   2 　 Six   discriptors   of   the   nitroaromatics   
+ 
+ 序号   化合物 名称   logP 　 　   １ X Ⅴ   I   １ Ka ∑ σ - ELUMO 
+ 1 硝基苯 ( NB )   1.89   2.4990 . 5   6.7010 . 00   1.146 
+ 2 对 硝基 甲苯 ( P - NT )   2.34   2.9100 . 5   7.665   - 0.15   　 1.344 
+ 3   邻 - 二硝基苯 ( o - DNB ) 1.553 . 005   3.0   9.210   1.24   - 1.502 
+ 4 间 - 二硝基苯 ( m - DNB )   1.52   2.999   1.0   9.210   0.71   0.170 
+ 5   对 - 二硝基苯 ( p - DNB )   1.46   2.999   3.0   9.210   1.24   - 0.348 
+ 6   2 ， 4 - 二 硝基 甲苯 ( 2 ， 4 - DNT ) 2.04   3.416   1.0   10.203   0.56   0.425 
+ 72 ， 6 - 二 硝基 甲苯 ( 2 ， 6 - DNT )   2.02   3.422   1.010 . 203   0.56   0.359 
+ 8   邻 - 硝基 氯苯 ( o - NCB )   2.263 . 018   0.5   7.971   0.27   1.001 
+ 9   间 - 硝基 氯苯 ( m - NCB )   2.49   3.0120 . 5   7.971   0.37   0.885 
+ 10   对 - 硝基 氯苯 ( p - NCB )   2.35   3.012   0.5   7.971   0.27   0.962 
+ 11   3 ， 4 - 二氯 硝基苯 ( 3 ， 4 - DCNB )   3.29 *   3.5310 . 5   9.245   0.60 #   0.735 
+ 12   2 ， 5 - 二氯 硝基苯 ( 2 ， 5 - DCNB ) 2.90   3.531   0.5   9.245   1.05 # 0.742 
+ 13   2 ， 4 - 二 硝基 氯苯 ( 2 ， 4 - DCNB ) 2.20 〔 10 〕 3.4821 . 0   10.328   1.39 #   0.072 
+ 14   邻 - 硝基苯 胺 ( o - NAn ) 1.85   2.7050 . 5   7.650   - 0.15   　 1.390 
+ 15   间 - 硝基苯 胺 ( m - NAn )   1.37   2.699   0.5   7.650   - 0.16   　   1.271 
+ 16   对 - 硝基苯 胺 ( p - NAn )   1.39   2.699   0.57 . 650 - 0.15   　   1.673 
+ 172 ， 4 - 二硝基苯 胺 ( 2 ， 4 - DNAn )   1.84 〔 11 〕 3.204   1.0   10.212   0.56 # 0.647 
+ 18   邻 - 硝基苯 酚 ( o - NPh )   1.89 〔 12 〕 2.640   0.5   7.702   - 0.37 # 　   1.256 
+ 19   间 - 硝基苯 酚 ( m - NPh ) 2.00 〔 12 〕 2.634   0.5   7.702   0.12 #   1.055 
+ 20   对 - 硝基 溴苯 ( p - NBrB ) 2.73 *   3.408   0.5   8.167   0.23 #   1.129 
+ 
+ 　 　 由 逐步回归 和 多元回归 分析 ， 得到 如下 QSAR 方程 ： - logIC50 ＝ 1.262 ∑ σ - ＋ 0.660 I ＋ 0.576 ELUMO ＋ 2.553 　 n ＝ 20 , S ＝ 0.273 ， r ＝ 0.9269 
+ 　 　   6 个 参数 中 ， ∑ σ - 、 I 和 ELUMO3 个 参数 是 与 鲤鱼 鱼鳃 ATPase   IC50 密切相关 的 变量 。 QSAR 分析 过程 中 ， 先后 出现 的 参数 依次 为 ∑ σ - 、 I 、 ELUMO ， 其余 3 个 参数 logP 、 １ X Ⅴ 、 １ Ka 均 没有 进入 模式 。 ∑ σ - 是 6 个 物理化学 描述符 中 对 鲤鱼 鱼鳃 ATPase 抑制 的 最好 表征 ， 可见 电子效应 对 毒性 的 贡献 最大 ， I 和 ELUMO 实质 上 也 是 与 化合物 电子效应 相关 的 两 参数 ， 同时 受 硝基 芳烃 化合物 中 硝基 的 位置 和 数目 的 影响 。 模型 中 依次 出现 的 3 个 参数 是 描述 硝基 芳烃 对 鲤鱼 鱼鳃 ATPase 抑制作用 的 最佳 组合 。 受体 端点 ATPase 是 镶嵌 在 膜 上 的 蛋白 ， 酶 的 活性中心 的 天冬氨酸 ， 其侧 链 对 ATP 进行 亲核 进攻 ， 使 其 磷酸化 。 文献 〔 2 ， 3 〕 指出 硝基 芳烃 化合物 中 的 硝基 在 体内 有 两种 生物 化学反应 ， 可能 由 它 的 π 电子云 将 其 苯环 上 的 电子云 密度 降低 ， 也 可能 被 其它 基团 激活 而 离去 。 作者 认为 ， 硝基 芳烃 化合物 中 ， - NO2 和 - CH2 、 - NO2 同时 存在 时 ， 可能 吸引 了 苯环 上 的 π 电子云 ， 使 苯环 本身 呈 部分 正 电性 ， 与 酶 活性中心 的 羧基 吸引 ， 发生 加 和 反应 ， 影响 亲核 作用 。 并 随着 浓度 增大 抑制 更加 明显 ， 呈现 剂量 － 反应 关系 。 因此 可以 认为 鲤鱼 鱼鳃 ATPase 是 硝基 芳烃 亚 致死 水平 毒性 反应 的 一个 敏感 指标 。 与 对 鲤鱼   LC50 值 的   QSAR 分析 结果 相符 〔 7 〕 。 硝基 芳烃 对 鲤鱼 鳃 ATPase   的   IC50 值 与 硝基 芳烃 对 鲤鱼 、 黑头 呆 鱼 的 LC50 值 的 相关 分析 结果 ， 可以 看出 ATPase 与 鲤鱼 的 LC50 值 相关 更好 些 。 其 关系式 为 ：   - logLC50 ＝ 0.696 ＋ 0.826 ( - logIC50 ) ， r ＝ 0.9561 ， n ＝ 20 
+ 　 　 　 　 应用 QSAR 方程 ， 预测 了 硝基 芳烃 对 鲤鱼 鱼鳃 ATPase 的 抑制 值 ， 结果表明 ， 预测值 与 实测值 十分 接近 ， 效果 很 好 （ 表 1 ） 。 
+ 　 　 　 　 酶 活性 抑制 与 QSAR 研究 , 有助于 分析 毒物 的 作用 机制 , 了解 污染物 对 生物体 在 生化 与 分子 水平 上 的 作用 原理 , 为亚 致死 剂量 的 生态 风险 评价 提供 科学依据 , 而且 ATPase 测定 较为 简便 ， 有 推广应用 价值 。 
+ 3 　 小结 
+ 3.1 　 离体 条件 下 ， 测定 了 20 种 硝基 芳烃 对 鲤鱼 鱼鳃 ATPase 的 IC50 值 。 
+ 3.2 　 以 logP 、 １ X Ⅴ 、 I 、 １ Ka 、 ∑ σ - 、 ELUMO 为 参数 ， 建立 的 QSAR 方程 表明 ∑ σ - 、 I 、 ELUMO3 个 参数 与 硝基 芳烃 的 毒性 密切相关 。 
+ 参考文献 
+ 1 　 Hall   L   H ， et   al . Environ .   Toxico .   Chem . ,   1984 , ( 3 ) : 335 ～ 365 
+ 2 　 Hall   L   H ， et   al .   Environ .   Toxico .   Chem . ,   1986 , ( 5 ) : 333 ～ 337 
+ 3 　 Hall   L   H ， et   al .   Environ .   Toxico .   Chem . ,   1989 , ( 8 ) : 431 ～ 436 
+ 4 　 Hall   L   H ， et   al .   Environ .   Toxico .   Chem . ,   1989 , ( 8 ) : 783 ～ 788 
+ 5 　 Deneer   J   W ,   et   al .   Aquatic   Toxico . ,   1987 , ( 10 ) : 115 ～ 129 
+ 6 　 Deneer   J   W ,   et   al .   Aquatic   Toxico . ,   1989 , ( 15 ) : 83 ～ 98 
+ 7 　 Peizhen   Lang ,   et   al .   Chemosphere . ,   1996 ， ( 8 ) ： 1547 ～ 1552 
+ 8 　 丁树荣 . 环境 生物学 实验 技术 与 方法 . 南京 ： 南京大学 出版社 ， 1989 
+ 9 　 Paxton   R , et   al .   Altered   activities   of   branchial   and   renal   Na / K - and   Mg - ATPase   in   cold - acclimated   goldfish .   Comp .   Biochem .   Physiol   1983 ， 74 （ 3 ） : 503 ～ 506 
+ 10 　 Deneer   J   W ,   et   al .   QSAR   in   Drug   Design   and   Toxicology .   Elsevier   Science   Publishers   1987 
+ 11 　 Roberts   D   W . QSAR   in   Environ .   Toxico - Ⅱ .   D . Reidel   Publishing   CO .   1987 
+ 作者简介 
+ 徐镜波 　 女 ， 1951 年 1 月生 。 副教授 。 主要 从事 化学 生态 、 生化 毒理 的 教学 与 科研工作 。 现正 主持 国家自然科学基金 “ 鱼体 酶 学 指标 的 分子 生态 毒理学 研究 ” 项目 。 “ 火电厂 循环 冷却水 排放 对水 生态 热 影响 研究 ─ ─ 火电厂 热 排水 对 湖泊 水库 理化 性质 影响 研究 ” 获 水电部 东北 电业 管理局 技术 改进 一等奖 。 发表 论文 40 余篇 。 
+ 收稿 日期 ： 1997 - 04 - 09 
+ * 国家自然科学基金 资助 项目 

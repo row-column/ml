@@ -1,0 +1,87 @@
+计算机 应用 
+ COMPUTER   APPLICATIONS 
+ 1999 年   第 19 卷   第 6 期   Vol.19   No.6   1999 
+ 
+ 
+ 
+ FoxPro 的 扩充 功能 
+ 金春 　 姚君 遗 　 杨善林 
+ 　 　 摘 　 要 　 本文 讨论 分析 了 FoxPro 中 的 三种 扩充 功能 。 通过 掌握 和 使用 它们 可以 使 开发人员 在 开发 应用 系统 时 充分发挥 自己 的 能力 ， 从而 获得 良好 的 人 - 机界面 ， 增强 应用 系统 的 性能 。 
+ 　 　 关键词 　 模块 ， 库 结构 工具箱 ( LCK ) ， DLL ， API 
+ 1 　 旨在 扩充 
+ 　 　 在 FoxPro 中 开发 应用程序 时 ， 有时 会 有 一些 特殊 的 应用 ， 但是 FoxPro 本身 的 功能 是 有限 的 ， 它 不能 满足 开发者 的 所有 要求 ， 这时 就 需要 使用 一些 特殊 的 方法 和 技巧 来 帮忙 。 在 FoxPro 中有 三种 扩充 功能 ， 它们 是 使用 LOAD 和 CALL 调用 二进制 文件 ， 使用 基于 库 结构 工具箱 (   Library   Construction   Kit ， 简称 LCK ) 的 API 构件 ， 使用 Windows   API 函数 ( 仅限于 FoxPro   For   Windows ) 。 
+ 2 　 二进制 文件 调用 
+ 　 　 在 FoxPro 中 ， 仍然 具有 Xbase 所 具有 的 调用 二进制 文件 的 功能 。 用 LOAD 和 CALL 命令 可以 调用 用 C 或 汇编语言 编写 的 二进制 模块 。 二进制 模块 可以 通过 引用 或者 值 传送 参数 ， 通过 参数 或 返回 一个 值得 到 返回值 。 在 FoxPro 中 ， 与此有关 的 命令 有 LOAD 、 CALL 、 RELEASE   MODULE 三个 。 
+ 　 　 LOAD 命令 装入 二进制 过程 到 内存 。 可以 同时 装入 16 个 文件 ( 每个 最多 64K ) 到 内存 。 CALL 命令 调用 指定 的 已 被 装入 的 模块 。 RELEASE   MODULE 命令 从 内存 释放 模块 。 
+ 　 　 它们 的 语法 分别 为 ： 
+ 　 　 LOAD   < file >   ［ SAVE ］   |   ［ NOSAVE ］ 
+ CALL   < file >   ［ WITH   < expC >   |   WITH   < memvar > ］   ［ SAVE   |   NOSAVE ］ 
+ RELEASE   MODULE   < file > 
+ 　 　 关于 它们 的 详细 说明 这里 不 在 描述 ， 请 查阅 有关 资料 。 下面 是 使用 它们 的 例子 ： 
+ 　 　 — 　 tx = ′ 0 ′ 
+ load   testtx 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 装入 模块 
+ call   testtx   with   — 　 tx 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 调用 模块 
+ if   left ( — tx , 1 ) < > " 1 " 
+ ? " 特殊 显示 程序 没有 运行 " 
+ return 
+ endif 
+ release   module   testtx   　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 释放 模块 
+ 　 　 在 此例 中 ， testtx 检查 UCDOS 的 特殊 显示 程序 是否 已 运行 ， 应 通过 变量 — tx 得到 值 。 
+ 3 　 使用 基于 库 结构 工具箱 ( LCK ) 的 API 构件 
+ 3.1 　 FoxPro   LCK 
+ 　 　 Microsoft   FoxPro 为 增强 FoxPro 的 功能 ， 向 用户 提供 了 基于 库 结构 工具箱 的 API 构件 。 它 为 生成 和 操作 FoxPro 变量 、 数据库 和 用户界面 提供 了 函数 集 。 以 FoxPro   LCK 为 基础 ， 用户 可以 用 C 或 C++ 语言 实现 对 FoxPro 的 功能扩充 ， 从而 完成 一些 特殊 的 功能 ， 如 构造 自己 的 事件 处理器 ， 定制 自己 的 用户界面 等 。 目前 ， FoxPro   LCK 支持 Microsoft   C ( C++ ) 、 Watcom   C 开发 环境 。 
+ 　 　 FoxPro   LCK 提供 了 以下 几类 C语言 函数 集 ： 流 输出 函数 、 内存 管理 函数 、 FoxPro 语句 执行 函数 、 字符串 处理函数 、 返回值 设置 函数 、 数据库 I / O 函数 、 备注 字段 I / O 函数 、 内存 变量 处理函数 、 低级 文件 I / O 函数 、 用户界面 控制 函数 、 错误 处理函数 、 编辑器 函数 等 。 
+ 3.2 　 使用 基于 LCK 的 API 
+ 　 　 用户 可以 用 C 或 C++ 编写 自己 的 程序 ， 然后 可以 用 Microsoft   C ( C++ )   7 、 Watcom   C8.5 以上 编译器 把 它 编译 连接 为 连接 函数库 ( FLL ) 。 
+ 　 　 生成 连接 函数库 后 ， 在 FoxPro 中 使用 LCK 的 API 非常简单 ， 首先 用 set   library   to 命令 打开 函数库 ， 然后 象 调用 其它 FoxPro 系统 函数 一样 进行 调用 。 SET   LIBRARY   TO 的 语法 为 ： 
+ 　 　 SET   LIBRARY   TO   ［ < file   name >   ［ ADDITIVE ］ ］ 
+ 　 　 它 的 具体 说明 略 。 
+ 　 　 例如 ， 我们 编写 了 一个 程序 myprog . c ， 其中 的 函数 filelist ( ) 把 给定 目录 的 所有 符合条件 的 文件名 存储 在 缓冲区 中 ， 以 字符串 形式 返回 给 FoxPro 。 
+ 　 　 　 　 … 
+ set   library   to   myprog 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 打开 函数库 
+ flist   =   filelist ( " C : \ myappli \ * . dbf " ) 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 调用函数 
+ 　 　 … 
+ 　 　 使用 基于 LCK 的 API 的 难度 主要 是 连接 函数库 的 开发 。 关于 它 的 开发 请参阅 有关 资料 。 
+ 4 　 使用 Windows   API 函数 
+ 4.1 　 Windows 动态 连接 库 （ DLL ） 
+ 　 　 动态 连接 库 （ DLL ） 是 Windows 的 一个 重要 概念 ， 它 是 实时 连接 可 执行 的 模块 库 ， Wndows 在 应用 需要 的 时候 装入 它 。 它 允许 Windows 系统 应用程序 共享资源 和 代码 ， 一个 DLL 是 一个 包含 可以 被 所有 Windows 应用程序 使用 的 函数 的 可 执行 模块 。 事实上 ， DLL 是 Windows 的 基础 ， 几乎 整个 Windows 系统 是 由 DLL 组成 的 ， 所有 的 设备 驱动程序 和 Windows 的 系统文件 GDI . EXE 、 USER . EXE 、 KERNEL . EXE 都 是 DLL 。 DLL 模块 常用 . DLL ， . DRV ， . FON ， . EXE 作为 扩展名 。 但 在 FoxPro 中 ， DLL 文件 的 文件名 对于 连接 程序库 是 FLL 。 
+ 　 　 调用 Windows   API 可以 极大 地 增强 FoxPro 的 功能 ， 如 使用 对话框 ， 对 鼠标 进行 控制 、 获得 Windows 目录 和 版本 ， 使用 Windows 的 图形 函数 进行 绘图 等 。 
+ 4.2 　 调用 API 函数 
+ 　 　 FoxPro 提供 了 FOXTOOLS . FLL 供 用户 使用 来 调用 Windows 中 动态 连接 库中 的 API ， 它 本身 也 是 一个 动态 连接 函数库 。 在 FoxPro 中 调用 Windows   API 首先 必须 用 set   library   to 命令 打开 它 ， 然后 要用 它 提供 的 RegFn ( ) 函数 注册 要 调用 的 API 函数 ， 注册 成功 后 再 用 CallFn ( ) 函数调用 它 。 
+ 　 　 RegFn ( ) 和 CallFn ( ) 的 用法 分别 为 ： 
+ FnNum   =   RegFn ( FunctionName ,   ArgTypes , 
+ ReturnType ,   DLLName ) CallFn ( FnNum ,   Arg1 ,   Arg2 ) 
+ 　 　 关于 它们 的 详细 说明 可以 在 FoxPro 的 \ FOXPROW \ GOODIES \ FOXTOOLS 下 的 FOXTOOLS . WRI 中 获得 。 
+ 　 　 CallFn ( ) 使用 RegFn ( ) 返回 的 内存 句柄 ， 它 必须 传送 与 在 RegFn ( ) 中 声明 的 ArgTypes 参数 相同 的 参数 数目 和 类型 ， 否则 将会 显示 错误信息 而 不能 成功 调用 。 
+ 　 　 所有 的 参数 在 缺省 情况 下 除了 字符串 类型 外 ， 都 使用 值 传送 ， 除非 用 前缀 字符 @ 。 
+ 　 　 下面 是 应用 实例 ： 
+ 　 　 1 )   调用 MessageBox ( ) 函数 
+ set   library   to   SYS ( 204 ) + " foxtools . fll " 　 　 　 　 　 　 　 　 　 　 　 　 　 && 装入 FOXTOOLS . FLL 库 
+ 　 … 
+ msgboxRN =   RegFn ( " MessageBox " , " ICCI " , 
+ " I " ,   " USER . EXE " ) 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 注册 函数 
+ result =   CallFn ( msgboxRN ,   0 ,   " 对不起 ， 你 是 本 系统 非法 用户 ， 你 无权 使用 本 系统 ！ " ,   " 警告 " ,   0 +   16 ) 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 调用函数 并 获得 结果 
+ 　 … 
+ set   library   to 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 关闭 库 
+ 　 　 2 )   其它 例子 
+ 　 　 交换 鼠标 左右 键 功能 ： 
+ 　 Fhandle = RegFn ( " SwapMouseButton " ,   " I " , 
+ " I " , " USER . EXE " ) 
+ result   =   CallFn ( Fhandle , swapvalue ) 　 　 　 　 　 　 　 　 　 　 　 　 && swapvalue 为 1 交换 , 为 0 恢复 
+ 　 　 获得 Windows 目录 ： 
+ 　 getwdir   =   RegFn ( " GetWindowsDirectory " ,   " @ CI " ,   " I " ) 
+ bigstr   =   replicate ( chr ( 0 ) ,   144 ) 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 &&   建立 一个 大 字符串 
+ retlen   =   CallFn ( getwdir ,   @ bigstr ,   144 ) 
+ 　 　 关于 以上 API 函数 的 语法 请 查阅 有关 资料 。 
+ 5 　 体会 
+ 　 　 二进制 程序 非常灵活 高效 ， 它 可以 在 低层 介入 应用 系统 ， 但 程序 编写 起来 比较 麻烦 ， 因此 除非 是 特殊 情况 ， 一般 不 需要 用 它 。 基于 LCK 的 API 构件 提供 了 进入 FoxPro 内部 机制 的 一种 途径 ， 它 能 在 较 低 的 层次 介入 FoxPro 应用 系统 的 途径 ， 能 弥补 FoxPro 伪 编译系统 的 缺点 。 但是 ， LCK 程序 的 设计 与 调试 也 是 比较复杂 的 。 同时 ， LCK 是 需要 单独 购买 的 。 
+ 　 　 Windows 提供 的 API 函数 有 400 多个 ， 能 帮助 解决 绝大多数 问题 ， 而且 使用方便 可靠 ， 不 需要 特殊 的 编程 方法 ， 因此 使用 这种 方法 是 比较 好 的 。 
+ 　 　 如果 能 充分利用 以上 介绍 的 三种 功能扩充 可以 解决 很多 问题 ， 从而 方便 地 开发 出 功能强大 、 人机界面 友好 、 性能 可靠 的 应用 系统 。 
+ 作者简介 ： 金春 　 硕士 。 主要 研究 方向 ： 数据库 、 MIS 、 网络 技术 。 
+ 姚君 遗 　 杨善林 　 教授 。 主要 研究 方向 ： MIS 、 计算机 控制技术 。 
+ 作者 单位 ： 合肥工业大学 计算机网络 系统 研究所 　 安徽 * 合肥 （ 230009 ） 
+ 参考文献 
+ ［ 1 ］ 　 郑甫京 ， 黄 　 伟 ， 刘容江 , 译 . FoxPro   2.5   For   Windows 使用指南 . 北京 ： 清华大学出版社 ， 1995 
+ ［ 2 ］ 　 王 　 旭 ， 张 　 军 ， 孙 　 燕 , 等 译 . Microsoft   Windows   3.1 程序员 参考手册 . 北京 ： 清华大学出版社 ， 1993 
+ ［ 3 ］ 　 北京 天方 图书 创作室 ， 李振格 , 等 . FoxPro 函数 与 命令 详解 . 北京 ： 北京航空航天大学 出版社 ， 1994 
+ 收稿 日期 : 1999 - 01 - 15 ( 修改稿 ) 

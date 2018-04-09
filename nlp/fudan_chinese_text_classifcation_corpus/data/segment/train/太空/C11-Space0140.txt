@@ -1,0 +1,227 @@
+宇   航   学   报 
+ JOURNAL   OF   ASTRONAUTICS 
+ 1998 年 4 月     第 19 卷     第 2 期 科技期刊 
+ 
+ 改进 的 推广 KALMAN 滤波器 
+ 在 导弹 被动 制导 中 的 应用 * 
+ 周   荻 
+ ( 清华大学 自动化系 * 北京 * 100084 ) 
+ 胡恒章   杨 旭东 
+ ( 哈尔滨工业大学 航天 学院 * 哈尔滨 * 150001 ) 
+ 摘     要 　 　 本文 研究 将 改进 的 推广 Kalman 滤波器 ( MEKF ) 应用 于 导弹 被动 制导 
+ 问题 。 为了 提高 系统 的 可观 性 ， 我们 采用 一种 双重 指标 来 设计 最优 导引 律 。 
+ 仿真 结果表明 ， 如果 系统 状态 的 均值 较 高 ， 波动 较 小 ， 那么 MEKF 的 估计 精度 
+ 明显 优于 推广 Kalman 滤波器 ( EKF ) 。 
+ 
+ 主题词 　 　 推广 Kalman 滤波器     改进 的 推广 Kalman 滤波器       导弹 被动 制导     
+ 　 　 　 　 　 双重 指标 导引 律 
+ 
+ 
+ 
+ APPLICATION   OF   MODIFIED   EXTENDED   KALMAN 
+ FILTER   TO   PASSIVE   MISSILE   GUIDANCE 
+ Zhou   Di 
+ ( Department   of   Automation , Tsinghua   University · Beijing 
+ * 100084 ) 
+ Hu   Hengzhang   Yang   XuDong 
+ ( Aerospace   School , Harbin   Institute   of   Technology * Harbin 
+ * 150001 ) 
+ Abstract     A   modified   extended   Kalman   filter ( MEKF ) is   proposed   and   applied   to   passive   
+ missile   guidance . We   adopt   a   dual   control   method   to   design   guidance   law   for   enhancing   the   
+ observability   content   of   the   control   system . Simulation   results   indicate   that   if   the   expectation   
+ of   the   system   state   is   relatively   large   and   the   wave   of   the   state   is   relatively   minor , the   
+ performance   of   the   MEKF   is   much   better   than   that   of   the   extended   Kalman   filter ( EKF ) . 
+ 
+ Key   words   Extended   kalman   filter     Modified   extended   kalman   filter       Passive   missile   
+ guidance     Dual   control   guidance   law 
+ 
+ 1     引言 
+ 
+ 　 　 随着 被动 测量 技术 在 跟踪 和 制导 中 的 广泛应用 ， 如何 在 仅 有 角度 测量 的 
+ 条件 下 对 目标 的 状态 进行 估计 引起 了 人们 的 浓厚兴趣 。 仅 有 角度 测量 的 导弹 
+ 制导 问题 又称 被动 制导 问题 。 从 数学 上 讲 ， 可以 在 直角坐标 系中用 一个 线性 
+ 动态 模型 和 一个 非线性 观测 模型 来 描述 这一 问题 ， 也 可以 在 极 坐标系 中用 一 
+ 个 非线性 动态 模型 和 一个 线性 观测 模型 来 描述 它 ［ 1 ］ 。 在 被动 制导 条件 下 ， 
+ 导弹 的 机动 飞行 轨迹 会 对 滤波器 的 性能 产生 直接 影响 ［ 2 ］ 、 ［ 3 ］ ， 因此 在 
+ 设计 导引 律时 有 必要 考虑 系统 可观 性 指标 。 
+ 
+ 　 　 被动 制导 问题 中 常用 的 非线性 滤波 方法 是 推广 Kalman 滤波 ( EKF ) 。 然而 ， 
+ 只有 当 系统 的 动态 模型 和 观测 模型 都 很 接近 于 线性 时 ， EKF 的 估计 结果 才 有 
+ 可能 接近 于 真值 。 一种 改进 的 推广 Kalman 滤波器 ［ 4 ］ ( MEKF ) 可以 克服 这一 
+ 约束 ， 因此 我们 提出 在 导弹 被动 制导 中 应用 MEKF 进行 目标 状态 估计 。 
+ 
+ 2     直角坐标 系中 被动 制导 问题 的 描述 
+ 
+ 图 1   导弹 与 目标 相对运动 关系 在 仿真 时 ， 导弹 和 目标 都 可以 用 质点 来 表示 ( 见 
+ 图 1 ) 。 设 目标 加速度 用 一个 Gauss - Markov 随机 过程 描述 。 系统 动态 模型 
+ 为 
+ dX = AXdt + bdt + wdt 
+ ( 1 ) 
+ 其中 X = ［ x   y   z   vx   vy   vz   aTx   aTy   aTz ］ T ， 前 三个 变量 代表 目标 与 导弹 之间 的 
+ 相对 位置 ， 中间 的 三个 变量 代表 相对速度 ， 后 三个 变量 代表 目标 加速度 ； b = 
+ ［ 0   0   0   - aMx   - aMy   - aMz   0   0   0 ］ T 是 控制 向量 ， aMx 、 aMy 、 aMz 代表 导弹 加速度 ； 
+ w = ［ 0   0   0   0   0   0   wTx   wTy   wTz ］ T 是 噪声 向量 。 另外 ， 
+ 
+ 
+ 
+ 系统 观测 模型 为 
+ dY = h ( x ) dt + vdt 
+ ( 2 ) 
+ 其中 h ( x ) = ［ tan - 1y / x     tan - 1 - z / ( x2 + y2 ) 1 / 2 ］ T ， v 代表 观测 噪声 。 
+ w 和 v 都 是 均值 为 零 的 高斯 白色 随机 向量 ， 且 w 和 v 相互 独立 。 
+ 
+ 3     双重 指标 导引 律 
+ 
+         系统 ( 1 ) — ( 2 ) 所 对应 的 确定性 系统 为 
+ 
+ 
+ 在 线性 二次 型 控制 方案 中 ， 我们 要 在 满足 微分方程 约束 ( 3 ) ， 始端 条件 约束 t0 ， x0 , y0 , z0 , vx0 , vy0 , vz0 , aTx0 , aTy0 , aTz0 以及 终端 条件 约束 tf 的 前提 下 ， 求 出 控制 
+ 量 aMx ， aMy ， aMz ， 使得 性能指标 最小 。 xf , yf , zf 代表 终端 脱靶 量 。 
+ ( 5 ) 
+ 在 双重 指标 控制 方案 中 ， 我们 要 在 性能指标 ( 5 ) 的 基础 上 加入 系统 ( 3 ) — ( 4 ) 
+ 的 可观 性 指标 ， 我们 定义 这一 指标 为 
+ 
+ ( 6 ) 
+ 其中 Φ ( t , t0 ) 是 = Ax 的 转移 矩阵 ， 即 
+ 
+ 
+ Δ t = t - t0 , H = ?   h / ? xT , S 和 N 是 正定 对角 加权 矩阵 ， tr 表示 矩阵的迹 。 
+ 令 
+ 
+ 
+ s1 , s2 , s3 是非 负 常数 ， 时变 矩阵 
+ 
+ 
+ 其中 q1 = ( x2 + y ２ ) ( x2 + y2 + z2 ) / ［ 2 ( x2 + y2 + z2 ) ］ 。 利用 矩阵 迹 的 性质 ， ( 6 ) 式 可 
+ 以 写作 
+ 
+ ( 7 ) 
+ 把 H , N , Φ ， S 按 定义 代入 ( 7 ) 式 可得 
+ 
+ ( 8 ) 
+ 当 只 考虑 位置 信息 时 ， 令 s1 = 1 , s2 = s3 = 0 , 则 ( 8 ) 式 化为 
+ 
+ ( 9 ) 
+ 综合 ( 5 ) 、 ( 9 ) 两 式 ， 设 双重 性能指标 为 
+ 
+ ( 10 ) 
+ 其中 c 和 s 是 大于 零 的 常数 。 
+ 
+         上述 双重 指标 控制 问题 可以 沿 直角坐标 系 的 x 、 y 、 z 轴解 耦成 三个 子 问题 ， 
+ 这样 只 需 考虑 求 aMy 使得 在 满足 约束 = Vy , y = aTy - aMy , Ty = - λ aTy 以及 t0 , y0 , vy0 , aTy0 和 tf 的 条 
+ 件 下 ， 性能指标 
+ 
+ ( 11 ) 
+ 最小 。 
+ 
+         应用 最优控制 理论 可以 求得 
+ aMy = c1y + c2vy + c3aTy 
+ ( 12 ) 
+ 其中 
+ c1 = Λ 21 Γ 11 + Λ 22 Γ 21 + Λ 23 Γ 31 
+ c2 = Λ 21 Γ 12 + Λ 22 Γ 22 + Λ 23 Γ 32 
+ c3 = Λ 21 Γ 13 + Λ 22 Γ 23 + Λ 23 Γ 33 
+ 
+ 矩阵 Λ 和 Γ 的 定义 和 解法 较 繁琐 ， 这里 不 
+ 再 详述 ， 读者 可 参阅 文献 ［ 3 ］ 中 的 附录 。 4     改进 的 推广 Kalman 滤波器 ( MEKF ) 
+ 
+         考虑 非线性 系统 
+ dX = f ( t , X ) dt + Budt + ε 1 σ ( t ) dw , X ( 0 ) = X0 , t ≥ 0 
+ ( 13 ) 
+ dY = h ( t , X ) dt + ε 2 σ 0 ( t ) dv , Y0 = 0 , t ≥ 0 
+ ( 14 ) 
+ 其中 状态 X ∈ Rn ， 观测 Y ∈ Rm ， 控制 u ∈ Rl ， 随机 过程 w 、 v 是 两个 相互 独立 的 布朗 
+ 运动 ， 它们 的 维数 分别 是 n1 和 m1 ， ε 1 、 ε 2 是 大于 零 的 常数 ， B 是 n × l 矩阵 ， 
+ σ ( t ) 是 n × n1 矩阵 ， σ 0 ( t ) 是 m × m1 矩阵 ， h ： ［ 0 , ∞ ) × Rn → Rm , f ： ［ 0 , ∞ ) × Rn → Rn , 
+ X0 是 L 可测 向量 ， 它 具有 有限 的 二次 矩且 独立 于 w 和 v 。 
+ 
+         利用 Taylor 级数 围绕 条件 均值 X ^ 展开 可得 EKF 方程 
+ 
+ ( 15 ) 
+ 
+ ( 16 ) 
+ 其中 A ( t , X ) 和 H ( t , X ) 代表 Hessian 矩阵 fX 和 hX 。 
+ 
+         只有 当 f 和 h 都 很 接近 于 线性 时 ， 才能 期望 ( 15 ) — ( 16 ) 的 解 接近 于 真值 。 
+ 为了 克服 这一 约束 ， 我们 将 f 和 h 围绕 已知 量 进行 线性化 而 不是 围绕 被 估计量 
+ 进行 线性化 可 得 一种 改进 的 推广 Kalman 滤波器 ( MEKF ) 。 
+ 
+         令为 确定性 微分方程 
+ d = f ( t , ) dt + Budt , 0 = EX0 
+ ( 17 ) 
+ 的 解 ， 且 令 X 为 随机 微分方程 
+ dX = f ( t , X ) dt + Budt + ε 1 σ ( t ) dw , X ( 0 ) = X0 
+ ( 18 ) 
+ 的 真实 解 。 定义 X ~ 为 围绕 确定 流 X - 的 波动 ， 从而 有 X = - + X ~ 。 把 f 和 h 围绕 进行 
+ Taylor 展开 可以 推出 MEKF 方程 ， X - 是 ( 17 ) 式 的 精确 解 。 
+ 
+         设 A ( t , ) = fX - , H ( t , ) = hX - ， 那么 
+ f ( t , ) = f ( t , - ) + A ( t , ) X ~ + 0 ( X ~ ) 
+ ( 19 ) 
+ h ( t , ) = h ( t , ) + H ( t , ) X ~ + 0 ( X ~ ) 
+ ( 20 ) 
+ 把 ( 19 ) — ( 20 ) 式 代入 ( 13 ) — ( 14 ) 式 可得 波动 量 的 动态 方程 和 观测 方程 
+ dX ~ = A ( t , ) X ~ dt + ε 1 σ ( t ) dw , X ~ 0 = 0 
+ ( 21 ) 
+ dY = ［ h ( t , ) + H ( t , ) X ~ ］ dt + ε 2 σ 0 ( t ) dv , Y ( 0 ) = 0 
+ ( 22 ) 
+ 　 　 这样 ， 滤波 问题 被解 耦成 两个 子 问题 。 第一个 子 问题 是 由 初值问题 ( 17 ) 
+ 所 决定 的 确定性 问题 ； 第二个 子 问题 是 由 波动 量 方程 ( 21 ) — ( 22 ) 所 确定 的 随 
+ 机性 问题 。 显然 ， 对于 已知 的 X - ， ( 21 ) 和 ( 22 ) 是 线性 的 ， 而 X ~ 和 Y 是 高斯 过 
+ 程 。 定义 X ~ 的 最小 方差 无偏 估计 为 ^ = E { X ~ / Yt } ， 误差 协方差 矩阵 为 P = E { ( X 
+ ~ - ^ ) ( X ~ - ^ ) T / Yt } ， 其中 Yt 代表 直至 t 时刻 , 过程 Y 所 产生 的 最小 σ — 代数 。 应 
+ 用 线性系统 的 Kalman - Bucy 理论 ， 模型 ( 21 ) — ( 22 ) 的 最优 估计 器为 
+ 
+ 初始条件 为 ^ 0 = 0 , P ( 0 ) = 0 。 X ~ 的 误差 协方差 矩阵 P ( t ) 与 X 的 误差 协方差 矩阵 相同 。 
+ 在 MEKF 中 ， 联立 解 ( 17 ) 、 ( 21 ) 、 ( 22 ) 可 得 估计值 X ^ = X - + X ~ 。 
+ 
+ 5     MEKF 在 导弹 被动 制导 中 的 应用 
+ 
+         在 MEKF 中 ， 线性化 的 参考点 是 一个 确定 值 ， 而 在 很多 情况 下 ， 这个 确定 
+ 值 就 等于 状态 的 均值 。 由此可知 ， 如果 系统 状态 均值 较 高 ， 波动 较 小 ， 那么 
+ 由 这种 方法 得到 的 估值 可能 具有 相当 高 的 精度 。 当 系统 中 存在 确定性 输入 项 ， 
+ 而且 其 功率 远大于 噪声 功率 时 ， 就 属 这种 情况 。 在 被动 制导 问题 中 ， 系统 中 
+ 的 确定性 输入 项 b 是 导弹 的 加速度 项 ， 它 的 功率 远大于 系统 中 的 噪声 项 w 的 功 
+ 率 。 另外 ， 系统 的 动态 模型 ( 1 ) 式 是 线性 的 ， 当初 值较 准确 时 ， 容易 求得 它 的 
+ 精确 解 。 基于 以上 两个 原因 ， 在 被动 制导 中 应用 MEKF 必然 可 得 高精度 的 状态 
+ 估计值 。 为了 证明 这 一点 ， 我们 把 EKF 和 MEKF 同时 应用 于 被动 制导 问题 ， 进 
+ 行 仿真 研究 。 
+ 
+         仿真 时 ， 系统 初始状态 为 x0 = 3500m , y0 = 1500m ， z0 = 1000m ， vx0 = - 1 
+ 100m / s ， vy0 = - 150m / s , vZ0 = - 50m / s , aTx0 = aTy0 = aTz0 = 0m / s2 。 EKF 和 MEKF 初始 误差 
+ 的 均值 设定 为 零 ， 初始 方差 阵 P ( 0 ) = 0 ， 系统 动态 噪声 强度 ε 1 = 1m / s2 ， 测量 噪 
+ 声 强度 ε 2 = 10 - 3 。 经过 50 次 Monte - Carlo 仿真 所 得到 的 滤波器 估计 误差 的 统计 
+ 结果 如图 1 — 图 3 所示 。 图 1 中 ， 在 某 一 时刻 t ， 相对 距离 估计 误差 利用 公式 
+ 
+ 
+ 求得 ， 其中 E ［ ex ］ 代表 x 的 估计 误差 的 均值 。 同理 可 求得 速度 估计量 的 均 方根 
+ 型 误差 的 统计 结果 E ［ ev ］ 以及 目标 加速度 估计量 的 均 方根 型 误差 的 统计 结果 
+ E ［ ea ］ 。 图 1 — 3 中 的 仿真 结果表明 ， MEKF 的 估计 精度 明显 高于 EKF 。 
+ 
+ 
+ 图 2   相对 距离 估计 误差 
+ 图 3   相对速度 估计 误差 
+ 图 4   相标 加速度 估计 误差 
+ 6     结论 
+ 
+         我们 提出 在 导弹 被动 制导 问题 中 采用 改进 的 推广 Kalman 滤波器 ( MEKF ) 。 
+ 为了 提高 系统 的 可观 性 ， 我们 用 一种 双重 指标 来 设计 最优 导引 规律 。 仿真 结 
+ 果 表明 ， MEKF 的 精度 明显 高于 推广 Kalman 滤波器 ( EKF ) 。 
+ 
+ 
+ 本文 于 1995 年 12 月 18 日 收到 
+ 
+ * 本文 得到 国家教委 博士点 基金 资助 
+ 
+ 参考文献 
+ 1     Balakrishnan   S   N . Extention   to   Modified   Polar   Coordinates   and   Application   with   
+ Passive   Measurements . Journal   of   Guidance , Control , and   Dynamics , 1989 , 12 ( 6 ) : 906 - 912 
+ 2     Nardone   S   C , Aidala   V   J . Observability   Criteria   for   Bearing - only   Target   Motion   
+ Analysis . IEEE   Transactions   on   Aerospace   and   Electronic   Systems , 1981 , AES - 17 ( 2 ) : 162 - 166 
+ 3     Hull   D   G , Speyer   J   L , Burris   D   B . Linear   Quadratic   Guidance   Law   for   Dual   Control   of   
+ Homing   Missiles . Journal   of   Guidance , Control   and   Dynamics , 1990 , 13 ( 1 ) : 137 - 144 
+ 4     Ahmed   N   U , Radaideh   S   M . Modified   Extended   Kalman   Filtering . IEEE   Transactions   
+ on   Automatic   Control   1994 , 39 ( 6 ) : 1322 - 1326 
+ 5     Song   T   L , Speyer   J   L . A   Stochastic   Analysis   of   Modified   Gain   Extended   Kalman   Filter   
+ with   Applications   to   Estimation   with   Bearings   Only   Measutements . IEEE   Transactions   on   
+ Automatic   Control , 1985 , AC - 30 ( 10 ) : 940 - 949 

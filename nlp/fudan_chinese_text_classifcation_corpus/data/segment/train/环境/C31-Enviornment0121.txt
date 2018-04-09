@@ -1,0 +1,91 @@
+土壤 与 环境 
+ SOIL   AND   ENVIRONMENTAL   SCIENCES 
+ 1999 年   第 8 卷   第 1 期   Vol.8   No.1   1999 
+ 
+ 
+ 
+ 城市 固体废弃物 堆肥 化 处理 的 影响 因素 * 
+ 李 艳霞 　 王敏健 　 王菊思 　 陈同斌 
+ 摘要   城市 固体废弃物 的 堆肥 化 处理 已经 成为 各国 越来越 重视 的 方法 。 堆肥 化 处理 是 通过 控制 堆腐 过程 条件 ， 使 废弃物 在 短时间 内 最 有效 地 达到 稳定 ， 杀灭 病原菌 ， 使 产品 可以 安全 地 使用 。 本文 对 堆肥 的 原理 及 基本 机理 进行 了 介绍 ， 同时 对 堆肥 过程 的 重要 参数 ( 水分 含量 、 有机质 含量 、 C / N 比 、 pH 值 、 通气 量 等 ) 进行 了 综述 。 
+ 关键词   城市 固体废弃物 ； 堆肥 ； 影响 因素 
+ The   Affecting   Parameters   of   the   Municipal   Solid   Wastes   Composting .   
+ Li   Yanxia1 , 2 ,   Wang   Minjian1 ,   Wang   Jusi1   and   Chen   Tongbin2   ( 1 :   SKLEAC ,   The   Research   Center   for   Eco - Environmental   Chemistry ;   2 :   The   Station   for   Agro - Ecological   and   Environ - Chemistry ,   The   Institution   of   Geography ,   CAS ,   Beijing   100101 ) .   Soil   &   Environ   Sci ,   1999 ,   8 ( 1 ) :   61 ～ 65 
+ Composting   is   becoming   the   more   and   more   important   method   for   disposing   the   solid   wastes   in   many   countries .   Through   controlling   the   composting   process   conditions ,   the   organic   waste   can   be   stable   in   the   least   time   and   the   most   effective ,   the   pathogenic   organisms   can   be   killed   and   the   product   can   be   used   safely .   The   composting   principal   and   basic   mechanisms   were   introduced   in   this   paper ,   and   the   composting   parameters   ( water   content ,   organic   content ,   C / N ,   pH   value   and   aeration   etc . )   were   also   reviewed . 
+ Key   Words   municipal   solid   waste ;   composting ;   affecting   parameters 
+ 　 　 随着 人口 的 增长 、 工业 及 经济 的 发展 ， 城市 固体废弃物 ( 污泥 、 垃圾 ) 的 产量 急剧 增加 。 据 报道 ， 目前 中国 城市 垃圾 产量 为 1 亿 t / a ， 同时 还 在 以 10% 的 速度 递增 [ 1 ] 。 除了 要 处理 这些 新 产生 的 垃圾 外 ， 还有 历年来 累积 的 垃圾 90 亿 t ， 许多 城市 已 逐渐 被 周边 所 堆放 的 垃圾 包围 。 中国 的 污水处理 事业 也 在 迅速 地 发展 ， 1990 年 统计 ， 40 个 城市 建有 78 家 污水 处理厂 ， 到 1995 年 ， 全国 共建 有 122 座 污水 处理厂 ， 5 年 增长 了 56.4% [ 2 ] 。 目前 的 污水处理 量 是 污水 产量 的 7% ， 根据 国家计划 ， 2000 年 全国 的 污水处理 率 将 达到 20% ～ 30% ， 2010 年 达到 40% ～ 50% [ 3 ] 。 届时 ， 将 有 大量 的 污泥 产生 ， 如 不 加以 妥善 的 处理 ， 必将 引起 严重 的 二次污染 。 城市 固体废弃物 的 处理 问题 已 成为 中国 各 城市 发展 的 重要 问题 。 
+ 　 　 固体废弃物 的 处置 方法 有 ： 投海 、 焚烧 、 填埋 和 土地利用 [ 4 ,   5 ] 。 城市 固体废弃物 中 含有 大量 的 有机 物质 、 植物 生长 必需 的 营养物质 ， 可以 进行 土地利用 [ 6 ,   7 ] 。 但 城市 固体废弃物 中 还 含有 大量 的 病原菌 、 杂草 种子 、 重金属 及其 它 污染 物质 ， 同时 废弃物 中 的 有机质 具有 不 稳定 和 易 降解 的 特点 ， 必须 经过 妥善 的 处理 后方 可 施用 ， 否则 会 对 环境 和 作物 造成危害 。 其中 有效 的 处理 方法 是 堆肥 化 处理 。 
+ 1   堆肥 化 的 基本 技术 和 原理 
+ 　 　 堆肥 化是 在 合适 的 水 、 气 条件 下 ， 利用 微生物 降解 有机质 而 产生 高温 ， 杀死 有机 固体废弃物 中 的 病原菌 及 杂草 种子 ， 使 其 达到 稳定化 和 无害化 [ 8 ] 。 
+ 　 　 堆肥 化有 好 氧 和 厌氧之分 ， 由于 好 氧 堆肥 的 高温 可以 杀死 废弃物 中 的 病原菌 ， 同时 高温 菌 对 有机质 的 降解 速度 快 ， 因此 目前 大多数 堆肥 采用 的 是 高温 好 氧 堆肥 [ 10 ] 。 好 氧 堆肥 是 在 有氧 的 条件 下 ， 籍 好 氧 微生物 的 作用 来 进行 有机 物质 的 降解 ， 堆肥 的 温度 高 ， 一般 在 50 ～ 65 ℃ ， 亦 称为 高温 堆肥 [ 10 ,   11 ] 。 
+ 2   堆肥 的 基本 材料 
+ 　 　 堆肥 的 基本 材料 是 堆肥 原料 及 填充料 。 适用 于 堆肥 的 原料 相当 广泛 ， 污泥 、 城市 垃圾 、 农业 废弃物 占 主要 部分 ， 它们 的 品质 特性 决定 着 堆肥 的 方法 [ 12 ,   13 ] 。 
+ 2.1   堆肥 的 原料 
+ 　 　 堆肥 原料 应 满足 ： 含有 足够 的 有机质 以利于 代谢 热 的 产生 ； 有 足够 量 的 原料 来 贮热 ， 以 弥补 向 周围环境 散失 热量 ； 有 足够 的 自由 空域 ， 以利于 气体 的 交换 ， 为 微生物 提供 氧气 。 所以 ， 堆肥 化 物料 本身 是 一个 滋生 地 、 营养 源 、 热源 、 物料 代谢 的 发酵 池 以及 气体 和 热量 交换 的 底物 。 
+ 　 　 原料 的 种类 对 堆肥 有 影响 。 例如 生 污泥 和 消化 污泥 都 可以 成功 地堆 腐 ， 而生 污泥 堆肥 时会 造成 更大 的 臭味 、 通常 需要 更 多 的 氧气 、 可以 更快 的 达到 高温 [ 9 ] 。 污泥 、 垃圾 等 废弃物 本身 有 足够 的 细菌 ， 所以 堆肥 时 不用 再 接种 微生物 [ 14 ] 。 
+ 2.2   堆肥 的 填充料 
+ 　 　 填充料 可以 起到 提供 碳源 、 提高 堆体 的 孔隙 度 、 调节 物料 的 湿度 含量 等 作用 [ 9 ,   15 ] 。 污泥 由于 在 脱水 过程 中 加入 了 絮凝剂 ， 容易 结块 ， 堆肥 过程 中 不利于 通气 供氧 ， 而且 污泥 的 C / N 比低 ， 不利于 微生物 的 生长 ， 堆肥 时需 加入 碳源 调节 。 垃圾堆 肥 一般 需 经过 破碎 ， 所以 颗粒 较为 细密 ， 不利于 通气 供氧 。 这些 不利 的 状况 可以 通过 加入 填充料 来 改善 。 
+ 　 　 理想 的 填充料 应该 是 干燥 的 、 疏松 的 、 比较 轻 的 有机物 ， 能够 增加 堆料 中 碳源 的 数量 、 改善 堆体 的 结构 、 利于 堆体 通气 [ 9 ] 。 木屑 、 锯末 、 树皮 、 稻壳 等 为 常用 的 填充料 ， 这种 填充料 又 可 称为 调理 剂 ； 橡胶轮胎 、 发酵 过 的 堆肥 也 可以 部分 的 用作 填充料 ， 但是 由于 其 只 起到 改善 堆肥 孔隙 的 作用 ， 故 又 可 称为 膨胀剂 [ 9 ,   16 ] ； 在 美国 ， 许多 堆肥 厂用 废纸 作为 填充 剂 [ 16 ] 。 
+ 　 　 费用 问题 是 影响 填充料 使用 的 问题 之一 ， 木屑 、 锯末 等 很 贵 而且 需要 场地 贮存 ， 还 要求 使用 前 的 破碎 处理 。 在 美国 ， 一个 通气 静态 垛式 堆肥 厂 ， 木屑 的 费用 大约 占去 整个 堆肥 系统 操作 费用 的 40% [ 17 , 18 ] 。 如果 选用 回流 堆肥 用作 填充 剂 ， 堆肥 的 成本 将会 大大降低 。 
+ 3   堆肥 的 过程 参数 
+ 　 　 堆肥 化 过程 是 复杂 的 。 物料 经 混匀 后 ， 受 营养 平衡 、 水分 含量 和 物理 结构 等 的 影响 。 工艺 过程 中要 控制 的 各种 参数 ， 就是 那些 对 堆肥 过程 有 影响 的 物理 、 化学 和 生物 因素 。 它们 决定 微生物 活动 的 程度 ， 从而 影响 堆肥 的 速度 与 质量 。 
+ 3.1   水分 含量 
+ 　 　 在 堆肥 过程 中 ， 水分 是 一个 重要 的 物理 因素 [ 19 ] 。 水分 含量 是 指 整个 堆体 的 含水量 。 水分 的 主要 作用 在于 ： （ 1 ） 溶解 有机物 ， 参与 微生物 的 新陈代谢 ； （ 2 ） 水分 蒸发 时 带走 热量 ， 起 调节 堆肥 温度 的 作用 。 水分 的 多少 ， 直接 影响 好 氧 堆肥 反应速度 的 快慢 ， 影响 堆肥 的 质量 ， 甚至 关系 到 好 氧 堆肥 工艺 的 成败 ， 因此 ， 水分 的 控制 十分 重要 。 在 堆肥 期间 ， 如果 水分 含量 低于 10% ～ 15% ， 细菌 的 代谢作用 会 普遍 停止 ； 含水量 太高 ， 会 使 堆 体内 自由空间 少 ， 通气 性差 ， 形成 微生物 发酵 的 厌氧 状态 ， 产生 臭味 ， 减慢 降解 速度 ， 延长 堆腐 时间 [ 19 ] 。 
+ 　 　 大量 的 研究 结果表明 ， 堆肥 的 起始 含水率 一般 为 50% ～ 60% [ 14 ,   19 ] 。 在 堆肥 的 后 熟期 阶段 ， 堆体 的 湿度 也 应 保持 在 一定 的 水平 ， 以利于 细菌 和 放线菌 的 生长 而 加快 后熟 ， 同时 减少 灰尘 污染 。 
+ 3.2   通气 量 
+ 　 　 供气 是 好 氧 堆肥 成功 的 重要 因素 之一 。 供气 的 作用 主要 有 三个 方面 。 ( 1 ) 为 堆 体内 的 微生物 提供 氧气 。 如果 堆 体内 的 氧气 含量 不足 ， 微生物 处于 厌氧 状态 ， 使 降解 速度 减缓 ， 产生 H2S 等 臭气 ， 同时 使 堆体 温度 下降 [ 14 ,   17 ,   20 ] 。 ( 2 ) 调节 温度 [ 17 ] 。 堆肥 需要 微生物 反应 而 产生 的 高温 ， 但是 ， 对于 快速 堆肥 来讲 ， 必须 避免 长时间 的 高温 [ 17 ] ， 温度控制 的 问题 就要 靠 强制 通风 来 解决 。 ( 3 ) 散除 水分 [ 21 ] 。 污泥 堆肥 的 一个 目的 是 降低 其 水分 含量 。 在 堆肥 的 前期 ， 通气 主要 是 提供 微生物 O2 以 降解 有机物 ， 在 堆肥 的 后期 ， 则 应 加大 通气 量 ， 以 冷却 堆肥 及 带走 水分 ， 达到 堆肥 体积 、 重量 减少 的 目的 [ 21 ] 。 
+ 　 　 通气 可以 采取 鼓风 或 抽气 方式 ， 两种 方式 各有利弊 ： 抽气 的 优势 在于 可 将 堆体 中 的 废气 在 排入 大气 前 统一 进行 处理 ， 减少 二次污染 ； 鼓风 的 优势 是 利于 水分 及 热量 散失 。 最好 的 办法 是 在 堆肥 的 前期 采用 抽气 方式 以 处理 产生 的 臭气 ， 在 堆肥 后期 采用 鼓风 方式 以利于 减少 水分 [ 14 ,   20 ] 。 
+ 3.3   有机质 含量 
+ 　 　 有机物 是 微生物 赖以生存 和 繁殖 的 重要 因素 。 堆肥 反应 的 特性 是 它 需要 一个 合适 的 有机物 范围 。 大量 的 研究 工作 表明 ， 在 高温 好 氧 堆肥 中 ， 适合 堆肥 的 有机物 含量 范围 为 20% ～ 80% [ 10 ] 。 当 有机物 含量 低于 20% 时 ， 堆肥 过程 产生 的 热量 不足以 提高 堆层 的 温度 而 达到 堆肥 的 无害化 ， 也 不利于 堆体 中 高温 分解 微生物 的 繁殖 ， 无法 提高 堆体 中 微生物 的 活性 ， 最后 导致 堆肥 工艺 的 失败 。 当 堆体 有机物 含量 高于 80% 时 ， 由于 高 含量 的 有机物 在 堆肥 过程 中 对 氧气 的 需求 很大 ， 而 实际 供 气量 难以达到 要求 ， 往往 使 堆体 中达 不到 好 氧 状态 而 产生 恶臭 ， 也 不能 使 好 氧 堆肥 顺利进行 [ 10 ] 。 有 研究者 曾用 城市 垃圾 和 污泥 混合 堆肥 ， 这样 既 可以 利用 垃圾 提高 堆体 中 的 孔隙率 ， 又 可以 利用 污泥 提高 堆体 中 的 有机质 含量 ， 同时 为 垃圾 和 污泥 ___ 现代 城市 的 两大 问题 找到 出路 [ 22 ,   23 ] 。 
+ 3.4   C / N 比 
+ 　 　 C / N 比是 堆肥 原料 与 填充料 混合物 的 C / N 比 。 微生物 生长 需要 碳源 ， 蛋白质 合成 需要 氮源 ， 微生物 合成 一份 蛋白质 大约 需要 30 份 碳 ， 对于 堆肥 来讲 ， C / N 比为 30 看起来 是 理想 的 [ 24 ] 。 
+ 　 　 C / N 比低 、 特别 是 当 pH 值 和 温度 高时 ， 使 废弃物 中 的 氮 以 NH3 的 形成 挥发 损失 ， 散 发出臭味 [ 17 ] 。 用 C / N 比低 的 原料 ( 15.7 ∶ 1 ) 进行 堆肥 实验 ， 结果 是 微生物 对 有机物 的 生物 氧化 过程 中 显示 了 严重 的 氮素 损失 。 但是 ， 当 C / N 比 高于 35 时 ， 微生物 必须 经过 多次 生命 循环 ， 氧化 掉 过量 的 碳 ， 直到 达到 一个 合适 的 C / N 比供 其 进行 新陈代谢 [ 17 ] ， 因而 C / N 比高 会 降低 降解 速度 [ 17 ] 。 
+ 3.5   pH 值 
+ 　 　 在 堆肥 过程 中 ， pH 值 是 一个 重要 的 因素 。 一般来讲 ， pH 值 在 3 ～ 12 之间 都 可以 进行 堆肥 [ 9 ,   17 ] 。 但是 有 研究 发现 ， 在 堆肥 初期 堆体 的 pH 值 降低 ， 低 的 pH 值 有时 会 严重 地 抑制 堆肥 反应 的 进行 [ 25 ] 。 在 堆腐 垃圾 时 ， pH 值 控制 在 8 左右 可以 显著 提高 堆肥 初期 的 反应速度 ， 可以 极大 地 缩短 堆肥 达到 高温 所 要求 的 时间 ， 可以 避免 由于 堆肥 反应 延缓 所 造成 的 臭味 问题 ， 但 当 pH 值 控制 在 5 时 ， 葡萄糖 和 蛋白质 的 降解 停止 [ 25 ] 。 污泥 堆肥 的 pH 值 范围 一般 应 在 6 ～ 9 之间 最为 合适 [ 9 ] 。 
+ 3.6   温度 
+ 　 　 温度 是 堆肥 系统 微生物 活动 的 反映 ， 是 影响 微生物 活动 和 堆肥 工艺 过程 的 重要 因素 。 堆肥 中 微生物 分解 有机物 而 释放 出 热量 ， 这些 热量 使 堆肥 温度 上升 。 堆肥 初期 ， 堆层 基本 呈 中温 ， 嗜 温菌 较为 活跃 ， 大量 繁殖 。 它们 在 利用 有机物 的 过程 中 ， 有 一部分 转化成 热量 ， 堆层 温度 不断 上升 ， 1 ～ 2 天后 可以 达到 50 ～ 60 ℃ 。 在 这个 温度 下 ， 嗜 温菌 生长 受到 抑制 ， 大量 死亡 ， 而 嗜 热菌 的 繁殖 进入 激发 状态 [ 26 ] （ 见表 1 ） 。 嗜热菌 的 大量 繁殖 和 温度 的 明显提高 ， 使 堆肥 发酵 直接 由 中温 进入 高温 ， 并 在 高 温度 范围 内 稳定 一段时间 。 正是 在 这 一 温度 范围 内 ， 堆肥 中 的 寄生虫 和 病原菌 被 杀死 。 
+ 　 　 　 　 　 表 1   堆肥 温度 与 微生物 生长 关系 [ 26 ] 
+ 
+ 温度 ( ℃ ) 温度 对 微生物 生长 的 影响 
+ 嗜 温菌 嗜 热菌 
+ 常温 ～ 38 激发态 不 适用 
+ 38 ～ 45 抑制 状态 可 开始 生长 
+ 45 ～ 55 毁灭 态 激发态 
+ 55 ～ 60 不 适用 ( 菌群 萎退 ) 抑制 状态 ( 轻微 ) 
+ 60 ～ 70 － 抑制 状态 ( 明显 ) 
+ > 70 － 毁灭 期 
+ 
+ 　 　 堆肥 作为 一种 生物 系统 ， 反应 进行 的 温度 是 有 限定 范围 的 ， 温度 过高 或 过 低 都 会 减缓 反应速度 。 不同 种类 微生物 的 生长 对 温度 具有 不同 的 要求 。 一般而言 ， 嗜 温菌 最 适合 的 温度 为 30 ～ 40 ℃ ， 嗜热菌 发酵 最 适合 温度 是 45 ～ 60 ℃ [ 17 ,   20 ,   24 ] 。 高温 堆肥 时 ， 温度 上升 超过 65 ℃ 即 进入 孢子 形成 阶段 ， 这个 阶段 对 堆肥 是 不利 的 ， 因为 孢子 呈 不 活动状态 ， 使 分解 速度 相应 变慢 。 此外 ， 在 此 温度 范围 内 ， 形成 的 孢子 再 发芽 繁殖 的 可能性 也 很小 ， 因此 ， 高温 堆肥 温度 最好 在 45 ～ 60 ℃ 左右 [ 17 ,   27 ] 。 基于 上述 原因 ， 堆肥 过程 中 温度控制 是 十分必要 的 。 在 好 氧 堆肥 中 ， 温度 一般 是 通过 控制 供 气量 来 调节 。 
+ 4   结语 
+ 　 　 堆肥 化是 复杂 的 生物学 过程 ， 为 实现 快速 、 好 氧 堆肥 ， 必须 进行 各种 工艺 条件 的 优化 和 控制 。 对于 我国 高速 的 工农业 发展 、 快速 的 人口 增长 所 产生 的 固体废弃物 ， 堆肥 化 处理 后 的 再 利用 应是 今后 重要 的 发展 方向 。 
+ * 国家 “ 九五 ” 攻关 课题 资助 。 
+ 作者 单位 ： 李 艳霞 　 王敏健 　 王菊思 　 中国科学院 生态环境 研究 中心 环境 水化学 国家 重点 实验室 ； 
+ 　 　 　 　 　 李 艳霞 　 陈同斌 　 中国科学院 地理 研究所 农业 与 环境 技术 试验站 ， 北京   100101 
+ 参考文献 
+ 1   高吉喜 ,   曹洪法 ,   舒伶民 等 .   我国 城市 固体废弃物 现状 及其 处理 处置 规划 探讨 .   环境污染 与 防治 ,   1994 ,   16 ( 4 ) :   30 ～ 33 
+ 2   余国瑞 .   污泥 脱水 及 处置 .   化工 给排水 设计 ,   1993 ,   3 :   21 ～ 23 
+ 3   Wang   M   J .   Land   application   of   sewage   sludge   in   China .   The   Science   of   the   Total   Environment ,   1997 ,   197 :   149 ～ 160 
+ 4   杨林章 ,   毛 景东 .   污泥 在 农业 上 的 合理 应用 .   土壤学 进展 ,   1995 ,   23 ( 6 ) :   43 ～ 47 
+ 5   杨 朝晖 ,   扬霞 .   污水 处理厂 的 污泥 处置 .   环境 科学 与 技术 ,   1995 ,   4 :   40 ～ 42 
+ 6   Trout   T   J ,   Smith   J   L ,   Mcwhorter   D   B .   Environmental   effects   of   land   application   of   anaerobically   digested   municipal   sewage   sludge .   Trans .   ASAE ,   1976 ,   19 :   266 ～ 270 
+ 7   Robert   J   R .   Sludge   reuse   strategies   changing .   Environmental   protection ,   1981 ,   2 ( 1 ) :   30 ～ 40 
+ 8   张福锁 ,   薛澄泽 .   土壤 与 植物 营养 新进展 .   北京 :   农业 出版社 ,   1994 
+ 9   USEPA .   Composting   Facility   Design .   In :   Composting   of   Municipal   Wastewater   Sludges ,   1985 .   3 
+ 10   陈世 和 ,   张所明 .   城市 垃圾堆 肥 原理 与 工艺 .   上海 ： 复旦大学 出版社 ， 1990 
+ 11   陈世 和 .   城市 生活 垃圾堆 肥化 处理 的 微生物 特性 研究 .   上海 环境 科学 ,   1989 ,   8 :   17 ～ 21 
+ 12   金家 志 ,   邵凤君 ,   陆华 .   肉鸡舍 垫料 堆肥 化 处理 研究 .   农业 环境保护 ,   1997 ,   16 ( 2 ) :   65 ～ 67 
+ 13   薛澄泽 ,   马云 ,   张 增强 等 .   污泥 制作 堆肥 及 复合 有机肥料 的 研究 .   农业 环境保护 ,   1997 ,   16 ( 1 ) :   11 ～ 15 ,   31 
+ 14   Haug   R .   T .   Engineering   principles   of   sludge   composting .   J   Water   Pollut   Control   Fed ,   1979 ,   51 :   2189 ～ 2206 
+ 15   Crombie   G .   Evolution   of   A   Compost   Plant .   Biocycle ,   1982 ,   23 ( 6 ) :   17 ～ 25 
+ 16   Smith   W   H ,   Margolis   Z   P ,   Janonis   B   A .   High   attitude   sludge   composting .   Biocycle ,   1992 ,   August :   68 ～ 71 
+ 17   Kasper   Jr   V ,   Derr   D   A .   Sludge   composting   and   utilization :   an   economic   analysis   of   the   camden   sludge   composting   facility .   Final   Report   to   USEPA ,   NJDEP .   CCMUA .   Rutgers   State   Univ . ,   New   Brunswick ,   N   J ,   1981 .   342 
+ 18   Miller   F   C ,   Finstein   M   S .   Materials   balance   in   the   composting   of   wastewater   sludge   as   affected   by   process   control   strategy .   Journal   Water   Pollution   Control   Federation ,   1985 ,   57 ( 2 ) :   127 
+ 19   Jimenez   E   I ,   Garcia   V   P .   Composting   of   domestic   refuse   and   sewage   sludge .   I .   evalution   of   temperature ,   pH ,   C / N   ratio   and   cation - exchange   capacity .   Resources ,   Conservation   and   Recycling ,   1991 ,   6 :   45 ～ 60 
+ 20   Golueke   C   G ,   Diaz   L   F .   Low   tech   composting   for   small   communities .   Biocycle ,   1990 ,   November :   62 ～ 64 , 74 
+ 21   Hoitink   H   A   J ,   Keener   H   M ,   Krause   C   R .   Key   steps   to   successful   composting .   Biocycle ,   1993 ,   August :   30 ～ 33 
+ 22   卢杰 ,   李成 江 ,   薛文源 .   污泥 与 城市 垃圾 混合 堆肥 技术 .   城市 环境 与 城市 生态 ,   1992 ,   5 ( 2 ) :   17 ～ 20 ,   26 
+ 23   何品晶 ,   邵立明 ,   陈绍伟 .   城市 垃圾 与 排水 污泥 混合 堆肥 配比 的 研究 ,   1994 ,   13 ( 6 ) :   21 ～ 23 
+ 24   Pioncelot   R   P .   A   Scientific   Examination   of   the   Principles   and   Practice   of   Composting .   Compost   Science ,   1974 ,   15 ( 2 ) :   24 ～ 31 
+ 25   Nakasaki   K ,   Yaguchi   H ,   Sasaki   Y ,   et   al .   Effects   of   pH   control   on   composting   of   garbage .   Waste   Management   &   Research ,   1993 ,   11 :   117 ～ 125 
+ 26   Wat   P .   The   principal   of   composition   and   utilization   in   practise .   Control   Tech ,   1975 ,   47 ( 4 ) :   741   
+ 27   Mackinley   V   L ,   Vestal   J   R .   Physical   and   chemical   correlates   of   microbial   activity   and   biomass   in   composting   municipal   sewage   sludge .   Applied   Environmental   Microbiology ,   1985 ,   50 :   1395 ～ 1403 
+ 收稿 日期 ： 1998 - 11 - 11 

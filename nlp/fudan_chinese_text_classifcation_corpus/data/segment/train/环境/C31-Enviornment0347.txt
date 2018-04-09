@@ -1,0 +1,95 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1998 年   第 18 卷   第 5 期   No.5   Vol.18   1998 
+ 科技期刊 
+ 
+ 负载 型 TiO2 固定 相 光催化 氧化 法 降解 水中 呋码 唑 酮 
+ 包 　 南 　 王吉顺 　 （ 山东大学 环境 工程系 ， 济南   250100 ） 
+ 邓丛蕊 　 陈艳晶 　 （ 济南 大学 化学系 ， 济南   250002 ） 
+ 文 　 摘 　 以 高压 汞灯 为 光源 、 负载 在 海砂 上 的 TiO2 为 催化剂 , 采用 敞口 固定床 型光 催化反应器 对 水中 难 降解 的 呋码 唑 酮 ( FTD ) 进行 了 固定 相 光催化 氧化 实验 。 结果表明 , 反应 速率 可用 Langmuir - Hinshelwood 方程 描述 , 与 光 分解 相比 , 光催化 氧化 的 突出 优点 是 矿化 程度 高 , 相同 光辐射 条件 下 反应 100min , 0.10 mmol / L 的 FTD 水溶液 经 光催化 氧化 后 TOC 的 去除率 为 89.1% , 而 经光 分解 后 TOC 的 去除率 仅为 28.8% ; 在 反应 体系 中投 加 少量 臭氧 或 过氧化氢 可以 显著 提高 FTD 的 氧化 效率 , 说明 光催化 氧化 可以 兼容 O3 / UV 、 H2O2 / UV 等光 激发 氧化 工艺 。 制得 的 负载 型 TiO2 具有 较 高 的 机械 强度 和 化学 稳定性 , 可 重复 利用 。 探讨 了 充氧 、 FTD 浓度 及 pH 值 等 对 光催化 氧化 过程 的 影响 。 
+ 关键词 　 光催化 氧化 　 负载 TiO2 　 呋码 唑 酮 
+ Immobilized   photocatalytic   oxidation   of   furaltadone   in   aqueous   solution . Bao   Nan , Wang   Jishun ( Department   of   Environmental   Engineering ,   Shandong   University ,   Jinan   250100 ) ； Deng   Congrui ,   Chen   Yanjing ( Department   of   Chemistry ,   Jinan   University ,   Jinan   250002 ) . China   Environmental   Science.1998 , 18 ( 5 ) : 458 ～ 462 
+ Abstract — Immobilized   photocatalytic   oxidation   of   furaltadone   ( FTD )   was   investigated   in   an   open   fixed - bed   photoreactor   illuminated   with   a   125W   high   pressure   mercury   lamp   and   using   supported   TiO2 - coated   sand   as   catalyst .   It   was   found   that   photocatalytic   oxidation   has   considerably   more   effective   on   the   removal   of   TOC   in   FTD   solution   than   photolysis   under   the   same   illumination   condition .   After   100   min   of   photocatalytic   oxidation ,   91.7%   of   FTD   in   a   0.10 mmol / L   aqueous   solution   was   degraded   and   89.1%   of   TOC   was   removed .   With   photolysis   alone ,   79.4%   of   FTD   was   degraded   and   only   28.8%   of   TOC   was   removed   in   the   same   period .   The   rate   of   photocatalytic   oxidation   can   be   expressed   by   the   Langmuir - Hinshelwood   Equation . When   small   amount   of   either   ozone   or   hydrogen   peroxide   was   added   to   this   system ,   the   degradation   was   enhanced   significantly . This   results   suggest   that   the   method   can   be   compatible   with   other   Advanced   Oxidation   Processes ( AOPs )   such   as   O3 / UV   or   H2O2 / UV   method   where   UV   light   is   also   applied . The   effects   of   bubbling   with   pure   oxygen ,   initial   concentration   and   pH   were   also   studied .   Moreover ,   the   supported   TiO2   catalytic   material   is   very   stable   mechanically   and   chemically ,   and   can   be   re - used . 
+ Key   words : photocatalytic   oxidation 　 supported   TiO2 　 furaltadone 
+ 　 　 呋码 唑 酮 ( 以下 简称 FTD ) 是 一种 硝基 呋喃 类 广谱 抗生素 , 目前 主要 用作 饲料 添加剂 , 对 防治 畜禽 肠道 疾病 和 球虫病 有 特效 〔 1 , 2 〕 , 结构式 为 : 
+ 
+ 　 　 FTD 易溶 于水 , 分子结构 中 含有 对 生物降解 呈强 抑制作用 的 硝基 和 吗啉 环 , 并 具有 高 共轭体系 , 生产 所 排放 的 酱色 废 母液 中 CODCr 可高达 2 × 105mg / L , 其 废水处理 问题 迄今 未 彻底解决 。 事实上 , 抗生素 工业废水 经 现有 的 一些 处理工艺 处理 后 , 出水 往往 仍难 达标排放 〔 3 〕 。 
+ 　 　 光催化 氧化 法是 一种 始于 70 年代 的 深度 氧化 过程 ( Advanced   Oxidation   Processes ,   AOP ) , 如今 已 受到 了 广泛 的 关注 , 该法 能 有效 地 氧化 水中 许多 难 降解 有机 污染物 , 达到 除毒 、 脱色 、 去 臭 、 直至 矿化 为 无机 小 分子 的 目的 〔 4 , 5 〕 , 然而 通常 的 悬浮 相 光催化 氧化 法 存在 着 催化剂 易 失活 、 易 凝聚 和 难 分离 等 固有 弊端 。 采用 负载 型 半导体 材料 作为 光催化剂 的 固定 相 光催化 氧化 法 , 能够 有效 地 克服 上述 不足 , 从而 成为 这项 技术 新 的 研究 热点 〔 4 ～ 7 〕 。 在 前人 工作 的 基础 上 , 本 研究 采用 简易 的 方法 将 锐钛矿 型 TiO2 负载 在 海砂 上制 得 负载 型 光催化剂 , 进行 了 固定 相 光催化 氧化 法 降解 水中 低浓度 FTD 的 实验 , 旨在 探索 该法 去除 水体 中 低浓度 硝基 呋喃 类抗生素 及 深度 处理 其 工业废水 的 可行性 。 
+ 1 　 实验 部分 
+ 1.1 　 试剂 及 仪器 
+ 　 　 TiO2 纯度 大于 99.9% ( 济南 裕兴 化工厂 产品 ) ; 呋码 唑 酮 盐酸盐 纯度 大于 99% ( 济南 金源 药化 有限公司 产品 ) 。 
+ 　 　 125W 高压 汞灯 ( Emax365nm ) ; 岛津 UV - 3000 型 分光 光度计 ; pHS - 3C 型 酸度计 ; IONICS - 1270M 型 总 有机 碳 分析仪 ; B - 52 型 超声波 清洗 仪 ( 248W ) ; XFZ - 5B Ⅰ 型 臭氧 发生器 。 
+ 1.2 　 负载 型 TiO2 光催化剂 的 制备 
+ 　 　 在 超声波 预处理 的 基础 上 , 采用 浸渍 — 烧结 固定 法 制备 。 经 冲洗 、 烘干 的 海砂 被 筛分 成 相对 均匀 的 粒径 后 被 用作 TiO2 的 载体 。 首先 用 定量 配制 好 的 TiO2 悬浊液 浸渍 适量 海砂 ( 二者 预先 分别 用 超声波 处理 ) , 在 一定 时间 的 超声波 振荡 下 使 TiO2 分布 均匀 , 烘干 , 500 ℃ 灼烧 1h 。 经 以上 过程 制得 的 负载 型 TiO2 经 X射线 衍射 分析 , 证明 为 锐钛矿 晶型 。 
+ 1.3 　 实验 过程 与 分析方法 
+ 　 　 将 负载 型 TiO2 均匀 地 置于 直径 145   mm 、 高 70   mm 的 结晶 皿 底部 , 即 构成 实验 使用 的 固定床 型光 催化反应器 , 反应器 套 在 铝质 反光 筒 内 , 光源 上方 加装 了 内衬 铝箔 的 铝质 反光 罩 。 实验 以 间歇 批量 方式 进行 , 250mL   FTD 溶液 作为 反应 液 加入 反应器 后 , 置于 已 开启 并 预热 好 的 汞灯 下 照射 , 并 以 蠕动泵 循环 , 控制 流速 为 130mL / min 。 反应 液 有效 水深 15mm , 光源 距 液面 110mm , 定时 取样 分析 。 
+ 　 　 FTD 的 最大 吸收 波长 ( λ max ) 位于 364 ± 2nm 处 。 在 pH 值为 2 ～ 12 范围 内 , 其 λ max 及吸 光度 ( A ) 基本 不变 ; 且 λ max 在 降解 反应 过程 中 不变 , 故以 364nm 处 的 C - A 标准 曲线 测定 FTD 的 浓度 ( C ) 。 TOC 的 测定 按 国家环保总局 编制 的 《 水 和 废水 监测 分析方法 》 ( 第 3 版 ) 进行 。 
+ 2 　 结果 与 讨论 
+ 2.1 　 光 分解 与 光催化 氧化 效果 的 比较 
+ 　 　 光 分解 与 固定 相 光催化 氧化 ( 光催化 ) 效果 的 比较 见图 1 。 
+ 
+ 图 1 　 FTD 的 光 分解 与 光催化 氧化 
+ Fig.1 　 FTD   photolysis   and   photocatalytic   oxidation 
+ ○   光 分解 　 ●   光催化 
+ 　 　 由图 1 ( a ) 看出 , 不 加 催化剂 时 FTD 的 单纯 光 分解 就 十分 明显 。 这 是因为 光源 的 Emax 与 FTD 的 λ max 基本 吻合 , 光源 的 光 引发 效率 和 FTD 的 光谱 响应 处于 最佳 匹配 , FTD 分子 极易 被光 分解 所 破坏 。 相比之下 , 光催化 时 , 由于 负载 型 光催化剂 位于 反应器 底部 , 光 的 穿透 深度 与 光 分解 时 相差 很小 , 所以 包含 了 光 分解 作用 在内 的 光催化 氧化 对 FTD 具有 更 高 的 降解 速率 。 
+ 　 　 如果说 光催化 在 降解 速率 方面 的 优势 尚 不 明显 , 那么 其 对 TOC 的 去除 效果 则 远远 优于 光 分解 , 比较 图 1 中 的 ( a ) 与 ( b ) 可 看出 , 初始 浓度 0.10 mmol / L 的 FTD 同样 历时 100min 的 反应 , 经 光催化 和 光 分解 后 , 降解 率 分别 为 91.7% 和 79.4% , TOC 去除率 分别 为 89.1% 和 28.8% 。 事实上 , FTD 的 分子结构 被 破坏 并 生成 对 365nm 紫外光 吸收 很少 的 小 分子 物质 之后 , 光 分解 作用 便 随之 减弱 , 而 光催化 过程 中 可 产生 大量 非 选择性 强 氧化剂 OH * ， 其 氧化 能力 分别 是 O3 和 H2O2 的 1.35 和 1.58 倍 〔 7 〕 。 因而 在 该 处理 方式 下 , FTD 及其 降解 中间体 都 能 被 有效 地 氧化 , 持续 反应 则 可 实现 完全 矿化 。 
+ 　 　 需 说明 的 是 , 暗室 对照 实验 表明 , 非光 分解 因素 造成 的 FTD 损失 可 完全 忽略 。 
+ 2.2 　 FTD 初始 浓度 的 影响 
+ 　 　 根据 实验 结果 , 可 得到 不同 初始 浓度 ( C0 ) 下 FTD 的 初始 反应 速率 ( r0 ) ， 见图 2 。 
+ 
+ 图 2 　 初始 反应 速率 与 初始 浓度 的 关系 
+ Fig.2 　 Relationship   between   the   initial   rate   and   the   initial   concentration 
+ ●   r0 对 C0 作图 　 ○   1 / r0 对 1 / C0 作图 
+ 　 　 由图 2 ( a ) 看出 , FTD 的 浓度 不 大于 0.15   mmol / L 时 , r0 与 C0 正 相关 ; 浓度 再 增大 , 则 r0 随 C0 增加 的 幅度 趋于 平缓 。 研究 证明 , TiO2 悬浮 相 光催化 氧化 的 反应 速率 遵循 Langmuir - Hinshelwood ( L - H ) 方程 〔 4 , 8 〕 :   r0 = kKC0 / ( 1 + KC0 ) 式 中 : k 为 表面反应 速率 常数 ; K 为 表观 吸附平衡 常数 。 将 图 2 ( a ) 的 结果 用 L - H 方程 的 等效 式 1 / r0 = 1 / kKC0 + 1 / k 进行 拟合 , 得到 一条 线性关系 很 好 的 直线 ( r = 0.996 , 图 2 ( b ) ) , 并 求得 k = 2.44 × 10 - 3mol / h ,   K = 1471L / mol , 表明 实验 条件 下 , FTD 的 固定 相 光催化 氧化 亦可 用 L - H 方程 来 描述 ; 分析 还 表明 , 当 C0 ≤ 0.15 mmol / L 时 , 以 lgr0 对 lgC0 作图 得 一 直线 ( r = 0.995 ) , 其 斜率 为 1.02 , 说明 反应 符合 一级 动力学 规律 , 这 与 L - H 方程 在 低浓度 ( KC0 ＜ 1 ) 时 的 表达式 : r0 = kKC0 = K ′ （ K ′ = kK ) C0 是 一致 的 。 
+ 2.3 　 初始 pH 值 的 影响 
+ 　 　 FTD 的 初始 浓度 为 0.05 mmol / L , 初始 反应 速率 随 pH 值 的 变化 情况 见图 3 。 
+ 　 　 图 3 表明 , 较 高 的 反应 速率 出现 在 高 pH 值 和 低 pH 值 区域 , 且 低 pH 值下 更 有利 。 根据 光催化 氧化 的 反应 机理 〔 7 〕 , OH * 可以 有 不同 来源 ， 高 pH 值 条件 下 , OH * 易 通过 OH - 直接 迁移 至光 活性 的 TiO2 表面 , 进而 俘获 光生 空穴 而 产生 ; 低 pH 值 条件 下 , OH * 易 通过 H + 与 被 吸附 O - 2 系列 结合 , 在 形成 H2O2 的 基础 上 进一步 反应 生成 , 多数 研究 认为 , OH * 更 易 通过 后 一种 途径 产生 〔 8 , 9 〕 。 可见 , 光催化 较 高 的 反应 速率 在 高 pH 值 和 低 pH 值 条件 下 都 可能 出现 , 在 一定 的 条件 下 , pH 值低 时 可能 更为 有利 。 
+ 
+ 图 3 　 初始 反应 速率 与 初始 pH 值 的 关系 
+ Fig.3 　 Relationship   between   the   initial   rate   and   the   initial   pH 
+ 2.4 　 外加 氧化剂 的 影响 
+ 　 　 促进 OH * 的 生成 与 抑制 催化剂 表面光 生 电子 ( e - ) 和 光生 空穴 ( h + ) 的 简单 复合 是 提高 光催化 氧化 反应 速率 和 效率 的 重要途径 。 众所周知 , UV - O3 、 UV - H2O2 法等光 激发 氧化 工艺 与 光催化 氧化 法 同属 深度 氧化 过程 , 在 反应 过程 中 既 能 生成 OH * ， 又 能 分解 出 O2 , 而 O2 溶于 水后 的 溶解氧 ( DO ) 是 e - 的 俘获 剂 , 二者 结合 生成 O - 2 后经 质子化 作用 后 作为 OH * 的 一个 来源 。 因此 ， 通过 下面 的 实验 将 常见 的 光 激发 氧化 工艺 与 固定 相 光催化 氧化 法 结合 起来 以 考察 其 兼容性 。 FTD 的 初始 浓度 均 为 0.05 mmol / L 。 
+ 2.4 . 1 　 通 O2 或 O3 的 影响 　   分别 向 反应 液中 通入 O2 和 O3 , 流量 均 为 0.03 m3 / h , 实验 中 O3 的 投加率 为 1mg / min , 同时 进行 固定 相 光催化 氧化 试验 , 结果 如图 4 所示 。 
+ 　 　   不 投加 氧化剂 时 曾 对 历时 2h 的 反应 进行 了 DO 浓度 的 在线 测定 , 发现 反应 后 反应 液 温度 由 22 ℃ 升至 29 ℃ , 体系 DO 值 由 8.6 mg / L 降至 8.1 mg / L , 说明 反应 过程 基本 不亏 氧 , 所以 通 O2 对 FTD 降解 的 促进作用 较 小 ( 图 4 ) , 然而 通 O3 后 其 降解 速率 却 大大提高 了 , 图 4 显示 , 通 O3 反应 30min , FTD 就 降解 了 90.9% , 而 单纯 光 催化反应 30min 和 100min , FTD 分别 降解 了 67.8% 和 90.4% 。 这 是因为 1mol   O3 在 紫外 辐射 下 可 生成 2mol   OH * ， 同时 O3 本身 就是 强 氧化剂 , 因此 投加 少量 O3 可 显著 提高 反应 速率 , 说明 光催化 氧化 法 与 UV - O3 法是 可以 相互 兼容 的 。 
+ 
+ 图 4 　 通 O2 或通 O3 对 光催化 氧化 过程 的 影响 
+ Fig.4 　 Effect   of   O2   or   O3   on   the   photocatalytic   oxidation   of   FTD 
+ 2.4 . 2 　 加入 H2O2 的 影响 　 固定 光照 时间 30min , 反应 液中 H2O2 浓度 对 光降解 影响 见图 5 。 
+ 
+ 图 5 　 H2O2 浓度 对 光催化 氧化 过程 的 影响 
+ Fig.5 　 Effect   of   H2O2   concentration   on   the   photocatalytic   oxidation   of   FTD 
+ 　 　   由图 5 看出 , H2O2 浓度 在 4   mmol / L 以下 时 , FTD 的 降解 随 H2O2 浓度 的 增大 而 加剧 , 并 在 1.9 mmol / L 时 FTD 就 降解 了 94.6% , 但 H2O2 浓度 再 升高 则 降解 情况 基本 不变 , 即 其 利用率 反而 下降 。 究其原因 , 一方面 H2O2 是 比 DO 更好 的 e - 捕获 剂 , 可 有效 降低 e - / h + 的 复合 率 并 以 各种 方式 生成 OH * ； 另一方面 它 又 是 OH * 的 清除剂 ， 过量 的 H2O2 会 消耗 OH * 〔 4 〕 。 
+ 2.5 　 UV - VIS 吸收光谱 分析 
+ 　 　 在 图 1 的 实验 条件 下 , FTD 溶液 经 不同 时间 光 催化反应 后 的 吸收光谱 见图 6 。 
+ 
+ 图 6 　 FTD 在 光催化 氧化 过程 中 的 吸收光谱 
+ Fig.6 　 UV - VIS   adsorption   spectra   of   FTD   in 
+ different   time   interval   of   photocalytic   oxidation 
+ 处理 时间 ( min ) : 1.0   2.10   3.30   4.60   5.90   6.120   7.180 
+ 　 　 由图 6 看出 , FTD 的 光谱 吸收 随 反应时间 的 延长 而 下降 , 反应 1.5 h 后 , 其 在 可见 区 的 吸收 及近 紫外 区 的 两个 特征 吸收 峰 接近 完全 消失 , 且 长波 区 吸收 降低 的 幅度 更大 。 但 在 波长 200 ～ 230nm 范围 内 , 吸收 值 却 随 反应 的 进行 而 升高 , 说明 生成 了 在 该 区域 有 明显 特征 吸收 的 矿化 产物 NO - ２ 和 NO - 3 〔 10 〕 , 这 可能 是因为 OH * 和 FTD 分子 中 的 - NO2 发生 羟基 取代 反应 所致 , - NO2 脱落 后 在 水溶液 中 形成 NO - ２ , 而 后者 极易 氧化 为 NO - 3 。 结合 前述 TOC 的 测定 结果 进一步 说明 , 在 光催化 氧化 过程 中 , FTD 分子 破坏 为 无色 小 分子 物质 的 分解 作用 及 矿化 作用 是 同步进行 的 , 而 高 共轭体系 和 兼具 生物 毒性 的 发色 基团 ( - NO2 ) 更易 被 破坏 。 
+ 　 　 固定 光照 100min , 其它 条件 同图 4 , FTD 溶液 经 不同 方式 处理 后 的 吸收光谱 见图 7 。 
+ 　 　   针对 图 7 , 比较 230nm 以上 的 吸收 强度 发现 , 经 3 种 方式 处理 后 , 只有 通 O3 时 的 吸收 降低 到 接近 空白 值 , 而通 O2 与 光谱 吸收 的 降低 程度 差别 不 大 , 这 与 图 4 相对 应 ; 再 比较 200 ～ 230nm 区间 内 形成 的 吸收 峰 则 发现 , 通 O2 或 O3 后 , 该峰 吸收 均 明显 增大 , 这 从 一个 侧面 反映 出 矿化 程度 的 提高 。 可见 , 通 O2 对 FTD 降解 的 促进作用 虽小 , 但 却 能 强化 其 矿化 作用 , 因为 光催化 氧化 属 多相催化 , 有机物 向 光催化剂 表面 的 扩散 受 传质 速率 的 制约 , 通 O2 提高 了 传质 速率 , 从而 提高 了 矿化 效率 ; 而通 O3 后 , 不仅 提高 了 传质 速率 , 更 重要 的 是 有 两种 深度 氧化 过程 同时 存在 , OH * 的 浓度 大大增加 ， 从而 使 FTD 的 分解 和 矿化 作用 都 得以 显著 提高 。 
+ 
+ 图 7 　 FTD 经 不同 方式 处理 前后 的 吸收光谱 
+ Fig.7 　 UV - VIS   adsorption   spectra   of   FTD   under   various   disposal   models 
+ 处理 方式 ： 1 . 处理 前 　 2 . 不通 O2 和 O3 　 3 . 通 O2 　 4 . 通 O3 
+ 2.6 　 光催化剂 的 使用寿命 及 稳定性 
+ 　 　 对 FTD 初始 浓度 均 为 0.05 mmol / L 进行 重复 实验 , 每次 光照 100min 后 取样 分析 , 结果表明 , 连续 使用 20 次 光催化剂 的 催化活性 未见 降低 。 此外 , 用 蒸馏水 代替 FTD 溶液 进行 了 两组 实验 : 在 体系 中通入 0.08 m3 / h 的 O2 ; 使 循环 液 流速 提高 至 180mL / min , 每次 实验 100min , 期间 定时 取样 测定 表面 液体 的 浊度 。 结果表明 , 测得 的 水样 浊度 均 在 3.0 ± 0.4 度 ( NTU ) 范围 内 , 说明 载体 海砂 间 碰撞 等 因素 造成 的 TiO2 的 脱落 可以 忽略 , 制得 的 负载 型 TiO2 光催化剂 的 机械 稳定性 较 高 。 
+ 3 　 结论 
+ 3.1 　 在 实验 条件 下 , 固定 相 光催化 氧化 与 单纯 光 分解 都 能 有效 地 光解 水中 生物 难 降解 的 FTD , 但 前者 的 氧化 效率高 , 特别 是 矿化 程度 高 。 
+ 3.2 　 低 pH 值 或 高 pH 值 、 在 反应 液中 通入 少量 O2 或 O3 以及 投加少 而 适量 的 H2O2 均 有利于 提高 光催化 氧化 效率 , 其中 又 以通 O3 和 加 H2O2 的 效果 最佳 , 表明 光催化 氧化 法 可以 兼容 UV - O3 及 UV - H2O2 等光 激发 氧化 工艺 。 
+ 3.3 　 制得 的 负载 型 TiO2 光催化剂 化学 稳定性 和 机械 稳定性 高 , 可 重复 利用 。 固定 相 光催化 氧化 法 不仅 能够 克服 悬浮 相 光催化 氧化 法 的 缺点 , 而且 便于 改进 和 放大 后 应用 于 工业化 水 处理 。 
+ 参考文献 
+ 1 　 张 　 乔 主编 . 饲料 添加剂 大全 . 北京 : 北京工业大学 出版社 , 1994.697 
+ 2 　 西蒂   M 编著 ( 美 ) . 苏焕臣 等 译 . 药物 制造 百科全书 . 长春 : 长春 出版社 , 1991.407 
+ 3 　 杨 　 军 , 陆正禹 , 胡纪萃 等 . 抗生素 工业废水 生物 处理 技术 的 现状 与 展望 . 环境 科学 , 1997 , 18 ( 3 ) : 83 ～ 85 
+ 4 　 Ollis   D   F , E   Pelizzetti ， N   Serpone .   Destruction   of   water   contaminants .   Environ . Sci .   Technol . , 1991 ,   25 ( 9 ) : 1523 ～ 1529 
+ 5 　 Haarstrick   A , O   M   Kut ， E   Heinzle .   TiO2 - assisted   degradation   of   environmentally   relevant   organic   compounds   in   wastewater   using   a   novel   fluidized   bed   photoreactor . Environ .   Sci . Technol . ,   1996 , 30 ( 3 ) :   817 ～ 824 
+ 6 　 Matthews   R   W . Photooxidative   degradation   of   coloured   organics   in   water   using   supported   catalysts   TiO2   on   sand .   Wat . Res . , 1991 , 25 ( 10 ) :   1169 ～ 1176 
+ 7 　 Zhu   H , Zhang   M   P , Xia   Z   F , et   al . Titanium   dioxide   mediated   photocatalytic   degradation   of   monocroto - phos . Wat . Res . ,   1995 , 29 ( 12 ) : 2681 ～ 2688 
+ 8 　 Jean - Christophe   D ′ Ollveira , et   al . Photodegradation   of   2 - and   3 - chlorophenol   in   TiO2   aqueous   suspen - sions . Environ . Sci . Technol . , 1990 , 24 ( 7 ) : 990 ～ 996 
+ 9 　 胡 　 春 , 王怡 中 , 汤鸿霄 . 多相 光催化 氧化 的 理论 与 实践 发展 . 环境 科学 进展 ,   1995 , 3 ( 1 ) : 55 ～ 64 
+ 10 　 尹 　 军 , 王宝贞 . 水中 硝基 芳烃 的 臭 氧化 去除 机理 初探 . 水 处理 技术 , 1985 , 11 ( 3 ) : 19 ～ 25 
+ 作者简介 
+ 包 　 南 　 男 , 1962 年 3 月生 。 硕士 、 副教授 , 山东大学 水 处理 教研室 主任 。 主要 从事 水污染 控制 、 环境监测 及 环境影响 评价 等 方面 的 教学 和 科研工作 。 曾 主要 承担 并 完成 了 国家环保总局 科技 三项 费用 资助 的 “ 便携式 富集 柱型 环境 水质 有机 污染物 自动 取样器 ” 等 6 项 课题 的 研究 , 获 两项 国家 实用新型 专利 。 发表 论文 10 余篇 。 
+ 收稿 日期 ： 1998 - 02 - 04 

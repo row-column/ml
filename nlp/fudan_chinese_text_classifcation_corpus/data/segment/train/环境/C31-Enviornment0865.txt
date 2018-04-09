@@ -1,0 +1,165 @@
+环境 科学 学报 
+ ACTA   SCIENTIAE   CIRCUMASTANTIAE 
+ 1999 年   第 19 卷   第 3 期   Vol.19     No.3   1999 
+ 
+ 
+ 
+ 发光 细菌 暗 变种 T9171 对 化合物 的 致 突变 效应 灵敏度 研究 
+ 　 　   谢思琴 　 顾宗 濂 　 周德智 　 
+ 摘要 　 报道 了 明亮 发光 杆菌 T3 小种 ( Photobacterium   phosphoreum   T3   sp . ) 的 暗 变种 T9171 菌株 对   36 种 不同 的 有机 化合物 的 致 突变 效应 ， 与 Ames 试验 比较 ， 结果显示 ， T9171 对 其中 30 种 化合物 具有 阳性 效应 ， 阳性 检出率 为 83% ， 高于 Ames 试验 的 阳性 检出率 ( 64% ) ， 两法 检测 的 吻合 率达 69% . 以 两法 检测 结果 一致 阳性 的 受 试物 最低 剂量 建立 相关 方程 ， 其 方程式 为 ： CT9171 = 13.2959 + 0.0364 CAmes ， 相关系数 r = 0.623 ( n = 20 ) ， 经 检验 两法 的 相关性 达到 0.01 的 显著 水平 . 试验 进一步 确证 利用 发光 细菌 暗 变种 T9171 检测 化合物 的 致 突变性 ， 其 灵敏度 高于 Ames 试验 . 
+ 关键词 　 发光 细菌 暗 变种 ； Ames 试验 ； 致 突变 . 
+ Sensitivity   of   photobacterial   dark   mutant   for   detecting   chemical ′ s   mutagenicity 
+ XIE   Siqin , GU   Zonglian , ZHOU   Dezhi   
+ The   Institute   of   Soil   Science , Chinese   Academy   of   Science , Nanjing   210008 
+ Abstract 　 Mutagenicity   of   Photobacterium   phospphoreum   T3   sp . dark   mutant   T9171   on   36   ch   emicals   were   studied   and   compared   with   that   of   Ames   test . Among   them , 30   chemical   compounds   showed   positive   effects   to   T9171 . The   detected   positive   rate   was   83%   and   was   higher   than   the   results   of   Ames   test   ( 64 ) . The   tally   rate   between   two   methods   is   69% . The   correlation   equation   set   up   by   using   the   lowest   dosage   for   them   is   as   follows : CT9171 = 13.2959 + 0.0364 CAmes , r = 0.623 ( n = 20 ) . There   was   a   significant   correlation   between   both   ( p ＜ 0.01 ) . 
+ Keywords 　 Photobacteria   dark   mutant , Ames   test , mutagenicity .   
+ 　 　 在 近 四分之一 的 世纪 里 ， Ames 试验 获得 了 作为 检测 遗传 毒物 的 基准 方法 的 地位 ， 它 已 成为 一种 公认 的 筛选 具有 潜在 遗传 毒性 化合物 的 方法 ， 解决 了 建立 致癌 剂 预测 试验 的 关键问题 . 然而 ， Ames 试验 毕竟 操作 复杂 、 测定 时间 长 、 条件 要求 高 . 于是 ， 人们 纷纷 寻找 一种 灵敏 、 快速 、 简易 、 费用 低 的 检测 方法 . Ulitzur   S . 等 ［ 1 ］ 、 Richard   A . Wecher 等 ［ 2 ］ 均 确认 可以 用 发光 细菌 暗 变种 检测 致 突变 化合物 . 近几年来 ， 美国 Microbics 公司 发展 了 一种 短期 的 检测 遗传 毒性 的 生物 测定方法 ( 发光 细菌 法 ) ， 其 商品名称 为 “ Mutatox ” ［ 3 ］ . Johnson   B . T . ［ 4 ］ 和 Legault 等 ［ 5 ］ 用 Mutatox 法 与 Ames 试验 对 不同 的 化合物 致 突变性 检测 进行 了 比较 ， 他们 的 试验 结果表明 Mutatox 法 与 Ames 试验 之间 有 良好 的 一致性 . 本 实验室 在 以往 的 研究 ［ 6 , 7 ］ 中 证实 ， 从 明亮 发光 杆菌 T3 小种 中 分离 筛选 到 自发 暗 变种 T9171 菌株 ， 对 已知 的 移码 剂 2 - 氨基 芴 、 DNA 插入 剂 溴化乙锭 等 、 DNA 损害 剂 丝裂霉素 - C 均 具有 致 突变 效应 ， 并 初步 验证 利用 该 菌株 检测 致 突变 物 的 灵敏度 总体 上 高于 Ames 试验 . 本文 从 发光 细菌 暗 变种 T9171 对 化合物 的 致 突变性 灵敏度 以及 检测 化合物 的 致 突变 效应 与 Ames 试验 的 相关性 作 进一步 深入研究 ， 为 今后 进一步 推广应用 提供 科学依据 . 
+ 1 　 材料 和 方法 
+ 1.1 　 供 试用 菌株 
+ 　 　 明亮 发光 杆菌 T3 小种 ( Photobacterium   phosphoreum   T3   sp . ) 的 暗 变种 T9171 菌株 ， 由 中国科学院 南京 土壤 研究所 分离 筛选 和 保存 ， 试用 前 将 其 制成 冻干 菌剂 ， 0.5 g 安瓿瓶 真空包装 ， 4 ℃ 冰箱 保存 . 鼠 伤寒 沙门氏菌 ( salmonella   typhimurium ) 组氨酸 营养 缺陷 型 菌株 TA100 和 TA98 ， 由 上海 肿瘤 研究所 提供 . 代谢 活化 系统 S9 混合液 由 上海 肿瘤 研究所 提供 ， 在 使用 前于 - 80 ℃ 冰箱 中 保存 . 
+ 1.2 　 仪器 
+ 　 　 DXY - 2 型 生物 毒性 测试仪 由 中国科学院 南京 土壤 研究所 制造 . 
+ 1.3 　 试剂 
+ 　 　 受试 的 36 种 有机化学 物 分别 购自 美国 Sigma 公司 、 Aldrich 公司 和 日本 东京 化成 工业 株式会社 以及 上海 试剂厂 、 南京 制药厂 、 北京 化工厂 生产 和 进口 分装 的 产品 ( 见表 1 ) . 所有 不 溶于 水 的 化合物 均 用 二甲 亚砜 ( DMSO ) 溶解 ， 并 稀释 至 一定 的 浓度 ， 于 冰箱 中 存放 . 在 试验 之前 ， 首先 对 DMSO 进行 致 突变性 检验 ( Ames 试验 法 ) ， 确证 无致 突变性 方可 用作 化合物 的 载体 溶剂 . 
+ 表 1 　 供试 化学 物 
+ Table   1   Tested   chemmicals 
+ 
+ 中文名 代号 　 　 中文名 代号 　 　 
+ 叠氮钠 * NaN3 硝基 呋喃 妥茵 SNFT 
+ 溴化乙锭 S * EBr4 - 硝基 喹啉 S4 - NQ 
+ 硫酸 二 乙酯 DES 钙 黄绿 素 BCC 
+ α - 萘胺 α - NA4 - 氨基 安替比林 4 - AAP 
+ 2 - 蒽胺 S2 - AA2 ， 4 - 二硝基苯 肼 N2 , 4 - DNP 
+ 乙 氨基甲酸酯 SUr 苯醌 合 苯二酚 FQH 
+ 大 黄素 SEm 邻甲 联苯胺 o - TL 
+ 邻 乙基 米 磺 酰 乙酰 羟 酸盐 So - EMS 对 甲氧基 偶氮 苯 p - MAB 
+ 20 - 甲基 胆 蒽 A20 - MCT2 ， 3 ， 5 - 氯化 三 苯基 四氮唑 FTTC 
+ 苯 并 ( a ) 芘 SB ( a ) P 对 硝基苯 胺 p - NBA 
+ 9 ， 10 - 二甲基 - 1 ， 2 - 苯 并 蒽 SDMBT4 - 氨基 偶氮 苯 E4 - AAB 
+ 2 - 氨基 联苯 S2 - AB 氨 磺酸 铵 * ASA 
+ 双 ( 2 - 氯 乙基 ) 氨基 盐酸盐 ABCA 对甲 苯磺酸 * T - p - S 
+ 甲基 硫酸 乙酯 SMSE 二 苯胺 DPA 
+ 2 - 硝基 芴 A2 - NF 偶氮 苯 AzB 
+ 1 - 蒽胺 A1 - AA4 - 二甲 氨基 - 2 - 甲基 偶氮 苯 JDMAB 
+ 6 - 氯 嘌呤 S6 - CP 苯乙烯 FST 
+ 对 - 二   甲 氨基 苯 重氮 硫酸钠 盐 Jp - DABS 缩水 甘油 S * GL 
+ 5 - 硝基 - 2 - 糠 酸 S5 - N - 2 - FA 
+ 
+ 　 　 注 ： 表中 上标 “ S ” 为 美国 Sigma 公司 商品 ； “ A ” 为 美国 Aldrich 公司 商品 ； “ J ” 为 日本 东   京 化成 工业 株式会社 的 商品 ； “ E ” 为 英国 产品 ； “ F ” 为 进口 分装 ； “ B ” 为 北京 化工厂 生产 ； “ N ” 为 南京 制药厂 生产 ； 其它 均 为 上海 试剂厂 生产 . “ * ” 以水为 溶剂 . 
+ 1.4 　 致 突变性 检测 方法 
+ 1.4 . 1 　 发光 细菌 法 　 参考文献 ［ 4 ］ 报道 ， 在 150   mL 的 三角瓶 中 ， 分装 50   mL 的 测定 用 培养基 ［ 6 ］ ， 灭菌 后 待用 . 
+ 　 　 操作过程 如下 ： ( 1 )   用 1   mL 测定 用 培养基 将 1 瓿 瓶 0.5   g 发光 细菌 暗 变种 冻干粉 复苏 ， 混匀 ， 然后 将 此菌 悬液 全部 移人 装有 50   mL 测定 用 培养基 的 三角瓶 中 ， 于 20 ℃ 恒温 摇 床上 振荡 培养 1.5   h . ( 2 )   菌液 分装 ［ 4 ］ . ( 3 )   加入 受试物 并 稀释 ［ 4 ］ . ( 4 )   整个 操作过程 完成 以后 ， 将 测试 管 置于 20 ℃ 的 恒温 摇 床上 振荡 培养 . 摇床 的 转速 为 130   r / min . ( 5 )   培养 24   h 后 开始 测定 其 发光强度 ， 以后 每隔 3 - 4   h 测定 一次   . 
+ 　 　 发光 细菌 暗 变种 致 突变 效应 的 表达 ： 根据 生物 毒性 测试仪 ( DXY - 2 型 ) 测量 获得 的 每个 试管 的 发光强度 确定 致 突变 效应 . 以 样品 发光强度 为 对照 发光强度 的 3 倍者 为 阳性 效应 . 当 样品 的 5 个 平行 系列 中 显示 3 个 阳性 效应 ， 即 认为 该 样品 具有 致 突变性 . 当 样品 的 平行 系列 阳性 效应 数 不足 3 个者 ， 被 认为 阳性 可疑 . 当 平行 系列 没有 一个 阳性 效应 ， 则 认为 该 样品 为 阴性 . 
+ 1.4 . 2 　 Ames 试验 法 　 采用 平板 渗入 法 ， 按 1975 年 的 Ames 试验 及 1983 年 改进 的 方法 进行 . 
+ 2 　 结果 与 讨论 
+ 2.1 　 发光 细菌 暗 变种 T9171 检测 化合物 致 突变性 灵敏度 
+ 　 　 应用 发光 细菌 暗 变种 T9171 菌株 的 冻干粉 剂 对 36 种 有机 化合物 进行 了 致 突变性 检测 ， 结果 有 3   0 种 化合物 显示 具有 致 突变 效应 ， 每个 稀释 浓度 的 5 个 重复 系列 中 ， 阳性 效应 数均 在 3 以上 ( 见表 2 ) . 在 阳性 检出 物中 ， 不同 的 化合物 其 剂量效应 有 很大 的 差异 . p - DABS 、 NFT 、 
+ 表 2 　 发光 细菌 暗 变种 T9171 检测 化合物 的 致 突变性 
+ Table   2   Mutagenicity   of   tested   chemicals   with   photobacteria   dark   mutant   T9   171   test 
+ 
+ 受试物 发光 高峰 浓度 , 
+ μ g / mL 最低 检出 剂量 , 
+ μ g / mL 剂量效应 数 * 
+ NaN30.0480 . 0484 
+ EBr5.000 < 2.5003 
+ ES312.000 < 156.2503 
+ α - NA78.125 < 39.0634 
+ 2 - AA500.000 < 62.5005 
+ Ur31.250 < 3.9063 
+ o - EMS12.500 < 0.3913 
+ 20 - MCT20.000 < 5.0004 
+ B ( a ) P10.000 < 2.5004 
+ DMBT30.000 < 1.8753 
+ 2 - AB75.000 < 37.5003 
+ BCA1000.000 < 125.0004 
+ MSE781.300 < 390.6003 
+ 2 - NF0.625 < 0.1565 
+ 1 - AA15.625 < 7.8134 
+ p - DABS0.016 < 0.0025 
+ 5 - N - 2 - FA7.813 < 0.4883 
+ NFT0.013 < 0.0135 
+ CC31.250 < 15.6303 
+ 4 - AAP125.000 < 7.8133 
+ 2 , 4 - DNP3.906 < 3.9064 
+ o - TL19.531 < 19.5313 
+ p - MAB3.125 < 0.7813 
+ TTC31.250 < 15.6253 
+ p - NBA9.766 < 2.4405 
+ 4 - AAB15.625 < 3.9063 
+ DPA1.953 < 1.9535 
+ AzB15.625 < 7.8134 
+ DMAB100.000 < 1.6533 
+ ST1250.000 < 1250.0005 
+ 
+ 　 　 * 　 最低 检出 剂量 的 阳性 效应 数 NaN3 三种 化合物 的 最低 检出 剂量 ＜ 0.05 μ g / mL ； 2 - NF 、 o - EMS 、 5 - N - 2 - FA 、 p - MAB 的 最低 检出 剂量 ＜ 1   μ g / mL ； DMAB 、 DMBT 、 DPA 的 最低 检出 剂量 ＜ 2 μ g / mL ； p - NBA 、 B ( a ) P 、 EBr 、 2 , 4 - DNP 、 4 - AAB 、 Ur 、 20 - MCT 的 最低 检出 剂量 ＜ 5   μ g / mL ； 1 - AA 、 4 - AAP 、 AzB 的 最低 检出 剂量 ＜ 7.8   μ g / mL ； TTC 、 CC 、 o - TL 的 最低 检出 剂量 ＜ 20   μ g / mL ; α - NA 、 2 - AB ＜ 40   μ g / mL ； 2 - AA ＜ 62.5   μ g / mL ； BCA 、 DES ＜ 156   μ g / mL ； MSE ＜ 390   μ g / mL ； ST ＜ 1250   μ g / mL . 其中 ST 的 最低 检出 剂量 远远 大于 其它 化合物 的 最低 检出 剂量 ， 这 可能   与 它 的 易 挥发性 有关 ， 实际 致 突变 剂量 可能 没有 那么 高 . 
+ 　 　 在 上述 检出 致 突变 阳性 的 30 种 化合物 中 ， 有 18 种 化合物 是 属于 已知 的 致癌 或致 突变 物 ， 如 Na   N3 、 EBr 、 DES 、 α - NA 、 2 - AA 、 Ur 、 20 - MCT 、 B ( a ) P 、 2 - AB 、 o - TL 、 2 - NF 、 p - DABS 、 5 - N - 2 - FA 、 NFT 、 4 - AAB 、 AzB 、 DMAB 、 ST 等 ［ 10 - 12 ］ . 其它 几种 化合物 尚未 见到 具体 资料 报道 确证 是 致 突变 物 ， 但 其中 7 种 化合物 与 Ames 试验 阳性 结果 一致 ， 如 DMBT 、 BCA 、 MSE 、 1 - AA 、 2 ， 4 - DNP 、 TTC 、 p - NBA , 以上 结果显示 了 对 已知 或 预见 有 致 突变性 的 毒物 可 作 比较 的 灵敏度 谱 . 尚有 5 种 化合物 为 T9171 试验 结果 致 突变 阳性反应 ， 究竟 是否 属于 致 突变 物 ， 还有 待 进一步 验证 . 
+ 　 　 发光 细菌 暗 变种 T9171 对 EM 、 6 - CP 、 ASA 、 T - p - S 、 GL 、 QH 的 致 突变 效应 均 为 阴性 . 其中 QH 对 T9171 的 毒性 较大 ， 当该 物 浓度 为 0.03125   μ g / mL 时 ， T9171 菌 细胞 已受 抑制 ， 发光度 始终 为 零 . 在 6 种 化合物 中 ， 除了 GL 据 资料 报道 属于 致 突变 物 ［ 2 ］ 外 ， 其余 均 未 见 有关 的 报道 . 
+ 　 　 以上 结果表明 ， T9171 试验 对致 突变 物 具有 一定 的 特异性 ， 但是 这种 方法 与 其它 生物 检测 方法 一样 ， 有 它 的 局限性 ， 不能 将致 突变 物 100% 鉴别 出来 ， GL 就是 一例 . 
+ 2.2 　 T9171 与 Ames 试验 检测 化合物 致 突变 效应 相关性 
+ 　 　 利用 发光 细菌 暗 变种 T9171 检测 化合物 致 突变 效应 同时 ， 运用 Ames 试验 进行 了 比较 研究 ， Ames 试验 一般 推荐 4 株菌 ， 据 文献 报道 ， 水中 致 突物 的 敏感 菌 为 TA100 和 TA98 ［ 8 ］ ， 本文 只 选用 Ames 试验 最为 常用 的 TA100 和 TA98 ［ 9 ］ 2 株菌 进行 试验 ， 结果 见表 3 . 通过 两法 的 比较 试验 ， 两者 结果 有 较 好 的 一致性 ， 在 受试 的 36 种 化合物 中 ， 两法 检测 结果 阳性 一致 的 化合物 有 21 种 ， 阳性 一致 率为 58% ， 两法 检测 结果 一致 的 吻合 率达 69% ( 21 种 化合物 为 阳性 ， 4 种 化合物 为 阴性 ) . 试验 还 显示 ， T9171 试验 阳性 检出率 高于 Ames 试验 ， T9171 试验 结果 有 30 种 化合物 显示 阳性 效应 ， 其 阳性 检出率 为 83% ， 而 Ames 试验 结果 有 23 种 化合物 显示 阳性 效应 ， 其 阳性 检出率 为 64% . 从 剂量 上来 分析 ， T9171 试验 也 显示 较 Ames 试验 灵敏 ， 在 阳性 一致 的 检出 物中 ， T9171 试验 结果 有 17 种 化合物 的 最低 检出 剂量 小于 Ames 试验 的 最低 检出 剂量 ， 如 NaN3 、 DES 、 2 - AA 、 Ur 、 20 - NCT 、 DMBT 、 MSE 、 2 - NF 、 1 - AA 、 p - DABS 、 5 - N - 2 - FA 、 NFT 、 2 , 4 - DNP 、 p - NBA 、 4 - AAB 、 AzB 、 DMAB ( 见表 3 ) . 按表 3 中 阳性 一致 的 检出 物 最低 检出 剂量 建立 两法 的 相关 方程 ， 其 方程式 为 ： 
+ CT9171 = 13.2959 + 0.0364 CAmes 
+ 此 方程 显示 ， 对于 致 突变 物 的 最低 检出 剂量 ， 两法 具有 显著 的 相关性 ， 其 相关系数 r = 0.623 ( n = 20 ) ， 经 检验 其 相关 程度 达到 0.01 的 显著 水平 . 这一 结果 充分说明 T9171 试验 与 Ames 试验 检测 遗传 毒物 所 反映 的 遗传 毒性 水平 具有 较 好 的 一致性 . 
+ 2.3 　 T9171 试验 特点 
+ 　 　 T9171 菌株 可 制成 冻干粉 剂供 试验 用 . 此 菌剂 经 真空包装 ， 在 4 ℃ 下 可 存放 较长时间 ， 至少 可 保存 6 个 月 ， 这 就 大大 节省 了 菌种 的 培养 环节 ， 更 方便 于 试验 的 开展 . 
+ 　 　 不 加 代谢 激活 系统 S9 ， 这 也 是 本 试验 的 主要 特点 . 发光 细菌 法 检测 化合物 的 致 突变 效应 
+ 表 3 　 发光 细菌 法 ( T9171 试验 ) 与 Ames 试验 检测 化合物 的 致突 效应 灵敏度 比较 
+ Table   3   Sensitivity   comparison   of   mutagenicity   chemical ′ s   with   Photobacte   ria   assay   and   Ames   test 
+ 
+ 受试物 剂量 , 回 变率 
+ T9171 , μ g / mLAmes , μ g / 皿 T9171 判断 Ames 判断 
+ NaN30.0481 . 003.94 + 3.75 + 
+ EBr2.5002 . 006.79 + 2.36 + b 
+ DES156.25 点试 3.32 + 点试 + 
+ α - NA39.063100 . 004.30 + 1.79 - a 
+ 2 - AA62.500100 . 003.87 + 2.00 + 
+ Ur31.25050 . 002.77 + 3.35 + 
+ 20 - MCT5.00010 . 003.50 + 3.59 + b 
+ B ( a ) P2.5001 . 003.17 + 2.79 + b 
+ 2 - AB37.500300 . 003.63 + 1.31 - a 
+ 2 - NF0.1560 . 503.91 + 11.50 + 
+ p - DABS0.0020 . 105.50 + 2.24 + 
+ 5 - N - 2 - FA1.953250 . 004.35 + 2.24 + 
+ NFT0.0132 . 006.36 + 4.48 + 
+ o - TL19.5315000 . 003.84 + 0.93 - 
+ 4 - AAB3.90620 . 004.76 + 2.06 + b 
+ AzB7.81350 . 003.75 + 2.48 + b 
+ DMAB1.563500 . 003.54 + 2.11 + b 
+ ST1250.000 　 3.39 + 　 - 
+ DMBT1.87530 . 003.14 + 2.20 + b 
+ BCA125.00050 . 003.37 + 3.55 + 
+ MSE390.6005000 . 004.19 + 2.20 + 
+ 1 - AA7.81310 . 003.31 + 7.09 + b 
+ 2 , 4 - DNP3.9065 . 005.65 + 4.50 + 
+ TTC15.6255 . 003.16 + 3.89 + b 
+ p - NBA2.4415000 . 0020.00 + 2.40 + 
+ Em125.000500 . 000.24 - 0.71 - 
+ 6 - CP125.00025000 . 000.11 - 1.05 - 
+ QH0.0161 . 001.80 - 1.25 - 
+ T - p - S625.0002500 . 001.07 - 1.06 - 
+ p - MAB0.7815000 . 003.20 + 1.20 - 
+ DPA1.953250 . 007.45 + 0.68 - 
+ o - EMS0.7811000 . 004.34 + 0.62 - 
+ CC31.2502500 . 003.60 + 0.69 - 
+ 4 - AAP7.8105000 . 003.20 + 1.07 - 
+ ASA500.0000 . 050.85 - 118.35 + 
+ GL2500.000200 . 001.15 - 3.60 + 
+ 
+ 　 　 注 ： a . 根据 国外 资料 报道 Ames 试验 检测 为 阳性 ［ 10 ］ ； b . 经过 添加 代谢 活化剂 后 获得 的 阳性 结果 
+ 　 　 不 加 代谢 激活 系统 的 机理 ， 在 过去 发表 的 文章 中 已有 论述 ［ 6 ］ . 但 这种 方法 也 有人 添加 激活剂 ， 如 Ulitzur 等 ［ 1 ］ 认为 若 添加 S9 ， 则 可 提高 菌株 对 移码 剂 的 敏感性 . Johnson ［ 4 ］ 利用 Mutatox 法在 激活剂 S9 的 作用 下 检测 遗传 毒物 . 也许 添加 激活剂 能 提高 发光 杆菌 的 敏感性 ， 可能 是 这个 原因 ， 本 试验 的 结果 比 Johnson 报道 的 灵敏度 要 低 一些 ， 如 Johnson 报导 2 - AA 和 B ( a ) P 的 高峰 浓度 为 5.010   μ g / 管 ( 相当于 10   μ g / mL ) ， 最低 检出 剂量 为 0.6   μ g / 管 ( 相当于 1.2   μ g / mL ) . 而 T9171 试验 的 2 - AA 和 B ( a ) P 的 高峰 浓度 分别 为 500   μ g / mL 和 10   μ g / mL ， 最低 检出 剂量 分别 为 62.5   μ g / mL 和 2.5   μ g / mL . Johnson 是 24   h 获得 结果 ， 而 T9171 试验 24 - 40   h 内 获得 结果 . 尽管如此 ， T9171 试验 灵敏度 还是 比较 高 . 
+ 　 　 T9171 试验 第三个 特点 是 较 Ames 试验 快速 、 灵敏度 高 、 方法 简便 易 掌握 . 
+ *   国家自然科学基金 ( 39370025 ) 资助 项目 
+ 作者 单位 ： ( 中国科学院 南京 土壤 研究所 ， 南京 　 210008 ) 
+ 参考文献 
+ [ 1 ] 　 Ulitzur   S   et   al . A   new   sensitive   and   simple   bioluminescence   test   f   or   mutagenic   compounds . Mutat   Res   1980 , 74 : 113 - 124 
+ [ 2 ] 　 Richard   A , Wecher   et   al . Bioassay   procedures   for   identifying   genotoxic   agen   ts   using   light   emitting   bacteria   as   indicator   organisms . Serono   Symp   Publ , 1982 , 1 :   109 
+ [ 3 ]   Kwan   K   K   et   al . Mutatox   test : A   new   test   for   monitoring   environmental   genot   oxic   agents . Environ   Pollut , 1990 , 65 : 323 - 332 
+ [ 4 ]   Johnson   B   T . An   evaluation   of   a   genotoxicity   assay   with   liver   S9   for   activat   ion   and   luminescent   bacteria   for   detection . Environ   Toxicol   Chem , 1992 , 11 : 473 - 480   
+ [ 5 ]   Legault   R   et   al . Comparitive   assessment   of   the   SOS   chromotest   kit   and   the   mutatox   test   with   salmonella   plate   incorporation ( Ames   test ) and   fluctiation   test   for   screening   genotoxic   agents . Environ   Toxicol   Water   Qual   Int   J , 1994 , 9 : 45 - 57 
+ [ 6 ] 顾宗 濂 等 . 发光 细菌 对 化合物 的 致突 效应 与 检测 研究 . 环境 科学 学报 ， 1993 ， 13 ( 4 ) ： 435   - 441 
+ [ 7 ]   顾宗 濂 等 . 发光 细菌 暗 变种 对 土地 处理 的 工业 废渣 的 致 突变 效应 . 环境 科学 学报 ， 1994 ， 1   4 ( 3 ) ： 349 - 354 
+ [ 8 ]   俞毓馨 等 . 环境工程 微生物 检验 手册 . 北京 ： 中国 环境 科学出版社 . 1990.272 
+ [ 9 ] 　 王家 玲等 . 环境 微生物学 实验 . 北京 ： 高等教育出版社 . 1988.155 
+ [ 10 ] 　 McCann   J . Detection   of   carcinogens   as   mutagens   in   the   Salmonella / Micr   osome   test : Assay   of   300   chemicals . Proc   Nat   Acad   Sci   USA , 1975 , 72 ( 12 ) : 5135 - 5137 
+ [ 11 ]   山根 靖弘 等 ［ 日 ］ . 环境污染 物质 与 毒性 ( 有机 篇 ) . 成都 ： 四川 科学出版社 . 1985.22 -   24 
+ [ 12 ] 　 Sanoria   C   L . Agricultural   chemicals   and   chemical   mutagens . Printed   by   Tara   Pri   nting   Works . KAMACHA , VARANSI.1993 . 433 - 508 
+ 1997 - 09 - 01 收到 原稿 　 1998 - 03 - 22 收到 修改稿 

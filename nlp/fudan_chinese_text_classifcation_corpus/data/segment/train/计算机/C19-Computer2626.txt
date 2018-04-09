@@ -1,0 +1,111 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 10 卷   第 7 期 　 No.7   Vol.10   1999 
+ 
+ 
+ 
+ 并行 WWW 服务器 集群 请求 分配 算法 的 研究 
+ 邸 　 烁 　 郑纬民 　 王鼎兴 　 沈美明 
+ 　 　 摘要 　 为了 有效 地 提高 WWW 服务器 的 吞吐能力 、 反应速度 和 可扩展性 , 国际 上 许多 繁忙 站点 纷纷 转向 采用 并行 WWW 服务器 集群 来 替代 原有 的 单一 主机 服务器 . 这些 站点 普遍 采用 请求 分配 技术 , 即 集中 接收 所有 到达 的 HTTP 请求 , 然后 “ 均衡 ” 地 分配 到 集群 中 的 各个 服务器进行 处理 . 常用 的 转轮 法 、 最少 连接 法 和 最快 连接 法等 算法 在 分配 请求 时 , 要么 对 集群 中 各个 服务器 的 性能 不加区分 , 要么 不 考虑 请求 的 具体内容 , 在 实际 系统 中 效率 较 低 . 文章 提出 了 一种 适用 于 异构 集群 的 局部 最优 请求 分配 算法 （ least   time   increment , 简称 LTI ） , 综合 考虑 服务器 性能 差异 、 请求 内容 和 服务器 当前 负载 等 因素 , 作为 请求 分配 的 依据 . 文章 还 提出 了 LTI 算法 的 改进版 LTI + , 能够 判别 和 避免 集群 进入 临界状态 . 文章 给出 了 算法 的 理论 分析 和 实验 测试 结果 . 在 同等条件 下 , 此 算法 能够 达到 较 小 的 平均 应答 延迟 和 较大 的 吞吐能力 , 从而 能 更好 地 挖掘 集群 的 并行处理 能力 , 优化 集群 的 整体 性能 . 
+ 　 　 关键词 　 WWW 服务器 集群 , HTTP 协议 , 请求 分配 , 负载 均衡 , 请求 分配 算法 , 临界状态 . 
+ 　 　 中图法 分类号 　 TP393 
+ Research   on   Request   Dispatching   Algorithm   for   Web   Server   Clusters 
+ DI   Shuo   ZHENG   Wei - min   WANG   Ding - xing   SHEN   Mei - ming 
+ ( Department   of   Computer   Science   and   Technology   Tsinghua   University   Beijing   100084 ) 
+ 　 　 Abstract 　 In   order   to   improve   the   throughput ,   response   speed   and   scalability   of   Web   servers   efficiently ,   many   famous   Web   sites   have   thrown   away   single   servers   and   turned   into   Web   server   clusters .   Request -  dispatching   is   a   technology   used   by   these   sites ,   which   centrally   accepts   all   the   coming   requests   and   “ evenly ”   dispatches   them   to   the   servers   in   the   cluster . “ Round - robin ” ,   “ Least - connections ”   and   “ Fastest   Connection ”   algorithms   which   Commonly   used   request - dispatching   show   low   efficiencies ,   because   they   either   do   not   consider   the   difference   in   performance   between   servers   or   do   not   consider   the   contents   of   coming   HTTP   requests .   In   this   paper ,   the   authors   give   a   novel   algorithm   designed   for   heterogeneous   Web   server   clusters ,   called   LTI   ( least   time   increment ) ,   which   considers   not   only   the   deference   in   performance   between   servers ,   but   also   the   contents   of   coming   HTTP   requests   and   the   current   load   level   of   each   server   in   the   cluster .   They   also   give   the   reformed   edition   of   LTI   algorithm ,   namely   LTI + ,   which   can   judge   whether   the   cluster   is   closed   to   the   critical   state   and   prevent   such   trend .   Theoretical   analysis   and   real   system   test   show   that   the   algorithm   achieves   better   response   latency   and   throughput   than   “ Least   connections ”   and   “ Fastest   Connection ”   algorithms .   So   it   makes   the   Web   server   clusters   more   parallel   and   more   scaleable . 
+ 　 　 Key   words 　 Web   server   clusters ,   HTTP   protocol ,   request   dispatching ,   load   balancing ,   request   dispatching    algorithm ,   critical   state . 
+ 　 　 Internet 上 的 许多 热门 WWW 站点 , 随着 访问 人数 和 访问 频度 的 不断 增加 , 开始 面临 WWW 服务器 超载 的 问题 ［ 1 ］ . 为了 增大 吞吐能力 , 提高 反应速度 , 人们 不得不 升级 或 更换 服务器 . 这里 有 两种 选择 , 一种 是 采用 昂贵 的 高性能 主机 或 SMP 计算机 , 另 一种 则 是 把 多台 服务器 用 局域网络 联结 成 一个 集群 , 通过 并行处理 来 扩展 性能 ［ 1 ～ 3 ］ . 比较 这 两种 方案 , 后者 的 成本 较 低 , 并且 具有 较大 的 灵活性 和 较 高 的 可靠性 , 目前 有 许多 著名 的 WWW 站点 已经 转向 此类 计算 平台 . 我们 称 这种 平台 为 并行 WWW 服务器 集群 . 
+ 　 　 请求 分配 ［ 2 , 3 ］ 是 并行 WWW 服务器 集群 中 采用 的 一种 典型 技术 . 其 主要 原理 ， 是 由 一台 特殊 的 计算机 （ 一般 称为 请求 分配器 ） 集中 接收 所有 的 HTTP 请求 , 然后 依据 一定 的 原则 把 它们 分配 到 集群 中 的 各台 服务器 上去 进行 处理 . 分配 的 主要 目的 是 使 各台 服务器 的 负载 分布 比较 均衡 , 从而 获得 较 高 的 整体 吞吐能力 和 较 快 的 反应速度 . 目前 常用 的 请求 分配 算法 主要 有 转轮 法 ［ 2 ］ 、 最少 连接 法 和 最快 连接 法 ［ 3 ］ 3 种 . 第 1 种 算法 实现 简单 , 但 从 本质 上 讲 没有 考虑 负载 均衡 问题 . 第 2 种 算法 对 各个 服务器 的 性能 不加区分 , 而且 不 考虑 请求 的 强度 （ 请求 文件 的 长度 ） . 第 3 种 算法 虽然 考虑 了 服务器 的 性能 , 但 没有 考虑 请求 强度 . 这些 局限性 使 这些 算法 无法 真正 做到 负载 的 “ 均衡 ” 分配 , 因而 无法 较 好 地 发挥 系统 的 并行处理 能力 . 
+ 　 　 为了 有效 地 提高 请求 分配 算法 的 效率 , 并 使 算法 能够 适应 异构 服务器 集群 , 在 设计 并行 WWW 服务器 集群 系统 时 , 应使 请求 分配器 能够 知道 每 一台 服务器 的 处理 能力 , 并且 可 对 集中 接收 的 每 一个 HTTP 请求 的 内容 进行 分析 , 同时 应 能 比较 准确 地 跟踪 各个 服务器 的 负载 情况 . 服务器 的 处理 能力 可以 事先 通过 实测 获得 , 分析 HTTP 请求 只 需 分析 它 的 请求 头 部分 , 而 负载 跟踪 则 可以 通过 在 请求 分配器 上 记录 各 服务器 的 应答 进度 来 实现 . 基于 以上 考虑 , 我们 实现 了 一个 异构 WWW 服务器 集群 , 设计 了 一种 综合 考虑 HTTP 请求 内容 和 各个 服务器 性能 以及 当前 的 负载 情况 的 请求 分配 算法 LTI ( least   time   increment ) , 目标 是 使 各个 请求 的 应答 时间 总和 尽可能 短 . 为此 , 我们 把 应答 总 时间 的 增量 作为 LTI 算法 的 优化 对象 . 为了 避免 服务器 在 连接数 接近 阈值 时 性能 急剧下降 , 我们 还 设计 了 一种 请求 延迟 策略 , 有效 地 解决 了 这个 问题 . 无论是 对 算法 的 理论 分析 , 还是 对系统 的 实际 测试 , LTI 算法 的 表现 都 比 转轮 法 和 最少 连接 法 和 最快 连接 法要 好 . 
+ 　 　 本文 第 1 节 介绍 了 我们 所 提出 的 集群 系统 的 组成 和 工作 原理 . 第 2 节 简要 介绍 了 性能 评价 的 几个 参数 , 然后 分析 了 影响 请求 分配 性能 的 若干 因素 , 给出 一些 定量分析 结果 . 第 3 节 给出 请求 分配 算法 LTI 的 描述 , 并 对 其 进行 分析 和 改进 . 第 4 节 给出 我们 对系统 的 测试 结果 , 并 与 最少 连接 法 和 最快 连接 法 的 结果 进行 比较 . 最后 , 第 5 节 给出 本文 的 结论 , 并 对 我们 未来 要 做 的 工作 作一 介绍 . 
+ 1 　 系统 组成 和 工作 原理 
+ 　 　 目前 常见 的 并行 WWW 服务器 集群 主要 有 两种 组成 方式 , 一种 是 以 Cisco 的 LocalDirector ［ 3 ］ 为 代表 的 隔离 式 , 采用 最少 连接 法 或 最快 连接 法 进行 请求 分配 ; 另 一种 则 是 以 NCSA 的 Scalable   Web   Server ［ 2 ］ 为 代表 的 非 隔离 式 , 采用 转轮 法 进行 请求 分配 . 无论 哪 一种 方式 , 都 要求 各台 服务器 上 所有 Web 信息 的 访问 路径 和 内容 要 完全 一样 （ 这 一点 可以 通过 网络 文件系统 或 专用 的 文件 服务器 来 实现 ） . 二者 的 区别 在于 这些 服务器 是否 直接 连接 在 Internet 上 , 对 用户 可见 . 隔离 式 集群 采用 类似 于 Proxy ［ 4 ］ 的 技术 , 只有 请求 分配器 具有 一个 虚拟 的 IP地址 , 所有 的 请求 都 发向 此 IP地址 , 由 请求 分配器 分配 到 集群 中 的 各台 服务器 上去 处理 , 返回 的 结果 也 经由 请求 分配器 传回 给 用户 ； 非 隔离 式 集群 中 的 每 一台 服务器 都 有 独立 的 IP地址 , 请求 分配 是 通过 动态 DNS ［ 2 ］ , HTTP   Redirect ［ 3 ］ 等 技术 实现 的 , 服务器 对 请求 的 应答 不 通过 请求 分配器 , 而是 由 各台 服务器 直接 传回 给 用户 . 图 1 是 两种 不同 结构 集群 的 组成 示意图 . 
+ 
+ 图 1 　 两种 不同 结构 的 并行 WWW 服务器 集群 的 组成 结构 
+ 　 　 我们 的 集群 系统 采用 的 是 隔离 式 方法 , 集群 由 Fast   Ethernet 联结 两台 Power   PC 和 两台 Sun   Workstation 组成 （ Power   PC 的 性能 是 Sun   Workstation 的 两倍 ） , 其上 运行 UNIX 操作系统 和 NCSA   HTTPD , 请求 分配器 由 一台 运行 Windows   NT 的 PC 充当 . 文件系统 采用 NFS , 请求 分配器 采用 多线程 Proxy 技术 . 
+ 2 　 性能 评价 参数 和 影响 性能 的 因素 
+ 　 　 目前 , 评价 WWW 服务器 的 性能 主要 采用 吞吐 率 和 平均 应答 延迟 两个 参数 ［ 5 ］ . 吞吐 率 RPS 定义 为 平均 每秒 处理 的 请求 个数 , 平均 应答 延迟 MRD 定义 为 从 建立 网络连接 到 应答 结束 拆除 连接 之间 的 时间 的 平均值 . 所 采用 的 测试 集由 若干个 大小不一 的 请求 按照 一定 的 分布 规律 组成 . 所谓 请求 的 大小 ， 是 指 请求 读取 的 文件 的 长度 或 请求 执行 的 Script 程序 在 独占 处理机 时 的 执行 时间 . 
+ 　 　 HTTP 协议 ［ 6 ］ 是 一种 无 状态 协议 , 每个 请求 都 由 客户程序 发起 建立 一个 独立 的 网络连接 , 应答 结束 后 由 服务器 拆除 该 连接 . 请求 由 请求 头 和 请求 体两 部分 组成 , 请求 头 是 一种 具有 行 结构 的 文本 , 请求 体是 一种 称为 MIME 格式 的 复合 文本 . 请求 头 指明 该 请求 的 目的 , 如 , 向 服务器 请求 读取 文件 、 验证 文件 是否 更新 或 执行 服务器 上 的 Scripts 程序 等 . 不同 的 HTTP 请求 对 服务器 产生 的 负载 存在 着 很大 的 差异 . 
+ 　 　 RPS 和 MRD 由 服务器 的 处理 能力 决定 . 对于 WWW 服务器 集群 来说 , MRD 还 和 请求 分配 策略 有 密切 的 联系 . 下面 我们 来 分析 这些 联系 . 
+ 　 　 完成 一个 应答 的 时间 主要 由 以下 3 部分 组成 ［ 7 ］ ： 
+ 　 　 ( 1 )   请求 分配器 与 服务器 建立 网络连接 所 需 的 时间 TC . 这个 时间 一般 可以 忽略 . 
+ 　 　 ( 2 )   读取 并 传输 文件 的 时间 TF . 这 段时间 取决于 文件 读取 和 传输 的 速度 ω . 如果 在 一段时间 内 , 网络连接 数 N 保持 不变 , 则 在 这 段时间 内 , ω 可以 近似 地 认为 与 N 成反比 , 即 ω = τ / N . 这里 , τ 为 只有 一个 连接 时 的 文件 读取 和 传输速度 , 对 一个 特定 的 服务器 , 可以 由 实测 获得 . 我们 称 ω 为 应答 速度 , τ 为 机器 速度 . 
+ 　 　 ( 3 )   在 服务器 上 执行 Scripts 程序 的 时间 TE . 由于 情况 比较复杂 , 这 段时间 很难 事先 估计 . 为了 简化 问题 , 在 下面 的 讨论 中 暂时 不 考虑 TE . 
+ 　 　 这里 有 一点 需要 说明 ： 当 网络连接 数 N 超过 某一 阈值 NMax （ 取决于 服务器 的 性能 , 对 一个 特定 的 服务器 ， 可以 由 实测 获得 ） 时 , TC 会 突然 直线 上升 , 同时 ω 会 突然 急剧下降 ［ 8 ］ , 如图 2 所示 . 我们 称 这种 状态 为 临界状态 , 称 NMax 为此 服务器 的 临界 连接数 . 这种 现象 可以 这样 来 理解 ： 这些 处理 要 消耗 服务器 的 缓冲区 资源 , 当 缓冲区 总数 接近 或 超过 系统 内存 限度 时 , 系统 开始 大量 使用 “ 换存 ” , 如果 此时 仍 不断 有 请求 到来 , 则 势必 产生 一种 恶性循环 , 于是 系统 效率 急剧下降 . 所以 , 为了 保证系统 的 RPS 和 MRD , 应 设法 避免 N 达到 NMax . 
+ 
+ 图 2 　 Tc 和 w 在 N 超过 NMax 时 急剧 变化 
+ 　 　 下面 我们 来 分析 有 一台 服务器时 的 应答 时间 . 
+ 　 　 设在 某一 时刻 该 服务器 共有 N 个 网络连接 在 同时 传输 文件 , 这些 文件 的 剩余 长度 分别 为 L1 , L2 , ... , LN . 此时 , 一个 新 的 HTTP 请求 到达 该 服务器 , 请求 的 文件 长度 为 L . 不妨 设 L1 ≤ ... ≤ LK ≤ L < LK + 1 ≤ ... ≤ LN , 采用 连续 模型 （ 传输 文件 的 时间 与 文件 的 长度 成正比 , 与 机器 速度 成反比 ） 可以 计算 （ 此处 省略 计算方法 ） 由于 L 的 引入 而 产生 的 应答 时间 的 增量 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 这个 结果 是 下文 算法 的 主要 理论依据 . 
+ 3   请求 分配 算法 
+ 　 　 为了 实现 算法 , 我们 在 请求 分配器 上 设置 几个 表 . 第 1 个 称为 FLT , 其中 的 内容 为 服务器 上 WWW 空间 中 所有 文件 的 路径 和 长度 . 第 2 个 称为 TST , 其中 存放 的 是 各个 服务器 的 机器 速度 . 第 3 个 称为 RCT , 存放 各个 服务器 正在 应答 的 请求 个数 . 设 集群 中共 有 M 个 服务器 , 为 每个 服务器 设置 一个 表 CFT ( i ) , 1 ≤ i ≤ M , 用来 存放 此 服务器 当前 正在 应答 的 各个 请求 所 传输 文件 的 长度 和 剩余 长度 . 请求 分配 算法 LTI 采用 多线程 技术 , 算法 主干 部分 由 两个 线程 组成 , 一个 用于 跟踪 各 服务器 的 应答 进度 , 一个 用于 请求 分配 . 
+ 　 　 算法 1 .   请求 分配 算法 LTI . 
+ 　 　 线程 1 ： （ 负载 跟踪 ） 
+ 　 　 　 每隔 一个 固定 的 小 时间段 θ 进行 如下 操作 ： 
+ 　 　 　 ( 1 )   根据 TST 和 RCT 计算 各个 服务器 的 应答 速度 ω . 
+ 　 　 　 ( 2 )   将 所有 CFT ( i ) 中 各个 文件 的 剩余 长度 域 减少 ω * θ , 1 ≤ i ≤ M . 
+ 　 　 　 如果 某 文件 的 剩余 长度 ≤ 0 , 则 删除 相应 CFT ( i ) 的 对应 项 ， 并 更新 RCT 中此 服务器 的 当前 请求 个数 . 
+ 　 　 线程 2 ： （ 请求 分配 ） 
+ 　 　 　 ( 1 )   如果 有 请求 到达 , 从 请求 头中 的 URL 部分 取出 请求 文件 的 路径 , 从 FLT 中查 得 其 请求 文件 的 长度 L . 
+ 　 　 　 ( 2 )   对 每个 服务器 i , 根据 TST ， RCT 和 CFT ( i ) , 采用 式 ( 1 ) 的 方法 计算 将 L 引入 该 服务器 所 引起 的 应答 总 时间 的 增量 Δ i , 1 ≤ i ≤ M . 
+ 　 　 　 ( 3 )   设 Δ K = Min ( Δ i ) , 1 ≤ i ≤ M , 分配 请求 L 到 第 K 个 服务器 , 同时 更新 RCT 中此 服务器 的 当前 请求 个数 , 并 在 CFT ( i ) 中 增加 一项 , 其中 文件 长度 域 和 剩余 长度 域 均 1 为 L . 
+ 　 　 LTI 算法 把 应答 总 时间 的 增量 作为 优化 的 对象 , 关于 它 的 性能 , 我们 有 以下 定理 . 
+ 　 　 定理 .   对于 优化 MRD 来说 , LTI 算法 是 一个 局部 最优 算法 . 
+ 　 　 证明 : 设 一个 测试 集 共有 n 个 请求 , 由式 ( 1 ) 和 MRD 的 定义 , 有 
+ 　 　 　 　 　 　 　 
+ 其中 T ( i ) C 为 各个 请求 的 连接 建立 时间 , 按 上文 讨论 为 固定值 ； Δ ( i ) 为 各个 请求 在 以前 所有 请求 的 基础 上 引起 的 应答 总 时间 的 增量 . 在 LTI 算法 中 , 分配 新 到达 的 每 一个 请求 时 , 都 使 相应 的 Δ ( i ) 取得 了 当前 状态 下 可能 的 最小值 , 所以 , 从 局部 意义 上 讲 , 该 算法 是 最优 的 . 　 　 □ 
+ 　 　 上文 曾 指出 , 当 连接数 N 接近 或 超过 某一 阈值 NMax 时 , 服务器 的 性能 会 急剧下降 . 上述 算法 没有 考虑 这个 问题 , 其 结果 是 在 负载 很 重时 , 应答 时间 将 大大 超过 预计 值 , 于是 算法 的 准确性 就 得不到 保证 了 . 解决 这个 问题 可以 有 几种 方法 . 第 1 种 方法 是 拒绝 新 连接 , 直到 有 服务器 退出 临界状态 . 第 2 种 方法 是 将 新 到达 的 请求 分配 到 另外 一台 服务器 上去 . 第 3 种 方法 是 将 新 到达 的 请求 延迟 , 等到 有 服务器 退出 临界状态 时 再 予以 处理 . 
+ 　 　 上述 第 1 种 方法 因为 用户 很难 接受 , 在 实际 中是 不 可行 的 , 故 我们 不予考虑 . 我们 对 第 2 种 方法 进行 了 实验 研究 , 发现 按照 LTI 算法 选出 的 服务器 达到 连接 阈值 时 , 其他 服务器 也 基本上 都 接近 临界状态 , 因此 , 这种 方法 起 不到 明显 的 效果 . 我们 结合 第 2 和 第 3 种 方法 , 对 LTI 算法 进行 如下 改进 . 
+ 　 　 修改 表 RCT , 其中 除了 存放 各个 服务器 正在 应答 的 请求 个数 N 以外 , 还 存放 它们 的 临界 连接数 . 增加 队列 DRQ , 存放 因 临界状态 而 延迟 的 请求 及其 请求 文件 的 长度 . 一个 服务器 接近 临界状态 是 指 它 的 连接数 N 接近 但 还 未 达到 临界 连接数 NMax , 此时 , 服务器 的 性能 还 没有 急剧下降 . 
+ 　 　 算法 2 .   请求 分配 算法 LTI +. 
+ 　 　 线程 1 ： （ 负载 跟踪 ） 与 LTI 算法 相同 . 
+ 　 　 线程 2 ： （ 请求 分配 ） 
+ 　 　 　 ( 1 )   如果 有 请求 到达 , 从 请求 头 中 取出 请求 文件 的 路径 , 从 FLT 中查 得 其 请求 文件 的 长度 L . 如果 此时 没有 未 接近 临界状态 的 服务器 , 则 将 这个 请求 放入 延迟 队列 DRQ 的 队尾 , 并 填入 其 请求 文件 的 长度 ； 否则 ： 
+ 　 　 　 ( 2 )   对 所有 未 接近 临界状态 的 服务器 i , 根据 TST ， RCT 和 CFT ( i ) , 采用 式 ( 1 ) 的 方法 计算 将 L 引入 该 服务器 引起 的 应答 总 时间 的 增量 Δ i , 1 ≤ i ≤ M . 
+ 　 　 　 ( 3 )   设 Δ K = Min ( Δ i ) , 1 ≤ i ≤ M , 分配 请求 L 到 第 K 个 服务器 , 同时 更新 RCT 中此 服务器 的 当前 请求 个数 , 并 在 CFT ( i ) 中 增加 一项 , 其中 文件 长度 域 和 未传 长度 域 均 为 L . 
+ 　 　 线程 3 ： （ 处理 被 延迟 的 请求 ） 
+ 　 　 　 如果 延迟 队列 DRQ 非空 , 每隔 时间 θ 检查 是否 有 服务器 退出 临界状态 . 如果 有 , 则 进行 如下 操作 ： 
+ 　 　 　 ( 1 )   取出 DRQ 队首 的 请求 , 设其 请求 文件 的 长度 为 L . 
+ 　 　 　 ( 2 )   对 所有 未 接近 临界状态 的 服务器 i , 根据 TST , RCT 和 CFT ( i ) , 采用 式 ( 1 ) 的 方法 计算 将 L 引入 该 服务器 所 引起 的 应答 总 时间 的 增量 Δ i , 1 ≤ i ≤ M . 
+ 　 　 　 ( 3 )   设 Δ K = Min ( Δ i ) , 1 ≤ i ≤ M , 分配 请求 L 到 第 K 个 服务器 , 同时 更新 RCT 中此 服务器 的 当前 请求 个数 , 并 在 CFT ( i ) 中 增加 一项 , 其中 文件 长度 域 和 未传 长度 域 均 为 L ； 
+ 　 　 算法 LTI + 增设 了 一个 线程 处理 被 延迟 的 请求 . 当 服务器 集群 未 接近 临界状态 时 , 该 算法 与 算法 LTI 完全相同 . 当 服务器 集群 接近 临界状态 时 , 该 算法 通过 延迟 新 到达 的 请求 避免 集群 进入 临界状态 . 对于 具有 间隙 性 突发 特性 的 请求 序列 , 该 算法 实际上 是 将 突发 流量 均衡 到 以后 的 时间 中 去 处理 . 
+ 4   实验 结果 的 比较 和 分析 
+ 　 　 本文 第 1 节 介绍 了 我们 实现 的 一个 服务器 集群 . 我们 在 这个 平台 上 对 LTI 和 LTI + 算法 进行 了 实验 研究 , 并 与 最少 连接 法 和 最快 连接 法 进行 了 比较 . 
+ 　 　 依照 文献 ［ 9 ］ 对 请求 强度 分布 的 研究 , 我们 设计 了 一个 由 不同 强度 的 请求 所 组成 的 测试 集 . 请求 强度 的 分布 如表 1 所示 . 
+ 　 　 　 　 表 1 　 请求 强度 的 分布 
+ 
+ 文件大小 ( Bytes ) 5005K50K500K 
+ 所 占 比例 ( % ) 3550141 
+ 
+ 
+ 　 　 测试 用 的 请求 发生器 由 4 台 Power   PC 充当 , 上面 运行 请求 发生 程序 . 每个 请求 发生 程序 可以 模拟 1 ～ 50 个 WWW   Client 进程 , 每个 Client 进程 都 能 按照 表 1 的 比例 不断 发出 HTTP 请求 , 并且 能够 记录 这些 请求 的 应答 时间 . 实验 结果 如图 3 ～ 6 所示 . 图 3 和 图 5 给出 了 LTI 算法 、 最快 连接 算法 和 最少 连接 算法 在 Client 数从 5 开始 逐渐 增大 时 平均 应答 延迟 和 吞吐 率 的 变化 情况 . 图 4 和 图 6 给出 了 LTI + 算法 与 LTI 算法 在 Client 数从 100 变化 到 200 时 平均 应答 延迟 和 吞吐 率 的 变化 情况 .   
+ 
+ 图 3 　 3 种 算法 在 不同 Client 数时 的 MRD 
+ 
+ 图 4 　 LTI 和 LTI + 算法 MRD 的 比较 
+ 
+ 图 5 　 3 种 算法 在 不同 Client 数时 的 RPS 
+ 
+ 图 6 　 LTI 和 LTI + 算法 RPS 的 比较 
+ 　 　 图 3 和 图 5 的 结果 证明 了 如下 事实 ： 与 最少 连接 法 和 最快 连接 法 相比 , LTI 算法 确实 能够 有效 地 减少 平均 应答 延迟 和 增加 吞吐 率 . 当 Client 数较 小时 , 这种 性能 改善 不太 明显 , 当 Client 数 增大 一些 后 , LTI 算法 的 优势 才 逐渐 表现 出来 . 这种 现象 说明 ： 在 集群 的 负载 较轻 的 时候 , 按照 3 种 算法 分配 请求 都 可以 达到 均衡 负载 的 目的 ； 当 各 服务器 都 达到 一定 的 负荷 （ 连接数 达到 一定 数量 ） 后 , LTI 算法 对 集群 负载 的 跟踪 和 分析 则 更为 精确 , 对 负载 的 分配 更为 均衡 . 
+ 　 　 从图 4 和 图 6 可知 , 在 Client 数 进一步 增大 后 , LTI 算法 的 性能 也 开始 大幅度 下降 , 此时 , LTI + 的 优越性 就 逐渐 体现 出来 了 . 这 是因为 ， 随着 负载 的 加重 , 各 服务器 均 纷纷 接近 临界状态 , LTI + 算法 判别 出 了 这种 状态 , 采取措施 有效 地 避免 了 这种 趋势 的 延续 , 而 LTI 算法 没有 这种 能力 . 
+ 5 　 结   论 
+ 　 　 本文 简要 介绍 了 WWW 服务器 集群 的 组成 和 工作 原理 , 给出 了 评价 其 性能 的 两个 参数 ， 并 分析 了 影响 性能 的 因素 , 特别 是 分析 了 应答 总 时间 的 增量 与 请求 强度 以及 服务器 当前 状态 之间 的 关系 . 在 此基础 上 , 我们 提出 了 以 应答 总 时间 的 增量 为 优化 目标 的 请求 分配 算法 LTI , 并 证明 了 该 算法 的 局部 最优性 . 为了 解决 集群 在 接近 临界状态 时 性能 急剧下降 的 问题 , 我们 对 LTI 算法 进行 了 改进 , 得到 算法 LTI + , 该 算法 能够 判别 和 避免 集群 进入 临界状态 . 最后 , 我们 给出 了 一些 实验 结果 , 通过 与 其他 算法 进行 比较 , 证实 了 LTI 和 LTI + 算法 的 有效性 ： 它 能够 更加 精确 地 跟踪 和 分析 集群 系统 的 负载 , 更加 均衡 地 分配 负载 , 从而 达到 较 好 的 性能 . 
+ 　 　 在 本文 的 讨论 过程 中 , 为了 简化 问题 , 暂时 没有 考虑 一些 实际 中 存在 的 因素 , 比如 ， 我们 在 计算 读取 并 传输 文件 时间 时 采用 了 TF 连续 模型 , 没有 考虑 在 服务器 上 执行 Scripts 程序 的 时间 TE 等 . 因而 我们 的 算法 还 具有 一些 局限性 . 目前 我们 正在 对 这些 问题 进行 更加 深入 的 研究 . 此外 , 我们 还 在 全局 文件系统 （ 为 集群 中 各个 服务器 提供 统一 的 文件 访问 路径 ） 的 构造 和 对象 预取 等 方面 寻找 提高 性能 的 途径 . 
+ 　 　 本文 研究 得到 国家 863 高科技 项目 基金 资助 . 作者 邸烁 , 1970 年生 , 博士 , 主要 研究 领域 为 计算机网络 , 并行处理 . 郑纬民 , 1946 年生 , 教授 , 博士生 导师 , 主要 研究 领域 为 并行 机群系统 , 多 机处理 技术 . 王鼎兴 , 1937 年生 , 教授 , 博士生 导师 , 主要 研究 领域 为 并行 / 分布 处理 , 智能 技术 与 系统 . 沈美明 , 1938 年生 , 教授 , 博士生 导师 , 主要 研究 领域 为 并行 / 分布 处理 , 并行 机群系统 . 
+ 　 　 本文 通讯联系 人 : 邸烁 , 北京 100084 , 清华大学 计算机科学 与 技术 系 
+ 　 　 作者 单位 ： 清华大学 计算机科学 与 技术 系 　 北京 　 100084 
+ 　 　 　 　 　 　 　 E - mail ：   dishuo @ 263 . net 
+ 参考文献 
+ 　 1 　 Kwan   Thomas   T ,   McGrath   Robert   E .   NCSA ' s   world   wide   web   server :   design   and   performance .   IEEE   Computer ,   1995 , 28 ( 11 ) : 68 ～ 74 
+ 　 2 　 Katz   Eric   Dean ,   Butler   Michelle ,   McGrath   Robert   E .   A   scalable   HTTP   server :   the   NCSA   prototype .   Computer   Networks   and   ISDN   Systems ,   1994 , ( 27 ) : 155 ～ 164 
+ 　 3 　 Cisco   Inc ..   Scaling   the   World   Wide   Web .   Technical   Report ,   http :   / / www . cisco . com 
+ 　 4 　 Luotonen   A ,   Altis   K .   World   wide   web   proxies .   In :   Proceedings   of   the   1st   International   Conference   on   the   World - Wide   Web .   1994 
+ 　 5 　 Trent   Gene ,   Sake   Mark .   WebSTONE :   the   first   generation   in   HTTP   server   benchmarking .   Whitepaper ,   Silicon   Graphics   Inc . ,   February   1995 
+ 　 6 　 Berners - Lee   T ,   Fielding   R   T ,   Frystyk   H .   Hypertext   transfer   protocol - HTTP / 1.0 .   Informational   RFC   1945 ,   Network   Working   Group ,   May   1996 
+ 　 7 　 Padmanabhan   Venkata   N ,   Mogul   Jeffrey   C .   Improving   HTTP   latency .   Computer   Networks   and   ISDN   Systems ,   1995 , ( 28 ) : 25 ～ 35 
+ 　 8 　 Slothouber   Louis   P .   A   Model   of   Web   Server   Performance .   April   1997 .   http :   / /   louvx . biap . com / webperformance / modelpaper . html 
+ 　 9 　 Carlton   Alexander .   An   Explanation   of   the   SPECweb96   Benchmark .   Whitepaper ,   Standard   Performance   Evaluation   Corporation ,   1996 
+ 1998 - 03 - 20 收到 原稿   
+ 1998 - 08 - 03 收到 修改稿 

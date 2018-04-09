@@ -1,0 +1,83 @@
+自动化 学报 
+ ACTA   AUTOMATICA   SINICA 
+ 1999 年   第 25 卷   第 6 期   Vol.25   No.6   1999 
+ 
+ 
+ 
+ 数控铣 削 过程 有 约束 广义 
+ 预测 控制 解析 算法 1 ) 
+ 李为民 　 黄 　 田 　 D . J . Whitehouse 
+ 摘 　 要 　 通过 分析 性能指标 函数 和 约束条件 的 特点 ， 提出 并 证明 了 两个 关于 有 约束 广义 预测 控制 性质 的 定理 ， 进而 提出 了 一种 解析 算法 ， 并 将 其 成功 地 应用 于 数控铣 削 过程 . 计算机 仿真 和 切削 试验 表明 ， 算法 效率高 且 输出 性能 良好 . 
+ 关键词 　 广义 预测 控制 ， 约束条件 ， 可行 域 ， 解析 算法 . 
+ AN   ANALYTIC   ALGORITHM   FOR   CONSTRAINED   GPC   IN   MILLING   PROCESS 
+ LI   Weimin 　 HUANG   Tian 
+ ( School   of   Mech . Eng . , Tianjin   University , Tianjin 　 300072 ) 
+ D . J . Whitehouse 
+ ( Dept . of   Eng . , University   of   Warwick , Coventry   CV4 　 7AL , UK ) 
+ Abstract 　 Two   physical   universal   laws   about   the   nature   of   constrained   GPC   ( Ge -  neralized   Predictive   Control )   are   proposed   and   proven   through   analyzing   the   characteristics   of   the   cost   function   and   constraints . Then , an   analytic   algorithm   is   sugges -  ted   and   successfully   applied   to   the   constant   force   milling   control . Computer   simulation   and   cutting   test   show   that   the   proposed   scheme   is   computationally   efficient   with   good   performance . 
+ Key   words 　 GPC , constraints , permission   district , analytic   algorithm . 
+ 1 　 引言 
+ 　 　 数控铣 削 过程 恒力 控制 对于 提高 生产率 、 保证 加工 精度 和 可靠性 至关重要 ， 因而 成为 各国 学者 多年 来 潜心研究 的 课题 ［ 1 ～ 3 ］ . 然而 ， 前人 所用 的 参数 整定 方法 仅 依赖于 被控 系统 过去 和 当前 的 动力学 行为 ， 未 考虑 控制 输入 和 系统 输出 前景 的 影响 ， 且 未能 对 控制器 施加 合理 约束条件 . 当 因切 深 或切 宽 突变 而 诱发 铣削 力 突变 时 ， 这 类 控制 方法 通常 会 导致 被控 系统 输出 超调 或 控制 输入 过大 . 
+ 　 　 有 约束 广义 预测 控制 提供 了 克服 上述 缺点 的 一种 途径 . 本文 用 几何 分析法 ， 通过 研究 广义 预测 控制 的 性能指标 函数 、 约束条件 及其 关系 ， 提出 了 一种 解析 算法 ， 并 进行 了 试验 验证 . 
+ 
+ 2 　 问题 简述 
+ 　 　 广义 预测 控制算法 可 参考文献 ［ 4 ］ . 对于 如下 性能指标 函数 
+ 　 　 ( 1 ) 
+ 未来 Nu 个 时刻 的 最优控制 增量 为 
+ 　 　 ( 2 ) 
+ 式 ( 1 ) 可 写成 向量 形式 
+ 　 　 ( 3 ) 
+ 式 中 . 约束条件 的 推导 方法 请 参考文献 ［ 5 ］ ， 其 一般 形式 为 
+ D Δ u ≤ c ， 　 　 ( 4 ) 
+ 式 中   D 为 k × Nu 矩阵 ， c 为 k 维 向量 ， k 值 取决于 约束条件 的 个数 . 由于 目标 函数 ( 3 ) 是 关于 Δ u 的 二次 型 ， 而 约束条件 ( 4 ) 是 线性 的 ， 因而 属于 二次 规划 ( QP ) 问题 . 尽管 有 若干 基于 非线性 搜索 的 方法 可以 求解 QP 问题 ［ 6 ， 7 ］ ， 但 算法 效率 一般 较 低 ， 难以 满足 对 数控铣 削 过程 这类 小 控制 周期 系统 进行 实时控制 的 要求 ( 例如 ， 当 主轴 转速 n = 1200r / min 时 ， 若 每 转发 一次 指令 ， 则 控制 周期 T = 60 / n = 0.05 s ) . 因此 ， 构造 高效 的 QP 算法 则 成为 实现 数控铣 削 过程 有 约束 广义 预测 控制 的 关键 . 
+ 3 　 理论 基础 
+ 　 　 综合 考虑 伺服系统 动 特性 和 加工过程 中 刀具 变形 等 因素 ， 数控铣 削 过程 可 近似 成 一类 二阶 系统 ， 因而 取 Nu = 2 可 保证 闭环 系统 的 稳定性 ［ 8 ］ . 此时 ， 约束条件 ( 4 ) 是 平行 于 J 轴 的 一组 平面 ， 性能指标 函数 ( 3 ) 是 三维空间 曲面 ， 并 存在 如下 定理 . 
+ 　 　 定理 1 . 任一 平行 于 J 轴 的 平面 与 性能指标 函数 曲面 的 交线 为 抛物线 . 
+ 　 　 证明 . 对 任一 平行 于 J 轴 的 平面 Γ ： γ ′ 0 + γ ′ 1 Δ u ( t ) + γ ′ 2 Δ u ( t + 1 ) = 0 ， 当 γ ′ 2 ≠ 0 时 ， 有 
+ 
+ 因此 
+ 
+ 性能指标 函数 ( 3 ) 与 平面 Γ 的 交线 为 
+ 
+ 
+ 显然 ， 上式 是 关于 Δ u ( t ) 的 抛物线 ， 且 由于 Γ T1H Γ 1 ＞ 0 ， 函数 存在 极小值 ， 极小值 点为 
+ 　 　 ( 5 ) 
+ 当 γ ′ 2 = 0 时 
+ 
+ 有 与 γ ′ 2 ≠ 0 类似 的 结果 . 定理 得证 . 
+ 　 　 定理 2 . 若 性能指标 函数 的 无约束 极小 点 在 可行 域 之外 ， 则 有 约束 极小 点必 在 可行 域 边界 上 . 
+ 　 　 证明 . 根据 控制 增量 的 物理 意义 ， 当 y ＜ yr 时 ， 可行 域 必 在 Δ u ( t ) - O - Δ u ( t + 1 ) 的 第一 象限 ， 如图 1 所示 . 图中 pi 表示 第 i 个 约束条件 边界 . 设 平面 Γ 通过 无约束 极小 点 ( 线 ) 且 与 可行 域 相交 ， 则 由于 平面 Γ 与 性能指标 函数 J 的 交线 为 一 抛物线 J Γ ， 在 极小 点任 一侧 J Γ 是 单调 上升 的 ， 故 约束 极小 点 必为 Γ 与 可行 域 边界 的 交点 ( 线 ) . 又 由 Γ 的 任意性 ， 定理 得证 . 
+ 
+ 
+ 图 1 　 y ＜ yr 时 的 可行 域 
+ 4 　 解析 算法 
+ 　 　 首先 用式 ( 2 ) 求 出 无约束 极小 点 ， 然后 判断 是否 满足 约束条件 . 若 满足 ， 即 为 有 约束 最优 解 ； 否则 ， 先求 出 可行 域 边界 ， 再 用式 ( 5 ) 分别 求出 各 边界 上 的 函数 极小 点 和 相应 的 极值 ， 极值 最小 者 即 为 有 约束 控制 增量 最优 解 . 由于 约束条件 平面 组都 平行 于 J 轴 ， 在 平面 上 退化 为 一组 直线 ， 因此 可 通过 直线 求交及 比较 交点 坐标值 获得 可行 域 边界 . 计算机 仿真 表明 ， 此 算法 可 满足 数控铣 削 过程 的 实时性 要求 ( 限于 篇幅 ， 从略 ) . 
+ 
+ 5 　 切削 试验 
+ 　 　 切削 试验设备 为 Cincinatti   H1000 卧式 加工 中心 ， 以 具有 16 - bit 双通道 A / D , D / A 的 高速 数字 信号处理 板 TMS320C50 - A 为 控制器 . 安装 于 主轴 末端 的 光电 编码器 提供 每转  1024 脉冲 ， 作为 控制器 的 外部 时钟 给定 ， 以 保持 采样 周期 与 主轴 转速 同步 ， 并 在 每齿 切削 周期 中 采集 8 个 数据 . 由 KISTLER 测力 仪 拾取 的 切削力 信号 经 电荷 放大 、 滤波 后 输入 控制器 . 控制器 先 将 铣削 力 按 有效值 合成 ， 再 按 前述 算法 计算 控制指令 ， 后经 数控系统 内置 PLC 读入 ， 通过 改写 进 给 倍率 寄存器 实时 改变 进 给 速度 . 
+ 　 　 切削 条件 为 ： 逆 铣 ， 10mm   HSS6 齿 棒 铣刀 ， 45 号 钢 工件 ( 形状 如图 2 所示 ) ， 主轴 转速 900r / min ， 初始 进 给 速度 100mm / min ， 铣削 力 设定值 500N . 约束条件 为 ： 进 给 速度 上限 700mm / min ， 最大 进 给 速度 增量 20mm / min ， 铣削 力 大于 设定值 时间 小于 2T ， 超调 约束 . 控制 效果 如图 3 所示 . 图中 u 为进 给 速度 ( mm / min ) , y 为 铣削 力 ( N ) . 由图 可见 ， 当 铣削 力因 轴向 切深 变化 而 大于 设定值 时 ， 控制算法 迅速 使 铣削 力 调整 到 设定值 ， 并 成功 地 抑制 了 超调 . 
+ 
+ 
+ 图 2 　 工件 形状 
+ 
+ 
+ 图 3 　 试验 结果 
+ 6 　 结束语 
+ 　 　 1 ) 提高 算法 效率 是 将 有 约束 广义 预测 控制 用于 数控铣 削 过程 的 关键 . 
+ 　 　 2 ) 本文 提出 的 解析 算法 可 满足 数控铣 削 过程 的 实时性 要求 ， 且 具有 优异 的 输出 性能 . 
+ 　 　 3 ) 此 算法 为 Nu ≤ 2 的 小 控制 周期 系统 的 有 约束 广义 预测 控制 提供 了 有效 手段 ， 具有 工程 应用 价值 . 
+ 1 ) 天津市 自然科学 基金 资助 项目 . 
+ 作者简介 ： 李为民 　 1964 年生 ， 天津大学 博士 研究生 ， 现任 河北 工业 大学 讲师 . 主要 从事 数控机床 、 自 适应控制 和 模糊控制 应用 研究 . 
+ 　 　 　 　 　 黄 　 田 　 1953 年生 ， 博士 ， 现任 天津大学 教授 、 博士生 导师 . 主要 从事 机械制造 、 机械 动力学 、 振动 主动 控制 和 自 适应控制 应用 研究 . 
+ 作者 单位 ： 李为民 　 黄 　 田 　 天津大学 机械 工程学院 　 天津 　 300072 
+ 　 　 　 　 　 D . J . Whitehouse 　 Dept . of   Eng . , University   of   Warwick , Coventry   CV4 　 7AL , UK 
+ 参考文献 
+ 1 　 Lauderbaugh   L   K , Ulsoy   A   G . Model   reference   adaptive   control   in   milling . ASME   J . Eng . Ind . , 1989 , 111 ( 1 ) : 13 ～ 21 
+ 2 　 Altintas   Y . Direct   adaptive   control   of   end   milling   process . Int . J . Mach . Tools   Manufact . , 1994 , 34 ( 4 ) : 461 ～ 474 
+ 3 　 Hsu   P   L . Hsieh   M   Y . Application   of   self - tuning   control   on   industrial   CNC   machines . Int . J . Mach . Tools   Manufact . , 1994 , 34 ( 6 ) : 859 ～ 877 
+ 4 　 Clarke   D   W , Mohtadi   C , Tuffs   P   S . Generalized   predictive   control — — Part   Ⅰ   and   Part   Ⅱ . Automatica , 1987 , 23 ( 2 ) : 137 ～ 160 
+ 5 　 Tsang   T   T   C , Clark   D   W . Generalized   predictive   control   with   input   constraints . In : Proc . IEE , 1988 , 135D , Pt . D , 451 ～ 460 
+ 6 　 Fletcher   R . Practical   Methods   of   Optimization . London : John   Wiley   &   Sons , 1990 
+ 7 　 沈守范 ， 张 纪元 . 正交 计算 设计 优化 算法 . 华中 理工学院 学报 ， 1986 ， 23 ( 2 ) ： 15 ～ 19 
+ 8 　 Astrom   K   J , Wittenmark   B . Adaptive   Control , New   York : Addison   Wesley , 1989 
+ 收稿 日期 　 1997 - 08 - 15 　 　 收 修改稿 日期 　 1998 - 04 - 14 

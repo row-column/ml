@@ -1,0 +1,59 @@
+自动化 学报 
+ ACTA   AUTOMATICA   SINICA 
+ 1999 年   第 25 卷   第 6 期   Vol.25   No.6   1999 
+ 
+ 
+ 
+ 滞后 关联 分布 参数 系统 的 分散 变 结构 控制 1 ) 
+ 谢振东 　 谢 胜利 　 刘永清 
+ 摘 　 要 　 针对 滞后 分布 参数 关联 大 系统 的 变 结构 控制 进行 了 讨论 ， 采用 M - 矩阵 理论 ， Lp - 估计 及 Liapunov 方法 ， 给出 了 完全 分散 的 滑动 流形 和 变 结构 控制器 的 设计方案 . 此外 ， 还 给出 了 系统 轨线 达到 滑动 流形 的 时间 估计 . 
+ 关键词 　 分布 参数 系统 ， 滞后 ， 完全 分散 ， 变 结构 控制 . 
+ DESIGN   OF   DECENTRALIZED   VARIABLE   STRUCTURE 
+ CONTROLLER   OF   LARGE - SCALE   DISTRIBUTED 
+ PARAMETER   SYSTEM   WITH   DELAY 
+ XIE   Zhendong 　 XIE   Shengli 　 LIU   Yongqing 
+ ( College   of   Electronic   &   Information   Engineering , South   China   Uni   versity   of   Technology , Guangzhou 　 510640 ) 
+ Abstract 　 In   this   paper , the   desige   problem   of   decentralized   v   ariable   structure   controller   of   large - scale   distributed   parameter   system   with   t   ime - delay   is   studied . The   method   design   for   completely   decentralized   variable   s   tructure   controller   and   sliding   manifold   are   obtained   using   M 　 - ma   trix   theory   and   Lp - estimation . The   asymptotically   stability   in   Sobolve   space   W1 .   2 ( Ω )   of   the   sliding   mode   motion   equation   are   also   studied   and   e   stimation   of   ti   me   T   for   system ' s   solution   arrived   on   sliding   manifold   is   given   by   Lyapuno   v   method . 
+ Key   words 　 Variable   structure   control , sliding   manifold , time   dela   y , distributed   parameter   system ,   decentralized   control . 
+ 1 　 引言 
+ 　 　 自从 Lefebver ［ 1 ］ 等 把 变 结构 控制 引入 到 大 系统 中 之后 ， Richter ［ 2 ， 3 ］ ， Matthew ［ 4 ］ ， Vtkin ［ 5 ］ Fchs ［ 6 ］ 等 先后 给出 了 一些 相应 的 研究 方法 . 文 ［ 7 ］ 已 指出 这些 方法 都 存在 着 各自 的 局限性 ， 并 给出 了 一种 分散 的 变 结构 控制 方法 . 但 遗憾 的 是 ， 这种 方法 只是 利用 了 变 结构 控制器 对系统 实现 了 反馈 镇定 ， 由于 切换 流形 并 不 存在 ， 所以 系统 并 没有 实现 滑动 模 运动 . 从而 大 系统 的 分散 变 结构 控制 仍 有待 进一步 研究 . 
+ 　 　 考虑 如下 滞后 分布 参数 关联系统 
+ 
+ 　 　 ( 1 ) 
+ 上式 中 qi ∈ Rni , ui ∈ Rmi ; Di , Ai , Bi , Aij , Eij 是 常数 矩阵 ； 且 ( Ai , Bi ) 完全 可 控制 ； ; ; Ω 是 Rl 中 的 一个 有界 开集 ， 其 边界 δ Ω 是 光滑 的 ； 是 Ω 上 的 Laplace 算子 ， R + = ［ 0 , + ∞ ］ ； 时滞 τ 是 一个 正数 . 
+ 　 　 对 方程 ( 1 ) ， 考虑 相应 的 边界条件 
+ 　 　 ( 2 ) 
+ 其中 是 δ Ω 上 的 外法 方向 导数 . 
+ 　 　 针对 方程 ( 1 ) ， 采用 M - 矩阵 理论 ， Lp - 估计 及 Liapunov 方法 ， 进行 分散 变 结构 控制器 设计 . 
+ 2 　 切换 流形 的 设计 
+ 　 　 由于 ( Ai , Bi ) 可 控制 ， 则 对 每个 i ， 存在 矩阵 Ki ， 使得 Ai + BiKi 可以 任意 极点 配置 ， 从而 
+ 　 　 ( 3 ) 
+ 这里 C - 表示 左复 半 平面 . 现 设计 切换 函数 s = ( sT1 , sT2 , … , sTN ) T ， 
+ 其中 
+   　 　 ( 4 ) 
+ 而 Hi 和 Ci 如下 选取 
+ 　 　 ( 5 ) 
+ 其中 C + 表示 右半 平面 ， 而 
+ 　 　 在 每个 子 流形 si = 0 上 使用 等价 控制 方法 可 得 如下 等价 控制 
+ 　 　 ( 6 ) 
+ 将式 ( 6 ) 代入 式 ( 1 ) 得 滑动模型 运动 方程 
+ 　 　 ( 7 ) 
+ 其中 
+ 　 　 下面 将 讨论 它 的 运动 性能 . 由式 ( 7 ) 可 得 
+ 
+ 　 　 ( 8 ) 
+ 对 上式 关于 在 Ω 上 积分 可 得 
+ 
+ 
+ 　 　 ( 9 ) 
+ 由于 ， 则 
+ 　 　 ( 10 ) 
+ 由 边界条件 ( 2 ) ， 式 ( 9 ) 可 化为 
+ 
+ 　 　 ( 11 ) 
+ 其中 
+ 　 　 ( 12 ) 
+ 记 ， 由式 ( 11 ) 有 
+ 
+ 　 　 ( 13 ) 
+ 由于 Ki 使得 i 可以 任意 配置 极点 ， 则 mi ＞ 0 ， 且 矩阵 M 的 谱 半径 

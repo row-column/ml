@@ -1,0 +1,171 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 5 期   Vol.36   No.5   1999 
+ 
+ 
+ 
+ 复杂 行为 的 语言 支持 
+ 王勇军 　 王意洁 　 李思昆 　 胡守仁 
+ 摘 　 要 　 文中 面向 复杂 行为 的 虚拟环境 应用 需求 ， 在 分析 比较 当前 几种 有 代表性 的 建模语言 的 基础 上 ， 提出 一个 支持 复杂 行为 的 语言 模型 ， 该 模型 可以 灵活 定义 行为 之间 的 控制关系 及其 时间 约束 ， 并 给出 了 面向 复杂 行为 的 虚拟环境 计算 算法 . 在 自行 研制 的 虚拟环境 软件开发 平台 YHVRP 上 的 建模语言 YHVML 实现 了 该 语言 模型 ， YHVML 语言 的 运行 环境 实现 了 面向 复杂 行为 的 虚拟环境 计算 算法 ， 文中 主要 介绍 了 利用 最小 松弛 度 优先 （ LLF ） 策略 对 实体 行为 进行 动态 调度 的 思想 ， 以 保障 面向 复杂 行为 的 虚拟环境 应用 的 实时 交互性 和 真实感 . 最后 ， 文中 给出 了 一个 实例 验证 了 相关 模型 和 算法 的 有效性 . 
+ 关键词 　 虚拟环境 ， 行为 建模   ， 最小 松弛 度 优先 ， 真实感 
+ 中图法 分类号 　 TP311 
+ LANGUAGE   SUPPORT   OF   COMPLEX   BEHAVIOR 
+ WANG   Yong - Jun ,   WANG   Yi - Jie ,   Li   Si - Kun ,   and   HU   Shou - Ren 
+ ( Department   of   Computer   Science , National   University   of   Defence   Technology ,   Changsha 　 410073 ） 
+ Abstract 　 For   the   requirement   of   the   VR   application   with   complex   behaviors   and   based   on   the   analysis   and   comparison   of   some   modeling   languages ,   a   language   model   of   complex   behavior   is   proposed ,   which   can   represent   the   control   relations   of   behaviors   and   their   time   constraints .   And   an   algorithm   of   virtual   environment   computing   for   complex   behaviors   is   also   proposed .   YHVML ,   the   modeling   language   of   distributed   VR   software   development   platform   YHVRP ,   implements   the   model ,   whose   run - time   environment   implements   the   computing   algorithm   for   complex   behaviors   . The   least - laxity - first   ( LLF )   strategy   is   adopted   to   schedule   behaviors   dynamically   to   ensure   the   real - time   interactivity   and   fidelity   of   VR   application .   Finally ,   an   instance   shows   the   efficiency   of   the   related   model   and   algorithm . 
+ Key   words 　 virtual   environment ,   behavior   modeling ,   least - laxity - first ,   fidelity 
+ 1 　 引 　 　 言 
+ 　 　 行为 建模 是 虚拟环境 中 的 重要 组成部分 ， 随着 虚拟现实 技术 的 不断 发展 ， 为了 将 现实 世界 丰富多采 的 真实 特性 在 虚拟环境 中 表现 出来 ， 有 必要 把 各种 复杂 的 行为 嵌入 虚拟环境 ， 行为 建模 及其 计算 在 虚拟环境 计算 的 比例 将 呈上升 趋势 . 因此 ， 从 这个 角度 来看 ， 加强 对 虚拟环境 建模语言 的 行为 建模 能力 也 是 非常 有 意义 的 . 
+ 　 　 从 90 年代 开始 ， 人们 开始 研究 所谓 的 通用 行为 模型 ， 这些 行为 模型 不 面向 某些 特定 的 应用领域 ， 但 它 通过 抽象 行为 的 概念 ， 提供 对 行为 的 基本 描述 ， 因此 可以 描述 不同 的 行为 模型 . 实际上 ， 传统 的 有限 状态机 模型 是 最 通用 的 行为 模型 ， 我们 最为 熟悉 的 事件驱动 的 回调 例程 可以 看作 是 最 简单 的 行为 模型 . 但是 ， 行为 模型 越 通用 ， 对 虚拟环境 中 实体 建模 能力 的 支持 就 更 低效 . 因此 ， 人们 提取 更 高层 的 行为 抽象 ， 在 行为 动画 领域 ， 人们 研究 的 行为 具有 一定 的 通用性 . 这方面 的 典型 代表 是 Sun 的 基于 关系 的 行为 模型 ［ 1 ］ . 
+ 　 　 行为 模型 只是 对 行为 表示 的 抽象 ， 人们 要 想 研究 行为 模型 产生 的 效果 ， 通常 采用 系统 实现 的 方法 . 专用 行为 模型 通常 由 研究者 采用 专用 的 实现 方法 ， 而 当前 的 虚拟现实 软件开发 平台 中 ， 往往 提供 建模语言 来 支持 对 虚拟 实体 的 行为 建模 ， 这些 建模语言 都 是 某种 通用 行为 模型 的 实现 . 
+ 　 　 虚拟现实 软件开发 平台 对 行为 建模 的 语言 支持 包括 两 方面 ： 一是 语言 的 表示 和 描述 能力 ， 另一方面 是 语言 实现 的 运行 环境 支持 . 语言 的 表示 和 描述 能力 包括 能 较 灵活 方便 地 定义 复杂 行为 及其 之间 的 执行 关系 和 行为 执行 的 时间 约束 ； 而 运行 环境 的 支持 是 指 对 程序调试 和 运行 性能 保障 的 支持 . 对于 虚拟 实体 而言 ， 人们 通常 要求 能 对 其 进行 动态 修改 和 快速 原型 开发 ； 而 虚拟现实 系统对 性能 的 特殊 需求 是 实时 交互性 和 真实感 的 结合 . 这 在 语言 设计 和 实现 时 都 需要 考虑 到 . 
+ 　 　 我们 选取 MR ［ 2 ］ ， DIVE ［ 3 ］ ， dVS ［ 4 ］ ， AVIARY ［ 5 ］ 和 SPLINE ［ 6 ］ 等 几个 较 著名 的 面向 人机交互 、 CSCW 的 分布式 虚拟现实 软件开发 平台 为例 ， 来 比较 它们 的 行为 建模语言 . 如表 1 所示 . 
+ 表 　 1 
+ 
+ 项目 MRDIVEdVSAVIARYSPLINE 
+ 支持 的 行为 模型 基于 关系 行为 模型 有限 状态机 事件驱动 的 回调 事件驱动 的 回调 事件驱动 的 回调 
+ 使用 语言 OMLtclCECLJava 
+ 实现 方式 解释 解释 编译 解释 解释 
+ 复杂 行为 描述 能力 较弱 较弱 弱弱 弱 
+ 
+ 
+ 　 　 从 所 支持 的 行为 模型 而言 ， 有限 状态机 和 事件驱动 的 回调 比 基于 关系 的 行为 模型 要 低级 ， 因此 所 对应 的 建模语言 在 提供 行为 建模 的 描述 能力 要 低 ， 但 所有 的 系统对 复杂 行为 的 建模 都 很 弱 . 也 不 支持 对 行为 执行 时间 约束 的 描述 . 从 语言 实现 方式 的 角度 ， 解释 型 语言 要 比 编译 型 语言 有 更 大 的 灵活性 、 它 可以 使 用户 对 虚拟环境 进行 动态 修改 ， 支持 快速 原型 开发 ， 同时 还 具有 较 好 的 平台 独立性 . 
+ 　 　 另外 ， 所有 的 系统 在 对 建模语言 运行 环境 的 支持 方面 都 没有 提供 较 多 的 功能 . 主要 原因 是 建模语言 只 被 用来 建立 非常简单 的 行为 . 在 提高 系统 运行 性能 方面 ， 大多数 系统 仅 提供 基本 的 函数 （ 如 MR 提供 的 时间 管理 函数 、 AVIARY 和 DIVE 提供 的 虚拟 实体 迁移 机制 等 ） ， 其它 的 优化 工作 都 交给 用户 去 做 ， 这 造成 了 应用 开发 的 低效 .   
+ 2 　 复杂 行为 建模语言 YHVML 
+ 2.1 　 复杂 行为 的 语言 模型 
+ 　 　 从 面向对象 的 观点 来看 ， 虚拟环境 是 由 若干 虚拟 实体 组成 . 虚拟 实体 则 由 若干 行为 和 局部 属性 组成 ， 我们 从 语言 模型 的 角度 对 复杂 行为 进行 形式 上 的 定义 . 
+ 　 　 定义 1 .   虚拟环境 .   虚拟环境 VE 由 N 个 虚拟 实体 组成 ， 可记 为 ： 
+ VE = { Entityi ｜ i = 1 , … , N } . 
+ 　 　 定义 2 .   虚拟 实体 .   虚拟 实体 Entity 可以 记 为 三元组 ： 
+ Entity ∷ = 〈 EntityName ,   AttribSet ,   BehSet 〉 
+ 其中 ， EntityName 是 Entity 名 ； 
+ AttribSet 是 Entity 的 属性 集合 ； 
+ BehSet 是 Entity 的 复杂 行为 集合 . 
+ 　 　 定义 3 .   属性 .   属性 Attribute 是 实体 属性 集合 的 成员 ， 可以 记 为 三元组 ： 
+ Attribute ∷ = 〈 EntityName ,   AttrName ,   AttrType 〉 , 
+ 其中 ， EntityName 是 Attribute 所属 的 实体 名字 ； 
+ AttrName 是 Attribute 名字 ； 
+ AttrType 是 Attribute 的 类型 . 
+ 　 　 定义 4 .   复杂 行为 .   复杂 行为 Beh 是 当 某 触发 条件 满足 时所 激活 的 处理程序 ， 可以 记 为 六元 组 ： 
+ Beh ∷ = 〈 EntityName ,   BehName ,   BehType ,   TrigCond , BehBody ,   ConstraintTime 〉 , 
+ 其中 ， Entity 是 Beh 所属 的 实体 名字 ； 
+ BehName 是 Beh 的 名字 ； 
+ BehType 指明 Beh 是否 可 被 其它 实体 调用 ， 即 BehType ∈ ( External ,   Internal ) ； 
+ TrigCond 是 Beh 的 触发 条件 ； 
+ BehBody 是 Beh 的 行为 体 ； 
+ ConstraintTime 是 显式 声明 的 时间 约束 . 
+ 　 　 为了 方便 起 见 ， 在下文 中 ， 如果 不是 特别 需要 ， 我们 仍 将 复杂 行为 称为 行为 . 
+ 　 　 从 行为 的 性质 来看 ， 实体 的 行为 可以 分为 两类 ： 一类 是 一般 行为 （ GeneralBeh ） ， 所谓 一般 行为 是 对 实体 属性 进行 具体操作 的 行为 . 另一类 行为 是 冲突消解 行为 （ ResolutionBeh ） ， 行为 冲突 通常 指因 以 实体 属性 为 单位 的 冲突 而 引起 的 实体 内 多个 行为 不 协调 ， 或 因以 实体 为 单位 的 冲突 而 引起 的 实体 间 多个 行为 的 不 协调 . 而 冲突消解 行为 相当于 多个 行为 冲突 时 的 仲裁 处理程序 ， 它 也 是 描述 实体 间 交互 的 基本 支持 . 用户 可显式 提供 消解 冲突 行为 的 方法 ， 主要 包括 对 行为 状态 进行 直接 设置 或 调整 其 运行 次序 或 结构 . 冲突消解 行为 是 高于 一般 行为 之上 的 高级 行为 . 这 二者 靠 行为 的 触发 条件 来 区分 . 
+ 　 　 定义 5 .   触发 条件 .   触发 条件 TrigCond 包括 一般 事件 （ GeneralEvent ） 和 行为 冲突 事件 （ BehCollEvent ） ， 可记 为 ： 
+ TrigCond   ∷ = GeneralEvent | BehCollEvent 
+ 　 　 定义 6 .   一般 事件 .   一般 事件 GeneralEvent 是 一般 行为 的 触发 条件 ， 包括 系统 定义 事件 （ SystemDefined   Event ） 、 自定义 事件 （ UserDefiend   Event ） . 所谓 系统 定义 事件 包括 时钟 事件 （ Clock   Event ） 、 外设 产生 的 消息 事件 （ I / O   Event ） 、 碰撞 事件 （ Collision   Event ） 和 行为 调用 事件 （ BehCall   Event ） 等 . 而 自定义 事件 主要 指 用户 定义 的 条件 设置 程序 （ CondSetProc ） 即 一个 条件 判断 语句 的 值 为 真时 产生 的 事件 . 
+ 　 　 定义 7 .   行为 冲突 事件 .   行为 冲突 事件 BehCollEvent 是 冲突消解 行为 的 触发 条件 ， 可用 一个 行为 集合 来 表示 ， 若 集合 中 行为 都 处于 活跃 状态 ， 则 冲突 事件 发生 . 集合 中 的 行为 可是 同一个 实体 的 行为 ， 也 可以 是 不同 实体 的 行为 . 
+ 　 　 定义 8 .   行为 体 .   行为 体 BehBody 体现 了 图 3 、 图 4 中 的 行为 执行 体 层次 表示 结构 ， 可以 记 为 四元组 ： 
+ BehBody   ∷ = 〈 InputAttrSet , OutputAttrSet ,   ParameterSet , ProcessingProc 〉 
+ 其中 ， 处理过程 ProcessingProc 是 行为 计算 程序 ； 
+ 输入 属性 集合 InputAttrSet 是 行为 计算所 需 的 实体 属性 ； 
+ 输出 属性 集合 InputAttrSet 是 行为 计算 进行 修改 的 实体 （ 包括 其它 实体 ） 属性 ; 
+ 参数 集合 ParameterSet 是 行为 计算所 需 的 参数 . 
+ 　 　 定义 9 .   行为 计算 程序 .   行为 计算 程序 是 用类 C语言 编写 的 处理过程 ， 除了 通常 的 类 C 语法 外 ， 还有 对 行为 状态 的 设置 函数 （ SetBehState ( ) ） ， 以及 并行 行为 调用函数 （ PBehCall ( ) ） 、 设置 锁 函数 等 . 
+ 　 　 定义 10 .   并行 行为 调用函数 .   并行 行为 调用函数 用于 对 一个 或 一系列 行为 的 调用 ， 当对 一系列 行为 进行 调用 时 ， 指 同时 激活 这些 行为 . 只有 当 这些 行为 都 执行 完后 ， 当前 行为 才 继续执行 . 该 函数 的 调用 形式 为 ： PBehCall ( BehSet ) ， 其中 ， BehSet 是 一系列 行为 的 集合 . 
+ 　 　 并行 行为 调用函数 的 引入 增强 了 对 行为 之间 控制关系 的 描述 能力 . 
+ 　 　 从 行为 体 的 语法 描述 上 ， 复杂 行为 可 分为 两类 ， 一种 是 原子 行为 （ AtomBeh ） ， 即 不 调用 其它 行为 的 行为 ， 对应 于 层次 表示 结构 中 的 简单 行为 执行 体 . 一种 是 复合 行为 （ CombinedBeh ） ， 即 是 调用 了 其它 行为 的 行为 ， 对应 于 层次 表示 结构 中 的 复合 行为 执行 体 . 我们 称 被 调用 的 行为 为子 行为 （ SubBeh ） ， 调用 子 行为 的 行为 称为 父 行为 （ CallerBeh ） . 复杂 行为 对 行为 间 控制关系 及时 序 关系 的 描述 能力 很强 ， 对 用户 而言 ， 还 有利于 行为 代码 的 共享 . 
+ 　 　 定义 11 .   调用 子 行为 集合 .   复杂 行为 Beh 调用 的 子 行为 集合 记为 SubBehSet ( Beh ) ， 该 集合 包括 行为 Beh 自身 . 
+ 　 　 根据 所 操作 属性 的 功能 ， 一般 行为 又 可 划分 为 3 种 行为 ： ① 表现 属性 行为 （ PresentationBeh ） ， 即仅 对 实体 表现 属性 进行 操作 的 行为 ， 如 动画 行为 就是 一种 表现 属性 行为 ； 所谓 表现 属性 是 指 与 视觉 、 听觉 等 感觉 通道 效果 输出 的 有关 物理 属性 ， 如 三维 几何 、 速度 、 位置 等 ； ② 非 表现 属性 行为 （ NonPresentationBeh ） ， 即仅 对 实体 非 表现 属性 进行 操作 的 行为 ， 如 涉及 到 智能 属性 的 行为 ； ③ 既 对 实体 表现 属性 进行 操作 ， 又 对 实体 非 表现 属性 进行 操作 ， 我们 称之为 混合 属性 行为 （ SynBeh ） . 
+ 　 　 定义 12 .   行为 时间 约束 .   行为 时间 约束 ConstraintTime 给出 了 虚拟环境 中 实体 行为 执行 的 相关 时间 参数 ， 它 可以 记 为 二元 组 ： 
+ ConstraintTime ∷ ＝ 〈 BeginTime , DeadLine 〉 
+ 其中 ， 起始 时间 点 BeginTime 指 行为 被 激活 的 时间 点 ； 死限 时间 DeadLine 指 行为 计算 结束 的 时间 点 （ 以 ms 为 单位 ） . 
+ 2.2 　 YHVML 
+ 　 　 我们 基于 OML 进行 改造 的 YHVML 是 一个 平台 独立 的 、 灵活 的 建模语言 ， 它 支持 面向 复杂 行为 的 语言 模型 . 同时 ， 它 还 被 嵌入 到 虚拟环境 软件开发 平台 YHVRP 中 ， 支持 复杂 虚拟环境 的 构造 . YHVML 语言 采用 了 解释 的 实现 方法 , 作为 YHVRP 的 主要 组成部分 , YHVML 运行 环境 实现 了 面向 复杂 行为 的 虚拟环境 计算 模型 ， 并 能 有效 支持 虚拟环境 的 运行 性能 . 
+ 2.3 　 基于 复杂 行为 的 虚拟环境 计算 模型 
+ 　 　 通过 建立 行为 的 语言 模型 ， 我们 可以 将 虚拟环境 的 计算 看作 由 虚拟环境 中 的 虚拟 实体 的 行为 计算 组成 . 首先 ， 虚拟环境 必然 存在 着 两种 特殊 的 虚拟 实体 ： 用户 实体 （ UserEntity ） 和 图形 渲染 实体 （ RenderEntity ） . 它们 具有 特定 的 行为 . 用户 实体 IO 行为 对外部 输入 感兴趣 ， 以 获得 用户 与 虚拟环境 的 交互 信息 . 而 图形 渲染 实体 的 绘制 行为 则 是 根据 用户 当前 视点 将 虚拟环境 中 实体 行为 的 表现 属性 和 虚拟 场景 通过 三维 图形 显示 的 方式 表现 出来 . 
+ 　 　 考虑 单 处理机 的 情况 ， 虚拟环境 的 计算 可以 看作 是 由 一个个 仿真 步 组成 的 ， 每个 仿真 步 一般 又 可以 看作 由 3 段 操作 组成 ： 第 1 段 ， 用户 实体 进行 IO 行为 计算 ； 第 2 段 ， 计算 当前 步 处于 活跃 状态 的 除 特殊 实体 外 的 一般 实体 行为 ， 修改 相应 实体 属性 和 公共 属性 ； 第 3 段 ， 图形 渲染 实体 进行 绘制 行为 计算 . 在 具有 复杂 行为 的 虚拟环境 中 ， 实体 的 行为 计算 将 成为 重点 ， 因此 ， 第 2 段 的 算法 将 变得复杂 得 多 . 由于 一般 行为 之间 存在 的 相互 调用 关系 ， 使得 复杂 行为 不 可能 在 一个 仿真 步内 完成 ， 而是 要 在 一系列 被 调用 的 行为 并行 或 串行 的 执行 完成 之后 ， 即要 在 若干 仿真 步 才能 真正 完成 . 我们 将 重点 分析 第 2 段 的 一般 行为 计算 的 执行 算法 . 
+ 　 　 对于 每个 虚拟 实体 Ent ， 都 维护 一个 活跃 行为 表 ActiveBehTab ( Ent ) ; 一般 行为 的 执行 算法 如下 ： 
+ 　 　 算法 1 .   当 Exec ( BehBody ( Beh ) ) 时 ， 每个 Beh 都 维护 一个 执行 结构 ： ( CallerBeh , ProgramPointer , State ) ; 其中 ， CallerBeh 是 调用 该 行为 的 父 行为 ， ProgramPointer 是 程序执行 的 指针 ， State 是 行为 的 状态 . YHVML 中 的 行为 状态 有 活跃 、 挂 起 和 中止 3 种 . 
+ 　 　 Exec ( BehBody ( Beh ) ) 
+ 　 　 Begin 
+ 从 ProgramPointer 处 开始 执行 ， 直到 BehBody ( Beh ) 结束 或 遇到 PBehCall 语句 . 
+ IF   BehBody ( Beh ) 执行 结束 
+ THEN   将 Beh 的 状态 置 为 中止 ， 将 CallerBeh 的 状态 置 为 活跃 ， 将 其 放入 活跃 行为 表 . 
+ IF   遇到 PBehCall 语句 
+ THEN   将 ProgramPointer 指向 PBehCall 语句 之后 的 语句 . 
+ 将 Beh 的 状态 置 为 挂 起 ； 
+ 将 PBehCall 参数 中 的 所有 行为 状态 都 置 为 活跃 ， 将 其 放入 活跃 行为 表 ； 
+ 　 　 End 
+ 　 　 由该 算法 可以 看出 ， YHVML 除了 提供 给 用户 灵活 一致 的 复杂 行为 定义 功能 外 ， 它 还 充分 地 支持 实体 间 行为 的 并行 和 实体 内 的 行为 并行 . 
+ 3 　 YHVML 运行 环境 对 虚拟环境 性能 的 支持 
+ 　 　 在 YHVML 中 ， 我们 提供 给 用户 描述 行为 执行 时间 的 支持 ， 它 体现 了 虚拟环境 中 行为 真实感 的 需求 . 在 本节 中 ， 我们 将 阐述 YHVML 运行 环境 对 虚拟环境 性能 的 支持 ， 尤其 是 对 时间 真实感 的 支持 . 
+ 3.1 　 虚拟环境 的 性能需求 
+ 　 　 虚拟环境 运行 的 主要 性能需求 是 ， 实时 交互性 和 真实感 . 实时 交互性 是 指 虚拟环境 计算 要 足够 的 快 ， 使得 用户 的 输入 能 实时 地 在 输出 上 反映 出来 ， 如 视点 的 变化 引起 的 场景 变化 . 文献 ［ 7 ］ 将 用户 执行 一个 动作 和 在 屏幕 上 显示 出来 之间 的 时间差 称为 端端 延迟 （ EndEndLag ） . 
+ 　 　 我们 有 如下 相关 定义 ： 
+ 　 　 定义 13 .   仿真 步 延迟 .   虚拟环境 计算 在 仿真 步 st 的 仿真 步 延迟 SimuStepLag   可记 为 ： 
+ SimuStepLag   ( st ) = InputLag ( st ) + SimuLag ( st ) + RenderLag ( st ) 
+ 其中 ， InputLag ( st ) 是 用户 实体 IO 行为 计算 时间延迟 ； 
+ SimuLag ( st ) 是 一般 实体 的 行为 计算 时间延迟 ； 
+ RenderLag ( st ) 是 图形 渲染 实体 绘制 行为 计算 时间延迟 . 
+ 　 　 定义 14 .   端端 延迟 .   虚拟环境 计算 在 仿真 步 st 的 端端 延迟 EndEndLag 可记 为 ： 
+ 
+ 其中 ， M 是 用户 实体 的 IO 行为 引起 相应 虚拟环境 状态 的 变化 在 图形 渲染 实体 的 渲染 行为 中 表现 处理 的 仿真 步数 . 
+ 　 　 定义 15 .   虚拟环境 的 实时 交互 阈值 .   对于 不同 的 应用 ， 满足 实时 交互性 的 需求 不同 ， 我们 记 虚拟环境 的 实时 交互 阈值 为 δ ， 如果 虚拟环境 的 端端 延迟 EndEndLag < δ ， 则 称 虚拟环境 满足 实时 交互性 . 
+ 3.2 　 复杂 行为 的 真实感 
+ 　 　 虚拟环境 中 实体 行为 的 真实感 体现 在 两 方面 ： ①   稳定 帧速 ； ②   实体 的 行为 具有 时间 真实感 . 
+ 3.2 . 1 　 稳定 帧速 
+ 　 　 由于 虚拟环境 的 高度 动态性 ， 在 虚拟环境 计算 的 仿真 步中 的 一般 实体 的 行为 计算 和 图形 渲染 实体 的 绘制 计算所 花费 的 时间 是 动态变化 的 ， 它 带来 了 帧 速 的 不 恒定 . 文献 ［ 8 ］ 指出 ， 变化 的 帧 速使 人们 无法 预测 虚拟环境 的 运行 速度 ， 因此 无法 与 虚拟环境 进行 有效 的 交互 ， 保持 帧速 的 恒定 对于 人 与 虚拟环境 交互 的 真实感 是 非常 重要 的 . 另外 ， 保持 恒定 的 帧 速 将 有利于 用户 编程 时 对 时间 的 把握 . 
+ 　 　 在 面向 复杂 行为 的 虚拟环境 中 ， 由于 引进 高 复杂 计算 量 的 行为 和 大量 的 实体 ， 一般 实体 的 行为 计算 负载 变化 较大 ， 很难 限定 最坏 执行 情况 . 另外 ， 随着 图形 硬件 的 不断 发展 ， 渲染 行为 的 计算 量 将 大幅度降低 ， 而会 使得 一般 实体 的 行为 计算 成为 新 的 瓶颈 ， 因此 ， 为了 恒定 帧速 ， 我们 只有 依靠 动态 的 行为 计算 调度 来 限定 行为 计算 时间 ， 使 一般 行为 的 计算 时间 与 渲染 行为 计算 时间 之 和 不会 超过 恒定 帧 速所 要求 的 时间 ， 并 利用 第二种 方法 ， 通过 控制 帧 缓冲 交换 时间 的 方法 来 达到 稳定 帧速 的 目的 . 
+ 　 　 定义 16 .   图形 绘制 实体 的 绘制 行为 执行 时间延迟 上限 .   我们 记 图形 绘制 实体 的 绘制 行为 执行 时间 上限 为 Tr ， 即 对于 任意 仿真 步 st ， 有 RenderLag ( st ) < Tr . 
+ 　 　 定义 17 .   恒定 帧速 的 仿真 步 时间延迟 上限 .   我们 记使 帧 速 恒定 的 仿真 步 时间延迟 上限 为 γ . 即 对于 虚拟环境 计算 ， 关于 每一 仿真 步 的 时间 约束 如下 ： 
+ 　 　 约束 1 ： 对于 任意 仿真 步 st ， 有 SimuStepLag ( st ) < γ . 
+ 　 　 约束 2 ： 端端 延迟 所 需 的 仿真 步数 M < δ / γ . 
+ 　 　 约束 3 ： 对于 任意 仿真 步 st ， 有 SimuLag   ( st ) < γ - Tr . 我们 忽略 了 用户 实体 的 IO 行为 计算 时间延迟 InputLag ( st ) . 
+ 3.2 . 2 　 实体 行为 的 时间 真实感 
+ 　 　 实体 的 每个 行为 都 有 自己 的 时间 约束 . 通常 ， 复杂 行为 连续 地 在 多个 仿真 步 进行 计算 直到 完成 . 
+ 　 　 定义 18 .   行为 实际 执行 时间 .   行为 Beh 的 实际 执行 时间 ActualExecTime 可以 记 为 ： 
+ ActualExecTime ( Beh ) ＝ BehCompLen ( Beh ) × γ 
+ 其中 ， BehCompLen 是 Beh 实际 的 计算 仿真 步 . 
+ 　 　 为了 满足 行为 的 时间 真实感 ， 我们 有 约束 4 ： 
+ 　 　 约束 4 ： 对于 行为 Beh ， 有 DeadLine ( Beh ) > ActualExecTime ( Beh ) . 
+ 3.3 　 面向 复杂 行为 的 实体 行为 动态 调度 策略 
+ 3.3 . 1 　 基本 思想 
+ 　 　 当 虚拟环境 中 实体 数量 很大 ， 且 行为 的 计算 量 也 很大 时 ， 维护 每个 行为 的 时间 约束 将 可能 带来 无法 满足 每一 仿真 步 实体 行为 计算 的 总 时间 约束 ， 带来 帧速 的 下降 和 实时 交互性 能 的 下降 ， 破坏 了 虚拟环境 的 真实感 . 因此 ， 就要 调整 某些 实体 行为 的 执行 时间 ， 即将 某些 行为 延迟 到 后续 的 仿真 步 运行 ， 从而 使得 当前 仿真 步 计算 满足 约束 3 . 
+ 　 　 由于 虚拟环境 计算 高度 动态性 ， 只能 通过 动态 调度 才 可能 满足 虚拟环境 计算 的 需要 . 算法 首先 通过 行为 计算 预测 的 方法 来 判断 当前 仿真 步 的 一般 实体 的 行为 计算 SimuLag 是否 超过 了 上限 ， 如果 是 ， 就 根据 以下 原则 选择 优先级 高 的 行为 推迟 到 下 一 仿真 步 执行 ， 直到 当前 仿真 步 计算 满足 约束 3 . 
+ 　 　 原则 1 . 由于 表现 属性 行为 和 混合 属性 行为 对 同步 的 要求 较 高 ， 因此 ， 非 表现 属性 行为 的 优先级 比 这 两类 行为 的 优先级 高 ； 
+ 　 　 原则 2 . 在 同类 行为 中 ， 遵循 最小 松弛 度 优先 （ least   laxity   first ， 简称 LLF ） [ 9 ] 算法 的 思想 ， 即 松弛 度大 的 行为 优先级 高 ； 
+ 3.3 . 2 　 松弛 度 定义 
+ 　 　 定义 19 .   复杂 行为 计算 的 已 执行 时间 .   复杂 行为 Beh 在 仿真 步 st 的 已 执行 时间 BehFinishedCompTime ( Beh ,   st ) 定义 为 该 行为 已 被 执行 的 仿真 步数 . 
+ 　 　 定义 20 .   复杂 行为 计算 的 已 执行 量 .   复杂 行为 Beh 在 仿真 步 st 的 已 执行 量 BehFinishedCompLen   ( Beh ,   st ) 定义 为 该 行为 已 被 执行 的 仿真 步数 . 
+ 　 　 定义 21 .   复杂 行为 计算 的 松弛 度 .   复杂 行为 Beh 在 仿真 步 st 的 松弛 度 Laxity ( Beh ,   st ) 是 指 除去 行为 执行 所 必须 的 仿真 步数 后 ， 离 行为 的 死限 时间 约束 的 距离 ， 即 
+ 　 　 Laxity ( Beh ,   st ) = DeadLine ( Beh ) - BehFinishedCompTime ( Beh ,   st ) - γ × ( BehCompLen ( Beh ) - BehFinishedCompLen   ( Beh ,   st ) ) 
+ 4 　 应用 实例 
+ 　 　 我们 用 YHVML 编写 了 一个 虚拟环境 对系统 进行 测试 ， 主要 描述 了 一个 几何 模型 较为简单 的 智能 体 agent ， 具有 3 个 行为 ， 两个 是 表现 属性 行为 run 和 wagtail ， 一个 是 混合 属性 行为 think . run 是 在 一个 三维空间 移动 ， think 则 是 进行 一个 大 数据 集合 的 排序 ， 每次 排序 成功 ， 调用 wagtail 摇动 尾巴 . 
+ 　 　 测试 硬件 环境 是 ：   PC （ 奔腾 586 ， 120MHz 主频 ， 32MB 内存 ， S3   64V + 的 图形 加速卡 ） . 
+ 　 　 根据 这种 软硬件 环境 和 应用 实例 ， 我们 设定 相关 参数 如下 ： 
+ 　 　 虚拟环境 的 实时 交互 阈值 为 δ ＝ 100ms , 
+ 　 　 帧速 恒定 的 仿真 步 时间延迟 上限 为 γ ＝ 100ms ; 
+ 　 　 图形 绘制 实体 的 绘制 行为 执行 时间 上限 为 Tr ＝ 30ms ; 
+ 　 　 一般 实体 的 行为 计算 执行 时间 上限 为 γ - Tr ＝ 70ms ; 
+ 　 　 即 一般 实体 的 行为 计算 延迟 上限 MaxSimuLag ＝ 70ms ； 
+ 　 　 经过 配置 ， 该 虚拟环境 存在 两个 agent 实例 ： mike1 和 mike2 ， 且 它们 都 拥有 一个 周期 行为 run 和 一个 非 周期 行为 think . 
+ 　 　 当 不 启动 基于 LLF 策略 的 复杂 行为 动态 调度 器时 ，   mike1 和 mike2 运行 情况 如图 1 所示 . 实验 结果表明 ， 虚拟环境 运行 的 帧 速 低于 γ 的 帧 数 比例 达到 20% . 
+ 
+ 
+ 图 1 　 未 启动 复杂 行为 动态 调度 器时 的 运行 情况 
+ 　 　 当 启动 基于 LLF 策略 的 复杂 行为 动态 调度 器时 ， mike1 和 mike2 运行 情况 如图 2 所示 ， 从图 中 可以 看到 ， 当 think 行为 被 激活 时 ， 由于 复杂 行为 动态 器 预测 当前 仿真 步 的 SimuLag 将 超过 MaxSimuLag ， 因此 将 一个 think 行为 滞后 一个 仿真 步 执行 ， 另外 稳定 帧速 的 措施 使得 虚拟环境 仿真 步 延迟 维持 在 100ms 左右 . 实验 结果表明 ， 虚拟环境 帧速 低于 γ 的 帧 数 比例 降低 到 10% . 
+ 
+ 
+ 图 2 　 启动 复杂 行为 动态 调度 器时 的 运行 情况 
+ 5 　 结 　 　 语 
+ 　 　 本文 面向 复杂 行为 模型 的 虚拟现实 应用 ， 提出 一种 支持 复杂 行为 的 语言 模型 ， 该 模型 具有 很强 的 行为 和 时间 描述 能力 . 我们 在 自行 研制 的 虚拟环境 软件开发 平台 YHVRP 的 建模语言 YHVML 实现 了 该 模型 ， 而 该 语言 的 运行 环境 较 好 地 支持 了 行为 的 时间 约束 ， 保障 了 面向 复杂 行为 的 虚拟现实 应用 的 实时 交互性 和 真实感 . 
+ 作者简介 ： 王勇军 ， 男 ， 1971 年 2 月生 ， 博士 ， 助理 研究员 ， 主要 研究 方向 为 虚拟现实 和 并行 分布 处理 技术 . 王意洁 ， 女 ， 1971 年 9 月生 ， 博士 ， 研究 领域 为 数据库 和 并行 分布 处理 技术 . 李思昆 ， 男 ， 1941 年 4 月生 ， 教授 ， 博士生 导师 ， 研究 领域 为 CAD 技术 和 虚拟现实 技术 . 胡守仁 ， 男 ， 1926 年 9 月生 ， 教授 ， 博士生 导师 ， 主要 研究 方向 为 高性能 机 体系结构 及 并行 分布 处理 技术 . 
+ 作者 单位 ： 国防科学技术大学 计算机科学 系 　 长沙 　 410073 
+ 参考文献 
+ 　 1 　 Sun   H .   A   relation   model   for   animating   adaptive   behavior   in   dynamic   environments . University   of   Alberta , 1992 
+ 　 2 　 Shaw   C , Green   M   et   al .   Decoupled   Simulation   in   virtual   reality   with   the   MR   toolkit .   ACM   Trans   on   Information   Systems ,   1993 ,   11 ( 3 ) : 287 ～ 317 
+ 　 3 　 Hagsand   O . Interactive   multiuser   VES   in   the   DIVE   System . IEEE   Multimedia , 1996 , 3 ( 1 ) : 30 ～ 39 
+ 　 4 　 Division   dVS   v2.04   Technical   Overview . London : Division   Lt ,   1992 
+ 　 5 　 Snowdon   D   N .   AVIARY : Design   issues   for   future   large - scale   virtual   environments .   　 Presence : Teleoperators   and   Virtual   Environments , 1994 , 3 ( 4 ) : 220 ～ 241 
+ 　 6 　 Barrus   J   W ,   Waters   R   C ,   Anderson   D   B .   Locals :   Supporting   large   multiuser   virtual   environments .   IEEE   Computer   Graphics   and   Applications , 1996 , 16 ( 6 ) : 50 ～ 5 
+ 　 7   7Wloka   M   M . Lag   in   multiprocessor   virtual   reality . Presence : Teleoperators   and   Virtual   Environments , 1995 , 4 ( 1 ) : 50 ～ 63 
+ 　 8 　 Hawkes   R   et   al .   Update   rates   and   fidelity   in   virtual   environments .   Virtual   Reality , 1995 , 1 ( 2 ) : 99 ～ 108 
+ 　 9 　 Cheng   S .   Scheduling   algorithms   for   hard   real - time   systems — — A   brief   survey .   In : Stankovic   J   A , Ramamrithan   K   eds . Hard   Real - Time   Systems . New   York : Academic   Press , 1988 
+ 原稿 收到 日期 ： 1998 - 04 - 08 
+ 修改稿 收到 日期 ： 1999 - 01 - 19 

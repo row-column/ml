@@ -1,0 +1,190 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年 　 第 36 卷 　 第 10 期 　 Vol.36 　 No.10 　 1999 
+ 
+ 
+ 
+ 连续 分布 时延 点格 神经网络 的 稳定性 
+ 廖晓峰 　 王炎 　 吴中 福 　 虞厥邦 
+ 　 　 摘 　 要 　 文中 研究 了 一个 和 两个 元胞 的 连续 分布 时延 点格 神经网络 的 稳定性 ， 尽管 它 的 方程 较为简单 ， 但 其 稳定性 的 研究 也 很 复杂 ； 我们 得到 了 判定 网络 方程 的 稳定性 准则 的 几个 充分条件 ， 并用 数值 例子 进行 了 仿真 实验 ， 结果表明 了 我们 所得 结论 的 正确性 。 
+ 　 　 关键词 　 稳定性 ， 点格 神经网络 ， 连续 分布 时延 ， 元胞 
+ 　 　 中图法 分类号 　 TP18 
+ STABILITY   OF   CELLULAR   NEURAL   NETWORKS   WITH 
+ CONTINUOUSLY   DISTRIBUTED   DELAY 
+ LIAO   Xiao - Feng ① ② ,   WANG   Yan ① ,   WU   Zhong - Fu ② ,   YU   Jue - Bang ① 
+ ① ( Department   of   Opto - Electronic   Technology ,   University   of   Electronic   Science   and   Technology ,   Chengdu   610054 ) 
+ ② ( Institute   of   Computers ,   Chongqing   University ,   Chongqing   400044 ) 
+ 　 　 Abstract 　 Stability   of   cellular   neural   networks ( CNNs )   with   continuously   distributed   delay   is   investigated   in   this   paper .   Although   CNNs   are   concerned   with   a   cell   and   two   cells ,   the   study   of   their   stability   is   also   very   complex .   The   criteria   of   stability   for   CNNs   are   derived .   Computer   simulation   are   also   given   to   justify   the   theoretical   result . 
+ 　 　 Key   words 　 stability ,   cellular   neural   network ,   continuously   distributed   time   delay ,   cell 
+ 1 　 引 　 言 
+ 　 　 在 最近 十几年 里 ， 由 Chua 和 Yang 提出 的 点格 神经网络 （ CNN ） 已 引起 了 国内外 众多 学者 的 浓厚兴趣 ， 这时 因为 ①   由于 它 本身 所 固有 的 局部 连结 特性 ， 鲁棒 稳定性 和 功能 可变性 ， 因此 它 能够 提供 模拟 阵列 计算机 结构 的 VLSI 实现 ， 从而 可 构造 一种 通用 的 模逻 计算机 ［ 1 ］ ； ② 它 的 应用 已 覆盖 了 众多 的 领域 ， 如 模式识别 、 静态 / 移动 图像处理 、 视觉 系统 模型 、 联想 记忆 与 一般 的 模逻 计算 等 ［ 1 ， 2 ， 4 ］ . 无论是 在 CNN 的 通用 目的 或是 具体 的 应用 中 ， 网络 稳定性 的 研究 是 非常 重要 的 ， 因为 网络 的 稳定性 有助于 保证 电路设计 以及 VLSI 实现 的 正确性 . 在 文献 ［ 3 ］ 和 ［ 5 ］ 中 给出 了 互反 与非 互反 CNN 的 稳定性 分析 ； 在 文献 ［ 6 ］ ～ ［ 8 ］ 中 ， 作者 讨论 了 稳定性 条件 依赖于 模板 与 输出 函数 ； 在 文献 ［ 7 ］ 中 ， 讨论 了 一般 模板 的 CNN 的 动态 特性 ， 给出 了 判定 CNN 稳定 与 不 稳定 的 准则 ； 在 文献 ［ 9 ］ 、 ［ 10 ］ 中 ， 作者 分别 讨论 了 带 离散 时延 CNN 的 稳定性 ， 得到 了 一系列 充分条件 ； 在 文献 ［ 11 ］ 、 ［ 12 ］ 中 ， 作者 给出 了 带 非线性 模板 和 离散 时延 的 新 的 CNN 网络 ， 推广 了 传统意义 上 的 CNN 网络 ， 并 讨论 了 所 提出 网络 的 稳定性 . 
+ 　 　 近年来 ， 众多 文献 已 讨论 了 带 离散 时延 神经 动力系统 的 稳定性 ［ 8 ～ 15 ］ ； 但 从 人脑 本身 来看 ， 离散 时延 并 不能 真实 反映 大脑 的 信息 传输 过程 ， 而 人脑 传递信息 本身 也 具有 空间结构 ， 最近 在 文献 ［ 16 ］ 中 提出 了 带 连续 分布 时延 的 神经 动力系统 ， 而 这种 网络 的 在 语音 识别 中 也 早 有 应用 ［ 17 ］ ； 尽管 在 文献 ［ 18 ］ 中将 连续 时延 引入 到 CNN ， 但 它 的 稳定性 分析 也 是 对 一般 的 网络 ， 而且 对于 判定 具体 大规模 网络 的 稳定性 还 存在 着 局限性 . 本文 首先 讨论 了 具有 连续 分布 时延 的 一个 元胞 CNN ， 并 分析 了 它 的 稳定性 ， 在 第 3 节 讨论 了 带 两个 元胞 CNN 的 稳定性 ， 在 第 4 节 进行 了 计算机 仿真 实验 ， 结果表明 所得 结论 的 正确性 ， 虽然 本文 讨论 了 简单 的 TDCNN 网络 的 稳定性 ， 但 这 对于 了解 更加 复杂 的 TDCNN 网络 有 重要 的 指导意义 . 
+ 2 　 一个 元胞 的 TDCNN 网络 
+ 　 　 首先 考虑 一个 元胞 的 动力学 系统 ， 这个 动力学 系统 是 由 下面 的 积分 微分方程 所 描述 ： 
+ 
+ ( 1 ) 
+ 这里 α ， β ＞ 0 ,   f ( . ) 是 激 和 函数 ， 在 本文 我们 假设 在 系统 （ 1 ） 中 的 激 和 函数 的 导数 是 正数 且 有 下界 ， 也 即时 
+ 
+ ( 2 ) 
+ 为了 研究 系统 （ 1 ） 的 稳定性 ， 我们 给出 如下 定义 与 引理 . 
+ 　 　 定义 1 ［ 19 ］ .   设 A 是 一个 n × n 阶 矩阵 ， 矩阵 A 称为 是 Volterra - Liapunov 稳定 （ 半 稳定 ） ， 如果 存在 一个 正 对角 矩阵 D 使得 DA + ATD   是 稳定 的 （ 半 稳定 ） ， 也 即 是 DA + ATD   是 负定 的 （ 半负定 ） . 
+ 　 　 引理 1 ［ 20 ］ . 一个 2 × 2 阶 矩阵 A 是 Volterra - Liapunov 稳定 当且 仅 当 det ( A ) > 0   且 两个 对角线 元素 是 负 的 . 
+ 　 　 定理 1 .   设 系统 （ 1 ） 有 如下 延时 核 ： 
+ K ( t ) = aexp ( - at ) ,   a > 0 
+ ( 3 ) 
+ 平衡点 x * 是 
+ 　 　 ①   全局 渐近 稳定 的 ， 如果 α , β ＞ 0 , 
+ 
+ 这里 σ 满足 （ 2 ） . 
+ 　 　 ②   如果 α = 1 / σ ， 且 α , β ＞ 0 ,   则 系统 是 全局 稳定 的 . 
+ 　 　 证明 .   积分 - 微分方程 （ 1 ） 具有 核 （ 3 ） 等价 于 下面 的 微分方程 组 ： 
+ 
+ ( 4 ) 
+ 这里 
+ 
+ ( 5 ) 
+ 定义 如下 Liapunov 函数 ： 
+ 
+ 不难 计算 ： 
+ 
+ ( 6 ) 
+ 其中 
+ 
+ ( 7 ) 
+ 因此 必须 检查 存在 正 对角 阵 D 使得 DA + ATD 是 负定 （ 半负定 ） ， 也 即 A 是 Volterra - Liapunov 稳定 （ 半 稳定 ） . 
+ 　 　 ( 1 )   我们 应用 引理 1 , 在 这种 情形 下 有 
+ σ α - 1 < 0 ,   - σ α β < 0 
+ 且 
+ det ( A ) = - a ［ σ α ( 1 - β ) - 1 ］ > 0 
+ ( 8 ) 
+ 因此 结论 （ 1 ） 就 得证 . 
+ 　 　 （ 2 ）   设 α = 1 / σ ， 那么 存在 一个 矩阵 D = diag ( d1 , d2 ) ,   使得 
+ 
+ ( 9 ) 
+ 是 半 负定 的 ， 例如   d1 = a ,   d2 = σ α β ,   因此 结论 （ 2 ） 获证 . 
+ 证毕 . 
+ 　 　 因为 在 定理 1 中 提出 的 核 K 当 t = 0 时 它 有 最大值 ， 所以 系统 （ 1 ） 在 定理 1 中 的 核为 弱 核 . 对于 强核 的 情形 ， 我们 有 下面 的 结果 ： 
+ 　 　 定理 2 .   考虑 系统 ( 2 ) 具有 强核 的 情形 : 
+ K ( t ) = a2te - at 
+ ( 10 ) 
+ 那么 平衡点   x * 是 全局 渐近 稳定 的 , 如果 
+ 
+ 且 任意 a > 0 . 
+ 　 　 引理 2 ［ 19 ］ .   一个 3 × 3 阶 矩阵 A = ( aij ) 是 Volterra - Liapunov 稳定 , 当且 仅 当 每个 符号 主子 式 : 
+ Mi1 , i2 , L , ik ∶ = ( - 1 ) kdetA ( i1 , i2 , ... , ik ) ,   k = 1 , 2 , 3 
+ ( 11 ) 
+ 是 正 的 且 多项式 : 
+ 
+ ( 12 ) 
+ 对 某些 η ∈ R + , 上式 是 同时 为 负 , 且 
+ b1 = a12a23 - a22a13 ,   b2 = a21a32 - a22a13 
+ ( 13 ) 
+ 证明 .   带核 ( 10 ) 的 系统 ( 1 ) 是 等价 于 下列 微分方程 组 ： 
+ 
+ ( 14 ) 
+ 这里 
+ 
+ ( 15 ) 
+ 我们 定义 如下 Liapunov 函数 : 
+ 
+ 仿 定理 1 的 证明 ， 不难 计算 : 
+ 
+ ( 16 ) 
+ 这里 
+ 
+ ( 17 ) 
+ 由 引理 2 , 在 这种 情形 下 , A 的 所有 符号 主子 式 是 正 的 当且 仅 当 
+ 
+ ( 18 ) 
+ 多项式 p1 ,   p1 变为 
+ 
+ ( 19 ) 
+ 它们 同时 为 负当且 仅 当 α β < 8 ( 1 / σ - α ) . 
+ 证毕 . 
+ 3 　 二个 元胞 的 TDCNN 网络 
+ 　 　 在 这节 我们 研究 如下 二个 元胞 的 TDCNN 网络 : 
+ 
+ ( 20 ) 
+ 这里 : α i ， γ I > 0 ,   i = 1 , 2 . 
+ 　 　 定理 3 .   系统 ( 20 ) 具有 核 
+ K ( t ) = ae - at 
+ ( 21 ) 
+ 那么 平衡点 x * 是 全局 渐近 稳定 的 , 如果 
+ 
+ ( 22 ) 
+ 且 任意   a > 0 
+ 　 　 证明 .   具有 核 ( 21 ) 的 系统 ( 20 ) 是 等价 于 下列 微分方程 组 : 
+ 
+ ( 23 ) 
+ 这里 
+ 
+ ( 24 ) 
+ 我们 定义 如下 Liapunov 函数 : 
+ 
+ ( 25 ) 
+ 仿 定理 2 的 证明 不难 得到 
+ 
+ ( 26 ) 
+ 这里 
+ 
+ ( 27 ) 
+ 由 引理 2 ,   A 的 每个 符号 主子 式 是 正 的 , 如果 α 1 < 1 / σ 1 ,   α 2 < 1 / σ 2 ,   且 a > 0 . 
+ 多项式 : 
+ 
+ ( 28 ) 
+ 是 同时 为 负当且 仅 当 
+ 
+ ( 29 ) 
+ 证毕 . 
+ 4 　 计算机 仿真 
+ 　 　 在 本节 ,   为了 方便 起 见 ,   我们 仅 考虑 系统 ( 23 ) 的 计算机 仿真 ,   这里 
+ 
+ ( 30 ) 
+ 　 　 例   1 .   设 
+ α 1 = 0.8 ,   γ 1 = 0.8 ,   α 2 = 0.6 ,   γ 2 = 0.7 
+ ( 31 ) 
+ 我们 有 σ = 1 ,   因而 容易 证明 定理 3 的 条件 满足 , 设 a = 0.5 , 利用 四阶 Runge - Kutta 方法 ， 模拟 结果 可见 图 1 . 
+ 
+ 
+ 图 1 　 系统 （ 20 ） 有 系数 （ 31 ） 的 运动 轨迹 
+ 　 　 例   2 .   设 
+ α 1 = 1.2 ,   α 2 = - 1.1 ,   γ 1 = - 8 ,   γ 2 = 7 
+ ( 32 ) 
+ 容易 证明 定理 3 的 条件 不 满足 ， 网络 不 稳定 ， 计算机 模拟 见图 2 （ 这里 a = 0.5 ） ， 网络 出现 振荡 现象 . 
+ 
+ 
+ 图 2 　 系统 （ 20 ） 有 系数 （ 32 ） 的 运动 轨迹 
+ 5 　 结 　 论 
+ 　 　 本文 我们 给出 了 带 连续 时延 点格 神经网络 ， 并 讨论 了 一个 元胞 和 两个 元胞 的 稳定性 ， 得到 了 判定 其 稳定 的 一些 准则 ， 至于 这种 网络 的 分岔 和 混沌 现象 也 是 值得 研究 的 ， 有关 这方面 的 工作 我们 将 在 后继 文章 中 报道 . 
+ 作者简介 ： 廖晓峰 ， 男 ， 1964 年 10 月生 ， 博士后 ， 副教授 ， 主要 研究 方向 为 神经网络 、 信号处理 和 混沌 通信 . 
+ 　 　 　 　 　 王炎 ， 男 ， 1972 年 6 月生 ， 博士 研究生 ， 主要 研究 方向 为 神经 计算机 实现 和 混沌 通信 . 
+ 　 　 　 　 　 吴中 福 ， 男 ， 1938 年 5 月生 ， 教授 ， 博士生 导师 ， 主要 研究 方向 为 计算机网络 与 通信 、 宽带 综合 业务 数字网 和 计算机 体系结构 . 
+ 　 　 　 　 　 虞厥邦 ， 男 ， 1932 年 12 月生 ， 教授 ， 博士生 导师 ， 主要 研究 方向 为 非线性 电路 和 神经网络 等 . 
+ 作者 单位 ： 廖晓峰 　 王炎 　 虞厥邦 　 电子科技 大学 光电子 技术 系 　 成都 　 610054 
+ 　 　 　 　 　 廖晓峰 　 吴中 福 　 重庆大学 计算机 学院 　 重庆 　 400044 
+ 参考文献 
+ 　 1 　 　 Roska   T ,   Chua   L   O .   The   CNN   universal   machine :   Analogic   array   computer .   IEEE   Trans   Circ   Sys ,   1993 ,   40 ( 4 ) :   163 ～ 173 
+ 　 2 　 　 Chua   L   O ,   Roska   T .   The   CNN   Paradigm .   IEEE   Trans   Circuits   Sys ,   1993 ,   40 ( 4 ) :   147 ～ 156 
+ 　 3 　 　 Chua   L   O ,   Yang   L .   Cellular   neural   networks :   Theory .   IEEE   Trans   Circuits   Sys ,   1988 ,   35 ( 10 ) :   1257 ～ 1272 
+ 　 4 　 　 Liu   D .   Cloning   template   designe   of   cellular   neural   networks   for   associate   memories .   IEEE   Trans   Circ   Sys   I ,   1997 ,   44 ( 7 ) :   163 ～ 173 
+ 　 5 　 　 Chua   L   O ,   Roska   T .   Stability   of   a   class   of   nonreciprocal   cellular   neural   networks .   IEEE   Trans   Circ   Sys ,   1990 ,   37 ( 11 ) :   1520 ～ 1527 
+ 　 6 　 　 Zou   F ,   Nossek   J   A .   Stability   of   cellular   neural   networlks   with   opposite - sign   template .   IEEE   Trans   Circ   Sys ,   1991 ,   38 ( 7 ) :   811 ～ 812 
+ 　 7 　 　 Guzelis   C ,   Chua   L   O .   Stability   analysis   of   generalized   cellular   neural   network .   Int   J   Circiuit   Theory   and   Applications ,   1993 ,   21 ( 1 ) :   1 ～ 33 
+ 　 8 　 　 Roska   T ,   Chua   L   O .   Cellular   neural   networks   with   delay - type   template   elements   and   non - uniform   grids .   Int   J   Circuits   Theory   and   Applications ,   1992 ,   20 :   469 ～ 481 
+ 　 9 　 　 Civalleri   P   P .   On   stability   of   Cellular   neural   networks   with   delay .   IEEE   Trans   Circ   Sys ,   1993 ,   40 :   157 ～ 164 
+ 　 10 　 　 Gilli   M .   Stability   of   cellular   neural   network   and   delayed   cellular   neural   networks   with   nonpositive   templates   and   nonmonotonic   output   functions .   IEEE   Trans   Circ   Sys ,   1994 ,   41 ( 9 ) :   518 ～ 528 
+ 　 11 　 　 Roska   T ,   Balsi   W   M ,   Balsi   M ,   Chua   L   O .   Stability   and   dynamics   of   delay - type   general   and   cellular   neural   networks .   IEEE   Trans   Circ   Sys ,   1992 ,   39 ( 8 ) :   487 ～ 490 
+ 　 12 　 　 Roska   T ,   Baldi   W   M ,   Chua   L   O .   Stability   of   cellular   neural   networks   with   dominant   nonlinear   and   delay - type   templates .   IEEE   Trans   Circ   Sys ,   1993 ,   40 ( 4 ) 
+ 　 13 　 　 Liao   X   F ,   Yu   J   B .   Qualitative   analysis   of   bi - directional   associative   memory   networks   with   time   delays ,   Int   J   Circuits   theory   and   applications ,   1998 ,   26 :   219 ～ 229 
+ 　 14 　 　 Liao   X   F ,   Yu   J   B .   Robust   stability   for   interval   Hopfield   neural   networks   with   time   delay .   IEEE   Trans   on   Neural   Networks ,   1998 ,   9 ( 5 ) :   1042 ～ 1045 
+ 　 15 　 　 Liao   X   F ,   Yu   J   B .   Global   exponential   stability   and   periodic   solutions   of   delay - type   cellular   neural   networks .   Int   J   Circuits   Theory   and   Applications ,   to   appear 
+ 　 16 　 　 Vries   B   D ,   Principle   J   C .   The   gamma   model — — A   new   neural   model   for   temporal   processing .   Neural   Networks ,   1992 ,   5 :   565 ～ 576 
+ 　 17 　 　 Tank   D   W ,   Hopfield   J   J .   Neural   computation   by   concentrating   information   in   time .   In :   Proc   Nat   Acad   Sci ,   USA ,   1987 .   1896 ～ 1991 
+ 　 18 　 　 Liao   X   F ,   Yu   J   B .   Stability   analysis   of   cellular   neural   networks   with   continuous   time   delay .   IEEE   Trans   Circ   Sys ,   to   appear 
+ 　 19 　 　 Cross   G   W .   Three   types   of   matrix   stability .   Linear   Algebra   and   Application ,   1978 ,   20 :   253 ～ 263 
+ 　 20 　 　 Goh   B   S .   Global   stability   in   two   species   interactions .   J   Math   Biol ,   1976 ,   3 :   33 ～ 38 
+ 　 21 　 　 Nikaido   H .   Convex   structure   and   economic   theory .   New   York :   Academic   Press ,   1968   
+ 原稿 收到 日期 ： 1999 - 01 - 21 ； 
+ 修改稿 收到 日期 ： 1999 - 05 - 10 . 
+ 
+ 　 

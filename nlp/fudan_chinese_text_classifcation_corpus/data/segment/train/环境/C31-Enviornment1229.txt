@@ -1,0 +1,90 @@
+环境 科学 学报 
+ ACTA 　 SCIENTIAE 　 CIRCUMSTANTIAE 
+ 1998 年 5 月 第 18 卷 第 5 期 科技期刊 
+ 镉 胁迫 下 小麦 叶中 超氧 阴离子 自由基 的 积累 * 
+ 罗 立新 　 孙铁珩 　 靳 月华 
+ ( 中国科学院 沈阳 应用 生态 研究所 ， 110015 ) 
+ 
+ 摘要 　 在 镉 胁迫 下 ， 小麦 叶中 超氧 阴离子 自由基 ( ) 的 积累 显著 增加 ， 伴随 MDA 含量 升高 ， 显示 发生 膜 脂 过氧化 . 镉 胁迫 使 活性氧 清除 酶系统 功能 紊乱 ， 其中 SOD 酶 活性 下降 ， POD 酶 活性 升高 ， 而 CAT 酶 活性 无 显著 变化 . SH 基的 含量 下降 与 电解质 泄漏 加剧 呈 负相关 ， 表明 细胞质 膜 的 结构 和 功能 都 受到 损伤 . 推测 小麦 受 镉 伤害 过程 中 ， 活性氧 代谢 失衡 造成 的 膜 脂 过氧化 起着 重要 作用 . 
+ 关键词 　 镉 ； 小麦 ； 膜 脂 氧化 ； 超氧 阴离子 自由基 ； 超氧化物 歧化酶 . 
+ ACCUMULATION   OF   SUPEROXIDE   RADICAL   IN   WHEAT   LEAVES   UNDER   CADMIUM   STRESS 
+ 
+ Luo   Lixin ,   Sun   Tieheng ,   Jin   Yuehua 
+ ( Institute   of   Applied   Ecology ,   Chinese   Academy   of   Sciences ,   Shenyang   110015 ) 
+ 
+ ABSTRACT 　 Germinating   seedlings   of   wheat   ( Triticum   aestivum )   were   treated   with   different   concentrations   of   cadmium   acetate   ( 0.05 , 0.1 , 0.3 , 0.5   and   1.0   mmol / L .   Cd2 +   treatment   significantly   enhanced   the   accumulations   of   superoxide   radical   (   and   malondialdehyde   ( MDA )   in   wheat   leaves .   Under   cadmium   stress ,   the   activity   of   superoxide   dismutase   ( EC1.15 . 1.1 )   apparently   decreased   while   catalase   ( EC1.11 . 1.6 )   changed   insignificantly .   Furthermore ,   the   content   of   sulfhyryl   group   was   lower ,   and   the   electrolyte   leakage   outward   leave   cells   was   much   high .   Our   results   suggest   that   effects   of   Cd2 +   on   wheat   seeding   are   achieved   by   excessive   accumulation   of   superoxide   radical   which   results   from   the   degradation   of   the   free   radical   scavenging   system . 
+ Keywords 　 cadmium ,   wheat ,   membrane - lipid   peroxidation ,   superoxide   radical ,   superoxide   dismutase . 
+ 
+ 　 　 
+ 　 　 环境 重金属 污染 中 ， 镉 ( Cd ) 是 首要 元素 之一 . 不 适当 的 工业 排污 使得 大量 镉 进入 土壤 - 植物 生态系统 ， 在 某些 地区 镉 的 积累 达到 阻碍 植物 生长 的 程度 ， 并 通过 食物链 危及 人体 健康 ［ 1 ］ . 
+ 　 　 在 环境 胁迫 下 ， 细胞 内 生物 自由基 代谢 平衡 被 破坏 ， 造成 超氧 阴离子 自由基 积累 ， 进而 引发 或 加剧 膜 脂 过氧化 作用 ， 使得 细胞膜 系统 的 结构 和 功能 劣变 ， 新陈代谢 紊乱 发生 ， 这 在 由 O3 , NOx 和 SO2 等 污染物 胁迫 引起 的 植物 细胞膜 伤害 过程 中 已有 较 多 的 研究 ［ 2 ］ . 但 对 镉 胁迫 下 植物 细胞 内 的 含量 是否 有 明显 变化 ， 及 在 镉 胁迫 过程 中 的 作用 国内外 均 未有 报道 . 本文 报道 了 镉 胁迫 对 小麦 叶 细胞 内超 氧 阴离子 自由基 积累 、 膜 脂 过氧化 水平 和 保护 酶系统 活性 的 影响 ， 并 探讨 环境 胁迫 与 植物 细胞 中 抗氧化 保护 系统 能力 的 相关性 . 
+ 
+ 1 　 材料 和 方法 
+ 　 　 小麦 ( Triticum   aestivum 铁春 1 号 ) 种子 浸种 24h 后 ， 排列 在 铺 有 滤纸 的 培养皿 中 ， 置 室温 自然 光照 下 ， 用 1 / 2   Hoagland 培养液 培养 至 二叶 期 . 分别 用 含 Cd2 + 为 0.05 、 0.1 、 0.3 、 0.5 和 1.0 mmol / L 的 1 / 2   Hoagland 培养液 处理 . 定期 取 叶片 分析 测定 . 
+ 　 　 用 羟胺 氧化 反应 测定 含量 ［ 3 ］ . 用 TBA 法测定 丙二醛 ( MDA ) 含量 ， NBT 光化 还原法 测定 超氧化物 歧化酶 ( SOD ) ， 高锰酸钾 滴定 测定 过氧化氢 酶 ( CAT ) 活性 ［ 4 ］ . 愈 创木酚 法测定 过氧化物 酶 ( POD ) 活性 ［ 5 ］ . 用 DTNB 显色 测定 SH 基 含量 ［ 6 ］ . 质膜 相对 透性 用 DDS - 11 A型 电导 仪 测定 ［ 3 ］ . 蛋白质 含量 按 Lowery 法测定 ［ 8 ］ . 所有 测定 至少 重复 3 次 . 将 叶 烘干 ， 用 硝酸 - 高氯酸 法 分解 ， 原子 吸收 分光 光度计 测定 Cd 含量 . 
+ 
+ 2 　 结 　 果 
+ 2.1 　 小麦 叶中 镉 含量 的 变化 
+ 　 　 实验 过程 中 ， 对照组 小麦 叶中 Cd 含量 始终 低于 0.04 μ g / g （ 干重 ） ( 在 图 1 中 未能 显示 出其 Cd 含量 ) . 由图 1 看出 ， 培养液 中 的 Cd 很快 被 小麦 吸收 ， 镉 胁迫 两天 后 ， 各 处理 组 小麦 叶中 Cd 含量 大大增加 ， 并 与 处理 浓度 相关 . 
+ 
+ 
+ 图 1 　 小麦 叶中 镉 ( Cd ) 含量 的 变化 
+ Fig.1   Changes   of   Cd   content   in   wheat   leaves 
+ 2.2 　 镉 胁迫 对 小麦 叶 细胞膜 脂 过氧化 的 影响 
+ 　 　 图 2 显示 镉 胁迫 下 小麦 叶 细胞 内 的 含量 升高 . 镉 胁迫 4d 时 ， 高浓度 处理 组 小麦 叶 细胞 内 的 含量 即 高于 对照 . Cd 处理 8d 时 ， 小麦 叶 细胞 内 的 含量 与 所 遭受 镉 胁迫 的 强度 成正 相关 ， 1.0 mmol / L   Cd 处理 组 的 小麦 叶 细胞 水平 为 对照组 的 176% ， 差异 极 显著 ( P ＜ 0.01 ) . MDA 是 膜 脂 过氧化 的 主要 产物 之一 ， 其 含量 可用 以 表示 膜 脂 过氧化 的 程度 ［ 2 ， 4 ］ . 镉 胁迫 4 天时 ， 高浓度 处理 组 小麦 叶 细胞 内 发生 MDA 积累 ( 图 2 ) . 随镉 胁迫 时间 延长 ， 膜 脂 过氧化 程度 加剧 . Cd 处理 8d 时 ， 各组 小麦 叶 细胞 内 MDA 的 含量 与 镉 胁迫 强度 成正 相关 ， 最高 Cd 浓度 处理 组 的 MDA 含量 为 对照组 的 152% ( P ＜ 0.01 ) . 与 MDA 含量 变化 的 趋势 相同 和 幅度 相似 ， 说明 镉 胁迫 下 细胞 内 含量 的 升高 ， 导致 了 膜 脂 过氧化 发生 . 
+ 
+ 
+ 图 3 　 镉 胁迫 对 小麦 叶中 由 超氧化物 歧化酶 
+ ( SOD ) 、 过氧化氢 酶 ( CAT ) 和 过氧化物 酶 ( POD ) 构成 的 保护 系统 的 影响 
+ Fig.3   Effects   of   Cd   stress   on   endogenous   protective 
+ system   in   wheat   leaves 
+ 
+ 
+ 图 2 　 镉 胁迫 下 小麦 叶中 超氧 阴离子 自由基 和 丙二醛 ( MDA ) 含量 的 变化 
+ Fig.2   Changes   of   and   MDA   contentsin   wheat   leaves   under   Cd   stress 
+ 2.3 　 镉 胁迫 对 活性氧 清除 酶系统 的 影响 
+ 　 　 植物 体内 的 SOD 、 CAT 和 POD 酶 组成 一个 有效 的 清除 活性氧 的 酶系统 ［ 2 ］ . 经镉 胁迫 后 ， 小麦 叶中 这 3 种 酶 的 活性 发生 不同 变化 ( 图 3 ) . Cd 处理 后 4d ， SOD 的 活性 即 呈现 随着 处理 浓度 的 升高 而 下降 的 趋势 . 处理 后 8d ， 高浓度 处理 组 ( 0.5 和 1.0 mmol / L ( Cd ) ) 小麦 叶中 的 SOD 酶 活性 降低 到 对照组 的 81% ， 差异 显著 ( P ＜ 0.05 ) . 相反 ， 小麦 叶中 POD 酶 活性 随着 Cd 处理 浓度 的 升高 和 胁迫 时间 的 延长 而 升高 ， 最高 Cd 浓度 组 的 POD 酶 活性 为 对照组 的 182% ( P ＜ 0.01 ) . 在 整个 实验 周期 中 ， 小麦 叶中 的 CAT 酶 活性 不因 镉 胁迫 增强 和 胁迫 时间 延长 而 发生 显著 变化 ( P ＜ 0.05 ) . 
+ 2.4 　 镉 胁迫 对 小麦 叶 细胞 的 SH 基 含量 及 质膜 透性 的 影响 
+ 　 　 SH 基的 含量 随着 处理 浓度 的 升高 和 处理 时间 的 延长 而 下降 ， 镉 胁迫 后 8d ， 高浓度 处理 组 小麦 叶 细胞 的 SH 基 含量 仅为 对照组 的 53% ( 图 4 ) . 将 镉 胁迫 8d 时 SH 基 含量 变化 示于 图 5 . 
+ 
+ 
+ 图 4 　 镉 胁迫 下 小麦 叶中 SH 基 含量 的 变化 
+ Fig.4   Changes   of   SH   content   in   wheatleaves   under   Cd   stress 
+ 
+ 
+ 图 5 　 镉 胁迫 8d 对 小麦 叶 细胞 
+ 中 SH 基 含量 的 影响 
+ Fig.5   Effect   of   Cd   stress   on   SH   content 
+ in   wheat   leaf   cells ( after   8   days ) 
+ 　 　 生物膜 的 透性 是 评定 植物 对 污染物 反应 的 生理 指标 之一 ［ 7 ］ . 测定 镉 胁迫 6d 时 小麦 叶 细胞质 膜 相对 透性 显示 ， 随着 Cd 处理 浓度 的 升高 ， 细胞 内 电解质 的 泄漏 愈加 严重 ， 1.0 mmol / L   Cd 浓度 处理 组 的 细胞质 膜 相对 透性 为 对照组 的 183% ( 图 6 ) . 
+ 
+ 
+ 图 6 　 镉 胁迫 6d 对 小麦 叶 细胞 电解质 泄漏 
+ 的 影响 ( 以 对照组 为 100% ) 
+ Fig.6   Effect   of   Cd   stress   on   electrolyte   leakage 
+ in   wheat   leaf   ceels ( after   6   days ) 
+ 　 　 比较 图 5 和 图 6 ， 可 看出 镉 胁迫 下 小麦 细胞质 膜 相对 透性 变化 与 细胞 内 SH 基 含量 的 变化 成 负相关 ， 显示 镉 胁迫 下膜脂 过氧化 使得 维持 细胞膜 正常 构像 的 SH 基 含量 下降 ， 细胞膜 系统 受 损伤 ， 进而 导致 细胞 内 电解质 泄漏 发生 . 
+ 
+ 3 　 讨 　 论 
+ 　 　 生物 细胞膜 发生 膜 脂 过氧化 的 一个 主要 机制 是 活性氧 自由基 ( 如 和 * OH 等 ) 诱发 膜 脂 不饱和 脂肪酸 发生 连锁 的 过氧化 反应 ， 使 脂肪酸 发生 降解 ， 产生 脂质 过氧化物 ［ 2 ， 4 ］ . 在 植物体 正常 代谢 过程 中亦有 活性氧 自由基 的 产生 ， 如 在 光合 电子传递 时 ， 会 产生 ［ 9 ］ . 生物体 内 产生 * OH 的 一个 重要途径 是 Haber - Weiss 反应 ： M ++ H2O2 → M2 ++ OH - + * OH + O2 ( M + 为 金属 离子 ) ［ 9 ， 10 ］ . 在 正常 条件 下 ， 植物 体内 活性氧 清除 系统 能 有效 地 清除 体内 的 活性氧 自由基 ， 从而 使 细胞 免受 伤害 . 但 在 逆境 下 ， 植物 体内 活性氧 自由基 的 产生 速度 超出 了 植物 清除 活性氧 的 能力 ， 便会 引起 伤害 ［ 2 ， 4 ， 9 ， 10 ］ . 
+ 　 　 据 研究 ， 植物 体内 活性氧 的 清除 主要 由 某些 酶系统 和 抗氧化 物质 来 完成 ， 其中 SOD 、 CAT 和 POD 是 一个 最 重要 的 清除 酶系统 ： SOD 将 歧化 成 H2O2 ， 抑制 Haber - Weiss 反应 ， 再 由 CAT 和 POD 将 H2O2 分解成 H2O ［ 2 ， 4 ， 9 ， 10 ］ . 杨居荣 等 ［ 1 ］ 报道 ， 对 Cd 毒害 耐受性 较 高 作物 的 SOD 、 CAT 和 POD 活性 要 高于 耐受性 较 低 作物 的 酶 活性 . 高辉 远 等 ［ 11 ］ 报道 在 Na2SO4 胁迫 下 ， 耐盐性 较 高 牧草 中 活性氧 清除 系统 的 SOD 和 CAT 等 酶 的 活性 均 升高 ， 而 耐盐性 较 低 牧草 的 这些 酶 的 活性 则 都 下降 很多 . 李犁 和 余叔文 ［ 12 ］ 报道 小麦 经过 低浓度 的 HSO - 3 和 NO - 2 处理 后 ， 叶片 内 SOD 活性 升高 ， 因而 提高 了 对 高浓度 HSO - 3 和 NO - 2 的 抗性 . 虽然 不能 简单 地 根据 SOD 、 CAT 和 POD 活性 的 绝对 高低 来 判断 植物 抗 逆境 能力 的 强弱 ， 但 在 胁迫 条件 下 ， 如果 能 提高 植物 的 保护 酶系统 活性 ， 清除 活性氧 自由基 的 能力 增强 ， 就 能 减轻 伤害 . 在 以上 报道 中 ， 胁迫 条件 下 SOD 、 CAT 和 POD 酶 活性 的 变化 都 是 同一个 发展趋势 . 而本 实验 观察 到 在 镉 胁迫 下 ， 小麦 叶 活性氧 清除 系统 3 种 酶 的 活性 变化 却是 不 协调 的 ： SOD 活性 下降 ， POD 活性 升高 ， 而 CAT 活性 无 显著 变化 . 总 的 效果 是 镉 胁迫 下 活性氧 清除 系统 功能 紊乱 低下 ， 造成 含量 显著 升高 ， 膜 脂 过氧化 加剧 ， 导致 细胞质 膜 受 损伤 . 本 实验 观察 到 的 这种 酶 活性 变化 不 协调 现象 与 前人 的 一些 报道 不同 ， 可能 与 污染物 的 性质 及 植物 材料 有关 . 关于 镉 胁迫 下 植物 细胞 内 含量 的 变化趋势 ， 则 国内外 尚未 有 同类 研究 报道 . 
+ 　 　 环境 胁迫 诱发 的 活性氧 自由基 伤害 生物膜 过程 中 ， 最 重要 的 脂质 过氧化 产物 是 MDA ， 它 是 一种 高活性 的 脂质 过氧化 产物 ， 能 交联 脂类 、 核酸 、 糖类 及 蛋白质 ， 也 可 使 蛋白质 的 SH 基 氧化 ［ 9 ， 10 ， 13 ］ . SH 基 对于 维持 蛋白质 和 细胞膜 的 正常 构像 很 重要 ， 如加 外源 MDA ， 会 导致 SH 基 加快 氧化 ， 含量 降低 ， 伴随 细胞质 膜 受 损伤 ， 电解质 泄漏 严重 ［ 9 ， 14 ］ . 本 实验 证实 Cd 胁迫 下 ， 小麦 叶 细胞 内 MDA 浓度 升高 时 ， 也 伴随 SH 基 含量 降低 ， 电解质 泄漏 加剧 的 现象 ， 揭示 了 Cd 胁迫 对 小麦 叶 细胞膜 系统 损伤 的 机制 . 根据 浓度 升高 程度 大于 同 时期 MDA 的 积累 ， 而 SH 基 含量 降低 与 细胞质 膜 相对 透性 增加 为强 负相关 等 现象 ， 推测 在 镉 胁迫 下 小麦 叶 细胞 受伤害 的 过程 是 ： 活性氧 清除 系统 功能 紊乱 → 浓度 显著 升高 → MDA 过量 积累 → SH 基被 氧化 → 细胞质 膜 受 损伤 → 电解质 严重 泄漏 . 
+ 　 　 镉 污染 对 植物 的 影响 是 多方面 的 ， 本文 证实 了 镉 污染 下 小麦 细胞 内 浓度 显著 升高 导致 膜 脂 过氧化 ， 是 镉 伤害 植物 的 重要 机制 之一 . 
+ 
+ 致谢 ： 杨桂芬 、 张春桂 、 许 华夏 等 同志 在 实验 方面 给予帮助 ， 谨致 谢忱 . 
+ 　 　 * 博士后 科学基金 资助 项目 
+ 参考文献 
+ 　 1 　 杨居荣 ， 何建群 ， 张国祥 等 . 不同 耐性 作物 中 几种 酶 活性 对 Cd 胁迫 的 反应 . 中国 环境 科学 ， 1996 ， 16 ： 113 
+ 　 2 　 Chris   B ,   Marc   V   H ,   Dirk   I . Superoxide   dismutase   and   stress   tolerance .   Annu   Rev   Plant   Pysiol   Plant   Mol   Biol ,   1992 , 43 : 83 
+ 　 3 　 王 爱国 ， 罗广华 . 植物 的 超氧物 自由基 与 羟胺 反应 的 定量 关系 . 植物 生理学 通讯 ， 1990 ， 26 ( 6 ) ： 55 
+ 　 4 　 李 柏林 ， 梅慧生 . 燕麦 叶片 衰老 与 活性氧 代谢 的 关系 . 植物 生理学 报 ， 1989 ， 15 ： 6 
+ 　 5 　 高学 曾 ， 许金芳 ， 罗瑶 年 等 . 玉米 正常 粒和败育粒 淀粉 磷酸化酶 、 过氧化物 酶 活性 及 同工酶 的 比较 . 植物 生理学 通讯 ， 1987 ， ( 4 ) ： 30 
+ 　 6 　 Ellman   G   L . Tissue   sulfhydryl   groups .   Arch   Bioch   Bioph ,   1959 , 82 : 70 
+ 　 7 　 李锦树 ， 王洪春 ， 王文英 等 . 干旱 对 玉米 叶片 细胞 透性 及 膜 脂 的 影响 . 植物 生理学 报 ， 1983 ， 9 ( 3 ) ： 223 
+ 　 8 　 Lowry   D   H .   Protein   measurement   with   folin   phenol   reagent .   J   Biol   Chem ,   1951 , 193 : 267 
+ 　 9 　 Elstner   E   F .   Oxygen   activation   and   oxygen   toxicity .   Ann   Rev   Plant   Physiol ,   1982 , 33 : 73 
+ 10   Fridovich   I .   Superoxide   readical   and   superoxide   dismutases .   Annu   Rev   Biochem ,   1995 , 64 : 97 
+ 11   高辉 远 , 李卫军 , 何永革 等 . Na2SO4 胁迫 对 四种 抗盐性 不同 牧草 膜 脂 过氧化 和 活性氧 清除 系统 的 影响 . 植物 生态学 报 ， 1991 ， 19 ： 192 
+ 12   李   犁 , 余叔文 . NO2 对波菜 伤害 机理 的 研究 . 植物 生理学 报 ， 1988 ， 3 ： 263 
+ 13 　 陈少裕 . 膜 脂 过氧化 对 植物 细胞 的 伤害 . 植物 生理学 通讯 ， 1991 ， 27 ( 1 ) ： 84 
+ 14 　 曾韶西 , 王以 柔 , 刘鸿先 . 低温 下 黄瓜 幼苗 子叶 硫氢基 ( SH ) 含量 变化 与 膜 脂 过氧化 . 植物学 报 ,   1991 ， 33 ： 50 

@@ -1,0 +1,80 @@
+环境 科学研究 
+ RESEARCH   OF   ENUIRONMENTAL   SCIENCES 
+ 1999 年   第   12 卷   第 3 期   vol.12   No.3   1999 
+ 
+ 
+ 
+ 水生 生态系统 中 的 微生物 — 金属 相互作用 
+ 唐 翔宇 　 吕伯升 　 吴 文华 
+ 摘 　 要 　 阐述 了 水生 生态系统 中 的 微生物 — 金属 相互作用 的 3 种 基本 形式 ， 即胞 内 相互作用 ， 胞表 相互作用 和胞外 相互作用 ； 论述 了 微生物 在 水生 生态系统 中 有毒 金属 的 迁移 和 循环 模式 中所起 的 重要 作用 。 
+ 关键词 　 水生 生态系统 　 微生物 — 金属 相互作用 　 迁移 
+ Metal － microbe   Interactions   in   Aquatic   Ecosystems 
+ TANG   Xiangyu1 ) 　 LU   Bosheng1 ) 　 WU   Wenhua2 ) 
+ (   1 ) College   of   Biological   and   Environmental   Engineering , Zhejiang   University   of   Technology , Hangzhou   310032 ; 
+ 2 ) Southeast   Land   Management   College , Zhejiang   Agricultural   University , Hangzhou   310029 ) 
+ Abstract 　 Current   understanding   of   three   basic   forms   of   metal － microbe   interactions , namely , intracellular   interactions , cell － surface   interactions , and   extracellular   interactions , is   reviewed . The   exact   role   of   these   interactions   in   transport   and   cycling   of   metals   in   aquatic   ecosystems   is   also   discussed . 
+ Keywords 　 Aquatic   ecosystem ;   Metal － microbe   interaction ;   Transport 
+ 　 　 研究 水生 生态系统 中 有毒 金属 的 分布 和 迁移 规律 ， 有助于 评价 天然 水体 对 生态环境 和 人类 健康 所 造成 的 风险 。 许多 研究 表明 ， 微生物 在 某些 金属 的 迁移 和 分布 过程 中起 着 非常 重要 的 作用 ， 有时 甚至 是 主导作用 ［ 1 ］ 。 由于 自然 系统 中 微生物学 和 化学 过程 相当 复杂 ， 深入研究 有关 微生物 和 有毒 金属 之间 的 相互作用 往往 受到 较大 的 限制 ， 而 这种 相互作用 至少 在 土壤 和 沉积物 中是 非常 显著 的 。 特别 是 ， 微生物 和 金属 的 相互作用 对 某些 金属 的 生物 地球化学 循环 起 重要 作用 ［ 2 ］ 。 文中 主要 阐述 水生 生态系统 中 有毒 金属 的 迁移 和 分布 过程 中 的 微生物 — 金属 相互作用 。 
+ 1 　 微生物 — 金属 相互作用 机理 
+ 　 　 微生物 和 金属 的 相互作用 可以 简单 分成 3 种 不同 的 基本 形式 ， 且 每种 形式 对于 金属 在 天然 水体 中 的 分布 相当 重要 ［ 3 ］ 。 这 3 种 形式 是 ： 胞 内 相互作用 ； 胞表 相互作用 ； 胞外 相互作用 。 
+ 1.1 　 胞 内 相互作用 
+ 　 　 微生物 对 金属 的 吸收 作用 对于 微生物 的 脱毒 作用 、 酶 功能 和 细胞 的 物理 特性 产生 相当 重要 的 影响 。 目前 ， 水 环境 中 被 普遍 认识 的 微生物 — 金属 相互作用 可能 当数 Hg 的 微生物 甲基化 作用 。 许多 研究 均 指出 ， 在 脂 溶性 的 甲基化 汞 的 挥发 过程 和 生物 累积 过程 中 这种 相互作用 相当 重要 。 然而 ， 在 汞 的 生物学 累积 过程 中 微生物 甲基化 作用 到底 有 多 重要 ， 目前 还 不 清楚 。 纯 培养 研究 表明 ， 许多 细菌 和 真菌 都 有 可能 使 汞 发生 甲基化 ［ 4 ］ 。 但是 ， 在 环境 中 所 发生 的 甲基化 过程 中起 主导作用 的 是 硫酸盐 还原 细菌 ［ 5 ］ 。 一般 认为 其 机理 是胞 内 甲基化 作用 ， 其 过程 是 甲基 由 甲基 钴胺素 ( CH3CoB12 ) 发生 非酶促 转移 ， 促使 汞 发生 甲基化 。 
+ 　 　 微生物 合成 甲基汞 无论 在 好氧及 厌氧 条件 下 都 能 进行 。 在 好 氧 条件 下 ， 当无酶 催化 时 ， 主要 形成 一 甲基汞 ， 它 是 水溶性 物质 ， 可 被 水生 生物 吸收 进入 食物链 ； 而 在 厌氧 条件 下 ， 必须 有 酶 催化 才能 形成 二 甲基汞 ， 它 不易 溶于 水 ， 在 微 酸性 条件 下 ， 二 甲基汞 也 可 转化成 一 甲基汞 。 
+ 　 　 对于 微生物 而言 ， 甲基汞 的 形成 很 可能 是 一种 脱毒 机制 ， 因为 这 导致 了 汞 的 挥发 。 甲基汞 的 最终 归宿 取决于 微生物 的 去 甲基化 作用 ， 这种 过程 往往 发生 在 非常 靠近 沉积物 与 水 两相 界面 的 地方 。 
+ 　 　 尽管 有关 其他 有毒 金属 的 甲基化 作用 和 随后 的 挥发 作用 的 研究 没有 汞 多 ， 但是 这些 作用 确实 在 水 环境 中 存在 。 能 发生 甲基化 作用 的 金属 或非 金属元素 有 Sn , As , Pb , Se , Te , Tl 和 Sb 等 。 Gilmour 等 在 沉积物 样品 中 的 甲基 锡 含量 与 硫酸盐 还原 细菌 及 硫酸盐 氧化 细菌 的 数量 之间 建立 了 相关 关系 ［ 6 ］ 。 此外 ， 他们 已 从 培养 介质 中 分离 出 甲基化 速度 与 天然 沉积物 中 相近 的 能够 使 Sb 发生 甲基化 的 脱硫 弧菌 属 ( Desulfovibrio ) 。 有关 As 的 真菌 甲基化 作用 的 研究 已有 很多 ， 这是 由于 油漆 中 的 As 会因 真菌 ( Scopulariopsis   brevis ) 的 作用 生成 挥发性 的 有毒 物质 三 甲基 胂 。 在 溶液 中 ， 沼气 细菌 能 使 砷 甲基化 生成 一 甲基 胂 和 二甲基 胂 ［ 7 ］ 。 
+ 1.2 　 胞表 相互作用 
+ 　 　 一些 研究者 认为 ， 在 天然 水体 中 金属 的 迁移 和 分布 过程 中 ， 金属 在 微生物 细胞 表面 上 的 结合 作用 相当 重要 。 藻类 表面 的 许多 功能 团 ( 如 羧基 、 氨基 、 硫代基 、 羟基 等 ) 能够 与 金属 发生 相互作用 ［ 8 ］ 。 革兰氏 阴性 细菌 的 细胞壁 中 含有 脂 多糖 和 磷脂 ， 其所含 的 磷 酰基 提供 的 电负性 位点 能 与 金属 结合 ［ 9 ］ 。 革兰氏 阳性 细菌 的 细胞壁 中则 含有 胞壁酸 和 肽聚糖 ， 其所含 羟基 和 磷 酰基 能 提供 与 金属 相结合 的 许多 位点 ［ 10 ］ 。 
+ 　 　 对于 革兰氏 阴性 和 阳性 细菌 而言 ， 金属 与 细胞 表面 功能 团 的 结合 被 认为 是 酶 所 需 的 金属 在 细胞 内 累积 的 重要 步骤 。 此外 ， 某些 细菌 能 将 一些 有毒 金属 作为 电子 受体 ， 据 报导 ， 在 厌氧 条件 下 ， 这些 细菌 能 降低 培养液 中 硒 酸盐 和 铬酸盐 的 浓度 ， 生成 元素 硒 和 铬 ( Ⅲ ) ［ 11 ， 12 ］ 。 
+ 1.3 　 胞外 相互作用 
+ 　 　 微生物 与 有毒 金属 的 胞 外 相互作用 主要 包括 2 种 形式 ： ① 通过 生成 酸性 代谢 产物 导致 金属 从 沉积物 中淋失 ； ② 形成 胶状 胞外 多糖 ( Extracellular   Polysaccharide , EPS ) 的 金属 络合物 ［ 13 ］ 。 此外 ， 与 氧化铁 紧密结合 的 有毒 金属 ( Cd 和 Zn ) 会因 氧化铁 的 微生物 酶 促 还原 而 溶解 ［ 14 ］ 。 微生物 的 活动 也 能 产生 不 溶性 络合物 ， 在 硫酸盐 还原 细菌 作用 下 生成 极难 溶于 水 的 金属 硫酸盐 ， 对 某些 金属 的 固定 是 有利 的 ［ 1 ］ 。 
+ 　 　 胞外 多糖 — 金属 的 相互作用 对于 金属 的 迁移 具有 非常 重要 的 意义 。 有机 碳糖 中 的 胶体 部分 与 有毒 金属 结合 能力 的 大小 对于 任何 水 环境 中 金属 的 循环 都 很 重要 。 在 土壤 水中 ， 与 胶体 相结合 的 金属 能够 以比 其他 更 易 吸附 于 土壤 颗粒 的 金属 更快 的 速度 在 土壤 中 迁移 ， 这 可能 归因于 细菌 多糖 的 亲水 特性 。 金属 污染物 向 地下水 迁移 的 速率 会因 这些 相互作用 而 变得复杂 。 在 水体 中 ， 金属 的 分配 和 循环 速率 动力学 过程 会 因 其 与 胶体 的 结合 而 发生 改变 。 
+ 　 　 许多 微生物 都 能 生成 能 与 金属 强烈 结合 的 胞 外 多糖 ( 常 含有 蛋白质 ) 。 胞外 多糖 和 金属 离子 的 相互作用 一般 认为 是胞外 多糖 上 的 带 负电 的 功能 团 产生 的 。 这些 功能 团 包括 丙酮 酰基 、 磷 酰基 、 羟基 、 琥珀 酰基 和 糖醛 基等 基团 。 在 一定 的 pH 条件 下 ， 微生物 与 带 正电 的 金属 阳离子 能 迅速 形成 络合物 ， 其 条件 稳定 常数 高于 金属 与 腐殖质 和 其他 天然 配位 体 形成 的 络合 产物 ( 如表 1 ) 。 
+ 表 1 　 细菌 胞外 多糖 及 某些 物质 与 金属 生成 的 络合物 的 条件 稳定 常数 
+ 
+ 细菌 或 其他 物质 金属 条件 稳定 常数 
+ ( Kc ′ × 108 ) 
+ 栖热菌 属 Thermus   sp . ［ 1 ］ Cu0.7 
+ 德莱氏菌 属 Deleya   marina ［ 1 ］ Cu24.0 
+ 德莱氏菌 属 Deleya   marina ［ 1 ］ Mn9.0 
+ 德莱氏菌 属 Deleya   marina ［ 1 ］ Ni14.0 
+ 锰土 微菌 Pedomicrobium 
+ manganicum ［ 1 ］ Mn19.0 
+ 沉积物 细菌 ［ 15 ］ Cu7.3 
+ 胡敏酸 ［ 15 ］ Cu6.6 
+ 胡敏酸 ［ 16 ］ 某些 金属元素 0.003   2 ～ 
+ 0.006   3 
+ 富里 酸 ［ 16 ］ 某些 金属元素 0.005 ～ 0.01 
+ 
+ 　 　 注 ： 文献 ［ 16 ］ 与 文献 ［ 1 ， 15 ］ 结果 之 差异 部分 归因于 所 采用 的 测试 手段 的 不同 
+ 　 　 除此之外 ， 在 有毒 金属 的 循环 中 ， 有关 铁载体 所起 的 作用 并 不 完全 明确 。 铁载体 是 一种 由 某些 微生物 产生 的 低 分子量 有机物 ， 可 与 Fe 发生 螯合 作用 ， 并 具有 很 高 的 专一性 。 然而 ， Cu ( Ⅱ ) 能 与 铁载体 的 异 羟 肟 盐 和 儿茶酚 盐 形成 络合物 ， 该 过程 对于 络 氨酸 酶 形成 过程 中 Cu 的 螯合物 的 生成 起 重要 作用 ［ 17 ］ 。 此外 ， 这种 铁载体 的 异 羟 肟 盐 对于 减轻 Cu 对 蓝细菌 的 毒性 有 重要 作用 ［ 18 ］ 。 研究者 们 推测 ， Cu 与 铁载体 形成 的 络合物 的 几何 构造 使得 蓝细菌 对 它 的 吸收 变得 不 可能 ， 因为 它 不会 为 Fe 的 转运 系统 所 识别 接受 。 
+ 2 　 微生物 在 水生 生态系统 中 金属 的 迁移 和 循环 模式 中所起 的 作用 
+ 　 　 Ford 等 通过 对 墨西哥 Chapala 湖 的 研究 表明 ， 沉积物 的 恒定 再 悬浮 作用 导致 沉积物 中 有毒 金属 的 生物 累积 变得 很小 ， 而且 ， 该 水体 的 浊度 非常 高 ( 透光度 仅为 0.2 ? m ) ， 水体 的 生产能力 则 明显降低 ［ 19 ］ 。 这种 极高 的 浊度 是 由 粘土 颗粒 造成 的 ， 它 主要 由 CaCO3 组成 ， 并 吸附 了 有机质 和 微生物 。 异养 细菌 和 很大 一部分 的 有毒 金属 往往 结合 在 这种 颗粒 上 。 水体 中 颗粒物 为 金属 的 转化 提供 了 有利 的 厌氧 环境 。 
+ 　 　 许多 研究者 采用 了 各种 实验 方法 对 水生 生态系统 中 重金属 的 迁移 和 循环 机理 进行 了 研究 。 Ford 等 提出 了 Chapala 湖中 的 金属 迁移 和 循环 模式 ， 其中 包含 了 重要 的 微生物学 过程 ( 图 1 ) ［ 19 ］ 。 
+ 
+ 
+ 图 1 　 墨西哥 chapala 湖 的 金属 迁移 和 循环 模式 
+ 　 　 由此可见 ， 微生物 在 金属 的 迁移 和 循环 过程 中起 了 重要 的 作用 ， 而 微生物 和 金属 之间 的 相互作用 是 最 基本 的 形式 。 因此 ， 有 必要 对 这种 相互作用 的 微生物 生理学 、 生物 化学机理 及其 对 金属 在 水生 生态系统 中 的 行为 、 归宿 产生 的 贡献 作 进一步 的 深入研究 。 
+ 作者简介 ： 男 ， 1972 年生 ， 硕士 ， 助教 
+ 作者 单位 ： 唐 翔宇 　 吕伯升 　 浙江工业大学 生物 与 环境 工程学院 ， 杭州市 　 310032 
+ 　 　 　 　 　 吴 文华 　 浙江农业大学 东南 土地 管理 学院 ， 杭州 　 310029 
+ 3 　 参考文献 
+ 1 　 Ford   T   E , Mitchel   R . Microbial   transport   of   toxic   metals . In : Mitchel   R   ed . Environ   mental   Microbiol . New   York : John   Wiley － Liss , 1992.83 ～ 101 . 
+ 2 　 Ghiorse   W   C . Biology   of   iron － and   manganese － depositing   bacteria . Ann   Rew   Microbiol , 1984 , 38 : 515 . 
+ 3 　 Ford   T   E . The   microbial   ecology   of   water   distribution   and   outfall   systems . In : Ford   T   E   ed . Aquatic   Microbiology : An   Ecological   Approach . Boston : Blackwell , 1993.455 ～ 482 . 
+ 4 　 Gilmour   C   C , Henry   E   A . Mercury   methylation   in   aquatic   systems   affected   by   acid   deposition . Environ   Pollut , 1991 , 71 : 131 . 
+ 5 　 Compeau   G   C , Bartha   R . Sulfate － reducing   bacteria : principal   methy \ | lators   of   mercury   in   anoxic   sediments . Appl   Environ   Microbiol , 1985 , 50 : 498 ～ 502 . 
+ 6 　 Gilmour   C   C , Tuttle   J   H , Means   J   C . Anaerobic   microbial   methylation   of   inorganic   tin   estuarine   sediment   slurries . Micro   Ecol , 1987 , 14 : 233 . 
+ 7   Challenger   F . Biological   methylzation . Chem   Rev , 1945 , 36 : 315 . 
+ 8   Xue   H － B , Stumm   W , Sigg   L . The   binding   of   heavy   metals   to   algal   surface . Wat   Res , 1988 , 22 : 917 . 
+ 9   Ferris   F   G . Metallic   ion   interactions   with   the   outer   membrane   of   gram － negative   bacteria . In : Beveridge   T   J , Doyle   R   J   eds . Metal   Ions   and   Bacteria . New   York : Wiley , 1989.295 ～ 323 . 
+ 10   Doyle   R   J , How   cell   walls   of   gram － positive   bacteria   interact   with   metal   ions . In : Beveridege   T   J , Doyle   R   J   eds . Metal   Ions   and   Bacteria . New   York : Wiley , 1989.275 ～ 293 . 
+ 11   Oremland   R   S , Hollibaugh   J   T , Maest   A   S , et   al . Selenate   reduction   to   elemental   selenium   by   anaerobic   bacteria   in   sediments   and   culture : biogeochemical   significance   of   a   novel , sulfate － independent   respiration . Appl   Environ   Microbiol , 1989 , 55 : 2333 . 
+ 12   Wang   P   C , Mori   T , Komori   K , et   al . Isolation   and   characterization   of   an   Enterobacter   cloacae   strain   that   reduces   hexovalent   chromium   under   anaerobic   conditions . Appl   Environ   Microbiol , 1989 , 55 : 1665 . 
+ 13   Black   J   P , Ford   T   E , Mitchell   R . The   role   of   bacterial   polymers   in   metal   release   into   water . In : Cullimore   R ( ed ) . International   Symposium   on   Biofouled   Aquifers : Prevention   and   Restoration . Bethesda , MD : AWRA , 1986.37 ～ 42 . 
+ 14   Francis   A   J , Dodge   C   J . Anaeobic   microbial   remobilization   of   toxic   metals   co － precipitated   with   iron   oxide . Environ   Sci   Technol , 1990 , 24 : 373 ～ 378 . 
+ 15   Mittelman   M   W , Geesey   G   G . Copper － binding   characteristics   of   exopolymers   from   a   freshwater － sediment   bacterium . Appl   Environ   Microbiol , 1985 , 49 : 846 ～ 851 . 
+ 16   Thurman   E   M . Organic   Geochemistry   of   Natural   Waters . Dordrecht : Nijhoff / Junk , 1985 . 
+ 17   Davis   W   B , Byers   R   R . Active   transport   of   iron   in   bacillus   megaterium : role   of   secondary   hydroxamic   acids . J   Bacteriol , 1971 , 107 : 491 . 
+ 18   McKnight   D   M , Morel   F   M   M . Copper   complexation   by   siderophores   from   filamentsous   blue － green   algae . Limnol   Oceanogr , 1980 , 25 : 62 . 
+ 19   Ford   T , Ryan   D . Toxic   metals   in   aquatic   ecosystems : microbiological   perspective .   Environ   Health   Perspect ,   1995 , 103 ( Suppl   1 ) : 25 .   
+ 收稿 日期 ： 1998 － 05 － 04 

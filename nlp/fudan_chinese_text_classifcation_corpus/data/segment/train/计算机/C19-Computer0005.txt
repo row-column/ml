@@ -1,0 +1,130 @@
+计算机 应用 
+ COMPUTER   APPLICATIONS 
+ 1999 年   第 19 卷   第 6 期   Vol.19   No.6   1999 
+ 
+ 
+ 
+ 远程教学 的 Agent 模型 
+ 蔡洪斌 　 周 明天 　 杨国纬 
+ 　 　 摘 　 要 　 利用网络 进行 远程教学 有 很多 优点 。 本文 讨论 如何 把 Agent 技术 应用 到 远程教学 中 ， 以 增强 教学效果 。 在 多 Agent 通信 语言 KQML 的 基础 上 ， 提出 了 远程教学 的 Agent 模型 ， 设计 了 Agent 的 能力 编码 ， 通过 对 搜索 教师 Agent 算法 的 时间 复杂度 分析 ， 说明 在 该 模型 中 搜索 教师 Agent 是 可行 的 和 有效 的 。 
+ 　 　 关键词 　 远程教学 ， Agent ， KQML ， 能力 编码 
+ THE   AGENT   MODEL   OF   DISTANCE   LEARNING 
+ Cai   Hongbin 　 Zhou   Mingtian 　 Yang   Guowei 
+ Computer   Center   of   Science   and   Technology ,   
+ University   of   Electronic   Science   and   Technology ,   Sichuan . Chengdu   610054 
+ 　 　 Abstract 　 Distance   learning   by   using   network   have   many   advantages .   This   paper   discuss   how   to   apply   agent   technology   to   distance   learning .   Based   on   KQML ,   we   propose   an   agent   model   of   distance   learning ,   designing   agent   capability   code .   By   analysing   the   time   complexity   of   search   algorithms ,   we   think   the   model   is   feasible   and   effective . 
+ 　 　 Keywords 　 Distance   learning ,   Agent ,   KQML ,   Capability   code 
+ 1 　 概述 
+ 　 　 远程教学 有 很 多种 模式 ， 如 电视大学 、 函授大学 等 ， 但 随着 网络 技术 的 发展 ， 涌现出 众多 新 技术 ， 如果 能 把 这些 新 技术 应用 于 远程教学 中 ， 利用网络 进行 教学 ， 必将 增添 远程教学 的 活力 。 在 众多 新 技术 中 ， Agent 技术 尤其 适合 应用 于 远程教学 中 。 Agent 是 一个 具有 自治 性 、 可 移动性 、 自适应性 和 智能性 的 软件 实体 ， 能 代表 用户 或 其它 程序 ， 以 主动 服务 的 方式 完成 一组 工作 。 使用 Agent 技术 可以 建立 虚拟 教师 、 虚拟 实验室 和 虚拟 图书馆 等 ， 从而 增加 教学内容 的 趣味性 和 人性化 色彩 ， 改善 教学效果 。 文中 对 Agent 技术 在 远程教学 的 应用 进行 了 初步 的 探索 ， 提出 了 远程教学 的 Agent 模型 ， 在 模型 中 使用 线性表 与 层次结构 相结合 的 Agent 连接 方式 ， 能 有效 地 降低 搜索 教师 Agent 的 时间 开销 。 在 大规模 的 网络 上 （ 如 Internet 网 ） ， 降低 搜索 的 时间 开销 是 有 重大意义 的 。 
+ 2 　 Agent 通信 语言 
+ 　 　 远程教学 涉及 教学 的 各个环节 ， 是 一个多 Agent 合作 的 网络 社会 。 DARPA 致力于 多 Agent 间 的 通信 研究 ， 提出 了 ACL （ Agent   Communication   Language ) 语言 。 ACL 由 三 部分 组成 ： ① 词汇表 ， ② 内部 语言 KIF ， ③ 外部 语言 KQML ， 即 知识 查询 与 操作 语言 。 在 设计 多 Agent 时 ， 要求 使用 KQML 语言 ， 而 关于 词汇表 和 KIF 只是 推荐 使用 ， 因为 KQML 对 知识 的 内部 表示 并 不 关心 ， 即 使用 任何 方法 表示 的 知识 都 可以 使用 KQML 语言 在 多 Agent 之间 共享 。 KQML 既 是 一种 语言 ， 又 是 一种 协议 ， 它 支持 智能 Agent 的 高层 通信 ， 能 有效 地 在 多 Agent 之间 共享 知识 。 其 基本 设计 思想 包括 以下 几个 部分 ： 
+ 　 　 .   体系结构 假设 　 Agent 的 运行 空间 可以 是 相同 的 地址 空间 ， 也 可以 是 处于 不同 机器 上 的 Agent 合作 。 因此 ， 要求 Agent 之间 的 通信 传送 机制 稳定 可靠 ， 同时 能够 支持 大规模 的 Agent 间 相互 通信 。 
+ 　 　 .   通信 模式 　 支持 多种 通信 方式 ， 如 点对点 通信 、 多址 通信 和 广播 通信 ， 支持 同步 通信 和 异步 通信 。 
+ 　 　 .   语法 和 语义 　 定义 信息 的 表示 方法 及 含义 。 
+ 　 　 .   层次结构 　 KQML 表示 的 信息 可以 用 三个 层次 来 描述 ： 内容 层 、 消息 层 和 通信 层 。 
+ 　 　 内容 层 是 使用 某种 语言 的 表达式 ， 是 共享 知识 的 编码 。 表达式 的 格式 对 KQML 来说 并 不 重要 ， KQML 对 它 进行 原样 打包 ， 形成 消息 层 使用 的 数据 。 
+ 　 　 消息 层 是 在 内容 层 的 表达式 上 增加 了 关于 内容 的 描述 特征 。 这些 特征 有助于 信息 的 正确 传递 和 接收者 进行 数据分析 。 消息 层 可以 认为 是 “ 谈话 动作 层 ” ， 其 重要 特征 是 在 Agent 对话 期间 ， 表明 一个 动作 ， 如 断言 、 查询 、 回答 和 错误 消息 等 。 在 Agent 之间 传递 的 消息 分为 两种 类型 ： 内容 消息 和 声明 消息 。 内容 消息 是 对 某个 Agent 能够 提供 的 知识 或 将要 搜寻 的 知识 的 描述 。 声明 消息 用于 登记 Agent 能 提供 的 服务 或 登记 Agent 需要 的 服务 。 
+ 　 　 通信 层 在 消息 层 的 基础 上 增加 了 对 低层 通信 的 描述 特征 ， 如 发送者 和 接收者 ， 使用 同步 通信 还是 使用 异步 通信 等 。 
+ 　 　 .   performatives 　 就是 KQML 消息 ， 由 关键字 和 参数 组成 ， 表明 通信 的 动作 和 要求 。 
+ 　 　 .   安全 　 在 分布 环境 中 ， 准许 一个 Agent 检查 另 一个 Agent 是否 具有 合法 的 操作 权限 。 
+ 3 　 远程教学 模型 
+ 　 　 本文 主要 解决 多 Agent 的 连接 方式 ， 使 它 有利于 在 学生 Agent 不 指明 目的地 时 ， 能 有效 地 搜索 教师 Agent 。 学生 Agent 只 需 提供 教学内容 ， 由 Facilitator 在 网络 中 搜索 合适 的 教师 Agent ， 由于 具有 相同 教学内容 的 教师 Agent 不是 唯一 的 ， 因此 ， 只有 设计 合理 的 体系结构 才能 在 有限 的 时间 内 完成 搜索 工作 。 为此 ， 进行 如下 假设 ： 
+ 　 　 ⑴   多 Agent 简化 ， 只 考虑 三类 Agent ， 即 教师 Agent 、 学生 Agent 和 Facilitator ； 
+ 　 　 ⑵   一个 教师 Agent 具有 有限 类 的 相关 教学 知识 。 
+ 3.1 　 逻辑 结构 
+ 　 　 远程教学 的 Agent 模型 应该 体现 Agent 的 自治 性 ， 其 自治 性 的 一个 方面 就是 学生 Agent 能够 为 用户 搜索 合适 的 教师 Agent 。 在 文献 ［ 2 ］ 中 ， 提出 了 多 Agent 的 网状结构 ， 在 这种 结构 中 搜索 一个 合适 的 教师 Agent 非常 困难 。 
+ 　 　 针对 远程教学 ， 我们 提出 线性表 与 层次结构 相结合 的 模型 。 
+ 　 　 ⑴   线性表 按 区域 划分 ， 一个 区域 对应 一个 一维 线性表 ， 每个 线性表 包含 若干个 Facilitator ， 为了 便于 区别 称为 区域 Facilitator ， 区域 Facilitator 不能 连接 教师 Agent 和 学生 Agent 。 整个 远程教学 系统 设置 调度 Facilitator ， 负责 全局 搜索 教师 Agent 时 ， 指明 当前 搜索 线性表 。 见图 1 。 
+ 　 　 ⑵   层次结构 按 教学内容 对 教师 Agent 进行 逐级 分类 ， 见图 1 中 对 一个 区域 Facilitator 的 示意 部分 。 这种 分类 的 层次结构 用 树形图 表示 ， 教师 Agent 是 叶子 结点 ， Facilitator 是 中间 结点 ， 学生 结点 也 是 叶子 结点 ， 但 它 不 具有 分类 属性 。 逐级 分类 时 ， 一级 分类 （ 如 数学 、 语言学 、 计算机 等 ） 对应 的 Facilitator 与 区域 Facilitator 相连 ； 下 一级 Facilitator 对应 较 详细 的 分类 ， 如 数学 包括 ： 几何 、 代数 等 ， 逐级 细分 。 
+ 　 　 在 分类 层次结构 中 ， 教师 Agent 可以 根据 教学内容 与 相应 的 Facilitator 相连 。 对于 学生 Agent 仍然 使用 Agent 的 联邦 结构 ［ 3 ］ ， 它 必须 与 某 一个 Facilitator 相连 ， 但 它 不 具有 分类 的 含义 ， 可以 采用 就近 连接 方式 。 
+ 
+ F   —   Facilitator 　 　 　 A   —   Agent 
+ 每个 区域 Facilitator 所辖 范围 具有 相同 的 层次结构 ， 图中 只 给出 了 其中 一个 的 图示 
+ 图 1 　 Agent 的 连接 方式 示意图 
+ 3.2 　 Agent 的 作用 
+ 　 　 在 远程教学 中有 三类 Agent ， 其 作用 分别 为 ： 
+ 　 　 ⑴   教师 Agent ： 向 Facilitator 声明 教学内容 ； 为 学生 Agent 提供 教学服务 ， 根据 教学要求 发送 教材 ； 实时 回答 学生 Agent 的 提问 等 。 
+ 　 　 ⑵   学生 Agent ： 向 Facilitator 请求 某类 知识 的 教师 ； 与 教师 Agent 建立 连接 ； 维护 用户界面 ； 向 教师 提问 等 。 
+ 　 　 ⑶   Facilitator ： 调度 Facilitator 管理 线性表 ， 提供 全网 搜索 信息 ； 区域 Facilitator 为 所 辖 范围 的 社区 Facilitator 提供 跨类 的 搜索 信息 ； 社区 Facilitator 负责 与 教师 Agent 及 学生 Agent 通信 ， 为 学生 Agent 提供 搜索 教师 Agent 的 服务 。 
+ 3.3 　 能力 编码 
+ 　 　 Agent 的 能力 指 能够 为 其它 Agent 提供 的 服务 。 为了 节省 存储空间 ， 对 Agent 的 能力 描述 ， 用 能力 编码 进行 区分 。 能力 编码 是 Facilitator 搜索 教师 的 依据 ， 它 由 四 部分 组成 ： 线性表 标志 、 Agent 类型 标志 、 分类 标志 、 教师 编号 。 线性表 标志 包括 线性表 名及 所属 区域 Facilitator 名 ； Agent 类型 标志 指出 该 Agent 属于 教师 Agent 、 学生 Agent 、 区域 Facilitator 或 社区 Facilitator 。 分类 标志 说明 教师 Agent 的 教学内容 所属 类别 ， 分类 标志 隐含地 说明 了 从 区域 Facilitator 到 该 教师 Agent 所 经过 的 中间 结点 。 分类 标志 有 两个 部分 ： 统一 编码 和 自由 编码 。 统一 编码 是 在 建立 远程教学 系统 时 统一 规定 的 分类 编码 。 为 提高 远程教学 系统 的 可扩展性 和 编制 教师 Agent 的 灵活性 ， 统一 编码 的 分类 不能 过于 细化 ， 在 需要 细化 时 ， 由 编程人员 进行 自由 分类 ， 即 设定 自由 编码 。 使用 自由 编码 的 教师 Agent 在 与 Facilitator 相连 时 ， 首先 检查 是否 具有 相应 的 Facilitator ， 如果 没有 ， 则 还 应该 负责 设计 能 识别 和 管理 自由 编码 的 Facilitator ， 并且 该 Facilitator 必须 与 相应 的 Facilitator 相连 。 以后 其它 教师 Agent 认同 这种 分类 ， 在 生成 自由 编码 和 教师 编号 时 ， 将 从 该 Facilitator 获得 正确 编码 的 指导 。 教师 编号 用于 区别 相同 分类 下 的 不同 教师 ， 教师 编号 应 保证 是 唯一 的 。 在 远程教学 中 具有 相同 能力 的 教师 Agent 不是 唯一 的 ， 但是 它们 的 能力 编码 是 唯一 的 ， 这种 唯一性 使 学生 Agent 也 可以 根据 需要 选择 最 优秀 的 教师 Agent 。 
+ 　 　 远程教学 中 的 Agent 能力 编码 的 声明 及 插入 知识库 的 请求 ， 大致相同 ， 在 此 仅举 一例 ： 
+ ( advertise 
+ : sender 　 　 　 　 　 facilitator 
+ : receiver 教师 A 
+ : reply - withid1 
+ : languageKQML 
+ : ontology 远程教学 
+ : content ( insert 
+ : sender 　 　 　 　 教师 A 
+ : receiverfacilitator 
+ : in - reply - toid1 
+ : languageKIF 
+ : ontology 远程教学 
+ : content " 能力 编码 " ) ) 
+ ( insert 
+ 　   　 　 　 : sender 　 　 　 　 教师 A 
+ : receiverfacilitator 
+ : in - reply - toid1 
+ : reply - withid2 
+ : languageKIF 
+ : ontology 远程教学 
+ : content " 能力 编码 " ) 
+ 　 　 调度 Facilitator 没有 能力 编码 ， 其 知识库 包括 线性表 名及 区域 Facilitator 名 ， 为 全网 搜索 提供 信息 。 
+ 　 　 区域 Facilitator 的 能力 编码 用 第一 、 二 部分 表示 ， 负责 向 调度 Facilitator 声明 其 所在 线性表 和 自己 的 名称 。 区域 Facilitator 使用 的 知识库 反映 其所辖 范围 下 一级 分类 信息 ， 如 是否 具有 关于 数学 的 教师 Agent 等 。 在 KQML 最新 提案 中 ［ 1 ］ ， Facilitator 不 使用 advertise ， 但 在 远程教学 模型 中 ， 必须 使用 advertise ， 才能 让 其它 Facilitator 了解 自己 的 能力 ， 这样 有利于 搜索 教师 Agent 。 
+ 　 　 社区 Facilitator 的 能力 编码 用前 三个 部分 表示 ， 负责 向 上级 Facilitator 声明 自己 的 能力 编码 ， 其 知识库 包含 下级 Facilitator 、 相应 教师 Agent 的 能力 编码 及 相连 的 学生 Agent 。 
+ 　 　 教师 Agent 的 能力 编码 用 四个 部分 表示 ， 且 主动 请求 相应 的 Facilitator 将 能力 编码 插入 到 该 Facilitator 的 知识库 中 。 
+ 　 　 学生 Agent 不 具有 分类 信息 。 学生 Agent 能够 根据 用户 的 要求 生成 教师 Agent 的 能力 编码 。 考虑 到 用户 一般 只 针对 某 一类 或 几类 知识 感兴趣 ， 因此 ， 学生 Agent 没有 必要 掌握 所有 分类 方法 ， 它 通过 向 Facilitator 学习 来 获得 编码 的 能力 。 
+ 3.4 　 搜索 教师 的 过程 
+ 　 　 图 2 表明 了 学生 Agent 搜索 教师 Agent 的 过程 ， 图中 针对 在 另外 一个 社区 找到 教师 Agent 的 情况 ， 其它 情况 与 该 图 类似 。 整个 过程 由 学生   A 开始 ， 它 向 本 社区 的 Facilitator   F1 提出 请求 ， F1 分析 能力 编码 ， 判断 被 请求 的 教师 是否 在 本 社区 ， 如果 不 在 本 社区 ， 则 向 上级 Facilitator 前传 学生 的 请求 ， 上级 Facilitator 进行 与 F1 类似 的 处理 ， 直到 某个 Facilitator 如 F2 能 确定 教师 B ， 并且 把 B 的 地址 回 传给 A ， A 在 获得 教师 B 的 地址 后 ， 直接 向 B 发出 学习 请求 ， B 给予 响应 ， 开始 学习 ， 学习 过程 中 不再 需要 其它 Facilitator 介入 。 
+ 
+ 图 2 　 搜索 教师 的 过程 示意图 
+ 3.5 　 搜索算法 的 时间 复杂度 分析 
+ 　 　 要 分析 搜索 教师 Agent 的 时间 复杂度 ， 首先 要 确定 搜索 策略 。 当 Facilitator 接收 到 一个 搜索 请求 后 ， 首先 分析 搜索 请求 中 包含 的 教师 Agent 的 分类 信息 ， 再 根据 分类 信息 进行 搜索 ， 搜索 包含 如下 几种 情况 ： 
+ 　 　 ①   教师 Agent 的 能力 编码 表明 在 本 社区 ， 则 在 本 社区 内 搜索 教师 Agent ； 
+ 　 　 ②   教师 Agent 不 在 本 社区 ， 则 逐级 向 上级 Facilitator 发出 搜索 请求 ； 
+ 　 　 ③   在 区域 Facilitator 所辖 范围 搜索 失败 ， 则 请求 调度 Facilitator ， 调度 Facilitator 根据 一定 的 原则 ， 指明 下 一个 搜索 的 区域 Facilitator ； 
+ 　 　 ④   在 同一 线性表 的 区域 Facilitator 搜索 失败 ， 由 调度 Facilitator 指明 另 一 搜索 线性表 ， 直到 所有 线性表 搜索 完毕 。 
+ 　 　 在 上述 搜索 策略 中 ， 任何 一步 搜索 成功 都 不再 进行 其后 的 搜索 。 搜索 的 结果 可能 是 一组 教师 Agent ， 如何 选择 其中 一个 教师 Agent ， 已 超出 了 本文 的 讨论 范围 ， 在 此 不 详述 。 
+ 　 　 为了 分析 搜索算法 的 时间 复杂度 ， 需要 进一步 的 合理 简化 。 设在 某 一个 社区 Facilitator 下 包含 一组 教师 Agent ， 则 用 一个 叶子 结点 代替 ， 因此 ， 搜索 进行 到 与 叶子 结点 直接 相连 的 Facilitator 后 ， 就 知道 该 树枝 结束 ； 在 分析 搜索 复杂度 时 ， 与 实际 搜索 策略 稍 有 区别 ， 分析 时 采用 从 调度 Facilitator 开始 直到 特定 叶子 ， 忽略 从 叶子 （ 学生 Agent ） 逐级 上交 的 过程 ； 并且 不 考虑 在 Agent 之间 传递信息 的 网络 延迟时间 。 
+ 　 　 搜索 叶子 结点 的 算法 可以 描述 如下 ： 
+ 　 　 while ( 有 线性表 ? ) { 
+ 取一 线性表 ； 
+ while ( 线性表 中有 结点 ? )   { 
+ 搜索 树 的 叶子 结点 ； 
+ if ( 搜索 成功 ? )   结束 循环 ； 
+ } 
+ } 
+ 　 　 因此 ： 
+ 　 　 搜索 的 时间 复杂度 = 线性表 搜索 时间 × 树 搜索 时间 
+ 　 　 分 两步 考虑 ： 
+ 　 　 ⑴   在 远程教学 模型 中 ， 使用 了 多个 线性表 ， 但 对 调度 Facilitator 来说 ， 如同 从 一个 线性表 中 获取 结点 ， 这个 线性表 由 所有 线性表 合并 而成 。 现 假设 调度 Facilitator 使用 的 线性表 为 L ， 有 n 个 结点 ， x 是 任一 给定 的 结点 ， 表示 需要 搜索 的 教师 Agent 所在 的 区域 Facilitator 。 按 x 在 L 中 出现 的 位置 进行 分类 ， 则 可能 出现 ( n + 1 ) 种 情况 ， 令 Ii 表示 x 在 L 中 第 i 位置 出现 的 分类 ， 其中 1 ≤ i ≤ n ， 用 In + 1 表示 x 不 在 L 中 的 分类 ， 显然 ， 对于 分类 Ii ， In + 1 的 比较 次数 分别 为 t ( Ii ) = i ， t ( In + 1 ) = n 。 为 计算 平均 比较 次数 ， 设 x 在 L 中 的 概率 为 q ， 且 假设 x 在 L 中 每个 位置 出现 的 概率 相同 ， 则 
+ p ( Ii )   =   q / n 　 ( 1 ≤ i ≤ n ) , 　 p ( In + 1 )   =   1   -   q 。 
+ 　 　 故 平均 性态 : 
+ 
+ 　 　 最坏 情况 ： 
+ W ( n )   =   max   { t ( Ii ) :   1 ≤ i ≤ n + 1 }   =   n 
+ 　 　 ⑵   这里 的 树 是 一个 不规则 的 树 ， 假设 树高为 m ， 用 ki 表示 第 i 层 具有 ki 个 结点 ， 在 搜索 时 ， 每 一层 将 针对 ki 个 结点 进行 搜索 。 由于 每层 结点 对应 教学内容 的 分类 ， 因此 ， 可以 组织 成 一个 有序 的 线性表 ， 如果 使用 二分 搜索 方法 ， 则 平均 性能 为 ： 
+ A ( ki ) = log   ki   -   1 。 
+ 　 　 如果 设 K   =   max   { ki :   1 ≤ i ≤ m } 
+ 　 　 则 树 搜索 的 平均 性能 为 ： 
+ A ( m ) = ( logki - 1 ) < m ( logK - 1 ) < T 
+ 　 　 其中 ， T 为 一 常数 ， 在 实际 应用 中 ， 对 教学内容 进行 分类 是 有限 的 ， 即树 的 高度 和 每层 的 结点 数是 有限 的 ， 并且 m 和 ki 是 相互 制约 的 ， 如果 一级 分类 k1 越大 ， 则 m 越小 。 使用 按 教学内容 分类 的 方式 ， 在 树内 的 搜索 能够 在 一个 时间 上限 T 内 完成 。 所以 ， 影响 搜索 时间 的 主要 因素 应该 是 线性表 的 结点 数 ， 线性表 的 结点 数 也 是 整个 模型 中 唯一 可能 出现 较 大幅度 增加 的 部分 ， 因此 ， 可以 认为 实际 应用 中 ， 其 搜索 的 时间 复杂度 与 线性表 同为 O ( n ) 。 并且 在 远程教学 领域 内 ， 总结 点 的 增加 速度 和 规模 绝对 不 可能 象 Internet 网 一样 快 和 庞大 ， 另外 ， 当 结点 增加 时 ， 表面 上 看 将 增加 搜索 时间 ， 实际上 会 减少 搜索 时间 ， 因为 ， 教师 Agent 种类 增加 ， 使 大多数 搜索 都 将 在 本 区域 Facilitator 内 ， 甚至 本 社区 Facilitator 内 完成 ， 所以 说 该 模型 具有 一定 的 实用性 。 
+ 　 　 在 实际 应用 中 ， 还 可以 进行 优化 。 在 相同 的 线性表 内 ， 区域 Facilitator 可以 按 优先级 顺序排列 ， 不同 的 线性表 也 可以 按 优先级 顺序排列 。 这样 ， 搜索 策略 可 进行 如下 调整 ： 当 在 本 区域 Facilitator 搜索 失败 后 ， 调度 Facilitator 在 同一 线性表 中 ， 按 优先级 从 高到 低 的 顺序 选择 区域 Facilitator ； 如果 在 线性表 中 搜索 失败 ， 则 也 按 优先级 的 原则 选择 线性表 。 
+ 4 　 余论 
+ 　 　 Agent 在 远程教学 中 的 应用 ， 现在 国内外 还 很少 有人 涉足 。 本文 从 远程教学 的 初期 工作 开始 ， 为 它 建立 一个 线性表 与 树形 结合 的 结构 模型 ， 该 模型 的 建立 有利于 以后 对 远程教学 进行 深入细致 的 研究 。 需要 说明 一点 ： 在 搜索 目的 Agent 时 ， 本文 没有 考虑 指定 目的 地址 的 情况 ， 如果 能 确定 连接 的 目的 地址 ， 将 使 问题 更加 简化 ， 但 削弱 了 Agent 的 自治 性 。 
+ 作者简介 ： 蔡洪斌 　 博士 研究生 。 研究 方向 ： 计算机网络 、 远程教学 。 
+ 周 明天 　 教授 , 博士 导师 。 研究 方向 ： 网络 计算 、 开放 分布式系统 、 并行处理 与 系统集成 。 
+ 杨国纬 　 教授 。 研究 方向 ： 操作系统 、 数据库 。 
+ 作者 单位 ： 电子科技 大学 信息中心 　 四川 . 成都 ( 610054 ) 
+ 参考文献 
+ ［ 1 ］ 　 Yannis   Labrou ,   Tim   Finin .   A   Proposal   for   a   new   KQML   Specification , Feb   3 ,   1997 , http : / / www . cs . umbc . edu / kqml / 
+ ［ 2 ］ 　 Tim   Finin ,   Rich   Fritzson ,   Don   Mckay .   A   Language   and   Protocol   to   Support   Intelligent   Agent   Interoperability ,   April   1992 ,   http : / / www . cs . umbc . edu / kqml / papers / 
+ ［ 3 ］ 　 Michael   R .   Genesereth ,   Steven   P .   Ketchpel .   Software   Agents .   Communications   of   the   ACM ,   1994 ； 37 （ 7 ） ： 48 - 53 
+ ［ 4 ］ 　 Pattic   Macs .   Agents   that   Reduce   Work   and   information   Overload .   Communications   of   the   ACM ,   1994 ; 37 ( 7 ) : 31 - 40 
+ ［ 5 ］ 　 Tim   Finin ,   Rich   Fritzson .   KQML   –   A   Language   and   Protocol   for   Knowledge   and   Information   Exchange ,   http : / / www . cs . umbc . edu / kqml / papers / 
+ ［ 6 ］ 　 Chuen - Tsai   Sun ,   Chien   Chou .   Experiencing   CORAL :   Design   a   nd   Implementation   of   Distance   Cooperative   Learning ,   IEEE   Transactions   on   Education ,   1996 ; 39 ( 3 ) 
+ ［ 7 ］ 　 Irene   Grrif .   Desktop   Agents   in   Group - Enabled   Products .   Communications   of   the   ACM ,   1994 ; 37 ( 7 ) : 100 - 105 
+ ［ 8 ］ 　 Yoav   Shoham .   Agent - oriented   Programming .   Artificial   Inte   lligence   ,   1993 ; 60 : 51 - 92 
+ ［ 9 ］ 　 Kazuo   Watabe ,   Matti   Hamalainen ,   Andrew   B .   Whinston .   An   Internet   Based   Collaborative   Distance   Learning   System :   CODILESS .   Computer   Educ ,   1995 ; 3 ( 24 ) : 141 - 155 
+ 收稿 日期 : 1998 - 12 - 25 

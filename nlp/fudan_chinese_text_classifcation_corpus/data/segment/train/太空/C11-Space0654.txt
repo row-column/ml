@@ -1,0 +1,32 @@
+上海 航天 
+ AEROSPACE   SHANGHAI 
+ 2001   Vol.18   No.3   P.26 - 31 , 35 
+ 
+ 
+ 
+ 
+ 无毒 单组元 发动机 技术 研究 
+ 李小芳 　   
+ 摘 　 要 ： 介绍 了 国内外 几种 无毒 单组元 发动机 技术 的 研究 背景 及 研究 现状 。 列出 了 过氧化氢 推进剂 、 羟基 推进剂 及 硝酸 肼 基 推进剂 的 一般 物理 、 化学 特性 和 主要 性能 。 除 比较 了 上述 三种 推进剂 无毒 单元 发动机 的 工作 原理 及 性能 特点 外 ， 还 在 推进剂 配方 的 确定 、 催化剂 的 选择 及 发动机 结构设计 准则 等 方面 进行 了 初步 的 探讨 ， 并 对 三种 推进剂 发动机 的 空间 应用 前景 进行 了 评价 。 
+ 关键词 ： 推进剂 毒性 ； 推力器 ； 单组元 发动机 
+ 分类号 ： V434 +. 3 　 文献 标识码 ： A 
+ 文章 编号 ： 1006 - 1630 ( 2001 ) 03 - 0026 - 06 
+ Non - Toxic   Monopropellant   Engine   Technology   Development   
+ LI   Xiao - fang （ No.801   Institute   of   SAST ， Shanghai   200233 ， China ） 　 
+ 
+ Abstract ： This   paper   introduces   the   background   and   the   status   of   the   development   of   non - toxic   mono - propellant   engines   at   home   and   abroad .   The   physical   and   chemic   characteristic ,   and   the   main   performance   of   hydrogen   peroxide   propellant ,   HAN   based   propellant   and   hydrazine   nitrate   propellant   are   listed .   These   three   non - toxic   engines   are   contrasted   in   the   principium   of   work   and   the   character   feature .   The   rule   of   design   in   structure ,   the   component   of   propellant   and   catalyst   are   discussed .   And   their   perspectives   in   application   are   also   estimated . 
+ Keywords ： Propellant   toxicity ；   Thruster ；   Mono - propellant   engine 
+ 
+ 作者简介 ： 李小芳 （ 1968 - ） ， 女 ， 高级 工程师 ， 研究 领域 ： 液体 火箭 发动机 。   
+ 作者 单位 ： 李小芳 （ 上海 航天技术 研究院 801 所 ， 上海   200233 ） 　 
+ 
+ 参考文献 ： 
+ ［ 1 ］ 阿列 玛索夫 B   E   等 著 , 张中软 , 庄逢辰 等 译 . 火箭 发动机 原理 [ M ] . 北京 ： 宇航 出版社 , 1993 . 
+ ［ 2 ］ Robert   S .   HAN - Based   monopropellant   assessment   for   spacecraft [ R ] .   AIAA , 96 - 2863 . 
+ ［ 3 ］ Mittendorf   D ,   Facinelli   W ,   Sparolus   R .   Experimental   development   of   a   monopropellant   for   propulsion   systems [ R ] .   AIAA   97 - 2951 . 
+ ［ 4 ］ Olwen   M   M .   Monopropellant   selection   criteria - hydrazine   and   other   options [ R ] .   AIAA , 99 - 2595 . 
+ ［ 5 ］ Meinhardt   D ,   Christofferson   S ,   Wucherer   E .   Performance   and   life   testing   of   small   HAN   thrusters   [ R ] .   AIAA ,   99 - 2881 . 
+ ［ 6 ］ Physical   and   explosion   characteristics   of   hydrazine [ R ] .   N70 - 20440 . NASA   CR - 108935 . 
+ 
+ 收稿 日期 ： 2000 年 8 月 12 日 
+ 出版日期 ： 2001 年 3 月 1 日 

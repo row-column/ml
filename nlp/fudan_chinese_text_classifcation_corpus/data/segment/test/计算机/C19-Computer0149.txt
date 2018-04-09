@@ -1,0 +1,123 @@
+微型 电脑 应用 
+ MICROCOMPUTER   APPLICATIONS 
+ 2000 　 Vol.16 　 No.1 　 P.41 - 43 
+ 
+ 
+ 
+ 基于 Intranet / Internet 的 医院 
+ 信息系统 实现 
+ 徐浩 　 辛 海燕 
+ 摘 　 要 ： 本文 以 一个 大型 综合 医院 为 实例 ， 介绍 了 利用 Intranet / Internet 技术 实现 新一代 医院 信息系统 的 关键步骤 和 实施 中应 注意 的 问题 。 
+ 关键词 ： 医院 　 网络 　 信息系统 　 Intranet / Internet 
+ Abstract ： This   paper   describes   the   key   processes   and   problems   in   realization   of   the   new   generation   Hospital   Information   System   ( HIS ) using   Intranet / Internet   technology . Alargepolyclinic   hospital   is   used   aas   an   example   for   illustration . 
+ Keywords ： hospital   network   IS   Intranet / Internet   client / server   browse / server   accout ▲ 
+ 一 、 概述 
+ 　 　 随着 计算机 在 医院 应用 的 深入 ， 医院 对 计算机网络 系统 又 有 了 新 的 认识 ： 一方面 ， 要求 系统可靠性 高 、 带宽 高 、 响应 快 、 安全性 好 ， 能够 满足 日常 业务 的 需要 ； 另一方面 ， 由于 医院 间 竞争 的 日益 激烈 ， 医院 需要 宣传 自己 ， 同时 ， 医生 和 护士 也 需要 不断 的 同 外界 交流 ， 来 提高 自身 的 技术水平 。 
+ 　 　 Intranet 就是 采用 Internet 技术 建立 起来 的 单位 内部网 ： 利用 TCP / IP 协议 ， 由 Web 服务器 和 浏览器 组成 的 网络 。 它 功能强大 ， 应用 广泛 ， 容易 学习 和 使用 ， 管理 维护 更新 方便 。 既 具备 传统 单位 内部 网络 的 安全性 ， 又 具备 Internet 的 开放性 和 灵活性 。 在 对 单位 内部 应用 提供 有效 管理 的 同时 ， 又 能 与 外界 进行 信息 交流 。 
+ 　 　 将 Intranet / Internet 技术 运用 于 医院 的 计算机网络 建设 中 ， 可 使 系统 技术水平 先进 ， 软件开发 周期短 ， 用户界面 一致 ， 用户 培训 少 ， 特别 适合 于 床位 在 一 千张 左右 的 大中型 医院 。 可 在 较 短 的 时间 内 实现 一个 较 完善 的 医院 网络系统 。 下面 我们 就 以 青岛大学 医学院 附属 医院 为 例来 说明 。 
+ 二 、 系统 总体方案 
+ 　 　 要 实现 一个 计算机网络 系统 ， 布线 是 必不可少 的 ， 这是 网络 的 基础 。 青岛大学 医学院 附属 医院 是 由 门诊 大楼 A座 、 门诊 大数 B座 、 病房 大楼 、 放射 楼 、 检验 楼 、 综合楼 、 行政 楼 等 七座 楼宇 构成 。 在 楼 内 ， 我们 采用 五类 双绞线 按 建设部 结构化 标准 布线 ， 楼楼 之间 用六芯 62.5 / 125 多模 光纤 连接 ， 光纤 全部 汇集 到 计算机 中心 中 。 全院 共计 有 1000 余个 信息点 ， 有 12 个 设备 间 ， 计算机 中心 在 门诊 大楼 A座 。 这样 按 结构化 标准 设计 的 布线 系统 ， 灵活 方便 ， 适用 于 多种 网络拓扑 结构 。 
+ 　 　 目前 ， 我们 从 经济 上 和 实用性 方面 考虑 ， 主干 采用 100M 交换式 以太网 ， 10M 交换 到 桌面 ， 将来 很 容易 升级 到 千兆 以太网 或 ATM 。 
+ 　 　 通过 64K   DDN 专线 连接 到 Internet ， 建立 自己 的 网站 ， 对外 发布 信息 ， 对内 提供 Internet 访问 服务 。 
+ 　 　 从 经济 上 和 性能 上 考虑 ， 我们 选用 微软 的 BackOffice 产品 作为 自己 的 后台 软件平台 ： 服务器 操作系统 用 Windows   NT   4.0 ， 数据库 用 SQL   Server6.5 ， 邮件 服务器 用 Exchange5.5 ， WEB 服务器 用 IIS3.0 ， 代理服务器 用 Proxy2.0 。 网络 上 运行 的 协议 是 TCP / IP 。 
+ 　 　 应用软件 的 开发 主要 有 传统 的 客户机 / 服务器 ( Client / Server ) 方式 和 先进 的 浏览器 / 服务器 ( Browse / Server ) 方式 ， 在 本 项目 中 ， 我们 将 两者 结合 起来 ， 充分发挥 它们 的 所长 。 
+ 三 、 系统实施 
+ 　 　 网络 示意图 如图 1 所示 ， 用 3COM   Switch   3300 做 主干 交换机 ， 直接 连接 三个 服务器 ， 通过 光纤 连接 到 各楼层 设备 间 的 3COM   Switch   1100 交换机 上 ， 各 桌面 工作站 均 独占 10M 带宽 。 网络 通过 路由器 和 Internet 相连 。 下面 我们 着重 介绍 几个 关键 的 实施 部分 。 
+ 
+ 图 1 
+ 　 　 1 . IP地址 的 申请 及 路由器 的 配置 ： 
+ 　 　 我们 向 邮电局 ( 或 其它 ISP ) 申请 IP地址 ， 得到 的 IP地址 是 10.82 . 128.33 到 10.82 . 128.62 ， 子网掩码 为 255.255 . 255.224 。 我们 的 路由器 同步 串口 IP地址 为 10.82 . 185.2 ， 局端 路由器 串口 IP地址 为 10.82 . 185.1 ， 子网掩码 均 为 255.255 . 255.252 。 
+ 　 　 路由器 我们 选用 CISCO2501 ， 下面 是 路由器 的 配置 过程 ： 
+ 　 　 ( 1 ) 以太 口 E0 的 配置 ： 
+ 　 　 Interface   ethernet   0 
+ 　 　 　 IP   address   10.82 . 128.34 　 255.255 . 255.224 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 设置 E0 口 IP地址 
+ 　 No   shutdown 启动 E0 口 
+ 　 　 ( 2 ) 同步 串口 S0 的 配置 ： 
+ 　 　 　 Interface   serial   0 
+ 　 　 　 　 Ip   address   10.82 . 185.2 　 255.255 . 255.252 
+ 　 　 设置 S0 口 IP地址 
+ 　 　 　 　 No   shutdown 启动 S0 口 
+ 　 　 ( 3 ) 路由 协议 配置 ： 
+ 　 　 　 Router   igrp   1 设置 IGRP 路由 协议 
+ 　 　 　 　 Network10.0 . 0.0 网络 10.0 . 0.0 连到 
+ 　 　 路由 路上 
+ 　 　 ( 4 ) 路由表 配置 ： 
+ 　 　 　 Ip   classless 　 　 　 　 允许 转发 路由表 外 
+ 　 　 子网 的 包 
+ 　 　 　 Ip   router0.0 . 0.0 　 0.0 . 0.0 　 10.82 . 185.1 
+ 　 　 建立 静态 路由表 ， 
+ 向 网络 外发 的 包均 
+ 转发 到 10.82 . 185.1 
+ 　 　 2 . 服务器 及其 系统软件 实施 
+ 　 　 计算机 中心 有 三个 NT 服务器 ： 其 名称 分别 为 ： AccountServer 、 SQLServer 、 ProxyServer ， 它们 都 配有 磁盘阵列 卡 ， 并 将 个 3 个 热插拔 Ultra   Wide   SCSI   9G 硬盘 配置 成 RAID5 方式 。 这样 ， 如果 有 一个 磁盘 损坏 ， 可以 在线 替换 不 影响 使用 。 AccountServer 上 运行 IIS   3.0 、 FrontPage98 扩展 、 Exchange5.5 ， 同时 做 Web 服务器 和 邮件 服务器 ， 配 512 兆 内存 ， 4 个 Pentium Ⅱ Xeon 处理器 。 SQLServer 上 运行 SQL   Server6.5 ， 是 数据库 服务器 ， 配 512 兆 内存 ， 4 个 Pentium   Ⅱ   Xeon 处理器 。 ProxyServer 作为 代理服务器 和 网络 的 防火墙 ， 配有 两块 网卡 ， 运行 IIS3.0 和 Proxy2.0 。 
+ 　 　 3 . 代理服务器 及 防火墙 ： 
+ 　 　 单位 内部 网上 的 计算机 ， 除了 服务器 ProxyServer 外 ， 都 自己 分配 内部 IP地址 ， 和 ISP 分配 IP地址 无关 。 我们 使用 150.150 . 1.1 到 150.150 . 10.254 ， 子网掩码 为 255.255 . 0.0 作为 自己 的 内部 IP地址 范围 。 
+ 　 　 服务器 ProxyServer 配备 两块 网卡 ， 一块 网卡 的 IP地址 为 内部网 地址 ( 150.150 . 1.3 ) ， 另 一块 网卡 IP地址 为 ISP 分配 ( 10.82 . 128.33 ) 。 它 将 单位 内部网 和 Internet 隔离 起来 ， 所有 内部网 用户 需要 访问 Internet 都 要 经过 ProxyServer , 在 ProxyServer 中 设置 了 1G 的 缓冲区 ， 用来 加速 Internet 的 访问 ， 用户 访问 Internet 上 的 网站 页面 ， 首先 查看 ProxyServer 缓冲区 中 是否 已有 ， 若 有 则 直接 从 缓冲区 中 取回 ， 若 没有 则 再 通过 DDN 专线 到 Internet 上 去取 ， 同时 ， 放到 缓冲区 中 ， 大大 加速 了 Internet 的 访问速度 。 ProxyServer 同时 作为 网络 的 防火墙 ， 可以 根据 需要 滤除 一些 可疑 的 包 ， 只有 ProxyServer 暴露 在 Internet 上 。 
+ 　 　 4 . Windows   NT 的 域 的 设置 ： 
+ 　 　 Windows   NTServer 是 用域 来 管理 计算机 和 帐号 的 ， 我们 建立 两个 域 ： IntraDomain 域 和 ProxyDomain 域 ， 只有 代理服务器 ProxyServer 属于 ProxyDomain 域 ， 是 ProxyDomain 域 的 主 域控制器 ( PDC ) ， 其它 服务器 和 计算机 都 属于 IntraDomain 域 ， AccountServer 是 主 域控制器 ( PDC ) 。 两个 域 之间 建立 单向 信任 关系 ， 如图 2 所示 。 
+ 
+ 图 2 
+ 　 　 IntraDomain 域 是 被 信任 域 ( 帐户 域 ) ， ProxyDomain 域 是 信任 域 ( 资源 域 ) 。 所有 帐号 都 建立 在 IntraDomain 域 中 ， IntraDomain 域 的 用户 可以 访问 IntraDomain 域 和 ProxyDomain 域 的 资源 ， 而 ProxyDomain 域 的 用户 只能 访问 本域 的 资源 ， 这样 就 进一步 保障 了 网络 的 安全性 ， 即使 有 入侵者 闯入 了 ProxyServer ， 也 不能 对 网络 上 的 其它 资源 造成 破坏 。 
+ 　 　 5 . 帐户 和 资源 的 管理 
+ 　 　 网络 上 的 用户 要 根据 不同 的 职责 设置 相应 的 权限 。 根据 NT 对 帐号 和 资源 的 管理 原则 ： 要 将 用户 放入 全局 组中 ， 全局 组 放入 要 访问 资源 的 本地 组中 ， 给 本地 组 赋予 相应 的 权限 。 下面 我们 就 以 设置 Internet 浏览 和 收发 邮件 许可 为 例来 说明 ： 
+ 　 　 网上 的 用户 ， 不 可能 都 允许 他们 访问 Internet ， 我们 先 在 IntraDomain 域 中 建立 两个 全局 组 ： InternetBrowse 组和 InternetMail 组 ， 将 允许 进行 浏览 的 用户 放入 InternetBrowse 组中 ， 将 允许 收发 邮件 的 用户 放入 InternetMail 组中 ， 在 代理服务器 ProxyServer 上 建立 两个 本地 组 InternetBrowse 组和 InternetMail 组 ， 将 全局 组 InternetBrowse 放入 本地 组 InternetBrowse 中 ； 将 全局 组 InternetMail 放入 本地 组 InternetMail 中 。 配置 Web   Proxy 服务 ， 设置 访问控制 ： 对 WWW 允许 本地 组 InternetBrowse 完全 控制 ， 对 FTP 允许 本地 组 InternetBrowse 读取 。 配置 WinSock   Proxy 服务 ， 设置 访问控制 ： 允许 本地 组 InternetMail 无 限制 的 访问 权力 。 这样 只要 是 全局 组 InternetBrowse 的 成员 就 能 进行 Internet 浏览 ， 只要 是 全局 组 InternetMail 的 成员 就 能 收发 邮件 。 
+ 　 　 6 . 网页 的 设计 与 维护 
+ 　 　 我们 主要 用 FrontPage98 设计 了 医院 的 网页 ， 包括 医院 的 特色 、 科室 简介 、 专家 简介 、 每日 应诊 专家 、 医疗 服务 、 新 技术 新 项目 等等 。 我们 的 网页 是 动态 的 ， 内容 大都 是 放在 服务器 SqlServer 上 的 SQL6.5 数据库 中 ， 网页 通过 ASP 技术 从 数据库 中 取得 数据 。 
+ 　 　 在 各 相关 科室 的 计算机 上 我们 开发 了 相应 的 更新 数据库 的 客户端 软件 ， 负责 维护 与 自己 科室 有关 的 网页内容 ， 例如 门诊部 每周 将 各 科室 的 专家 排班 表 录入 到 SQL 数据库 中 ， 这样 就 保证 了 网页 的 实时 更新 。 
+ 　 　 内部网 的 Web 服务器 是 AccoutServer , 但 AccountServer 对 Internet 来说 ， 是 不 可见 的 ， 怎样 实现 把 我们 的 网页 发布 出来 呢 ? 这 就要 靠 代理服务器 的 功能 了 ， 我们 在 代理服务器 中 Web   Proxy 出版 选项 中 设置 ： 允许 Web 出版 ， 并 将 出版 服务器 设为 AccountServer 。 这样 ， 在 Internet 上 就 可以 访问 我们 的 网页 了 。 
+ 　 　 7 . Internet 访问控制 和 记费 的 实现 
+ 　 　 我们 在 SQLServer 服务器 中 建立 一个 一个 数据库 MSP ， 其中 建立 一个 表 MSP - LOG - TABLE ， 这 是 对 WWW ， WinSock 等 代理 活动 的 日志 记录 。 建表 SQL 语句 如下 所示 ： 
+ CREATE   TABLE   MSP - LOG - TABLE ( 
+ 　 　 ClientIP 　 　 　 　 　 　 　 　 　 varchar ( 32 ) , 　 　 　 　 　 用户 IP地址 
+ 　 　 ClientUserName 　 　 　 　 　 　 varchar ( 32 ) , 　 　 　 　 　 用户名 
+ 　 　 ClientAgent 　 　 　 　 　 　 　 varchar ( 128 ) , 
+ 　 　 ClientAuthenticate 　 　 　 　 varchar ( 5 ) , 
+ 　 　 logTime 　 　 　 　 　 　 　 　 　 datetime , 　 　 　 　 　 　 　 日期 及 时间 
+ 　 　 service 　 　 　 　 　 　 　 　 　 varchar ( 12 ) , 
+ 　 　 servername 　 　 　 　 　 　 　 　 varchar ( 32 ) , 
+ 　 　 referredserver 　 　 　 　 　 varchar ( 32 ) , 
+ 　 　 DestHost 　 　 　 　 　 　 　 　 varchar ( 32 ) , 　 　 　 　 　 　 目标 主机名 
+ 　 　 DestHostIP 　 　 　 　 　 　 　 varchar ( 32 ) , 
+ 　 　 DestHostPortint , 
+ 　 　 processingtime 　 　 　 　 　 　 int , 
+ 　 　 bytessent 　 　 　 　 　 　 　 　 int , 　 　 　 　 　 　 　 　 　 发送 字节数 
+ 　 　 bytesrecvd 　 　 　 　 　 　 　 　 int , 　 　 　 　 　 　 　 　 　 收到 字节数 
+ 　 　 protocol 　 　 　 　 　 　 　 　 　 varchar ( 8 ) , 
+ 　 　 transport 　 　 　 　 　 　 　 　 varchar ( 8 ) , 
+ 　 　 operation 　 　 　 　 　 　 　 　 varchar ( 8 ) , 
+ 　 　 ori 　 　 　 　 　 　 　 　 　 　 　 varchar ( 255 ) , 
+ 　 　 mimetype 　 　 　 　 　 　 　 　 　 varchar ( 32 ) 
+ 　 　 objectsource 　 　 　 　 　 　 　 varchar ( 10 ) , 
+ 　 　 resultcode 　 　 　 　 　 　 　 　 int , 
+ 　 　 CacheInfo 　 　 　 　 　 　 　 　 　 int 
+ 　 　 ) 
+ 　 　 配置 好 ProxyServer 的 ODBC 驱动 及 系统 DSN 名 ， 设置 Web   Proxy 、 Winsock   Proxy 服务 ， 使 访问 日志 通过 ODBC 记录 到 上述 数据表 中 。 我们 用 Delphi3 开发 了 一个 查询 统计 软件 ， 可 对 用户 活动 随时 进行 监督 ， 并 可以 按 访问 日期 、 用户名 、 访问 站点 、 收发 字节数 等 进行 统计 ， 依据 它 可 对 用户 进行 记费 。 
+ 　 　 8 . 应用软件 的 开发 和 实施 
+ 　 　 对 医院 内部 软件 的 开发 ， 我们 采用 传统 的 客户机 / 服务器 ( Client / Server ) 方式 和 先进 的 浏览器 / 服务器 ( Browse / Server ) 相结合 的 方法 进行 ， 主要 包括 下面 几个 子系统 。 
+ 　 　 . 门急诊 管理系统 ： 包括 门诊 挂号 、 收费 、 发药 系统 和 门诊病人 管理系统 。 
+ 　 　 . 住院 管理子系统 ： 医嘱 在 病房 录入 计算机 ， 根据 医嘱 自动 记帐 ， 病房 药房 按 医嘱 完成 配药 ， 各种 化验 、 检查报告 、 影象 资料 均 由 计算机网络 自动 传递 。 
+ 　 　 . 影象 管理子系统 ： 所有 影象 资料 及 检查报告 均 录入 计算机 。 
+ 　 　 . 化验 、 检查 科室 管理子系统 ： 化验 仪器 、 检查 设备 ， 能同 网络 相连 的 直接 同 网络 相连 ， 不能 相连 的 将 结果 录入 计算机 。 
+ 　 　 . 药品 管理子系统 ： 包括 药品 的 入库 、 出库 、 库存 、 调价 、 报损 、 查询 等 。 
+ 　 　 . 物资 管理子系统 ： 固定资产 、 低值易耗品 、 卫生用品 及其 它 用品 等 的 出入库 、 库存 、 各 科室 的 拥有 情况 、 完好 情况 、 使用 情况 等 。 
+ 　 　 . 多媒体 导医 子系统 ： 包括 就诊 指南 、 医院 的 布局 、 科室 的 特点 、 专家教授 的 特长 、 药费 、 检查费 、 治疗费 的 价格 等等 。 
+ 　 　 . 领导 查询 子系统 ： 查询 各个 子系统 的 数据 ， 包括 各个 病人 情况 、 床位 占用 、 工作进展 情况 、 库存 等等 。 
+ 　 　 . 相互 交流 及 对外 宣传 子系统 ： 在 网上 开 研讨会 ， 互发 Email 。 将 医院 的 情况 、 特色 、 等 及时 的 发布 出去 ， 宣传 自身 。 
+ 　 　 对 一些 录入 量 大 、 要求 响应 快 的 应用 ， 例如 门诊 收款 、 划价 、 取药 ， 病房 病入 出入 转 ， 医嘱 录入 ， 设备 材料 的 出入库 等 应用 ， 我们 采用 Client / Server 的 方式 ， 用 Delphi3 开发 前台 应用程序 ， 通过 SQL   link 和 后台 SQL 数据库 连接 。 
+ 　 　 对 其它 一些 录入 量少 、 使用 人员 不 固定 的 应用 ， 例如 多媒体 查询 系统 、 领导 决策 查询 系统 、 信息检索 系统 等 ， 采用 Browse / Server 的 方式 ， 前台 统一 用 浏览器 做 客户端 ， 用 Delphi3 开发 应用服务器 ， 制作 一些 ActiveX   Form ， 这样 浏览器 界面 不至于 显得 过于 单调 ， 操作 起来 很 容易 ， 大大减少 了 培训 工作量 。 
+ 四 、 经验 和 总结 
+ 　 　 1 . 我们 的 网络 是 通过 防火墙 和 Internet 相连 的 ， 系统 安全性 是 最 重要 的 ， 应将域 上 的 guest 帐号 禁止 ， 管理员 用户名 应 更改 。 要 设置 好 帐号 规则 ， 如 口令 的 最小 长度 、 有效期 、 帐号 的 锁定 策略 等 。 在 服务器 上要 禁止 IP 转发 ， 只有 代理服务器 上 的 IP地址 才 是 外部 可见 的 。 
+ 　 　 2 . 系统管理员 对 资源 的 权限 管理 一定 要 设置 好 ， 不要 形成 安全漏洞 。 权限 的 管理 一定 要 按照 NT 的 原则 ， 将 用户 帐号 放到 全局 组中 ， 将 全局 组 放到 本地 组中 ， 对 本地 组 赋予 资源 使用 的 权限 ， 并 做好 记录 。 
+ 　 　 3 . 系统 负载 均衡 ： 将 负载 均匀 分散 到 几个 服务器 上 。 系统 响应 得以 加快 。 
+ 　 　 4 . 系统 可伸缩性 强 ： 根据 医院 规模 的 不同 ， 可以 增加 或 减少 服务器 的 数量 及 配置 ， 也 可以 很 容易 的 升级 到 千兆 以太网 或 ATM 。 
+ 　 　 5 . 把 服务器 ProxyServer   放到 单独 的 域 中 ， 进正 正派 增强 了 系统 安全性 。 
+ 　 　 6 . 采用 Cclient / Server   和   Browse / Server 两种 方法 开发 应用软件 ， 充分发挥 了 它们 的 优点 ， 避免 他们 的 缺点 ， 能够 在 较 短 的 时间 内 建立 较 完善 的 医院 信息系统 。 ■ 
+ 作者 单位 ： 徐浩 ( 青岛大学 医学院 附属 医院 计算机 中心   266003 ) 
+ 参考文献 ： 
+ ［ 1 ］ Microsoft   Corporation   Supporting   Microsoft   Windows   NT   Server   4.0   Enterprise   Technologies 
+ ［ 2 ］ Cisco   Systems   Inc   Cisco   2500   Series   Router   Installation   and   Caonfiguration   Guide 
+ ［ 3 ］ Misrosoft   Corporation   ProxyServer   2.0   培训 教程 
+ ［ 4 ］ D . Solomon   SQL   Server   6.5   开发 指南 
+ ［ 5 ］ 李维   Delphi   3.0   从 入门 到 精通 
+ 收稿 日期 : 1999 - 10 - 19 

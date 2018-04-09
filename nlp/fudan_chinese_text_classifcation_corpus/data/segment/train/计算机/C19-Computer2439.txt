@@ -1,0 +1,142 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH 
+ AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 12 期   Vol.36   No.12   1999 
+ 
+ 
+ 
+ 分布式 多媒体系统 中 的 同步 问题 研究 
+ 金 　 涛 
+ 摘 　 要 　 文中 首先 给出 基于 进程 代数 的 LOTOS 形式化 规范 语言 的 基本概念 ， 通过 对 传统 LOTOS 进行 基于 时间 的 扩充 ， 引入 时间 算子 ， 并 给出 其 相应 的 语法 定义 和 形式 语义 . 通过 对 分布式 环境 下 的 多媒体 同步 问题 进行 系统 的 分析 ， 利用 基于 时间 扩充 的 LOTOS ， 给出 了 基本 的 同步 问题 和 严格 的 多媒体 唇 同步 问题 的 算法 描述 . 同时 给出 一个 实例 系统 ， 进一步 描述 了 基于 时间 扩充 的 LOTOS ， 对 分布 环境 下 多媒体信息 同步 问题 在 实际 中 的 应用 ， 并 与 传统 方法 进行 了 比较 . 
+ 关键词 　 分布式 多媒体系统 ， 同步 ， LOTOS 
+ 中图法 分类号 　 TP37 
+ RESEARCH   ON   THE   SYNCHRONIZATION   PROBLEM   IN 
+ DISTRIBUTED   MULTIMEDIA   SYSTEMS 
+ JIN   Tao   
+ ( College   of   Computer   Science   and   Technology ,   Wuhan   University ,   Wuhan   430072 ) 
+ ( College   of   Computer   Science   and   Technology ,   National   Engineering   Research   Center   for   Multimedia   Software , 
+ The   Open   Research   Laboratory   for   Multimedia   Software   under   the   Department   of   Education ,   Wuhan   University ,   Wuhan   430072 ) 
+ Abstract 　 LOTOS   is   a   formal   specification   language   , designed   for   the   precise   description   of   the   open   distributed   system .   LOTOS   is   based   on   process   algebra   model .   Firstly ,   this   paper   gives   some   basic   concepts   of   LOTOS .   By   introducing   two   time   operators ,   the   traditional   LOTOS   is   extended   and   time - based   LOTOS ' s   syntax   and   formal   semantics   are   described .   Then ,   it   performs   a   systematic   analysis   of   the   synchronization   problem   in   the   distributed   multimedia   system .   Applying   the   time - based   LOTOS ,   the   specification   of   the   basic   synchronization   algorithm   and   the   lip - synchronization   algorithm   is   proposed .   Also ,   an   example   of   the   lip - synchronization   system   is   illustrated   and   compared   with   the   traditional   synchronization   design   methods . 
+ Key   words 　 distributed   multimedia   system ,   synchronization ,   LOTOS 
+ 1 　 前 　 　 言 
+ 　 　 与 传统 分布式系统 相比 ， 分布式 多媒体系统 有 3 个 重要 特点 ： 连续 交互性 、 提供 严格 的 服务质量 机制 和 实时 同步性 . 连续 交互性 是 指 在 分布式 多媒体系统 ， 需要 一种 持续 的 媒体 流 （ stream ） 的 交互 机制 ， 这 与 传统 的 分布式 通信 仅 支持 单一 RPC 方式 完全 不同 ； 在 分布式 多媒体 环境 下 ， 必须 满足 多媒体信息 表现 的 严格 同步 要求 ， 在 对 多媒体 对象 流 的 传输 中 保持 相关 媒体 的 同步 ， 提供 端到 端 服务 时所 涉及 到 的 延迟 （ delay ） 、 抖动 （ jitter ） 等 方面 的 问题 ， 所以 必须 对 分布式 多媒体系统 提供 严格 的 服务质量 机制 ； 实时 同步性 表明 在 分布式 多媒体系统 中 ， 信息 必须 严格 保持 实时 同步 ， 既 要求 保持 从 媒体 对象 采集 到 媒体 对象 表现 都 严格 限制 延迟 和 抖动 范围 ， 即 媒体 内 同步 （ intra - synchronization ） ， 又 要 在 几个 媒体 流 并行 表现 时 ， 依据 其 相互 时序 关系 保持 媒体 间 的 同步 （ inter - synchronization ） . 如 多媒体 唇 同步 （ lip - synchronization ） 问题 ， 必须 严格 保持 声频 与 视频 的 同步 . 
+ 　 　 对于 传统 的 多媒体 同步 问题 分析 ， 主要 是 依据 Allen 定义 的 统一 的 时间 模型 ［ 1 ］ ， 即 equal ， meet ， before ， during ， start ， finish ， overlap 等 13 种 基本 的 时态 关系 ， 给出 不同 的 多媒体 同步 模型 . T . D . C . Little 依据 Allen 定义 的 时间 关系 提出 了 OCPN 模型 ［ 2 ］ ， 利用 Petri 网 描述 两个 多媒体 对象 的 时间 合成 基于 顺序 和 并行 两种 时间 关系 ， 给出 具有 统一 时间 的 OCPN 模型 . Peter   King ［ 3 ］ 为了 弥补 Allen 定义 的 时间 关系 不精确性 ， 引入 ITL （ interval   temporal   logic ） 描述 多媒体 文档 中 的 同步 问题 . 与 之 相反 ， Wahl 和 Rothermel ［ 4 ］ 给出 了 29 种 多媒体 同步 的 时序 关系 ， 除 定义 基本 的 同步 关系 之外 ， 还 给出 了 大量 的 不确定性 的 非 精确 时间 关系 描述 . 然而 ， 这些 模型 只能 完整 地 描述 多媒体 对象 之间 的 同步 合成 ， 而 对于 分布式 环境 下 的 多媒体 同步 问题 表达能力 不足 . 对 在 分布式 环境 下 的 多媒体 同步 问题 ， Hutchinson 和 Blair ［ 5 ］ 给出 了 在 实时 环境 下 多媒体 的 同步 约束 关系 ， Regan 也 对 分布式 多媒体系统 中 同步 问题 给出 了 描述 . 
+ 　 　 本文 首先 给出 基于 进程 代数 的 LOTOS 形式化 规范 语言 ［ 6 ］ 的 基本概念 ， 然后 通过 对 传统 LOTOS 进行 基于 时间 的 扩充 ， 引入 时间 算子 ， 并 给出 其 相应 的 语法 定义 和 语义 规则 . 通过 对 分布式 环境 下 的 多媒体 同步 问题 进行 系统 的 分析 ， 利用 基于 时间 扩充 的 LOTOS 给出 了 严格 的 多媒体 唇 同步 问题 的 算法 描述 . 最后 ， 本文 就 一个 实例 系统 给予 了 进一步 说明 . 
+ 2 　 LOTOS 的 基本概念 
+ 　 　 LOTOS 是 ISO 组织 为了 描述 开放式 分布 系统 而 制定 的 一种 规范 语言 . LOTOS 是 基于 进程 代数 模型 ， 具有 精确 的 语法 定义 和 形式 语义 ， 是 面向 协议 验证 的 一种 抽象 级别 较 高 的 形式化 方法 . 其 基本点 在于 ， 一个 系统 可 通过 在 外部环境 中 可 观察 到 的 交互 操作 的 时序 关系 来 定义 ， 可 方便 地 用于 分布式 交互 系统 的 设计 . 
+ 　 　 LOTOS 将 系统 看成 由 若干 相互 通信 的 进程 （ process ） 组成 . 进程 可以 执行 其 内部 的 行为 ， 也 可 通过 门径 （ gate ） 与 外部 进程 交互 完成 . 门径 为 进程 的 同步 通信 点 ， 门径 上 的 行为 由 门径 名 、 操作 和 传送 的 数据 构成 . LOTOS 对 数据结构 和 数值 表达式 的 描述 采用 基于 抽象数据类型 的 ACT - ONE 进行 描述 . 这里 我们 给出 LOTOS 基本 的 语法 ： 
+ 
+ 其中 ： 
+ 　 　 P ： 　 　 　 　 　 　 　 进程 的 行为 表达式 ； 
+ 　 　 stop ： 　 　 　 　 　 死锁 进程 ， 不能 进行 任何 活动 事件 ； 
+ 　 　 gd * ; P ： 　 　 　 　 　 g 为 进程 P 的 门径 名 ， d * 为 数据 属性 . ； 为 行动 前缀 符 . 即 代表 进程 P 通过 门 
+ 　 　 　 　 　 　 　 　 　 　 径 g 与 外界 交互 . 定义 a 为 外部 交互 事件 ， 即 gd * 可 表示 为 a ； 
+ 　 　 i ; P ： 　 　 　 　 　 P 的 内部 交互 事件 i ； 
+ 　 　 ［ bc ］ → P ： 　 　 当 布尔 条件 表达式 bc 为 真时 ， 启动 进程 P ， 否则 为 stop 进程 ； 
+ 　 　 P ［ ］ P ： 　 　 　 ［ ］ 为 选择 操作 ； 
+ 　 　 P | ［ G ］ | P ： 　 　 | ［ ］ | 为 并行 合成 操作 ， 通过 门径 集 G ， 两 进程 并行 地 进行 同步 通信 ； 若 
+ 　 　 　 　 　 　 　 　 　 不 通过 门径 集 G ， 成为 独立 并行 ， 可 表示 为 P | ［ ］ | P ； 
+ 　 　 X ( e * ) ： 调用 其他 进程 X ( e * ) ， e * 为 参数 表达式 . 
+ 　 　 　 　 LOTOS 应用 抽象数据类型 ACT - ONE 描述 数据类型 ， 对 数据 的 操作 规定 为 ： 
+ 　 　 　 　 g ! e ; P : 　 　 　 　 进程 P 通过 门径 g 发送 表达式 e 的 值 ； 
+ 　 　 　 　 g ? ( x : T ) ； P : 　 　 进程 P 通过 门径 g 接受 值 并 赋值 给 类型 T 的 变量 x . 
+ 3 　 基于 时间 的 LOTOS 扩充 
+ 　 　 分布式 多媒体系统 的 核心 是 强调 其 交互性 ， 即 与 外界 环境 的 协调 同步 . 实时性 是 分布式 多媒体系统 中 的 关键 . 可以 看出 ， 传统 的 LOTOS 缺乏 支持 实时 规范 的 特征 . 对 传统 的 LOTOS 进行 扩充 ， 才能 有效 地 对 分布式 多媒体系统 进行 形式化 的 分析 ， 研究 人员 在 这 一 研究 领域 作 了 大量 的 工作 . 如 LOTOS - T ， Temporal   LOTOS ， ET - LOTOS 等 . 仅仅 将 定量 的 时间 概念 引入 LOTOS 中 ， 并 不能 精确 的 描述 和 分析 实时 的 多媒体系统 . 对 LOTOS 基于 时间 的 扩充 ， 必须 对 事件 发生 的 优先 级别 进行 定义 . Reed 通过 定义 内部 事件 的 优先 级别 来 扩充 ； Bolognesi 和 Brinksma ［ 6 ］ 则 定义 交互 事件 的 紧急 程度 表达 实时 系统 . 我们 通过 引入 时间 操作 算子 ， 确定 交互 事件 的 发生 条件 ， 以 达到 LOTOS 支持 实时 系统 特征 的 目的 . 
+ 3.1 　 离散 时间 域 的 引入 
+ 　 　 在 对 LOTOS 进行 时间 扩充 时 ， 首先 必须 考虑 其 支持 的 时间 域 . 离散 时间 域 支持 事件 发生 的 时间 测度 ， 但 只 具有 相对 精确性 . 紧凑 时间 域 支持 事件 活动 的 精确 时间 描述 ， 具有 较强 的 表达能力 ， 但 其 对 时间 属性 的 推理 及 证明 过于 复杂 ， 这 对于 许多 应用领域 ， 这种 复杂 形式 是 多余 的 . 在 分布式 多媒体系统 中 ， 对 同步 问题 的 主要 考虑 是 媒体 流 之间 的 相对 实时 同步 ， 时间 的 相对 精确性 足以 满足 对 多媒体 同步 要求 及 服务质量 的 要求 ， 故对 LOTOS 的 扩充 采用 离散 时间 域 . 但 在 硬 实时 系统 中 ， 紧凑 时间 域 的 支持 是 必不可少 的 . 
+ 　 　 定义 离散 时间 域 T ， 有 如下 性质 ： 
+ 　 　 ① 
+ 　 　 ② 
+ 　 　 ③ 
+ 　 　 ④ 
+ 　 　 ⑤ 
+ 　 　 ⑥ 且 t1 ≤ t2 , 则 集合 { t | t1 ≤ t ≤ t2 } 记 为 ［ t1 , t2 ］ 为 一时间 区间 ； 
+ 　 　 ⑦ 且 t2 ≤ t ′ ≤ t4 , 则 t ′ ∈ ［ t1 , t4 ］ . 
+ 3.2 　 时间 操作 算子 引入 
+ 　 　 我们 引入 延迟 算子 和 测度 算子 等 两个 时间 算子 ， 对 LOTOS 进行 扩充 . 延迟 算子 的 目的 是 能 依据 时间 单元 的 定义 进行 启动 和 挂 起 相应 进程 ， 测度 算子 是 使 进程 在 满足 一定 的 时间 区间 的 条件 下 启动 进程 . 形式化 定义 如下 ： 
+ 　 　 定义 1 . 延迟 算子 D ( n ) ， D ( n ) P 表示 为 当 挂 起 n 个 时间 单元 后 启动 P 进程 ； 
+ 　 　 定义 2 . 测度 算子 M ( t ) ［ cond . ］ ， M ( t ) ［ cond . ］ P 表示 为 当 t 满足 时间 区间 条件 cond . 时 启动 进程 P . 
+ 　 　 故 扩充 后 的 LOTOS 的 语法 定义 为 
+ 
+ 3.3 　 扩充 后 LOTOS 的 操作 语义 
+ 　 　 ( 1 ) 符号 定义 
+ 　 　 定义 事件 集 μ ， μ = L ∪ G ∪ { i } . 其中 L 为 LOTOS 中 的 外部 活动 事件 的 名称 标记 集 ， G 为 门径 名集 . 则 有 a ∈ L ， g ∈ G . 内部 交互 事件 为 i . P ， P ′ 及 Q ， Q ′ 为 扩充 后 的 LOTOS 的 进程 行为 表达式 . 
+ 　 　 于是 我们 可以 得到 扩充 后 的 LOTOS 的 操作 语义 . 
+ 　 　 ( 2 ) 推导 规则 
+ 
+ 
+ 
+ 4 　 分布式 环境 下 多媒体 同步 问题 的 分析 
+ 　 　 对 分布式 环境 下 的 多媒体 同步 问题 分析 ， 必须 考虑 网络 的 延迟 与 抖动 等 非 确定性 因素 的 影响 ， 不仅 要 满足 媒体 内 的 同步 和 服务质量 （ QoS ） ， 还要 满足 媒体 与 媒体 间 的 同步控制 和 规定 在 一定 条件 下 的 服务质量 的 保证 . OCPN 模型 作为 一种 通用 的 多媒体 同步 模型 ， 主要 描述 媒体 对象 之间 的 同步 关系 ， 对 媒体 对象 内 的 同步 机制 缺乏 支持 ， 是 一种 粗粒度 的 同步 模型 ， 由此 发展 另 一种 XOCPN 模型 是 一种 细粒度 同步 模型 ， 考虑 了 连续 媒体 在 分布式 环境 下 的 传输 控制 ， 给出 了 在 一定 条件 下 的 QoS 协商 机制 ， 但 其 缺点 在于 不能 描述 同步 的 动态 交互 特征 . 引入 时序 区间 逻辑 （ ITL ） 描述 多媒体 同步 问题 ， 更 多 的 优点 在于 给出 媒体 之间 的 严格 精确 的 时序 关系 ， 但 对于 分布式 环境 下 的 非 确定性 的 交互 控制 表达能力 有限 . 
+ 　 　 通过 对 分布式 环境 下 的 多媒体 同步 问题 的 分析 ， 我们 引入 基于 时间 扩展 的 LOTOS 的 形式化 方法 对 其 进行 研究 ， 我们 给出 一类 基本 的 多媒体 同步 问题 的 描述 ， 说明 其 媒体 内 同步 的 服务质量 的 保证 ， 继而 给出 对 复杂 的 严格 同步 问题 — — 唇 同步 问题 的 形式化 描述 ， 说明 媒体 流 之间 的 同步 机制 . 
+ 4.1 　 基本 同步 问题 分析 
+ 　 　 由 多媒体 流在 分布式 环境 下 传输 的 物理 特性 ， 我们 将 同步 问题 分解成 3 个 对象 描述 ： 数据源 端 （ source ） ； 传输 媒介 （ medium ） ； 数据 输入 端 （ sink ） . 如图 1 所示 . 
+ 
+ 图 1 　 分布式 环境 下 的 多媒体 流 的 传输 
+ 　 　 给出 同步 条件 的 非 形式化 描述 ： 若 媒体 数据源 端 每 nms 发送 一个 数据包 ； 传输 媒介 网络 延迟 在 ［ l , l + Δ l ］ 的 时间 区间 范围 内 ； 数据 输入 端 每 处理 一个 数据包 需 pms ～ p + Δ pms . 
+ 　 　 应用 基于 时间 扩充 的 LOTOS 的 形式化 方法 对 基本 同步 问题 的 形式化 描述 ： 在 分布 环境 下 ， 将 同步 问题 分为 3 个 进程 描述 ： 数据源 端 、 传输 媒介 、 数据 输入 端 . 同步 门径 为 SourceOut ， SinkIn . 则 ， 多媒体 流 传输 的 进程 描述 为 
+ Source | ［ SourceOut ］ | Medium | ［ SinkIn ］ | Sink ; 
+ 　 　 依据 同步 条件 ， 其 同步 算法 的 形式化 描述 如下 ： 
+ Source 进程 : 
+ 　 　 Source ( fr : N ) ∷ = D ( n ) SourceOut ! fr ; Source ( fr + 1 ) ; 
+ Sink 进程 : 
+ 　 　 Sink ∷ = SinkIn ? fr : N ; Sink | ［ ］ | M ( t ) ［ p , p + Δ p ］ ( play ! fr ; Sink ) ; 
+ Medium 进程 : 
+ 　 　 Medium ∷ = SourceOut ? fr ; N ; 
+ 　 　 　 　 　 　 　 ( ( M ( t ) ［ l , l + Δ l ］ 
+ 　 　 　 　 　 　 　 　 　 ( D ( t ) ( SinkIn ! fr ; stop ［ ］ i ; stop ) ) ) 
+ 　 　 　 　 　 　 　 | ［ ］ | Medium ) . 
+ 4.2 　 唇 同步 ( lip   synchronization ) 问题 
+ 　 　 唇 同步 问题 是 一类 严格 的 多媒体 同步 问题 ， 它 的 基本 要求 是 在 严格 保证 各自 媒体 流 的 自身 同步 的 同时 ， 还要 满足 媒体 流 之间 的 严格 同步 . 主要 应用 分布式 环境 下 的 可视电话 会议 系统 中 的 视频流 与 声频 流 之间 同步 . 下面 我们 先对唇 同步 问题 进行 分析 ， 并 给出 相应 的 同步 条件 ， 继而 给出 应用 基于 时间 的 LOTOS 的 算法 描述 . 
+ 　 　 ( 1 ) 同步 条件 
+ 　 　 声频 媒体 流 ： 设 声频 数据源 平均 数据 传输率 为 每 dsms 发送 一个 数据包 ， 不 允许 任何 的 延迟 与 抖动 ； 
+ 　 　 视频 媒体 流 ： 设 视频 数据源 平均 数据 传输率 为 ， 每 dvms 发送 一个 数据包 ， 对 视频 媒体 允许 有 约定 范围 内 的 抖动 ， 设 抖动 率为 ± Δ jms ； 
+ 　 　 同步 点 条件 ： 设 声频 媒体 表现 的 时间 点为 tps ， 则 依据 唇 同步 条件 的 要求 ， 视频 媒体 的 表现 时间 点 必须 在 时间 区间 ［ tps - Δ vpre ， tps ＋ Δ vpost ］ 之内 ， 否则 将 不能 保持 同步 . 其中 Δ vpre 为 视频 媒体 表现 的 提前量 ， Δ vpost 为 视频 媒体 表现 的 滞后 量 . 
+ 　 　 ( 2 ) 唇 同步 问题 的 形式化 描述 
+ 　 　 将 唇 同步 问题 分解 为 5 个 进程 . 媒体 数据源 端 ： SoundSend 进程 和 VideoSend 进程 ； 传输 媒介 ： Medium 进程 ； 数据 输入 端 ： Sink 进程 ； 同步控制 ： Sync 进程 . 唇 同步 问题 可 表示 为 
+ 　 　 SoundSend ， VideoSend   | ［ S _ Send , V _ Send ］ |   Medium   | ［ S _ SinkIn , V _ SinkIn ］ |   Sink   | ［ S _ gate , V _ gate , Syn _ gate ］ | Sync . 
+ 进一步 ， 我们 给出 具体 各个 进程 的 LOTOS 的 形式化 定义 ： 
+ SoundSend 进程 : 
+ 　 　 SoundSend ( fr : N ) ∷ = D ( ds )   S _ Send !   fr ;   SoundSend   ( fr + 1 ) ; 
+ VideoSend 进程 : 
+ 　 　 VideoSend ( fr : N ) ∷ = D ( dv )   ( M ( dv ) ［ dv - Δ j , dv   + Δ j ］ V _ Send !   fr ;   VideoSend   ( fr + 1 ) ) ; 
+ Medium 进程 : 
+ 　 　 Medium ∷ =   ( S _ Send ?   fr ; N ; 
+ 　 　 　 　 　 　 　 　 ( ( M ( t ) ［ l   , l + Δ l ］ 
+ 　 　 　 　 　 　 　 　 　 　 ( D ( t )   ( SinkIn !   fr ;   stop   ［   ］ i ;   stop ) ) ) 
+ 　 　 　 　 　 　 　 　 | ［ ］ | Medium ) ) 
+ 　 　 　 　 　 　 | ［ ］ | 
+ 　 　 　 　 　 ( V _ Send ?   fr ; N ; 
+ 　 　 　 　 　 　 　 　 ( ( M ( t ) ［ l , l + Δ l ］ 
+ 　 　 　 　 　 　 　 　 　 　 ( D ( t )   ( SinkIn !   fr ;   stop   ［   ］ i ;   stop ) ) ) 
+ 　 　 　 　 　 　 　 　 | ［ ］ | Medium ) ) 
+ Sink 进程 : 
+ 　 　 Sink ∷ = ( ( S _ SinkIn   ? fr : N ; S _ gate ! s _ avail , s _ avail _ time ; Sink ) 
+ 　 　 　 　 　 | ［ ］ | 
+ 　 　 　 　 ( V _ SinkIn ?   fr : N   ; V _ gate ! v _ avail , v _ avail _ time ; Sink ) ) 
+ 　 　 　 　 　 　 　 | ［ ］ | : BOOL ; ［ flag = TRUE ］  M ( t ) ［ p , p + Δ p ］ ( play ! fr ; Sink ) 
+ Sync 进程 :   
+ 　 　 Sync ∷ = S _ gate ! s _ avail , s _ avail _ time ; V _ gate ! v _ avail , v _ avail _ time ; 
+ 　 　 　 　 M ( v _ avail _ time ) ［ s _ avail _ time - Δ v _ pre , s _ avail _ time + Δ v _ post ］ Syn _ gate ? TRUE ;   Sync 
+ 5 　 实 　 　 例 
+ 　 　 传统 的 唇 同步 系统 的 设计 是 将 声频 信息 与 视频 信息 在 数据源 端 进行 同步 编码 ， 将 两类 媒体 流 合成 为 单一 信息流 ， 通过 传输 媒介 ， 在 数据 表现 端 进行 同步 解码 ， 从而 获得 媒体 同步 . 这种 方法 的 目标 是 能 自动 地 确保 媒体 流在 数据 表现 端的 同步 ， 但 其 同步 的 代价 是 带来 对 硬件 编码 / 解码 的 要求 很 高 ， 编码 与 解码 的 效率 直接 影响 到 同步 的 效果 . 
+ 　 　 通过 基于 时间 扩展 的 LOTOS 对 分布式 多媒体系统 中 同步 问题 的 分析 ， 我们 设计 了 一个 唇 同步 的 实例 系统 . 将 声频 信息流 与 视频 信息流 分别 传输 ， 通过 同步控制 机制 ， 在 一定 同步 条件 的 保证 下 ， 达到 唇 同步 要求 . 如图 2 所示 . 
+ 
+ 图 2 　 唇 同步 系统 结构图 
+ 　 　 唇 同步 条件 为 声频 媒体 每 30ms 播放 一帧 ， 不 允许 有 延迟 抖动 . 视频 媒体 每 40ms 播放 一帧 ， 对 视频 媒体 的 帧 间 延迟 范围 为 35ms ～ 45ms . 与 声频 媒体 的 同步 要求 是 提前量 不得 超过 15ms ， 延迟 量 不得 超过 150ms . 系统 通过 唇 同步控制 机制 （ 声频 / 视频 管理器 、 唇 同步控制 ） 及 信号量 （ s _ avail _ play , v _ avail , v _ play , s _ ready , s _ ok , v _ ready , v _ ok ） 有效 地 保证 了 多媒体信息 在 分布 环境 下 的 唇 同步 要求 . 
+ 　 　 与 传统 的 方法 相比 ， 基于 时间 扩充 的 LOTOS 的 引入 ， 能 保证 对 不同 媒体 的 严格 同步 ， 提供 精确 的 时间 定义 . 同时 简化 同步 的 硬件 环境 要求 ， 在 一定 的 同步 条件 约束 下 ， 避免 了 传统 同步 中 严格要求 对 帧 与 帧 之间 复杂 的 同步 限定 . 时间 区间 的 引入 使 多媒体信息 在 分布 环境 下 同步 并 提供 QoS 服务 成为 可能 . 
+ 6 　 结束语 
+ 　 　 本文 通过 引入 时间 算子 对 传统 的 LOTOS 形式化 规范 语言 进行 扩充 ， 使 之 弥补 了 LOTOS 缺乏 支持 实时 规范 的 特征 ， 并 应用 基于 时间 扩展 的 LOTOS ， 分析 分布式 多媒体系统 中 的 同步 问题 . 分布式 多媒体系统 中 的 同步 问题 的 核心 是 ， 既 要 保持 媒体 流 内部 的 同步 关系 ， 又 要 支持 不同 媒体 流 之间 的 同步 要求 . 应用 LOTOS 的 形式化 方法 能 准确 地 刻画 在 分布式 的 环境 下 ， 多媒体 数据流 的 传输 及 同步 过程 ， 并 能 提供 详细 精确 的 时间 点 同步 要求 ， 对于 分布式 环境 下 的 非 确定性 给出 一定 的 时间 区间 ， 以 满足 同步 要求 . 在 对 同步 问题 的 描述 中 给出 延迟 、 抖动 等 服务质量 的 参数 ， 提供 了 一定 的 服务质量 的 保证 机制 . 为了 更 深入 的 研究 分布式 多媒体系统 的 同步 问题 ， 就 必须 提供 更 完善 的 服务质量 的 机制 ， 以 保证 同步 要求 ， 这 将 是 今后 研究 的 重点 . 
+ 本 课题 得到 国家 “ 八 六三 ” 高科技 项目 基金 资助 ( 项目编号 863 - 306 - 04 - 01 ) . 
+ 作者简介 ： 金涛 ， 男 ， 1973 年 4 月生 ， 博士 研究生 ， 主要 研究 领域 为 知识 工程 、 多媒体 软件 . 
+ 作者 单位 ： ( 武汉大学 计算机科学 与 技术 学院 　 武汉 　 430072 ) 
+ 　 　 　 　 　 ( 国家 多媒体 软件工程 技术 研究 中心 ， 教育部 多媒体 软件 开放 研究 实验室 　 武汉 　 
+ 　 　 　 　 　 430072 ) 
+ 参考文献 
+ 　 1 　 Allen   J   F .   Maintaining   knowledge   about   temporal   intervals .   Communications   of   the   ACM ,   1983 ,   26 ( 11 ) :   832 ～ 843 
+ 　 2 　 Little   T   D   C ,   Ghafoor   A .   Synchronization   and   storage   models   for   multimedia   objects .   IEEE   Journal   on   Selected   Areas   in   Communications ,   1990 ,   8 ( 3 ) :   413 ～ 427 
+ 　 3 　 King   P   R .   A   logic   based   formalism   for   temporal   constraints   in   multimedia   documents .   In :   PODP   96 ,   1996 
+ 　 4 　 Wahl   T ,   Rothermel .   Representing   time   in   multimedia   systems .   In :   Proc   IEEE   Int ' l   Conference   on   Multimedia   Computing   and   Systems ,   Boston   , MA ,   1994 .   538 ～ 543 
+ 　 5 　 Blair   G   S .   A   programming   model   and   system   infrastructure   for   real - time   synchronization   in   distributed   multimedia   system .   IEEE   Journal   on   Selected   Areas   in   Communications ,   1996 ,   14 ( 1 ) :   249 ～ 263 
+ 　 6 　 Bolognesi   T , Brinksma   E . Introduction   to   ISO   specification   language   LOTOS . Computer   Networks   and   ISDN   Systems , 1988 , 14 ( 1 ) : 25 ～ 59 
+ 原稿 收到 日期 ： 1999 - 02 - 05 ； 修改稿 收到 日期 ： 1999 - 05 - 09 . 

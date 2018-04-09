@@ -1,0 +1,94 @@
+航空 工艺技术 
+ AERONAUTICAL   MANUFACTURING   TECHNOLOGY 
+ 1999 年   第 2 期   No.2   1999 
+ 
+ 
+ 
+ 非球 曲面 超 精密 车削 过程 中 的 轮廓 补偿 控制 方法 
+ 
+ 王 　 波 　 董 　 申 　 赵万生 
+ 　 　 [ 摘要 ] 　 介绍 了 一种 可 提高 非球 曲面 超 精密 加工 机床 的 轮廓 跟踪 精度 的 误差 补偿 控制 方法 。 该 轮廓 补偿 控制器 是 机床 轮廓 位置 伺服系统 的 一部分 ， 它 以 二次曲线 代替 原微 直线 段来 逼近 给定 轮廓 ， 可 提高 系统 的 轮廓 逼近 精度 ， 并 减小 插补 数据 不 连续 对 伺服系统 的 冲击 ， 从而 最终 提高 轮廓 的 加工 精度 。 
+ 　 　 关键词 ： 非球 曲面 　 超 精密 车削 　 轮廓 补偿 
+ Contouring   Compensation   Control   Method   in   Ultraprecise   Turning   Aspherical   Surface 
+ 　 　 [ ABSTRACT ] 　 An   error   compensation   control   method   which   can   improve   contour   tracing   accuracy   of   aspherical   surface   ultraprecise   machine   is   introduced .   This   contouring   compensation   controller   is   part   of   the   machine   contour   position   of   the   servo   system .   It   uses   the   conic   to   approach   the   given   contour   instead   of   the   original   microstraight   line   segments   to   improve   the   contour   approach   accuracy   of   the   system   and   to   reduce   the   impact   to   the   servo   system   caused   by   discontinuous   small   interpolation ,   therefor   the   machining   accuracy   of   the   contour   can   be   finally   increased . 
+ 　 　 Keywords :   Aspherical   surface 　 Ultraprecise   turning 　 Contouring   compensation 
+ 　 　 非球 曲面 超 精密 加工 技术 是 尖端技术 产品开发 中 不可 缺少 的 关键 加工 手段 ， 在 军工 和 民用工业 都 有 极为 广泛 的 应用 前景 ， 如 巡航导弹 上 的 跟踪 镜 、 激光 核聚变 用 的 反射镜 、 大型 天体 观测 系统 的 反射镜 等 。 数控 金刚石 超 精密 车削 是 光学 曲面 加工 中 高效 且 经济 的 手段 之一 。 从 60 年代 起 ， 各国 开始 开发 、 研制 各种 超 精密 金刚石 车床 。 
+ 　 　 超 精密 金刚石 车削 机床 的 加工 精度 取决于 机床 的 运行 精度 ， 而 机床 的 运动 精度 又 取决于 机床 伺服系统 的 位置 控制精度 ， 特别 是 跟踪 精度 。 研究 人员 ［ 1 ］ 对 伺服系统 动态 特性 对 数控机床 圆 轨迹 的 加工 精度 影响 机理 进行 了 研究 ， 认为 在 不 考虑 机床 自身 几何 精度 的 前提 下 ， 系统 的 轮廓 误差 主要 由 伺服系统 的 动态 特性 和 联动 轴 之间 的 动态 参数 不 匹配 引起 的 。 当今 ， 国内外 的 专家 和 学者 一般 从 机床 精度 补偿 、 运动 轴 的 高精度 跟踪 控制 和 联动 轴 的 交叉耦合 控制 3 个 方面 着手 ， 来 提高 机床 的 轮廓 加工 精度 。 超 精密 机床 的 精度 主要 靠 机床 基准 元 部件 的 精度 保证 ， 但 继续 提高 机床 部件 的 精度 已 十分困难 ， 而且 一些 加工 中 产生 的 误差 很难 消除 。 利用计算机 修正 其 误差 ， 可 进一步提高 加工 精度 ， 这 是 超 精密 加工 发展 的 一个 方向 。 如 代表 当今世界 超 精密 加工 最高 水平 的 3 台 大型 机床 ： 美国 LLNL 国家 实验室 的 DTM - 3 型 卧式 大型 光学 金刚石 车床 、 LODTM 型 立式 大型 光学 金刚石 车床 和 英国 Cranfield 公司 研制成功 的 OAGM - 2500 型 超 精密 机床 ， 均 采用 了 压电式 微 位移 机构 ， 以 实现 在线 精度 控制 补偿 。 为了 提高 机床 伺服系统 的 精度 ， Tomizuka ［ 2 ］ 提出 了 一种 零 相位 误差 跟踪 控制 ( ZPETC ) 算法 。 这是 一种 用于 跟踪 时变 信号 的 数字式 前馈 控制算法 。 它 可以 得到 极小 的 跟踪 误差 和 平滑 的 跟踪 速度 ， 但是 它 对 建模 误差 和 系统 参数 变化 比较 敏感 ， 同时 对 插 补 数据 的 不 连续 ( 主要 表现 为 速度 和 加速度 变化 的 不 连续 引起 的 输入 信号 中 的 高频 成分 ) 也 比较 敏感 。 理论 分析 证明 ， 即使 在 跟踪 误差 非常 小 的 情况 下 ， 系统 的 轮廓 误差 仍然 可能 很大 。 基于 这种 认识 ， Koren ［ 3 ］ 提出 了 交叉耦合 轮廓 控制 ( Cross _ coupled   contour   control ) 算法 。 一般来说 ， 对 线性 轨迹 ， 交叉耦合 控制器 是 一个多 变量 系统 ； 对 圆弧 轨迹 来说 ， 是 一个多 变量 时变 系统 ， 系统 的 分析 与 控制 均 非常 困难 ［ 4 ］ 。 另一方面 ， 交叉耦合 轮廓 控制器 在 结构设计 、 参数 选择 等 方面 还 不够 完善 ， 限制 了 实际 应用 ［ 5 ］ 。 
+ 　 　 在 我 单位 自行 研制 的 HCM - 3 型 超 精密 车床 的 基础 上 ， 我们 采用 了 一种 基于 时间 分割 原理 的 数控 插补 误差 补偿 算法 。 该 算法 以 二次曲线 代替 直线 段来 逼近 给定 轮廓 ， 既 可以 补偿 原插补 算法 所 带来 的 插 补 误差 ， 也 可以 在 一定 程度 上 减小 插补 数据 的 不 连续 对 跟踪 精度 的 影响 ， 从而 提高 系统 的 轮廓 加工 精度 。 该 补偿 控制器 与 原有 的 伺服 控制系统 配合 使用 而 不 需 增加 任何 硬件 设备 。       
+ 1 　 补偿 算法 
+ 　 　 当 采用 采样 数据 法 进行 数控 插 补时 ， 插补 控制器 首先 给出 具有 相同 时间 间隔 的 一系列 离散 的 点 ， 在 点 与 点 之间 则 多 采用 线性 插补 方法 进行 精插补 ， 如图 1 所示 。 
+ 
+ 图 1 　 线性 插补 方法 示意图 
+ Fig.1 　 Scheme   of   linear   interpolation   method 
+ 
+ ( 1 ) 
+ 
+ ( 2 ) 
+ 用 直线 段 逼近 轮廓 曲线 时 ， 一方面 不可避免 地 存在 轮廓 误差 ， 另一方面 则 会 引起 插补 速度 和 加速度 的 不 连续 。 为了 解决 这一 问题 ， 可以 采用 线性 速度 法 代替 直线 段 逼近 法 ， 如图 2 所示 。 在 i ～ i + 1 时间段 内 速度 和 位移 表达式 见式 ( 3 ) ， ( 4 ) 。 
+ 
+ 图 2 　 非线性 插补 方法 示意图 
+ Fig.2 　 Scheme   of   non _ linear   interpolation   method 
+ 
+ ( 3 ) 
+ 
+ ( 4 ) 
+ 式 ( 4 ) 中 ， k 的 取值 反映 了 速度 曲线 的 斜率 和 位移 曲线 的 曲率 ， 如图 3 所示 。 为了 保证 误差 补偿 的 精度 和 分析 方便 ， 本 课题 取 k = 2 。 
+ 
+ 图 3 　 k 值 与 曲线 段 曲率 的 关系 
+ Fig.3 　 Curvature   of   curve   segment 
+ dependence   of   k   value 
+ 2 　 误差 分析 
+ 　 　 为了 便于 分析 非球 曲面 插补 的 理论误差 ， 假设 在 第 i 点 附近 的 非圆 曲线 可用 与其 有 共同 曲率 半径 的 密切圆 来 代替 ， 如图 4 所示 。 
+ 
+ 图 4 　 误差 分析 示意图 
+ Fig.4 　 Scheme   of   error   analysis 
+ 　 　 第 i 点 的 曲率 为 
+ 
+ 该 密切圆 的 半径 R = 1 / C ， 这样 ， 非圆 曲线 插补及 补偿 控制 误差 的 分析 转变 为 圆弧 插补及 补偿 控制 误差 的 分析 ， 从而 使 问题 得到 了 很大 的 简化 。 
+ 　 　 当 采用 内接 弦 逼近 原弧 时 ， 其 插 补 原理 误差 为 
+ 
+ 　 　 本文 中 介绍 的 插 补 误差 补偿 算法 相当于 在 原 线性 位置 插补 算法 的 基础 之上 增加 了 一个 补偿 控制 量 Δ E ， 
+ 其中 ， 
+ 
+ 
+ ( 6 ) 
+ 同理 
+ 
+ ( 7 ) 
+ 由图 ( 4 ) 所示 的 几何 关系 可知 ， 
+ 　 　 　 　 　 　 　 xi + 2 = Rsin ( θ + 2 α ) 
+ 　 　 　 　 　 　 　 xi + 1 = Rsin ( θ + α ) 
+ 　 　 　 　 　 　 　 xi = Rsin θ 
+ 　 　 　 　 　 　 　 xi - 1 = Rsin ( θ - α ) 
+ 由式 ( 6 ) ， ( 7 ) 得 
+ 
+ ( 8 ) 
+ 
+ ( 9 ) 
+ 补偿 后 的 最大 误差 为 
+ 
+ ( 10 ) 
+ 对 上式 进行 泰勒 展开 ， 
+ 
+ ( 11 ) 
+ 其中 ， k1 = 0.023   438 , C 为 曲线 在 i 点 的 曲率 ， Δ l 为 内接 弦 长度 。 
+ 　 　 由式 ( 11 ) 可知 ， 由 原来 的 步距角 的 二次方 减小 到步 距角 的 四次 方 ， 即 对 同一 曲线 而言 ， 在 相同 的 插 补 误差 条件 下 ， 逼近 的 内接 弦 长度 可 增大 100 倍 ， 也就是说 ， 上位 机 的 插 补点 可 减小 100 倍 ， 从而 极大 地 减小 了 上位 机 的 运算量 ， 使 上位 机 实现 实时 插补 成为 可能 。 
+ 3 　 试验 研究 
+ 　 　 为了 验证 本 方案 的 有效性 ， 采用 由 我 单位 研制 的 HCM - 1 型 超 精密 机床 进行 了 实际 的 圆弧 轮廓 控制 试验 ， 圆弧 半径 为 30   mm ， 进 给 速度 为 5   mm / min ， 结果 见图 5 ， 6 。 
+ 　 　 由 试验 结果 可知 ， 采用 本 补偿 控制 方法 之后 ， 提高 了 机床 的 轮廓 控制精度 。 
+ 
+ 图 5 　 补偿 前 的 轮廓 误差 
+ Fig.5 　 Contour   error   before   compensation 
+ 
+ 图 6 　 补偿 后 的 轮廓 误差 
+ Fig.6 　 Contour   error   after   compensation 
+ 
+ 作者 单位 ： 王 　 波 　 董 　 申 　 赵万生 （ 哈尔滨工业大学 机电 学院 ） 
+ 
+ 参考文献 
+ 　 [ 1 ]   虞 文华 ， 吴昭同 ， 杨世锡 . 伺服系统 动 特性 对 数控机床 圆 轨迹 加工 精度 影响 的 机理 . 中国 机械工程 ， 1995 ， 6 ( 1 ) ： 21 ～ 23 
+ 　 [ 2 ]   Tomizuka   Masayoshi .   Zero   phase   error   tracking   algorithm   for   digital   control .   Journal   of   Dynamics   Systems ,   Measurement   and   Control ,   1987 , 109 ( 3 ) : 65 ～ 68 
+ 　 [ 3 ]   Koren   Y .   Cross _ coupled   bixial   computer   control   for   manufacturing   systems ,   ASME   Trans .   Joumal   of   Dynamic   Systems .   Measurement   and   Control ,   1980 , 102 ( 4 ) : 265 ～ 272 
+ 　 [ 4 ]   Yaw _ Shih   Shieh , Lee   An _ Chen ,   Chen   Chin _ Sheng .   Cross _ coupled   biaxial   step   control   for   CNC   EDM .   Int . J . Mach . Tools   Manufact ,   1996 , 36 ( 12 ) : 1363 ～ 1383 
+ 　 [ 5 ]   张秋菊 ， 李宏 . 模糊推理 耦合 轮廓 误差 补偿 方法 的 研究 . 中国 机械工程 ， 1995 ， 6 ( 2 ) ： 19 ～ 21 
+ ( 责编 　 根 　 山 ) 

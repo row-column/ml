@@ -1,0 +1,52 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE   
+ 1999 年   第 10 卷   第 5 期   Vol.10   No.5   1999 
+ 
+ 
+ 
+ 面向 高级 综合 验证 的 数据流 图 提取 技术 研究 
+ 许庆平 　 刘明业 　 宋瀚涛 
+ 摘要 　   该文 主要 讨论 高级 综合 系统 RTL ( register   transfer   level ) 级 综合 结果 正确性 验证 策略 的确   定及 验证 系统 设计 中 DFG ( data   flow   graph ) 逆向 获取 算法 的 设计 与 实现 . 算法 主要 包括 4 个处   理 阶段 ： FSM ( finite   state   machine ) 动态分析 及 控制 输出 获取 ； FSM 当前 状态 下 数据通道 有   效 元件 分析 ； 数据通道 结构 到 DFG 操作 结点 转换 ； DFG 结点 间 数据 依赖 关系 分析 、 共享 寄存器   变量 分离 及 有 向 边 的 形成 . 
+ 关键词 　 高级 综合 , 硬件 设计 验证 . 
+ 中图法 分类号 　 TP302 
+ Research   on   Data   Flow   Graph   Extracting   Technology   for 
+ Verificat   ion   of   High   Level   Synthesis   Correctness 
+ XU   Qing - ping 　 LIU   Ming - ye 　 SONG   Han - tao 
+ Department   of   Computer   Science   and   Engineering 　 Beijing   In   stitute   of   Technology 　 Beijing 　 100081 
+ Abstract 　 　 To   verify   the   correctness   of   the   RTL ( register   transfer   level )   result   got   from   th   e   high   level   synthesis ,   an   algorithm   of   DFG ( data   flow   graph )   invert   extracting   i   s   designed   and   realized   in   this   paper .   Four   sections   are   included   in   this   algori   thm :   analyze   FSM ( finite   state   machine )   dynamically   and   obtain   control   signal ;   se   arch   the   active   component   for   current   states   of   FSM   and   convert   the   operate   note   of   DFG   from   the   structure   of   data   path ;   analyze   the   relationship   between   the   no   tes   of   DFG ,   separate   the   variables   sharing   the   same   register . 
+ Key   words 　 High   level   synthesis ,   hardware   design   verification . 
+ 　 　 硬件 设计 验证 是 整个 硬件 设计 周期 中 的 一个 重要环节 . 目前 , 面向 较 低 抽象层次 上 的 硬件 设计   验证 技术 已 趋向 成熟 ［ 1 , 2 ］ . 而 近年来 , 在 硬件 设计 自动化 研究 领域 中 , 高级 综合 技术   的 迅速 发展 给 硬件 设计 验证 研究 带来 新 的 难题 . 
+ 　 　 高层次 综合 完成 算法 级 描述 到 RTL ( register   transfer   level ) 级 结构 实现 之间 的 变换 . 由于   高级 综合 所 处理 的 描述 抽象层次 高 , 也 就 带来 了 设计 过程 的 高度 自动化 , 从而 使 设计 周期 大大   缩短 , 同时 也 给 设计 验证 带来 了 困难 . 而 面对 高级 综合 的 一些 经典 验证 技术 都 存在 某些 不足 之   处 . 我们 基于 北京理工大学 “ 八五 ” 期间 研制 的 HLS / BIT 高级 综合 系统 ［ 3 ］ , 以 研究 能   够 适应 高级 综合 特点 、 实用性 强 的 验证 方法 和 系统 为 宗旨 , 确定 了 基于 高级 综合 完成 设计 的   正确性 采取 分步 验证 的 策略 . 即 在 不同 设计 实现 层次 上 , 采取 不同 的 验证 方法 . 算法 级 描述 到 R   TL 级 结构 实现 的 正确性 验证 采用 数据流 图 ( data   flow   graph , 简称 DFG ) 同构 性 检查 方法   ［ 4 ］ , 而 对 RTL 级 以下 的 结构 实现 , 我们 认为 可 采用 成熟 的 形式 验证 方法 . 这样 可 克服 算法   级 描述 到 底层 实现 之间 跨度 太大 的 困难 . 本文 主要 就 DFG － ext 逆取 技术 的 几个 关键问题 展   开 讨论 . 有关 DFG 同构 的 比较 问题 , 我们 将 另行 撰文 讨论 . 
+ 1 　 从 高级 综合 结果 逆向 提取 数据流 图 技术 的 基本 思想 
+ 　 　 DFG 同构 性 检查 方法 验证 高级 综合 结果 的 正确性 , 需要 两组 DFG , 一个 是 DFG － org ( Original   DFG ) , 它 是 高级 综合 中 调度 与 分配 的 数据 输入 形式 ； 另一组 是 DFG － ext ( Ertracted   DFG ) ,   它 是 高级 综合 结果 RTL 结构 所 能 完成 的 操作 全集 而 构成 的 DFG , 通过 对 高级 综合 直接 输出 结果   进行 动态 机器 自动 分析 后 得到 . DFG － ext 获取 的 处理过程 在 输入 、 输出 上 与 高级 综合 过程   恰恰相反 , 故 将 取得 DFG － ext 的 过程 称为 DFG － ext 逆向 提取 . 当 高级 综合 处理 正确 时 , 应   有 DFG － ext ≌ DFG － org 或 DFG － ext ∽ DFG － org 存在 . 其中 “ ≌ ” 表示 同构 ； “ ∽   ” 表示 同态 . 该 方法 由 文献 ［ 4 ］ 提出 , 本文 认为 , 文献 ［ 4 ］ 在 对 其 方法 的 讨论 中 存在 以下 几   点缺陷 ： ( 1 )   在 DFG 逆向 提取 中 依然 采用 符号 模拟 的 方法 . ( 2 )   对 验证 目标 RTL 结构 实现 有   较大 限制 ( 如 寄存器 不能 共享 等 ) . ( 3 )   手工 完成 DFG 同构 性 检查 . 本文 的 研究 弥补 了 上述 缺陷 . 
+ 2 　 FSM 动态分析 
+ 　 　 取得 DFG － ext 首先 应 解决 的 问题 是 有限 状态机 ( finite   state   machine , 简称 FSM ) 的 动态 分   析 , 以 取得 FSM 各 状态 下 的 控制 输出 . DFG － ext 本质 上 是 硬件 设计 目标 的 数据通道 在 RTL 级结   构 实现 层次 上于 控制器 的 作用 下所能 执行 操作 的 全集 - - V , 以及 操作 之间 的 数   据 依赖 关系 全集 - - E 所 构成 的 图 G . 某一 状态 下 数据通路 所 执行 的 操作 由 Oi 直接 确定 . Oi   与 一定 的 状态 转换 关系 ( Si , Il ) → ( Sj ) 一一对应 , 如果 按照 一个 合理 的 方法 遍历 一个   FSM 中 包含 的 所有 状态 就 可 分别 获得 Oi , 继而 得到 数据通路 可 执行 的 操作 . 由于 只 需 获得   FSM 各个 状态 下 的 Oi 及其 控制 下 数据通道 所 执行 的 操作 , 而 不 关心 具体 输入 变量 取值 条   件 下 所 确定 的 某 一条 状态 转换 通路 , 同时 也 不 关心 该 数据通道 处理 所 得到 的 具体 结果 , 所以 ,   分析 过程 不 依赖 输入 变量 激励 输入 . 由此看来 , FSM 分析 问题 就 转化 为 状态 转换 图 的 遍历 问   题 . 在 此 , 借用 广度 优先 遍历 算法 完成 FSM 的 分析 . 在 广度 优先 遍历 过程 中 , 对 各 状态 结点 的   访问 形成 一个 展开 的 有 向 无 循环 图 . 其中 的 每 一层 对应 一个 调度 控制 步 ( 一个 时钟 周期 ) . 同一   层上 的 状态 在 电路 活动 中是 互斥 出现 的 , 状态 Si → Sj 下 的 Oi 所 激活 的 操作 的 时序 可用 S   i   Sj 来 标定 . 从 有 向 无 循环 图 的 结构 可知 , 采用 广度 优先 遍历 可以 保证 在 一个 操作 获得 时   , 其前 趋 操作 必然 已经 获得 . 这 有利于 操作间 依赖 关系 的 分析 . 
+ 3 　 数据通道 当前 有效 通路 分析 
+ 　 　 数据通道 中 的 元件 在 控制 信号 的 作用 下 有效 , 此时 , 我们 称 这些 元件 为 当前 有效 元件 . 从 状态   机 分析 中 得到 的 控制 输出 Oi 是 分析 该 状态 控制 条件 下 , 数据通道 中有 哪些 元件 处于 有效 状   态 的 根本 依据 . 在 给定 一组 控制 输出 的 条件 下 , 数据通道 中 的 当前 有效 元件 及其 连接 构成 当前   状态 下 的 有效 通路 , 有效 通路 上 的 有效 元件 根据 它们 与 控制 信号 的 关系 分为 3 种 情况 ： 直接 有   效 元件 、 间接 有效 元件 和 通路 选择 元件 . 
+ 　 　 当 给定 控制 输出 时 , 直接 有效 元件 可 由 状态 转换 控制 输出 直接 确定 . 间接 有效 元件 通过 对 它 与   直接 有效 元件 连接 关系 的 分析 获得 . 分析 过程 在 此 称为 GetIndrctCmpnt ( ) 过程 ( 详见 文献 ［ 5   ］ ) . 
+ 　 　 通过 该 过程 的 处理 , 可 确定 一个 控制 输出 信号 在 数据通道 中 的 作用 范围 及 对应 相关 的 各 有效   元件 . 
+ 4 　 有效 元件 到 数据流 图 结点 的 变换 ( 结构 到 行为 的 变换 ) 
+ 　 　 当前 状态 下 , 在 有效 元件 确定 之后 , 利用 元件 功能 库 可 得到 操作 、 传输 和 存储 等 电路 的 行为 活   动 . 从 直接 有效 元件 着手 进行 分析 , 可 获得 与 一个 操作 执行 相对 应 的 数据流 图 结点 . 而 直接 有   效 元件 本身 对应 构成 一个 操作 的 输出 变量 或 一个 转输 的 目标 变量 . 间接 有效 元件 中 的 数据 输   入 端口 或 寄存器 则 对应 一个 操作 的 输入 变量 或 数据传输 的 源 变量 . 
+ 　 　 DFG 结点 形成 过程 将 结点 分为 永久 结点 和 临时 结点 两类 . 操作 结点 、 外部 数据 输入输出 端   口 构成 的 输入输出 变量 以及 用户 定义 的 常数 为 永久 结点 . 综合 系统 加入 的 中间 变量 及 用户 定   义 的 变量 都 首先 作为 临时 结点 . 待 结点 间 有 向 边 生成 , 在 分析 时 , 根据 不同 情况 将 其 删除 或 转   为 永久 结点 . 
+ 5 　 数据流 图 结点 间 有 向 边 的 生成 
+ 　 　 结点 间 的 有 向 边 乃是 不同 操作间 前趋 后继 连接 关系 的 表示 . 其中 包括 操作 与 输入 变量 间 的 有   向 连接 及其 与 输出 变量 间 的 有 向 连接 ； 一个 前趋 操作 的 输出 与其 直接 后继 操作 的 输入 间 的 有   向 连接 等 . 
+ 　 　 从 连接 的 表示 方法 上 来看 , 连接 链表 和 连接 矩阵 同时 使用 . 在 进行 操作间 的 前 趋 后继 连接 关系   分析 时 , 连接 也 分为 临时 连接 和 永久 连接 . 临时 连接 是 指有 临时 结点 的 连接 , 用 连接 链表 表示 .   永久 连接 是 指 永久 结点 之间 的 连接 , 用 连接 矩阵 表示 . 矩阵 元素 取值 有 下列 4 种 情况 ： ①   0 表   示 结点 i 与 结点 j 间 无 连接 ； ②   1 表示 点 i 到 结点 j 的 左 输入 连接 ； ③   3 表示 点 i 到 结点 j 的 右输   入 连接 ； ④   2 表示 点 i 到 结点 j 是 单 输入 连接 . 如果 是 多元 操作 , 则 连接 表示 从左到右 依次 以自   然数序 填入 连接 标志 . 操作 结点 间 的 连接 通过 前趋 分析 完成 , 其中 需要 解决 的 一个 主要 问题 是   寄存器 共享 变量 的 分离 . 研究 中 , 通过 子树 划分 的 方法 解决 了 这 一 问题 . 
+ 6 　 系统 实现 与 运行 结果 
+ 　 　 本文 所 讨论 的 DFG - ext 逆向 提取 方法 在 SUN - 4 / 75 工作站 上用 C++ 语言 基于 BIT ／ HLS 高级 综合   系统 得以 实现 . 实现 系统 用 HLS / BIT 系统 已 通过 的 选自 HLSynth92 ' 高级 综合 系统 BenchMark 的   一些 测试 实例 进行 测试 , 运行 得到 逆向 提取 DFG . 经 分析 , 相应 DFG － org 与 DFG － ext 有 7 例   同构 成立 . 在 五阶 椭圆 滤波器 一例 的 测试 中 发现 综合 结果 存在 错误 . 经 研究 确认 , 错误 乃是 由   调度 算法 的 实现 不 完善 所致 . 运行 实例 最 大规模 者 RTL 结构 网表 包含 68 个 硬件 基元 ( 相当于 2 万   门 ) . 从 系统 运行 速度 上 看 , 最 大规模 实例 的 数据 输入 到 得到 结果 输出 , 基本 没有 用户 等待时间   . 从 系统 实现 的 初步 情况 来看 , DFG 比较 进行 高层次 的 设计 验证 , 不 依赖 测试 向量 的 生成 , 验证   结果 分析 简单 、 易行 . 该 方法 可以 适应 高级 综合 抽象层次 高 、 自动化 程度 高等 特点 . 
+ 　 
+ 本文 研究 得到 国家自然科学基金 和 国防 预研 基金 资助 . 
+ 作者 许庆平 , 1956 年生 , 博士 , 讲师 , 主要 研究 领域 为 EDA 技术 , 并行处理技术 . 
+ 　 　 刘明业 ,   1934 年生 , 教授 , 博士生 导师 , 主要 研究 领域 为 EDA 技术 . 
+ 　 　 宋瀚涛 , 1940 年生 ,   教授 , 博士生 导师 , 主要 研究 领域 为 EDA 技术 , 信息管理 , 数据库 技术 . 
+ 本文 通讯联系 人 ： 许庆平 , 北京   100081 , 北京理工大学 计算机科学 工程系 
+ 作者 单位 : （ 北京理工大学 计算机科学 工程系 　 北京 　 100081 ） 
+ 参考文献 
+ 　 [ 1 ] 　 Camurati   P .   Formal   verification   of   hardware   correctness :   introduction   and   survey   of   current   research .   IEEE   Computer ,   1988 , 21 ( 7 ) : 8 ～ 16 
+ 　 [ 2 ] 　 姜明 , 刘明业 . VLSI 设计 形式化 验证 方法 的 综述 . 计算机辅助 设计 与 图形学 学报 , 19   96 , 8 ( 2 ) : 155 ～ 159 
+ ( Jiang   Ming ,   Liu   Ming - ye .   Survey   on   methods   of   formal   verification   for   VLSI   des   ign .   Journal   of   Computer - Aided   Design   and   Computer   Graphics ,   1996 , 8 ( 2 ) : 155 ～ 159 )   
+ 　 [ 3 ] 　 刘明业 , 张东晓 , 许庆平 . VHDL 高级 综合 系统 设计 中 某些 关键问题 的 技术 决策 . 计算   机 学报 , 1997 , 20 ( 6 ) : 501 ～ 509 
+ ( Liu   Ming - ye ,   Zhang   Dong - xiao ,   Xu   Qing - ping .   Technical   decision   on   several   ke   y   problems   in   VHDL   high   level   synthesis   system .   Chinese   Journal   of   Computers ,   19   97 , 20 ( 6 ) : 501 ～ 509 ) 
+ 　 [ 4 ] 　 Vemuri   R .   A   transformational   approach   to   register   transfer   level   desig   n - space   exploration   ［ Ph . D .   Thesis ］ .   Case   Western   Reserve   University ,   1989 
+ 　 [ 5 ] 　 许庆平 . 高级 综合 结果 正确性 验证 技术 研究 与 实现 ［ 博士学位 论文 ］ . 北京理工 大   学 , 1997 
+ ( Xu   Qing - ping .   Research   and   realization   on   correctness   verification   to   high   lev   el   synthesis   result   ［ Ph . D .   Thesis ］ .   Beijing   Institute   of   Technology ,   1997 ) 
+ 本文 1997 - 12 - 01 收到 原稿 , 1998 - 05 - 19 收到 修改稿 

@@ -1,0 +1,103 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 12 期   vol.25   No.12   1999 
+ 
+ 
+ 
+ PowerBuilder 环境 下 通用 打印 设置 窗口 的 实现 
+ 张益平 
+ 　 　 PowerBuilder 是 一种 具有 图形界面 的 客户机 / 服务器应用程序 开发工具 ， 开发人员 可以 利用 一个 可视 的 集成 开发 环境 ( IDE ) 快速 地 开发 出 面向对象 的 数据库 应用程序 。 其中 最受 开发人员 欢迎 的 可能 就是 Datawindow 对象 ， 它 是 PowerBuilder 中 交互作用 的 焦点 ， 并且 拥有 丰富 的 表现 风格 用于 各类 报表 和 用户界面 。 报表 风格 的 Datawindow 打印 可用 函数 Print ( ) ， 但 简单 用 Print ( ) 函数 打印 不能 满足用户 对 打印 份数 和 特选 页面 等 要求 ， 要 实现 这些 功能 必须 充分利用 Datawindow 的 Print 特性 ， 让 用户 来 定义 这些 特性 ， 用 modify   ( ) 函数 修改 Datawindow ， 然后 用 Print ( ) 函数 打印 。 
+ 1   Datawindow 的 Print 特性 
+ 　 　 Datawindow 有 很多 Print 特性 ， 表 1 列出 了 本文 实例 中 用到 的 Print 特性 ， 读者 可以 翻阅 相关 资料 了解 更 多 其它 Print 特性 。 
+ 表 1   Datawindow 的 Print 特性 
+ 
+ 特性 描述 
+ Collate 是否 校验 打印 内容 
+ Page , Range 打印 的 页面 范围 
+ Paper , Size 页面 尺寸 
+ Copies 打印 份数 
+ Filename 输出 到 文件 的 文件名 字符串 
+ 
+ 
+ 2   应用 实例 
+ 　 　 该 实例 的 主要 思路 是 建立 一个 通用 的 打印 对话框 ， 将 Datawindow 的 一些 可重 定义 的 Print 特性 以 窗口 控件 形式 放置 于 窗口 中 ， 实现 用户 自定义 。 在 打印 Datawindow 时 都 可 调用 此 窗口 ， 体现 其 通用性 ， 下面 给出 实现 的 具体方法 。 
+ 　 　 ( 1 )   建立 打印 对话框   创建 如图 1 所示 的 窗口 w _ 1 。 
+ 
+ 图 1 打印 参数设置 窗口 
+ 　 　 ( 2 )   窗口 w _ 1 中 的 主要 控件 说明 见表 2 
+ 表 2 窗口 主要 控件 说明 
+ 
+ 控件 名称 控件 类型 特性 
+ St _ 1Static   TextText = " 打印机 : " 
+ Em _ 1EditMaskMask = " ### " 
+ Cb _ 1CommandButtonText = " 打印 " 
+ Cb _ 2CommandButtonText = " 退出 " 
+ Cb _ 3CommandButtonText = " 打印机 设置 " 
+ Cbx _ 1checkboxText = " Print   To   File " 
+ Cbx _ 2checkboxText = " Collate   Copies " 
+ Rb _ 1RadioButtonText = " 全部 " 
+ Rb _ 2RadioButtonText = " 当前页 " 
+ Rb _ 3RadioButtonText = " 页码 范围 " 
+ Sle _ 1SingleLineEdit 　 
+ Ddlb _ 1DropDownListItem = { " 所 选 页面 " " 奇数 页 " " 厚 数页 " 
+ 
+ 
+ 　 　 ( 3 )   W _ 1 的 实例 变量 声明 。   
+ 　 　 　 　 Datawindow   I _ dwname   / * 保存 调用 窗口 W _ 1 时 作为 参数传递 的 Datawindow * /   
+ 　 　 　 　 String   I _ savename   / * 保存 输出 到 文件 时 的 文件名 * / 
+ 　 　 ( 4 )   W _ 1   Open 事件 的 Script 
+ 　 　 　 　 string   v _ copies   
+ 　 　 　 　 i _ dwname = message . powerobjectparm 
+ 　 　 　 　 st _ 1 . text = ' 打印机 :   ' + string ( i _ dwname . object . Datawindow . printer )   　 　 
+ 　 　 　 　 v _ copies = string ( i _ dwname . object . Datawindow . print . copies )   
+ 　 　 　 　 cbx _ 2 . checked = ( upper ( string ( i _ dwname . object . Datawindow . print . collate ) ) = ' YES ' )   
+ 　 　 　 　 i _ savename = trim ( string ( i _ dwname . object . Datawindow . print . filename ) )   
+ 　 　 　 　 cbx _ 1 . checked = ( i _ savename < > ' ' ) 
+ 　 　 ( 5 )   Cb _ 3   Clicked 事件 的 Script   
+ 　 　 　 printsetup ( ) 
+ 　 　 　 st _ 1 = ' 打印机 : ' + string ( i _ dwname . object . Datawindow . printer ) 
+ 　 　 ( 6 )   Cb _ 1   Clicked 事件 的 Script   
+ 　 　 　 integer   nindex   
+ 　 　 　 string   v _ modify , v _ page , v _ return   
+ 　 　 　 v _ modify = '   Datawindow . Print . Copies = ' + em _ 1 . text   
+ 　 　 　 If   cbx _ 2 . checked   then   
+ 　 　 　 　 v _ modify = v _ modify + '   Datawindow . Print . Collate = Yes   '   
+ 　 　 　 else 
+ 　 　 　 　 v _ modify = v _ modify + '   Datawindow . Print . Collate = No   '   
+ 　 　 　 end   if   
+ 　 　 　 If   cbx _ 1 . checked   then   
+ 　 　 　 　 v _ modify = v _ modify + '   Datawindow . Print . FileName = ' + i _ savename   
+ 　 　 else   
+ 　 　 　 　 v _ modify = v _ modify + "   Datawindow . Print . FileName = ' '   "   
+ 　 　 end   if   
+ 　 　 If   rb _ 1 . checked   then   
+ 　 　 　 　 v _ modify = v _ modify + "   Datawindow . Print . Page . Range = ' '   " elseif   rb _ 2 . checked   then   
+ 　 　 　 　 v _ page = i _ dwname . describe ( " Evaluate ( ' Page ( ) ' , " + string ( i _ dwname . getrow ( ) ) + ' ) ' )   
+ 　 　 　 　 v _ modify = v _ modify + "   Datawindow . Print . Page . Range = ' " + v _ page + " '   "   
+ 　 　 　 　 else   
+ 　 　 　 　 v _ modify = v _ modify + "   Datawindow . Print . Page . Range = ' " + sle _ 1 . text + " '   "   
+ 　 　 　 　 end   if   
+ 　 　 　 　 v _ ddlbnum = ddlb _ 1 . finditem ( ddlb _ 1 . text , 0 )   
+ 　 　 　 　 v _ modify = v _ modify + " Datawindow . Print . Page . RangeInclude = " + string ( v _ ddlbnum   - 1   )   
+ 　 　 　 　 i _ dwname . modify ( v _ modify ) 
+ 　 　 　 　 parent . visible = false   
+ 　 　 　 　 i _ dwname . print ( true )   
+ 　 　 　 　 this . setfocus ( )   　 
+ 　 　 　 　 close ( parent ) 
+ 　 　 ( 7 )   调用 W _ 1 的 Script 
+ 　 　 integer   v _ count , v _ tcount 
+ 　 　 Datawindow   dwc 
+ 　 　 v _ tcount = upperbound ( parent . control ) 
+ 　 　 for   v _ count = 1   to   v _ tcount 
+ 　 　 　 choose   case   parent . 
+ 　 　 　 　 control [ v _ count ] . typeof ( ) 
+ 　 　 　 　 　 case   Datawindow !   
+ 　 　 　 　 　 　 dwc = parent . control [ v _ count ]   
+ 　 　 　 　 end   choose 
+ 　 　 next 
+ openwithparm ( w _ 1 , dwc ) 
+ 3   结束语 
+ 　 　 PowerBuilder 环境 中 的 Datawindow 具有 很强 的 灵活性 ， 能 较 快 地 生成 不同 风格 的 报表 ， 如 单纯 用 打印函数 打印 ， 实际 应用 效果 不好 ， 如果 采用 上面 介绍 的 方法 可以 使 打印 更具 灵活性 ， 当然 还 可以 利用 其它 Datawindow 的 Print 特性 ， 让 用户 具有 更大 的 自由度 。 
+ 参考文献 
+ 1   PowerBuilder   Documentation ( 随机 资料 ) 
+ 2   何军 ， 刘红岩 .   PowerBuilder5.0 原理 与 应用 开发 指南 . 北京 ： 电子   机械 工业 出版社 , 1997 

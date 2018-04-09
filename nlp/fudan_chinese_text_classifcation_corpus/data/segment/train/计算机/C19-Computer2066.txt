@@ -1,0 +1,59 @@
+计算机 工程 
+ COMPUTER   ENGINEERING   
+ 1999 年   第 25 卷   第 5 期   Vol.25   No.5   1999 
+ 
+ 
+ 
+ 基于 Web 的 机器人 遥 操作 的 研究 与 实现 
+ 任昊星   翁海华   杨杨   陈坚 
+ 摘要   介绍 了 机器人 遥 操作系统 的 研究 现状 和 基本原理 ， 分析 了 现有 的 基于 Web 的 机器人 遥 操作系统 的 基本 结构 ， 详细 讲座 了 相关 的 重要 技术 问题 ， 并 给出 了 具体 的 实现 例子 。 
+ 关键词   通用 网关 接口   机器人 遥 操作 
+ Principles   and   Application   of   Internet   Telerobotics   
+ Ren   Haoxing   Weng   Haihua   Yang   Yang   Chen   Jian 
+ （ Automation   Department ， Shanhai   Jiaotong   University   Shanghai   200030 ） 
+ [ Abstract ]   In   this   paper ， the   up - to - date   development   and   the   basic   principles   of   Internet   telerobotics   are   presented 。 Important   issues   in   telerobotics   are   discussed   in   detail 。 An   application   is   also   given 。 
+ [ Key   words ]   Web ； CGI （ Common   Gateway   Interface ） ： Telerobotics 
+ 　 　 基于 Web 的 机器人 遥 操作 就是 通过 Internet 访问 连接 机器人 的 Web 站点 ， 远程 控制 机器人 。 它 的 突出 特点 是 能 让 普通用户 操作 。 首先 ， 它 能 被 很多 人 访问 。 南加州 大学 的 Mercury 项目 上网 10 个 月 就 被 超过 50000 台 主机 访问 过 。 其次 ， 它 具有 易 操作性 。 不用 学习 高深 的 机器人 理论 , 不用 受过 专业训练 ， 普通人 就 能 操纵 机器人 完成 特定 的 任务 。 
+ 　 　 国外 已经 建立 了 这样 的 机器人 遥 操作系统 的 大学 有 ： 美国 的 南加州 大学 ( University   of   South   California ) 和 澳大利亚 的 西澳大利亚 大学 ( University   of   Western   Australia ) 。 南加州 大学 的 Mercury   1994 项目 [ 2 ] 让 Web 用户 进行 模拟 发掘 文物 的 活动 。 机械手 能 将 压缩空气 吹进 一块 埋 了 文物 的 沙丘 ， Web 用户 可 操作 机械手 在 这块 沙丘 中 任意 发掘 文物 。 南加州 大学 的 另 一个 项目 是 TeleGarden   1995 。 该 项目 允许 Web 用户 通过 一个 ADEPT 机械手 管理 一个 小型 花园 。 用户 可以 进行 种植 、 浇灌 等 活动 。 西澳大利亚 大学 [ 1 ] 将 一台 ASIA   IRb - 6 型 机械手 连 在 Internet 上 ， Web 用户 可以 操纵 它 抓取 和 移动 桌上 的 一些 木块 ， 搭建 出 各种 模型 。 本文 将 首先 给出 基于 Web 的 机器人 遥 操作系统 的 系统结构 并 就 几个 关键 的 技术 问题 进行 分析 ， 最后 给出 设计 的 实例 。 
+ 1   系统结构 
+ 　 　 目前 几个 实际 运行 的 基于 Web 的 机器人 遥 操作系统 都 采用 如图 1 所示 的 结构 。 
+ 
+ 图 1   机器人 遥 操作系统 结构 
+ 　 　 Web 用户 通过 浏览器 发出 控制 请求 给 Web   Server 上 的 HTTP   Server ； HTTP   Server 调用 CGI 程序 并 传递 控制指令 给 CGI 程序 ； CGI 程序 与 IMAGE   Server 及 ROBOT   Server 通信 ； IMAGE   Server 通过 摄象机 、 图象 采集卡 实时 采集 机器人 图象 ， 传递 给 CGI 程序 ； ROBOT   Server 通过 串口 或 并 口 与 机器人 控制器 通信 ， 发出 控制指令 并 接收 当前 机器人 状态 数据 ； 机器人 数据 与 图象 由 CGI 程序 通过 HTTP   Server 发给 浏览器 。 
+ 2   界面设计 
+ 　 　 由于 大多数 使用者 都 没有 操纵 机器人 的 经验 ， 良好 的 界面设计 是 系统 设计 成败 的 关键 。 
+ 2.1   设计 语言 
+ 　 　 常用 的 方法 是 HTML 语言 。 HTML 可以 提供 文字 和 图象 的 界面 。 通过 HTML 中 的 FORM 和 IMG   MAP 可以 传递 给 Web 站点 控制指令 或 数据 。 该 方法 的 特点 是 开发 简单 ， 界面 较 简单 ， 传递 时间 短 。 最新 的 开发 语言 是 JAVA 或 VRML 。 通过 它们 能 开发 出 更加 复杂 的 界面 ， 比如 可以 提供 三维 的 机器人 显示 ， 提高 界面 的 友好 性 ； 缺点 是 需要 传递 大量 数据 ， 速度慢 。 
+ 2.2   界面 内容 
+ 　 　 机器人 的 图象 显示 是 必需 的 ， 否则 未 受过 专业训练 的 Web 用户 不 可能 进行 操作 。 西澳大利亚 大学 的 系统 具有 4 台 摄象机 ， 可以 提供 机器人 不同 角度 的 图象 。 界面 还 需要 提供 控制 的 输入 接口 。 控制 量 一般 是 机器人 的 目的 位置 值 ， 可以 采用 FORM 中 的 INPUT 直接 输入 ， 或用 IMG   MAP 方式 提供 一个 机器人 平面 俯视图 ， 让 用户 点击 目标 位置 ， 再 计算 出 相应 的 控制数据 。 还 需要 提供 的 数据 是 机器人 的 当前 状态 ， 可以 通过 文本 或 图形 的 方式 提供 。 
+ 3   几个 重要 的 技术 要点 
+ 3.1   控制 方式 
+ 　 　 由于 有 传输 时延 ， 基于 Web 的 机器人 遥 操作 不能 采用 一般 的 直接 控制 和 反馈 控制 方式 。 一般 采用 的 是 监督控制 ( Supervisory   Control ) [ 3 ] 。 远程 的 Web 用户 发出 控制目标 给 本地 的 遥 操作系统 ， 该 指令 由 本地 的 控制系统 执行 ， 并 将 执行 情况 返回 给 Web 用户 。 一般 的 是 传送 机器人 目标 位置 值 ， 由 本地 系统 规划 相应 的 路径 并 引导 机器人 到达 指定 位置 。 
+ 3.2   可靠性 
+ 　 　 基于 Web 的 机器人 遥 操作系统 允许 很多 人 访问 并 操纵 机器人 ， 而且 是 每天 24 小时 不间断 的 访问 。 这样 的 系统 必须 具有 良好 的 可靠性 。 一方面 可 利用软件 和 硬件 的 Watchdog 进行 监控 [ 1 ] 。 另一方面 可以 设置 用户 和 口令 来 限制 访问 。 多用户 同时 操作 的 问题 也 需 在 软件设计 中 予以考虑 。 
+ 3.3   响应 时间 
+ 　 　 基于 Web 的 机器人 遥 操作 不是 实时 的 操作 ， 它 有 一定 的 响应 时间 。 可用 以下 公式 计算 响应 时间 [ 1 ] ： 
+ Tr = Tp + ( Ds + Dr ) / Vl + Tc 
+ 其中 ， Tp 是 机器人 执行 指令 的 时间 ， Tc 是 通信 初始化 的 时间 ， Ds ， Dr 分别 是 发出 和 接收 的 数据量 ， Vl 是 传输速度 。 实际 系统 中 ， Tp 一般 为 4 ～ 15 秒 。 Tc 取决于 服务器 和 线路 的 繁忙 的 程度 ， 一般 2 ～ 10 秒 。 由于 Dr 远大于 Ds ， 可以 只 计算 Dr 。 Dr 的 大小 取决于 图象 的 帧 数 、 大小 及 压缩 方式 。 320 × 240 点 的 JPEG 图象 一般 有 9 ～ 20k 。 若 Vl 取 14.4 kbps ， 则 传输 时间 大约 6 ～ 11 秒 。 
+ 4   应用 实例 
+ 　 　 接下来 介绍 我们 设计 的 基于 Web 的 机器人 遥 操作系统 。 
+ 　 　 系统结构 如图 1 所示 。 我们 控制 的 机器人 是 Adept   604 - S 型 工业 机械手 。 系统 基于 Windows   95 平台 。 HTTP   Server 选用 的 是 O ' Reilly   &   Associates , Inc . 的 WebSite1.1 。 WebSite 是 一种 小型 的 HTTP   Server ， 它 的 特点 是 配置 维护 方便 ， 并 支持 WINCGI 。 本 系统 采用 的 CGI 接口 就是 WINCGI 。 Robot   Server ， Image   Server 和 CGI 程序 都 用 VB 开发 。 它们 之间 的 通信 通过 DDE ( 动态 数据交换 ) 进行 。 
+ 应用 一 　 　 操纵 机器人 
+ 
+ 图 2   机器人 图象 和 俯视图 
+ 　 　 如图 2 所示 ， 图中 左边 是 机器人 的 图象 ， 右边 是 机器人 的 俯视图 。 Web 用户 可以 通过 鼠标 直接 点击 俯视图 中 的 白色 区域 的 一点 ， 让 机器人 移动 到 该 位置 。 Web 用户 也 可 在 FORM 中 输入 X ， Y ， Z 的 数值 ( 图中 未 出现 ， 需 拉动 滚动条 ) ， 精确 控制 机器人 移动 到 某点 。 
+ 应用 二 　 　 走 迷宫 
+ 
+ 图 3   机器人 迷宫 游戏 
+ 　 　 这是 一个 用 机器人 走 迷宫 的 游戏 。 机械手 下方 放置 了 一幅 黑白相间 的 迷宫 图案 。 用户 通过 位于 机械手 下方 的 摄象机 看到 附近 的 迷宫 图案 ， 如图 3 所示 。 图中 的 圆圈 代表 机器人 的 当前 位置 。 用户 的 任务 是 使 机器人 运动 到 迷宫 的 出口 。 用户 点击 图象 中 的 白色 区域 某 一点 将 使 机器人 规划 一条 可行 路径 从 当前 位置 运动 到 该 位置 。 用户 确认 后 ， 机器人 将 沿此 路径 运动 。 图中 线条 是 规划 好 的 路径 。 这里 路径 规划 [ 5 ] 采用 的 是 传播 算法 。 
+ 5   结论 
+ 　 　 通过 Web 可以 实现 机器人 的 遥 操作 。 通过 提供 良好 的 遥 操作界面 和 健全 的 系统 ， 可以 让 未 接受 专业训练 的 普通 Web 用户 远程 控制 机器人 。 
+ 作者简介 ： 任昊星   男 ， 22 岁 ， 研究生 ， 主要 研究 方向 是 机器人 网络 监控 
+ 作者 单位 ： 上海交通大学 自动化 研究所   上海   200030 
+ 参考文献 
+ 1   Taylor   K ， Dalton   B . Issues   in   Internet   Telerobotics . FSR ' 97 ， 1997 - 12 
+ 2   University   of   Southern   California .   Beyond   the   Web ： Excavating   the   Real   World   Via   Mosaic ， the   Second   International   WWW     Conference ， Chicago ， 1994 - 10 
+ 3   Sheridan   T   B .   Space   Teleoperation   Through   Time   Delay   Review   and   prognosis . IEEE   Transactions   on   Robotics   and   Automation ， 1993 ， 9 ( 5 ) ： 592 - 606 
+ 4   蒋 新松 . 机器人学 导论 . 沈阳 ： 辽宁 科学技术 出版社 ， 1994 
+ 5   李秀明 . 复杂 环境 中 移动机器人 滚动 规划 策略 与 实现 . 上海交通大学 博士学位 论文 ， 1997 - 07 
+ 收稿 日期 ： 1998 - 06 - 25 

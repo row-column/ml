@@ -1,0 +1,119 @@
+宇航学 报 
+ JOURNAL   OF   ASTRONAUTICS 
+ 1999 年   第 2 期 　 No.2   1999 
+ 
+ 
+ 
+ 空间 飞行器 基于 模糊 逻辑 的 
+ 连续 滑模 控制 
+ 黄显林 　 王海斌 　 周建锁 　 胡恒章 
+ 　 　 摘 　 要 　 针对 空间 飞行器 姿态控制 系统 的 有 模型 不确定性 和 外来 干扰 的 特点 , 通过 组合 滑模 控制 和 模糊控制 , 提出 了 一种 新 的 非线性 控制系统 设计 方法 。 仿真 结果表明 本文 的 模糊 滑模 控制 , 不仅 具有 常规 滑模 控制 的 优点 , 而且 克服 了 常规 滑模 控制 所 固有 的 抖振 现象 。 
+ 　 　 主题词 　 空间 飞行器 控制 　 非线性 系统 　 模糊控制 　 滑模 控制 
+ CONTINUOUS   SLIDING   MODE   CONTROL   BASED   
+ ON   FUZZY   LOGIC   OF   SPACECRAFT 
+ Huang   Xianlin   Wang   Haibin   Zhou   Jiansuo   Hu   Hengzhang 
+ ( Department   of   Control   Engineering   Harbin   Institute   of   Technology . Harbin.150001 ) 
+ 　 　 Abstract 　 This   paper   presents   a   new   approach   to   nonlinear   control   system   design   for   spacecraft   attitude   regulation   in   the   presence   of   disturbance   torque   and   model   uncertainties , which   fuses   fuzzy   control   and   sliding   mode   control . Simulations   results   show   that   the   fuzzy   sliding   mode   control   does   not   only   have   the   merits   of   general   sliding   mode   control , but   also   avoids   the   chattering   phenomenon   which   is   inherent   to   a   sliding   mode   control . 
+ 　 　 Key   words 　 Spacecraft   control   Nonlinear   system   Fuzzy   control   Slide   mode   control 
+ 1 　 引言 
+ 　 　 空间 飞行器 是 一个 具有 参数 不确定性 和 外来 干扰 的 非线性 系统 , 而 滑模 控制 对系统 参数 的 不确定性 和 干扰 具有 较强 的 鲁棒性 , 又 适用 于 对 非线性 对象 的 控制 , 近来 开始 被 应用 到 飞行器 控制 方面 。 滑模 控制 所 固有 的 高频 抖振 必然 会 给 系统 带来 严重 的 影响 , 因此 , 设计 无抖 振 的 滑模 控制器 对 飞行器 姿态控制 具有 十分 重要 的 意义 。 
+ 　 　 为了 避免 这种 抖振 现象 , 文献 ［ 1 ］ 、 ［ 2 ］ 综合 了 滑模 控制 和 模糊控制 的 设计 方法 , 但 这种 模糊 滑模 控制 的 算法 非常复杂 , 不 适于 应用 在 计算机 容量 有限 的 飞行器 控制 上 。 本文 提出 了 一种 能 用 解析 式 表达 的 模糊控制 律 , 这种 基于 模糊 逻辑 的 连续 滑模 控制 不仅 实现 了 无抖 振 的 滑模 控制 , 而且 控制算法 简单 , 适用 于 空间 飞行器 的 姿态控制 。 
+ 2 　 空间 飞行器 滑模 控制 
+ 　 　 空间 飞行器 的 非线性 动力学 模型 : 
+ 　 　 　 　 　 　 I11 + ( 1 + 3cos2 θ 2 ) ω 20 ( I2 - I3 ) θ 1 - ω 0 ( I1 - I2 + I3 ) 3 
+ 　 　 　 　 　 　 　 　 　 + 3 ( I2 - I3 ) ω 20 ( sin θ 2cos θ 2 ) θ 3 = u1 + d1 
+ 　 　 　 　 　 　 I22 + 3 ω 20 ( I1 - I3 ) sin θ 2cos θ 2 = u2 + d2 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 　 　 　 　 　 　 I33 + ( 1 + 3sin2 θ 2 ) ω 20 ( I2 - I1 ) θ 1 - ω 0 ( I1 - I2 + I3 ) 1 
+ 　 　 　 　 　 　 　 　 　 + 3 ( I2 - I1 ) ω 20 ( sin θ 2cos θ 2 ) θ 1 = u3 + d3 
+ 其中 　 θ 1 、 θ 2 、 θ 3 — — 为 参考 坐标系 的 三个 姿态 角 : 俯仰角 、 滚动 角 、 偏航 角 ; 
+ 　 　 　 ω 1 、 ω 2 、 ω 3 — — 为体 坐标系 的 三个 角速度 ; 
+ 　 　 　 　 　 　 　 　 ω 0 — — 为 轨道 角速度 ; 
+ 　 　 　 　 　 I1 、 I2 、 I3 — — 为 各轴 的 转动惯量 ; 
+ 　 　 　 　 　 d1 、 d2 、 d3 — — 是 环境 干扰 力矩 。 
+ 　 　 取 状态变量 为 X = ［ θ 1 　 1 　 θ 2 　 2 　 θ 3 　 3 ］ T = ［ x1 　 x2 　 x3 　 x4 　 x5 　 x6 ］ T , 由 ( 1 ) 式 得到 具有 参数 不确定性 和 外 干扰 力矩 的 状态方程 为 : 
+ 　 　 　 　 　 　 
+ 　 　 　 　 　 　 a1 ( X ) = - I - 11 ［ ( 1 + 3cos2x2 ) ω 20 ( I2 - I3 ) x1 - ω 0 ( I1 - I2 + I3 ) x6 
+ 　 　 　 　 　 　 　 　 　 + 3 ( I2 - I3 ) ω 20 ( sinx2cosx2 ) x5 ］ 
+ 　 　 　 　 　 　 a2 ( X ) = - I - 12 ［ 3 ω 20 ( I1 - I3 ) cosx3sinx3 ］ 
+ 　 　 　 　 　 　 a3 ( X ) = - I - 13 ［ ( 1 + 3sin2x2 ) ω 20 ( I2 - I1 ) x1 - ω 0 ( I1 - I2 + I3 ) x6 
+ 　 　 　 　 　 　 　 　 　 + 3 ( I2 - I1 ) ω 20 ( sinx2cosx2 ) x1 ］ 
+ 　 　 　 　 　 　 bi = 1 / Ii 　 i = bi ( 1 + Δ i ) 　 　 　 　 i = 1 , 2 , 3 　 　 　 　 　 　 　 　 　 　 　 ( 2 ) 
+ 　 　 本 系统 可以 分解 为 三个 子系统 , ( Ai , α i ( X ) , β i ) 构成 一个 子系统 , 可以 针对 每个 子系统 设计 分散 滑模 控制器 。 
+ 　 　 假定 参数 的 不确定性 和 外来 干扰 具有 如下 的 界 : 
+ 　 　 　 　 　 　 | Δ ai ( X ) | ≤ Fi ( X , t ) 
+ 　 　 　 　 　 　 | di | ≤ Di ( X , t ) 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 3 ) 
+ 　 　 　 　 　 　 | Δ i | ≤ mi 
+ 其中 　 Fi ( X , t ) 、 Di ( X , t ) 、 mi 是 大于 0 的 已知 函数 。 
+ 　 　 针对 每个 子系统 设计 分散 变 结构 控制器 : 
+ 　 　 令为 期望 状态 , 第 i 个 子系统 的 切换 函数 : 
+ 　 　 Si 　 ( X ) = ci1ei1 + ei2 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 4 ) 
+ 　 　 　 　 ( 5 ) 
+ 　 　 取 趋近 律 : 　 　 　 　 　 i 　 ( X ) = - kisgn ( Si ) 　 　 　 　 　 　 　 　 　 　 ( 6 ) 
+ 　 　 由式 ( 6 ) 可以 验证 
+ 　 　 　 　 　 　 　 　 　 　 　 Sii = - kiSisgn ( Si ) = - ki | Si | ≤ - ki | Si | 　 　 　 ( 7 ) 
+ 取 ki ＞ 0 , 满足 到达 滑模 条件 。 
+ 　 　 式 ( 5 ) 、 ( 6 ) 联立 求得 变 结构 控制 为 : 
+ 　 　 　 　 ui = 　 　 i = 1 , 2 , 3 　 　 　 　 ( 8 ) 
+ 3 　 模糊 控制器 设计 
+ 　 　 令 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 9 ) 
+ 　 　 根据 式 ( 8 ) 、 ( 9 ) 可知 , Si ＞ 0 时 , Δ ui ＜ 0 ; Si ＜ 0 时 , Δ ui ＞ 0 。 下面 将 利用 模糊集 理论 来 确定 Δ ui , 用 Δ ui 代替 切换 函数 kiisgn ( X ) , 以使 使 控制 信号 平滑 。 
+ 　 　 对 每个 子系统 来说 , 设计 方法 都 是 完全相同 的 , 为了 方便 起 见 , 下面 去掉 下标 。 
+ 　 　 首先 , 选取 正常 数 K , 将 切换 函数 S 进行 规范化 , 假设 
+ 　 　 　 　 　 　 Sm ( X ) = K × S ( X ) 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 10 ) 
+ 式 中 　 Sm 是 模糊 控制器 的 输入 , Δ u 作为 模糊 控制器 的 输出 。 
+ 　 　 其次 , 定义 Sm 和 Δ u 的 语言 值 如下 : 
+ 　 　 { Positive   Big ( PB ) , Positive   Medium ( PM ) , Positive   Small ( PS ) , Zero ( ZE ) , Negative   Small ( NS ) , Negative   Medium ( NM ) , Negative   Big ( NB ) } 假设 输入 Sm 和 输出 Δ u 的 模糊集 分别 为 : 
+ 　 　 
+ 其中 和 ( i = - 3 , - 2 , - 1 , 0 , 1 , 2 , 3 ) 对应 的 语言 值 分别 为 NB , NM , NS , ZE , PS , PM , PB 。 定义 模糊集 和 ( i = - 3 , - 2 , - 1 , 0 , 1 , 2 , 3 ) 的 隶属 函数 如图 1 ( a ) , 1 ( b ) 所示 。 
+ 　 
+ 　 ( a ) 　 输入 模糊集 　 　 　 　 ( b ) 　 输出 模糊集 
+ 图 1 　 隶属 函数 
+ 定义 如下 七条 模糊 规则 : 
+ 　 　 设 模糊集 的 隶属 函数 峰值 为 PV ( ) , 则 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 i = - 3 , - 2 , - 1 , 0 , 1 , 2 , 3 　 　 　 　 　 　 ( 11 ) 
+ 于是 采用 文献 ［ 5 ］ 非 模糊化 决策 方法 , 可 计算 出 量化 后 的 模糊 控制器 的 精确 输出量 : 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 12 ) 
+ 其中 ( Sm ) 是 模糊集 的 隶属 函数 , 其 表达式 由图 1a 给出 , 由式 ( 11 ) 给出 。 
+ 　 　 由图 1 及式 ( 11 ) 、 ( 12 ) 不难 推出 量化 后 的 模糊 控制器 的 精确 输出量 : 
+ 　 　 　 　 　 　 　 ( 13 ) 
+ 　 　 系统 的 控制 信号 取为 : 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 14 ) 
+ 　 　 模糊 增益 K 的 选择 : K 与 切换 区间 的 大小 成反比 , 切换 区间 越小 , 系统 的 抖 振 就 越 小 ; 但 切换 区间 如果 太小 , 切换 函数 经常 超出 切换 区间 , 抖振 就 不是 变小 了 , 而是 变大 了 。 因此 一般 选择 , T 为 系统 过渡 过程 时间 , t ＞ T 后 , 系统 进入 稳态 。 对于 本 对象 来说 , 根据 它 的 模型 不确定性 和 外 干扰 力矩 的 绝对值 的 上界 , 取 K = 10 比较 合适 。 
+ 4 　 仿真 结果 
+ 　 　 本 系统 参数 选择 如下 : 
+ 　 　 　 　 　 　 I1 = 874.6 N . m . s2 , 
+ 　 　 　 　 　 　 I2 = 888.2 N . m . s2 , 
+ 　 　 　 　 　 　 I3 = 97.6 N . m . s2 , 
+ 　 　 　 　 　 　 ω 0 = 7.29 × 105rad / s2 。 
+ 　 　 参数 的 不确定性 确定 如下 : 
+ 　 　 　 　 　 　 F1 ( x , t ) = F2 ( x , t ) = 0.1 sint 　 　 　 　 　 F3 ( x , t ) = 0.2 sin10t 
+ 　 　 　 　 　 　 D1 = D2 = D3 = 1N . m 　 　 　 　 　 　 　 　 　 　 m1 = m2 = m3 = 0.01 
+ 　 　 由于 空间 飞行器 燃料 的 限制 , 控制 量 大小 应 受到限制 , 选择 控制参数 如下 : 
+ 　 　 　 　 　 　 n1 = n2 = n3 = 0.1 　 　 　 　 　 　 　 　 　 　 c11 = c21 = c31 = 0.1 
+ 　 　 这里 取 姿态 角 的 期望值 为 零 , 初始 误差 为 1rad 。 
+ 　 　 常规 滑模 控制 的 响应 曲线 如下 : 
+ 　 　 从图 2 可以 看出 常规 滑模 控制 的 控制 信号 有 明显 抖振 现象 。 模糊 控制器 实质 上 是 用 一个 模糊化 的 连续函数 替换 切换 函数 sgn ( ) , 以 解决 常规 滑模 控制 的 控制 量 的 抖振 问题 。 见图 3 ( a ) 和 4 ( a ) , 模糊 增益 K 决定 了 切换 区间 的 大小 , 由 ( 10 ) 式 可知 它 与 切换 区间 的 大小 成反比 。 一般来说 , 切换 区间 越小 , 切换 线 Δ u 越 接近 于 符号 函数 sgn ( ) , 系统 的 动 特性 就 越 接近 于 常规 的 滑模 控制 , 但 常规 的 滑模 控制 固有 的 抖振 问题 就 越 严重 ; 但 切换 区间 如果 太 大 , 系统 就 失去 了 滑模 控制 原有 的 良好 的 动 特性 。 因此 , 模糊 增益 K 必须 取得 合适 , 一般 选择 , T 为 系统 过渡 过程 时间 , t ＞ T 后 , 系统 进入 稳态 。 本文 取 K = 10 比较 合适 。 
+ 　 　 
+ ( a ) 　 俯仰角 调节 误差 响应 曲线 　 　 ( b ) 　 控制 量 响应 曲线 　 　 　 
+ 图 2 　 常规 滑模 控制 响应 曲线 
+ 
+ 　 　 　 ( a ) 　 切换 线 　 　 　 　 ( b ) 　 控制 量 响应 　 　 　 　 ( c ) 　 俯仰角 误差 响应 
+ 图 3 　 p = 0.01 , q = 0.9 
+ 
+ 　 　 ( a ) 　 切换 线 　 　 　 　 　 ( b ) 　 控制 量 响应 　 　 　 ( c ) 　 俯仰角 误差 响应 
+ 图 4 　 p = 0.59 , q = 0.69 
+ 　 　 最后 确定 模糊 控制器 的 模糊 参数 p 、 q : 
+ 　 　 从式 ( 8 ) 可以 看出 : 切换 线 Δ u 越 平滑 , 控制 信号 的 抖 振 就 越 小 , 所以 p 、 q 的 选择 应 尽可能 使 Δ u 平滑 , 也就是说 , p 、 q 不仅 要 使 Δ u 连续 , 而且 应 尽量 使 Δ 连续 , 才能 避免 常规 滑模 控制 的 抖振 问题 。 
+ 　 　 对比 图 3 和 图 4 , p = 0.59 , q = 0.60 时 , Δ u 和 Δ 更 接近 连续 , 所以 性能 更好 。 
+ 　 　 如果 取 p = q = 1 , 式 ( 13 ) 就 和 常用 的 边界层 法 完全一致 : 
+ 　 　 　 　 　 　 　 　 　 　 　 ( 15 ) 
+ 这 表明 常用 的 避免 抖振 的 边界层 法 只是 模糊 滑模 控制 的 一种 特例 。 
+ 5 　 结 　 论 
+ 　 　 基于 模糊 逻辑 的 连续 滑模 控制 可以 很 好地解决 空间 飞行器 的 非线性 、 参数 的 不确定性 和 外来 干扰 的 问题 , 算法 简单 , 而且 可以 获得 满意 的 动态 性能 , 变 结构 控制 本身 的 抖振 问题 也 可以 得到 抑制 。 
+ 　 　 作者 单位 ： 哈尔滨工业大学 控制 工程系 . 哈尔滨 . 150001 
+ 参考文献 
+ 　 1 　 Hwang   G   C , chang   S . A   Stability   Approach   to   Fuzzy   Control   Design   for   Nonlinear   System . Fuzzy   Sets   and   Systems , 1992 , 48 : 279 - 287 
+ 　 2 　 Rainer   Palm . Robust   Control   by   Fuzzy   Sliding   Mode . Automatica , 1994 , 30 ( 9 ) : 1429 - 1437 
+ 　 3 　 Sahjendra   N . Singh   and   Ashok   Iyer . Nonlinear   Regulation   of   Space   Station : A   Geometric   Approach . Journal   of   Guidance , Control   and   Dynamics , 1994 , 17 ( 2 ) : 242 - 249 
+ 　 4 　 Sahjendra   N . Singh , Ashok   Iyer . Nonlinear   Decoulping   Sliding   Model   Control   and   Attitude   Control   of   Spacecraft . IEEE   Transaction   on   Aerospace   and   Electric   System , 1989 , 25 ( 5 ) : 621 - 633 
+ 　 　 本文 受 航天工业 总公司 “ 九五 ” 预研 课题 资助 
+ 收稿 日期 : 1997 年 1 月 27 日 , 修回 日期 : 1998 年 3 月 20 日 

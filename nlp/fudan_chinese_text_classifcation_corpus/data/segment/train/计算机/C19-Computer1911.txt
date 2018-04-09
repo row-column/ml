@@ -1,0 +1,82 @@
+微型机 与 应用 
+ WEIXINGJI   YU   YINGYONG 
+ 2000 　 Vol.19 　 No.5 　 P.45 - 46 
+ 
+ 
+ 
+ 
+ ASP 和 ADO 技术 在 开放式 远程 辅助 教学 中 的 应用 
+ 张向林  王宝智 
+ 摘   要 ： ASP 和 ADO 技术 及其 在 开放式 远程 辅助 教学  ORCAI  中 的 编程 实现 。 
+ 关键词 ： 动态 服务器   动态数据 对象   计算机辅助 教学 
+ 　 　 网络 技术 的 发展 为 信息 的 传播 提供 了 最为 广泛 、 快捷 的 手段 ， 将 网络 技术 应用 于 CAI （ 计算机辅助 教学 ） 是 CAI 的 一个 发展 方向 。 ORCAI 课件 除 具有 无 地域 限制 、 无 时间 限制 、 教育 对象 广泛 等 与 传统 远程教育 类似 的 特点 外 ， 还 具有 信息 容量 大 、 交互性 强 、 智能化 等 新 特点 。 我国 地域 广 、 人口 多 、 实施 高等教育 的 学校 相对 比较 少 ， 所以 在 我国 发展 计算机网络 远程教育 有 重大 现实意义 。 
+ 　 　 ORCAI 除了 具有 传统 CAI 的 各种 功能 ， 更能 充分发挥 网络 的 优势 ， 最 主要 的 特点 体现 在 增强 了 与 用户 的 实时性 、 交互性 ， 具体 实现 了 网上 注册 、 网上 考试 、 网上 讨论 答疑 ， 网上 试题库 管理 以及 学生 信息管理 等 新 功能 。 
+ 　 　 在 实现 上述 功能 时 ， 主要 使用 了 ASP 和 ADO 技术 。 
+ 1   ASP 技术 
+ 　 　 ASP （ Active   Server   Page ） 中文名 为 动态 服务器 页 ， 它 是 Microsoft 公司 推出 的 IIS3 ． 0 、 IIS4 ． 0 服务器 的 1 个 组件 ， 是 新一代 的 动态 网页 开发 方案 。 利用 它 可以 开发 出 动态 、 交互 、 高性能 的 Web 服务器端 应用 ， 且 能 较 容易 的 实现 复杂 的 Web 扩展 功能 。 ASP 还 可以 调用 ActiveX 组件 来 执行 任务 ， 例如 连接 服务器 或 进行 商务 计算 等 。 ASP 使得 生成 Web 动态 页面 及 构造 功能完善 的 Web 数据库 应用 变得 十分 简单 。 不论 对 Web 的 开发人员 还是 维护 人员 来说 ， ASP 都 是 1 个 非常 出色 的 开发 方案 。 
+ 　 　 在 ASP 中 包含 了 5 个 内置 对象 ， ASP 正是 通过 这 5 个 内置 对象 来 实现 服务器 与 客户机 的 交互 ， 对 它们 的 名称 及 功能 简述 如下 ： 
+ 　 　 （ 1 ） Request 对象 ： 从 浏览器 获取信息 ； 
+ 　 　 （ 2 ） Response 对象 ： 发送信息 到 浏览器 ； 
+ 　 　 （ 3 ） Server 对象 ： 对 服务器端 ActiveX 组件 提供 访问 方法 、 属性 的 功能 ； 
+ 　 　 （ 4 ） Session 对象 ： 存储用户 任务 的 信息 ； 
+ 　 　 （ 5 ） Application 对象 ： 保留 多用户 共享 1 个 程序 的 信息 。 
+ 　 　 利用 ASP 技术 设计 的 ORCAI 系统 模型 如图 1 所示 。 
+ 
+ 图 1   ORCAI 的 系统 模型 
+ 　 　 其中 ASP 负责 将 客户机 上 的 信息 传递 给 服务器 ， 同时 又 将 反馈 信息 回 送给 客户机 ， 实现 客户机 与 服务器之间 的 数据通信 。 下面 将 讲述 采用 ADO 技术 实现 从 客户机 通过 浏览器 操作 服务器端 数据库 资源 的 功能 ， 而 不再 需要 任何 其它 CGI 程序 。 
+ 2   ADO 技术 
+ 　 　 ADO （ ActiveX   Data   Objects ） 为 ActiveX 组件 中 的 数据库 访问 组件 ， ASP 就是 通过 它 实现 对 数据库 的 访问 。 用 ADO 可以 使 服务器端 的 脚本 通过 ODBC 存取 和 操纵 数据库 服务器 的 数据 。 使用 ADO 的 对象 可以 建立 和 管理 数据库 的 连接 ； 从 数据库 服务器 要求 和 获取数据 ； 执行 更新 、 删除 、 添加 数据 、 获取 ODBC 的 错误信息 等 。 ADO 访问 Web 数据库 的 结构 如图 2 所示 。 
+ 
+ 图 2   ADO 实现 与 Web 数据库 的 互连 
+ 　 　 ADO 提供 以下 3 个 主要 对象 ： 
+ 　 　 （ 1 ） Connection 对象 ： 表示 建立 1 个 数据源 的 连接 ； 
+ 　 　 （ 2 ） Command 对象 ： 定义 对 数据源 进行 操作 的 命令 ； 
+ 　 　 （ 3 ） RecordSet 对象 ： 定义 由 数据库 或 命令 的 结果 产生 的 全部 记录集 。 
+ 3   系统 的 实现 
+ 　 　 编写 服务器端 的 ASP 程序 ， 实现 对 各种 网络 信息 的 动态 处理 还 涉及 到 Web 数据库 编程技术 。 所以 编写 ASP 程序 ， 首先 要 建立 相应 的 数据库 ， 然后 制作 主页 文件 。 下面 具体 以 “ 网上 测试 ” 模块 的 制作 为例 ， 讲述 服务器端 ASP 程序 的 编写 。 “ 网上 测试 ” 模块 主要 功能 包括 ： 随机 地 从 服务器端 的 数据库 中 抽取 一些 试题 （ 包括 判断题 、 选择题 和 填空题 ） 组合成 试卷 ， 对 注册 的 学生 进行 考试 ； 自动 对 学生 的 试卷 进行 判断 ， 并 把 分数 存入 数据库 ； 允许 学生 浏览 自己 的 考试成绩 。 具体 实现 步骤 如下 。 
+ 　 　 （ 1 ） 创建 数据库 
+ 　 　 本 系统 采用 的 是 Access 数据库 ， 库 文件 是 exam ． mdb 。 要 进行 考试 ， 必须 有 试题 ， 在 计算机 考试 中 ， 试题 是 存储 在 数据库 中 的 。 为了 能够 进行 计算机 自动 判卷 ， 试题 必须 是 标准化 的 ， 比如 填空题 、 选择题 、 判断题 等 。 本 数据库 创建 了 3 个 数据表 tiankong 、 xuanze 和 panduan ， 分别 用来 存储 填空题 、 选择题 、 判断题 。 同样 可以 创建 学生 成绩 档案 数据表 chengji 。 
+ 　 　 （ 2 ） 页面 文件 制作 
+ 　 　 在 创建 完 数据库 以后 ， 就要 开始 制作 考试 模块 的 每 1 幅 页面 文件 。 作为 1 个 完整 的 网络应用 程序 ， 除了 可以 进行 考试 外 ， 还 包括 学生 查询 自己 历次 考试成绩 的 功能 。 
+ 　 　 制作 考试 主页 kaoshi ． asp 。 kaoshi ． asp 是 整个 考试 模块 的 核心 ， 它 负责 随机 抽取 考试题 ， 判卷 打分 ， 把 学生 的 得分 计入 数据库 。 在 利用 可视化 的 主页 制作 工具 FrontPage 等 添加 完 该页 的 窗体 元素 后 ， 就 可以 加入 ASP 代码 。 
+ 　 　 随机 抽取 1 道 填空题 部分 的 代码 如下 ： 
+ 　 　 ′ 建立 1 个 Recordset 对象 recTimuSet   recTimu ＝ Server ． CreateObject （ ″ ADODB ． Recordset ″ ）   
+ ′ 打开 记录集 ， 选择 所有 的 记录 ， 并 把 记录 的 数目 存在 变   ′ 量 m 中 
+ sql ＝ ″ select ＊ from   tiankong ″ 
+ recTimu ． Open   sql ， ″ exam ″ ， adOpenKeyset ， 
+ 　 　 　 　 　 　 　 　 　 　 adLockOptimistic 
+ 　 　 m ＝ recTimu ． RecordCount 
+ 　 　 ′ 初始化 随机 函数 发生器 
+ 　 　 Randomize 
+ 　 　 ′ 随机 选取 1 个 大于 等于 0 而 小于 m 的 整数 k 
+ 　 　 k ＝ Int （ Rnd （ ） ＊ m ） 
+ 　 　 recTimu ． Movefirst 
+ 　 　 recTimu ． Move   k 
+ 　 　 Session （ ″ tiankong ″ ） ＝ recTimu （ ″ tk ＿ id ″ ） 
+ 　 　 tiankong ＿ main ＝ recTimu （ ″ tk ＿ main ″ ） 
+ 　 　 tiankong ＿ num ＝ recTimu （ ″ tk ＿ num ″ ） 
+ 　 　 Call   InsertStr （ tiankong ＿ main ） 
+ 　 　 ′ 关闭 记录集 
+ 　 　 recTimu ． Close 
+ 　 　 制作 考试 模块 登录 （ 注册 ） 页面 register ． asp 。 
+ 　 　 当 用户注册 时 ， 系统 从 数据库 中 查询 用户 档案 信息 ， 如果 用户 已经 注册 ， 就 允许 用户 进入 考试 模块 ， 参加考试 和 浏览 自己 以往 的 考试成绩 。 
+ 　 　 该 页面 的 ASP 代码 如下 ： 
+ 　 　 ′ 打开 数据库 ， 选择 考号 和 密码 与 用户 的 输入 相匹配 的   
+ 　 　 ′ 记录 
+ 　 　 Set   recXuesheng ＝ Server ． CreateObject （ ″ ADODB ． Recordset ″ ） 
+ 　 　 sql ＝ ″ select ＊ from   xuesheng   where   xsh ＿ num ＝ ′ ′ ′ ＆ 
+ 　 　 　 　 　 　 　 　 　 num   ＆ ′ ′ ′ and   xsh ＿ passwd ＝ ′ ′ ′ ＆ passwd ＆ ″ ′ ″ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 recXuesheng ． Open   sql ， ″ exam ″ 
+ 　 　 ′ 如果 记录 不为 空 ， 则 说明 用户 的 注册 信息 正确 ， 将 页面   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 重定向 到 成绩 浏览 页面 
+ 　 　 if   Not   recXuesheng ． EOF   then 
+ 　 　 　 　 Set   Session （ ″ user ″ ） ＝ recXuesheng 
+ 　 　 　 　 Response ． Redirect ″ http  ／ ／ zxl ／ upgrade ／ ceshi ／ frame ． asp ″ 
+ 　 　 end   if 
+ 张向林 （ 装备 指挥 技术 学院  101416 ） 
+ 王宝智 （ 装备 指挥 技术 学院  101416 ） 
+ 参考文献 
+ ［ 1 ］ 王宝智 ． 计算机网络 技术 及 应用 ． 长沙 ： 国防科 大 出版社 ， 1999 
+ ［ 2 ］ 武苍林 ． Web 数据库 的 ASP 开发 方案 ． 计算机 工程 与 科学 ，   1999 ； 21 （ 1 ） 
+ ［ 3 ］ 赵昊彤 ． VBScript 制作 实例 ． 北京 ： 人民邮电出版社 ， 1999 
+ 收稿 日期 ： 1999 － 11 － 18 

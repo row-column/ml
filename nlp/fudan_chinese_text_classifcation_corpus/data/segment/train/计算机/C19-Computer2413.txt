@@ -1,0 +1,136 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年 　 第 36 卷 　 第 11 期 　 Vol.36 　 No.11 　 1999 
+ 
+ 
+ 
+ 层次 径向 基 神经网络 的 全局 逼近 理论 
+ 於 东军 　 王士同 　 吴小俊 
+ 摘 　 要 ： 文中 提出 了 一种 层次 径向 基 神经网络 HRBFN   ( hierarchical   radial   basis   function   network ) ， 并且 证明 了 HRBFN 是 一个 全局 逼近 器 . HRBFN 更 适合 于 具有 层次结构 的 应用领域 ， 因而 具有 极为重要 的 理论 与 应用 意义 . 
+ 关键词 ： 全局 逼近 器 ， 层次 网络 ， 径向 基 神经网络 
+ 中图法 分类号 ： TP183 
+ UNIVERSAL   APPROXIMATION   THEORY   OF   HIERARCHICAL 
+ RADIAL   BASIS   FUNCTION   NETWORK 
+ YU   Dong - Jun ,   WANG   Shi - Tong ,   and   WU   Xiao - Jun 
+ ( Department   of   Electronics   and   Information .   East   China   Shipbuil   ding   Institute ,   Zhenjiang   212003 ) 
+ Abstract 　 In   this   paper ,   a   new   hierarchical   radial   basis   function   network   HRBFN   is   presented ,   and   its   universal   approximation   property   is   proved .   HRBFN   is   very   suitable   for   application   domains   with   hierarchical   structures ,   and   therefores   has   very   important   theoretical   and   practical   significance . 
+ Key   words 　 universal   approximator ,   hierarchical   network ,   radial   basis   function   network 
+ 1 　 引 　 言 
+ 　 　 至今 ， 已有 许多 学者 对 RBFN ( radial   basis   function   network ) 的 理论 研究 作出 了 杰出贡献 . 文献 ［ 1 ］ 至 文献 ［ 3 ］ 对 RBFN 的 逼近 特性 及其 应用领域 作 了 深入 的 研究 ， 但 在 隐 节点 的 选取 和 如何 对 层次 系统 应用 RBFN 方面 并未 涉及 . 笔者 最近 提出 了 RBFN 的 构造 理论 ， 并且 给出 了 构造 几乎 最少 隐 节点 的 RBFN 的 算法 ［ 4 ］ . 本文 提出 的 HRBFN 旨在 解决 如何 对 层次 系统 应用 RBFN . 
+ 　 　 径向 基 神经网络 ( RBFN ) 已 在 许多 领域 得到 了 广泛应用 ， 并且 取得 了 很 好 的 效果 . 但是 在 输   入 数据 不 具有 良好 聚类 特性 时 ， 使用 的 径向 基 神经网络 的 输入 不能 太 多 ， 因为 随着 输入 变量 数目 的 增加 ， 为了 使 网络 能 达到 较 好 的 映射 ， 网络 隐层 节点 数目 通常 需 急剧 增加 . 更为重要 的 是 ， 自然界 中 存在 这样 一种 现象 ： 许多 应用领域 呈现 层次 特征 ； 变量 对于 系统 来讲 存在 层次 关系 ， 即 某个 ( 某些 ) 变量 要 等 其它 某些 变量 经过 一定 的 映射 得到 输出 后 ， 再 和 此 输出 一起 进入 系统 . 如果 使用 通常 的 径向 基 神经网络 来 逼近 该 系统 ， 就 会 消除 系统 本身 固有 的 层次 特性 ， 并且 在 实现 上 非常 困难 . 
+ 　 　 因此 我们 考虑 能否 依据 系统 的 层次 特性 构造 相应 的 层次 型 径向 基 神经网络 HRBFN ， 这样 既 保留 了 径向 基 神经网络 的 优点 ， 又 能 在 物理 意义 上 很 好 地 符合 系统 . 本文 的 工作 表明 其 答案 是 肯定 的 . 随后 而来 的 问题 就是 层次 径向 基 神经网络 是否 还是 全局 逼近 器 ？ 如果 HRBFN 只是 能够 逼近 一类 有限 的 线性 或 非线性 连续函数 ， 那么 它 的 使用 范围 必然 大大 减小 . 令人欣慰 的 是 我们 能够 证明 HRBFN 仍 是 一个 全局 逼近 器 ， 这就是说 对于 任意 的 连续 实 函数 使用 层次 径向 基 神经网络 ( HRBFN ) 来 逼近 它 是 完全 可行 的 . 典型 的 HRBFN 如图 1 所示 . 
+ 
+ 
+ 图 1 　 典型 的 层次 径向 基 神经网络 ( HRBFN ) 
+ 　 　 通常 的 RBFN 在 训练 时 ， 一般 可以 先用 聚类 式 SOM 确定 各基 函数 的 中心 及其 宽度 ， 隐层 到 输出   层 的 权 系数 再用 最小 正交 二 乘法 来 确定 具有 快速 的 优点 . 同样 在 HRBFN 中 的 每 一个 子 RBFN 可以 用聚 类式 SOM 来 确定 基 函数 的 中心 ， 在 本文 的 第 3 部分 中 ， 用 一个 简单 的 例子 说明 了 权 系数 的 确定 过程 ， 即 通过 解 矩阵 方程 来 确定 ， 同样 具有 快速 简单 的 特性 . 
+ 　 　 在 第 2 部分 ， 我们 构造 一个 层次 径向 基 神经网络 并 研究 了 其 一些 基本 性质 ； 在 第 3 部分 ， 使   用 构造方法 证明 了 层次 径向 基 神经网络 的 全局 逼近 特性 ； 最后 给出 了 结论 . 
+ 2 　 HRBFN 的 构造 及其 基本 性质 
+ 　 　 层次 径向 基 神经网络 的 基本 思想 是 用 低维 径向 基 神经网络 的 组合 来 代替 高维 的 径向 基 神经网   络 . 为此 ， 我们 首先 来 讨论一下 RBFN . 
+ 　 　 通常 的 径向 基 神经网络 结构 如图 2 所示 . 不失 一般性 ， 这里 仅 给出 两 输入 、 单 输出 的 情形 . 输入 向量 = ( x1 , x2 ) ， 假定 隐 节点 数目 为 m2 , 那么 网络 输出 为 
+ 　 　 ( 1 ) 
+ 
+ 
+ 图 2 　 径向 基 神经网络 结构 
+ 　 　 其中 分别 为 第 i 个 隐 节点 对于 输入 x1 ， x2 的 激励函数 的 中心 . 我们 令 ： 
+ 　 　 ( 2 ) 
+ 　 　 ( 3 ) 
+ 又 由于 ： 
+ 　 　 ( 4 ) 
+ 因此 式 ( 1 ) 可以 重写 为 
+ 　 　 ( 5 ) 
+ 　 　 再 考虑 m 个 当 各个 mip 互不 相同 时 ， 只要 σ 足够 的 小 ， 对于 任意 给定 的 多么   小 的 ε 1 > 0 ， 必有 
+ Zpi ( mip ) = 1 　 　 ( 6 ) 
+ Zpi ( miq ) < ε 1 , ( p ≠ q ) 　 　 ( 7 ) 
+ 　 　 证明 . 式 ( 7 ) 两边 取 对数 有 
+ 
+ 即 只要 
+ 
+ 就 可以 使得 式 ( 7 ) 成立 . 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 证毕 . 
+ 　 　 当 ε 1 足够 小时 ， 认为 Zpi ( miq ) = 0 , ( p ≠ q ) . 
+ 　 　 图 3 显示 了 i = 1 ， 即 x1 的 满足 式 ( 7 ) 的 m 个 激励函数 的 图形 . 
+ 
+ 
+ 图 3 　 x1 的 m 个 激励函数 图形 
+ 　 　 有 了 上面 的 知识 , 就 可以 构造 层次 型 径向 基 神经网络 . 
+ 　 　 假定 我们 有 n 个 输入 变量 x1 , x2 , … , xn ， 并且 用 fi ( i ) 表示 HRBFN 的 第 i 个子 RBFN 的 输出 ， 其中 i 为 第 i 个子 RBFN 的 输入 向量 . 那么 构造 层次 型径   向基 神经网络 的 步骤 如下 ： 
+ 　 　 ( 1 )   第一层 为 具有 n1 个 输入 变量 x1 , x2 , … xn1 的 RBFN ， 也 簱 是 说 fi ( i ) 中 的 i = 1 ， 即 第一层 RBFN 的 输出 为 yi = f1 ( 1 ) ， 其中 1 = ( x1 , x2 , … , xn1 ) ; 
+ 　 　 ( 2 ) i = i + 1 ， 第 i ( i > 1 ) 个子 RBFN 具有 ni + 1 ( ni ≥ 1 ) 个 输入 变量 ， 它 的 输出 为 
+ fi ( xNi + 1 , … , xN \ - i + n \ - i , yi - 1 ) ， 其中 
+ 　 　 ( 3 ) 如果 则 转 ( 2 ) . 若 = n ， 结束 .   
+ 　 　 这样 我们 就 完成 了 HRBFN 的 构造 . 一种 特殊 的 情形 是 n1 = 2 , ni = 1 ， 见图 1 . 下面 我们 将 证明 HRBFN 的 全局 逼近 特性 . 
+ 3 　 HRBFN 的 全局 逼近 特性 
+ 　 　 在 本节 中 ， 我们 给出 的 HBFN 仍然 是 全局 逼近 器 的 证明 是 构造性 的 ， 也 即 是 我们 煈 构造 一个 H   RBFN ， 然后 证明 此 HRBFN 具有 全局 逼近 特性 . 为了 标记 上 的 简便 ， 我们 这里 仅 考虑 三 输入 的 情形 . 证明 过程 可以 很 方便 地 进行 推广 . 首先 来 描述 一下 我们 要 解决 的 问题 ： 
+ 　 　 问题 1 ． 设 g ( ) 为 一个 定义 在 致 密集 U   = ［ α 1 , β 1 ］ × ［ α 2 , β 2 ］ × ［ α 3   , β 3 ］  R3 上 的 连续 实 函数 . 假定 g ( ) 的 显式 未知 ， 但是 对 某些 ∈ U   ， 我们 可以 得到 g ( ) 的 样本 值 . 我们 的 任务 是 要 设计 一个 HRBFN 去 逼近 g ( ) . 
+ 　 　 下面 就 来 解决 这个 问题 . 
+ 　 　 第一步 ： 假设 xi ( i = 1 , 2 , 3 ) 的 范围 为 ［ α i , β i ］ ， 且 y1 的 域 为 ［ 0 ， 1 ］ ，   也 即 第一层 的 RBFN 的 输入 为 x1 , x2 ， 输出 为 y1 ， 且 y1 ∈ ［ 0 , 1 ］ ， 其隐 节点 数   为 m2 . 我们 沿轴 xi 将 区间 ［ α i , β i ］ 划分 为 m - 1 个 等 份 ， RBFN 的 激励函数 采用   高斯型 Zji ( xi ) ， 并且 要求 Zji ( xi ) 是 满足 式 ( 7 ) 的 . 这样 就 可定义 xi 的 m 个   激励函数 为 
+ 　 　 ( 8 ) 
+ 　 　 ( 9 ) 
+ 　 　 ( 10 ) 
+ 其中   
+ 　 　 类似 地 ， 我们 可以 将 区间 ［ 0 ， 1 ］ 划分 为 m - 1 个 等 份 ， 并 为 y1 定义 m 个 激励函数 也 采   用 高斯型 Ci ( y1 ) =   1 ≤ i ≤ m ,   mi 是 y1 的 m 个 互不 相同 的 激励函数 的 中心 . 同样 的 ， 对于 任意 给定 的 ε 1 ＞ 0 ， 只要 σ 足够 小 ， 必有 
+ Ci ( mi ) = 1 　 　 ( 11 ) 
+ Ci ( mj ) < ε 1 ,   ( i ≠ j ) 　 　 ( 12 ) 
+ 当 ε 1 足够 小时 ， 认为 Ci ( mj ) = 0 , ( i ≠ j ) . 
+ 　 　 这样 就 可以 像式 ( 8 ) 、 ( 9 ) 、 ( 10 ) 那样 ， 当 Ci ( y1 ) 满足 式 ( 12 ) 时 ， 为 y1 定义 m 个 激励函数 ， 详细 表达式 不再 赘述 . 
+ 　 　 图 4 表夺 了 m = 4 时 的 情形 . 
+ 
+ 
+ 图 4 　 输入 变量 数目 为 3 时 的 示意图 ( m = 4 ) 
+ 　 　 第二步 ： 定义 常量 这里 p , q = 1 , 2 , … , m . 那   么 第一个 子 RBFN 的 输出 为 ： 
+ 　 　 ( 13 ) 
+ 由于 0 ＜ wpq ≤ 1 , 且 y1 为 wpq 的 加权 平均 , 所以 必定 有 y1 ∈ ［ 0 , 1 ］ . 
+ 　 　 第三步 ： 第二个 子 RBN 的 系统 输出 为 
+ 　 　 ( 14 ) 
+ 　 　 现在 我们 就是 要 确定 参数 wij2 , 其 过程 如下 ： 由于 Zj3 ( m3j ) = 1 ,   对于 k ≠ j 有 Zk3 ( m3j ) = 0 ,   并且 对于 任意 的 y1 ∈ ［ 0 , 1 ］ , 至多 存在 两个 Ci ( y1 ) 为 非零值 . 因此 由式 ( 14 ) 我们 可以 知道 下 式 成立 ： 
+ 　 　 ( 15 ) 
+ 其中 i 为 { 1 , 2 , … , m - 1 } 中 的 某个 数 . 
+ 　 　 我们 令 f2 ( wpq1 , m3j ) = g ( m1p , m2p , m3j ) ， 则 得到 下 式 ： 
+ 　 　 ( 16 ) 
+ 我们 固定 j ， 任取 p 或 q 使 之 从 1 变化 到 m ， 这样 就 得到 式 ( 16 ) 的 m 个 方程 ， 写成 矩阵 形式 就是 
+ 　 　 ( 17 ) 
+ 其中 这里 取 p 从 1 变化 到 m ， q 保持 不变 . 为 一个 m ×   m 的 矩阵 ， 其中 每 一行 只有 两个 不为 零 的 元素 且 p 为行 ， i , i + 1 为列 . 这样 通过 解 下述 矩阵 
+ 　 　 ( 18 ) 
+ 就 可以 得 爰 m 个 wij2 ， 这样 当 j 糍由 1 变化 到 m 后 ， 就 能够 确定 所有 的 m2 参数 wij2 . 
+ 　 　 第四步 ： 这样 ， 就 得到 整个 HRBFN 为 
+ f ( x1 , x2 , x3 ) ＝ f2 ( f1 ( x1 , x2 ) , x3 ) 　 　 ( 19 ) 
+ 　 　 现在 ， 我们 要 证明 式 ( 19 ) 所 表示 的 HRBFN 能够 以 任意 精度 来 逼近 未知 函数 g . 
+ 　 　 定理 1 .   设 f ( x1 , x2 , x3 ) 为式 ( 19 ) 所 表示 的 HRBFN   ， 并且 待 逼近 函数 g ( x1 , x2 , x3 ) 为 定义 在 致 密集 U = ［ α 1 , β 1 ］ × ［ α 2 , β 2   ］ × ［ α 3 , β 3 ］ R3 上 的 连续 实 函数 ， 那么 有 下式 成立 ： 
+ 　 　 ( 20 ) 
+ 其中 ‖ * ‖ max 定义 为且 
+ 　 　 证明 .   首先 我们 来 证明 ， 对于 任意 的 , q , j = 1 , 2 , … , m ， 有 f ( m1p , m2q , m3j ) = g ( m1p , m2q , m3j ) 成立 . 
+ 　 　 由式 ( 13 ) 可知 ， 对于 p , q = 1 , 2 , … , m , 有 f1 ( m1p , m2q ) = wpq1 . 由式   ( 18 ) 得到 的 wij2 保证 了 f2 ( wpq1 , m3j ) = g ( m1p , m2q , m3j ) ， 因此 ， 我们 有 
+ f ( m1p , m2q , m3j ) = f2 ( f1 ( m1p , m2q ) , m3j ) = f2 ( wpq1   , m3j ) = g ( m1p , m2q , m3j ) .   
+ 　 　 再设 由于 因此 我们 有 
+ 　 　 ( 21 ) 
+ 这 就 意味着 对于 任意 的 ∈ U ， 必定 存在 Upqj ， 使得 ∈ Upqj . 
+ 　 　 我们 设为 U 中 任意 一点 ， 必定 存在 对应 与 的 px , qx , jx ∈ { 1 , 2 , … , m - 1 }   ， 使得 ∈ Upqj . 我 
+ 们 取 = ( m1px , m2qx , m3jx ) T ， 就 有 f ( ) = g ( ) . 再 由 中值 定理 ： 
+ 其中 mix 为 中 的 第 i 个 元素 . 由于 ∈ Upqj ， 所 
+ 以 | xi - mix | ≤ bi . 至此 我们 有 
+ 　 　 ( 22 ) 
+ 由于 为 定义域 U 内 的 任意 一点 ， 因此 由式 ( 22 ) 就 能够 得到 式 ( 20 ) . 　 　 　 　 　 　 　 　 　 　 证毕 . 
+ 　 　 定理 2 .   对于 任意 给定 的 定义 在 致密 区间 U ∈ R3 上 的 连续 实   函数 以及 ε 2 ＞ 0 ， 存在 形如式 
+ ( 19 ) 的 HRBFN ， 满足 下 式 ： 
+ 　 　 ( 23 ) 
+ 　 　 证明 .   由于 是 连续函数 且 U 是 致密 区间 ， 所以 均 为 有限 数 . 因此 ， 只要 我们 使得 bi 足够 小 ， 必定 可以 使得 
+ 　 　 ( 24 ) 
+ 由于 只取 m 足够 大 ， 使得 bi 足够 小 总是 可以 办到 的 . 　 　 　 　 　 　 　 　 　 　 　 　 证毕 . 
+ 　 　 上面 的 证明 过程 有 一个 基础 ， 就是 要求 各个 变量 的 激励函数 满足 式 ( 7 ) ， 也就是说 式 ( 6 ) 中 的 ε 1 要 足够 的 小 ， 这 总是 可以 办到 的 . 
+ 4 　 结 　 论 
+ 　 　 通过 第 3 节 的 证明 ， 我们 已经 知道 HRBFN 仍为 全局 逼近 器 ， 因此 在 实际 的 层次 系统 中 应用 HRB   FN 是 完全 可行 的 . 此外 ， HRBFN 还 能够 解决 使用 RBFN 造成 隐 节点 随着 输入 变量 数目 增加 而 急剧 增多 的 问题 . 进一步 要 研究 的 问题 有 ： HRBFN 的 泛化 能力 分析 ； 初始值 对 HRBFN 的 稳定性 影响 及 误差 分析 ， 这是 笔者 目前 正在 做 的 工作 . 
+ * 本 课题 得到 国家 自然科学   基金 高技术 项目 ( 编号 69843002 ) 、 国家教委 优秀青年 教师 基金项目 和 江苏省 跨世纪 人才 基金   项目 的 资助 . 
+ 作者简介 ： 於 东军 ， 男 ， 1974 年 10 月生 ， 硕士 研究生 ， 主要 研究 方向 为神   经 网络 、 人工智能 . 
+ 　 　 　 　 　 王士同 ， 男 ， 1964 年 10 月生 ， 教授 ， 博士生 导师 ， 主要   研究 方向 为 模糊数学 、 神经网络 、 人工智能 . 
+ 　 　 　 　 　 吴小俊 ， 男 ， 1967 年 12 月生 ，   博士 研究生 ， 主要 研究 方向 为 模式识别 与 智能 系统 、 模糊 神经系统 . 
+ 作者 单位 ： 华东 船舶工业 学院 计算机系 　 镇江 　 212003 
+ 参考文献 
+ 1 　 Lin   C   T   et   al .   Neural   Fuzzy   Systems .   England   Prentice - Hall   Press ,   1997 
+ 2 　 Powell   M   J   D .   Approximation   heory   and   Methods .   Cambridge ： Cambridge   University   Press ,   1981 
+ 3 　 Barron   A .   Universal   approximation   bounds   for   superpositions   of   sigmid   funtion ,   IEEE   Trans   Information   Theory ,   1993 ,   39 
+ 4 　 Wang   Shitong ,   Yu   Dongjun .   Constructive   theory   of   radial   basis   function   network .   Accepted   by   Journal   of   Advanced   Software   Research ,   1999 
+ 5 　 Wang   Lixin .   Universal   approximation   by   hierarchical   fuzzy   systems .   Fuzzy   Sets   and   Systems .   1998 ,   93 ( 2 ) :   142 ～ 148 
+ 6 　 李士勇 .   模糊控制 、 神经 控制 和 智能 控制论 .   哈尔滨 : 哈尔滨工业大学 出版社 ,   1996 
+ 　 　 ( Li   Shiyong .   Fuzzy   Control ,   Neural   Control   and   Intelligent   Cybernetics (   in   Chinese ) ， Harbin :   Harbin   Institute   of   Technology   Press ,   1996 ) 
+ 7 　 张立明 .   人工神经网络 的 模型 及其 应用 .   上海 : 复旦大学 出版社 ， 1992 
+ 　 　 ( Zhang   Liming .   Models   and   Applications   of   Artificial   Neural   Networks ( in   Chinese ) .   Shanghai : Fudan   University   Press ,   1992 ) 
+ 原稿 收到 日期 ： 1998 - 12 - 24 ； 修改稿 收到 日期 ： 1999 - 08 - 20 . 

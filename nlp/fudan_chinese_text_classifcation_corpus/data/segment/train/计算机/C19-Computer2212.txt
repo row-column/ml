@@ -1,0 +1,107 @@
+计算机 应用 研究 
+ APPLICATION   RESEARCH   OF   COMPUTERS 
+ 2000 　 Vol.17 　 No.2 　 P.109 - 110 
+ 
+ 
+ 
+ 利用 DELPHI 多线程 机制 实现 PC机 与 PLC 之间 的 串行 通信 
+ 张海燕 　 袁平波 
+ 摘   要   主要 介绍 了 在 DELPHI 环境 下 如何 利用 多线程 机制 实现 可编程 控制器 ( PLC ) 与 上位 PC机 之间 的 串行 通信 ， 对 该 系统 的 特点 、 软件设计 方法 进行 了 具体 论述 。 
+ 关键词   多线程 机制   串行 通信 
+ 　 　 针对 合肥 国家 同步 辐射 光源 200Mev 直线 加速器 的 高精度 稳流 电源 ， 我们 研制 了 一套 强 干扰 环境 下 电源 的 计算机 控制系统 。 在 考虑 系统 设计方案 时 ， 选用 OMRON   PLC - C200H 系列产品 作为 下位 机 ， 放置 在 电源 内部 ， 并 与 上位 机 PC 之间 用 光缆 通过 SYSWAY 方式 通讯 ， 实现 系统 监测 和 控制 功能 。 
+ 　 　 软件系统 是 对 电源 实现 计算机控制 的 核心 部分 。 本 控制软件 采用 Delphi   3.0 作为 开发 语言 ， 平台 为 Windows   98 。 其中 PLC 与 上位 PC机 之间 的 通信 是 整个 系统 的 关键 。 由于 串行 通讯 具有 线路 简单 、 应用 灵活 、 可靠性 高等 一系列 优点 ， 并且 普通 PC 上均 带有 串口 ， 可以 方便 实现 ， 所以 本 系统 PC 与 PLC 之间 采用 了 串行 通信 。 同时 为了 有效 克服 串口 通信 中 的 停滞 和 反应 不 及时 现象 ， 提高 工作效率 ， 引入 DELPHI 的 多线程 工作 模型 。 
+ 1   编制 串行 通信 程序 
+ 　 　 在 Delphi 环境 下 对 串口 的 编程 是 通过 Windows 的 API 函数调用 来 实现 的 。 基本 过程 为 ： 
+ 　 　 ( 1 ) 打开 串口 ， 获取 串口 句柄 。 采用 CreateFile 函数 ， 其 原型 为 ： 
+ 　 　 CreateFile ( szDevice ,   fdwAccess ,   fdwShareMode ,   Ipsa ,   fdwCreate ,   fdwAttrsAndFlags ,   hTemplatrFile ) 
+ 　 　 第一个 参数 给出 要 打开 的 串口 逻辑 名 ， 如 揅 “ COM2 ” 
+ 　 　 第二个 参数 指定 了 端口 访问 方式 ， 即 标志 GENERIC . READ 为读 方式 ， GENERIC . WRITE 为 写 方式 ； 通常 在 设置 中 两个 标志 均 使用 ， 即 采用 读写 方式 ， fdwAccess = GENERIC . READ   GENERIC . READ   or   GENERIC . WRITE 。 
+ 　 　 第三个 参数 指定 该 端口 的 共享 属性 ， 设置 为 0 。 
+ 　 　 第四个 参数 引用 安全 属性 结构 ， 将 其设 为 NULL 。 
+ 　 　 第五个 参数 指定 打开 文件 的 方式 ， 设置 为 OPEN - EXISTING 。 
+ 　 　 第六个 参数 描绘 文件 的 各种 属性 ， 对 串口 一般 设为 0 。 
+ 　 　 最后 一个 参数 是 指向 模板 文件 的 句柄 ， 对 串口 设为 NULL 。 
+ 　 　 ( 2 ) 对 串口 进行 设置 。 采用 以下 两个 函数 ： 
+ BOOL   GetCommState   ( hComm ,   & dcb ) 
+ BOOL   SetCommState   ( hComm ,   & dcb ) 
+ 　 　 其中 第一个 参数 为 打开 的 串口 句柄 ， 第二个 参数 为 指向 DCB 结构 的 指针 。 在 打开 串口 后 ， 可先用 GetCommState 函数 读入 串口 状态 ， 并 得到 串口 的 缺省 设置 ， 然后 重新 设置 需要 改变 的 DCB 函数 ， 并用 SetCommState 函数 将 其 返回 。 
+ 　 　 ( 3 ) 读 / 写 串口 。 采用 函数 为 ： 
+ ReadFile   ( hComm ,   inbuff ,   nBytes ,   & nByteRead ,   & overlapped ) 
+ WriteFile   ( hComm ,   outbuff ,   nToWrite ,   & nActualWrite ,   & overlapped ) 
+ 　 　 ( 4 ) 通信 完毕 释放 串口 。 所用 函数 为 ： CloseHandle ( hComm ) 。 
+ 　 　 同时 串口 通信 必须 遵从 OMRON - HOSTLINK 特定 协议 ， 通信 数据格式 要 符合 协议 所 规定 的 上位 机 链结 命令 格式 。 
+ 　 　 从 上位 机 发送 一个 命令 时 ， 按 下述 的 格式 排列 命令 数据 ： 
+ 
+ 　 　 整个 系统 采取 上位 机 主动 的 通讯 方式 ， 将 下位 机与 上位 机 的 编程 融为一体 ， 上位 机 每隔 三秒钟 向 PLC 发送 读取数据 命令 。 PLC 内部 不 需要 用 特定 的 梯形图 编程语言 来 作 下位 机 程序 ， 增加 了 系统 的 通用性 ， 减少 了 软件 接口 所 带来 的 工作量 。 
+ 2   引入 多线程 机制 
+ 　 　 在 串行 通信 中 ， 上位 机所 接收 的 通信 往往 是 异步 的 、 突发性 的 。 在 通讯 模块 程序 中 引入 多线程 ， 即 创建 专门 的 通信线 程 实现 对 串口 的 访问 。 这种 方法 可以 有效 地 克服 串口 通信 中 的 停滞 和 反应 不 及时 现象 。 
+ 　 　 线程 是 进程 内 的 一个 执行 单元 ， 它 是 操作系统 分配 CPU 运行 时间 的 基本 实体 。 一个 进程 可 由 多个 线程 组成 。 各 线程 共享 进程 的 虚拟空间 和 操作系统 为此 所 分配 的 系统资源 。 多任务 操作系统 将 处理器 的 运行 时间 分成 小 的 时间 片 ， 并 分配 给 多个 线程 ， 每个 线程 在 指定 的 时间 片内 运行 。 
+ 　 　 多线程 的 DELPHI 应用程序 在 运行 时 ， 操作系统 首先 创建 VCL 主线 程 ， 由 它 创建 应用程序 主 窗口 ， 并 开始 应用程序 消息 循环 。 然后 VCL 主线 程 根据 应用程序 的 要求 创建 多个 工作 线程 。 在 视化 构件 库中 ， 通过 线程 类 ( Tthread ) 实现 工作 线程 的 所有 功能 。 
+ 　 　 具体 实现 为 ： 软件 创建 一线 程来 不断 读取 PLC 发送 的 串口 数据 ， 然后 向 主程序 发送 一 数据 接收 完毕 的 消息 ； 主程序 定时 向 PLC 发送 读取数据 命令 ， 并 在 接收 到 消息 后 根据 接收 的 数据 刷新 界面 。 两个 线程 之间 的 通信 通过 消息 ( Message ) 实现 。 
+ 　 　 程序 流程图 如图 1 、 图 2 所示 。 
+ 
+ 图 1 　 上位 机主 程序 流程图 
+ 
+ 图 2 　 上位 机 线程 流程图 
+ 3   程序 
+ 　 　 下面 是 利用 多线程 机制 编制 的 串口 接收 程序 部分 代码 ， 其中 包括 对 接收 和 发送 数据格式 的 处理 。 
+ Procedure   TComm . Execute ;   / / 线程 执行 过程 
+ Begin 
+ While   True   do   Begin   / / 无限 循环 
+ 　 Wait   : =   WaitCommEvent ( hcom ,   0 ,   lpol ) ;   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 等待 串行口 事件 :   接收 到 字符 ; 
+ 　 if   Wait   Then   Begin 
+ 　 waitforsingleobject ( post _ event , infinite ) ;   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 无限 等待 同步 事件 置位 ; 
+ 　 resetevent ( post _ event ) ;   / / 同步 事件 复位 ; 
+ 　 　 / / 向 用户 窗口 发 接收 完毕 消息 ; 
+ 　 　 PostMessage ( comctlfrm . Handle ,   WM _ COMMNOTIFY ,   0 , 0 ) ; 
+ end ; 
+ end ; 
+ end ; 
+ procedure   Tcomctlfrm . comminitialize ;   / / 串行口 初始化 过程 
+ Begin 
+ hcom : = createfile ( ' com2 ' ,   generic _ read   or   generic _ write ,   0 , 
+ 　 nil ,   open _ existing ,   file _ attribute _ normal   or   file _ flag _ overlapped ,   0 ) ; 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 打开 串行口 
+ 　 if   hcom = invalid _ handle _ value   then 
+ 　 　 else 
+ 　 　 　 setupcomm ( hcom ,   4096 ,   4096 ) ;   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 设置 输入 ， 输出 缓冲区 皆 为 4 , 096 字节 
+ 　 　 　 getcommstate ( hcom ,   lpdcb ) ;   / / 获取 串行口 当前 默认设置 
+ 　 　 　 lpdcb . baudrate : = 9600 ;   / / 波特率 
+ 　 　 　 lpdcb . StopBits : = 2 ; 
+ 　 　 　 lpdcb . ByteSize : = 7 ; 
+ 　 　 　 lpdcb . Parity : = EvenParity ;   / / 偶 校验 
+ 　 　 　 Setcommstate ( hcom ,   lpdcb ) ; 
+ 　 　 　 setcommMask ( hcom ,   ev _ rxchar ) ; 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 指定 串行口 事件 为 接收 到 字符 ; 
+ end ; 
+ Procedure   Tcomctlfrm . MsgcommProcess ( Var   Message : Tmessage ) ;   0 
+ / / 用户 窗口 消息 处理过程 
+ Begin 
+ Clear : = Clearcommerror ( hcom ,   lpErrors ,   @ Coms ) ;   / / 清 通信 口 状态 
+ if   Clear   Then   Begin 
+ 　 cbNum : = Coms . cbInQue ; 
+ 　 ReadFile ( hCom ,   Read _ Buffer ,   cbNum ,   ReadNumber ,   lpol ) ;   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 读取 接收数据 
+ if   readnumber < > 0   then 
+ 　 　 　 　 　 　 ...... 　 　 　 　 / / 接收 成功 
+ 　 　 SetEvent ( Post _ Event ) ;   / / 同步 事件 置位 
+ 　 　 end ; 
+ end ; 
+ Procedure   Tcomctlfrm . FormCreate ( Sender :   TObject ) ; 
+ begin 
+ comminitialize ;   / / 调 串口 初始化 过程 
+ post _ event : = CreateEvent ( nil ,   true ,   true ,   nil ) ;   / / 创建 同步 事件 ; 
+ Tcomm . Create   ( False ) ;   / / 创建 串行口 监视 线程 ; 
+ end ; 
+ 4   结论 
+ 　 　 控制系统 经过 实际 运行 和 测试 后 ， 证明 了 上下位 机 之间 的 通讯 是 非常 可靠 的 ， 并且 程序运行 效率 有所提高 。 实验 表明 ： 在 DELPHI 环境 下 ， 引入 多线程 工作 模型 ， 对 实现 PLC 与 PC 之间 有效 串口 通信 ， 具有 较 高 的 实用价值 。 
+ 张海燕 （ 中国 科学技术 大学 国家 同步 辐射 实验室   电子 工程 与 信息 科学系   合肥   230029 ） 
+ 袁平波 （ 中国 科学技术 大学 国家 同步 辐射 实验室   电子 工程 与 信息 科学系   合肥   230029 ） 
+ 参考文献 
+ 1 ， 刘 海涛 著 .   学用 Delphi   4 .   北京 ： 清华大学出版社 ,   1999 年 3 月 
+ 2 ， 木 林森 著 .   Windows   95 实用 编程 与 范例 .   北京 ： 清华大学出版社 ,   1998 年 
+ 3 ， 可 编程序 控制器 编程 手册   ( C200HX / C200HG / C200HE ) ,   OMRON ,   1997.1 
+ 收稿 日期 ： 1999 年 7 月 31 日 

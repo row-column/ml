@@ -1,0 +1,118 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 8 期   Vol.36   No.8   1999 
+ 
+ 
+ 
+ 采掘 关联 规则 的 高效 并行算法 
+ 铁治欣 　 陈 　 奇 　 俞瑞钊 
+ 摘 　 要 　 采掘 关联 规则 是 数据 采掘 领域 的 一个 重要 问题 . 文中 对 采掘 关联 规则 问题 进行 了 简单 的 回顾 ； 给出 了 一种 提高 顺序 采掘 关联 规则 效率 的 方法 ； 分析 了 已有 并行 采掘 关联 规则 算法 的 优缺点 ； 设计 了 一个 效率 较 高 的 并行 采掘 关联 规则 的 算法 PMAR ； 并 与 其它 相应 算法 进行 了 比较 . 实验 证明 ， 算法 PMAR 是 有效 的 . 
+ 关键词 　 数据 采掘   关联 规则   并行算法 
+ 中图法 分类号 　 TP311 
+ AN   EFFICIENT   PARALLEL   ALGORITHM   FOR   MINING   ASSOCIATION   RULES 
+ TIE   Zhi - Xin ,   CHEN   Qi ,   and   YU   Rui - Zhao   
+ ( Artificial   Intelligence   Research   Institute   of   Zhejiang   University ,   Hangzhou   310027 ) 
+ Abstract 　 Mining   association   rules   is   an   important   data   mining   problem .   The   problem   of   mining   association   rules   is   simply   reviewed   in   the   paper   here .   A   method   to   improve   efficiency   of   sequential   mining   association   rules   is   given .   The   advantage   and   disadvantage   of   the   existing   parallel   mining   algorithms   are   analyzed .   A   more   efficient   parallel   algorithm   for   mining   association   rules — — PMAR   is   presented .   Comparison   with   other   parallel   algorithms   is   carried   out .   The   experiments   show   that   PMAR   is   efficient . 
+ Key   words 　 data   mining ,   association   rules ,   parallel   algorithm 
+ 1 　 引 　 言 
+ 　 　 近年来 ， 随着 商业 、 政府 和 科学 数据库 的 急剧 增长 和 存储设备 的 不断 升级 ， 给 我们 带来 了 大量 的 数据 . 数据 采掘 （ data   mining ） 技术 的 提出 为 我们 有效 识别 出 存在 于 数据库 中 的 有效 的 、 新颖 的 、 具有 潜在 效用 的 乃至 最终 可 理解 的 模式 提供 了 可靠 的 科学 方法 ， 并 成为 当今 国际 人工智能 和 数据库 等 领域 新兴 且 热门 的 研究课题 ［ 1 ～ 3 ］ . 
+ 　 　 在 事务 数据库 中 发现 关联 规则 首先 是 由 R .   Agrawal 等 人 提出 的 ［ 4 ］ ,   目前 已 成为 数据 采掘 领域 中 的 一个 非常 重要 的 研究课题 ［ 4 ～ 18 ］ . 有 一个 关联 规则 的 例子 就是 “ 90% 的 客户 在 购买 面包 的 同时 也 会 购买 牛奶 ” ， 其 直观 意义 为 顾客 在 购买 某些 商品 的 时候 有 多 大 倾向 会 购买 另外 一些 商品 . 关联 规则 的 应用 主要 包括 顾客 购物 分析 、 目录 设计 、 商品 广告 邮寄 分析 、 追加 销售 、 仓储 规划 、 网络故障 分析 等 . 
+ 　 　 本文 首先 对 顺序 采掘 关联 规则 的 算法 进行 了 简单 的 回顾 ， 指出 了 它们 的 共同之处 ， 同时 认为 它们 在 对 数据库 进行 后 一次 扫描 时 没有 充分利用 前 一次 扫描 的 结果 ， 给出 了 利用 这一 结果 的 方法 与 结果 . 然后 分析 了 目前 提出 的 几种 并行 采掘 关联 规则 算法 的 优缺点 ， 据此 设计 了 一个 基于 多 计算机 间 无 共享 （ share   nothing ） 体系结构 的 高效 采掘 关联 规则 的 并行算法 PMAR （ parallel   mining   association   rules ） . 
+ 2 　 顺序 采掘 关联 规则 
+ 　 　 顺序 关联 规则 的 采掘 问题 可 形式化 描述 如下 ［ 4 , 5 ］ ： 设是 由 m 个 不同 的 项目 组成 的 集合 . 给定 一个 事务 数据库 D ， 其中 的 每 一个 事务 T 是 I 中 一组 项目 的 集合 ， 即 ， T 有 一个 唯一 的 标识符 TID . 若 项集 ， 则 事务 T 包含 项集 X . 一条 关联 规则 就是 形如 的 蕴涵 式 ， 其中 . 关联 规则 成立 的 条件 是 ： ① 它 具有 支持 度 s ， 即 事务 数据库 D 中 至少 有 s% 的 事务 包含 X ∪ Y ； ② 它 具有 置信度 c ， 即 在 事务 数据库 D 中 包含 X 的 事务 至少 有 c ％ 同时 也 包含 Y . 
+ 　 　 顺序 关联 规则 的 采掘 问题 就是 在 事务 数据库 D 中 找出 具有 用户 给定 的 最小 支持 度 minsup 和 最小 置信度 minconf 的 关联 规则 . 
+ 　 　 顺序 采掘 关联 规则 问题 可以 分解 为 以下 两个 子 问题 ［ 4 , 5 ］ ： 
+ 　 　 ( 1 )   找出 存在 于 事务 数据库 中 的 所有 大项 集 . 项集 X 的 支持 度 support ( X ) 不 小于 用户 给定 的 最小 支持 度 minsup ， 则 称 X 为 大项 集 （ large   itemset ） . 
+ 　 　 ( 2 )   利用 大项 集 生成 关联 规则 . 对于 每个 大项 集 A ， 若 ， 则 有 关联 规则 . 
+ 　 　 Agrawal 等 人 已经 给出 了 比较 好 的 解决 第二个 子 问题 的 办法 ［ 5 ］ ， 目前 大多数 的 研究 工作 主要 集中 在 第一个 问题 上 . 如 Agrawal 等 人 提出 的 AIS ［ 4 ］ , Apriori 和 AprioriTid ［ 5 ］ , Cumulate 和 Stratify ［ 6 ］ ， Houtsma 等 人 提出 的 SETM ［ 7 ］ , Park 等 人 提出 的 DHP ［ 8 ］ , Savasere 等 人 的 PARTITION ［ 9 ］ 以及 Han 等 人 提出 的 采掘 多层 关联 规则 的 等等 . 其中 最 有效 和 有 影响 的 算法 为 Apriori , DHP 和 PARTITION . 所有 这些 算法 都 是 利用 “ 在 给定 的 事务 数据库 D 中 ， 任意 大项 集 的 子集 都 是 大项 集 ； 任意 弱项 集 的 超集 都 是 弱项 集 ” 这一 原理 对 事务 数据库 进行 多遍 扫描 ， 第 k ( k > 1 ) 次 扫描 前先 利用 第 k - 1 次 扫描 的 结果 ( 即大 k - 1 项集 Lk - 1 ) 通过 某种 算法 ( 如 Aprirori 用 函数 Aprirorigen ［ 5 ］ ) 产生 候选 大 k 项集 Ck ， 然后 在 扫描 过程 中 确定 Ck 中 每 一 元素 的 支持 数 ， 最后 在 每 一遍 扫描 结束 时 计算 出大 k 项集 Lk . 
+ 　 　 我们 认为 这些 算法 对 数据库 进行 第 k ( k > 1 ) 次 扫描 时 ， 没有 充分利用 第 k - 1 对 数据库 扫描 的 结果 ， 使得 候选 大 k 项集 Ck 中 的 元素 个数 在 整个 第 k 次 扫描 中 始终保持 为 一个 常数 ， 不会 随着 对 数据库 的 扫描 而 减小 . 实际上 ， 因为 Ck 是 由 Lk - 1 通过 类似 于 函数 的 算法 生成 ， Ck 中 的 某 一 元素 的 支持 数 不会 超过 生成 它 的 两个 Lk - 1 中 的 元素 支持 数较 小 的 那 一个 元素 的 支持 数 ， 设 p 是 生成 Ck 中 的 某 一 元素 X 的 两个 大 ( K - 1 ) 项 集中 的 支持 数较 小 的 那 一个 ， 记 p 在 ( K - 1 ) 次 扫描 的 支持 数为 p . count ， 在 对 数据库 的 第 k ( k > 1 ) 次 扫描 中 ， 到 目前 扫描 的 事务 为止 ， 记 支持 p 的 事务 的 条数 为 p . ocount ， 支持 X 的 事务 的 条 数记 为 X . count ， 我们 可以 对 Ck 做 如下 两个 剪枝 ： ①   若 X . count = p . count ， 则 X 已 是 大项 集 ， 可以 将 其 从 Ck 中 删除 ， 放入 大项 集 Lk 中 ； ②   若 为 数据库 中 事务 的 总 条数 ) ， 则 X 肯定 不会 是 大项 集 ， 可以 将 其 从 Ck 中 删除 . 这样 就 可以 动态 减小 候选 大项 集 Ck ， 从而 提高 算法 的 效率 . 我们 在 Apriori 算法 上 采用 了 以上 剪枝 技术 ， 实验 结果表明 这样 可以 使 算法 Apriori 效率 提高 20% ～ 40% ［ 11 ］ . 
+ 　 　 在 采掘 关联 规则 的 问题 中 ， 还有 另外 一些 比较 重要 且 热门 的 研究课题 ， 如 发现 有 实际意义 ( interestingness ) 的 关联 规则 ［ 6 , 12 ］ ， 关联 规则 的 更新 ［ 13 , 14 ］ ， 发现 多值 关联 规则 ［ 15 ］ ， 并行 采掘 关联 规则 ［ 16 , 17 ］ ， 在 分布式 数据库 中 采掘 关联 规则 ［ 18 ］ 等等 . 
+ 3 　 并行 采掘 关联 规则 
+ 3.1 　 相关 工作 
+ 　 　 并行 采掘 关联 规则 问题 可 形式化 地 描述 如下 ： 
+ 　 　 设 P1 ， P2 ， … ， Pn 为 n 台基 于 无 共享 体系结构 的 计算机 ， 即 它们 之间 除了 通过 网络 传递信息 外 ， 其它 资源 （ 如 硬盘 、 内存 等 ） 全部 是 独立 的 . 是 存储 于 计算机 Pi 硬盘 上 的 分 事务 数据库 ， 其中 的 事务 有 Di 条 ， 则 总 的 事务 数据库 为 ， 总 的 事务 条数 为 . 并行 采掘 关联 规则 问题 就是 如何 通过 n 台 计算机 同时 工作 ， 计算机 只 处理 自己 的 私有 数据 ， 各台 计算机 间 仅 通过 网络 传递 有限 的 信息 ， 最终 在 整个 事务 数据库 DB 中 采掘 出 关联 规则 . 
+ 　 　 并行 采掘 关联 规则 问题 也 可以 像 顺序 采掘 关联 规则 问题 一样 分解 为 两个 子 问题 ， 本文 只 讨论 第一个 子 问题 . 
+ 　 　 目前 已经 提出 的 并行 采掘 关联 规则 的 算法 有 Agrawal 等 人 提出 的 CD ( count   distribution ) 、 CaD ( candidate   distribution ) 、 DD ( data   distribution ) ［ 16 ］ ,   Park 等 人 提出 的 PDM ［ 17 ］ . 算法 DMA ［ 18 ］ 虽然 是 基于 分布式 数据库 的 采掘 算法 ， 但 也 可 适用 于 并行 采掘 . 
+ 　 　 算法 CD 具有 速度 较 快 、 容易 实现 、 要求 各 计算机 间 同步 次数 较少 等 优点 ， 但 它 有 通信量 大 和 候选 大项 集大 等 缺点 . 算法 CaD ， DD 及 PDM 的 执行 效果 都 不如 CD ［ 16 ］ . 算法 DMA 虽 克服 了 算法 CD 的 一些 弱点 ， 但 它 要求 各 计算机 间 同步 次数 较 多 . 
+ 3.2 　 采掘 关联 规则 的 并行算法 PMRA 
+ 　 　 在 介绍 算法 PMRA 之前 先 引入 与 之 有 密切关系 的 几个 定义 与 定理 . 
+ 　 　 定义 1 .   项集 X 在 数据库 中 的 支持 数 （ support   count ） ， 即 在 DBi 中 包含 X 的 事务 的 条数 ， 称为 X 的 局部 支持 数 ， 用 X . supi 表示 . 
+ 　 　 定义 2 .   项集 X 在 数据库 DB 中 的 支持 数 称为 X 的 全局 支持 数 ， 用 X . sup 表示 . 
+ 　 　 定义 3 .   对于 项集 X ， 若 ， 则 称 X 是 相对 于 Pi 的 局部 大项 集 . 若 X 中 的 元素 为 k 个 ， 则 称 X 为 局部 大 k 项集 . 
+ 　 　 定义 4 .   对于 项集 X ， 若 X . sup ≥ min   sup × D ， 则 称 X 是 全局 大项 集 ， 简称 大项 集 . 若 X 中 的 元素 为 k 个 ， 则 称 X 为 大 k 项集 . 
+ 　 　 定义 5 .   若 项集 X 在 是 局部 大项 集 ， 且 它 还是 大项 集 ， 即 X . supi ≥ min   sup × Di ， 且 X . sup ≥ min   sup × D ， 则 称 X 在 是 稠密 的 ， 用 HL 表示 . 如 HLik 表示 Pi 的 k 稠密 集 （ 其中 元素 为 k 个 ） 的 全体 . 
+ 　 　 定理 1 .   若 项集 X 是 大 k 项集 ， 则 必 存在 一个 计算机 ， 使 任意 的 项集 Y 在 Pi 是 稠密 的 . 
+ 　 　 定理 2 .   对 任意 k > 1 ， 大 k 项集 Lk 是 所有 计算机 产生 的 局部 候选 大 k 项集 的 并 集 的 子集 ， 即 . 函数 见 文献 ［ 5 ］ . 定理 1 与 定理 2 的 证明 见 文献 ［ 18 ］ . 
+ 　 　 定理 3 .   设 ， 则 . 
+ 　 　 证明 .   设 函数 的 第 ( 1 ) 步对 作用 的 结果 分别 为 ， 根据 定义 4 与 定义 5 有 ， 由 函数 的 第 ( 1 ) 步 作用 过程 我们 可得 X ∈ ALk ， 于是 有 . 函数 的 第 ( 2 ) 步 作用 于 ALk ， ， 删除 它们 中 的 不 符合条件 的 元素 ， 使 它们 分别 变为 ， 若 它 被 删除 ， 则 必 存在 X 的 元素 为 k - 1 个 的 子集 Y ， 有 ， 则 Y 必 不 属于 任意 一个 ， 所以 若 X ∈ AHLk ， 则 也 必 被 函数 的 第 ( 2 ) 步所 删除 . 于是 有 . 
+ 证毕 . 
+ 　 　 算法 PMRA 需要 每个 计算机 对 其 本地 事务 数据库 DBi 或 本地 候选 事务 数据库 CBi 进行 多遍 扫描 . 在 第趟 扫描 中 ， 计算机 都 进行 生成 候选 大项 集 、 支持 数 计算 、 交换 支持 数 、 生成 稠密 集等 步骤 ， 具体情况 可 描述 如下 （ 见 算法 1 ） . 
+ 　 　 （ 1 ）   生成 候选 大 k 项集 . 根据 计算机 在 k - 1 次 循环 所 生成 的 稠密 集 ， 生成 循环 k 所 需用 的 候选 大 k 项集 ， 据 定理 2 有 , p 为 生成 X 的 两个 ( K - 1 ) 稠密 集中 的 支持 数较 小 的 那 一个 ， 令 . 
+ 　 　 （ 2 ）   支持 数 计算 . 扫描 本地 事务 数据库 DBi 计算 候选 大 k 项 集中 的 每个 元素 X 的 局部 支持 数 X .. 我们 可以 对 做 如下 剪枝 ： 当 扫描 到 DBi 的 某 一条 记录 时 ， 记 X 的 支持 数为 X . count ， 若 X . count = X . ocount ， 则 X 的 支持 数将 不会 再 增加 ， 对 数据库 的 以后 的 扫描 中 不必 考虑 其中 的 事务 是否 包含 X . 若 X 是 局部 大 k 项集 ， 则 置 . 
+ 　 　 （ 3 ）   交换 支持 数 . 计算机 广播 候选 大 k 项集 ， 然后 收集 由 计算机 传来 的 ， 计算 项集 X 的 全局 支持 数 X . sup ， 若 X . sup ≥ min   sup × D ， 则 置 . 
+ 　 　 （ 4 ）   生成 稠密 集 . 对 计算机 ， 若 项集 ， 且 有 ， 则 X 是 的 元素 . 
+ 　 　 算法 1 .   PMAR 
+ 　 　 　 输入 ： ①   存储 在 计算机硬盘 中 的 　 ②   最小 支持 度 minsup 
+ 　 　 　 输出 ： 大项 集 L = ∪ Lk 
+ 　 　 　 方法 ： 在 计算机 执行 如下 操作 
+ 　 　 　 for   ( k = 1   ;   ;   k ++ ) 
+ 　 　 　 　 if   ( k = 1 )   then   扫描 数据库 DBi 确定 候选 大 1 项集 
+ 　 　 　 　 
+ 　 　 　 　 endif 
+ 　 　 　 　 for   all   transactions   t ∈ D   do 
+ 　 　 　 　 　 　 for   all   items   c ∈   do 
+ 　 　 　 　 　 　 　 　 if   c . count ≤ c . ocount   and     then   c . count ++ 
+ 　 　 　 　 for   all   item   c ∈   do 
+ 　 　 　 　 　 　 if   c . count ≥ min   sup × Di   then   c . LL = 1 
+ 　 　 　 　 Broadcast   中 元素 的 支持 数 
+ 　 　 　 　 Receive   从 计算机 Pj 发来 的 中 元素 的 支持 数   
+ 　 　 　 　 for   all   items   c ∈   do 
+ 　 　 　 　 　 　 for   ( j = 1 ; j ≤ n , i ≠ j ; j ++ ) 
+ 　 　 　 　 　 　 　 　 c . count   + =   c 在 中 的 支持 数 
+ 　 　 　 　 　 　 if   c . count ≥ min   sup × D   then   { c . GL = 1 ；   Lk   + =   c } 
+ 　 　 　 　 　 　 for   ( j = 1 ; j ≤ n ; j ++ ) 
+ 　 　 　 　 　 　 　 　 if   c . GL = 1 且 c 在 中 的 LL 域 为 1   then     + =   c 
+ 　 　 　 　 if     then   exit 
+ 　 　 　 　 L   + =   Lk 
+ 　 　 endfor 
+ 　 　 并行 采掘 关联 规则 的 算法 高效 的 关键在于 如何 能 生成 较 小 的 候选 大项 集 和 如何 有效 地 剪枝 候选 大项 集 . 根据 定理 2 与 定理 3 ， 我们 可以 知道 算法 PMAR 所 产生 的 候选 大项 集要 小于 算法 CD 所 产生 的 候选 大项 集 . 算法 PMAR 在 第 （ 2 ） 步 引入 特殊 的 剪枝 技术 ， 提高 了 算法 的 效率 . 
+ 4 　 算法 比较 
+ 　 　 将 算法 PMAR 与 算法 CD ， DMA 相 比较 ， 我们 可以 得出 如下 结论 ： 
+ 　 　 （ 1 ）   由 定理 2 与 定理 3 可知 ， 算法 PMAR 将 比 算法 CD 产生 更 小 的 候选 大项 集 ； 与 算法 DMA 产生 的 候选 大项 集 相同 . 
+ 　 　 （ 2 ）   算法 PMAR 的 通信量 比 算法 CD 小 ； 与 算法 DMA 相差不多 ， 因为 算法 DMA 虽然 采用 了 轮循 站点 ［ 18 ］ （ polling   site ） 技术 ， 但 它 要 广播 与 接收 稠密 集 . 
+ 　 　 （ 3 ）   算法 PMAR 要求 各 计算机 间 同步 次数 比 算法 DMA 少 ； 与 算法 CD 相同 . 
+ 
+ 
+ 图 1 　 算法 PMAR 与 算法 CD 的 比较 ( minsup = 0.75% ) 
+ 
+ 
+ 图 2 　 算法 PMAR 与 算法 CD 的 比较 ( | D | = 100K ) 
+ 　 　 为了 验证 算法 PMAR 的 性能 ， 我们 在 运行 Windows   95 操作系统 的 3 台 奔腾 166 机上 做 了 测试 . 3 台 计算机 间 除了 用 网络 联接 外 ， 其它 全部 独立 . 测试 数据库 的 有关 参数 与 文献 ［ 4 ］ 、 ［ 18 ］ 相同 . 在 我们 的 测试 中 ， N ＝ 1000 ， | L | ＝ 2000 ， 分别 在 3 台 计算机 生成 测试 数据库 ， 测试 结果 如图 1 、 图 2 所示 . 由 测试 的 结果 可知 ， 算法 PMAR 是 有效 的 ， 其 执行 效率 比 算法 CD 提高 10% ～ 35% . 
+ 5 　 结束语 
+ 　 　 本文 对 采掘 关联 规则 问题 进行 了 简单 地 回顾 ， 给出 了 一种 提高 顺序 采掘 关联 规则 算法 效率 方法 . 对 在 分布式 事务 数据库 中 采掘 关联 规则 问题 进行 了 研究 ， 提出 了 一个 效率 较 高 的 并行算法 PMAR . 实验 证明 ， 算法 PMAR 是 有效 的 . 算法 PMRA 也 可以 对 设计 并行 地 采掘 一般 关联 规则 ［ 6 ］ 、 序列 模式 ［ 19 ］ 及 关联 规则 的 增量 式 更新 ［ 13 , 14 ］ 等 问题 提供 借鉴 . 
+ 作者简介 ： 铁治欣 ， 男 ， 1972 年 3 月生 ， 博士 研究生 ， 主要 研究 方向 为 人工智能 、 数据库 、 数据 采掘 等 .   陈奇 ， 男 ， 1965 年 9 月生 ， 副教授 ， 主要 研究 方向 为 人工智能 、 智能 软件 、 MPR   Ⅱ 等 .   俞瑞钊 ， 男 ， 1937 年 9 月生 ， 教授 ， 博士生 导师 ， 主要 研究 方向 为 人工智能 、 智能 软件 、 决策支持系统 等 . 
+ 作者 单位 ： 铁治欣 　 陈 　 奇 　 俞瑞钊 　 浙江大学 人工智能 研究所 　 杭州 　 310027 
+ 参考文献 
+ 1 　 Chen   M   S   et   al .   Data   mining :   An   overview   from   database   perspective .   IEEE   Trans   on   Knowledge   and   Data   Engineering ,   1996 ,   8 ( 6 ) :   866 ～ 883 
+ 2 　 Agrawal   R   et   al .   Database   mining :   A   performance   perspective .   IEEE   Trans   on   Knowledge   and   Data   Engineering ,   1993 ,   5 ( 6 ) :   914 ～ 925 
+ 3 　 Usama   M   Fayyad   et   al .   Advances   in   knowledge   discovery   and   Data   Mining .   CA :   AAAI   Press / The   MIT   Press ,   1996 
+ 4 　 Agrawal   R   et   al .   Mining   association   rules   between   sets   of   items   in   lager   databases .   In :   Proc   ACM   SIGMOD   Int ' l   Conf   Management   of   Data ,   Washington ,   DC ,   1993 .   207 ～ 216 
+ 5 　 Agrawal   R ,   Srikant   R .   Fast   algorithms   for   mining   association   rules .   In :   Proc   20th   Int ' l   Conf   Very   Large   Databases ,   Santiago ,   Chile ,   1994 .   487 ～ 499 
+ 6 　 Srikant   R ,   Agrawal   R .   Mining   generalized   association   rules .   In :   Proc   21st   International   Conference   on   Very   Large   Databases ,   Zurich ,   Switzerland ,   1995 .   407 ～ 419 
+ 7 　 Houtsma   M ,   Swami   A .   Set - oriented   mining   for   association   rules   in   relational   databases .   In :   Yu   P ,   Chen   A   eds .   Proceedings   of   the   International   Conference   on   Data   Engineering .   Los   Alamitos ,   CA :   IEEE   Computer   Society   Press ,   1995 .   25 ～ 33 
+ 8 　 Park   J   S ,   et   al .   Using   a   hash - based   method   with   transaction   trimming   for   mining   association   rules .   IEEE   Trans   on   Knowledge   and   Data   Engineering ,   1997 ,   9 ( 5 ) :   813 ～ 825 
+ 9 　 Savasere   A ,   Omiecinski   E ,   Navathe   S .   An   efficient   algorithm   for   mining   association   rules .   In :   Proc   Int ' l   Conf   Very   Large   Databases ,   Zurich ,   1995 .   432 ～ 444 
+ 10 　 Han   J ,   Fu   Y .   Discovery   of   multiple - level   association   rules   from   large   databases .   In :   Proc   21st   International   Conference   on   Very   Large   Databases ,   Zurich ,   Switzerland ,   1995 .   420 ～ 431 
+ 11 　 铁治欣 .   数据 采掘 技术 .   浙江大学 博士生 讨论 班 报告 ， 1998 
+ ( Tie   Zhixin .   The   data   mining   technology .   Report   of   Doctoral   Discussing   Class   of   Zhejiang   University   ( in   Chinese ) ,   1998 ) 
+ 12 　 Shapiro   G   P .   Discovery ,   analysis ,   and   presentation   of   strong   rules .   In :   Shapiro   Piatetsky   G ,   Frawley   W   J   eds .   Knowledge   Discovery   in   Database .   CA :   AAAI / MIT   Press ,   1991 .   229 ～ 238 
+ 13 　 Cheung   D   W   et   al .   Maintenance   of   discovered   association   rules   in   large   databases :   An   incremental   updating   technique .   In :   Proceedings   of   the   12th   International   Conference   on   Data   Engineering ,   New   Orleans   Louisiana ,   1995 .   106 ～ 114 
+ 14 　 冯玉才 ,   冯剑林 .   关联 规则 的 增量 式 更新 算法 .   软件 学报 ,   1998 ,   9 ( 4 ) :   301 ～ 306 
+ ( Feng   Yucai ,   Feng   Jianlin .   Incremental   updating   algorithms   for   mining   association   rules .   Journal   of   Software   ( in   Chinese ) ,   1998 ,   9 ( 4 ) :   301 ～ 306 ) 
+ 15 　 Srikant   R ,   Agrawal   R .   Mining   quantitative   association   rules   in   large   relational   tables .   In :   Proc   1996   ACM   SIGMOD   Int ' l   Conf   Management   Data ,   Montreal ,   Canada ,   1996 .   1 ～ 12 
+ 16 　 Agrawal   R   et   al .   Parallel   mining   of   association   rules .   IEEE   Trans   on   Knowledge   and   Data   Engineering ,   1996 ,   8 ( 6 ) :   962 ～ 969 
+ 17 　 Park   J   S   et   al .   Efficient   parallel   data   mining   for   association   rules .   In :   Proc   4th   Int ' l   Conf   Information   and   Knowledge   Management ,   Baltimore ,   1995 
+ 18 　 Cheung   D   W   et   al .   Efficient   mining   of   association   rules   in   distributed   databases .   IEEE   Trans   on   Knowledge   and   Data   Engineering ,   1996 ,   8 ( 6 ) :   910 ～ 921 
+ 19 　 Agrawal   R ,   Srikant   R .   Mining   sequential   patterns .   In :   Proc   11st   International   Conference   on   Data   Engineering ,   Taipei ,   1995 .   3 ～ 14 
+ 收到 日期 ： 1998 - 10 - 06 
+ 修改 日期 ： 1999 - 04 - 21 

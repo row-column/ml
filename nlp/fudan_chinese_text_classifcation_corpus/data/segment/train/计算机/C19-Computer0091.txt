@@ -1,0 +1,60 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 8 期   Vol.25   No.8   1999 
+ 
+ 
+ 
+ 华东 电力系统 数据通信 增值 网 的 设计 
+ 何星 ， 施华军 ， 唐亮 ， 方兴 其 ， 李根蔚 
+ 摘要 ： 介绍 了 华东 电力系统 数据通信 增值 网 的 系统结构 设计 和 增值 网 通信 服务 软件 的 设计 思想 。 其 要点 是 引入 了 前置 通信 服务 机 减少 了 主站 的 通信 负荷 ， 实现 了 不同 网络通信 协议 的 透明 调用 ， 扩展 了 电力部 部颁 应用层 协议 ， 提供 了 不同 应用层 协议 的 主站 接入 方式 。 
+ 关键词 ： 增值 网 ； 通信 服务 机 ； 主 站 接入 
+ The   Design   of   Value - added   Data   Communication   Network   for   East   China   Electric   Power   Information   System 
+ He   Xing , Shi   Huajun , Tang   Liang , fang   Xingqi , Li   Genwei 
+ ( Automation   Research   Institute   of   Shanghai   Jiaotong   Univ . , Shanghai   200030 ;   East   China   Power   Dispatch   Center , Shanghai   200001 ) 
+ 【 Abstract 】 In   this   paper , the   design   of   the   system   structure   and   the   related   communication - service   software   of   the   Value - added   Data   which   alleviates   the   master   station ' s   communication - load , and   implements   the   transparent   call   among   different   network   protocols . Furthermore , using   various   application   Layer   Protocol   for   Real   Time   Data   Communication   in   Power   System   is   extended , and   the   access   of   master   stations   using   various   application   protocols   is   also   provided . 
+ 【 Key   words 】 Value - added   network ; communication   server ; Master   station   access 
+ 　 　 华东 电力系统 数据 通信网 是 正在 建设 中 的 中国 电力 数据网络   ( CEDnet )   的 第一个 二级 网络 。 该 信息网 主要 应用 于 华东 总调 、 上海市 调 、 江苏 、 浙江 、 安徽省 调和 天荒坪 电站 各 监控 系统 计算机 间 的 实时 通信 。 其 通信子网 为   X.25   分组 交换网 。 但 通信子网 仅 提供 低级 的 通信 服务 ， 而 调度 自动化 系统 实时 信息 的 交换 业务 的 实现 还 需要 有 基于 通信子网 的 增值 业务 的 开发 ， 即 资源 子网 的 开发 。 本文 将 重点 阐述 增值 网 的 系统结构 的 设计 及 增值 网 通信 服务 软件 的 设计 。   
+ 1   增值 网 系统结构 的 设计 
+ 　 　 通信子网 增值 业务 的 开发 ， 原则上 可以 直接 在 主 站上 进行 开发 ， 各主站 通过 支持 其 网络协议 的 路由器 直接 接入 通信子网 ， 从而 形成 数据 交换网 。 但 考虑 到 华东 电网 各省市 调 的   EMS   主机 负载 已 过重 ， 若 直接 在   EMS   主机 上 进行 增值 业务   (   网络管理 、 信息管理 等   )   的 开发 必将 使 负载 问题 严重 恶化 。 为了 解决 这个 矛盾 ， 我们 引入 了 通信 服务 机 。 各   EMS   主 站 通过 服务 机 接入 分组 交换网 。 大部分 的 增值 业务 由 通信 服务 机 完成 ， 减轻 了 主站 的 负担 。 华东 信息网 系统结构 可 分为 图   1   所示 的   3   个 层次 ：   ( 1 )   信息源 网层   信息源 网为 信息网 中 产生 原始数据 、 信息 和 最终 使用 这些 信息 的 主站 接入 系统 。 如   EMS / SCADA   系统 ，   RMIS   系统 等 。   ( 2 )   增值 网层   增值 网层 从 硬件 上 讲 有 通信 服务 机 、   RIMS   通信 服务 机和 路由器 等 。 通信 服务 机是 增值 网 的 中心环节 ， 其 主要 功能 是 将 主机 的 通信 负荷 分离出来 ； 提供 主机 通信 软 通道 和 通信 资源 服务 。   Pentium   通信 服务 机 主要 用于   RMIS   系统 的 接入 ， 本文 将 不作 详细 的 讨论 。   ( 3 )   通信网 层   通信网 层指 负责 通信 底层 的 部件 如   X.25   分组 交换网 ， 程控 交换 节点机 等 。   
+ 
+ 图 1   网络 框架结构 
+ 　 　 其中 ， 增值 网中 通信 服务 机 采用   SUN   Sparc20   工作站 ， 运行 环境 是   Solaris2.51   。   Pentium   通信 服务 机 采用 高性能 的   Pentium   PC   ， 操作系统 是   Window   95   。   
+ 　 　 增值 网 结构 就 网络 通道 而言 有 以下 两个 特点 ：   
+ 　 　 ( 1 )   SUN   通信 服务 机 通过   SunLink   HSI ( High - speed   Serial   Interface )   卡 直接 接入 分组 交换网 ， 实现 基于   X.25   的 网络 互联 。   SUN   通信 服务 机 还 可 通过 以太网卡 经 局域网 接到 路由器 ， 以   TCP / IP   外 包   X.25   的 方式 接入 分组 交换网 ， 实现   SUN   服务 机 之间 基于   TCP / IP   的 网络 互联 。 这 两条 通道 可 根据 需要 ， 在 服务 机上 通过 界面 配置 灵活 切换 ， 互为 备用 。   
+ 　 　 ( 2 )   SUN   通信 服务 机在 增值 网中 不但 要 实现 路由器 的 路由 选择 和 协议 转换 功能 ， 同时 还要 扮演 网管 角色 ， 负责 链路 状态 的 监视 、 通信 性能 检测 、 流量 统计 和 实时 报文 监视 。   
+ 　 　 增值 网 结构 从 数据交换 的 层次 上 看 ， 它 为 网上 任意 两个 节点 的 数据交换 提供 了 数据通道 。 主站 的 交换 信息 通过 服务 机 的 代理 ， 利用 广播 的 方式 由 服务 机 负责 发送至 全网 各 站点 ， 大大 缓解 了 主站 的 负担 。 此外 ， 主站 的 交换 信息 还 可以 存储 在 服务 机 的 数据库 中 ， 由 服务 机 发布 到 信息网 上 ， 使得 主站 只 需 面对 服务 机 一个 节点 ， 而 不是 全网 的 所有 节点 ， 这 也 大大 缓解 了 主站 的 负担 。   
+ 2   增值 网 通信 服务 软件 的 设计 
+ 　 　 增值 网 通信 服务 软件 用于 向 上层 应用 提供 统一 的 调用 接口 ， 实现 各种 应用层 服务 原语 。   
+ 　 　 华东 电力 信息网 是 一个 具有 多种 网络协议 和 多种 应用层 协议 的 复杂 网络 。 在 网络层 协议 方面 ：   ( 1 )   华东 网 调和 上海市 调 的   EMS / SCADA   主机 的 局域网 采用 了   DECNet   网 ， 其 接入 采用   DECNet   协议 通过   DECNet   网卡 进入 通信 服务 机 ；   ( 2 )   江苏 、 浙江 、 安徽 的   EMS / SCADA   主机 的 接入 则 采用   TCP / IP   ；   ( 3 )   对于 有些 老 的   SCADA   系统 ， 如 江苏省 调 ， 其   RTU   主机 要 通过   SUN   通信 服务 机 的 串行口 直接 入网 ， 所以 通信 服务 软件 要 支持 串行口 链路 协议 。   
+ 　 　 在 应用层 协议 方面 ， 由于 电力部 的 部颁 应用层 协议 是 支持 点对点 通信 的 应用层 协议 ， 它 不再 适用 于 多点通信 。 为 适应 网络通信 ， 我们 对 应用层 协议 进行 了 扩展 ， 在 部颁 应用层 协议 的 报文 头加 了   8   个 字节 的 路由 块 ， 前   4   个 字节 为 报文 目的 地址 ， 后   4   个 字节 为 报文 源地址 称之为 扩展 部颁 应用层 协议 。 因此 ， 在 华东 信息网 中 同时 存在 以下 几种 应用层 协议 ：   ( 1 )   大部分 的 接入 系统 应用层 协议 均 采用 扩展 部颁 应用层 协议 ；   ( 2 )   由于 历史 原因 ， 天荒坪 电厂 的 接入 采用 点对点 的 部颁 应用层 协议 ；   ( 3 )   江苏   RTU   主机 通过 串行口 接入 ， 它 的 应用层 协议 必须 遵循   RTU   的 应用层 通信 规约 ， 如 《   Micro   4F   型 远动 装置 功能 说明 和 通信 规约 》   (   以下 简称 《   m4f   》   )   。   
+ 　 　 由 以上 分析 可知 ， 通信 服务 机软件 既 要 提供 多种 网络协议 的 支持 ， 又 要 提供 多种 应用层 协议 的 支持 。 为了 充分 实现 可扩充性 、 可移植性 、 高效性 、 故障 检测 与 隔离 、 便于 调试 、 屏蔽 低层 细节 及 透明 调用 ， 通信 服务 软件 强调 协议 分层 ： 应用层 和 网络 功能 层 。 它 提供 两个 调用 界面 ： 应用层 调用 界面 和 网络 功能 层 调用 界面 。   
+ 2.1   应用层   
+ 　 　 如图   2   ， 应用层 用于 实现 上层 应用 报文 到 应用层 协议 的 报文格式 的 转换 。 应用层 调用 界面 直接 为 信息网 上层 应用 提供 服务 。 管道 调度 用于 解决 调用 接口 的 竞争 问题 。 由于 整个 信息网 涉及 到 异种 机 连网 ， 但 不同 机型 机器 不但 数据格式 可能 不同 ， 甚至 数据编码 也 可能 不同 。 由此 带来 的 后果 将 是 灾难性 的 。 为此 ， 须 在 有关 应用层 协议 下面 增加 一个 表示层 ， 用以 解决 异种 机 数据 内部 表示 格式 不 一致 的 问题 。   
+ 
+ 图 2   应用层 结构 示意图 
+ 　 　 应用层 协议 的 调用 界面 实现 了 上层 应用 对 它 的 透明 调用 ， 提供 以下 几个 服务 原语 的 统一 调用 ：   
+ 　 　 联系 报文 ：   A _ Associate { request / indication / response / confirmation }   
+ 　 　 释放 报文 ：   A   _   Release { request / indication / response / confirmation }   
+ 　 　 放弃 报文 ：   A _ Abort   { request / indication }   
+ 　 　 联系 复位 ：   A _ Reset   { request / indication / response / confirmation }   
+ 　 　 数据 报文 ：   A _ Data   { request / indication }   
+ 　 　 通信 报文 ：   A _ Poll   {   request / indication / response / confirmation }   
+ 　 　 send 报文 ：   A _ Send   {   request / indication / response / confirmation }   
+ 　 　 同时 ， 应用层 还 具有 良好 的 开放性 和 扩充性 ： 扩充 新 的 应用层 协议 时 不须 受 上层 应用 和 下层 网络 细节 的 限制 ， 只 需 符合 应用层 调用 接口 即可 。   
+ 2.2   网络 功能 层   
+ 　 　 网络 功能 层 对 各种 协议 进行 处理 ， 从而 达到 网络协议 透明 功能 。 如图   3   ， 本 网络 功能 层 将 支持   TCP / IP   、   DECNet   、   X.25   和 串行口 数据 链路层 协议 的 接入 。 对于   TCP / IP   采用 基于 传输层 的   Sockets   调用 界面 ， 网络 路由 由 其 内部 的   IP   网络层 解决 ； 对于   DECNet   ， 则 采用 基于   SunLink   DNI   8.0   的 调用 界面 ； 对于   X.25   ， 采用   SunLink   X.25   8.0   网络层 调用 界面 ， 该层 的 下层 支持 包括   SunLink   HSI / S   2.0   driver   。 网络 功能 层 调用 界面 为 应用层 提供 服务 ， 地址 解析 用于 应用 地址 与 网络地址 的 转换 和 寻址 。   
+ 
+ 图 3   网络 功能 层 结构 示意图 
+ 　 　 网络 功能 层 的 构造 ， 一方面 提供 给 应用层 一个 统一 的 调用 接口 ， 屏蔽 了 网络层 的 细节 ：   
+ 　 　 网络 功能 层 初始化 ：   int   net _ init   ( int   ( *   lpfnCallBack ) ( )   ) ;   
+ 　 　 网络 发送 ：   int   net _ Send   (   int   channel ,   Net _ Addr   *   lpAddr ,   unsigned   char   *   buf ,   unsigned   int   size   ) ;   
+ 　 　 网络 接收 ：   int   net _ Recv   (   int   channel ,   Net _ Addr   *   lpAddr ,   unsigned   int   result ,   unsigned   char   *   buf ,   unsigned   int   size   ) ;   
+ 　 　 另一方面 ， 它 提供 了 一个 统一 的 调用 底层 网络协议 的 接口 规范 。 底层 的 网络协议 接入 进程 都 遵循 这个 接口 规范 实现 与 网络 功能 层 的 交互 。 当要 实现 新 的 网络协议 时 ， 只要 该 网络协议 的 接入 接口 符合规范 ， 不必 修改 网络 功能 层 就 可 直接 接入 。 这 就是 网络协议 的 开放性 。   
+ 3   结束语 
+ 　 　 电力 调度 数据网 的 设计 建造 正是 在 电力系统 的 分组 交换网 基础 上 ， 引入 了 通信 服务 前置 机 ， 减轻 了 调度 系统 的 负担 。 同时 在 通信 服务 机 通信软件 的 设计 上 强调 协议 分层 ， 提供 统一 的 外部 调用 接口 ， 适应 了 各 调度 系统 应用层 协议 、 网络协议 多样性 的 要求 ， 大大 方便 了 调度 系统 的 接入 。   
+ 作者 单位 ： 何星 　 施华军 　 唐亮 　 方兴 其 　 上海交通大学 自动化 研究所 ， 上海   200030 ； 
+ 　 　 　 　 　 李根蔚 　 华东 电力 管理局 高度 室 ， 上海   200001 
+ 参考文献   
+ 1   能源部 调自   [ 1992 ] 66   号   .   电网 调度 自动化 信息 传输 规定   . 1992   
+ 2   华东 电网 调度 系统 计算机网络 规划   . 1995   
+ 3   电力行业 标准   DL476 - 92 .   电力系统 实时 数据通讯 应用层 协议   .   1992   

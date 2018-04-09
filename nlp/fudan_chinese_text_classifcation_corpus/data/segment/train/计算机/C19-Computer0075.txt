@@ -1,0 +1,120 @@
+计算机 应用 
+ Computer   Applications 
+ 1999 年   第 19 卷 　 第 8 期   Vol.19 　 No.8   1999 
+ 
+ 
+ 
+ Visual   FoxPro 中 的 接口 通信 
+ 刘志刚 　 贾俊波 
+ 　 　 摘 　 要 　 本文 主要 对 Visual   FoxPro   中 接口 通信 问题 进行 了 研究 ， 介绍 了 实现 Visual   FoxPro 接口 通信 的 三种 方法 。 
+ 　 　 关键词 　 接口 通信 ， MSComm 控件 
+ 　 　 Visual   FoxPro   是 一个 功能强大 的 数据库 管理系统 （ DBMS ） ， 是 可视化 数据 管理信息系统 开发 平台 ， 对于 开发 中小型 数据库 管理系统 来说 ， Visual   FoxPro   无疑 是 一种 简单 易用 的 开发工具 ， 但 人们 对于 一些 大量 进行 数据 储存 与 交换 的 自动化 系统 开发 ， 在 采用 Visual   FoxPro   或 FoxPro   时 却 非常 谨慎 ， 其中 主要 原因 之一 是 ： Visual   FoxPro 或   FoxPro   不 支持 指针 功能 ， 而且 与 下方 接口 通信 实现 起来 比较 困难 ， 这 大大 妨碍 了 人们 对 Visual   FoxPro   或   FoxPro 的 广泛 使用 。 
+ 　 　 下面 就 Visual   FoxPro 或 FoxPro 的 接口 通信 问题 进行 研究 ， 给出 实现 接口 通信 的 三种 方法 。 
+ 1 　 利用 API 实现 接口 通信 
+ 　 　 FoxPro 的 API 功能 实质 上 是 利用 C 或 C++ 编程 后 ， 使 FoxPro 可以 调用 编译 好 的 程序 并 通过 一定 的 规范 协议 传递 参数 进行 开发 ， 这 大大 扩展 了   FoxPro 的 功能 ， 但 我们 从 接口 通信 这个 角度 来看 ， 其实质 仍 是 利用 C 或 C++ 进行 接口 通信 ， 因此 这种 方法 不是 FoxPro 本身 所 具有 的 接口 通信 方法 。 要 在 FoxPro 外部 例程 API 编写 C 程序 ， 必须 有 FoxPro 库 结构 工具箱 （ LCK ） ， LCK 中 含有 PRO — EXT . X 文件 ， 它 包含 函数 模型 和 各种 FoxPro   API 定义 ， C 或 C++ 编写程序 时 ， 必须 有 “ # include   < pro — ext . x > ” 语句 来 作为 C 编程 时 调用 头文件 时 的 说明 。 在 API 库中应 包含 一个 “ FoxInfo ” 结构 ， 用来 指明 FoxPro 用户 函数 名 、 函数参数 等 内容 ， 要 运行库 例程 应该 用 下列 语句 来 激活 所 调用 的 库 例程 ： 
+ 　 　 Set   library   to   ［ drive ］   ［ path ］   library   name 
+ 　 　 利用 FoxPro 的 API 是 用来 实现 比较复杂 的 接口 功能 ， 对于 比较简单 的 接口 功能 ， 其实 只 需要 把 我们 所 要 希望 实现 的 接口 通信 功能 用 C 或 C++ 编程 ， 编译 为 可执行文件 （ EXE 文件 ） ， 直接 利用 FoxPro 提供 RUN 语句 调用 即可 ， 如 ： 
+ 　 　 Run   * . exe   / s / t 
+ Return 
+ 　 　 这种 功能 主要 适用 于 操作 平台 是 DOS 的 情况 下 ，   在 Windows 情况 下 ， 可以 把 编好 的 程序 编译 为 Windows 下 的 应用程序 文件 （ APP 文件 ） ， 同理 ： 
+ 　 　 Run   * . app 
+ Return 
+ 2 　 利用 DDE 实现 接口 通信 
+ 　 　 动态 数据交换 （ DDE — — Dynamic   Data   Exchange ） 是 Microsoft   Windows 的 一种 基本功能 ， DDE 允许 Windows 应用程序 之间 通过 某种 通用 语言 或 某种 协议 交换 文本 数据 和 图像 数据 ， 某种 通用 语言 或 某种 协议 实质 上 指 的 是 一系列 特定 的 DDE 函数 。 在 实现 DDE 功能 时 ， 一般 要 把 启动 的 一方 程序 假定 为 “ 客户 ” ， 响应 的 一方 程序 假定 为 “ 服务器 ” ， DDE 功能 实现 的 具体 过程 如下 （ 以 FoxPro 作为 DDE “ 客户 ”   向 “ 服务器 “ 请求 数据 ） ： 
+ 　 　 DDEInitiate ( ) :   打开 初始化 程序 的 通道 ； 
+ 　 　 DDERequest ( ) : 向 “ 服务器 ” 请求 数据 ； 
+ 　 　 DDETeminate ( ) : 结束 与 “ 服务器 ” 的 程序 的 连接 。 
+ 　 　 其中 在 初始化 通道 时 ， 通道 号 有 几种 选择 ， 而且 应该 及时 判断 通信 是否 正常 。 采用 WinWord 作为 模拟实验 结果 随机 数据 的 存储 地方 ， 通过 DDE 连接 通道 送入 FoxPro 中 的 数据文件 中 ， 下面 给出 DDE 的 示意图 ： 
+ 
+ 
+ 图 1 　 DDE 示意图 
+ 　 　 DDE 是 Microsoft 开发 Windows 时 实现 的 一种 基本功能 ， 它 主要 是 实现 两个 基于 Windows 不同 应用程序 之间 的 交换 数据 ， 这种 方法 明显 的 缺点 是 能够 利用 DDE 进行 通信 的 应用程序 是 被 指定 的 ， 而且 种类 有限 ， 更 重要 的 是 它 不能 直接 通过 串口 和 下方 的 设备 （ 如 单片机 ） 进行 通信 ， 因此 这种 方法 在 实现 下方 通信 时 比较 困难 。 
+ 3 　 利用 MSComm 控件 通信 
+ 　 　 继   FoxPro   2.5 - 2.6 ， Visual   FoxPro   3.0 后 ， Microsoft 公司 又 推出 了 Visual   FoxPro   5.0 ， 在 这个 版本 中 Microsoft 公司 引入 了 OCX 组件 （ 现在 又称 ActiveX 组件 ） ， ActiveX 组件 实际上 是 Windows   95 本身 自带 的 ， 它 可以 应用 于 Visual   C++ ， Visual   FoxPro ， Visual   Basic 等 应用 程序语言 中 ， 这为 程序 的 开发 带来 了 很大 方便 。 原先 的 ActiveX 组件 属于 OLE 控件 范畴 ， ActiveX 技术 是 建立 在 COM   规范 的 基础 之上 。 COM 规范 是   Microsoft 公司 基于 客户 / 服务器 提供 的 一种 应用 同一 标准 ， 其 基本 思想 是 按照 这种 规范 编写 的 程序 可以 互操作 而 不 涉及 开发 语言 、 操作 平台 、 网络地址 等 问题 。 ActiveX 组件 就是 按 这 一 规范 编写 好 的 一组 控件 ， 已 初步 实现 了 基于 Windows 平台 的 不同 开发 语言 的 通用 ， 在 ActiveX 组件 中 ， 提供 给 用户 一个 通信 控件 （ MSComm ） ， 这种 控件 可以 直接 实现 与 下方 设备 （ 如 单片机 ） 进行 串口 通信 ， 而且 应用 起来 比较简单 。 在 下面 例子 中 ， 利用 MSComm 控件 与 单片机 进行 串口 通信 ， 来 控制 开关 的 打开 和 关闭 ， 以及 判断 开关 的 状态 和 存储 相关 数据 等 功能 。 
+ 　 　 首先 在 Visual   FoxPro   5.0 中 添加 ActiveX 组件 ， 根据 提示 选中 MSComm 控件 添加 到 Visual   FoxPro   5.0 控件 组中 ， 其 控件 图标 是 一个 电话 形 的 位图 ， 在 表单 的 控件 初始化 事件 中 初始化 该 控件 ： 
+ Thisform . MSComm1 . CommPort   =   1 
+ && 选择 串口 1 
+ Thisform . MSComm1 . Settings   =   " 9600 , N , 8 , 1 " 
+ && 设定 通信 时 的 波特率 、 校验位 、 数据位 和 停止 位 
+ Thisform . MSComm1 . InputLen   =   0 
+ && 读取 整个 缓冲区 
+ Thisform . MSComm1 . PortOpen   =   True 
+ && 打开 通信 口 
+ Thisform . MSComm1 . InputMode = 0 
+ && 设置 通信 输入 模式 为 0 模式 
+ 　 　 在 进行 数据交换 之前 应 规范 单片机 与 主机 之间 通过 串口 通信 时 的 通信协议 ， 制定 通信协议 时 最好 简单明了 ， 本 设计 中 的 数据 传送 格式 为 ： 
+ 
+ 起始 位 数据 1 　 　 … … 　 　 数据 n 检验位 结束位 
+ 
+ 　 　 下面 给出 实现 的 源程序 ： 
+ * * 表单 激活 时 发生 的 事件 * * 
+ Thisform . activate ( ) 
+ thisform . MSComm1 . init ( ) 
+ thisform . timer1 . enabled = . t . 
+ Return 
+ * * 设置 时钟 , 每隔   0.1   秒 扫描 串口 状态 一次 并 发出 控制指令 * * 
+ Thisform . timer1 . timer ( ) 
+ Do   while   thisform . com — error = . t . 
+ && 在 通信 不 正常 下 执行 
+ Wait   window   " 通信 错误 ！ 请 重新 连接 " 
+ timeout   20   nowait   at   25 , 85 
+ Do   form   chkcomm . scx 
+ &&   执行 检查 通信 状态 的 表单 
+ If   inkey ( ) = 27 
+ &&   如果 按 ESC 键则 跳出 循环 
+ Exit 
+ Endif 
+ Wait   clear 
+ Enddo 
+ If   thisform . order — open = . t .   
+ && 判断 是否 发出 开 的 命令 
+ If   thisform . comm — status = . f . 
+ && 判断 通信 的 状态 
+ Exit 
+ Else 
+ Thisform . comm — open ( ) 
+ Endif 
+ Endif 
+ If   thisform . order — close = . t . 
+ && 判断 是否 发出 关 的 命令 
+ If   thisform . comm — status = . f . 
+ && 判断 通信 的 状态 
+ Exit 
+ Else 
+ Thisform . comm — close ( ) 
+ Endif 
+ Endif 
+ 　 … 
+ Return 
+ Thisform . comm — close ( ) 
+ Parameter   x ,   y 
+ && 传入 开关 的 位置 参数 
+ Private   comm — return 
+ Thisform . com — sendstring = chr ( 5 ) + chr ( x ) + chr ( y ) 
+ && 置 开始 字符 
+ Thisform . com — sendcmd ( 7 ) 
+ && 发送 字符 
+ Comm — return = substr ( thisform . comm — return , 3 , 2 ) 
+ Thisform . comsendstring = chr ( 7 ) + comm — return 
+ Thisform . com — sendcmd ( 7 ) 
+ 　 … 
+ Return 
+ Thisform . comm — open ( ) 
+ Parameter   x ,   y 
+ && 传入 开关 的 位置 参数 
+ Private   comm — return 
+ Thisform . com — sendstring = chr ( 6 ) + chr ( x ) + chr ( y ) 
+ && 置 开始 字符 
+ Thisform . com — sendcmd ( 3 )   
+ && 发送 字符 
+ 　 … 
+ Return 
+ 　 　   以上 程序 中 ， 主 表单 设置 了 新 的 属性 如 ： com — error ， order — open ， order — close ， comm — status ， com — sendstring 等 新 属性 ， 新 方法 如 com — sendcmd 等 ， 这样 被 看作 公共 变量 和 公共 函数 方便 地 调用 。 在 通信 过程 中 ， 考虑 到 被控 设备 的 状态 获得 和 通信线路 的 传输速度 ， 应 给予 适当 的 延时 来 满足 传输 需要 。 
+ 作者简介 ： 刘志刚 　 硕士 研究生 。 研究 方向 ： 工业 监控 。 　 贾俊波 　 副教授 。 从事 高压 电气 试验 
+ 　 　 　 　 　 车 研究 及 软件开发 。 
+ 作者 单位 ： 刘志刚 　 贾俊波 　 西南 交通 大学 电气 工程学院 　 四川 ． 成都 （ 610031 ） 
+ 参考文献 
+ 　 ［ 1 ］ 　 钱 清泉 . 微机 监控 系统 原理 . 北京 :   中国 铁道 出版社 , 1997 
+ 　 ［ 2 ］ 　 东 　 岳 ， 等 . Visual   FoxPro   5.0   完全 进阶 手册 .   北京 : 宇航 出版社 , 1997 
+ 　 ［ 3 ］ 　 张清山 , 王 　 松 . FoxPro   2.5 - 2.6   for   Windows 开发 指南 . 成都 : 电子科技 大学 出版社 , 1995   
+ 　 　 收稿 日期 : 1999 - 02 - 18 

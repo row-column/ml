@@ -1,0 +1,38 @@
+环境 科学研究 
+ RESEARCH   OF   ENVIRONMENTAL   SCIENCES 
+ 2001   Vol.14   No.1   P.49 - 52 
+ 
+ 
+ 
+ 
+ BP 网络应用 于长江 水质 研究 
+ 高学民 　   陈静生 　   王 立新 　   
+ 摘 　 要 ： 运用 我国 地面水 环境 质量标准 ( GB3838 - 88 ) 作为 学习 样本 ， 选取 了 包括 氧 平衡 参数 、 营养元素 、 重金属 离子 、 油类 等 14 个 指标 ， 运用 人工神经网络 BP 模型 对 长江 干流 和 主要 支流 ( 含 湖泊 ) 的 水 环境质量 进行 分类 研究 。 将 计算结果 与 GIS 数字化 图形 相结合 ， 表明 长江 干流 和 大部分 支流 水质 状况 基本 良好 ， 上游 支流 沱江 、 下游 支流 大运河 及 太湖 已 受到 较为 严重 的 污染 ； 长江 干流 城镇 区段 已经 受到 一定 程度 的 污染 。 
+ 关键词 ： 长江流域 ； 　 人工神经网络 ； 　 水质 
+ 分类号 ： X824 　 文献 标识码 ： A 
+ 文章 编号 ： 1001 - 6929 ( 2001 ) 01 - 0049 - 04 
+ Applying   BP   Neutral   Network   to   Study   Water   Quality   of   the   Yangtze   River 
+ GAO   Xue - min （ Department   of   Urban   and   Environmental   Sciences , Peking   University , Beijing 　 100871 , China ） 　 
+ CHEN   Jing - sheng （ Department   of   Urban   and   Environmental   Sciences , Peking   University , Beijing 　 100871 , China ） 　 
+ WANG   Li - xin （ Department   of   Urban   and   Environmental   Sciences , Peking   University , Beijing 　 100871 , China ） 　 
+ Abstract ： Environmental   quality   standards   for   surface   water   of   China ( GB3838 - 88 ) acted   as   training   samples , 14   indexes   including   oxygen - balance   parameters , nutrient   elements , heavy   metal   ions   and   oils   were   selected , and   water   quality   classification   for   the   mainstream   and   major   tributaries   of   the   Yangtze   River   was   studied   with   neural   network - BP   model . The   results   were   combined   with   GIS   digital   graphs   and   indicated   that   the   water   quality   situation   of   the   mainstream   and   most   tributaries   is   good , the   Tuo   River , Great   Canal   and   Taihu   Lake   are   polluted   heavily , and   the   water   quality   of   urban   areas   of   the   Yangtze   River   mainstream   are   contaminated . 
+ Keywords ： the   Yangtze   River   watershed ; 　 BP   neutral   network ; 　 water   quality 
+ 基金项目 ： 国家自然科学基金 资助 项目 ( 49671017 ) 
+ 作者简介 ： 高学民 ( 1972 - ) ， 男 ， 山东 青岛市 人 ， 博士 ， 现在 国家海洋局 科学技术 司 任职 .   
+ 作者 单位 ： 高学民 （ 北京大学 　 城市 与 环境 学系 ， 北京 　 100871 ） 　 
+ 　 　 　 　 　 陈静生 （ 北京大学 　 城市 与 环境 学系 ， 北京 　 100871 ） 　 
+ 　 　 　 　 　 王 立新 （ 北京大学 　 城市 与 环境 学系 ， 北京 　 100871 ） 　 
+ 参考文献 ： 
+ ［ 1 ］ 胡守仁 . 神经 网络应用 技术 ［ M ］ . 长沙 ： 国防科技大学 出版社 ， 1993 . 
+ ［ 2 ］ 刘国东 ， 黄川友 ， 丁晶 . 水质 综合 评价 的 人工神经网络 模型 ［ J ］ . 中国 环境 科学 ， 1998 ， 18 ( 6 ) ： 514 ～ 517 . 
+ ［ 3 ］ 李祚泳 . BP 网络 用于 环境质量 分类 研究 ［ J ］ . 环境 科学 ， 1994 ， 15 ( 5 ) ： 75 ～ 77 . 
+ ［ 4 ］ 蔡煜东 ， 汪列 ， 姚林声 . 水质 富营养化 程度 的 人工神经网络 决策 模型 ［ J ］ . 中国 环境 科学 ， 1995 ， 15 ( 2 ) ： 123 ～ 127 . 
+ ［ 5 ］ 薛 建军 ， 姚桂基 . 人工神经网络 在 水质评价 中 的 应用 ［ J ］ . 水文 ， 1997 ， 3 ： 37 ～ 39 . 
+ ［ 6 ］ Walley   W   J , Fonama   V   N . Neural   network   predictors   of   average   score   per   taxon   and   number   of   families   at   Unpolluted   River   Sites   in   Great   Britain ［ J ］ . Water   Research , 1998 , 32 ( 3 ) : 613 ～ 622 . 
+ ［ 7 ］ 包 约翰 . 自 适应 模式识别 与 神经网络 ［ M ］ . 北京 ： 科学出版社 ， 1992.24 ～ 58 . 
+ ［ 8 ］ 长江流域 水资源 保护局 . 1990 年度 长江流域 水质 资料 ［ R ］ . 北京 ： 北京大学 城环系 ， 1991 . 
+ ［ 9 ］ 陈静生 ， 高学民 ， 夏星辉 ， 等 . 长江 水系 河水 氮 污染 ［ J ］ . 环境 化学 ， 1999 ， 18 ( 4 ) ： 289 ～ 293 . 
+ ［ 10 ］ 范成 新 . 太湖 富营养化 现状 、 趋势 及其 综合 整治 对策 ［ J ］ . 上海 环境 科学 ， 1997 ， 16 ( 8 ) ： 1 ～ 7 . 
+ ［ 11 ］ 陈国阶 . 长江 水质评价 与 沿江 产业 发展 决策 ［ J ］ . 中国 环境 科学 ， 1996 ， 16 ( 5 ) ： 339 ～ 344 . 
+ 收稿 日期 ： 2000 年 1 月 3 日 
+ 出版日期 ： 2001 年 1 月 30 日 

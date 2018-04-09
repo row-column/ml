@@ -1,0 +1,122 @@
+计算机 应用 
+ Computer   Applications 
+ 1999 年   第 19 卷 　 第 8 期   Vol.19 　 No.8   1999 
+ 
+ 
+ 
+ 采用 回溯 搜索 原理 的 报表 数据 调整 方法 
+ 洪力奋 
+ 1 　 客观 的 需求 
+ 　 　 在 各种 统计 报表 上报 汇总 过程 中 ， 往往 由于 基层单位 使用 的 报表 和 上级 主管部门 使用 的 报表 在 计量单位 上 的 不 一致 ， 需要 进行 单位 换算 。 以 资产 报表 为例 ， 基层 报表 的 数据 以元 为 单位 ， 上级 主管部门 汇总 后 的 数据 以 万元 为 单位 ， 就 需要 将 基层 报表 的 数据 除以 一万 ， 再 根据 精度 的 需要 ， 四舍五入 成 万元 表 。 由于 统计 报表 中 各 栏目 的 数据 之间 存在 一定 的 关系 ， 或 存在 多重 关系 ， 而 上述 单位 的 换算 会 产生 一定 的 误差 ， 从而 破坏 报表 原有 的 平衡 关系 ， 因而 要 对 万元 报表 的 数据 进行 舍入 调整 ， 以 恢复 数据 间 的 平衡 关系 。 
+ 　 　 以往 数据 调整 常 采用 人工 调整 方式 ， 用 试探 和 拼凑 的 方法 ， 使 某数加 1 或 减 1 。 这种 方法 对 单一 关系 的 报表 尚可 操作 ， 但 对 复杂 关系 的 报表 ， 常 出现 调整 一个 数据 使 一个 关系 平衡 了 ， 却 破坏 了 另 一个 平衡 关系 。 这 就 导致 工作效率 的 低下 ， 且 不能 保证 报表 数据 的 准确性 。 
+ 　 　 为了 解决 上述 问题 ， 我们 将 专家系统 中 的 回溯 搜索 原理 和 数据库 语言 巧妙 结合 ， 实现 了 统计 报表 中 数据 自动 调整 ， 使 数据 舍入 调整 规范 、 精确 、 高效 。 
+ 2 　 数据 舍入 调整 的 原则 
+ 　 　 数据 除以 一万 以后 为 整数 的 不 参加 调整 ； 
+ 　 　 和 其它 数据 无 平衡 关系 的 数据 ， 除以 一万 后 ， 根据 精度 要求 ， 四舍五入 一次 调整 成功 ； 
+ 　 　 和 其它 数据 关联 少 的 数据 优先 调整 ； 
+ 　 　 调整 后 误差 小 的 数据 优先 调整 ； 
+ 　 　 调整 误差 的 绝对值 应 小于 1 。 
+ 3 　 专家系统 的 回溯 搜索 原理 
+ 　 　 要 用 程序 自动 实现 数据 调整 ， 就要 模拟 统计人员 手工 调整 的 过程 。 手工 调整 时 ， 先 按 调整 原则 找到 需 调整 的 数据 进行 调整 ， 接着 校验 涉及 该 数据 的 平衡 关系 。 若 都 平衡 了 ， 就 寻找 下 一个 要 调整 的 数据 。 否则 ， 回头 重新 调整 该 数据 。 这一 过程 包含 了 回溯 搜索 的 思想 。 专家系统 语言 Prolog 含有 自动 回溯 的 机制 ， 下面 用 Prolog 编制 的 程序 说明 回溯 原理 。 
+ 　 　 设有 1 个 简单 的 球类 数据库 ： 
+ 　 　 　 　 plays   ( tom , football ) . 
+ ①   plays   ( john , soccer ) . 
+ ②   　 plays   ( john , volleyball ) . 
+ plays   ( tom , basketball ) . 
+ plays   ( tom , volleyball ) . 
+ plays   ( john , baseball ) . 
+ 　 　 现有 问题 ？ -   plays   ( john , X ) ,   plays   ( tom , X ) .   即 求解 john 和 tom 都 爱好 的 球类 。 
+ 　 　 要求 解 的 问题 由 2 个子 目标 组成 ， 只有 当 2 个子 目标 同时 满足 所 求得 的 X 即 为 解 。 
+ 　 　 为 满足 第一个 子目标 ， Prolog 在 数据库 中 查找 匹配 子句 ， 子句 plays   ( john , soccer ) . 的 第一个 对象 与 子目标 的 第一个 对象 的 匹配 ， 于是 第一个 子目标 匹配 成功 ， 变量 X 被例 化为 soccer 。 由于 其它 plays 子句 也 可能 满足 这个 子目标 ， 为防 X 例 化为 soccer 失败 ， Prolog 内部 子程序 在 上述 数据库 标记 ① 的 地方 作 了 回溯 标记 。 
+ 　 　 现在 Prolog 试图 满足 第二个 子目标 ， 由于 X 已经 例 化为 soccer ， 此 子目标 变为   plays   ( tom ,   soccer ) . 搜寻 数据库 ， 找 不到 与 此 目标 匹配 的 子句 ， 故 第二个 子目标 匹配 失败 。 
+ 　 　 由于 第二个 子目标 失败 ， Prolog 必须 重新 满足 第一个 子目标 ， 变量 X 重新 变成 未 例化 的 。 Prolog 从 回溯 标记 ① 的 下 一个 子句 开始 再次 搜寻 到 与 第一 子目标 匹配 的 子句 ， 为 plays   ( john , volleyball ) ， 变量 X 被例 化为 volleybal ， 并且 在 相应 子句 旁置 上 回溯 标记 ② 。 然后 试图 满足 第二个 子目标   plays   ( tom , volleyball ) 。 这次 找到 一个 匹配 子句 ， 两个 子目标 都 被 满足 ， 求得 解 X = volleyball 。 
+ 　 　 综上所述 ， Prolog 在 试图 满足 一 复合 目标 时 ， 是 从左到右 进行 满足 各 子目标 的 搜索 工作 。 若 某 一 子目标 失败 ， 便 需 退回 到 上 一个 子目标 ， 使上 一个 子目标 重新 选择 与 之 匹配 的 目标 。 这种 退回 到 前 一个 子目标 逆向 运行 的 方式 ， 就是 回溯 。 
+ 4 　 数据库 语言 实现 回溯 的 关键 
+ 　 　 数据库 语言 无 自动 回溯 功能 ， 如何 用 数据库 语言 实现 专家系统 语言 中 的 自动 回溯 搜索 ， 是 解决问题 的 关键 。 通常 数据库 语言 提供 按 某 一 关键字 对 数据库 记录 排序 的 功能 ， 可以 通过 修改 索引 关键字 值 的 办法 ， 巧妙 实现 搜索 的 自动 回溯 。 一般 情况 下 ， 索引 关键字 的 值 是 不 改变 的 ， 否则 容易 引起 数据库 记录 的 重排 ， 出现 定位 的 错误 。 数据 调整 时 ， 正是 利用 这种 重排 ， 使 搜索 自动 回到 前面 的 节点 ， 重新 进行 搜索 匹配 ， 直到 搜索 成功 。 即 通过 对 数据 的 加 1 或 减 1 调整 ， 改变 关键字 值 ， 若 误差 增大 ， 则 引起 回溯 ， 重新 调整 ， 直至 使 数据 间 的 关系 重新 获得 平衡 。 
+ 　 　 用 FoxPro 实现 自动 回溯 的 关键 操作 为 ： 
+ 　 　 ⑴   建 索引 
+ 　 　 INDEX   ON   GXCS + ABS （ & ELM2 ） TO   WY   FOR 
+ GXCS > 0   . AND .   & ELM2 < > 0 
+ 　 　 GXCS 字 段值 为 本条 记录 在 数据 关系 中 出现 的 次数 ， & ELM2 代表 若干 字 段 ， 每个 字 段值 为 数据 调整 后 的 误差 。 此 索引 排序 反映 了 数据 调整 原则 1 ⑶ ⑷ 。 调整 后 误差 为 零 以及 和 其它 数据 无 关系 的 数据 记录 已 在 索引 时用 FOR 条件 将 其 筛选 ， 符合 调整 原则 1 ⑴ ⑵ 。 
+ 　 　 ⑵   改变 关键字 值 
+ 　 　 REPL   & ALM1   WITH   & ALM1 + IIF ( & ELM2 > 0 , 1 , - 1 ) 
+ REPL   & ELM2   WITH   & ELM2 + IIF ( & ELM2 > 0 , 1 , - 1 ) 
+ 　 　 & ALM1 为 调整 后 的 值 。 在 进行 & ALM1 的 调整 过程 中 ， 误差 & ELM2 也 相应 修改 ， 引起 记录 重排 ， 达到 自动 回溯 的 目的 。 
+ 5 　 实现 过程 及 程序 实例 
+ 　 　 用 FoxPro 实现 的 过程 及 程序 实例 如下 ， 在 此 对 实际 应用程序 作 了 简化 。 
+ 　 　 ⑴   建立 调整 库 结构 
+ 　 　 SELE   1 
+ USE   & BBDM 
+ COPY   TO   TEMP1   STRU   EXTE 
+ COPY   TO   TEMP2   STRU   EXTE 
+ USE   TEMP2 
+ REPL   ALL   FIELD — NAME   WITH   STUF ( FIELD — NAME , 
+ 1 , 1 , " M " )   FOR   " L " $ FIELD — NAME 
+ APPE   BLAN 
+ REPL   FIELD — NAME   WITH   " GXCS " , FIELD — TYPE 
+ WITH   " N " , FIELD — LEN   WITH   2 
+ USE   TEMP1 
+ APPE   FROM   TEMP2   FOR   LEFT ( FIELD — NAME , 1 ) 
+ = " M " . OR . FIELD — NAME = " GXCS " 
+ USE 
+ CREA   & BBDM . " WY "   FROM   TEMP1 
+ USE   & BBDM . " WY "   ALIAS   WY 
+ APPE   FROM   & BBDM 
+ 　 　 ⑵   数据 除以 一万 ， 同时 计算误差 ， 仅以 字 段 L1 为例 
+ 　 　 REPL   ALL   M1   WITH   L1 / 10000 - ROUN ( L1 , - 4 ) / 10000 
+ REPL   ALL   L1   WITH   ROUN ( L1 , - 4 ) / 10000 
+ 　 　 ⑶   数据 关系 分析 ， 自动 设置 GXCS 值 
+ 　 　 SELE   3 
+ USE   SJGX 
+ SELE   1 
+ SET   FILT   TO   LEN ( TRIM ( HCDM ) ) > 0 
+ GO   TOP 
+ DO   WHIL   . NOT . EOF ( ) 
+ MH = " H " + TRIM ( LTRIM ( HCDM ) ) 
+ SELE   3 
+ COUN   TO   MFH   FOR   
+ MH $ GXS . AND . ( . NOT . 
+ SUBS ( GXS , AT ( MH , MGXS ) + LEN ( MH ) , 1 )   $ SZF ) 
+ SELE   1 
+ REPL   GXCS   WITH   MFH 
+ SKIP 
+ ENDD 
+ SELE   1 
+ GO   TOP 
+ DO   WHIL   . NOT . EOF ( ) 
+ MH = " H " + TRIM ( LTRIM ( HCDM ) ) 
+ & MH = L1 
+ SKIP 
+ ENDD 
+ 　 　 ⑷   按 数据 舍入 调整 原则 索引 排序 
+ 　 　 INDEX   ON   GXCS + ABS ( M1 )   TO   WY 
+ FOR   GXCS > 0 . AND . M1 < > 0 
+ SELE   3 
+ GO   TOP 
+ 　 　 ⑸   按 数据 关系 循环 
+ 　 　 DO   WHIL . NOT . EOF ( ) 
+ GX = UPPE ( TRIM ( GXS ) ) 
+ WC = LEFT ( GX , AT ( ′ = ′ , GX ) - 1 ) + 
+ ′ ( ′ + SUBS ( GX , AT ( ′ = ′ , GX ) + 1 ) + ′ ) ′ 
+ SELE   1 
+ GO   TOP 
+ 　 　 ⑹   按 调整 记录 循环 
+ 　 　 DO   WHIL   . NOT . EOF ( ) . AND . ABS ( & WC ) > 0.001 
+ MH = " H " + TRIM ( LTRIM ( HCDM ) ) 
+ IF   MH $ GX . AND . ( . NOT . SUBS ( WC , AT ( MH , WC ) + LEN ( MH ) , 1 ) $ SZF ) 
+ 　 　 　 REPL   L1   WITH   & MH + IIF ( M1 > 0 , 1 , - 1 ) , M1   WITH   M1 + IIF ( M1 > 0 , 1 , - 1 ) 
+ 　 　 ⑺   如 引起 审核 关系 不 平衡 ， 进行 舍入 调整 ， 修改 误差值 ， 自动 重建 索引 
+ 　 　 ENDI 
+ SKIP 
+ ENDD 
+ SELE   3 
+ SKIP 
+ ENDD 
+ RETU 
+ 作者简介 : 洪力奋 　 硕士 ， 讲师 。 主要 从事 计算机 基础教育 、 数据库 应用 开发 。 
+ 作者 单位 : 洪力奋 　 合肥 经济 技术 学院 计算机系 　 安徽 . 合肥 ( 230052 ) 
+ 参考文献 
+ ［ 1 ］ 　 张 文星 , 纪有奎 , 编著 . 专家系统 原理 与 设计 .   武汉 测绘 科技 大学 出版社 .   1989 , 10 
+ ［ 2 ］ 　 Turbo   Prolog 程序设计 .   陈兆乾 , 潘金贵 , 编译 . 南京大学 出版社 .   1993 , 6 
+ ［ 3 ］ 　 郭盈发 . 汉字 FoxBase + 及其 程序设计 ． 西安 : 电子科技 大学 出版社 ． 1993 , 12 
+ 收稿 日期 : 1999 - 04 - 19 ( 修改稿 ) 

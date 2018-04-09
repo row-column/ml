@@ -1,0 +1,128 @@
+软件 学报 
+ JOURN   AL   OF   SOFTWARE 
+ 1999 年 　 第 10 卷 　 第 10 期 　 Vol.10 　 No.10 　 1999 
+ 
+ 
+ 
+ 分布 交互 仿真 中 基于 Server 的 层次 过滤 机制   
+ 史   扬   金士尧   张 晨曦 
+ 摘要 　 大规模 分布 交互 仿真 对 网络带宽 、 处理 资源 等 提出 了 很 高 的 要求 , 采用 数据 过滤 机制 可 大大降低 对 网络带宽 和 计算资源 的 压力 , 有利于 系统 可 扩性 . 然而 对于 高效 过滤 机制 , 仿真 结点 机要 接收 和 处理 足够 的 过滤 信息 . 当 系统 规模 增大 时 , 大量 过滤 信息 交换 和 处理 占用 了 过 多 的 计算资源 , 影响 了 正常 的 仿真 任务 . 该文 提出 了 一种 基于 Server 的 层次化 过滤 机制 , 解决 了 仿真 节点 计算能力 受限 的 问题 . 同时 , 新 的 机制 利用 仿真 的 内在 局部性 , 开发 了 两级 过滤 信息 , 从而 减少 了 Server 内部 过滤 信息 计算 量 . 
+ 关键词 　 分布 交互 仿真 , 数据 过滤 , 路径 空间 , 可扩展性 , HLA , 组播 通信 . 
+ 中图法 分类号 　 TP391 
+ 
+ Server - based   Hierarchical   Filtering   Scheme   in   Distributed   Interactive   Simulation 
+ SHI   Yang   JIN   Shi - yao   ZHANG   Chen - xi 
+ ( School   of   Computer   Science   National   University   of   Defense   Technology   Changsha   410073 ) 
+ Abstract   Distributed   interactive   simulation   requires   high   network   bandwidth   and   computation   capacity   which   caused   by   redundant   data   when   the   system ’ s   scale   increases .   This   situation   can   be   alleviated   by   data   filtering   to   great   extent .   But   the   effective   filtering   scheme   requires   simulation   hosts   receiving   accurate   filtering   information   and   high   processing   capability ,   this   consumes   too   much   computation   resources   when   systems   grow .   In   this   paper ,   the   authors   propose   a   server - based   hierarchical   filtering   scheme .   New   scheme   frees   the   simulation   hosts   from   the   filtering   processing   and   avails   system ’ s   scalability .   New   scheme   also   exploits   the   potential   locality   of   distributed   interactive   simulation ,   which   reduces   the   amounts   of   filtering   messages   exchanged   and   filtering   computation . 
+ Key   words   Distributed   interactive   simulation ,   data   filtering ,   routing   space ,   scalability ,   HLA   ( high   level   architecture ) ,   multicast . 
+ 　 　 计算机 仿真技术 是 以 相似 原理 、 系统 技术 、 信息技术 及 应用领域 的 相关 专业 技术 为 基础 , 以 计算机 和 各种 物理 效应 设备 为 工具 , 利用 系统 模型 对 实际 的 或 设计 中 的 系统 进行 动态 实验 研究 的 一门 多 学科 的 综合 技术 . 随着 社会 需求 以及 相关 技术 的 发展 , 计算机 仿真 已 由 集中式 发展 到 了 分布 交互 仿真 [ 1 ] , 并 由于 其 有效 、 灵活 、 经济 、 安全 等 优点 而 受到 各行各业 的 重视 , 目前 正 广泛 地 应用 于 军事 以及 国民经济 的 各个领域 . 
+ 　 　 分布 交互 仿真 系统 规模 的 增加 , 对 网络带宽 和 结点 机处理 能力 提出 了 更 高 的 要求 . 过滤 机制 是 一种 有效 的 解决 途径 , 但 高效 的 过滤 机制 占用 过多 的 仿真 结点 处理 资源 , 抵消 了 过滤 带来 的 好处 . 本文 提出 了 一种 基于 Server 的 层次 过滤 机制 . 新 的 过滤 机制 将 结点 机 的 过滤 任务 转移 到 过滤 服务器 中 , 使 系统 规模 扩大 时 , 仿真 结点 机不因 执行 过滤 操作 而 影响 正常 仿真 任务 . 同时 , 新 的 机制 开发 了 仿真 任务 的 局部 特性 , 减少 了 网络 上 冗余 的 过滤 信息 及 Server 内部 计算 量 . 文章 第 1 节 介绍 了 新一代 仿真技术 框架 HLA / RTI 下 过滤 原理 以及 几种 过滤 机制 的 优缺点 , 并 从 效率 和 可 扩性 方面 分析 了 现有 过滤 机制 存在 的 问题 . 第 2 节在 此基础 上 提出 了 基于 Server 的 层次化 过滤 机制 的 模型 和 算法 , 并 进行 了 分析 和 比较 . 第 3 节 总结 了 全文 . 
+ 1 　 分布 交互 仿真 数据 过滤 原理 与 过滤 机制 可 扩性 问题 
+ 1.1   分布 交互 仿真 环境 下 过滤 的 依据 及 重要性 
+ 　 　 未来 的 分布 交互 仿真 在 规模 上应 是 可 扩 的 , 能 支持 成千上万 个 仿真 实体 的 运行 [ 2 ] . 随着 分布 交互 仿真 规模 的 增加 , 必然 加大 了 仿真 结点 ( 仿真 实体 的 载体 ) 之间 数据 的 流量 , 以及 仿真 结点 处理 外部 到达 消息 的 频率 . 这 对 网络带宽 和 处理机 能力 提出 了 很 高 的 要求 , 并 严重 影响 了 系统 的 可 扩性 . 根据 分布 交互 仿真 任务 的 特点 , 使用 数据 过滤 机制 [ 3 , 4 ] 可以 大大 缓解 对 网络带宽 以及 处理 资源 的 需求 , 为 系统 的 可 扩性 提供 了 可能 . 支持 数据 过滤 的 依据 是 仿真 的 局部 特性 , 即 任何时刻 某一 仿真 实体 只 与 系统 中 实体 的 子集 发生 交互 , 我们 称此 子集 为 实体 的 “ 感兴趣 集 ” , 感兴趣 集 内部 的 实体 之间 才 需要 交换 状态 和 交互 信息 . 在 现实 世界 中 , 这种 现象 是 很 常见 的 , 如 模拟 战场 中 的 交战 区域 、 武器 的 探测 和 作用 区域 以及 协作 工程 中 的 工作组 等 , 都 可以 构成 感兴趣 集 . 在 大规模 分布 交互 仿真 中 , 一个 实体 的 感兴趣 集 一般 只 占 实体 集 的 一小部分 , 而且 随着 规模 的 增大 , 感兴趣 集 的 大小 趋于稳定 [ 2 ] . 如 地面 战场 装甲车辆 的 对抗 演习 , 战场 区域 的 扩大 意味着 实体 规模 的 增加 , 但 受 模型 的 限制 ( 视野 、 火炮 射程 及 物理 空间 ) , 其所 交互 的 实体 随着 规模 的 增加 而 趋于稳定 , 而 并非 随 规模 成正比 . 分布 仿真 的 这种 重要 特征 使得 采用 数据 过滤 机制 成为 可能 . 过滤 的 目的 主要 有 两个 : 一个 是 尽可能减少 不 相关 数据 的 产生 , 以 减少 网络带宽 的 占用 ; 另 一个 是 降低 仿真 结点 接收 冗余 数据 时 引起 的 处理 开销 . 这 两个 目的 都 有益于 系统 的 可 扩性 . 图 1 、 图 2 比较 了 过滤 和 非 过滤 情况 下 , 网络流量 和 结点 平均 包 到达 速率 随 系统 规模 的 变化 情况 . 假设 系统 由 n 台 仿真 节点机 组成 , 每个 结点 平均 运行 10 个 实体模型 , 实体 状态 数据包 平均 长度 为 1KByte , 状态 更新 率为 10pkt / s . 表 1 为 图 中 所 使用 的 系统 规模 各异 时 结点 感兴趣 集 规模 . 
+ 　 　 　 　 　 　 　 
+ 图 1 　 过滤 和 非 过滤 机制 下 网络 数据 流量 　 　 　 　 　 　 图 2 　 过滤 和 非 过滤 机制 结点 数据 达到 速率 
+ 表 1   仿真 实体 感兴趣 集随 规模 变化 情况 
+ 
+ 系统 规模 结点 数目 1002003004005006007008009001000 
+ 实体 数目 1   0002   0003   0004   0005   0006   0007   0008   0009   00010   000 
+ 感兴趣 集 规模 感兴趣 集 比例 ( % ) 15108765.554 . 54.13 . 8 
+ 感兴趣 集 大小 150200240280300330350360369380 
+ 
+ 　   
+ 　 　 由图 1 、 图 2 可知 , 采用 过滤 机制 的 网络带宽 和 数据包 到达 速率 的 增长 要远 小于 非 过滤 机制 . 非 过滤 机制 ( 如 , 传统 的 DIS 协议 采用 广播 方式 通信 ) 极大 地 浪费 了 网络带宽 和 处理机 资源 , 系统 的 可 扩性 很 差 , 而 采用 过滤 机制 以及 利用 过滤 计算结果 建立 的 组播 通信 ( multicast ) [ 5 ] 则 大大减少 了 网络 的 流量 和 数据包 速率 . 由此可见 , 过滤 机制 对系统 的 可 扩性 意义 很大 . 
+ 1.2   HLA 框架 下 过滤 原理 
+ 　 　 仿真 高级 体系结构 HLA ( high   level   architecture ) [ 6 ] 是 美国国防部 ( DoD ) 于 1995 年 提出 的 新 的 仿真技术 框架 , 它 针对 现有 仿真技术 ( 如 DIS 协议 和 ALSP 协议 ) 的 不足 , 解决 分布 交互 仿真 的 互操作性 ( 不同 领域 和 类型 仿真 应用 之间 的 集成 ) 和 可 重用 性 ( 提高 仿真 开发 的 效率 ) . HLA 将 取代 DIS 协议 成为 新一代 分布 交互 仿真 的 标准 框架 [ 7 ] . 除了 支持 互操作 和 可 重用 , HLA 也 为 数据 过滤 的 高效 灵活 的 实现 提供 了 支持 : DIS 以 标准 的 实体 状态 数据包 作为 基本 单元 , 而 HLA 支持 基于 实体 状态 子集 的 数据 单元 . 
+ 　 　 在 HLA 框架 下 , 支持 数据 过滤 的 基本概念 是 路径 空间 RS ( routing   space ) [ 8 ] , RS 是 一个 抽象 的 多维 坐标 系统 , RS 有 三要素 : ( 1 )   坐标 系统 的 维数 ; ( 2 )   路径 变量 , 对应 于 坐标 系统 的 每 一维 , 用于 表达 感兴趣 区域 的 特征 ( 如 地理坐标 、 运动 速度 等 ) ; ( 3 )   路径 变量 在 每维上 的 定义 ( 如 单位 刻度 、 范围 等 ) . 
+ 　 　 仿真 实体 通过 RS 来 描述 向 外部 发送 的 和 从 外部 接收 的 数据 的 特征 . 这种 描述 通过 定义 RS 中 的 子集 — 空间 区域 ( region ) 来 实现 : 实体 通过 公布 区域 ( publish   region ) 和 定购 区域 ( subscribe   region ) 描述 向外 发送数据 和 接收 外部 数据 的 约束条件 , 发送 或 接收数据 与 区域 建立 起 映射 关系 . 图 3 为 二维 RS 空间 的 数据 公布 与 定购 示意图 . 每个 实体 的 发送 和 接收数据 都 建立 与 区域 的 映射 关系 , 可用 以下 三元 式 表示 区域 、 实体 、 数据 间 的 关系 : 
+ 〈 Region ,   Entity ,   Attributes 〉   . 
+ 
+ 图 3 　 基于 路径 的 数据 公布 与 定购 
+ 　 　 一个 仿真 实体 可以 在 多个 不同 的 RS 上 操作 , 每个 RS 都 有 一个 唯一 的 标识符 , 对 同一个 RS 进行 公布 和 定购 的 仿真 实体 在 此 RS 的 三要素 上 达成 一致 , 以 保证 信息 的 相互 可 理解 性 ( 这 可以 通过 一个 公共 可 访问 的 仿真 初始化 文件 实现 ) . 图 3 中 过滤 算法 的 执行 结果 是 : 实体 b 的 公布 区域 不 与 任何 定购 区域 相交 , 因此 禁止 b 的 数据 发送 ; 实体 a 的 公布 区域 与 实体 c 和 d 的 定购 区域 相交 , 为 实体 a 分配 一个组 播 地址 并 允许 a 发送数据 , 指导 实体 c 和 d 加入 相应 的 组播 地址 . 
+ 　 　 通过 对 公布 和 定购 区域 的 匹配 计算 , 可以 确定 公布 方 是否 可以 发送 , 以及 接收 方 是否 应该 接收 . 我们 称 定购 区域 和 公布 区域 信息 为 过滤 信息 , 称 区域 的 匹配 为 过滤 计算 . 在 过滤 信息 的 处理 建立 了 数据源 与 一组 目的地 的 对应 关系 , 在 此基础 上 利用 底层 网络 的 组播 功能 ( multicast ) [ 5 , 9 ] , 数据 只 需 一次 多播 发送 即可 , 通过 路由器 自动 复制 和 路由 数据 , 这样 减少 了 发送 方 处理机 的 通信 开销 , 同时 也 减少 了 网络 的 流量 . 
+ 1.3   过滤 机制 的 可 扩性 问题 
+ 　 　 过滤 机制 有 许多 实现 途径 , 文献 [ 3 ] 提出 了 基于 网格 ( grid - based ) 的 过滤 算法 . 其 基本 思想 是 : 将 路径 空间 划分 成 粒度 相等 的 网格 , 并 为 每个 单元 分配 一个组 播 地址 , 发送者 向 与其 公布 区域 相交 的 网格 对应 的 组播 地址 发送数据 , 接收者 加入 与其 定购 区域 相交 的 网格 对应 的 组播 地址 . 网格 算法 实现 简单 , 发送 与 接收 方不需 交换 过滤 信息 和 匹配 计算 , 其 缺点 是 : ( 1 )   由于 缺少 过滤 信息 , 发送 方 盲目 发送 所有 公布 数据 而 不管 是否 与 定购 区域 相交 ; ( 2 )   组播 地址 数目 需求量 大 , 且 浪费 严重 ; ( 3 )   网格 固有 粒度 导致 过滤 精确 程度 有限 . 网格 算法 将 过滤 带来 的 好处 大打折扣 , 其 效率 和 组播 地址 需求量 等 因素 使 其 在 系统 规模 较大 时 不可 用 . 文献 [ 4 ] 提出 了 几种 基于 网格法 的 变种 , 一定 程度 上 缓解 了 网格 精度 问题 , 但 对 过滤 效率 的 改善 却 不大 . 文献 [ 10 ] 提出 了 基于 接收 方 ( receiver - based ) 的 过滤 机制 RBF , 其 基本 思想 是 : 发送 方 根据 其他 结点 的 数据 需求 决定 数据 的 发送 与否 并 指导 数据 的 路由 . 这种 过滤 机制 最大 程度 地 在 数据 发送 源端 限制 了 冗余 数据 的 产生 , 是 一种 高效 的 过滤 机制 . 文献 [ 8 ] 的 研究 结果表明 , 基于 接收 方 过滤 机制 要 明显 优于 基于 网格 过滤 机制 , 并 逼近 理想 情况 下 的 过滤 效果 . 但 基于 接收 方 过滤 机制 的 主要 缺点 是 仿真 结点 需要 足够 的 过滤 信息 , 这 意味着 仿真 结点 必须 接收 外部 结点 的 每 一次 区域 变化 并 进行 匹配 计算 , 且 根据 结果 指导 交互 关系 不断 变化 的 实体 间 的 数据 发送 和 接收 . 
+ 　 　 采用 高效 过滤 机制 有利于 系统 可 扩性 , 但 前提 是 需要 足够 的 过滤 信息 和 处理 能力 . RBF 机制 没有 考虑 系统 规模 变化 对 过滤 开销 的 影响 . 分析 分布 交互 仿真 任务 的 特点 , 设 每个 仿真 结点 的 处理 能力 为 1 , 每个 结点 的 计算资源 主要 由 3 部分 组成 : 仿真 实体模型 的 计算 开销 CPUsim 、 外部 数据 接收 处理 开销 CPUcomm 、 过滤 机制 开销 CPUfilter , 且 有 CPUsim ＋ CPUcomm ＋ CPUfilter ＝ 1 . 其中 CPUsim 与 模型 的 复杂度 有关 , 一般 有 一个 固定 上 界 ; CPUcomm 与 实体 与 外部 的 交互 程度 有关 , 通过 高效 的 过滤 机制 将 冗余 数据 的 接收 降低 到 最低 程度 ; CPUsim , CPUcomm 与 仿真 应用 必不可少 的 , 且 占用 绝大部分 处理 资源 . CPUfilter 包括 过滤 信息 接收 处理 开销 和 过滤 计算 开销 , 对于 现有 的 商业化 计算 平台 , 受 操作系统 等 因素 的 限制 , 消息 处理 开销 相对 于 计算能力 是 一个 瓶颈 , 这 一直 是 制约 系统 性能 发挥 的 主要 因素 . 表 2 列出 了 几种 当前 典型 计算 平台 的 数据包 处理 开销 ( 与 OS 和 网络 驱动程序 的 效率 等 因素 有关 ) . 由于 涉及 到 OS 内核 的 参与 , 一次 包 处理 开销 占用 的 CPU 时间 相当于 几万 条 指令 的 执行 时间 . 对于 RBF 机制 , 其 过滤 信息 到达 率 与 系统 规模 成正比 , 因此 CPUfilter 也 正比 于 系统 规模 . 这 说明 RBF 机制 对 正常 仿真 任务 的 干扰 程度 较大 , 当 系统 规模 较大 时 影响 正常 的 仿真 任务 执行 . 由此可见 , 在 应用 过滤 机制 减少 网络流量 和 结点 数据包 速率 的 同时 , 必须 考虑 过滤 机制 开销 随 系统 规模 增长 所 带来 的 负面影响 . 
+ 表 2   几种 典型 商业性 计算 平台 的 网络 消息 处理 开销 
+ 
+ 系统 CPU 时钟 ( MHz ) 操作系统 消息 平均 处理 开销 ( m   s ) 
+ Pentium   II200Linux   2.0 . 1641 
+ SUN   SU2 / 2170167Solaris   2.5 . 166 
+ SGI   Indigo2250IRIX   5.3106 
+ DEC   Alpha266OFS   3.2 C113 
+ 
+ 　   
+ 2 　 基于 Server 的 层次 式 过滤 机制 
+ 2.1   结构 模型 
+ 　 　 支持 分布 交互 仿真 规模 可扩 的 过滤 机制 应是 高效 的 , 它 能 有效 延缓 网络流量 和 仿真 结点 包 速率 的 急剧 增长 , 同时 , 高效 过滤 机制 对 仿真 结点 的 干扰 程度 不应 随 系统 规模 而 明显增加 . 目前 存在 的 主要矛盾 是 过滤 效率 与 过滤 实现 代价 之间 的 矛盾 , 这一 矛盾 主要 是 由 仿真 结点 执行 过滤 机制 造成 的 . 为了 解决 过滤 效率 与 系统 规模 之间 的 矛盾 , 我们 提出 了 基于 分布式 Server 的 层次化 过滤 机制 SBHF ( server - based   hierarchical   filtering ) , 如图 4 所示 . 分布 交互 仿真 一般 建立 在 网络 环境 的 基础 上 , 为 不失 一般性 , 我们 假设 分布 交互 仿真 环境 有 若干个 站点 ( 如 局域网 ) , 每个 站点 由 若干 仿真 结点 ( host ) 和 一个 服务器 ( server ) 组成 . 
+ 
+ 图 4 　 基于 分布式 Server 的 过滤 结构 模型 
+ 
+ 2.2   Server 内部 层次化 过滤 信息 
+ 　 　 Server 用于 接收 LAN 内部 各 仿真 节点 的 过滤 信息 并 执行 过滤 算法 ( 区域 匹配 计算 ) . 另外 , Server 之间 交换 过滤 信息 以 保证 每个 结点 对 全局 过滤 信息 的 敏感性 . 为了 开发 时 局部性 地 减少 Server 间 信息 交换量 和 计算 量 , 我们 将 过滤 信息 组织 成精 、 粗 两类 . 精 信息 是 未 处理 的 原始 过滤 信息 , 粗 信息 是 在 精 信息 基础 上 合并 后 的 过滤 信息 . 每个 Server 维护 精 、 粗 两类 过滤 信息 , 其中 精 信息 来自 本 网段 内部 结点 的 公布 与 定购 信息 , 粗 信息 来自 外部 网段 上 合并 后 的 过滤 信息 . 两类 信息 描述 如下 . 
+ 　 　 精 过滤 信息 包括 定购 信息 < RSk , Hi , Ei , j , Σ Sk > 和 公布 信息 <   RSk , Hi , Ei , j < Pk >   . RSk 表示 第 k 个 路径 空间 , Hi 表示 第 i 个 结点 机 , Ei , j 表示 结点 i 上 第 k 个 仿真 实体 , Σ Sk 与 Σ Pk 分别 表示 实体 在 RSk 上 的 定购 区域 集合 和 公布 区域 集合 . 
+ 　 　 粗 过滤 信息 包括 定购 信息 < RSk , SVRm , ∪ Sk > 和 公布 信息 <   RSk , SVRm , ∪ Pk > . SVRm 表示 站点 m 的 Server , ∪ Sk 表示 站点 m 内部 结点 机在 RSk 上 定购 区域 合并 后 的 集合 , ∪ Pk 表示 合并 后 的 公布 区域 . 合并 区域 的 目的 是 减少 过滤 信息量 , 以 减少 过滤 匹配 计算 量 . 区域 合并 有 多种 途径 , 本文 假设 合并 区域 采用 最小 覆盖 集法 . 过滤 信息 的 这种 有序 的 组织 可以 很 好 地 以 数组 或 hash 表 的 方式 实现 . 
+ 2.3   过滤 机制 描述 
+ 　 　 图 5 为 基于 Server 的 层次化 过滤 机制 示意图 . 
+ 
+ 图 5 　 基于 Server 内部 层次化 过滤 机制 示意图 
+ 　 　 Server 接收 来自 内部 host 的 过滤 信息 ( 定购 与 公布 区域 信息 ) , 并 形成 粗 、 精 两类 信息 , Server 之间 交换 粗 信息 . 当某 一 实体 的 定购 区域 s 发生变化 时 , 更新 的 定购 信息 发送到 本地 Server , 重新 合并 定购 信息 , 同时 将 合并 后 的 信息 发送到 其余 Server 中 . 在 Server 上 执行 层次 过滤 信息 的 匹配 . 首先 , 定购 区域 s 与 保存 的 外部 Server 的 合并 公布 信息 进行 匹配 ( 粗 匹配 ) , 只有 匹配 成功 , 才 将 s 发往 发生 相交 的 Server 进一步 与 外部 Server 内 的 精确 公布 信息 逐一 匹配 , 并 根据 匹配 结果 指导 相应 结点 开始 或 停止 发送数据 ( 加入 或 退出 相应 组播 地址 ) . 相对 于 RBF , SBHF 减少 了 不 相关 区域 的 匹配 计算 量 . 当 公布 区域 p 发生变化 时 与 上述情况 类似 , 算法 详细描述 如下 ( 算法 描述 中 的 符号 含义 同 前 ) : 
+ 　 　 算法 .   Server - based   Hierarchical   Filtering   Algorithm 
+ 　 　 / *   算法 运行 在 SVRi 上 , 下标 i 表示 站点 内部 ,   j 表示 外部 , i ≠ j   * / 
+ 　 　 / *   s ＇ ( p ＇ ) 表示 发生变化 的 定购 ( 或 公布 ) 信息   * / 
+ 　 　 Loop 
+ 　 　 t = 0 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / *   初始化 仿真 时间   * / 
+ 　 　 wait   to   receive   msg 　 　 　 　 　 　 　 / *   SVRi 接收 消息   * / 
+ 　 　 If   msg = si ＇   ( pi ＇   ) 　 　 　 　 　 　 　 　 / *   si ( pi ＇   ) 为 来自 内部 结点 更新 的 过滤 信息   * / 
+ 　 　 Si = si ＇ ∪ { Σ   Si – si } ( Σ   Pi = pi ＇   ∪ { Σ   Pi – pi } ) ; 　 / *   更新 本地 精 过滤 信息   * / 
+ 　 　 ∪ Si = ∪ { Σ   Si }   ( ∪ Pi = ∪ { Σ Pi } ) ; 　 　 / *   精 信息 合并 成 粗 信息   * / 
+ 　 　 send   ∪ Pi ( ∪ Si )   to   other   Server ; 　 / *   发送 粗 信息 给 其他 站点   * / 
+ 　 　 For   all   ∪ Pj ( ∪ Sj )   of   SVRj   stored   in   SVRi 
+ 　 　 　 If   si ＇   ∩ { ∪ Pj } ≠ φ   　 　 　 　 　 　 / *   粗 匹配 成功 , 发此 信息 到 相应 Server 进一步 匹配   * / 
+ 　 　 　 　 　 send   si ＇   ( pi ＇   )   to   SVRj ; 
+ 　 　 endfor 
+ 　 　 If   msg = ∪ Sj ＇   ( ∪ Pj ＇ ) 　 　 　 　 　 　   / *   ∪ Sj ＇   ( ∪ Pj ＇   ) 为 来自 外部 SVRj 的 粗 过滤 信息   * / 
+ 　 　 update   ∪ Sj ＇   ( ∪ Pj ＇   ) ;   　 　 　 　   / *   更新 SVRi 上 的 粗 过滤 信息   * / 
+ 　 　 If   msg = sj ＇   ( pj ＇   )   　 　 　 　 　 　 / *   sj ＇   ( pj ＇   ) 为 来自 外部 SVRj 粗 匹配 成功 的 过滤 信息   * / 
+ 　 　 　 For   all   pi ( si )   in   Σ   Si ( Σ   Pi ) 
+ 　 　 If   sj ＇   ( pj ＇   ) ∩ pi ( si ) ≠ φ 　 　 　 　   / *   与 本地 精 信息 匹配 , 并 指导 相应 结点 发送 ( 接收 )   * / 
+ 　 　 　 direct   hosts   ( internal   hosts   of   SVRi   )   start   to   send ( receive )   data ; 
+ 　 　 　 send   sj ＇   ( pj ＇   )   match   success   report   to   SVRj ; 
+ 　 　 endfor 
+ 　 　 If   msg = match   success   report 　 　 　 / *   外部 精 匹配 成功 报告   * / 
+ 　 　 　 　 direct   hosts   which   generate   si ＇   ( pi ＇   )   start   to   receive ( send )   data ; 
+ 　 　 For   all   pi ( si )   in   Σ   Si ( Σ   Pi )   　 　 / *   内部 结点 之间 进行 匹配   * / 
+ 　 　 If   si ＇   ( pi ＇   ) ∩ pi ( si ) ≠ φ 　 　 　 　 / *   匹配 成功 , 指导 相应 内部 结点 发送 与 接收   * / 
+ 　 　 　 direct   hosts   ( internal   hosts   of   SVRj )   start   to   send ( receive )   data ; 
+ 　 　 　 request   t   advance ;   / *   请求 仿真 时间 推进   * / 
+ 　 　 Endloop 
+ 　 　 需要 指出 的 是 , 实体 的 区域 更新 率 一般 情况 下要 小于 实体 状态 更新 率 , 即 实体 之间 的 交互 一般 持续 一段时间 , 当 区域 变化 超过 某 一个 阈值 时 , 实体 发出 区域 更新 请求 , 文献 [ 8 ] 详细 讨论 了 这个 问题 . SBHF 算法 可 集成 到 HLA 的 数据分布 管理 ( DDM ) 服务 中 [ 10 ] , 所 需 的 时间 同步 由 RTI 提供 的 时间 服务 实现 [ 11 ] . 限于 篇幅 , 本文 不再 讨论 . 
+ 2.4   可 扩性 分析 
+ 　 　 本 节 我们 分析 两种 机制 对系统 可 扩性 的 影响 . 由于 目前 处理机 的 处理 能力 和 网络 能力 之间 存在 着 巨大 的 差异 , 网络 能力 成为 系统 瓶颈 , 而且 随着 微处理机 技术 的 飞速发展 , 这种 差距 还 在 加大 , 因此 , 我们 比较 两种 机制 下 的 过滤 信息 到达 速率 对系统 的 影响 . 为了 方便 分析 , 我们 考虑 对称 型 的 系统配置 , 即 系统 由 m 个 站点 组成 , 每个 站点 有 n 个 结点 机 , 每个 结点 机有 s 个 仿真 实体 , 实体 过滤 信息 变化率 为 r . 
+ 　 　 对于 RBF 过滤 机制 , 每个 结点 机 共有 mn – 1 个 外部 结点 , 因此 , 结点 的 过滤 信息 到达 率为 r ( mn – 1 ) s . 在 SBHF 中 , 仿真 结点 不 参与 原始 过滤 信息 的 接收 和 处理 , 它 只 接收 Server 处理 过后 的 指导 信息 , 即 只有 与 此 结点 相关 的 变化 才 被 通知 , 因此 , 结点 的 消息 到达 率 最大 为 r ( mn – 1 ) sph ,   ph 是 规模 为 mn 时 结点 机 的 感兴趣 集 比例 . 图 6 为 两种 机制 下 仿真 结点 的 过滤 信息 到达 率 , 其中 m = 100 , 200 , … , 1000 ; n = 10 ; s = 1 ; r = 0.2 / s . 
+ 　 　 由图 6 可见 , SBHF 机制 下 结点 过滤 信息 到达 率远 小于 RBF , 且 系统 规模 对 其 影响 很小 , 这 说明 SBHF 过滤 机制 对 仿真 结点 处理 资源 占用 很小 , 随 系统 规模 变化 增长 不 明显 , 因此 具有 很 好 的 可 扩性 . 需要 指出 的 是 , SBHF 机制 并 不 限制 每个 站点 只能 有 一个 Server , 它 支持 站点 中 多个 Server 的 存在 : 将 局域网 内 仿真 结点 逻辑 分组 , 每个 Server 负责 一组 , 以 平衡 负载 , 从而 可以 适应 规模 较大 的 站点 . 仿真 站点 内部 Server 的 配置 使得 仿真 结点 可以 集中 于 仿真 任务 的 执行 , 这 对于 适应 现代 仿真 任务 越来越 趋于 复杂化 ( 如 更加 精确 的 仿真 模型 、 仿真 结果 的 高性能 图形 显示 ) 具有 重要 的 现实意义 . 
+ 
+ 仿真 节点机 数目 
+ 图 6 　 两种 机制 下信 真 结点 的 过滤 信息 到达 率 
+ 
+ 3 　 结束语 
+ 　 　 当代 仿真 正 朝着 大规模 分布 交互 方向 发展 , 其 应用领域 主要 有 : 网上 交互 游戏 、 军事训练 、 工业 培训 、 协作 工程 以及 复杂 工程 模型 的 分布 仿真 等 . 未来 的 仿真 一定 是 分布 和 交互 的 , 且 在 规模 上 是 可 扩 的 . 过滤 机制 开发 仿真 的 局部 特性 大大 缓解 了 规模 扩大 时 网络带宽 的 需求 和 大量 冗余 数据包 对 处理机 的 干扰 . 高效 的 过滤 机制 要求 较 高 的 信息量 和 处理 资源 , 在 规模 较大 时 影响 正常 仿真 执行 , 这 违背 了 过滤 的 初衷 . 本文 提出 的 基于 Server 的 层次化 过滤 机制 在 不 降低 过滤 信息 精确度 的 基础 上 , 解决 了 高效 过滤 机制 受 仿真 结点 机 能力 限制 的 问题 , 同时 利用 分布 仿真 任务 存在 的 局部性 , 开发 粗 、 精 两类 过滤 信息 以 减少 网络 上 的 过滤 信息 和 过滤 计算 量 , 是 一种 可 扩性 好 的 过滤 机制 . 进一步 的 研究 将 集中 在 Server 算法 的 实现 优化 上 , 如 Server 内部 过滤 信息 合并 策略 的 研究 以 提高 粗 匹配 的 精度 , 以及 开发 算法 的 并行性 充分利用 计算 平台 的 并行处理 能力 等 . 
+ 注释 ： 本文 研究 得到 国家自然科学基金 资助 。 
+ 作者简介 ： 史   扬 ： 1971 年生 , 博士 , 主要 研究 领域 为 分布 / 并行处理技术 
+ 　 　 　 　 　 金士尧 ： 1937 年生 , 教授 , 博士生 导师 , 主要 研究 领域 为 计算机系统 结构 , 性能 评价 , 计 
+ 　 　 　 　 　 　 　 　 　 算机 仿真 
+ 　 　 　 　 　 张 晨曦 ： 1960 年生 , 教授 , 博士生 导师 , 主要 研究 领域 为 分布 / 并行处理技术 
+ 作者 单位 ： 国防科学技术大学 计算机 学院   长沙   410073 
+ 参考文献 
+ Fullford   D .   Distributed   interactive   simulation :   it ’ s   past ,   present   and   future .   In :   Brunner   D   ed .   Proceedings   of   the   Winter   Simulation   Conference .   San   Diego ,   CA :   ACM   SIGSIM ,   1996 .   179 ～ 186   
+ Swaine   S ,   Stapf   M .   Large   DIS   exercises - 100   entities   out   of   100000 .   In :   Medin   L   ed .   Proceedings   of   the   16th   Interservice / Industry   Training   Systems   and   Education   Conference .   Orlando ,   FL :   IEEE   Computer   Society ,   1994 .   4 ～ 13   
+ Van   Hook   D   J ,   Rak   S   J ,   Calvin   J   O .   Approach   to   relevance   filtering .   In :   Miller   D   C   ed .   Proceedings   of   the   11th   Distributed   Interactive   Simulation   Workshop .   Orlando ,   FL :   IEEE   Computer   Society   Press ,   1994 .   367 ～ 372   
+ Macedonia   M .   Exploiting   reality   with   multicast   groups :   a   network   architecture   for   large   scale   virtual   environments .   IEEE   Computer   Graphics   and   Application ,   1995 , 15 ( 5 ) : 38 ～ 5   
+ Pullen   J   M .   The   IETF ,   reliable   multicast ,   and   distributed   simulation .   No .   98S - SIW - 208 .   http : / / siso . sc . ist . ucf . edu / siw / 98spring /   docs / papers   
+ Defense   Modeling   &   Simulation   Office   ( DMSO ) .   High   level   architecture   baseline   definition .   1996 .   http : / / www . dmso . mil   
+ Miller   D .   The   DoD   HLA   and   the   Next   Generation   of   DIS .   In :   Miller   D   ed .   Proceedings   of   the   14th   Distributed   Interactive   Simulation   Workshop .   Orlando ,   FL :   IEEE   Computer   Society   Press ,   1996 .   799 ～ 806   
+ Morse   K   L ,   Steinman   J   S .   Data   distribution   management   in   the   HLA :   multidimensional   regions   and   physically   correct   filtering .   In :   Miller   D   C   ed .   Proceedings   of   the   Spring   Simulation   Interoperability   Workshop .   Orlando ,   FL :   IEEE   Computer   Society   Press ,   1997 .   343 ～ 352   
+ Powell   E   T .   The   use   of   multicast   and   interest   management   in   DIS   and   HLA   application .   In :   Miller   D   C   ed .   Proceedings   of   the   15th   Distributed   Interactive   Simulation   Workshop .   Orlando ,   FL :   IEEE   Computer   Society   Press ,   1996 .   251 ～ 260   
+ Van   Hook   D   J ,   Rak   S   J ,   Calvin   J   O .   Approaches   to   RTI   implementation   of   HLA   data   distribution   management   service .   In :   Miller   D   C   ed .   Proceedings   of   the   15th   Distributed   Interactive   Simulation   Workshop .   Orlando ,   FL :   IEEE   Computer   Society   Press ,   1996 .   535 ～ 544   
+ Fujimoto   R   M ,   Weatherly   R   M .   Time   management   in   the   DoD   high   level   architecture .   In :   Wayne   L ,   Bruno   P   eds .   Proceedings   of   the   10th   Workshop   on   Parallel   and   Distributed   Simulation .   Philadelphia ,   PA :   ACM   Press ,   1996 .   60 ～ 66   
+ 收稿 日期 : 1998 - 06 - 29 修稿 日期 : 1998 - 10 - 16 

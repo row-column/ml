@@ -1,0 +1,127 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH 
+ AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 12 期   Vol.36   No.12   1999 
+ 
+ 
+ 
+ 基于 顶点 可见 性 的 凹 多边形 快速 凸 分解 算法 
+ 金 文华 　 饶 上荣 　 唐卫清 　 刘慎权 
+ 摘 　 要 　 凹 多边形 的 凸 分解 问题 是 计算 几何 的 基本 问题 之一 ， 在 许多 领域 均 有 应用 . 现有 算法 大多 为 全局 剖分 算法 ， 而 局部 剖分 算法 研究 的 很少 . 全局 方法 由于 耗时 太 多 ， 而 不能 满足 所有 工程 应用 的 需要 . 目前 局部 剖分 算法 中 最 经典 的 是 Rogers 算法 ， 但 由于 其 存在 许多 缺陷 而 在 实际 应用 中 受到限制 . 文中 在 多边形 顶点 可见 性 基础 上 ， 提出 了 新 的 局部 剖分 方法 . 利用 凹点 的 局部 几何 特性 ， 通过 引入 权函数 从 凹点 的 可见 点串 中 选取 适当 的 点 引剖 分线 ， 或者 利用 凹点 夹角 平分线 与 某 两 可见 顶点 所在 边 的 交点 引剖 分线 进行 多边形 分解 . 文中 算法 已 应用 于 工厂 设计 软件 PDSOFT   Piping 中 ， 实践证明 效果 很 好 . 
+ 关键词 　 简单 多边形 ， 顶点 可见 性 ， 多边形 分解 ， 计算 几何 
+ 中图法 分类号 　 TP302.4 ； TP391.72 
+ A   FAST   POLYGON   CONVEX   DECOMPOSITION   ALGORITHM 
+ BASED   ON   POINT   VISIBILITY 
+ JIN   Wen - Hua ,   RAO   Shang - Rong ,   TANG   Wei - Qing ,   and   LIU   Shen - Quan 
+ ( CAD   Laboratory ,   Institute   of   Computing   Technology , 
+ Chinese   Academy   of   Sciences ,   Beijing   100080 ) 
+ Abstract 　 Polygon   convex   decomposition   is   one   of   the   fundamental   problems   in   computational   geometry .   It   is   used   in   many   fields .   Most   of   the   algorithms   now   available   are   global   searching   ones .   Local   searching   algorithms   are   rarely   studied .   The   global   searching   algorithms   waste   so   much   time   that   they   cannot   meet   the   need   of   all   the   engineering   problems .   Presently   the   most   classical   local   searching   method   is   Rogers   algorithm .   But   as   it   has   many   limitations ,   it   is   restricted   in   some   actual   use .   In   this   paper ,   a   new   local   searching   algorithm   is   proposed   based   on   the   polygon   point   visibility .   The   local   geometrical   property   is   fully   used   in   the   algorithm .   The   cutting - line   is   obtained   from   the   concave   point   to   the   visible   point   which   is   carefully   searched   from   the   visible   point   list   of   this   concave   point   by   using   weight   function .   Alternatively ,   the   cutting - line   is   found   from   concave   point   to   the   intersection   point   which   is   located   on   the   visible   point   line   and   the   bisector   of   the   concave   angle   associated   with   the   concave   point .   The   presented   algorithm   has   been   applied   in   the   plant   design   system   of   PDSOFT   Piping ,   and   the   results   obtained   are   remarkable . 
+ Key   words 　 simple   polygon ,   point   visibility ,   polygon   decomposition ,   computational   geometry 
+ 1 　 引 　 　 言 
+ 　 　 给定 任意 一个 简单 多边形 ， 如何 将 其 分解 为 多个 具有 相同 特性 的 子 多边形 的 组合 是 计算 几何 的 一个 基本 问题 ， 这些 子 多边形 类型 包括 三角形 ［ 1 ］ 、 矩形 ［ 1 ］ 、 梯形 ［ 1 ］ 、 任意 凸多边形 ［ 2 ～ 6 ］ 、 螺旋 多边形 ［ 6 , 7 ］ 、 星形 多边形 ［ 6 , 8 ］ 、 单调 多边形 ［ 9 ］ 等 . 对于 多边形 的 组合 又 存在 两种 形式 ， 一种 是 并 的 组合 ， 这是 当前 流行 的 多边形 剖分 组合 方式 ［ 3 ～ 5 ］ ； 另 一种 是 并 和 差相 混合 的 组合 ， 如 汪嘉业 等 人 在 文献 ［ 4 ］ 中 利用 凸包 算法 将 简单 凹 多边形 分解 为 多个 凸多边形 的 差 组合 . 本文 只 讨论 将 简单 多边形 分解 为 多个 任意 凸多边形 并 组合 的 问题 . 
+ 　 　 凹 多边形 的 凸 分解 在 许多 领域 都 有 其 用武之地 ， 如 计算机 图形学 ［ 10 ］ 、 模式识别 ［ 3 ］ 、 图像 分析 ［ 3 ］ 、 有限元 三角 网格 剖分 ［ 11 ］ 等 . 给定 任意 一个 简单 多边形 ， 如何 将 其 分解 为 最少 个数 的 凸多边形 是 计算 几何 中 的 一个 经典 问题 ， 被 称为 OCD ( optimal   convex   decomposition ) 问题 . 最初 人们 认为 这是 一个 NP - hard 问题 ， 但 B . Chazelle 和 D . P . Dobkin 于 1979 年 发表 的 文章 指出 这 并非 是 NP - hard 问题 ， 并 给出 了 相应 的 算法 ［ 12 ］ . 虽然 OCD 问题 已经 有 可行 的 算法 进行 求解 ， 但 由于 其 耗时 巨大 ， 而 不能 用来 解决 大多数 实际 工程 问题 . 另外 ， 在 实际 工程 问题 中 ， 有时 不仅 要求 剖分 后 凸多边形 的 数量 尽可能少 ， 而且 要求 凸多边形 的 形态 质量 较 好 . 文献 ［ 5 ］ 将 凸多边形 形态 质量 理解 为 “ 剖分 所得 各 凸多边形 在 邻接 处 内角 大小 应 尽量 接近 ， 或者说 是 各 凸多边形 内角 中 最小 者 最大 ” . 真正 实用 的 凹 多边形 剖分 算法 大多数 是 在 解决 分解 后 得到 的 凸多边形 形态 质量 和 数量 两者之间 寻求 折中 . 
+ 　 　 Schachter 利用 Delaunay 思想 对 简单 凹 多边形 进行 凸 分解 ［ 2 ］ . Chazelle 等 通过 构造 Xk 型 ( Xk - pattern ) 凹点 串 实现 了 尽可能 少数 目的 凸 分解 ［ 13 ］ . Keil 利用 基 凸多边形 ( base   convex   polygon ) 合并 的 思想 进行 凸 分解 ［ 14 ］ . 国内 也 有 不少 学者 对此 进行 了 研究 ［ 3 ～ 5 ］ . 肖忠晖 等 人 在 文献 ［ 3 ］ 中 根据 凹点 与其 前后 相邻 点 的 位置 关系 ， 将 凹点 进行 编码 分类 ， 然后 根据 凹点 对 的 编码 情况 选择 剖分 策略 . 王钲旋 等 人 在 文献 ［ 5 ］ 中 通过 在 可 视点 对 之间 建立 一种 权函数 来 进行 剖分 ， 权函数 既 考虑 了 如何 尽可能减少 凸多边形 数目 ， 又 考虑 了 分解 后 凸多边形 的 形态 质量 ， 该 算法 是 对 文献 ［ 3 ］ 中 算法 的 改进 . 
+ 　 　 在 多边形 凸 分解 算法 中 ， 是否 使用 辅助 点 ( Steiner   points ) 将 直接 影响 分解 后 产生 的 凸多边形 数目 . 此处 的 辅助 点 是 指 凹 多边形 分解 后 得到 的 所有 凸多边形 顶点 中 那些 不 属于 原凹 多边形 顶点 的 点 . 在 一般 情况 下 ， 采用 辅助 点 有助于 减少 凸多边形 数量 ， 而且 如果 辅助 点 选取 适当 ， 还 能 提高 凸多边形 的 形态 质量 . 
+ 　 　 凹 多边形 凸 分解 的 本质 是 消除 凹点 ， 因此 ， 剖分线 均 是从 凹点 引出 的 . 一个 凹点 ， 经剖分 后 ， 将 分别 对应 两个 新 多边形 中 的 相应 顶点 ， 这 两个 新 顶点 在 各自 的 多边形 内 可能 是 凸点 ， 也 可能 是 凹点 ， 但 两个 新 顶点 不 可能 都 是 凹点 . 凸点 经剖分 后 将 仍 是 凸点 . 在 文献 ［ 3 ］ 中 ， 提出 了 最佳 剖分 、 准 最佳 剖分 和 单点 剖分 的 概念 ， 并 确定 了 最少 剖分 数目 S 应该 为 ： 
+ ［ N / 2 ］ + 1 ≤ S ≤ N + 1 
+ 其中 ， N 为 凹 点数 ， ［ N / 2 ］ 取 N / 2 的 上 整数 . 
+ 2 　 全局 剖分 与 局部 剖分 
+ 　 　 简单 多边形 剖分 算法 总体 上 分为 两类 ， 一类 是 每次 剖分 只 针对 一个 凹点 ， 只 考虑 如何 引剖 分线 来 消除 当前 凹点 ， 这 类 算法 称为 局部 剖分 算法 ； 另一类 是从 所有 可视 凹点 对 和 所有 可视 凹凸 点 对 中 选取 当前 最好 的 一条 剖分线 ( 可 视点 对 中 可以 包括 辅助 点 ) ， 这 类 算法 称为 全局 剖分 算法 . 全局 剖分 一般来说 比 局部 剖分 得到 的 凸多边形 形态 更好 ， 且 剖 分数 不会 超过 局部 剖分 ， 但 付出 的 代价 也 不小 ， 需要 耗费 的 时间 和 空间 远远 超出 局部 剖分 方法 ， 因此 也 不能 满足 所有 工程 应用 的 需要 ， 现以 石化 工厂 设计 配管 软件 PDSOFT   Piping 中 的 平剖 图纸 ( 一种 工程图纸 ) 自动 消隐 问题 为例 进行 说明 . 
+ 　 　 在 工厂 设计 配管 软件 PDSOFT   Piping 的 平剖 子系统 中 ， 对 管道 元件 ( 如 管子 、 阀门 、 三通 等 ) 和 设备 、 建筑物 等 进行 消隐 时 ， 首先 用 凸包 算法 ［ 15 , 16 ］ 或 割线 法 ［ 17 ～ 19 ］ 求 出 处于 上位 的 元件 、 设备 或 建筑物 等 的 特征 轮廓 ， 然后 把 处于 下位 的 元件 、 设备 或 建筑物 等 位于 特征 轮廓 内 的 图形 裁剪 掉 . 特征 轮廓 用 任意 简单 多边形 表示 . 割线 法求 出 的 多边形 基本上 都 是 凹 多边形 . 由于 在 消隐 过程 中 利用 凸包 算法 得到 的 凸多边形 数量 远大于 用 割线 法求 出 的 凹 多边形 数量 ， 因此 有 必要 将 少数 的 凹 多边形 分解 为 凸多边形 ， 再 统一 采用 底层 的 凸多边形 裁剪 算法 ［ 20 ］ 进行 消隐 处理 . 
+ 　 　 在 平剖 系统 中 ， 如果 简单 地 对 特征 轮廓 多边形 进行 全局 剖分 处理 ， 则 会 降低 系统 整体 性能 ， 因为 凹 多边形 的 全局 剖分 处理 需要 很大 的 时间 和 空间 开销 . 在 平剖 消隐 中 ， 只要 把 凹 多边形 分解 为 多个 凸多边形 ， 并且 尽量 使得 分解 产生 的 凸多边形 有 较 好 的 形态 ， 就 可 进行 后续 的 裁剪 处理 ， 而 并非 一定 要 把 凹 多边形 分解 为 最少 个数 的 凸多边形 . 
+ 　 　 现有 许多 算法 都 属于 全局 剖分 算法 ， 相对而言 ， 局部 剖分 算法 研究 的 文献 较 少 ， 目前 Rogers 算法 是 典型 的 局部 剖分 算法 . 虽然 Rogers 算法 能够 分解 凹 多边形 ， 但 其 固有 的 缺陷 使得 其 应用 受到限制 . 为此 本文 在 简单 多边形 可见 点 快速 搜索算法 ［ 21 ］ 的 基础 上 ， 提出 了 新 的 凹 多边形 局部 剖分 算法 . 
+ 3 　 Rogers 算法 
+ 　 　 在 凹 多边形 的 凸 分解 算法 中 ， 经典 方法 是 Rogers . F . David 在 文献 ［ 10 ］ 中 论述 的 算法 ( 本文 称其为 Rogers 算法 ) . Rogers 算法 属于 使用 辅助 点 的 局部 剖分 算法 . 下面 以图 1 ( a ) 中 的 多边形 为例 简要 介绍 该 算法 的 基本思路 . 
+ 　 　 设 简单 多边形 为 逆时针 方向 ， 且 以 单向 链表 表示 . 多边形 中 顶点 凸凹性 的 定义 及 判断 方法 可 参见 文献 ［ 22 ］ . 如图 1 ( a ) 所示 ， 算法 可 从 多边形 的 任 一点 出发 ( 如 从点 a 出发 ) ， 沿 单向 链表 搜索 到 第一个 凹点 c ， 从 凹点 c 沿有 向 边 bc ( 称为 凹边 ) 作 射线 ， 与 多边形 其余 边求 交 ， 取离点 c 最近 的 交点 ， 如图 1 ( b ) 所示 的 点 j ， 沿线 段 cj 将 多边形 一分为二 ， 得到 两个 多边形 ： abjhia 和 cdefgi ′ c . 对 这 两个 多边形 再 分别 作 同样 的 处理 . 这是 一个 递归 过程 . 当 所有 新 产生 的 多边形 均 为 凸多边形 时 ， 递归 终止 . 如图 1 ( c ) 所示 ， 递归 结束 后 ， 原来 的 凹 多边形 被 分解 为 4 个 凸多边形 ， 即 ： abjka ， hik ′ h ， cdlj ′ c 和 edgl ′ e . 
+ 
+ 图 1 　 Rogers 算法 图例 
+ 　 　 Rogers 算法 的 时间 复杂度 为 O ( mn ) ， 其中 ， m 为 凹点 个数 ， n 为 多边形 顶点 个数 . Rogers 算法 简单 、 清晰 、 易于 实现 ， 但 其 存在 如下 的 缺陷 ： 
+ 　 　 ( 1 ) 计算 量 大 . 在 算法 处理过程 中 ， 每次 沿凹 边 切割 多边形 时 ， 凹边 射线 均 须 与 多边形 的 其它 所有 边 进行 求交 运算 ， 从而 导致 算法 效率 不高 ； 
+ 　 　 ( 2 ) 剖分 产生 的 凸多边形 数量 较 多 . 用 Rogers 算法 剖分 得到 的 凸多边形 个数 基本上 固定 不变 . 设 多边形 P 有 n 个 顶点 ， 其中 有 m 个 凹点 . 算法 每次 沿凹 边 切割 多边形 后 ， 凹点 在 两个 新 多边形 中 分别 对应 平坦 点 和 凸点 . 因此 ， 算法 每作 一次 切割 处理 必然 会 减少 一个 凹点 . 因此 ， Rogers 算法 最 多只 产生 ( m + 1 ) 个 凸多边形 . 只有 当 凹边 所在 射线 与 多边形 其它 边求 交后 得到 的 最近 交点 正好 是 原 多边形 的 凹点 时 ， 一次 切割 才 会 减少 两个 凹点 . 但 这种 情况 出现 的 概率 很小 ， 所以 ， Rogers 算法 在 绝大多数 情况 下 得到 的 凸多边形 个数 为 ( m + 1 ) ， 而 这 往往 是 现有 其它 算法 的 最坏 结果 ( 仅 从 数量 而言 ) ； 
+ 　 　 ( 3 ) 有 可能 产生 非常 细小 或 非常 微小 的 凸多边形 . 如图 2 所示 ， 凹 多边形 的 凹边 所在 射线 与 下 一条 相邻 边 的 夹角 a 如果 很小 ， 切割 得到 的 凸多边形 就 会 变得 很 细小 . 这种 形态 不好 的 凸多边形 在 后续 的 多边形 线 裁剪 算法 中极 有 可能 因 浮点运算 的 误差 导致 结果 错误 . 
+ 
+ 图 2 　 Rogers 算法 的 缺陷 
+ 4 　 基于 顶点 可见 性 的 局部 剖分 算法 
+ 　 　 本文 探讨 的 算法 和 Rogers 算法 一样 ， 都 属于 使用 辅助 点 的 局部 剖分 方法 . 设 简单 多边形 P = ( v0 , v1 , v2 , … , vn - 1 ) ， 其中 vi , i = 0 , 1 , 2 , … , n - 1 为 多边形 顶点 . 设从 v0 出发 搜索 到 的 第一个 凹点 为 vi ， 将 vi 作为 视点 ， 利用 文献 ［ 21 ］ 提出 的 可见 点 快速 搜索算法 求 出 视点 vi 的 可见 点串 ST ＝ ( s0 , s1 , … , sj ) . 
+ 　 　 设 M 为 由 vi 出发 ， 与 有 向 线段 方向 一致 的 射线 ； N 为 由 vi 出发 ， 与 有 向 线段 方向 一致 的 射线 . M 和 N 所在 直线 将 平面 分为 4 个 区域 ： A ， B ， C ， D ， 如图 3 所示 ， 其中 ： 
+ 　 　 A ： 射线 M 和 N 形成 的 扇形 区域 ( 包括 射线 M 和 N ) ； 
+ 　 　 B ： 射线 M 与 N 的 反向 射线 形成 的 扇形 区域 ( 包括 N 的 反向 射线 ) ； 
+ 　 　 C ： 射线 N 与 M 的 反向 射线 形成 的 扇形 区域 ( 包括 M 的 反向 射线 ) ； 
+ 　 　 D ： M 的 反向 射线 与 N 的 反向 射线 形成 的 扇形 区域 . 
+ 
+ 图 3 　 凹点 的 4 个 区域 
+ 　 　 显然 ， ST 中 的 点 只 可能 在 区域 A ， B ， C 中 ， 并且 在 这 3 个 区域 中 的 点 形成 的 点 串 在 ST 中是 连续 分布 的 . 用 SA ， SB ， SC 表示 这 3 个点 串 . 如图 3 所示 ， SA ＝ ( s2 , s3 , s4 , s5 ) ； SB ＝ ( s0 , s1 ) ； SC ＝ ( s6 , s7 , s8 , s9 ) . 
+ 　 　 从 可见 点串 的 几何 特性 可 得出 如下 结论 ： 
+ 　 　 结论 1 . 如果 SA 为空 ， 并且 SB 和 SC 均 不 为 空 ， 则 SB 中 的 最后 一个点 sk 与 SC 中 的 第一个 点 sk + 1 必在 多边形 的 同 一条 边上 . 
+ 　 　 可用 反证法 证明 此 结论 . 如图 4 所示 . 如果 sk 和 sk + 1 不 在 同 一条 边上 ， 则 sk 和 sk + 1 之间 存在 多边形 顶点 ， 且 由于 sk 和 sk + 1 在 ST 中是 相邻 的 ， 因此 sk 与 sk + 1 之间 的 这些 顶点 是 不 可见 的 . 不失 一般性 ， 设在 sk 与 sk + 1 之间 存在 一个 不 可见 的 顶点 v . 如果 v 在 vi 的 区域 A 内 ， 如图 4 ( a ) 所示 ， 则 v 必 可见 ， 这 与 “ 顶点 v 是 不 可见 的 ” 相 矛盾 ； 如果 v 在 有 向 线段 的 左边 ， 如图 4 ( b ) 所示 ， 则 v 也 肯定 可见 ， 这 也 与 “ 顶点 v 是 不 可见 的 ” 相 矛盾 ； 如果 v 在 的 右边 ， 不妨 设 v 在 射线 M 的 右边 ， 如图 4 ( c ) 所示 ， 则 射线 与 线段 ［ v , sk + 1 ］ 的 交点 u 可见 ， 这 与 “ sk 和 sk + 1 在 ST 中是 相邻 的 ” 相 矛盾 . 如果 v 在 线段 ［ sk , sk + 1 ］ 上 ， 则 v 必 可见 ， 这 也 与 “ 顶点 v 是 不 可见 的 ” 相 矛盾 . 因此 ， sk 与 sk + 1 之间 不 可能 存在 多边形 顶点 ， 即 sk 与 sk + 1 必在 多边形 的 同 一条 边上 ， 故 结论 成立 . 
+ 证毕 . 
+ 
+ 图 4 　 sk 和 sk + 1 必在 同 一条 边上 
+ 　 　 结论 2 . 如果 SA 为空 ， 则 SB 和 SC 必不为 空 . 
+ 　 　 对于 结论 2 ， 也 可用 反证法 证明 ， 在 此 不再 赘述 . 
+ 　 　 下面 介绍 本文 基于 顶点 可见 性 的 凹 多边形 局部 剖分 算法 ： 
+ 　 　 ( 1 ) 搜索 凹点 . 如果 多边形 没有 凹点 ， 则 算法 结束 ， 否则 ， 设 搜索 到 的 凹点 为 当前 凹点 ； 
+ 　 　 ( 2 ) 搜索 当前 凹点 的 可见 点串 ST ， 并 由此 求取 点串 SA ， SB 和 SC ； 
+ 　 　 ( 3 ) 如果 SA 不为 空 ， 则 ： 
+ 　 　 ① 当 SA 中有 多个 凹点 ， 并且 如果 vi 也 同时 位于 其中 某 几个 凹点 的 区域 A 中 ， 则 将 这些 凹点 放入 集合 SP 中 ； 
+ 　 　 ② 否则 ， 将 SA 中 的 所有 可见 点 放入 集合 SP 中 ； 
+ 　 　 ③ 如果 集合 SP 中 的 顶点 只有 一个 ， 则 将 其 作为 选中 的 点 ， 否则 利用 下列 方法 求出 SP 中 顶点的权 值 ， 取权值 最小 者 为 选中 的 点 ： 
+ 　 　 设 sj 为 SP 中 的 任 一点 ， 其 与 vi 构成 的 矢量 为 射线 M 的 单位 矢量 为 射线 N 的 单位 矢量 为 
+ 
+ 
+ 图 5 　 集合 SP 中 可见 点 的 权值 计算 
+ 　 　 构成 区域 A 的 平分线 矢量 . 权值 gj 可取 下列 矢量 的 Z 坐标值 ： 
+ 
+ 当 gj = 0 时 ， 可见 点 sj 正好 在 区域 A 的 平分线 上 ， 此时 引剖 分线 得到 的 凸多边形 形态 最好 . 
+ 　 　 ( 4 ) 如果 SA 为空 ， 由 结论 2 可知 ， SB 和 SC 必不为 空 . 设 sk 为 SB 中 的 最后 一个点 ， sk + 1 为 SC 中 的 第一个 点 . 由 结论 1 可知 ， sk 和 sk + 1 必在 多边形 的 同 一条 边上 . 求 线段 ［ sk , sk + 1 ］ 与 区域 A 平分线 的 交点 为 所 选择 的 点 ； 
+ 　 　 ( 5 ) 设从 步骤 3 或 4 中 选择 得到 的 点 为 u ， 从 vi 至 u 引剖 分线 ， 将 多边形 切割成 两个 多边形 ； 
+ 　 　 ( 6 ) 对 新 产生 的 两个 多边形 按 上述 步骤 递归 地 进行 凹 多边形 凸 分解 处理 ， 直到 所有 的 多边形 均 为 凸多边形 为止 . 
+ 　 　 在 上述 判断 过程 中 ， 由于 引入 了 判断 条件 ① ， 使得 本文 算法 在 对于 vi 点 所 对应 的 可见 点串 这 一 局部 范围 内 ， 可以 一次 消 去 两个 凹点 ， 从而 尽可能减少 凸多边形 个数 . 
+ 5 　 结 　 　 论 
+ 　 　 由于 本文 算法 在 每次 剖分 处理 之后 ， 至少 会 减少 一个 凹点 ， 因此 算法 的 整个 处理过程 最 多只 需 进行 m 次剖分 操作 . 从 文献 ［ 21 ］ 可知 ， 求取 凹点 的 可见 点串 算法 的 时间 复杂度 为 O ( n ) . 因此 本文 的 时间 复杂度 也 为 O ( mn ) . 
+ 　 　 虽然 本文 算法 与 Rogers 算法 的 时间 复杂度 相同 ， 但 本文 算法 在 每次 剖分 操作 时 消去 两个 凹点 的 概率 远大于 Rogers 算法 ( 此 概率 问题 的 本质 是 点 落 在 区域 内 的 概率 远大于 落 在 直线 上 的 概率 . 具体 证明 在 此 不 赘述 ) . 另外 ， 本文 算法 在 作剖分 操作 时 无须 作过 多 的 求交 运算 . 因此 本文 算法 的 实际 运行 速度 快于 Rogers 算法 . 
+ 　 　 由于 所有 剖分 操作 均 是 在 凹点 的 区域 A 中 进行 ， 并且 利用 权函数 可使 剖分 得到 的 凸多边形 具有 很 好 的 形态 ， 这是 本文 算法 优于 Rogers 算法 的 主要 特色 . 本文 权函数 与 文献 ［ 5 ］ 中 的 权函数 的 最大 不同之处 在于 本文 方法 不需 要求 角度 . 
+ 　 　 本文 算法 已 应用 于 工厂 设计 软件 PDSOFT   Piping 中 . PDSOFT   Piping 是 一个 较为 成功 的 工厂 设计 配管 软件 ， 在 工厂 建模 、 单线 图 、 平剖图 、 材料 表 、 模型 渲染 和 消隐 等 方面 均 有 独特 之处 . 本文 算法 在 平剖图 自动 消隐 的 底层 算法 凹 多边形 凸 分解 中 得到 应用 并 产生 了 很 好 的 效果 . 
+ 本 课题 得到 国家自然科学基金 项目 ( 项目编号 69673001 ) 资助 . 
+ 作者简介 ： 金 文华 ， 男 ， 1970 年 10 月生 ， 博士后 ， 主要 研究 领域 为 CAD / CG 、 计算 几何 、 产品 信息 
+ 　 　 　 　 　 建模 、 项目管理 、 数据库 等 . 
+ 　 　 　 　 　 饶 上荣 ， 男 ， 1971 年 12 月生 ， 博士 研究生 ， 主要 研究 领域 为 CAD / CG 、 网络 、 优化 算 　 　 　 　 　 　 法 、 数据库 等 . 
+ 　 　 　 　 　 唐卫清 ， 男 ， 1965 年 7 月生 ， 研究员 ， 主要 研究 领域 为 CAD / CG 、 科学 可视化 、 交互 界 
+ 　 　 　 　 　 面 、 产品 信息 建模 、 项目管理 、 数据库 等 . 
+ 　 　 　 　 　 刘慎权 ， 男 ， 1930 年 12 月生 ， 研究员 ， 博士生 导师 ， 主要 研究 领域 为 CAD / CAM 、 产品 
+ 　 　 　 　 　 信息 建模 、 面向对象 技术 、 CG 、 计算 几何 、 科学 可视化 等 . 
+ 作者 单位 ： 中国科学院计算技术研究所 CAD 开放 研究 实验室 　 北京 　 100080 
+ 参考文献 
+ 　 1 　 Asano   Tetsuo ,   Asano   Takao .   Minimum   partition   of   polygonal   regions   into   trapezoids .   In :   Proc   24th   Annual   FOCS   Symp .   New   York :   IEEE   Computer   Press ,   1983 .   233 ～ 241 
+ 　 2 　 Schachter   B .   Decomposition   of   polygons   into   convex   sets .   IEEE   Trans   on   Computers ,   1978 ,   C - 27 ( 11 ) :   1078 ～ 1082 
+ 　 3 　 肖忠晖 ， 卢振荣 ， 张谦 .   简单 多边形 凸 单元 剖分 的 编码 算法 .   计算机 学报 ,   1996 ,   19 ( 6 ) :   477 ～ 481 
+ 　 　 ( Xiao   Zhonghui ,   Lu   Zhenrong ,   Zhang   Qian .   Coding   algorithm   for   decomposing   a   simple   polygon   into   convex   parts ( in   Chinese ) .   Chinese   Journal   of   Computers ,   1996 ,   19 ( 6 ) :   477 ～ 481 ) 
+ 　 4 　 汪嘉业 ， 汪卫 .   简单 多边形 分解成 凸多边形 差 组合 的 算法 .   计算机辅助 设计 与 图形学 学报 ,   1992 ,   4 ( 2 ) :   22 ～ 29 
+ 　 　 ( Wang   Jiaye ,   Wang   Wei .   Algorithm   for   finding   convex   decomposition   of   simple   polygons .   Journal   of   Computer - Aided   Design   &   Computer   Graphics ( in   Chinese ) ,   1992 ,   4 ( 2 ) :   22 ～ 29 ) 
+ 　 5 　 王钲旋 ， 李文辉 ， 庞云阶 .   一个 加权 剖分 简单 多边形 为 凸多边形 的 算法 .   计算机 学报 ， 1998 ， 21 ( 3 ) :   229 ～ 233 
+ 　 　 ( Wang   Zhengxuan ,   Li   Wenhui ,   Pang   Yunjie .   A   weighting   algorithm   for   decomposing   a   simple   polygon   into   convex   polygons ( in   Chinese ) .   Chinese   Journal   Computers ,   1998 ,   21 ( 3 ) :   229 ～ 233 ) 
+ 　 6 　 Rourke   O   J ,   Supowit   J   K .   Some   NP - hard   polygon   decomposition   problems .   IEEE   Trans   on   Information   Theory ,   1983 ,   IT - 29 ( 2 ) :   181 ～ 190 
+ 　 7 　 Feng   Houyuan ,   Pavlidis   T .   Decomposition   of   polygons   into   simpler   components :   Feature   generation   for   syntactic   pattern   recognition .   IEEE   Trans   on   Computers ,   1975 ,   C - 24 ( 6 ) :   636 ～ 650 
+ 　 8 　 Avis   D ,   Toussaint   T   G .   An   efficient   algorithm   for   decomposing   a   polygon   into   star - shaped   polygons .   Pattern   Recognition ,   1981 ,   13 ( 6 ) :   395 ～ 398 
+ 　 9 　 Berg   M   de ,   Kreveld   M   van ,   Overmars   M ,   Schwarzkopf   O .   Computational   Geometry - Algorithms   and   Applications .   Berlin   Heidelbery ,   Germany :   Spring - Verlag ,   1997 .   49 ～ 55 
+ 　 10 　 Rogers   F   D .   Procedural   Elements   for   Computer   Graphics .   New   York :   McGraw - Hill ,   1985 
+ 　 11 　 Bykat   A .   Automatic   generation   of   triangular   grid :   I — — subdivision   of   a   general   polygon   into   convex   subregions ,   II — — triangulation   of   convex   polygons .   Int ' l   Journal   for   Numer   Meth   Eng ,   1976 ,   ( 10 ) :   1329 ～ 1342 
+ 　 12 　 Chazelle   B ,   Dobkin   P   D .   Decomposing   a   polygon   into   its   convex   parts .   In :   Proc   11th   Annual   SIGACT   Symp   on   Theory   of   Computing .   New   York :   Association   for   Computer   Machinery   Inc ,   1979 .   38 ～ 48 
+ 　 13 　 Chazelle   B ,   Dobkin   P   D .   Optimal   convex   decompositions .   In :   Toussaint   T   Godfried   ed .   Computational   Geometry ,   Amsterdam ,   Holland :   North - Holland ,   1985 .   63 ～ 133 
+ 　 14 　 Keil   M .   Decomposing   polygons   into   simpler   components ［ Ph   D   dissertation ］ .   University   of   Toronto ,   1983 
+ 　 15 　 ( 金 文华 ,   何涛 ,   刘晓 平等 .   基于 有序 简单 多边形 的 平面 点集 凸包 快速 求取 算法 .   计算机 学报 ,   1998 ,   21 ( 6 ) :   533 ～ 539 ) 
+ 　 　 ( Jin   Wenhua ,   He   Tao ,   Liu   Xiaoping   et   al .   A   fast   convex   hull   algorithm   of   planar   point   set   based   on   sorted   simple   polygon .   Chinese   Journal   of   Computers ( in   Chinese ) ,   1998 ,   21 ( 6 ) :   533 ～ 539 ) 
+ 　 16 　 金 文华 ,   何涛 ,   唐卫清 等 .   简单 快速 的 平面 散乱 点集 凸包 算法 .   北京航空航天大学 学报 ,   1999 ,   25 ( 1 ) :   72 ～ 75 
+ 　 　 ( Jin   Wenhua ,   He   Tao ,   Tang   Weiqing   et   al .   A   simple   fast   convex   hull   algorithm   of   planar   point   set ( in   Chinese ) .   Chinese   Journal   of   Beijing   Univ   of   Aero   &   Astro ,   1999 ,   25 ( 1 ) :   72 ～ 75 ) 
+ 　 17 　 Jin   Wenhua ,   Liu   Xiaoping ,   Yu   Tiefeng   et   al .   Automatic   feature   contour   recognition   of   component   in   piping   design   CAD   system .   In :   Proc   of   CAD   &   Graphics ' 97 ,   Beijing :   International   Academic   Publishers ,   1997 .   752 ～ 755 
+ 　 18 　 金 文华 ， 何涛 ， 唐卫清 等 .   管道 CAD 元件 特征 轮廓 的 识别 .   计算机辅助 设计 与 图形学 学报 .   1998 ， 10 ( 增刊 ) ： 169 ～ 173 
+ 　 　 ( Jin   Wenhua ,   He   Tao ,   Tang   Weiqing   et   al .   Feature   contour   recognition   of   component   in   piping   CAD   system ( in   Chinese ) .   Journal   of   Computer   Aided   Design   &   Computer   Graphics ,   1998 ,   10 ( suppl ) :   169 ～ 173 ) 
+ 　 19 　 金 文华 ， 何涛 ， 刘晓 平等 .   改进 的 管道 CAD 元件 特征 轮廓 识别方法 .   计算机辅助 设计 与 图形学 学报 .   1999 ， 11 ( 2 ) ： 147 ～ 150 
+ 　 　 ( Jin   Wenhua ,   He   Tao ,   Liu   Xiaoping   et   al .   Improved   feature   contour   recognition   of   component   in   piping   CAD   system .   Journal   of   Computer   Aided   Design   &   Computer   Graphics ,   1999 ,   11 ( 2 ) :   147 ～ 150 ) 
+ 　 20 　 金 文华 ， 何涛 ， 唐卫清 等 .   凸多边形 窗口 的 快速 线 裁剪 算法 .   见 ： 中国 计算机 图形学 的 新 发展 — — Chinagraph ' 98 论文集 .   北京 ：   清华大学出版社 ， 1998 .   25 ～ 30 
+ 　 　 ( Jin   Wenhua ,   He   Tao ,   Tang   Wei - Qing   et   al .   A   fast   algorithm   for   convex   polygon   line   clipping ( in   Chinese ) .   In :   Chinagraph ' 98 .   Beijing :   Tsinghua   University   Press ,   1998 .   25 ～ 30 ) 
+ 　 21 　 ( 金 文华 ， 何涛 ， 唐卫清 等 .   简单 多边形 可见 点 问题 的 快速 求解 算法 .   计算机 学报 ， 1999 ,   22 ( 3 ) :   275 ～ 282 
+ 　 　 ( Jin   Wenhua ,   He   Tao ,   Tang   Weiqing   et   al .   A   fast   point   visibility   algorithm   for   simple   polygon ( in   Chinese ) .   Chinese   Journal   Computers ,   1999 ,   22 ( 3 ) :   275 ～ 282 ) 
+ 　 22 　 金 文华 ,   唐卫清 ,   唐荣锡 .   简单 多边形 顶点 凸凹性 的 快速 确定 算法 .   工程图 学学 报 ,   1998 ，   ( 1 ) :   66 ～ 70 
+ 　 　 ( Jin   Wenhua ,   Tang   Weiqing ,   Tang   Rongxi .   A   fast   algorithm   for   determining   the   convexity - concavity   of   vertices   of   simple   polygon .   Chinese   Journal   of   Engineering   Graphics ( in   Chinese ) ,   1998 ,   ( 1 ) :   66 ～ 70 ) 
+ 原稿 收到 日期 ： 1998 - 12 - 23 ； 修改稿 收到 日期 ： 1999 - 08 - 31 . 

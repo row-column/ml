@@ -1,0 +1,122 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1998 年   第 18 卷   第 1 期   No.1   Vol.18   1998 
+ 科技期刊 
+ 
+ 液 膜法 从 工业废水 中 提取 J 酸 的 研究 
+ 朱亦仁 　 潘碌亭 　 ( 阜阳 师范学院 化学系 , 阜阳   236032 ) 
+ 魏凤玉 　 邓传芸 　 ( 合肥工业大学 化工学院 ， 合肥   230009 ) 
+ 沈章平 　 闻治宇 　 ( 南京 化工厂 ， 南京   210038 ) 
+ 文 　 摘 　 利用 以 LMS - 2 为 表面 活性剂 ， 三辛胺 为 载体 ， 煤油 为 溶剂 ， NaOH 溶液 为 膜 内 相所 组成 的 乳状液 膜 体系 ， 从 含 J 酸 的 工业废水 中 提取 J 酸 。 研究 了 各种因素 对 J 酸 提取 率 的 影响 ， 提出 了 较 适宜 的 工艺 条件 。 实验 结果表明 ， 该 乳状液 膜 体系 对 废水 中 的 J 酸 有 较 高 的 提取 率 。 油相经 破乳后 多次重复 使用 ， 其 提取 率 基本 不变 ， J 酸 的 提取 率 可达 96% 。 
+ 关键词 　 液 膜法 　 J 酸 　 废水 
+ Study   on   J - acid   from   industrial   wastewater   with   liquid   membrane . Zhu   Yiren ， Pan   Luting ( Department   of   Chemistry ,   FuYang   Normal   College ,   Fuyang   236032 ) ； Wei   Fengyu ， Deng   Chuanyun ( School   of   Chemical   Engineering ,   Hefei   University   of   Technology ,   Hefei   230009 ) ； Shen   Zhangping ， Wen   Zhiyu ( Nanjing   Chemical   Plant , Nanjing   210038 ) . China   Environmental   Science.1998 , 18 ( 1 ) : 91 ～ 93 
+ Abstract — In   this   paper , LMS - 2   was   used   as   the   surfactant , tri - noctylamine   as   the   mobile   carrier , kerosene   as   the   membrane   solvent   and   NaOH   solution   as   the   internal   phase   of   the   membrane   to   form   a   system   of   emulsified   liquid   membrane . in   studying   the   extraction   of   J - acid   from   industrial   wastewater . Factors   affecting   the   extraction   efficiency   of   J - acid   were   studied , and   suitable   technological   conditions   were   determined . The   results   show   that   the   advantages   of   rapid   rate   of   J - acid   transport   and   high   efficiency   of   extraction , and   the   extracting   rate   do   not   change   with   the   oil   phase   reused   for   many   times . The   efficiency   of   J - acid   extraction   is   96% . 
+ Key   words : liquid   membrane 　 J - acid 　 wastewater 
+ 　 　 在 偶氮 中间体 J 酸 ( 2 - 氨基 - 5 - 萘酚 - 7 - 磺酸 ) 的 生产 过程 中 ， 排出 大量 强 酸性 废水 （ pH ＜ 1 ） ， 其中 硫酸 约 550g / L , 废水 呈 褐色 ， 直接 排放 会 造成 严重 的 污染 。 J 酸 废液 因 酸性 极强 ， 采用 中和法 、 生化 法 以及 蒸馏 法 处理 均 不能 取得 满意 的 效果 。 因此 ， 寻求 一种 快速 、 经济 的 方法 处理 该 废水 已 成为 重要 的 研究课题 。 液 膜法 由于 引入 萃取 剂 与 待 分离 物 发生 配合 反应 ， 而 具有 分离 速度 快 、 效率高 的 特点 ，   只要 选择 合适 的 膜 体系 就 能 适应 不同 的 废水处理 〔 1 ～ 4 〕 。 本 实验 应用 液 膜法 处理 J 酸 工业废水 ， 同时 回收 了 J 酸 ， 达到 消除 污染 和 回收 资源 的 双重 目的 。 
+ 1 　 实验 部分 
+ 1.1 　 试剂 与 仪器 
+ 　 　 民用 煤油 （ 工业品 ） ； 表面 活性剂 LMS - 2 （ 华南理工大学 研制 ） ； 三辛胺 （ TOA 上海 化学试剂 厂 ） ； 氢氧化钠 （ 工业品 ） 。 
+ 　 　 电破 乳器 （ 自制 ） ； PHS - 2 型 pH 计 ( 上海 雷磁 仪器厂 ) ； DS - 1 型 高速 组织 捣碎 机 （ 上海 标本 模型 厂 ） 。 
+ 1.2 　 实验 方法 
+ 　 　 将 LMS - 2 、 TOA 、 煤油 按 一定 比例 加入 组织 捣碎 机 ， 先 低速 混合 均匀 ， 然后 加入 氢氧化钠 溶液 ， 高速 搅拌 （ 3000r / min ） 3min 即可 制得 稳定 的 乳状液 。 将 乳状液 按 一定 乳水 比 Rew （ 乳液 体积 Ve 和 废水 体积 Vw 之比 ） 加入 到 废水 中 ， 慢速 搅拌 （ 300r / min ） 使 其 充分 接触 ， 静置 分离 后 乳液 进 
+ 入破 乳器 ， 经破 乳后 静置 分层 即可 获得 J 酸 盐溶液 （ 浓缩 水相 ） 和 油相 ， 油相 可 用于 重新 制乳 。 
+ 2 　 结果 与 讨论 
+ 2.1 　 搅拌 速度 对 提取 率 的 影响 〔 5 ， 6 〕 
+ 　 　 搅拌 转速 对液 膜分离 效率 的 影响 如图 1 所示 ， 转速 越高 ， 液滴 粒径 越小 ， 传质 面积 越大 ， 传质 速度 越 快 ； 但 转速 过大 ， 液膜 破损 率 增大 ， 使 分离 效率 下降 ； 而 搅拌 速度 太小 ， 乳液 分散性 差 ， 传质 面积 小 ， 使 分离 效率 降低 。 故本 实验 在 搅拌 转速 为 300r / min 时 可 得到 最高 分离 效率 。 
+ 
+ 图 1 　 搅拌 速度 对 J 酸 提取 率 的 影响 
+ Fig.1 　 The   effect   of   stirring   speed   on   extracting 
+ rate   of   J - acid 
+ 2.2 　 乳水 比 （ Rew ） 对 提取 率 的 影响 〔 7 〕 
+ 　 　 对于 液 膜分离 过程 来说 ， 乳水 比 Rew 越大 ， 渗透 过程 的 传质 面积 越大 ， 从而 加速 了 料液 的 分离 ， 使 分离 效率 提高 ； 但 此时 乳状液 消耗 多 ， 处理 成本 高 。 因此 在 满足 有 较 高 分离 效率 的 前提 下 ， 乳水 比越 低 越 好 。 Rew 对 分离 效率 的 影响 如图 2 所示 ， 当 Rew 为   1 ∶ 5 时 既 节省 乳液 ， 又 得到 较 满意 的 分离 效果 。 
+ 
+ 图 2 　 乳水 比 对 J 酸 提取 率 的 影响 
+ Fig.2 　 The   effect   of   Rew   on   extracting   rate   
+ of   J - acid   
+ 2.3 　 油内 比 （ Roi ） 对 提取 率 的 影响 〔 7 〕 
+ 　 　 油内 比 （ Roi ） 是 制备 乳状液 膜 时油 相与 内水相 体积 比 ， 当 Roi 较大 时 ， 乳状液 膜 厚度 增大 ， 液膜 不易 破裂 ， 但 传质 速率 下降 。 反之 当 Roi 较 小时 ， 乳状液 膜 较 薄 ， 传质 速度 加快 ， 但液 膜 不 稳定 易 破裂 〔 2 〕 ， Roi 对 分离 效率 的 影响 见图 3 ， 由图 3 可见 ， 当 Roi 为   1 ∶ 1 时 J 酸 的 提取 率较 高且 所制 得 的 乳化液 膜 也 较为 稳定 。 
+ 
+ 图 3 　 油内 比 对 J 酸 提取 率 的 影响 
+ Fig.3 　 The   effect   of   Roi   on   extracting   rate 
+ of   J - acid 
+ 2.4 　 载体 浓度 对 提取 率 的 影响 〔 8 〕 
+ 　 　 载体 浓度 的 影响 如图 4 所示 ， 随着 载体 TOA 浓度 的 增加 ， 分离 效率 也 增加 ； 以 TOA 作 载体 提取 废水 中 的 J 酸 外相 萃取 反应 可用 下 式 表示 ： 
+ 
+ 
+ 　 　 由 上式 可知 ， 增大 TOA 的 浓度 ， 反应 向 右 进行 ， 即 迁移 速率 快 ， 膜 的 分离 效率 上升 ； 但 TOA 用量 过多 ， 又 会 使 膜 相 粘度 增大 ， 膜 增厚 ， 使 迁移 速率 下降 ； 另外 载体 用量 大 ， 成本 高 ， 不利于 工业化生产 ， 故本 实验 选择 载体 浓度 为 3mL   TOA / 100mL 煤油 为宜 。 
+ 
+ 图 4 　 载体 浓度 对 J 酸 提取 率 的 影响 
+ Fig.4 　 The   effect   of   carrier   contents   on   extracting   
+ rate   of   J - acid 
+ 2.5 　 破乳 与 油 相 的 回用 
+ 　 　 本 实验 采用 低电压 电破乳 ， 即 在 常温 、 常压 、 电压 为 100V 下 进行 破乳 ， 破乳 不 产生 絮状 中间层 ， 对 表面 活性剂 和 载体 损害 较 小 ， 回收 油相 的 含水率 小于 1% 。 油相 重复使用 的 结果 见表 1 。 由表 1 可见 ， 油相 连续 使用 10 次时 ， 分离 效率 基本 不变 ， 表明 低电压 电破 乳是 完全 可行 的 。 
+ 表 1 　 油相 的 重复使用 情况 
+ Table   1 　 The   situation   of   oil   phase   being   reused 
+ 
+ 序号 油相 回用 次数 J 酸 提取 率 ( % ) 
+ 1 新制 乳液 　 96.5 
+ 2 破乳 1 次 　 95.9 
+ 3 破乳 2 次 　 96 
+ 4 破乳 3 次 　 96.2 
+ 5 破乳 4 次 　 95.8 
+ 6 破乳 5 次 　 95.5 
+ 7 破乳 6 次 　 95 
+ 8 破乳 7 次 　 96.4 
+ 9 破乳 8 次 　 96.3 
+ 10 破乳 9 次 　 96.1 
+ 
+ 2.6 　 废水 在 最佳 条件 下 分离 情况 
+ 　 　 实验 操作 的 条件 及 结果 如表 2 所示 
+ 表 2 　 液 膜法 提取 J 酸 操作 数据 
+ Table   2 　 The   operation   date   of   ertracting   J - acid   
+ by   liquid   membrane   
+ 
+ 　 　 项 　 　 目 操作 数据 
+ 废水 硫酸 含量 ( g / L ) 550 
+ 废水 J 酸 含量 ( g / L ) 6.5 
+ 搅拌 速度 ( r / min ) 300 
+ 乳水 比 ( Rew ) 1 ∶ 5 
+ 油内 比 ( Roi ) 1 ∶ 1 
+ 混合 时间 ( min ) 15 
+ 内相含 J 酸 浓度 ( g / L ) 39 
+ 处理 后水相 J 酸 浓度 ( g / L ) ≤ 0.2 
+ 处理 后水相 硫酸 含量 ( g / L ) ≥ 500 
+ J 酸 提取 率 ( % ) ≥ 96 
+ 
+ 　 　 从表 2 可以 看出 ， 料液 经液 膜分离 后 ， J 酸 可以 进入 内水相 而 得到 富集 ， 处理 后 的 水相 J 酸 含量 小于 0.2   g / L ， 可 做 为 稀硫酸 回收 使用 。 
+ 2.7 　 经济 效率 分析 
+ 　 　 按 每 1m3 乳液 可 重复使用 10 次 ， 处理过程 中 煤油 的 损耗 为 0.01   kg / t 废水 计 ， 在 上述 最佳 操作 条件 下 的 经济效益 分析 如表 3 所示 （ 按 处理 废水 50t 计算 ） 。 
+ 表 3 　 液 膜法 分离 J 酸 的 经济效益 分析 
+ Table   3 　 The   economic   analyse   of   extracting   J - acid   
+ by   liquid   membrane 
+ 
+ 项 　 　 目支 　 出收 　 入 
+ 用量 ( kg ) 　 费用 ( 元 ) 产量 ( kg ) 费用 ( 元 ) 
+ 表面 活性剂 LMS - 2151500 
+ 载体 TOA 　 　 　 1215000 
+ 煤油 ( 含 损耗 ) 　 404808 
+ 氢氧化钠 ( 10% ) 50150 
+ 电费 　 　 　 　 　 50 ( kWh ) 50 
+ 综合 折旧费 　 　 　 100 
+ 人工 　 　 　 　 　 　 50 
+ 稀硫酸 　 　 　 　 　 　 7500075000 
+ J 酸 　 　 　 　 　 　 　 32016000 
+ 总计 　 　 　 　 　 　 17658 　 23500 
+ 盈利 　 　 　 　 　 　 　 　 5842 
+ 
+ 　 　 由此可见 ， 如果 每天 处理 50   t 的 废水 则 可 获 纯利 5892 元 ， 经济效益 十分 可观 。 
+ 3 　 结论 
+ 　 　 采用 液 膜法 处理 含 J 酸 工业废水 在 本 实验所 确定 的 条件 下 ， J 酸 提取 率 可达 96% 左右 ， 处理 后 的 废水 J 酸 含量 小于 0.2   g / L ， 硫酸 含量 大于 500   g / L ， 可 做 为 稀酸 回收 利用 。 
+ 　 　 液 膜法 处理 含 J 酸 工业废水 工艺流程 简单 ， 处理 成本 低廉 。 处理 后 的 油 相 可 重复使用 且 分离 效率 基本 不变 ， 不会 产生 二次污染 ， 社会 和 经济效益 明显 。 
+ 参考文献 
+ 1 　 N   N   Li . US . Patent.3410794 , 1968 
+ 2 　 邵 　 刚 . 膜分离 科学 与 技术 ， 1982 ， 2 （ 2 ） ∶   57 
+ 3 　 金 桃根 . 膜分离 科学 与 技术 ， 1982 ， 2 （ 2 ） ∶   20 
+ 4 　 王学松 . 化工 进展 ， 1990 ， （ 6 ） ∶   1 ～ 6 
+ 5 　 刘 　 杰等 . 工业 水 处理 ， 1994 ， 14 （ 3 ） ∶   20 ～ 23 
+ 6 　 沈力 人 等 . 膜 科学 与 技术 ， 1997 ， 17 （ 1 ） ∶   25 
+ 7 　 万印华 等 . 水 处理 技术 ， 1991 ， 17 （ 4 ） ∶   222 ～ 224 
+ 8 　 李思芽 等 . 膜 科学 与 技术 ， 1995 ， 15 （ 2 ） ∶   22 ～ 24 
+ 作者简介 
+ 朱亦仁 　 男 ， 1946 年 2 月生 。 阜阳 师范学院 化学系 副教授 、 副 主任 。 近年来 主要 从事 环境污染 治理 及 环境 教育 的 教学 与 研究 工作 ， 主持 和 参加 过 5 项 国家 和 省级 科研课题 ， 发表 论文 10 余篇 ， 出版 专著 1 部 （ 环境污染 治理 技术 ） ， 合编 教材 1 部 。 
+ 收稿 日期 ： 1997 - 01 - 08 

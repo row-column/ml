@@ -1,0 +1,72 @@
+计算机 工程 
+ Computer   Engineering 
+ 1999 年 　 第 25 卷 　 第 9 期 　 Vol.25   No.9     1999 
+ 
+ 
+ 
+ MQTS 中 工作 流 的 设计 和 实现 
+ 俞立军 　 杨 　 岭 　 许满武 
+ 　 　 摘 　 要 ： 计算机 和 网络 的 快速 发展 促进 了 应用 的 分布 ， 工作 流 协调 和 控制 分布 应用 角色 间 的 工作 活动 ， 介绍 了 建筑材料 质量 检测 系统 中 工作 流 的 设计 和 实现 ． 
+ 　 　 关键词 ： 工作 流 ； 表单 ； 角色 
+ Design   and   Implementation   of   Workflow   in   Architecture   Material 
+ Quality   Test   System 
+ Yu   Lijun   Xu   Manwu 
+ ( Department   of   Computer   science ,   State   Key   Laboratory   for   Software   Novel   Technology ,   Nanjing   University ,   Nanjing   210093 ) 
+ Yang   Ling 
+ ( Nanjing   Architecture   Engineering   Quality   Test   Center ,   Nanjing   210014 ) 
+ 　 　 Abstract 　 The   rapid   development   of   computer   and   networks   promotes   the   application   to   distribute ,   Workflow   coordinates   and   controls   work   activities   between   roles   of   the   distributed   application .   This   article   introduces   design   and   implementation   of   workflow   in   architecture   material   quality   test   system   MQTS . 
+ 　 　 Key   words 　 Workflow ;   Form ;   Role 
+ 　 　 建筑工程 的 质量 检测 是 控制 产品质量 的 重要 手段 ， 其 基本 任务 是 通过 试验 对 建筑工程 产品质量 水平 作出 公正 、 科学 、 准确 的 评价 ， 以 保护 国家 、 消费者 及 生产厂家 的 利益 ， 促进 企业 产品质量 的 提高 。 建材 的 质量 检测 流程 要 经过 委托 、 试验 、 计算 、 审核 、 报告 、 签发 等 环节 ， 需要 工作人员 复杂 的 计算 、 判断 、 誊写 、 统计 工作 ， 建筑 质检 部门 的 信息系统 开发 和 应用 势在必行 。 
+ 　 　 工作 流是 一个 自动化 的 有 组织 的 过程 ， 在 这个 过程 中 活动 的 协同 、 控制 和 通信 是 自动 的 ， 而 活动 本身 则 可能 需要 人 的 参与 。 工作 流 的 管理 由 工作 流 服务 实体 完成 ， 这个 服务 实体 通过 有 组织 的 过程 的 计算机化 在 计算机网络 环境 中 提供 所 需 服务 。 用户 通过 工作 流 客户 与 工作 流 服务 实体 进行 通信 。 完成 工作 流 管理 的 系统软件 称为 工作 流 管理系统 。 在 建材 质量 检测 系统 ( MQTS ) 中 ， 从 下列 4 方面 分析 和 设计 工作 流 ： 
+ 　 　 . 工作 流 的 定义 和 建模 ； 
+ 　 　 . 数据 模式 和 表单 设计 ； 
+ 　 　 . 体系结构 ； 
+ 　 　 . 权限 控制 。 
+ 　 　 下面 将 详细 介绍 MQTS 中 工作 流 的 设计 和 实现 。 
+ 
+ 图 1 　 检测 业务流程 
+ 1 　 业务流程 
+ 　 　 建材 质量 检测 部门 的 业务流程 描述 如下 ： ① 委托人 到 接样 室 填写 委托 单 ， 接样 人员 将 委托 任务 单 交给 试验 人员 ； ② 试验 人员 对 材料 样品 进行 检测 并 记录 原始数据 ； ③ 试验 人员 对 原始数据 进行 计算 并 对照 标准 作 检验 结论 ； ④ 科室 负责人 审核 试验 的 原始数据 及 计算结果 ， 有误 的 交给 试验 人员 重新 计算 或 试验 ； ⑥ 试验 人员 开出 检测 报告 ； ⑦ 科室 负责人 在 报告 上 签字 ； ⑧ 总工 或 质保 负责人 对 报告 进行 签发 。 图 1 表示 了 这种 工作 流 模型 。 
+ 2 　 系统 的 设计 和 实现 
+ 2.1 　 对象 建模 
+ 　 　 对象 建模 技术 已 成为 表达 复杂 系统 对象 结构 层次 的 有力 工具 ， 图 2 描述 了 系统 的 主要 角色 和 对象 之间 的 关系 。 
+ 
+ 图 2 　 系统 类 层次结构 图 
+ 2.2 　 数据 模式 和 表单 设计 
+ 　 　 数据库 管理系统 提供 了 很 好 的 数据 存储 、 共享 及 事务处理 机制 ， 在 传统 信息系统 开发 中 数据库 管理系统 起着 关键 的 作用 。 工作 流 管理系统 提供 了 较 好 的 协调 群体 工作 功能 。 MQTS 系统 采用 关系数据库 存储 所有 的 委托 单 、 任务 单 、 材料 数据 ， 群体 协调 、 控制 和 通信 通过 工作 流 管理系统 。 
+ 　 　 数据 模式 描述 如下 ： 
+ 　 　 委托 单   : =   Set < 任务 单 ID >   ＋   委托 单位 ； 
+ 　 　 任务 单   : =   任务 单 ID   ＋   Set < 材料 ID > ； 
+ 　 　 材料   : =   材料 ID   ＋   材料 试验 记录   ＋   材料 检测 标准 参数   ＋   材料 检测 结论 ； 
+ 　 　 检验 报告 : =   材料 ID   ＋   材料 报告 参数 。 
+ 　 　 表单 是 工作 流 系统 中 角色 之间 信息 交换 的 模板 ， MQTS 系统 中 定义 了 5 种 表单 ： 
+ 　 　 ①   任务 单 ( 从 接样 人员 发送到 试验 人员 ) ； 
+ 　 　 ②   材料 审核 通知单 ( 从 试验 人员 发送到 科室 负责人 ) ； 
+ 　 　 ③   材料 审核 确认 单 ( 从 试验 人员 发送到 科室 负责人 ) ； 
+ 　 　 ④   检验 报告 审核 单 ( 从 试验 人员 发送到 科室 负责人 ) ； 
+ 　 　 ⑤   检验 报告 签发 单 ( 从 科室 负责人 发送到 技术 负责人 ) 。 
+ 2.3   体系结构 
+ 　 　 软件体系结构 定义 了 软件系统 构件 的 全局 组织 ， MQTS 系统 中 主要 模块 包括 ： 委托 模块 、 试验 人员 模块 、 科室 负责人 模块 、 总工 模块 。 模块 间 的 协作 通过 工作 流 服务 模块 ， 数据库 管理系统 负责 共享 数据 ， 中间件 是 各个 模块 之间 的 粘合剂 。 类似 于 数据库 管理系统 ， 工作 流 管理系统 一般 采用 客   户 / 服务器 体系结构 。 整体 上 看 ，   MQTS 是 一种 层次 的 客户 / 服务器 体系结构 ， 图 3 通过 简单 的 框图 表达 了 这种 结构 。 
+ 
+ 图 3 　 系统 体系结构 示图 
+ 2.4   权限 控制 
+ 　 　 建筑材料 质量 检测 有着 严格 的 权限 控制 要求 ， 在 各个 流通 环节 上应 杜绝 任何 对 原始数据 或 检验 报告 的 非法 篡改 ， MQTS 系统 中 采用 基于 角色 的 权限 控制策略 ， 定义 如下 ： 
+ 　 　 角色   =   ｛ 委托 人员 ， 试验 人员 ， 审核 人员 ， 签发 人员 ｝ ； 
+ 　 　 操作   =   ｛ 委托 ， 试验 数据 输入 ， 试验 数据 查询 ， 试验 数据 修改 ， 试验 数据 审核 ， 报告 生成 ， 报告 签发 ｝ ； 
+ 　 　 对象   =   ｛ 委托 单 ， 任务 单 ， 材料 ， 检测 报告 ｝ ； 
+ 　 　 用户   =   P ( 角色 ) 。 
+ 　 　 角色 的 权限 定义 为 ： 
+ 　 　 Ra ( A ) =   ｛ < M ， O >   ｜ M 属于 操作 ， O 属于 对象 ｝ 。 
+ 　 　 对于 一个 特定 的 用户 I ， 其 权限 Ri ( I ) 定义 为 其 所 担任 的 角色 权限 　 
+ 2.5   MQTS 的 实现 
+ 　 　 在 Windows   NT   4.0   Server / Windows   9X 平台 上 对 MQTS 进行 了 实现 ， 前端开发 采用 Delphi   4.0 ， 后 端 数据库系统 为 Oracle7.3 ， 工作 流 平台 采用 Microsoft   Exchange ， 数据库 及 工作 流 开发 接口 分别 是 Borland   BDE 和 Microsoft   MAPI 控件 ， 目前 该 系统 已 投入 试运行 阶段 ， 下 一步 工作 是 系统 功能 的 进一步 完善 以及 系统 在 建筑材料 检测 行业 的 推广 使用 。 
+ 3   结束语 
+ 　 　 工作 流是 办公自动化 领域 研究 的 热点 技术 ， MQTS 的 开发 注重 工作 流 的 分析 和 设计 ， 初步 试用 表明 系统 大大降低 了 用户 的 工作量 ， 提高 了 工作效率 ， 推动 了 建筑材料 质量 检测 的 自动化 进程 。 
+ 作者简介 ： 俞立军 ( 1976 ～ ) ， 男 ， 研究生 ， 主研 方向 ： 新型 程序设计 
+ 作者 单位 ： 俞立军 　 许满武 　 南京大学 计算机科学 系 ， 南京大学 软件 新 技术 国家 重点 实验室 ， 南京 　 210093 
+ 　 　 　 　 　 杨 　 岭 　 南京市 建筑工程 质量 检测 中心 ， 南京 　 210014 
+ 参考文献 
+ 1   Sheth   A ,   Georgakopoulos   D .   Report   from   the   NSF   Workshop   on   Workflow   and   Process   Automation   in   Information   Systems . ACM   Software   Engineering   Notes ,   1997 ,   22 ( 1 ) :   28 - 38 
+ 2   Leymann   F , Roller   D . Workflow - based   Applications . IBM   Systems   Journal ,   1997 , 36 ( 1 ) :   102 - 123 
+ 3   Lotus   Notes   Release   4.5 :   A   Developer ' s   Handbook .   Lotus / IBM   Corporation ,   1996 - 12 
+ 收稿 日期 ： 1998 - 12 - 28 

@@ -1,0 +1,106 @@
+　 宇航学 报 
+ JOURNAL   OF   ASTRONAUTICS 
+ 1999 年   第 20 卷   第 3 期   vol.20   No.3   1999 
+ 
+ 
+ 
+ 参数 不 确定 空间 机械 臂 系统 的 
+ 自 适应 鲁棒性 联合 控制 * 　 
+ 陈 　 力 　 刘延柱 
+ 　 　 摘 　 要 　 本文 讨论 载体 位置 与 姿态 均 不受 控制 的 自由 浮动 空间 机械 臂 系统 的 控制 问题 。 基于 增广 变量 法 ， 提出 当 机械 臂 与 载荷 参数均 不 确定 时 自由 浮动 空间 机械 臂 追踪 惯性 空间 期望 轨迹 的 自 适应 鲁棒性 联合 控制 方法 。 通过 仿真 运算 ， 证实 了 方法 的 有效性 。 
+ 　 　 主题词 　 自由 浮动 空间 机械 臂 系统 　 多 刚体 系统 动力学 　 自 适应 鲁棒性 联合 控制 
+ THE   SCHEME   OF   COMBINING   ADAPTATION   WITH   
+ ROBUSTNESS   CONTROL   FOR   SPACE   MANIPULATOR   
+ SYSTEM   WITH   UNCERTAIN   PARAMETERS 
+ Chen   Li 
+ ( Department   of   Mechanical   Engineering , Fuzhou   University . Fuzhou.350002 ) 
+ Liu   Yanzhu 
+ ( Department   of   Engineering , Shanghai   Jiao   Tong   University . Shaihai.200030 ) 
+ 　 　 Abstract 　 In   this   paper , the   control   of   free - floating   space   manipulator   is   discussed . with   the   augmented   state - feedback   control   model , The   scheme   of   combining   adaptation   with   robustness   control   is   proposed   for   a   free - floating   space   manipulator   whose   papameters   is   uncertainty   to   track   the   desired   trajectory   of   workspace . It   is   demonstrated   by   the   simulation   that   the   control   scheme   is   efficient . 
+ 　 　 Key   words 　 Free - floating   space   manipulator   Multibody   dynamics   Combining   adaptation   with   robustness   control 
+ 　 　 1 　 引言 
+ 　 　 航天技术 的 发展 ， 使 空间 机械 臂 的 作用 日益 重要 。 由于 空间 臂 的 载体 自由 浮动 ， 位置 和 姿态控制 系统 在 机械 臂 操作 期间 常 处于 关闭 状态 ， 机械 臂 的 运动 将 引起 载体 的 耦合 运动 。 因此 空间 机械 臂 系统 的 动力学 和 控制 问题 远较 地面 固定 机械 臂 复杂 ， 并 成为 人们 研究 的 热点 ［ 1 ， 2 ， 6 ， 7 ］ 。 由于 各种 原因 ， 实际 空间 臂 系统 的 参数 ( 如 质量 、 长度 等 ) 是 难以 精确 确定 的 。 因此 它 的 控制系统 必须 具有 在 这些 参数 波动 的 条件 下 仍 能 使 手端 稳定 地 实现 惯性 空间 期望 轨迹 的 能力 。 若 空间 机械 臂 的 载体 自由 浮动 ， 位置 、 姿态 不 受 控制 ， 则 系统 受到 动量 和 动量矩 守恒 的 动力学 约束 ， 以致 手端 操作 空间 相对 铰 空间 的 Jacobi 矩阵 不是 惯性 参数 的 线性 函数 。 因此 地面 臂 的 控制 方法 难以 直接 应用 于 空间 臂 系统 。 Walker 等 ［ 4 ］ 讨论 了 载体 位置 无控 ， 姿态 受控 条件 下 空间 臂 的 自 适应控制 问题 。 Gu 等 ［ 5 ］ 对 载体 位置 和 姿态 均 无 控制 情形 ， 提出 将 手端 与 铰 坐标 组成 增广 变量 ， 使 动力学 方程 中 的 惯性 参数 符合 线性 规律 。 本文 改进 了 增广 变量 法 ， 并 针对 机械 臂 与 载荷 参数均 存在 不确定性 的 情况 ， 提出 了 追踪 惯性 空间 轨迹 的 自 适应 鲁棒性 联合 控制 方法 ， 并 利用 Lyapunov 直接 方法 证明 了 控制系统 满足 渐近 稳定性 条件 。 仿真 计算 结果表明 控制 方法 的 有效性 。 
+ 　 　 2 　 动力学 方程 
+ 　 　 以图 ( 1 ) 所示 作 平面 运动 的 自由 浮动 二杆 空间 机械 臂 系统 为例 ， 系统 动力学 方程 可 利用 多体 动力学 的 任何 一种 建模 方法 导出 。 如可 利用 Robersen - Wittenburg 方法 ［ 8 ］ ， 将 载体 质心 坐标 xc , yc 和 相对 Y 轴 的 转角 θ 1 以及 各杆 的 相对 转角 θ 2 ， θ 3 构成 广义坐标 q ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 
+ 
+ 图 1 　 平面 两杆 自由 浮动 空间 机械 臂 系统 
+ 列出 如下 形式 的 系统 动力学 方程 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 其中 D ( q , ) 为 5 × 5 质量 矩阵 ， h ( q , ) 为 包含 哥氏力 、 离心力 的 5 阶 列阵 ， τ = ( τ 2 　 τ 3 ) T 为 关节 铰 控制 力矩 τ 2 , τ 3 组成 的 2 阶 列阵 ； 且 对 任意 变量 z ∈ h5 , 矩阵 D 、 h 间 存在 关系 ［ 3 ］ ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 2 ) 
+ 将 对称 的 质量 阵 D ( q , ) 写作 分块 形式 ， 则 方程 ( 1 ) 可分解 为 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 3 ) 
+ 其中 Dbb 和 Drr 为 3 × 3 和 2 × 2 对称 子 矩阵 ， Dbr = DTrb 为 3 × 2 子 矩阵 ， 上 式 左端 第一 式 的 积分 表示 自由 浮动 空间 机械 臂 系统 的 动量 和 动量矩 守恒 关系 。 
+ 　 　 3 　 增广 变量 
+ 　 　 机械 臂 控制系统 要求 与 机械 臂 抓手 固定 的 载荷 实现 沿 惯性 空间 预定 轨迹 的 运动 ， 设 载荷 质心 相对 惯性 参考系 的 坐标 为 Y = ( xp 　 yp ) T , 则 Y 可 表示 为 广义坐标 q 的 函数 ， 而 Y 相对 q 的 Jacobi 矩阵 表为 ： ， 。 
+ 　 　 为 保证系统 动力学 方程 中 的 参数 以 线性 形式 出现 ， 将 Y 代替 铰 坐标 qr ， 使 qb 与 Y 构成 新 的 增广 变量 X = ［ qTb 　 YT ］ T 。 则 可 导出 增广 速度 与 广义速度 之间 的 关系 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 4 ) 
+ 其中 I 为 3 阶 单位 阵 。 若 Jr 非 奇异 ， 则 矩阵 Ja 可逆 ， 从 方程 ( 4 ) 可解出 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 5 ) 
+ 　 　 设 XD = ［ qTb 　 YTD ］ T , 其中 YD 为 载荷 的 期望 运动 轨迹 。 e1 = YD - Y 为 实际 轨迹 与 期望 轨迹 之间 的 误差 ， 则 X 与 XD 之间 的 增广 输出 误差 向量 e 为 ： e = XD - X = ［ 0T 　 eT1 ］ T 。 
+ 　 　 利用 实测 的 输出 误差 e 计算 系统 的 参考 铰 速度 : 
+ 　 　 　 　 　 　 　 　 　 ( 6 ) 
+ 其中 K1 为 任选 的 对称 正定 常值 矩阵 。 将 实际 铰 速度 与 参考 铰 速度 之差 记作 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 7 ) 
+ 利用 ( 5 ) ～ ( 7 ) 式 及 增广 输出 误差 向量 e 的 定义 ， 得到 关系 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 8 ) 
+ 将 ( 6 ) 式 对 时间 t 求导 ， 得到 
+ 
+ ( 9 ) 
+ 则 利用 ( 7 ) 式 可 将 系统 动力学 方程 ( 1 ) 化作 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 10 ) 
+ 　 　 4 　 自 适应 鲁棒性 联合 控制 设计 
+ 　 　 设计 如下 控制 规律 ： 
+ 　 　 　 　 　 　 　 　 　 　 ( 11 ) 
+ 其中 、 为 参考模型 中 相应 的 D 、 h 矩阵 ， K2 为 任选 的 对称 正定 常值 阵 ， K3sgn 　 ( ) 为 2 阶 列阵 ， 其中 K3 的 元素 K3i 为 待定 系数 ， 向量 δ 令 ( 11 ) 式 两端 顶部 三个 向量 成为 恒等式 。 
+ 　 　 将 ( 11 ) 式 确定 的 控制 力矩 代入 系统 动力学 方程 ( 10 ) ， 得到 
+ 　 　 　 　 　 　 　 　 　 　 　 ( 12 ) 
+ 矩阵 W Φ 定义 为 ： , , 其中 ξ 、 分别 为 从 真实 模型 D 、 h 及 参考模型 中 分离 出 的 待 估计 参数值 和 可调 的 参数值 ， W 为 q 、 的 不 含待 估计 参数 的 函数 矩阵 。 
+ 　 　 在 实际 的 空间 机械 臂 系统 中 ， 系统 参数 有时 并非 都 是 未知 的 ， 如其 抓取 的 载荷 的 参数 可能 是 未知 的 ， 但 有关 机械 臂 的 参数 并非 完全 不 确定 ， 可能 只是 难以 精确 确定 。 若 机械 臂 相关 参数 的 实际 值 与 估计值 之间 的 误差 范围 可以 预先 估计 ， 如 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 13 ) 
+ 为 简化 算法 ， 此时 并 不必 估计 系统 的 全部 未知 参数 ， 而 只要 使 控制器 对 这部分 参数 的 不确定性 具有 鲁棒性 就 可以 了 。 从而 简化 控制器 的 结构 ， 使 之 更 便于 实时控制 。 
+ 　 　 为此 ， 可 将 ( 12 ) 式 中 的 矩 W Φ 写作 
+ 　 　 　 　 　 　 ( 14 ) 
+ 其中 , , 而 ξ E 、 分别 为 机械 臂 相关 参数 的 真实 值及 估计值 列 向量 ， ξ R 、 分别 为 载荷 相关 参数 的 待 估计值 及 可调 参数值 列 向量 。 则 由 ( 13 ) 式 得到 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 15 ) 
+ 定理 1 　 控制 规律 ( 11 ) 和 参数 调节 规律 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 16 ) 
+ 保证 ： 
+ 证 ： 设 e = 0 ， = 0 为 无扰 运动 ， ( 8 ) ， ( 12 ) ， ( 16 ) 式 为 受扰 运动 方程 ， 选择 如下 正定 函数 作为 准 Lyapunov 函数 V ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 17 ) 
+ 计算 V 的 通过 动力学 方程 构成 的 全 导数 , 并 利用 方程 ( 8 ) ， ( 12 ) ， ( 16 ) 和 关系式 ( 2 ) 得到 ： 
+ 　 　 　 　 
+ 其中 K = diag ( I 　 K2 ) ， 上式 中前 三项 为 e , 的 二次 型 ， 由于 Ja 有界 ， 则 当 参数 γ 选择 得 足够 大时 可 保证 它们 的 和 小于 零 ， 而 上式 中 最后 一项 可 写作 ： 
+ 　 　 　 　 　 　 　 　 　 ( 18 ) 
+ 如 将 参数 K31 ， K32 选择 为 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 19 ) 
+ 其中 μ 1 ， μ 2 为 正常 数 ， WEij 为 矩阵 WE 的 元素 ； 则 有 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 20 ) 
+ 可知 当 γ 足够 大 ， 且 按 ( 19 ) 式 选取 参数 K31 ， K32 时 ， 是 负定 的 ； 则 根据 Lyapunov 定理 ， 无扰 运动 e = 0 , = 0 为 渐近 稳定 的 ； 最终 由 ( 8 ) 式 导出 ： 　 　 　 　 　 　 　 　 　 　 　 证毕 。 
+ 　 　 5 　 仿真 算例 
+ 　 　 设 仿真 的 空间 机械 臂 系统 如图 ( 1 ) 所示 ， 并设 空间 机械 臂 手端 在 惯性 空间 的 期望 轨迹 为 圆 ： xD = 4.2 - 0.6 . cos ( 1.5 t ) ， yD = 4.0 + 0.6 . sin ( 1.5 t ) 。 利用 上面 给出 的 控制 规律 ( 11 ) 、 ( 16 ) 、 ( 19 ) 进行 数值 仿真 。 
+ 　 　 设 系统 中 载荷 参数 未知 、 机械 臂 的 参数 为 不 精确 确定 ， 则 系统 的 待 估计 参数 向量 为 ： 
+ ξ E = ( m1   m2   m3   m1R21   m2R22   m3R23   m2a2   m3a3 ) , ξ R = ( mp   Ip ) 
+ 　 　 仿真 过程 中 ， 提到 的 控制系统 对 ξ E 保持 鲁棒性 ， 对 ξ R 则 采取 参数 调节 。 
+ 　 　 设 空间 机械 臂 系统 的 实际 参数值 为 ξ E = ( 40 　 2.0 　 2.0 　 34.17 　 6.0 　 6.0 　 3.0 　 3.0 ) ， ξ R = ( 3.0 　 1.5 ) ； 仿真 时 ξ E 的 估计值 为 = ( 38.0 　 1.5 　 1.5 　 30.0 　 5.0 　 5.0 　 2.0 　 2.0 ) ， 且 已知 参数 实际 值 与 估计值 间 的 误差 范围 为 c1 = 3.0 , c2 = 1.0 ， c3 = 1.0 , c4 = 5.0 , c5 = 2.0 ， c6 = 2.0 , c7 = 2.0 , c8 = 2.0 ； 而 ξ R = ( mp 　 Ip ) 未知 ， 采用 ( 16 ) 式 的 调节 规律 ， 并 假定 ξ R 中 各 分量 的 初始 估计值 均 为 1 。 图 ( 2 ) 为 采用 上述 控制 规律 得到 的 手端 实际 轨迹 与 期望 轨迹 的 比较 。 图 ( 3 ) 为 本体 姿态 角及 机械 臂 关节 角 变化 曲线 。 图 ( 4 ) 为 ξ R 的 调节 规律 。 
+ 
+ 图 2 　 手端 实际 轨迹 与 期望 轨迹 
+ 
+ 图 3 　 本体 姿态 角 和 机械 臂 关节 角 变化 曲线 
+ 
+ 图 4 　 参数 mp , Ip 的 自 适应 规律 
+ 　 　 仿真 结果 证明 了 ， 本文 提出 的 自 适应 鲁棒性 联合 控制 规律 的 有效性 。 
+ * 国家自然科学基金 资助 项目 ( 19872032 ) 及 航空 基金 自选 课题 资助 项目 
+ 作者 单位 ： 陈 　 力 ： 福州大学 机械 工程系 . 福州 . 350002 
+ 　 　 　 　 　 刘延柱 ： 上海交通大学 工程力学 系 . 上海 . 200030 
+ 参考文献 
+ 　 　 1 　 Papadopoulos   E   G , Dubwsky   S . On   the   Nature   of   Control   Algorithms   for   Free - Floating   Space   Manipulators . IEEE   Transactions   on   Robotics   and   Automation , 1991 , 7 ( 6 ) : 750 - 758 
+ 　 　 2 　 Vava   Z , Dubowsky   S . On   the   Dynamics   of   Space   Manipulators   Using   the   Virtual   Manipulator , with   Applications   to   Path   Planning . Journal   of   the   Astronautical   Science , 1990 , 38 ( 4 ) : 441 - 472 
+ 　 　 3 　 Slotin   J   E , Li   W   P . On   the   Adaptive   Control   of   Robot   Manipulators . Journal   of   the   Robotics   Reserach , 1987 , 6 ( 3 ) : 49 - 59 
+ 　 　 4 　 Michael   W , Walker . Adaptive   Control   of   Space - Based   Robot   Manipulators . IEEE   Transactions   on   Robotics   and   Automation , 1992 , 7 ( 6 ) : 828 - 835 
+ 　 　 5 　 Gu   Y   L , Xu   Y   S . A   Normal   Form   Augmentation   Approach   to   Adaptive   Control   of   Space   Robot   Systems . Journal   of   the   Dynamics   and   Control , 1995 , 5 : 275 - 294 
+ 　 　 6 　 刘延柱 ， 顾晓勤 . 空间 机械 臂 逆 动力学 的 Lyapunov 方法 . 力学 学报 ， 1996 ， 28 ( 6 ) 
+ 　 　 7 　 陈力 ， 戈 新生 ， 刘延柱 . 自由 浮动 空间 机械 臂 系统 运动 规划 的 最优控制 方法 . 全国 第七届 空间 及 运动 体 控制技术 学术年会 论文集 ， 1996 ： 47 - 51 
+ 　 　 8 　 刘延柱 ， 洪嘉振 ， 杨 海兴 . 多 刚体 系统 动力学 . 北京 ： 高等教育出版社 ， 1989 
+ 收稿 日期 : 1997 年 8 月 18 日 , 修回 日期 : 1998 年 7 月 30 日 

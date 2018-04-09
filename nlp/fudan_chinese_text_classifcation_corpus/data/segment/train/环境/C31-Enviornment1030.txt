@@ -1,0 +1,36 @@
+环境 科学研究 
+ RESEARCH   OF   ENUIRONMENTAL   SCIENCES 
+ 2001   Vol.14   No.2   P.48 - 50 , 53 
+ 
+ 
+ 
+ 
+ 生化 - 氧化 偶合 絮凝 法 处理 含季 铵盐 高浓度 有机 工业废水 
+ 潘碌亭 　   肖锦 　   朱云 　   
+ 摘 　 要 ： 采用 厌氧 - 好 氧 - 氧化 偶合 絮凝 工艺 处理 特种 有机 废水 ， 研究 了 在 不同 运行 参数 条件 下 处理 废水 的 效果 。 结果表明 ， 在 进水 COD 为 2500 ～ 3000mg / L 范围 内 ， 经厌 氧 - 二级 好 氧 处理 ， COD 总 去除率 可达 95% ， 再 通过 氧化 偶合 絮凝 处理 ， 出水 COD 可降 至 80mg / L 以下 ， COD 总 去除率 可高达 97% 以上 ， 达到 工业废水 排放 标准 。 
+ 关键词 ： 有机 废水 ；   生化 处理 ；   氧化 偶合 絮凝 
+ 分类号 ： X781.4 　 文献 标识码 ： A 
+ 文章 编号 ： 1001 - 6929 ( 2001 ) 02 - 0048 - 03 
+ Treatment   of   High   Strength   Quaternary   Ammonium   Salt - Organic   Wastewater   with   Biochemical - Oxidation   and   Flocculation   Process 
+ PAN   Lu - ting （ College   of   Paper   and   Environment   Engineering ,   South   China   University   of   technology ,   Guangzhou 　 510641 ,   China ） 　 
+ XIAO   Jin （ College   of   Paper   and   Environment   Engineering ,   South   China   University   of   technology ,   Guangzhou 　 510641 ,   China ） 　 
+ ZHU   Yun （ College   of   Paper   and   Environment   Engineering ,   South   China   University   of   technology ,   Guangzhou 　 510641 ,   China ） 　 
+ 
+ Abstract ： The   effect   of   applying   A / O - oxidation   and   flocculation   process   to   treat   special   organic   wastewater   in   different   operating   conditions   was   studied .   The   results   showed   that   when   the   influent   COD   was   2   500 ～ 3   000   mg / L ,   after   being   treating   by   A / O / O   the   total   COD   removal   rate   is   95% ,   and   by   oxidation   and   flocculation   the   effluent   COD   can   be   reduced   to   below   80   mg / L .   The   total   COD   removal   rate   is   up   to   97% ,   meeting   the   wastewater   discharge   standard . 
+ Keywords ： organic   wastewater ;   biochemical   treatment ;   oxidation   and   flocculation 
+ 作者简介 ： 潘碌亭 ( 1964 - ) ， 男 ， 安徽 蚌埠 人 ， 讲师 ， 博士 研究生 .   
+ 作者 单位 ： 潘碌亭 （ 华南理工大学   造纸 与 环境 工程学院 ， 广东   广州 　 510641 ） 　 
+ 　 　 　 　 　 肖锦 （ 华南理工大学   造纸 与 环境 工程学院 ， 广东   广州 　 510641 ） 　 
+ 　 　 　 　 　 朱云 （ 华南理工大学   造纸 与 环境 工程学院 ， 广东   广州 　 510641 ） 　 
+ 
+ 参考文献 ： 
+ ［ 1 ］ 　 杨军 ， 陆正禹 ， 胡纪萃 ， 等 . 抗菌素 工业废水 生物 处理 技术 现状 与 展望 [ J ] . 环境 科学 ， 1997 ， 18 ( 3 ) ： 83 ～ 85 . 
+ ［ 2 ］ 　 潘碌亭 ， 肖锦 ， 朱云 . 厌氧 - 好氧法 处理 特种 有机 工业废水 的 动态 模拟实验 [ J ] . 中国 环境 科学 ， 2000 ， 20 ( 2 ) 173 ～ 175 . 
+ ［ 3 ］ 　 杨健 ， 王士芬 ， 郭 长虹 . 水解 酸化 - 好 氧 工艺 处理 异丙醇 工业废水 [ J ] . 重庆 环境 科学 ， 1999 ， 21 ( 4 ) ： 26 ～ 29 . 
+ ［ 4 ］ 　 王凯军 . 低浓度 污染 水厌 氧 - 水解 处理工艺 [ M ] . 北京 ： 中国 环境 科学出版社 ， 1991.231 ～ 236 . 
+ ［ 5 ］ 　 周平 ， 钱易 ， 李炳伟 ， 等 . 厌氧 - 好 氧 - 混凝 工艺 处理 抗生素 废水 [ J ] . 中国 给水 排水 ， 1996 ， 12 ( 2 ) ： 4 ～ 6 . 
+ ［ 6 ］ 　 薛正琴 . 缺氧 - 好 氧 工艺 处理 高浓度 废水 的 应用 [ J ] . 化工 排水 设计 ， 1998 ， ( 1 ) ： 3 ～ 8 . 
+ ［ 7 ］ 　 国家环保局 《 水 和 废水 监测 分析方法 》 编委会 . 水 和 废水 监测 方法 [ M ] . 北京 ： 中国 环境 科学出版社 ， 1989.456 ～ 459 . 
+ 
+ 收稿 日期 ： 2000 年 5 月 22 日 
+ 出版日期 ： 2001 年 3 月 30 日 

@@ -1,0 +1,79 @@
+计算机 应用 研究 
+ APPLICATION   RESEARCH   OF   COMPUTERS 
+ 2000   Vol.17   No.3   P.76 - 77 
+ 
+ 
+ 
+ 
+ Lotus   Notes 数据库 访问 接口 模块 的 研制 
+ 俞立军 　 黄峻 　 陈晨 　 许满武 
+ 摘 　 要 ： 介绍 了 Lotus   Notes 数据库 接口 模块 DBLSX 的 设计 、 实现 及 应用 ， 该 模块 采用 Lotus   LSX 接口 ， 以 一致 方式 访问 主流 大型 数据库 。 
+ 关键词 ： Lotus   LSX   构件   数据库 接口 
+ 1 　 引言 
+ 　 　 Lotus   Notes / Domino 是 世界 上 最 先进 的 通信 处理软件 和 群 件产品 。 它 全面 地 实现 了 对 非 结构化 数据 的 管理 和 共享 ， 成为 各类 信息 的 存取 中心 ， 是 安全 、 可靠 的 基础设施 ； 它 内含 强大 的 工作 流 软件开发 环境 ， 是 Internet 与 Intranet 的 完美 结合 。 
+ 　 　 Lotus   Notes 是 一个 文档 数据库 管理系统 ， Notes 数据库 最 基本 元素 就是 文档 ， 文档 由 表单 定义 ， 表单 包含 各种类型 的 域 ， Notes 文档 可以 包含 结构化 数据 和 非 结构化 数据 ， Notes 向 用户 提供 了 大量 有用 的 管理 非 结构化 数据 的 工具 。 
+ 　 　 ( 1 ) 格式化 文本 / 多媒体 ： Notes 可 高效 存储 、 传播 、 分配 和 管理 各种 信息 ， 包括 表格 、 格式化 文本 、 HTML 文本 、 图形 、 图象 、 音频 和 视频信号 等 。 
+ 　 　 ( 2 ) 全文检索 ： Notes 内置 搜索引擎 ， 可以 对 文档 进行 全文检索 。 
+ 　 　 ( 3 ) 版本控制 ： 为 记录 不同 用户 对 文档 的 修改 ， Notes 提供 版本控制 功能 ， 对 文档 的 修改 可 被 视为 对原 文档 的 应答 。 
+ 　 　 ( 4 ) 文档 链接 ： Notes 文档 中 可 包含 指向 别的 文档 ( Notes 文档 或 WWW 页面 等 ) 的 指针 。 从而 构成 了 一个 基于 超文本 的 系统 。 
+ 　 　 Notes 访问 数据库 通过 ODBC 方式 ， ODBC 是 微软 制定 的 一个 数据库 接口标准 。 ODBC 管理程序 接收 前端 程序 的 数据 查询 请求 ， 将 其 交给 特定 数据库 ODBC 驱动程序 ， 进而 发送给 数据库 管理系统 ， 最后 将 查询 结果 逐层 返回 。 ODBC 方式 缺点 是 效率 低 ， 对于 经常 访问 数据库 的 Notes 应用 ODBC 方式 不能 满足要求 。 为此 ， 我们 开发 了 Notes 的 主流 数据库 接口 DBLSX ， 接口 形式 采用 Notes   LSX ( Lotus   Script   Extension ) ， Notes   LSX 可以 应用 于 所有 Lotus   Script 语言 环境 ， 这样 Notes 应用 可以 通过 Notes   Script 高效 访问 关系数据库 。 
+ 2 　 Notes   LSX 构件 
+ 　 　 自从 70 年代 末期 Smalltalk 语言 的 诞生 以来 ， 对象 技术 迅速 发展 并 逐步 走向 成熟 ， 面向对象 的 软件 构造方法 以 数据 为 中心 设计 ， 从 结构 上 模拟 客观 世界 ， 与 传统 结构化 方法 相比 具有 良好 的 可 构造性 、 可扩充性 和 可 复用 性 。 对象 模型 把 软件系统 构造 成类 的 结构化 集合 ， 对象 内在 的 对 数据 和 行为 的 封装 性 以及 对象 接口 与 实现 的 分离 使得 它 很 适合 充当 分布 环境 下 的 基本 计算 和 通信 单元 。 
+ 　 　 对象 技术 的 贡献 之一 就是 构件技术 的 兴起 ， 构件 是 可 重用 的 软件 模块 ， 它 封装 了 特定 的 功能 逻辑 ， 可以 被 用于 快速 定制 客户 应用 。 构件 位于 容器 内 执行 ， 容器 为 构件 提供 了 应用 上下文 、 窗体 、 复合 文档 、 Web 页 、 服务 进程 都 是 典型 的 构件 容器 。 构件 模型 定义 了 构件 接口 、 构件 与 容器 以及 构件之间 相互 交互方式 ， 保证 了 不同 构件 产品 易于 组装 成 一个 应用 。 构件 接口 规范 以 OMG 的 CORBA 规范 最为 广泛 接受 ， CORBA 定义 了 系统 级 对象 的 一般 接口 以及 对象 间 协作 计算 的 标准 ， 其它 的 产品 或 规范 如 微软 的 COM / DCOM 、 IBM 的 SOM / DSOM 、 OSF 的 DCE 等 与 CORBA 有着 异曲同工 之 处 ， 这些 模型 支持 了 独立 于 编程语言 和 操作系统 平台 的 分布式 对象 的 合作 计算 ， 基于 这些 模型 的 构件 方便 了 应用软件 的 开发 ， 应用软件 只 需 将 构件 加以 重用 而 不必 关心 其 实现 细节 ， 从而 缩短 了 软件 开发周期 ， 降低 了 大型 软件系统 开发 的 复杂性 。 
+ 　 　 Lotus   Script 是 Lotus 平台 的 通用 编程语言 ， 它 有着 比较 完备 的 类库 并 允许 用户 定制 Lotus 构件 ( Notes   LSX ) ， LSX 存在 于 系统 二进制 库 文件 中 ( DLL ) ， 它 使用 COM   CLSID ( Class   ID ) 唯一 标志 ， 可以 应用 于 整个 Lotus   Script 平台 ， LSX 构件 有 属性 、 方法 和 事件 三要素 ， LSX 使用 之前 需 注册 到 Lotus   Script 系统 ， 注册 后 的 LSX 可以 像 一般 的 Lotus 类 一样 使用 。 Lotus   Script 通过 向 LSX 模块 发消息 与 LSX 交互 ， 如 通知 LSX 初始化 、 取得 LSX 的 属性 、 调用 其 方法 等 ， LSX 实现 一个 消息 过程 ( 即 回调 函数 ) ， 消息 过程 负责 调度 所有 Lotus   Script 发来 的 消息 。 Notes   LSX 工具箱 用于 开发 Notes   LSX ， 首先 要 定义 LSX 的 接口 即 其 属性 、 方法 和 事件 ， LSX   Wizard 程序 根据 LSX 的 接口定义 生成 C++ 程序 框架 ， 在 程序 中 加入 属性 、 方法 和 事件 的 实现 代码 即可 编译 生成 LSX 模块 。 利用 LSX 可以 在 Lotus   Script 平台 访问 外部 资源 如 数据库 等 。 
+ 3 　 DBLSX 的 设计 与 实现 
+ 　 　 为 提高 Notes 数据库 访问 效率 ， 我们 采用 直接存取 数据库 的 方法 ， 利用 LSX 与 数据库 服务器 交互 ， LSX 负责 将 SQL 语句 发送给 后台 数据库 ， 并 将 数据 读入 缓冲区 中 ， 最后 把 数据 逐行 取出 。 图 1 显示 了 数据库 访问 过程 。 
+ 
+ 图 1 　 Lotus   LSX 访问 数据库 示意图 
+ 3.1 　 对象 模型 的 设计 
+ 　 　 我们 认为 ， 理想 的 数据库 接口 模型 应 做到 以下几点 ： 
+ 　 　 1 ) 高效 ： 效率 问题 正是 我们 工作 的 出发点 。 
+ 　 　 2 ) 数据库 无关 ： 数据库 接口 应 以 相同 方式 访问 异构 的 数据库 。 
+ 　 　 3 ) 编程 方便 ： 模型 应 提供 给 开发人员 尽可能 方便 的 编程 接口 。 
+ 　 　 4 ) 易 移植 ： 应 遵循 相对 通用 的 构件 接口 模型 ， 能 应用 于 多种语言 和 开发 平台 。 
+ 　 　 5 ) 易 开发 ： 过于 复杂 的 模型 不仅 不易 使用 ， 也 不易 开发 和 升级 。 
+ 　 　 为此 ， 我们 参考 了 ODBC / JDBC 、 DAO / RDAO 、 OLE   DB 几个 数据库 接口 模型 ： ODBC 是 多数 应用程序 访问 数据库 的 方式 ， 它 具有 良好 的 数据库 独立性 ， 可以 避免 应用程序 对 不同 类型 数据库 使用 不同 的 API 。 通过 ODBC 可以 使得 数据库 的 更改 变得 非常容易 ， 因为 对 应用程序 来说 这 只 需 改换 一下 驱动程序 。 JDBC 定义 了 一个 Java 开发 的 CLI ， 实际上 就是 一系列 用于 特定 数据库 的 Java 类库 ， 它 源于 ODBC 体系结构 。 DAO / RDAO 是 微软 可视化 系列 开发工具 采用 的 数据 接口 ， 它 的 对象 层次 较为 复杂 ， 其 主要 缺点 在于 只能 使用 ODBC 作为 底层 数据库 接口 。 OLE   DB 是 一组 COM 接口 ， 它 为 应用程序 访问 保存 在 不同 信息源 中 的 数据 提供 了 统一 的 访问 方法 ， 这些 信息源 可以 是 关系 型 的 ， 也 可以 是非 关系 型 的 。 这些 接口 支持 大量 可 应用 于 数据源 的 DBMS 功能 ， 使 数据源 能够 共享 其 数据 。 
+ 　 　 针对 Lotus 平台 的 特点 以及 应用 需求 ， 我们 设计 了 相对 简单 的 对象 层次 ， 主要 对象 为 ： 
+ 　 　 1 ) 会话 Session ： 负责 维护 一系列 数据库 连接 。 
+ 　 　 2 ) 连接 Connection ： 负责 连接 到 远程 数据库 ， 记录 连接 信息 。 
+ 　 　 3 ) 事务 Transaction ： 负责 处理 数据库 的 启动 ， 确认 、 回滚 等 。 
+ 　 　 4 ) 查询 Query ： 负责 向 数据库 发送 查询 请求 。 
+ 　 　 5 ) 结果 集 ResultSet ： 负责 查询 结果 的 缓冲 。 
+ 　 　 6 ) 错误 Error ： 负责 处理 访问 过程 的 所有 错误 。 
+ 　 　 一次 典型 的 数据库 访问 过程 可 做 如下 编码 ： 
+ conn   =   new   Connection 
+ qry   =   new   Query 
+ res   =   new   ResultSet 
+ if   conn . ConnectTo   ' ORACLE ' ,   ' scott ' ,   ' tiger '   < >   0   then 
+ 　 　 MsgBox   Error . Msg 
+ End   if 
+ qry . Connection   =   conn 
+ qry . Result   =   res 
+ qry . Sql   = ' Select   *   from   emp ' 
+ qry . Execute 
+ res . Open 
+ '   Fetch   some   data 
+ res . Close 
+ res . Delete 
+ qry . Delete 
+ conn . CloseConnection 
+ conn . Delete 
+ 3.2 　 数据类型 的 映射 
+ 　 　 Notes 支持 Boolean 、 Integer 、 Long 、 Single 、 Double 、 String 、 Datetime 、 Currency 、 Variant 等 数据类型 ， 数据库系统 数据类型 则 丰富 得 多 ， 我们 对 数据库 类型 和 Notes 常见 类型 作 了 映射 ， 必要 时 对 类型 进行 强制 转换 。 
+ 3.3 　 字符集 的 转换 
+ 　 　 Lotus 平台 采用 UNICODE 字符集 ， 所有 字符 均 用 双 字节 编码 ， 数据库系统 则 可能 采用 多种 字符 编码方式 ， 对于 字符 型 数据 需作 编码 转换 ， 转换 可以 用 LSX 提供 的 字符串 处理函数 或 C语言 本身 的 字符 转换 函数 。 
+ 3.4 　 实现 
+ 　 　 针对 Windows 平台 ， 我们 用 Visual   C++ 编写 了 DBLSX 的 代码 ， 目前 支持 的 数据库系统 包括 Oracle 、 Sybase 和 Microsoft   SQL   Server ， 当然 ， 源程序 只要 稍加 修改 即可 用于 Macintosh 、 OS / 2 、 HP - UNIX 等 其它 平台 。 
+ 4 　 DBLSX 构件 的 应用 
+ 　 　 DBLSX 适用 于 所有 Lotus   Script 平台 ， 它 既 可以 运行 Lotus 前台 也 可以 用于 编写 Lotus   Domino 的 服务器 脚本 。 我们 在 用 Lotus   Notes   4.5 开发 南京 电视台 节目 制作 办公自动化 系统 过程 中 ， Notes 前台 经常 要 提取 Sybase   System   11 数据库 中 的 录像带 信息 ( 共 十万 盘约 200 ～ 300MB 的 数据 ) ， DBLSX 模块 被 用于 Notes 前台 访问 Sybase   System   11 数据库 ， 与 ODBC 方式 相比 ， DBLSX 整体 访问 效率 有 了 大幅度 的 提高 ， 事实证明 完全 满足 系统 要求 ， 从而 大大 地 加快 了 电视台 的 工作效率 。 
+ 本文 获 国家 863 高科技 项目 资助 
+ 本文 获 国家自然科学基金 资助 
+ 俞立军 ( 南京大学 计算机科学 与 技术 系   南京   210093 ) 
+ 黄峻 ( 南京大学 计算机科学 与 技术 系   南京   210093 ) 
+ 陈晨 ( 南京大学 计算机科学 与 技术 系   南京   210093 ) 
+ 许满武 ( 南京大学 计算机科学 与 技术 系   南京   210093 ) 
+ 参考文献 
+ 1   Lotus   Notes   Release   4.5 :   A   Developer ' s   Handbook .   Lotus / IBM   Corporation .   Nov .   l996 
+ 2   Oracle   7.3 软件 手册 .   Oracle   Corporation 
+ 3   Microsoft   DCOM   Specification .   Microsoft   Corporation 
+ 收稿 日期 ： 1999 年 10 月 1 日 

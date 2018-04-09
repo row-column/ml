@@ -1,0 +1,92 @@
+环境 科学研究 
+ RESEARCH   OF   ENUIRONMENTAL   SCIENCES 
+ 1999 年   第   12 卷   第 6 期   vol.12   No.6   1999 
+ 
+ 
+ 
+ 硝基苯 好 氧 降解 菌 筛选 及其 降解 特性 * 
+ 侯 　 轶 　 任 　 源 　 韦 朝海 * * 
+ 摘 　 要 　 针对 化学试剂 厂 和 制药厂 废水 中 的 硝基苯 ， 经菌源 筛选 与 长期 好 氧 驯化 ， 分离 到 1 株能 有效 降解 硝基苯 的 菌株 Bacillus   subilis ( 枯草 芽孢 杆菌 ) 。 系统 研究 了 其 生长 条件 及 降解 硝基苯 的 特性 ， 适宜 生长 条件 ：   pH 为 5.0 ～ 8.0 ， 温度 为 30 ～ 40 ℃ ， NH4Cl 浓度 为 100 ～ 200   mg / L ， 在 降解 硝基苯 的 过程 中有 苯胺 生成 ， 这为 含 低浓度 硝基苯 废水 的 生物 处理 提供 了 新 的 途径 ， 即 不 需要 厌氧 工艺 而 直接 用 好 氧 技术 就 可 将 废水 完全 无害化 。 
+ 关键词 　 硝基苯 　 好 氧 降解 　 枯草 芽孢 杆菌 　 苯胺 
+ Selection   of   Nitrobenzene - Degrading   Microorganism   under   Aerobic   Conditions   and   Its   Degrading   Character 
+ HOU   Yi 　 REN   Yuan 　 WEI   Chaohai 
+ ( College   of   Chem . Eng . , South   China   University   of   Technology , Guangzhou   510640 ) 
+ Abstract 　 The   biodegradation   of   nitrobenzene   existing   extensively   in   the   effluent   wastewater   of   pharmaceutical   factory   and   chemistry   industries   is   specialized .   High   effective   nitrobenzene - degrading   microorganism   is   selected   and   acclimated   under   aerobic   conditions ,   and   named   as   Bacillus   subilis .   The   growth   conditions   and   the   degrading   characters   of   the   strain   are   systematically   studied .   The   suitable   growth   conditions   are :   pH   5.0 ～ 8.0 ,   30 ～ 40 ℃ , NH \ - 4Cl   100 ～ 200   mg / L .   The   fact   that   nitrobenzene   can   be   partly   biodegraded   into   aniline   under   aerobic   condition   provides   a   new   way   of   biodegradation   treatment   of   nitrobenzene   wastewater   with   low   nitrobenzene   concentration , i . e .   the   wastewater   can   be   biodegraded   thoroughly   just   by   the   aerobic   technique , not   necessary   for   anaerobic   technique . 
+ Keywords 　 Nitrobenzene ;   Aerobic   biodegradation ;   Bacillus   subilis ;   Aniline 
+ 　 　 工业 上 广泛应用 硝基苯 制造 苯胺 、 染料 、 TNT 、 肥皂 及 香料 等 。 硝基苯 是 高 毒性 物质 ， 列 于 世界 “ 环境 优先 控制 有毒 有机 污染物 ” 的 名单 前列 ［ 1 ］ ， 国际 上 对 其 在 工业废水 中 的 合理 排放 有 极为 严格 的 限制 。 一般来说 ， 针对 水量 不大 但 含 高浓度 硝基苯 的 废水 ， 首先 通过 萃取 的 方法 加以 处理 并 回收 ； 而 当 水量 大且 硝基苯 含量 不高 ( < 100   mg / L ) 时 ， 则 考虑 生物 处理 技术 。 在 笔者 的 前期 研究 工作 中 发现 ， 硝基苯 易厌 氧 降解 为 苯胺 ［ 2 ］ 。 尽管如此 ， 在 实际 废水处理 过程 中 ， 一方面 厌氧 过程 不能 将 初级 基质 即 硝基苯 类化合物 完全 无害化 ； 另一方面 ， 由于 水力学 及其 概率分布 的 问题 ， 厌氧 — 好 氧 联合 工艺 中 的 好 氧 阶段 ， 始终 存在 着 不同 浓度 的 硝基苯 类化合物 ， 给 废水处理 的 彻底性 带来 了 一定 的 困难 。 因此 ， 有 必要 研究 好 氧 条件 下 硝基苯 类化合物 的 降解 行为 。 笔者 通过 长期 好 氧 驯化 ， 筛选 分离 出 1 株 高效 好氧菌 ， 可 将 硝基苯 及其 中间 产物 ( 如 苯胺 ) 彻底 降解 。 
+ 1 　 实验 材料 与 方法 
+ 1.1 　 菌种 来源 
+ 　 　 菌种 来自 某 制药厂 废水处理 系统 曝气池 污泥 。 
+ 1.2 　 实验 仪器 及 设备 
+ 　 　 HYD 恒温 摇床 ( 产地 ： 武汉 ) ； LRH － 150 B型 生化 培养箱 ( 产地 ： 广州 ) ； 722 型 分光 光度计 ( 产地 ： 上海 ) ； pHS － 3 型 酸度计 ( 产地 ： 上海 ) ； STM 型 电子显微镜 ( 产地 ： 上海 ) ； Vitek － 32 型 微生物 全自动 鉴定 仪 ( 产地 ： 法国 梅里 埃 公司 ) 。 
+ 1.3 　 试剂 及 溶液 
+ 　 　 无机盐 组成 ： 0.5%   K2HPO4 ， 0.5%   KH2PO4 ， 0.5%   NaCl ， 0.05%   MgSO4 。 
+ 　 　 种子 培养液 ： 0.3% 牛肉 膏 ， 1% 蛋白 胨 ， 0.5%   NaCl ， 调节 pH 值为 7.0 ～ 7.2 。 
+ 　 　 硝基苯 培养液 ： 无机盐 溶液 ， 上 一 周期 培养 菌液 离心 后 的 部分 菌体 ， 一定量 的 硝基苯 溶液 ， 自然 pH 。 
+ 1.4 　 分析 项目 和 测定方法 ［ 3 ， 4 ］ 
+ 　 　 硝基苯 和 苯胺 浓度 ： 萘 乙二胺 偶氮 光度法 。 
+ 　 　 COD 值 ： 重铬酸钾 法 。 
+ 　 　 光密度 OD 值 ： 722 分光 光度计 ( λ 为 600   nm ) 。 
+ 1.5 　 研究 内容 与 方法 
+ 1.5 . 1 　 菌种 的 筛选 、 驯化 及 鉴定 
+ 　 　 菌种 驯化 过程 在 35 ℃ 的 恒温 水浴 摇床 中 进行 。 在 长期 好 氧 驯化 过程 中 发现 ， 微生物 在 硝基苯 培养液 条件 下 生长 还 需要 额外 加入 一定 的 氮源 ， 通过 试验 ， 加入 约 100   mg / L   NH4Cl 于 溶液 中 ， 菌体 生长 良好 。 驯化 过程 结束 后 ， 菌种 经 鉴定 为 Bacillus   subilis ( 枯草 芽孢 杆菌 ) 。 通过 增殖 培养 ， 将 其 制成 菌 悬液 ， 质量 浓度 约 为 29   mg / mL , 每毫升 菌 悬液 含菌 数约 为 2.44 × 1019 个 。 
+ 1.5 . 2 　 Bacillus   subilis 生长 条件 的 确定 
+ 　 　 pH 值 ： 选择 硝基苯 初始 浓度 约 为 150   mg / L ， 调节 培养液 不同 pH 值 ， 于 35 ℃ 摇 床上 培养 48   h 后 ， 以 初始 溶液 为 空白 参比 测定 OD 值 ， 确定 菌体 生长 适宜 pH 值 范围 。 
+ 　 　 温度 ： 选择 硝基苯 初始 浓度 约 为 150   mg / L ， 置于 恒温 摇床 中 ， 分别 在 10 ， 15 ， 20 ， 25 ， 30 ， 35 ， 40 ， 45 ， 50 ℃ 培养 48   h ， 以 初始 溶液 为 空白 参比 测定 OD 值 ， 确定 菌体 生长 适宜 温度 范围 。 
+ 　 　 NH4Cl 浓度 ： 选择 硝基苯 初始 浓度 约 为 150   mg / L ， 分别 加入 一定量 的 NH4Cl ， 使 NH4Cl 浓度 分别 为 20 ， 50 ， 100 ， 200 ， 250 ， 300 ， 400   mg / L ， 于 35 ℃ 的 恒温 摇 床上 培养 48   h 后 ， 以 初始 溶液 为 空白 参比 测定 OD 值 ， 确定 菌体 生长 适宜 NH4Cl 浓度 范围 。 
+ 1.5 . 3 　 硝基苯 降解 特性 实验 
+ 　 　 于 所 确定 的 生长 条件 下 间隔 一定 的 时间 取样 ， 测定 培养液 中 硝基苯 浓度 、 苯胺 浓度 、 CODCr 及 OD 值 的 变化 。 通过 细菌 生长 曲线 、 基质 降解 曲线 等 过程 来 分析 Bacillus   subilis 降解 硝基苯 的 基本 特性 。 
+ 2 　 结果 与 讨论 
+ 2.1 　 Bacillus   subilis 生长 条件 
+ 　 　 pH 值 ： Bacillus   subilis 在 不同 pH 值下 的 生长 见图 1 。 菌体 生长 适应 pH 值 范围 较 宽 ， 在 pH 为 4.0 ～ 9.5 条件 下 生长 均 较 好 ， 其 适宜 pH 条件 为 5.0 ～ 8.0 。 以后 实验 中将 培养液 pH 值调 至 7.0 。 
+ 
+ 
+ 图 1 　 pH 值 对 Bacillus   subilis 生长 的 影响 
+ 　 　 温度 ： Bacillus   subilis 在 不同 温度 下 的 生长 见图 2 。 枯草 芽孢 杆菌 在 25 ～ 40 ℃ 内均 能 较 好 生长 ， 以 30 ～ 40 ℃ 为 最佳 生长 温度 区间 。 
+ 
+ 
+ 图 2 　 温度 对 Bacillus   subilis 生长 的 影响 
+ 　 　 NH4Cl 浓度 ： Bacillus   subilis 在 不同 的 NH4Cl 浓度 下 的 生长 见图 3 。 NH4Cl 作为 微生物 生长 初期 的 氮源 非常 重要 。 本 实验 条件 下 确定 NH4Cl 的 浓度 为 100   mg / L 。 
+ 
+ 
+ 图 3 　 NH4Cl 浓度 对菌 生长 的 影响 
+ 2.2 　 菌种 降解 特性 试验 
+ 　 　 根据 前述 试验 设计 ， 测定 培养 体系 中 硝基苯 浓度 和 溶液 CODCr ， 绘制 曲线 如图 4 所示 。 可见 24   h 以内 为 Bacillus   subilis 生长 停滞 期 ， 硝基苯 及 微生物 浓度 没有 明显 变化 。 当 微生物 细胞 适应环境 后 ， 在 24 ～ 48   h 内 菌体 生长 达到 对数 期 ， 菌体 个数 成 对数 增长 ， 此时 硝基苯 浓度 急剧下降 。 48 ～ 86   h 内 ， 细胞 经过 对数 期 大量 繁殖 后 ， 进入 生长 静止 期 。 86   h 后 ， 由于 环境 中 营养物质 的 不足 及 基质 的 耗尽 ， 微生物 生长 进入 衰减 期 。 
+ 
+ 
+ 图 4 　 枯草 芽孢 杆菌 生长 曲线 
+ 　 　 由图 5 可知 ， Bacillus   subilis 在 降解 硝基苯 的 过程 中有 苯胺 生成 ， 且 苯胺 的 浓度 曲线 有 最大值 ， 48   h 以内 苯胺 的 量 一直 在 增加 ， 可以 认为 该 时间段 内 微生物 不断 降解 硝基苯 产生 中间 产物 ( 苯胺 只是 其中 间 产物 的 一种 ) ， 结合 图 5 ， 6 可 发现 ， 在 50 ～ 100   h 内 ， 微生物 处于 对数 生长期 或 平衡 期 ， 微生物 的 活性 较 高 ， 微生物 除了 不断 利用 培养液 中 的 硝基苯 作为 其 生长 所 需 的 有机 碳源 外 ， 还 可 利用 前 50   h 降解 过程 中 所 产生 的 中间 产物 ( 如 苯胺 ) ， 苯胺 在 生成 的 过程 中 不断 地被 利用 ， 因而 就 表现 为 这 段时间 内 苯胺 的 量 基本 保持 不变 ， 而 硝基苯 的 量 不断 降低 ， 即 其 降解 率 不断 提高 ， 此时 溶液 总 COD 值 也 大幅度降低 。 100   h 以后 ， 培养液 中 硝基苯 的 量 很少 ， 为 满足 微生物 代谢 需要 ， Bacillus   subilis 继续 利用 溶液 中 仅存 的 中间 产物 作为 其 生长 代谢 的 营养物质 ， 从图 5 ， 6 中 反映 出 苯胺 浓度 迅速 下降 ， 溶液 COD 值 继续 降低 。 由此可知 ， 枯草 芽孢 杆菌 不仅 可以 好 氧 降解 溶液 中 的 硝基苯 ， 还 可以 进一步 分解 其 代谢 中间 产物 ， 可以 实现 含 硝基苯 废水 的 彻底 无害化 。 
+ 
+ 
+ 图 5 　 降解 过程 中 硝基苯 与 苯胺 的 相关性 曲线 
+ 
+ 
+ 图 6 　 硝基苯 及 溶液 COD 成分 的 降解 曲线 
+ 2.3 　 Bacillus   subilis 与 人 苍白 杆菌 的 协同 作用 
+ 　 　 结合 本 实验室 前期 研究 工作 已 得到 降解 苯胺 的 高效 菌种 — — 人 苍白 杆菌 ( Ochrobactrum   anthropi ) ［ 5 ］ 来 探讨 好 氧 生物降解 硝基苯 的 彻底性 。 于 500   mL 锥形瓶 中 配制 硝基苯 培养液 300   mL 等 体积 分装 于 2 个 锥形瓶 中 ， 并 向 其中 一个 培养液 中 接入 人 苍白 杆菌 ， 测定 2 种 降解 体系 中 硝基苯 、 苯胺 浓度 随 时间 的 变化 结果 如图 7 ， 8 所示 。 
+ 
+ 
+ 图 7 　 2 种 降解 体系 苯胺 浓度 的 不同 变化 
+ 
+ 
+ 图 8 　 2 种 降解 体系 硝基苯 浓度 的 不同 变化 
+ 　 　 当 Bacillus   subilis 与 人 苍白 杆菌 共同 降解 硝基苯 时 ， 降解 速率 大大提高 ， 完全 降解 初始 浓度 为 232   mg / L 的 硝基苯 ， 枯草 芽孢 杆菌 单独 作用 时需 145h ， 而 当 Bacillus   subilis 与 人 苍白 杆菌 混合 作用 时 只 需 85   h ， 且 降解 过程 中 苯胺 的 浓度 大大降低 ， 这 进一步 证明 了 Bacillus   subilis 在 好 氧 降解 硝基苯 的 过程 中 确实 有 苯胺 生成 ， 且 人 苍白 杆菌 的 加入 加快 了 硝基苯 的 降解 速率 。 
+ 　 　 一般说来 ， 硝基苯 在 厌氧 条件 下会 被 微生物 分泌 产生 的 酶 还原 生成 苯胺 ［ 2 ， 6 ］ ， 在 好 氧 条件 下 硝基苯 被 降解 为 苯胺 的 情况 国内外 都 没有 报道 ［ 7 ， 8 ］ ， 在 本 实验 过程 中 硝基苯 在 好 氧 条件 下 被 Bacillus   subilis 部分 降解 为 苯胺 的 原因 是因为 降解 过程 中 某些 还原性 物质 或 还原性 酶 参与 了 共 代谢作用 所致 ， 其 具体 的 降解 路径 还 有待于 通过 实验 研究 探索 查明 。 
+ 3 　 结论 
+ 　 　 a .   通过 长期 好 氧 驯化 ， 筛选 得到 能 有效 降解 硝基苯 的 菌株 ， 经 鉴定 为 枯草 芽孢 杆菌 ( Bacillus   subilis ) 。 确定 了 该 菌 的 适宜 生长 条件 ： pH 为 5.0 ～ 8.0 ， 温度 为 30 ～ 40   ℃ ， NH4Cl 浓度 为 100 ～ 200   mg / L 。 
+ 　 　 b .   Bacillus   subilis 好 氧 降解 硝基苯 的 过程 中有 苯胺 生成 ， 该菌 不仅 可以 降解 初始 污染物 硝基苯 ， 还 可以 降解 各种 中间 产物 ， 表现 为 其 对 溶液 中 CODCr 的 彻底 去除 ， 这为 低浓度 硝基苯 的 废水处理 提供 了 新 的 途径 ， 即 不 需要 厌氧 工艺 而 直接 可用 好 氧 技术 就 可以 将 废水 完全 无害化 。 
+ 　 　 c .   通过 添加 中间 产物 高效 降解 菌 与 初始 污染物 降解 菌 的 协同 作用 ， 可以 明显提高 体系 的 降解 速率 和 废水 无害化 的 彻底性 。 
+ * 国家教育部 跨世纪 优秀人才 培养 计划 基金 、 国家自然科学基金 ( 29407051 ) 及 广东省 自然科学 基金 ( 940758 ) 资助 项目 
+ * * 通讯联系 人 
+ 作者简介 ： 女 ， 1973 年生 ， 在读 硕士 研究生 
+ 作者 单位 ： 华南理工大学 化工学院 ， 广州 　 510640 
+ 4 　 参考文献 
+ 1 　 王 连生 . 有机 污染物 化学 . 北京 ： 科学出版社 ， 1990.482 ～ 490 . 
+ 2 　 韦 朝海 ， 任源 ， 吴超飞 ， 等 . 硝基苯 与 苯胺 类 废水 生物降解 协同 作用 研究 . 环境 科学研究 ， 1999 ， 12 ( 3 ) ： 10 ～ 13 . 
+ 3 　 国家环保局 . 水 和 废水 监测 分析方法 ( 第 3 版 ) . 北京 ： 中国 环境 科学出版社 ， 1989.424 ～ 426 . 
+ 4 　 俞毓馨 . 环境工程 微生物 检验 手册 . 北京 ： 中国 环境 科学出版社 ， 1990.129 ～ 144 . 
+ 5 　 任源 ， 吴超飞 ， 韦 朝海 ， 等 . 苯胺 分解 菌 的 驯化 筛选 研究 . 环境 科学研究 ， 1998 ， 11 ( 4 ) ： 3 ～ 5 . 
+ 6 　 Frank   M   Dunnivant , Rene   P   Schwarzenbach .   Reduction   of   substituted   nitrobenzene   in   aqueous   solutions   containning   natural   organic   matter .   Environ   Sci   &   Technol , 1992 , 26 ( 10 ) : 2133 ～ 2141 . 
+ 7 　 Billy   E   Haigler , Jim   C   Spain .   Biotransformation   of   nitrobenzene   by   bacteria   containing   toluene   degradative   pathways .   App   &   Environ   Microbiol , 1991 , 57 ( 11 ) : 3156 ～ 3162 . 
+ 8 　 Jung   Kwan - Hye , Lee   Jang - Young , Kim   Hak - Sung . Biodegradation   of   nitrobenzene   through   a   hybrid   pathway   in   Pseudomonas   putida .   Biotech   &   Bioeng , 1995 , 48 ( 6 ) : 625 ～ 630 . 
+ 收稿 日期 ： 1999 － 05 － 17 

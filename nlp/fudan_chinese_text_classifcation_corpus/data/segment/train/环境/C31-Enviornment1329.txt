@@ -1,0 +1,105 @@
+环境 科学 学报 
+ ACTA   SCIENTIAE   CIRCUMSTANTIAE 
+ 1999 年 　 第 19 卷 　 第 4 期 　 Vol.19 　 No.4 　 1999 
+ 
+ 
+ 
+ 厌 - 好 氧 交替 工艺 的 生物 除 磷 特性 研究 
+ 竺建荣 　 刘纯 新 　 何 建中 　 顾夏声 
+ 摘要 　 采用 模拟 配制 的 生活 污水 ， 研究 了 厌 － 好 氧 交替 工艺 对 磷 和 有机 污染物 的 去除 效果 . 结果表明 ， 经过 驯化 运行 等 阶段 后 ， 在 高效 除 磷 阶段 运行 期间 ， 磷 的 去除 效率 在 90% 以上 . 总 COD 去除率 通常 大于 90% . 实验 表明 COD 主要 是 在 好 氧 阶段 被 去除 . 反应器 的 有机 处理 负荷 Fr 达 1.21 — 1.5 ? kg ( COD ) / ( m3 . d ) . 这些 良好 的 运行 性能 与 反应器 中 培养 出好 氧 颗粒 活性污泥 有关 . 运行 过程 中 ， 不必 投加 外部 碳源 ( 甲醇 或 乙酸钠 ) ， 只 利用 生活 污水 自身 的 有机物 就 能 达到 如此 好 的 除 磷 和 降解 COD 效果 ， 而且 该 工艺 的 曝气 时间 仅为 传统 活性污泥 法 的 一半 . 
+ 关键词 　 生物 除 磷 ； 厌 - 好 氧 循环 工艺 ； 活性污泥 法 . 
+ A   study   on   characteristics   of   bialogical   phosphorus   removal   in   alternation   of   aerobic / anaerobic   process 
+ ZHU   Jianrong , LIU   Chunxin , HE   Jianzhong , GU   Xiasheng   
+ ( Dept . of   Environmental   Engineering , Tsinghua   University , Beijing   100084 ) 
+ Abstract 　 This   paper   describes   the   phosphorus   ( P )   and   COD   removal   characteristics   in   alternation   of   aerobic / anaerobic   ( AAA   process )   using   synthetic   domestic   wastewater   as   feed .   It   is   shown   that   through   the   cultivation   and   operation   of   the   technology ,   the   influent   P   concentration   of   9.84 — 13.57 \ mg / L   can   reduce   to   about   1mg / L   of   effluent   at   the   4   th   stage ,   P - removal   efficiencies   reach   more   than   90% .   The   influent   COD   of   372 — 548   mg / L   decreases   to   20 — 50   mg / L   of   effluent , total   COD   removal   efficiency   is   higher   than   90% .   The   proportion   of   COD   removal   in   anaerobic   operation   period   is   16.7% — 33.4% , and   54.9% — 75.6%   in   aerobic   operation   period . This   indicates   that   the   degradation   of   COD   mainly   occurs   in   aerobic   period . These   good   operational   properties   of   AAA   process   are   attributed   to   the   formation   and   cultivation   of   granular   activated   sludge   in   the   reactor , which   is   first   reported . It   is   unnecessary   to   add   any   external   carbon   source   for   operation . The   reactor   can   effectively   metabolize   organic   matters   and   conversion   of   phosphorus , and   only   uses   half   aeration   of   the   conventional   technology . It   implies   that   AAA   process   is   a   good   potential   treatment   process   both   in   P   removal   and   COD   degradation . 
+ Keywords 　 biological   P － removal , alternation   of   aerobic / anaerobic   process , activated   sludge   process . 
+ 　 　 
+ 　 　 我国 的 湖泊 、 水库 近年来 富营养化 的 速度 很快 ， 污染 现象 日益严重 ［ 1 ］ . 迄今已有 的 研究 表明 ， 引起 水体 富营养化 的 各类 营养物质 中 ， 通常 以 磷 为 限制 因子 ， 其 来源 主要 是 生活 污水 、 磷矿 、 磷肥 工业 以及 合成洗涤剂 的 废水 ， 而 造成 富营养化 的 磷 大多 来自 城市污水 或 生活 污水 . 随着 人民 生活 水平 的 逐渐 提高 ， 洗涤剂 的 大量 应用 ， 生活 污水 中 的 总 磷 浓度 增加 到 10 — 30mg / L ， 其中 70% 左右 是 可溶 的 . 传统 的 二级 处理 出 水中 ， 90% 左右 的 磷 仍然 未能 去除 并 以 磷酸盐 形式 存在 . 这样 ， 去除 污水 中 的 磷 ， 削减 其 排放量 ， 就 成为 世界 各国 普遍 关注 的 问题 ［ 2 — 5 ］ . 据统计 ， 我国 目前 城市污水 处理率 仅 有 5% 左右 ， 而且 现有 的 污水 处理厂 绝大多数 不 具备 脱氮除 磷 的 能力 . 因此 ， 研究 污水 除 磷 ， 探索 适合 我国 国情 且 经济 有效 的 除 磷 工艺 和 方法 ， 已 成为 亟待 开展 的 一个 重大 研究课题 . 
+ 　 　 厌 - 好 氧 交替 工艺 ( alternation   of   aerobic / anaerobic   process ， 简称 AAA 工艺 ) 是 指厌 氧 和 好 氧 交替 进行 操作 的 活性污泥 法 . 它 涵盖 多种不同 的 运行 方式 ， 实质 上 是 SBR 工艺 的 一种 变型 ［ 6 ， 7 ］ . 鉴于 AAA 工艺 的 许多 优点 ， 正在 得到 迅速 发展 和 应用 . 本文 采用 AAA 工艺 作为 生物 除 磷 工艺 的 考察 对象 ， 以 模拟 配制 的 生活 污水 作为 进料 ， 培养 具有 除 磷 功能 的 好 氧 活性污泥 ， 研究 该 工艺 在 不同 试验 运行 条件 下 的 生物 除 磷 特性 ， 分析 测定 反应器 中 污泥 的 形态 、 结构 特性 以及 污泥 颗粒化 与 生物 除 磷 之间 的 关系 ， 同时 考察 对 有机 污染物 的 去除 效果 . 
+ 
+ 1 　 试验 材料 与 方法 
+ 1.1 　 试验装置 
+ 
+ 
+ 图 1 　 试验装置 示意图 
+ 1   配 水槽 　 2   电磁阀 　 3   曝气池 　 4   时间 程序 控制器 　 5   进水口 　 6   曝气器 　 7   出水管 
+ Fig.1   Diagram   of   experimental   process 
+ 　 　 试验 所用 反应器 为 聚氯乙烯 塑料 圆桶 ， 内径 为 22cm ， 总 体积 8 ? L ， 有效 容积 为 6 ? L . 由 时间 程序 控制器 控制 进水 、 厌氧 、 曝气 、 沉淀 、 排水 全过程 . 根据 需要 选定 运行 周期 以及 各段 的 启动 、 关闭 时间 . 运行 温度 冬季 为 20 ℃ ， 由 热交换器 保持 恒温 在 20 ± 2 ℃ 范围 内 ； 夏季 在 室温 下 运行 . 气源 采用 山本 － 6500 型 曝气 机 ， 以 粘沙块 作为 微孔 曝气器 . 整个 装置 的 工艺流程 如图 1 所示 . 典型 的 运行 控制 方式 为 每 1 天 运行 3 个 周期 ， 每 1 周期 8h ： 厌氧 2.5 h ， 曝气 4h ， 沉淀 和 进水 1.5 h . 进水 在 反应器 的 污泥 沉淀 后 进行 . 进水 方式 为 ： 从 底部 向上 进水 ， 从 反应器 底部 出水管 排水 . 进水 16min ， 流量 0.4 L / min ， 每次 进水 控制 在 约 6.5 L . 定期 测定 混合液 中 的 SV 、 SVI 、 DO 、 MLSS 、 MLVSS 、 pH 等 运行 参数 ， 保持 MLSS 浓度 在 4 — 6g / L ， SV   20% 左右 ， SVI   20 — 50 ， pH   6.8 — 7.6 ， 好 氧 曝气 段 的 DO   4 — 6mg / L . 根据 运行 参数 的 测定 分析 ， 判断 反应器 的 运行 好坏 并作 相应 的 及时 调整 . 在 试验 运行 过程 中 ， 根据 AAA 工艺 的 特点 ， 在 每 一种 状态 都 至少 运行 1 周 进行 驯化 ， 即 保持 循环 重复 20 次 以上 ， 然后 取样 测定 . 
+ 1.2 　 试验 用水 
+ 　 　 本 试验 研究 以 生活 污水 为 考察 对象 . 试验 采用 模拟 生活 污水 的 自配 水 作为 进料 ： COD   300 — 500mg / L ； TN   30 — 40mg / L ； NH3 － N   10 — 20mg / L ; TP   8 — 15mg / L . 
+ 　 　 典型 的 配方 如下 ( mg / L ) : 葡萄糖   169 ， 蛋白 胨   169 ， 氯化钠   63 ， 硫酸铵   63 ， KH2PO4   44 ， NaHCO3   94 , MgSO4 ． 7H2O   94 , CaCl2 ． 2H2O   31 , FeSO4 ． 2H2O   2.2 . 
+ 　 　 采用 模拟 配水 的 优点 是 ： 水质 稳定 且 易于控制 ， 适合 反应器 工艺 运行 特性 和 污泥 形态 、 结构 及 微生物学 特性 等 的 研究 . 在 试验 运行 过程 中 ， 根据 不同 的 试验 要求 ， 适时 调整 配水 成分 ， 改变 部分 进水 组分 的 浓度 和 配比 ， 但 TP 含量 保持 不变 . 
+ 1.3 　 分析 项目 和 测试方法 
+ 　 　 磷 含量 ： 采用 钼酸铵 － 氯化亚锡 比色法 ， 用 岛津 UV － 250 型 紫外 － 可见光 分光 光度计 在 波长 700nm 测其 光密度 ［ 8 ］ . COD 、 SV 、 SVI 、 MLSS 、 MLVSS 等 均 按 文献 ［ 8 ］ 提供 的 方法 测定 . DO 采用 YSI   DO 测定仪 测定 . pH 采用 pHS － 3B 精密 pH 计 测定 . 
+ 
+ 2 　 结果 和 讨论 
+ 　 　 本 研究 将 整个 运行 过程 分为 4 个 阶段 ， 即 ： 驯化 阶段 、 调整 阶段 、 除 磷 提高 阶段 和 高效 除 磷 阶段 . 本文 重点 介绍 驯化 阶段 和 高效 除 磷 阶段 的 试验 结果 . 
+ 2.1 　 驯化 阶段 的 运行 情况 和 结果 
+ 　 　 本 试验装置 从 1996 － 10 － 20 开始运行 ， 最初 60d 为 驯化 阶段 . 运行 周期 为 8h ， 采用 6h 曝气 ， 2h 污泥 沉淀 、 进水 和 厌氧 状态 . 此 阶段 主要 是 为了 培养 好 氧 活性污泥 ， 使 之 快速 生长 起来 . 当 沉淀 后 的 污泥 体积 达到 1 ? L 后 开始 隔天 排泥 . 此 阶段 运行状况 见表 1 . 
+ 表 1 　 驯化 阶段 的 运行 结果 
+ Table   1   Operational   properties   of   CAST   in   cultivation   stage 
+ 运行 时间 ， d 配水 成分 ， mg / L 出水 P , mg / lP 去除率 , % 
+ 　 CODBODTNPBOD : N : PCOD / TN 
+ 3642236037.210 . 85100 ∶ 10.3 ∶ 2.811 . 310.34 . 2 
+ 4642236037.211 . 99100 ∶ 10.3 ∶ 2.811 . 311.18 . 2   
+ 5342236037.210 . 35100 ∶ 10.3 ∶ 2.811 . 39.112 . 1 
+ 
+ 
+ 图 2 　 高效 除 磷 阶段 的 除 磷 结果 
+ Fig.2   P   concentration   and   removal   efficiency   in   high   P － removal   stage 
+ 
+ 
+ 图 3 　 高效 除 磷 阶段 COD 的 去除 结果 
+ Fig.3   COD   removal   performance   in   high   P － removal   stage 
+ 　 　 这些 结果 说明 污泥 的 除 磷 活性 并 不 理想 ， 污泥 具有 的 除 磷 能力 很 低 . 鉴此 ， 该 阶段 对 COD 等 其它 指标 未予 测定 分析 . 但是 ， 可以 注意 到 ， 在 这 一 阶段 中 ， 随着 运行 过程 的 进行 ， 除 磷 效率 在 逐渐 提高 ， 说明 污泥 的 除 磷 活性 正在 驯化 提高 过程 中 . 
+ 2.2 　 高效 除 磷 阶段 的 试验 结果 
+ 　 　 自 1996 － 12 － 20 以后 ， 将 运行 状态 调整 为 4h 曝气 ， 沉淀 和 进水 1.5 h ， 厌氧 2.5 h . 经过 调整 阶段 和 除 磷 提高 阶段 共约 90d 的 运行 管理 ， 反应器 内 出现 好 氧 活性污泥 颗粒化 并 具有 良好 的 除 磷 和 去除 有机物 能力 ， 运行 进入 高效 除 磷 阶段 . 此 阶段 从 1997 - 04 - 11 — 06 - 04 ， 共 运行 55d . 
+ 2.2 . 1 　 磷 的 去除 　 高效 除 磷 阶段 运行 期间 ， 进水 磷 浓度 在 9.94 — 13.57 mg / L 范围 内 ， 出 水中 磷 浓度 一般 在 1mg / L 左右 ， 去除 效率 在 90% 以上 ( 图 2 ) . 运行 过程 中 ， 不必 投加 外部 碳源 ( 甲醇 或 乙酸钠 ) ， 只 利用 生活 污水 中 的 有机物 作为 碳源 就 能 达到 良好 的 除 磷 效果 ， 说明 此 工艺 对于 生活 污水 的 除 磷 具有 很 好 的 应用 前景 . 
+ 2.2 . 2 　 有机物 的 去除 　 本 阶段 对 COD 的 去除 结果 见图 3 . 图 3 结果表明 ， 本 试验 的 厌 - 好 氧 循环 生物 除 磷 反应器 能 稳定 地 去除 有机物 ， 并且 效率 很 高 . 经 计算 ， 本 试验 反应器 的 有机物 处理 负荷 Fr = 1.2 — 1.5 kg ( COD ) / ( m3 . d ) . 
+ 　 　 Carucci   A 等 人 报道 ［ 9 ］ ， 在 不同 的 基质 浓度 下 ， 除 磷 效率 为 40% — 60% . 特定 运行 条件 下 短时间 内除 磷 效率 可达 90% 以上 . Schleypen   P 等 人 报道 ［ 10 ］ ， 德国 巴伐利亚州 生活 小区 污水 处理厂 的 除 磷 效果 为 65% — 90% . 高庭耀 等 报道 ［ 11 ］ ， 城镇 污水 处理厂 的 改良 工艺 在 3d 内除 磷 效率 能够 保持 在 90% 左右 . 从 这些 数据分析 中 可以 认为 ， 本 试验 的 技术指标 已 达到 较 高水平 ， 但是 还有 待 中试 或 生产性 处理 工程 的 进一步 试验 研究 与 应用 . 
+ 　 　 由于 反应器 表现 出 极好 的 运行 性能 ， 在 本 阶段 运行 中 ， 对 污泥 的 数量 、 形态 和 结构 进行 了 重点 考察 . 结果 发现 ， 在 反应器 中 观察 到 形成 了 好 氧 颗粒 活性污泥 ， 因此 ， 污泥 的 沉降 性能 很 好 . 经 测定 ， 颗粒 活性污泥 受阻 沉降 层 的 均匀 沉降速度 Vs 约 2.15 cm / min ， 好 氧 颗粒 活性污泥 的 沉降 指数 ( SVI ) 一般 为 20 — 45mL / g ( 而 普通 活性污泥 为 100 — 150mL / g ) . 反应器 内 MLSS   4.04 — 6.88 g / L ， SV   0.14 — 0.27 ， 颗粒 污泥 粒径 为 0.5 — 1.5 mm . 这些 结果表明 ， 试验 中 培养 的 好 氧 颗粒 活性污泥 沉降 性能 良好 ， 有利于 污泥 浓度 的 提高 和 反应器 处理 能力 的 增加 . 
+ 　 　 颗粒 污泥 一般 只是 在 厌氧 反应器 中 培养 并 应用 . 通过 厌氧 颗粒 污泥 发挥 高效 降解 有机物 的 能力 . UASB 反应器 就是 根据 这一 原理 开发 的 高速 厌氧 处理 装置 ［ 12 ］ . 虽然 有人 尝试 在 好 氧 生物 处理工艺 中 培养 颗粒 活性污泥 ， 但是 运行 条件 非常 苛刻 ， 须用 纯氧 曝气 才能 形成 ， 且 没有 除 磷脱 氮 能力 ［ 13 ， 14 ］ . 在 普通 的 厌 - 好 氧 交替 工艺 中 培养 出好 氧 颗粒 活性污泥 ， 这是 首次 明确 报道 . 由于 形成 颗粒 活性污泥 ， 污泥 的 代谢 活性 也 大大 增强 . 据 试验 测定 ， 单位 质量 的 微生物 单位 时间 对 氧气 的 吸收量 ( 定义 为 WOUR ) 为 1.27 mg ( O2 ) / ( g ( VSS ) . min ) ， 而 普通 活性污泥 法 的 WOUR 值为 0.8 mg ( O2 ) / ( g ( VSS ) . min ) 左右 . 由此可见 ， 好 氧 颗粒 活性污泥 的 生物 代谢 活性 明显 高于 普通 活性污泥 . 加上 污泥 沉降 性能 良好 ， 污泥 浓度 较 高 ， 所以 反应器 的 处理 能力 和 处理 效果 有 较大 提高 . 
+ 　 　 初步 的 试验 分析 认为 ， 好 氧 颗粒 活性污泥 的 培养 和 形成 可能 与 厌 - 好 氧 交替 的 特殊 运行 方式 有关 ， 也 与 厌 - 好 氧 交替 的 运行 周期 以及 状态 设置 有关 ， 还 可能 与 废水 水质 及 工艺 条件 有关 . 不过 ， 确切 的 培养 条件 和 形成 机理 ( 包括 好 氧 颗粒 活性污泥 的 理化 特性 和 微生物学 特性 等等 ) 还有 待 进一步 深入研究 . 
+ 　 　 试验 还 选择 了 部分 运行 时间 ， 对 反应器 一个 运行 周期 内 各 阶段 COD 的 降解 结果 进行 了 测定 ， 结果 见表 2 . 
+ 表 2 　 一个 运行 周期 内 各 阶段 的 COD 降解 结果 
+ Table   2   COD   removal   in   each   degradation   period   within   one   operational   cycle 
+ 
+ 时间 ， 
+ dCOD ， mg / L 厌氧段 
+ 去除率 ， % 曝气 出水 
+ COD , mg / L 好氧段 
+ 去除率 ， % 总 去除率 ， 
+ % 
+ 进水 厌氧 出水 
+ 27404.7269 . 833.447 . 654.988 . 0 
+ 39349.5292 . 716.728 . 575.691 . 9 
+ 46408.6326 . 720.123 . 974.194 . 2 
+ 47422.3326 . 722.723 . 971.794 . 4 
+ 
+ 　 　 从表 2 可以 看出 ， 一个 运行 周期 内 各 阶段 对 有机物 的 去除 情况 有 如下 特点 ： ( 1 )   在 厌氧 阶段 ， 由于 段时间 较 短 ， 有机物 分解 不 彻底 ， 一般 仅仅 进入 酸性 发酵 阶段 ， 进 水中 的 有机物 转化 为 脂肪酸 等 ， 因此 COD 去除 效率 不高 ， 只有 16.7% — 33.4% . 另一方面 ， 除 磷 细菌 在 厌氧 条件 下 摄入 脂肪酸 的 能力 很强 ， 所以 反应器 中 pH 值 无 明显 下降 ， 一般 在 6.6 — 7.2 之间 . ( 2 )   在 好 氧 阶段 ， 活性污泥 中 的 各种 好 氧 微生物 ， 利用 氧气 作为 最终 电子 受体 并 通过 三 羧酸 循环 途径 ， 将 有机物 彻底 分解 为 水 和 二氧化碳 . 试验 结果表明 ， COD 主要 是 在 好 氧 阶段 被 去除 . 
+ 
+ 3 　 结论 
+ 　 　 1 . 采用 模拟 配制 的 生活 污水 ， 通过 厌 - 好 氧 交替 工艺 处理 ， 在 高效 除 磷 阶段 运行 期间 ， 磷 去除 效率 在 90% 以上 . 
+ 　 　 2 . 厌氧 阶段 对 COD 的 去除 效率 约 为 16.7% — 33.4% ， 好 氧 曝气 阶段 对 COD 的 去除 效率 约 为 54.6% — 75.6% . 本 试验 反应器 处理 有机物 的 负荷 Fr 达 1.2 — 1.5 kg ( COD ) / ( m3 . d ) . 运行 过程 中 ， 不必 投加 外部 碳源 ( 甲醇 或 乙酸钠 ) ， 只 利用 生活 污水 中 的 有机物 做 碳源 就 能 达到 如此 好 的 除 磷 和 降解 COD 效果 ， 而且 该 工艺 的 曝气 时间 仅为 传统 活性污泥 法 的 一半 ， 这些 说明 此 工艺 对于 生活 污水 的 除 磷及 去除 COD 均 有 良好 的 应用 前景 . 
+ 　 　 3 . 本 试验 中 观察 到 反应器 中 形成 了 好 氧 颗粒 活性污泥 . 好 氧 颗粒 活性污泥 的 沉降 指数 ( SVI ) 一般 为 20 — 45mL / g ， 反应器 内 MLSS 为 4.04 — 6.88 g / L ， SV 为 0.14 — 0.27 ， SVI 为 20 — 45mL / g ， 颗粒 污泥 粒径 在 0.5 — 1.5 mm 左右 ， 沉降 性能 很 好 . 
+ *   清华大学 青年 研究 基金 资助 
+ 作者 单位 : ( 清华大学 环境 工程系 ， 北京 　 100084 ) 
+ 参考文献 
+ 　 1 　 金相灿 ， 刘鸿亮 等 . 中国 湖泊 富营养化 . 北京 ： 中国 环境 科学出版社 . 1990 
+ 　 2 　 Van   Starkenburg   W , Rensink   J   H , Rijs   G   B   J . Biological   P - removal : state   of   the   art   in   the   netherlands . Wat   Sci   Tech , 1993 , 27 ( 5 — 6 ) : 317 — 328 
+ 　 3 　 Farrimond   M , Upton   J . A   strategy   to   meet   the   nutrient   ( N   and   P )   standards   of   the   urban   wastewater   directive . Wat   Sci   Tech , 1993 , 27 ( 5 — 6 ) : 297 — 306 
+ 　 4 　 Harremoes   P , Bundgaard   E , Henze   M . Developments   in   wastewater   treatment   for   nutrient   removal . European   Water   Pollution   Control , 1991 , 1 ( 1 ) : 19 — 23 
+ 　 5 　 曹 国民 等 . 生物 除 磷脱 氮 工艺技术 研究 . 中国 环境 科学 ， 1996 ， 16 ( 1 ) ： 68 — 72 
+ 　 6 　 Irvine   R   L   et   al . Controlled   unsteady   state   processes   and   technologies - an   overview . Wat   Sci   Tech , 1997 , 35 ( 1 ) : 1 — 10 
+ 　 7 　 Manning   J   F   et   al . The   biological   removal   of   phosphorus   in   a   sequencing   batch   reactor . J   WPCF , 1985 , 57 ( 1 ) : 87 — 94 
+ 　 8 　 美国 公共卫生 协会 、 美国 自来水厂 协会 、 水污染 控制 联合会 编著 . 宋仁元 等 译 . 水 和 废水 标准 分析法 ( 第 15 版 ) . 北京 ： 中国 建筑 工业 出版社 . 1985 
+ 　 9 　 Carucci   A   et   al . Biological   phosphorus   removal   with   different   organic   substrates   in   an   anaerobic / aerobic   sequencing   batch   reactor . Wat   Sci   Tech , 1997 , 35 ( 1 ) : 161 — 168 
+ 　 10 　 Schleypen   P   et   al . Sequencing   batch   reactor   with   continuous   inflow   for   small   communities   in   rural   areas   in   Bavaria . Wat   Sci   Tech , 1997 , 35 ( 1 ) : 269 — 276 
+ 　 11 　 高庭耀 等 . 高浓度 活性污泥 连续 进水 间歇 曝气 生物 脱氮 、 除 磷 新工艺 . 第四届 海峡两岸 环境保护 学术 研讨会 . 台北 ， 1996.241 — 247 
+ 　 12 　 Lettinga   G . Anaerobic   digestion   and   wastewater   treatment   systems , antonie   van   leeuwenhoek . Antonie   van   Leeuwenhoek , 1995 , 67 : 3 — 28 
+ 　 13   Shin   H   S , Lim   K   H , Park . H   S . Effect   of   shear   stress   on   granulation   in   oxygen   aerobic   upflow   sludge   bed   tractors . Wat   Sci   Tech , 1992 , 26 ( 3 — 4 ) : 601 — 605 
+ 　 14 　 Mishima   K , Nakamura   M . Self - immobilization   of   aerobic   activated   sludge - a   pilot   study   of   the   aerobic   upflow   sludge   blanket   process   in   municipal   sewage   treatment . Wat   Sci   Tech , 1991 , 23 : 981 — 990 
+ 1997 - 12 - 01 收到 原稿 
+ 1998 - 05 - 11 收到 修改稿 
+ 
+  

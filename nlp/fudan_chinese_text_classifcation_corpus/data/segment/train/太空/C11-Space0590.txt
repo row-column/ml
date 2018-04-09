@@ -1,0 +1,28 @@
+上海 航天 
+ AEROSPACE   SHANGHAI 
+ 2001   Vol.18   No.2   P.33 - 43 
+ 
+ 
+ 
+ 
+ FY - 1C 卫星 姿态控制 系统 
+ 侯 建文 　   
+ 摘 　 要 ： 针对 FY - 1C 卫星 姿态控制 系统 ， 给出 了 系统 方案 、 系统 设计 、 系统 特点 和 飞行 试验 的 结果 ； 对 一些 新 的 技术 设计 和 新颖 特殊 的 方案 特点 ， 从 理论 分析 和 技术 实现 给出 了 设计 思路 和 工程 实现 的 方法 ； 分析 了 FY - 1C 卫星 姿态控制 系统 在 轨 运行 的 结果 ； 对 长寿命 、 低成本 和 稳定 连续 运行 的 工程 实现 进行 了 研究 ； 给出 了 FY - 1C 卫星 姿态控制 系统 的 水平 能力 和 应用 发展 方向 。 
+ 关键词 ： 气象卫星 ； 姿态控制 系统 ； 磁 控制 ； 三轴 稳定 ； 章动 进动 控制 
+ 分类号 ： V448.22 + 2 　 文献 标识码 ： A 
+ 文章 编号 ： 1006 － 1630 ( 2001 ) 02 － 0033 － 11 
+ Attitude   Control   System   of   FY - 1C   Satellite 
+ HOU   Jian - wen （ No.812   Institute   of   SAST ,   Shanghai   200233 ,   China ） 　 
+ 
+ Abstract ： Based   on   the   attitude   control   system   of   FY - 1C   satellite ,   the   author   of   fers   the   project ,   design ,   characters   of   the   system   and   the   flight   results .   Accor   ding   to   theoretical   analysis   and   technique   realization ,   this   article   also   descri   bes   the   design   and   technical   realization   method   for   the   new   technology   and   the   p   eculiar   project   characteristics .   In   addition ,   the   author   analyzes   the   on - orbit   r   esults   of   the   FY - 1C   satellite ;   makes   research   on   the   long   life ,   low   cost   and   co   n   tinuous   stable   motion   and   presents   the   level   and   application   development   of   FY -   1C   satellite ' s   attitude   control   system . 
+ Keywords ： Mateorological   satellite ； Attitude   control   system ； Magnetic   control ； T   hree   axis   stabilization ； Notation   and   precession   control 
+ 作者简介 ： 侯 建文 ( 1960 - ) ， 男 ， 研究员 ， 上海市 宇航 学会 会员 ， 研究 领域 ： 卫星 姿态控制 系统 。   
+ 作者 单位 ： 侯 建文 （ 上海 航天技术 研究院 812 所 ， 上海   200233 ） 　 
+ 
+ 参考文献 ： 
+ ［ 1 ］ 章仁为 . 卫星 轨道 姿态 动力学 与 控制 [ M ] . 北京 ： 北京航空航天大学 , 1998 . 
+ ［ 2 ］ 侯 建文 . 一种 带 帆板 挠性 的 控制系统 分析 和 设计 [ J ] . 中国 空间 科学技术 , 19   92 , （ 2 ） . 
+ 
+ 收稿 日期 ： 2000 年 11 月 20 日 
+ 修稿 日期 ： 2001 年 1 月 11 日 
+ 出版日期 ： 2001 年 4 月 25 日 

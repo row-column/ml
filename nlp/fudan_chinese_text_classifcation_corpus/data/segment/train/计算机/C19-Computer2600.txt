@@ -1,0 +1,112 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 6 期   第 10 卷   Vol.10   No.6   1999 
+ 
+ 
+ 
+ 一种 基于 插值 曲面 的 图像 放大 方法 * 
+ 孙庆杰 　 张晓鹏 　 吴恩华 
+ 　 　 摘要 　 文章 提出 了 一种 利用 Bzier 插值 曲面 进行 图像 放大 的 方法 , 该 方法 是 为 数字图像 的 每 一个 色彩 分量 构造 一个 分块 双 三次 Bzier 插值 C1 曲面 , 图像 放大 等价 于 以 不同 的 采样 速率 对 该 曲面 进行 采样 的 过程 . 实验 结果表明 , 该 方法 可以 大大 改善 放大 图像 的 效果 . 
+ 　 　 关键词 　 图像 放大 , Bzier 曲面 , 插值 , 加速 , 像素 子分 . 
+ 　 　 中图法 分类号 　 TP391 
+ 　 
+ A   Method   of   Image   Zooming - in   Based   on     Surface   Interpolation 
+ SUN   Qing - jie   ZHANG   Xiao - peng   WU   En - hua 
+ ( Laboratory   of   Computer   Science   Institute   of   Software   The   
+ Chinese   Academy   of   Sciences   Beijing   100080 ) 
+ 　 　 Abstract 　 A   method   of   image   zooming - in   is   presented   in   this   paper .   It   is   based   on   Bzier   interpolation   surface .   First ,   it   constructs   a   piecewise   bicubic   Bzier   interpolation   C1   surface   for   each   color   component   of   a   digital   image ,   and   then ,   samples   the   surface   with   different   sampling   rate   to   zoom   in .   The   experimental   results   show   that   the   method   can   improve   the   quality   of   zoomed   image   greatly . 
+ 　 　 Key   words 　 Zoom   in ,   Bzier   surface ,   interpolation ,   acceleration ,   pixel   decompose . 
+ 　 　 在 对 图像 进行 处理 时 , 常常 要 对 图像 进行 放大 . 一般 的 方法 是 使用 简单 的 比例变换 , 但 这种 方法 时常 会 引起 比较严重 的 图像 走样 , 使 图像 产生 大量 锯齿 . 文献 ［ 1 ］ 提出 了 一种 利用 B - 样条 插值 的 图像 放大 方法 , 使 放大 后 的 图像 质量 得到 极大 的 改善 , 但 该 方法 的 缺点 是 速度慢 . 如 一幅 大小 为 640 × 512 的 24bit 的 彩色图像 , 若 使用 文献 ［ 1 ］ 中 的 方法 将 该 图像 的 某 一部分 放大 为 640 × 512 大小 , 所 需 时间 为 30s （ 二阶 B - 样条 , APOLLO   DN - 590 ） 和 60s （ 三阶 B - 样条 , APOLLO   DN - 590 ） . 
+ 　 　 近几年来 , 基于 图像 的 虚拟现实 ［ 2 ～ 4 ］ 的 研究 与 系统 开发 已经 引起 了 人们 越来越 多 的 注意 . 我们 开发 了 一个 基于 图像 的 虚拟环境 漫游 系统 VEWALK . 在 该 系统 中 , 当 用户 漫游 时 , 可以 对 场景 渐进 观察 . 为了 实现 这种 渐进 观察 , 我们 需要 一种 既 快速 又 能 保证质量 的 图像 放大 方法 . 本文 利用 分块 双 三次 Bzier 插值 C1 曲面 的 连续性 和 局部性 , 提出 了 一种 图像 放大 方法 , 很 好 地 满足 了 VEWALK 的 要求 . 
+ 　 　 本文 第 1 节 介绍 由 数字图像 构造 Bzier 插值 曲面 的 方法 . 第 2 节 介绍 利用 Bzier 插值 曲面 放大 图像 的 过程 . 第 3 节 提出 一种 加速 方法 . 最后 给出 实验 结果 与 结论 . 
+ 1   曲面 及其 插值 方法 
+ 1.1   曲面 
+ 　 　 Bzier 曲面 是 由 一组 控制顶点 生成 的 曲面 . 它 可以 用于 在 一组 数据 点 之间 进行 插值 , 以便 获得 平滑 过渡 . 本文 将 Bzier 曲面 应用 于 颜色 分量 的 插值 . 
+ 　 　 Bzier 曲面 的 定义 如下 : 
+ 　 　 在 空间 给定 ( n + 1 ) × ( m + 1 ) 个点 Pi , j ( i = 0 , 1 , ... , n ; j = 0 , 1 , ... , m ) , 称 下列 张量积 形式 的 参数 曲面 为 n × m 次 的 Bzier 曲面 : ［ 5 ］ 
+ ( 1 ) 
+ 
+ 其中 Pi , j 是 P ( u , v ) 的 控制顶点 . 由 两组 多边形 Pi , 0Pi , 1 ... , Pi , m   ( i = 0 , 1 , ... , n ) 和 P0 , jP1 , j ... , Pn , j   ( j = 0 , 1 , ... , m ) 组成 的 网 称为 P ( u , v ) 的 控制 网格 , 记 为 { Pi , j } . 可以 认为 , 控制 网格 { Pi , j } 是 P ( u , v ) 的 大致 形状 的 勾画 , P ( u , v ) 是 对 { Pi , j } 的 逼近 . 
+ 1.2   曲面 的 拼接 
+ 　 　 定义 .   当 两块 曲面 相连接 时 , 若 经过 其 公共 边界 上 的 任 一点 处在 任一 方向 上 的 两张 曲面 的 导数 相等 , 我们 称 这两块 曲面 达到 C1 连续 . 
+ 　 　   假设 P ( u , v ) 是 由 公式 ( 1 ) 定义 的 一个 n × m 次 的 Bzier 曲面 , Q ( u , v ) 是 一个 k × m 次 的 Bzier 曲面 , 
+ ( 2 ) 
+ 
+ P ( u , v ) 与 Q ( u , v ) 达到 C1 连续 的 充分 必要条件 是 ［ 6 ］ : 
+ Pn , j = Q0 , j 　 　 　 　   j = 0 , 1 , 2 , ... , m , 
+ Pn - 1 , jPn , j = Q0 , jQ1 , j 　 　 j = 0 , 1 , 2 ... , m . 
+ 在 第 1.3 节中 , 我们 将 根据 这个 条件 构造 一个 Bzier 曲面 阵列 , 它们 在 整体 上 达到 C1 连续 . 
+ 1.3   由 数字图像 构造 插值 曲面 
+ 　 　 假设 I ( x , y ) 是 一个 m × n 的 数字图像 , 它 提供 了 图像 色彩 的 3 个 离散 的 信息 阵列 , 每个 色彩 分量 对应 于 一个 阵列 . 插值 方法 的 价值 在于 , 将 有限 的 离散 信息 扩展 为 一个 连续 的 信息系统 , 或者说 , 为 离散 信息 补充 了 各种 中间 信息 . 
+ 　 　 设 Ri , j ( 1 ≤ i ≤ m , 1 ≤ j ≤ n ) 是 I ( x , y ) 中 第 i 行第 j 列 像素 的 红色 分量 , 它 与 像素 平面 上 的 二维 点 ( i , j ) 相对 应 . 我们 的 任务 是 构造 一个二元 函数 F ( u , v ) ( 0 ≤ u ≤ m , 0 ≤ v ≤ n ) , 使 F ( i , j ) = Ri , j , 并且 F ( u , v ) 在 任 一点 处 达到 C1 连续 . 
+ 　 　 我们 的 方法 是 : 首先 , 将 矩阵 R1 = { Ri , j ; 1 ≤ i ≤ m , 1 ≤ j ≤ n } 扩充 为 R2 = { Ri , j ; 1 ≤ i ≤ m + 1 , 1 ≤ j ≤ n + 1 } , 也就是说 , 续上 Ri , j （ i = m + 1 或 j = n + 1 ） 的 值 , 我们 用 向 外 插值法 , 取 Rm + 1 , j = 2Rm , j - Rm - 1 , j （ 1 ≤ j ≤ n ） , Ri , n + 1 =   2Ri , n - R   i , n - 1 （ 1 ≤ i ≤ m ） , Rm + 1 , n + 1 = Rm + 1 , n + Rm , n + 1 - Rm , n . 然后 , 为了 下 一步 更加 容易 地 构造 Bzier 曲面 , 我们 再 将 R2 扩充 为 R3 = { Ri , j ; 0 ≤ i ≤ m + 2 , 0 ≤ j ≤ n + 2 } , 其 扩充 方法 与 R2 的 方法 相同 . 最后 构造 m × n 个 3 × 3 的 Bzier 曲面 Si , j , 
+ ( 3 ) 
+ 
+ 每 一个 Si , j 的 4 个角 控制顶点 取为 对应 的 Ri , j 的 值 , 各 Si , j 之间 达到 C1 连续 , 或者说 , 
+ F ( u , v ) = S ［ u ］ ［ v ］ ( u - ［ u ］ , v - ［ v ］ ) , 
+ 其中 ［ u ］ 表示 不 超过 u 的 最大 整数 . 
+ ( 4 ) 
+ ( 5 ) 
+ ( 6 ) 
+ 
+ 这样 , 便是 16 个点 { Ri + x , j + y , - 1 ≤ x , y ≤ 2 } 的 线性组合 . 
+ 　 　 用 同样 的 方法 可以 为 I ( m , n ) 的 绿色 分量 G ( m , n ) 和 蓝色 分量 B ( m , n ) 构造 分块 双 三次 Bzier 插值 C1 曲面 . 
+ 　 　 可以 验证 , 这种 构造方法 符合 第 1.2 节中 的 条件 . 因此 , F ( u , v ) 在 整体 上 是 C1 连续 的 . 所以 , F ( u , v ) 是 I ( m , n ) 信息 的 一种 连续 表示 . 我们 注意 到 , 每一 Si , j 只 依赖于 像素 ( i , j ) 附近 的 4 × 4 个 像素 的 值 , 因而 Si , j 具有 局部 性质 , 这 就是 第 3 节中 加速 方法 的 理论 基础 . 另一方面 , 插值 曲面 F ( u , v ) 具有 一次 严格 性 , 当 所有 Ri , j 共面 时 , F ( u , v ) 便是 一个 平面 . 如果 I ( m , n ) 表示 一张 色彩 均匀 变化 的 图像 , 任意 放大 , 它 仍然 是 均匀 的 . 
+ 2   利用 插值 曲面 放大 图像 
+ 　 　 我们 将 图像 放大 描述 为 如下 问题 : 
+ 　 　 设 I ( x , y ) 是 一个 ( n + 1 ) × ( m + 1 ) 的 数字图像 , I ′ ( x ′ , y ′ ) 是 I ( x , y ) 的 一部分 , 其 大小 为 ( n ′ + 1 ) × ( m ′ + 1 ) . 现在 要求 将 I ′ ( x ′ , y ′ ) 放大 为 ( n + 1 ) × ( m + 1 ) 大小 的 图像 J ( x , y ) , 如图 1 所示 . 
+ 
+ 图 1 　 图像 放大 
+ 　 　 可以 看出 , J ( m , n ) 相对 于 I ′ ( m ′ , n ′ ) 而言 , 在 i 和 j 方向 上 的 压缩比 为 
+ scalex = ( n ′ + 1 ) / ( n + 1 ) , 
+ scaley = ( m ′ + 1 ) / ( m + 1 ) . 
+ 令 R ( i , j ) 是 J ( m , n ) 的 第 i 行第 j 列 像素 P ( i , j ) 的 红色 分量 . 由 映射 关系 可以 知道 , P ( i , j ) 对应 于 I ′ ( m ′ , n ′ ) 中 的 位置 ( x ′ , y ′ ) 为 
+ x ′ = scalex × i , 
+ y ′ = scaley × j 
+ 令 
+ x = ［ x ′ ］ , 　 　 　 　   y = ［ y ′ ］ , 
+ coordx = x ′ - x , 　 　 　 coordy = y ′ - y 
+ 3   加速 方法 
+ 　 　 使用 第 2 节中 的 方法 , 可以 产生 质量 很 好 的 图像 , 但 速度 比较慢 . 为此 , 我们 提出 如下 的 加速 方法 . 
+ 　 　 在 第 1.3 节中 我们 已经 看到 , Si , j 具有 局部 性质 , 其值 只 依赖于 像素 ( i , j ) 及其 附近 的 4 × 4 个 像素 的 值 . 使用 矩阵 的 形式 可以 更加 清楚 地 表达 这种 依赖 关系 . 
+ 　 　 公式 （ 3 ） 写成 矩阵 形式 为 
+ Si , j ( x , y ) = A × B . ( 7 ) 
+ 
+ 其中 A = ［ a0 , a1 , ... , a15 ］ ; B = ［ b0 , b1 , ... , b15 ］ T ; bk ( k = 0 , 1 , ... , 15 ) 为 Bzier 曲面 的 控制点 , 为 公式 ( 3 ) 中 控制点 bl 的 系数 , 它 是 x 和 y 的 函数 . 
+ 　 　 公式 （ 4 ～ 6 ） 写成 矩阵 形式 为 
+ （ 8 ） 
+ 
+ 其中 P = ［ p0 , p1 , ... , p15 ］ T ; bl   ( l = 0 , 1 , ... , 15 ) 为 Bzier 曲面 的 控制点 , 如 公式 ( 5 ) 所示 ; pk   ( k = 0 , 1 , ... , 15 ) 为 ( i , j ) 及其 相邻 像素 的 颜色 分量 , p0 = Pi - 1 , j - 1 , p1 = Pi - 1 , j , ... , p15 = Pi + 2 , j + 2 ; cl , k 为 bl 关于 pk 的 系数 . 
+ 　 　 由 公式 ( 7 ) 和 公式 ( 8 ) 可知 : 
+ ( 9 ) 
+ 
+ 其中 M = ［ m0 ( x , y ) , m1 ( x , y ) , ... , m15 ( x , y ) ］ . 
+ 　 　 公式 （ 9 ） 表明 , ( i , j ) 像素 内 ( x , y ) 坐标 处 的 点 在 Bzier 插值 曲面 上 的 值 是 ( i , j ) 像素 及其 相邻 像素 值 的 一个 线性组合 , 其 系数 分别 为 m0 ( x , y ) , m1 ( x , y ) , ... , m15 ( x , y ) . 
+ 　 　 使用 第 2 节中 的 方法 时 , 大量 时间 均 用于 计算 系数 mi ( x , y ) ( i = 0 , 1 , ... , 15 ) . 为 解决 这个 问题 , 我们 将 ( i , j ) 像素 沿 i 方向 和 j 方向 均匀 地 划分 成 8 个 部分 , 这样 便 把 ( i , j ) 像素 均匀 地 划分 成 了 64 个小块 , 分别 用 ( 0 , 0 ) , ( 0 , 1 ) , ... , ( 7 , 7 ) 标记 这些 小 块 , 如图 2 所示 . 
+ 
+ 图 2 
+ 　 　 可以 看出 , 块 ( x , y ) 的 左下角 顶点 的 坐标 为 ( x / 8 , y / 8 ) , 可以 预先 计算 出 这些 顶点 的 系数 矩阵 Mx , y . 当 图像 放大 时 , 若需 计算 Sx , y 在 ( u , v ) ( 0 ≤ u , v ＜ 1 ) 坐标 处 的 值 , 则 首先 判断 出 ( u , v ) 所属 的 块 为 ( ［ 8 × u ］ , ［ 8 × v ］ ) , 然后 用该 块 的 左下角 顶点 对应 的 系数 矩阵 M ［ 8 × u ］ , ［ 8 × v ］ 近似 ( u , v ) 坐标 所 对应 的 系数 矩阵 , 用该 矩阵 中 的 元素 作为 系数 , 将 ( i , j ) 及其 相邻 像素 线性组合 , 其 结果 即 为 ( u , v ) 处 的 色彩 分量 值 . 
+ 　 　 实验 表明 , 该 方法 可以 大大提高 计算速度 , 而 由 系数 矩阵 的 近似 所 导致 的 误差 非常 小 , 对 图像 质量 的 影响 不大 . 
+ 4   实验 结果 
+ 　 　 我们 在 Pentium   100 上用 V C++ 实现 了 该 算法 . 
+ 　 　 图 3 是 一幅 400 × 400 的 24bit 的 图像 . 图 4 是 采用 本文 的 方法 将 图 3 中 的 一部分 图像 ( 左下角 顶点 为 ( 50 , 105 ) , 右上角 顶点 为 ( 149 , 204 ) ) 放大 为 400 × 400 大小 （ 放大 比率 为 4.0 ） 所 得到 的 图像 . 图 5 是 采用 本文 的 方法 将 图 3 中 的 一部分 图像 ( 左下角 顶点 为 ( 48 , 48 ) , 右上角 顶点 为 ( 197 , 197 ) ) 放大 为 400 × 400 大小 （ 放大 比率 为 2.67 ） 而 得到 的 图像 . 
+ 　 　 　 　 　 　 　 　 
+ 图 3 　 　 　 　 　 　 　 　 　 　 图 4 　 　 　 　 　 　 　 　 　 　 　 图 5 
+ 　 　 将 一幅 图像 放大 为 400 × 400 大 小时 , 所 需 时间 大约 为 1.2 s . 
+ 5   结   论 
+ 　 　 本文 提出 了 一种 利用 Bzier 插值 曲面 进行 图像 放大 的 方法 . 应用 该 方法 可以 在 较 短时间 内 生成 放大 图像 , 同时 可以 保证 放大 图像 的 质量 . 
+ * 　 本文 研究 得到 国家自然科学基金 和 国家 863 高科技 项目 基金 资助 。 
+ 作者简介 　 孙庆来 ， 1972 年生 ， 硕士 ， 主要 研究 领域 为 虚拟现实 。 
+ 　 　 　 　 　 张晓鹏 ， 1963 年生 ， 讲师 ， 主要 研究 领域 为 计算机 图形学 ， 计算 几何 。 
+ 　 　 　 　 　 吴恩华 ， 1947 年生 ， 博士 ， 博士生 导师 ， 主要 研究 领域 为 计算机 图形学   。 
+ 作者 单位 ： 中国科学院 软件 研究所 计算机科学 开放 研究 实验室   北京   100080 
+ 参考文献 
+ 　 1 　 Durand   C   X ,   Faguy   D .   Rational   zoom   of   bit   maps   using   B - spline   interpolation   in   computerized   2 - D   animation .   Computer   Graphics   Forum ,   1990 , 9 ( 1 ) : 27 ～ 37 
+ 　 2 　 Chen   S   E .   QuickTime   VR — — an   image - based   approach   to   virtual   environment   navigation .   In :   Cook   R   ed .   Proceedings   of   the   Siggraph ' 95   ( Computer   Graphics ) .   Los   Angeles ,   CA :   Addison - Wesley   Publishing   Company ,   1995 .   29 ～ 38 
+ 　 3 　 McMillan   L ,   Bishop   G .   Plenoptic   modeling :   an   image - based   rendering   system .   In :   Cook   R   ed .   Proceedings   of   the   Siggraph ' 95   ( Computer   Graphics ) .   Los   Angeles ,   CA :   Addison - Wesley   Publishing   Company ,   1995 .   39 ～ 46 
+ 　 4 　 蔡勇 , 刘学慧 , 吴恩华 . 基于 图像 绘制 的 虚拟现实 系统 环境 . 软件 学报 , 1997 , 8 ( 10 ) : 721 ～ 728 
+ ( Cai   Yong ,   Liu   Xue - hui ,   Wu   En - hua .   Image - based   rendering :   a   technology   for   virtual   reality   system .   Journal   of   Software ,   1997 , 8 ( 10 ) : 721 ～ 728 ) 
+ 　 5 　 唐荣锡 , 汪嘉业 , 彭 群生 . 计算机 图形学 教程 . 北京 : 科学出版社 , 1994 
+ ( Tang   Rong - xi ,   Wang   Jia - ye ,   Peng   Qun - sheng .   Computer   Graphics .   Beijing :   Science   Press ,   1994 ) 
+ 　 6 　 Farin   G .   Curves   and   Surfaces   for   Computer   Aided   Geometric   Design   ( 2nd   ed ) .   New   York :   Academic   Press ,   1990 
+ 本文 1998 - 04 - 27 收到 原稿 。 1998 - 07 - 14 收到 修改稿 

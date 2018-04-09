@@ -1,0 +1,122 @@
+信息 与 控制 
+ Information   and   Control 
+ 1999 年 　 第 28 卷 　 第 4 期 　 Vol.28 　 No.4 　 1999 
+ 
+ 
+ 
+ 一类 大 系统 的 直接 自 适应 分散 模糊控制 
+ 王 　 涛 　 佟绍成 
+ 
+ 　 　 摘 　 要 ：   本文 针对 一类 未知 非线性 大 系统 ， 提出 了 一种 直接 自 适应 模糊 分散控制 策略 ． 设计 中   ， 首先 在 假设 各 子系统 的 动态 已知 的 条件 下 ， 设计 最优 分散控制 ， 然后 用 模糊 自 适应 系统 逼   近 最优 分散控制 ． 同时 引入 模糊 滑模 控制 消除 各个 子系统 之间 的 相互作用 ， 外部 干扰 和 模糊   系统 的 逼近 误差 ． 并 对 所 设计 的 控制系统 进行 了 稳定性 分析 ．   
+ 　 　 关键词 ： 模糊控制 ， 自 适应控制 ， 非线性 系统 ， 稳定性 
+ 　 　 中 图 分类号 ： TP13 　 　 　 　 　 　 文献 标识码 ： B 
+ ADAPTIVE   DIRECT   FUZZY   DECENTRALIZED   CONTROL   FOR   A 
+ LARGE - SCALE   NONLINEAR   SYSTEM 
+ WANG   Tao   TONG   Shaocheng 
+ ( Liaoning   Institute   of   Technology ，   Jinzhou   121001 ) 
+ Abstract :   In   this   paper ,   a   direct   adaptive   fuzzy   decentralize   d   control   is   proposed   for   a   large - scale   unknown   nonlinear   system .   In   the   design   ,   we   employ   adaptive   fuzzy   logic   systems   to   approximate   the   unknown   functions ,   a   nd   introduce   error   feedback   and   sliding   mode   control   to   deal   with   the   interacti   ons   between   subsystems ,   external   disturbance   and   the   errors   of   approximation .   Fi   nally ,   the   analysis   of   the   closed - loop   ia   given . 
+ Key   words :   fuzzy   control ,   adaptive   control ,   nonlinear   system ,   st   ability 
+ 
+ 1 　 引言 
+ 　 　 控制 由 多个 互联 关联 的 子系统 组成 的 大 系统 ， 关键 的 问题 是 如何 处理 各 子系统 之间 的 关联 项   ． 最 有效 的 方法 是 利用 局部 信息 对 各 子系统 进行 分散控制 ． 目前 关于 大 系统 的 分散控制 问题   已有 很多 结果 ． 这些 方法 一般 处理 线性 或 带有 非线性 关联 项 的 子系统 ． 其 主要 的 缺陷 是 要求   系统 精确 的 模型 ． 为 解决 这一 困难 ， 以变 结构 控制 为 理论 的 滑模 控制 是 一种 可行 的 综合 方法   ． 在 理想 的 条件 下 ， 滑模 控制 具有 以下 特点 ： （ 1 ） 被控 对象 的 参数 及 结构 变化 不灵敏 ； （ 2 ） 抗 外部 干扰能力 较强 ； （ 3 ） 低超 调及 高精度 ； 然而 ， 设计 滑模 控制系统 不但 需要 一些 先   验 的 信息 ， 而且 滑模 控制 存在 着 系统 的 状态 轨迹 在 开关 平面 上 出现 抖动 现象 ． 
+ 本文 把 模糊控制 ， 模糊 逻辑 逼近 及 模糊 滑模 控制 相结合 ， 针对 一类 未知 的 非线性 大 系统   设计 了 一种 直接 自 适应 分散 模糊 控制器 ． 在 设计 中 ， 首先 假设 各 子系统 的 动态 已知 的 情况 下   ， 给出 理想 条件 下 的 分散 控制器 ． 然后 利用 模糊 逻辑系统 逼近 所 设计 的 分 控制器 ， 并 基于   Lyapunov 方法 得到 模糊 系统 中 参数 的 自 适应 律 ． 由于 在 实际 中 ， 模糊 规则 数是 有限 的 ， 所以   模糊 系统 的 参数 的 完全 匹配 是 不 可能 的 ， 考虑 到 各 子系统 子间 的 相互作用 及 外部 干扰 的 影响 ， 引入 误差 反馈 及 滑模 控制 进行 补偿 ． 从而 得到 一种 直接 自 适应 模糊 控制器 ． 证明 了 应用 此 控制算法 使大 系统 稳定 ， 即 系统 中 所 涉及 的 信号 有 界 ， 各 子系统 的 跟踪 误差 渐近收敛 到 零 的 一个 邻域 内 ． 
+ 2 　 自 适应 分散 模糊控制 的 设计 
+ 　 　 考虑 下面 由 m 个 子系统 组成 的 大 系统 
+ i1 = xi2 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 
+  ┆ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 
+ Si :   imi = fi ( Xi ) + gi ( Xi ) ui + di ( X , t ) 　 　 　 　 　 　 　 　 　 
+ yi = xi1 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 其中 Xi = ( xi1 , … , ximi ) ∈ Rmi 是 子系统 Si 的 状态 向量 ， ui 是 输入 ， yi 是 输出 ． fi , gi ∈ Rni 是 光滑 的 函数 ,   di   ( X , t ) 是 子系统 之间 的 相互作用 及 外部 干扰 的 函数 ． i = 1 , 2 , … m ，   X = ( X1 , … , XN ) T ∈ Rm 是 大 系统 的 状态 向量 ,   ． 
+ 假设   对于 未知 函数 f1 ( Xi ) ,   gi ( Xi ) , di ( X , t ) 分别 满足 下面 的 条件 ： 
+ 　 　 ( i )   　   　 | fi ( Xi ) | ≤ Mi0 ( Xi ) 
+ 　 　 ( ii ) 　   　 0 ＜ bi ≤ Mi1 ( Xi ) ≤ gi ( Xi ) ≤ Mi2 ( Xi ) 
+ 　 　 ( iii ) 　 　 | - 1i ( Xi ) | = | Δ g - 1i ( Xi ) i | ≤ M   i3 ( Xi ) 
+ 　 　 ( iv ) 　   　 ． 
+ 其中 Mij ( Xi ) 是 已知 函数 ,   bi 是 已知 常数 ， aijk 是 未知 非负 常数 并通   过自 适应 得到 ． 
+ 　 　 对于 给定 的 参考 输出 xid ， 假设 id , x ′ ( 2 ) id , … , xmiid 都 是 可测 并且 有 界 ， 定义 子系统 Si 的 跟踪 误差 为 ei0 = x1i   - xid , 其 控制目标 如下 ： 
+ 控制目标 ： 仅 利用 局部 信息 设计 自 适应 分散 模糊控制 ui ( Xi | θ i ) , 在 子系统   之间 的 相互作用 及 外部 干扰 存在 的 情况 下 ， 满足 ： 
+ 　 　 （ 1 ） 分散 控制系统 在 Lyapunov 意义 下 稳定 ， 即 系统 中 所 涉及 的 所有 信号 一致 有 界   ． 
+ 　 　 （ 2 ） 各 子系统 的 跟踪 误差 ei0 渐近收敛 于 零 或 零 的 一个 邻域 内 ． 
+ 　 　 设 ei = ( ei0 , i0 , … , ( mi - 1 ) i0 ) T   ， ki = ( ki ( mi - 1 ) … , ki0 ） T , 向量 Ki 选取 使得 多项式 i ( s ) = s   ( mi ) + ki ( mi - 1 ) s ( ri - 1 ) + … + ki0 为 Hurwitz 多项式 ， 即   它 的 特征值 都 在 左半 平面 ．   定义 滑模 平面 为 
+ si ( t ) = ki1ei + ki2i + … + ki ( mi - 1 ) e ( m   i - 2 ) i + e ( mi - 1 ) i 　 　 　 　 　 　 　 　 　 　 ( 2 ) 
+ 　 　 　 　 　 　 ( 3 ) 
+ 把 （ 3 ） 代入   ( 1 ) 得 ： i ( t ) + η isi ( t ) = 0 ,   由此 可 得到 ． 
+ 　 　 但是 在 fi ( Xi ) , gi ( Xi ) 未知 和 di ≠ 0 的 情况 下 ， 设计 如同 ( 8 ) 式 的 分散控制 是   不 可能 的 ,   而且 现有 传统 的 分散控制 方法 都 难以 利用 ， 为此 我们 利用 模糊 逻辑系统 来 逼近 分   散 控制 u * i [ 2 ]   ， 在 此基础 上 设计 分散 模糊控制 ． 
+ 定义 有界 闭集 Aid , Ai 如下 
+ Aid = { Xi | ‖ Xi - Xi0 ‖ p , π ≤ 1 } , 　 Ai = { Xi | ‖ Xi - Xi0   ‖ p , π ≤ 1 + i } 　 　 　 　 　 　 　 ( 4 ) 
+ 其中 是 一种 p - 范数 ， { π i } ni = 1 是 给定 的 权重 ， ψ i 表示 过渡 区域 的   宽度 ， Xi0 是 Rmi 中 的 一定 点 ． 对于 给定 的 ε i ＞ 0 ( 不必 充分 小 ） ， 那么 存   在 模糊 逻辑系统 ui ( Xi | θ i ) = θ TiPi ( Xi ) ， 使得   Xi ∈ Ai ， 有 
+ | u * i - ui ( Xi | θ i ) | ≤ ε i 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 5 ) 
+ 设计 分散 模糊控制 为 
+ ui = ( 1 - mi ( t ) ) uadi - mi ( t ) ) k1i ( si , t ) ufsi - k2i ( s   i , t ) ufsi 　 　 　 　 　 　 　 　 ( 6 ) 
+ 其中 uadi = ui ( Xi | i ) - iufsi 是 自 适应 部分 ， ufs   是 模糊 滑模 控制 ． 关于 模糊 滑模 控制 的 设计 将 在 下节 给出 ， ki1 ( s , t ) ＞ 0 , k2i (   si , t ) ＞ 0 ,   mi ( t )   是 一种 调制 函数 0 ≤ mi ( t ) ≤ 1 ， 其 定义 为 
+ 　 　 　 　 　 　 　 　 　 　 　 ( 7 ) 
+ 由 ( 6 ) 和 ( 1 ) 可 得   
+ 　 　 　 　 　 ( 8 ) 
+ 其中 si Δ ( t ) = si ( t ) - φ isat ( si ( t ) / i ) , 　 ( i ＞ 0 ) ,   Φ i = θ i -   i 
+ 3 　 模糊 滑模 的 设计 
+ 　 　 模糊 滑模 控制 是 模糊 逻辑 与 一般 滑模 控制 的 结合 ， 利用 模糊控制 本身 所 具有 “ 语言 变量 ” 的   特性 ， 采用 “ 不 精确 推理 ” 的 手段 ， 来 替代 一般 滑模 控制 中 的 非 连续 部分 使得 控制 信号 得 已   平滑 ． 文 ［ 3 ］ 对 模糊 滑模 控制 作 了 深入 的 探讨 ， 但是 他们 都 是 以 误差 、 误差 的 变化 律为语   言 变量 进行 设计 模糊推理 规则 ， 并 制成 决策表 ． 这种 模糊 滑模 控制 缺少 精确 的 数学 表示 式 ，   所以 很难 对 控制系统 进行 稳定性 分析 ． 为了 克服 这种 困难 ， 本文 采用 滑模 平面 si = 0 来 集中   误差 及 误差 变化 律 的 信息 ． 把 滑模 平面 si = 0 扩张 成 模糊 滑模 平面 i = 并 以 si = 0 作为 i = 的 语言 变量 ， 并 推出 其 精确 的 数学 表示 式 . 
+ 　 　 首先 定义 si ,   ufsi 的 语言 集 分别 为 
+ T ( si )   = { NB ,   NM ,   ZR ,   PM ,   PB }   = { Ci1 ,   Ci2 ,   Ci3 ,   Ci   4 ,   Ci5 } 　 　 　 　 　 　 　 　 　 　 
+ T ( ufsi } = { NB ,   NM ,   ZR ,   PM ,   PB }   = { Fi1 ,   Fi2 ,   Fi3 ,   Fi   4 ,   Fi5 } 　 　 　 　 　 　 　 　 ( 9 ) 
+ 其中 “ NB ” , “ NM ” , “ ZR ” , “ PM ” , “ PB ” 分别 表示 模糊集 “ 负大 “ , “ 负中 ” , “ 零 ,   “ 正中 ” , “ 正大 ” ． 它们 的 模糊 隶属 函数   如图 1 所示 ． 
+ 
+ 图 1 　 模糊 隶属 函数 
+ 由 直觉 推理 建立 跟踪 误差 eli 与 模糊控制 ufsi 的 模糊 关系 为 ： 
+ Rji : 若 e1i 是 Aji , 则 ufsi 是 B - ji ( j = - 2 , - 1 , 0 , 1 , 2 ) 　 　 　 　 　 　 　 　 　 　 
+ 输入 ei 是 Ai   输出 ufsi 是 Bi 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 10 ) 
+ 由 第 j 条 规则 得到 的 模糊 关系 
+ Rji = Aji × B - ji ,   即 Rji ( e1i , ufsi ) = Aji   ( e1i ) ∧ B - ji ( ufsi ) 　 　 　 　 　 　 　 ( 11 ) 
+ 总 的 模糊 关系 为 
+ 　 　 　 　 　 　 ( 12 ) 
+ 采用 乘积 推理 规则 和 单点 模糊化 方法 易得 
+ 　 　 　 　 　 　 　 　 　 　 ( 13 ) 
+ 应用 重心 化非 模糊化 方法 进一步 可 推 得到 精确 得 控制 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 14 ) 
+ 文 ［ 4 ］ 给出 了 上式 的 数学 解析 表示 式 ： 
+ 　 　 　 　 　 　 　 　 ( 15 ) 
+ 其中 ，   当 | ei1 | ≥ ψ 时 , 
+ 4 　 稳定性 分析 
+ 　 　 本节 将 给出 关于 上节 所 设计 的 分散 模糊 控制器 的 稳定性 分析 
+ 　 　 选取 模糊控制 为 
+ ui = - ( 1 - mi ( t ) ) uadi - mi ( t ) k1i ( si , t ) ufsi - k2i ( s   i , t ) ufsi 　 　 　 　 　 　 ( 16 ) 
+ 其中 
+ 
+ 
+ 参数 的 自 适应 律取 为 
+ 　 　 　 ( 17 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 18 ) 
+ 　 　 　 　 　 　 　 　 　 　 ( 19 ) 
+ 其中 P [ . ] 文 [ 2 ] 中 表 定义 的 投影 算子 ． 
+ 　 　 定理   对于 非 系统 ( 1 ) ， 如果 采取 分散 模糊控制 策略 ( 16 ) ～ ( 19 ) ， 在 假设 条件 ( i ) ～ ( vi ) 成立 的 条件 下 ， 则 有 
+ 　 　 ( i ) xi1 , ui ∈ L ∞ ． 　 　 ( ii ) ei ( t ) 趋 近于零 ． 
+ 证明   关于 | θ | ≤ Mi 证明 与 ［ 2 ］ 中 的 证明 相 类似 ， 下面 证明 其它 结论 ．   
+ 取 Lyapunov 函数 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 20 ) 
+ 　 　 　 　 ( 21 ) 
+ 求 Vi ( t ) 的 微分 得 
+ 　 　 　 　 ( 22 ) 
+ 如果 | si | ≤ i ， 则 i Δ = 0 , 所以 推出 i = 0 . 如果 | si | ＞ i ,   由于 i Δ = i ,   那么 根据 ufsi = - sgn ( si ( t ) ) 和 ( 8 ) 得 
+ 　 　 　 　 ( 23 ) 
+ 由 假设 ( i ) ～ ( iv ) 及   ( 16 ） - （ 19 ） 式 ， （ 23 ） 式 可 写成 
+ 　 　 　 　 　 　 　 ( 24 ) 
+ 在 （ 24 ） 式 中 ， Ii 的 定义 如下 ： 如果 （ 17 ） 中 的 第一个 条件 成立 ， 则 Ii = 0 ． 如   果 第二 条件 成立 ， 则 Ii = 1 . 
+ 与 文 [ 2 ] 相 类似 ， 可 证明 ． 从 ( 25 ) 便 得 
+ 　 　 　 　 　 　 　 　 　 　 　 ( 25 ) 
+ 由于 ,   根据 ( 25 ) 得 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 26 ) 
+ 由 上式 得到 V ∈ L ∞ ,   推出 ijk ， i , si Δ ∈ L ∞ , 进而 有 ei   ∈ L ∞ ． 因为 xi1 = ei + xid ， 所以 xi1 有界 ． 根据 （ 25 ） 知 V 单调 减少   并且 下方 有 界 ， 所以 limV ( t ) = V ( ∞ ) 存在 ． 对 （ 26 ） 积分 得 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 t → ∞ 
+ 　 　 　 　 　 　 　 　 　 　 ( 27 ) 
+ 上 式 意味着 si Δ ∈ L2 ， 因为 i Δ ∈ L ∞ ,   根据 Barbalet ' s 引理 得到 limsi Δ ( t ) = V ( ∞ ) ,   因此 可 推出 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 t → ∞ 
+ | si | ≤ i 即 ei ( t   ) 渐近收敛 于 零 的 一个 邻域 内 ． 再 由 （ 15 ） 知 ui 有界 ． 
+ 注释 ： 基金项目 : 国家自然科学基金 ( 69874020 ) 项目 资助 
+ 作者简介 ： 王 　 涛 ， 34 岁 ， 讲师 ． 研究 领域 为 模糊 逻辑 和 模糊控制 ． 
+ 　 　 　 　 　 佟绍成 ， 39 岁 ， 教授 ． 研究 领域 为 模糊 自 适应控制 ;   非线性 控制 ． 
+ 作者 单位 ： 辽宁 工学院 基础 部 　 锦州 　 121001 
+ 参考文献 
+ 1 　 Zong - Mu   Yel .   A   Performance   Approach   to   Fuzzy   Control   Design   for   N   onlinear   System ,   Fuzzy   Sets   and   Systems ,   1994 ,   64 ( 4 ) : 339 ～ 352 
+ 2 　 Wang   Lixin .   Stable   Adaptive   Fuzzy   Control   of   Nonlinear   Systems .   IEEE   Tran   s . on   Fuzzy   Systems ,   1993 , 1 ( 2 ) : 146 ～ 155 
+ 3 　 Palm   R .   Sliding   Mode   Fuzzy   Control ,   Automatics ,   1994 ,   30 ( 9 ) : 1429 ～   1437 
+ 4 　 Tong   Shaocheng ,   Chai   Tianyou .   Adaptive   Fuzzy   Sliding   Mode   Control   for   N   onlinear   Systems .   Pro   of   IEEE .   Int .   Conf .   On   Fuzzy   Systems ,   1996 : 49 ～ 54 
+ 收稿 日期 : 1998 - 01 - 14 

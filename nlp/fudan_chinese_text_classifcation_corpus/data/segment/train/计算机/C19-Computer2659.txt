@@ -1,0 +1,69 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年 　 第 10 卷 　 第 9 期 　 Vol.10 　 No.9 　 1999 
+ 
+ 
+ 
+ 支持 动态 配置 的 分布式 程序设计 模型 * 
+ 柳颖 　 陈道 蓄 　 谢立 　 曹建农 
+ 摘要 　 分布式系统 的 动态 配置 问题 近年来 引起 了 各国 研究者 的 广泛 关注 . 该文 对 面向 图 结构 的 分布式 程序设计 模型 GOM ( graph - oriented   model ) 进行 了 扩充 和 改进 , 提出 了 支持 动态 配置 的 程序设计 模型 ExGOM ( extended   graph - oriented   model ) . ExGOM 提供 了 多种 基于 图 结构 的 配置 操作 . 用户 可 在 配置文件 中 描述 系统结构 的 动态变化 , 也 可 在 程序 中 利用 配置 操作 进行 动态 配置 . 这一 特性 使得 系统 可 支持 不可 预计 的 动态 配置 . 文章 还 给出 了 以 多 Agent 机制 实现 ExGOM 的 系统结构 . 
+ 关键词 　 分布式 程序设计 , 动态 配置 / 重 配置 , 容错 . 
+ 中图法 分类号 　 TP311 
+ A   Hierarchical   Distributed   Programming   Model   Supporting   Dynamic   Configuration 
+ LIU   Ying , CHEN   Dao - xu , XIE   Li , CAO 
+ ( State   Key   Laboratory   for   Novel   Software   Technology   Nanjing   University   Nanjing   210093 ) 
+ Jian - nong 
+ ( Department   of   Computing   Hong   Kong   Polytechnic   University   Hong   Kong ) 
+ Abstract 　 In   the   recent   years ,   the   importance   of   supporting   dynamic   configuration   in   distributed   systems   has   been   widely   recognized   by   many   researchers .   A   new   model   ExGOM ( extended   graph - oriented   model )   supporting   dynamic   configuration   by   improving   and   extending   GOM   ( graph - oriented   model )   is   proposed   in   this   paper .   ExGOM   supplies   abundant   configuration   functions   based   on   graph   constructs .   The   user   can   define   dynamic   changes   of   the   system   architecture   in   the   configuration   file ,   or   by   using   the   configuration   functions   in   the   programs .   This   is   a   significant   attribute   so   that   the   model   can   support   unpredicted ( non   pre - planned )   dynamic   configuration .   Also   in   this   paper ,   the   system   architecture   of   the   model   implemented   by   a   multi - agent   mechanism   is   presented . 
+ Key   words 　 Distributed   programming ,   dynamic   configuration / reconfiguration ,   fault   tolerance . 
+ 　 　 在 文献 ［ 1 ］ 中 , 我们 曾 提出 一个 面向 图 结构 的 分布式 程序设计 模型 GOM ( graph - oriented   model ) . GOM 将 图 结构 引入 语言 层 , 使得 用户 的 分布式 程序 可以 构筑 在 一个 清晰 的 逻辑图 结构 之上 , 并 可 利用 基于 图 的 各种 通信 原语 ( 如 SendToParent , SendToChildren , RecvFrmParent , RecvFrmChildren 等 ) 以及 其他 控制 原语 ( 如子 图 生成 、 图上 搜索 等 ) , 从而 方便 编程 并 有利于 系统 的 维护 . 我们 在 SUN 工作站 上 采用 PVM ［ 2 ］ 提供 底层 通信 支持 ， 为 GOM 实现 了 一个 运行 系统 , 并 以 扩充 C语言 的 方式 提供 了 一个 函数库 . 尽管 GOM 中 的 逻辑图 定义 函数 以及 其他 一些 函数 在 某种程度 上 提供 了 对 动态 配置 的 支持 , 但 并 没有 一个 清晰 的 思想 . 在 GOM 中 , 用户 首先 定义 一个 逻辑图 结构 , 然后 分别 定义 LP ( local   process ) 到 图上 结点 的 映射 以及 结点 到 主机 的 映射 , 最后 通过 调用 StartExecute ( ) ， 启动 所有 进程 执行 . 所有 这些 工作 都 是 在 一个 被 称为 “ 主控 程序 ” 的 程序 中 编写 的 . 这个 “ 主控 程序 ” 相当于 一个 配置文件 . 但是 , 这个 配置文件 只 定义 了 静态 配置 的 情况 . 当 某个 进程 动态 生成 若干个 子 进程 时 , 这一 情况 必须 在 该 进程 中 去 控制 . 而 一旦 程序 开始运行 , 就 不能 再 更改 配置 . 此外 , GOM 中 用户 可任意 定义 逻辑图 结构 , 它 并 不 反映 各 进程 间 的 内在联系 . 
+ 　 　 我们 现在 的 工作 首先 期望 对 GOM 进行 扩充 , 使 其 能够 支持 动态 配置 . 另外 , 我们 也 希望 通过 对 GOM 的 改进 , 使 其 更 适合 于 某 一类 的 分布式应用 ( 称为 “ 层次化 的 分布式应用 ” ) . 
+ 1   动态 配置 问题 
+ 　 　 分布式系统 中 的 动态 配置 问题 包括 如下 3 个 方面 . 
+ 　 　 ( 1 )   系统 运行 过程 中 任务 图 的 动态 扩展 和 收缩 ( 这里 , 任务 图是 指 反映 了 进程 间 内在 控制关系 的 逻辑图 ) . 具体地说 , 是 指 在 任务 执行 过程 中 , 某个 任务 结点 可能 会 动态 地 产生 子 任务 , 使得 系统 如同 滚雪球 一样 不断 扩展 ； 而 当 某个 任务 结点 执行 完毕 , 它 将 从 任务 图中 删去 自身 , 使 系统 收缩 . 扩张 和 收缩 具有 不确定性 . 
+ 　 　 ( 2 )   系统 运行 过程 中 的 升级 . 也就是说 , 任务 图 的 某 一部分 被 高 版本 替换 或是 增加 了 某 一新 功能模块 . 这一 过程 通常 需要 人 的 干预 , 甚至 需要 暂停 系统 , 升级 后 再 恢复 运行 . 
+ 　 　 ( 3 )   系统 运行 过程 中 由于 若干 主机 结点 故障 或 其他 原因 ( 如 负载 、 效率 等 ) , 各 进程 需 重新 映射 到 主机 . 
+ 　 　 可以 看到 , 前 两种 情况 是 任务 的 动态变化 , 后 一种 则 是 系统 的 动态变化 . 系统 的 改变 带来 的 动态 配置 涉及 到 容错 、 检查点 、 进程 迁移 等 问题 . 本文 考虑 如何 扩充 GOM , 改进 原有 的 系统结构 , 以 支持 动态 配置 , 使得 系统 的 配置 建立 在 逻辑图 的 结构 上 , 通过 图上 的 操作 来 完成 , 并 尽可能 地 与 程序设计 分离 . 
+ 2   支持 动态 配置 的 程序设计 模型 
+ 2.1   层次化 的 分布式应用 
+ 　 　 很多 分布式应用 , 如果 从 最 自然 的 角度 去 考虑 , 它们 都 具有 层次化 的 结构 , 例如 , 银行 系统 、 航空 预售票 系统 以及 各类 client / server 模式 的 应用 等 . 因此 , 针对 这一 情况 , 我们 将 一个 分布式应用 表示 成 一棵 多层次 的 “ 树 ” . 这棵 “ 树 ” 也 就是 GOM 中 的 逻辑图 结构 . 这样 , 这个 逻辑图 结构 不仅 使 用户 仍 可 利用 图上 的 各种 通信 原语 进行 高层 的 通信 , 而且 为 动态 配置 提供 了 一个 清晰 的 框架 . 下面 , 本文 将 对 在 树形 结构 的 层次化 分布式应用 下 的 支持 动态 配置 的 程序设计 模型 进行 详细 论述 , 并 给出 该 模型 下 的 系统结构 . 
+ 2.2   程序设计 模型 
+ 　 　 我们 将 该 模型 称为 ExGOM ( extended   graph - oriented   model ) , 以 表示 它 是 对 GOM 的 扩充 . 从 用户 角度看 , ExGOM 由 LP ( local   process ) 与 配置文件 ( configuration   file ) 两大块 组成 . 
+ 　 　 ( 1 )   用户 进程 ( LP ) 
+ 　 　 通信 操作 ： 每个 LP 完成 一定 的 功能 . 它们 完全 像 顺序程序 一样 地 编写 . LP 间 的 通信 采用 基于 图 的 各种 通信 原语 . 使用 何种 通信 原语 将 根据 初始 的 配置 情况 来 决定 . 考虑 到 以 树形 结构 作为 逻辑图 结构 , 每个 LP 仅能 与其 Parent , Child / Children , Brother / Brothers 通信 , 而 不能 越层 通信 . 这样 做 的 目的 是 加强 系统控制 , 当 发生 动态 配置 时 , 尽可能少 地 影响 系统 其他 部分 的 正常 运行 . 此外 , 在 ExGOM 中 , 我们 增加 了 一种 按类型 通信 的 方式 , 如 SendToChildren ( type , ... ) , 从 一组 结点 中 筛选 出 符合 类型 的 结点 . 
+ 　 　 配置 操作 ： 与 GOM 不同 , 为了 支持 动态 配置 , LP 中 定义 了 若干 特殊 变量 , 这些 变量 在 LP 中像 其他 变量 一样 地 使用 , 不同之处 是 ， 当 它们 被 改变 时 , 用户 必须 显式 地 调用 系统 函数 reconfig ( var ) . reconfig ( ) 函数 通知 系统 ： 配置文件 中 的 条件 变量 发生 了 改变 . 系统 将 检查 动态 配置 的 条件 是否 满足 , 若 满足 , 将 执行 配置文件 中 的 动作 . 通过 reconfig ( ) 进行 的 动态 配置 是 一类 可 预先安排 ( pre - planned ) 但 却 不 确定 地 发生 的 动态 配置 . 用户 亦可 通过 改变 配置文件 进行 不可 预计 ( non   pre - planned ) 的 动态 配置 . 
+ 　 　 LP 中 也 可 使用 系统 提供 的 基于 图 结构 的 配置 函数 , 如 AddNode , DeleteNode , ReplaceNode 等 . 这样 , 用户 可以 选择 是 使用 配置文件 进行 动态 配置 还是 在 程序 中 直接 进行 可 预先安排 的 动态 配置 , 因而 增加 了 系统 灵活性 . 因为 有 可能 某些 分布式应用 的 动态 配置 情况 很 简单 ， 且 在 运行 过程 中 动态 配置 的 条件 不变 , 无需 在 配置文件 中 描述 以备 将来 改变 . 此外 , 允许 在 LP 中 使用 系统 的 配置 函数 对 不 确定 地 加入 新 的 功能模块 也 很 有 意义 . 新 的 LP 在 完成 必要 的 初始化 工作 后 ， 通过 AddNode 函数 将 自己 挂 接到 树形 结构 的 某个 结点 下 , 无需 其他 工作 就 可 无缝 地 嵌入 系统 . 新 结点 的 加入 将 不 影响 其父 结点 的 运作 , 只要 父 结点 上 的 LP 完全 采用 基于 图 结构 的 通信 原语 . 
+ 　 　 模块 独立性 ：   由于 每个 应用 的 逻辑图 对应 于 一个 图 名 标识符 , 底层 运行 系统管理 多个 应用 的 逻辑图 结构 , 各个 基于 图 结构 的 操作 均 以图 名 作为 其中 一个 参数 , 系统 只 在 运行 时才 检查 各 操作 的 语义 是否 正确 , 所以 无论是 应用程序 原有 的 LP 还是 新 加入 的 LP ， 都 可 独立 编译 . 
+ 　 　 ( 2 )   配置文件 
+ 　 　 配置文件 采用 一种 描述语言 书写 . 不 采用 某种 程序设计 语言 书写 配置文件 是 为了 当 系统 运行 后 , 我们 可以 通过 修改 配置文件 影响 和 改变 系统配置 . 针对 层次化 的 分布式应用 , 配置文件 也 采用 层次化 的 结构 . 每层 的 配置文件 定义 了 若干 棵子 树 , 每棵 树 的 深度 不 大于 2 . 这些 子树 经过 与 其他 层子 树 的 装配 形成 一棵 完整 的 树 . 
+ 　 　 配置文件 是 ExGOM 的 关键 . 每个 配置文件 包括 初始 配置 部分 和 动态 配置 部分 . 初始 配置 部分 与 GOM 中 主控 程序 的 功能 一样 , 不仅 定义 了 子树 的 逻辑 结构 , 而且 定义 了 LP 到 树 中 结点 的 映射 以及 结点 到 主机 的 映射 . 动态 配置 部分 由 若干 ( 条件 ： 动作 ) 对 组成 , 描述 了 在 什么 条件 下 发生 什么样 的 配置 操作 . 条件 的 书写 与 C语言 的 条件 书写 一致 , 虽然 该 配置文件 不是 一个 C语言 源程序 . 配置 动作 以 函数 的 形式 书写 , 包括 增加 ( Add ～ ) 、 删除 ( Delete ～ ) 、 升级 ( Upgrade ～ ) 、 降级 ( Degrade ～ ) 、 替换 ( Replace ～ ) 一个 结点 ( Node ) 或子 树 ( Tree ) , 以及 复制 ( Clone ～ ) 一个 结点 ( Node ) 或子 树 ( Tree ) 等 . 限于 篇幅 , 有关 具体 的 配置文件 的 描述 及 层次 构造 在 此 不加 详述 . 
+ 2.3   系统结构 
+ 　 　 图 1 给出 了 支持 动态 配置 的 分布式 程序设计 系统 的 结构 . 图中 LP 指 的 是 静态 的 功能模块 , 而 不是 动态 运行 的 进程 . 各层 配置文件 定义 了 这些 LP 在 实际 运行 时 的 配置 情况 . 
+ 
+ 图 1 　 支持 动态 配置 的 分布式 程序设计 系统 的 结构 
+ 　 　 每层 配置文件 对应 于 一个 配置 代理 机构 ( configuration   agency ) , 由 系统 自动 生成 . 每个 配置 代理 机构 由 3 种 配置 Agent 组成 ： 初始 Agent ( Iagent ) 、 动态 Agent ( Dagent ) 以及 容错 Agent ( Fagent ) . 这些 配置 Agent 读进 配置文件 , 为 将要 发生 的 配置 进行 协商 , 合作 完成 配置 的 生成 和 改变 . 初始 Agent 读取 配置文件 初始 部分 的 描述 , 直接 完成 配置 . 当 LP 调用 reconfig ( ) 时 , 管理 其 配置 的 动态 Agent 接收 到 消息 , 检查 动态 配置 条件 , 采取相应 的 操作 . 在 系统 函数调用 中 , 我们 加入 了 容错 功能 . 例如 , 当某 一 主机 发生 故障 , 其上 的 进程 丢失 , 这时 若 有 另 一 进程 向 其 发信 或 等待 回答 , 将 得到 主机 失败 的 消息 , 这时 将 转向 相应 配置 代理 机构 的 容错 Agent , 由 容错 Agent 采用 适当 的 策略 使 用户 的 应用 尽量 不 受 影响 . 由于 容错 的 目的 是 希望 无论 在 发生 硬件 还是 软件 故障 时 , 系统 都 不至于 瘫痪 , 至少 能 有秩序地 暂停 以便 恢复 , 我们 未 在 配置文件 中 允许 用户 定义 容错 情况 下 的 动态 配置 , 而是 完全 交由 系统 负责 处理 . 
+ 　 　 配置 状态 ( state ) 各自 保存 了 相应 配置 代理 机构 管理 的 子树 的 配置 信息 , 包括 映射 ( mapping ) 信息 . 
+ 　 　 配置 修改 Agent ( Eagent ) 向 用户 提供 修改 配置文件 的 功能 . 由于 配置文件 在 系统 运行 期间 又 要 被 配置 代理 机构 使用 , 所以 需 通过 配置 修改 Agent 来 修改 配置文件 , 完成 一致性 维护 . 我们 采用 独占 使用 方式 管理 配置文件 , 即 每个 时刻 只能 有 一个 配置 修改 Agent 或 配置 Agent 使用 配置文件 . 
+ 　 　 由于 LP 间 的 通信 是 基于 图 结构 也 就是 系统配置 结构 的 通信 , 所以 通信 首先 交给 通信 管理 Agent ( Cagent ) 进行 必要 的 搜索 、 检查 , 再 转 交给 底层 运行 系统 去 实现 . 
+ 　 　 ExGOM 利用 GOM 的 运行 系统管理 各个 不同 应用 的 逻辑图 以及 各自 的 Agent . 
+ 3   相关 工作 与 尚待 解决 的 问题 
+ 　 　 分布式系统 的 动态 配置 问题 近年来 引起 了 各国 研究者 的 广泛 关注 . 研究 内容 包括 ， 分布式 程序 的 动态 特性 、 支持 动态 配置 的 分布式 程序设计 语言 以及 底层 运行 系统对 动态 配置 的 支持 机制 等 . 大多数 的 分布式 程序设计 系统 如 Ada ［ 3 ］ ， CSP ［ 4 ］ 等 在 语言 中 提供 对 结构 的 描述 , 系统 的 配置 与 程序设计 结合 得 很 紧密 , 因而 难以 支持 不可 预计 的 动态 配置 情况 . Argus ［ 5 ］ 虽然 提供 了 很大 程度 的 动态 重 配置 功能 , 但 它 依然 未 将 配置 与 程序设计 分 离开 , 程序 中 配置 语句 的 嵌入 使得 配置 改变 的 合理性 难以 得到 验证 . 另外 一些 分布式 程序设计 系统 采用 了 配置 语言 ( configuration   language ) , 将 系统配置 与 程序设计 分离 . 这 一类 的 系统 有 CONIC ［ 6 ］ ， Durra ［ 7 ］ ， Darwin ［ 8 ］ 等 . CONIC 虽然 支持 在线 的 重 配置 , 但 需要 操作者 的 干预 , 且 不适 用于 容错 性质 的 重 配置 情况 . Durra 是 一种 实时 分布式 程序 的 结构 描述语言 , 它 采用 时间 表达式 描述 可 预先安排 的 重 配置 . 其 缺点 是 不能 描述 复杂 条件 的 重 配置 , 且 不 支持 不可 预计 的 重 配置 . Darwin 是 对 CONIC 环境 的 扩充 . Darwin 不仅 可 描述 软件 和 硬件 的 结构 , 而且 可 描述 这些 结构 的 动态变化 . 
+ 　 　 ExGOM 与 上述 系统 的 不同之处 在于 ： 系统 的 重 配置 操作 建立 在 图 结构 之上 ； 配置文件 与 程序设计 相 分离 , 但 用户 可 选择 是 在 程序 中 直接 加入 配置 操作 还是 在 配置文件 中 加以 描述 ； 采用 多层次 的 配置文件 ； 配置文件 中 的 条件 描述 类似 C语言 的 条件 语句 , 可 描述 多种 复杂 的 配置 条件 ； 支持 不可 预计 的 动态 配置 ； 支持 3 种 不同 的 动态 配置 类型 . 
+ 　 　 本文 主要 阐述 了 支持 动态 配置 的 分布式系统 的 程序设计 模型 , 给出 了 系统 的 结构 框架 , 其中 尚有 大量 的 问题 有待 解决 . 如 配置 描述语言 的 精确 定义 ； 对 各种 不同 动态 配置 问题 的 处理 算法 ； 动态 配置 中 应用程序 的 一致性 ( consistency ) 和 完整性 ( integrity ) 的 维护 ； 基于 图 结构 的 动态 配置 的 管理 , 尤其 是 在 采用 多 Agent ( multi - agent ) 思想 后 各 Agent 之间 如何 协商 、 合作 等 . 这些 问题 将 在 今后 的 研究 中 逐步 加以解决 . 
+ 本文 通讯联系 人 ： 柳颖 , 南京   210093 , 南京大学 计算机科学 与 技术 系 
+ 作者简介 ： 柳颖 , 女 , 1973 年生 ， 博士生 , 主要 研究 领域 为 分布式系统 , 并行计算 , 容错 计算 . 
+ 　 　 　 　 　 陈道 蓄 , 1947 年生 ， 教授 , 主要 研究 领域 为 分布式系统 , 并行计算 , 计算机网络 . 
+ 　 　 　 　 　 谢立 , 1942 年生 ， 教授 , 博士生 导师 , 主要 研究 领域 为 并行计算 与 分布式 处理 . 
+ 　 　 　 　 　 曹建农 , 1960 年生 ， 博士 , 助教 , 主要 研究 领域 为 分布式系统 , 容错 处理 . 
+ 作者 单位 ： 柳颖 ， 陈道 蓄 ， 谢立 ， （ 南京大学 计算机软件 新 技术 国家 重点 实验室   南京   210093 ） 
+ 　 　 　 　 　 曹建农 （ 香港理工大学 计算 系   香港 ） 
+ 参考文献 ： 
+ ［ 1 ］ 柳颖 , 谢立 , 曹建农 . 面向 图 结构 的 分布式 程序设计 模型 GOM . 计算机 学报 , 1998 , 21 ( 1 ) : 18 ～ 25   ( Liu   Ying ,   Xie   Li ,   Cao   Jian - nong .   GOM : a   graph - oriented   model   for   distributed   programming .   Chinese   Journal   of   Computers ,   1998 , 21 ( 1 ) : 18 ～ 25 ) 
+ ［ 2 ］ Geist   Al ,   Beguelin   Adam ,   Dongarra   Jack   et   al .   PVM :   Parallel   Virtual   Machine :   A   User ' s   Guide   and   Tutorial   for   Networked   Parallel   Computing .   Cambridge :   MIT   Press ,   994 
+ ［ 3 ］ Referenced   Manual   for   the   Ada   Programming   Language .   U . S . A ,   Department   of   Defense ,   Proposed   Standard   Document ,   1980 
+ ［ 4 ］ Hoare   C   A   R .   Communicating   sequential   processes .   Communications   ACM ,   1978 , 21 ( 8 ) : 666 ～ 677 
+ ［ 5 ］ Bloom   T ,   Day   M .   Reconfiguration   and   module   replacement   in   Argus :   theory   and   practice .   Software   Engineering   Journal ,   1993 , 8 ( 2 ) : 102 ～ 108 
+ ［ 6 ］ Magee   J ,   Kramer   J ,   Sloman   M .   Constructing   distributed   system   in   Conic .   IEEE   Transactions   on   Software   Engineering ,   1989 , 15 ( 6 ) : 663 ～ 675 
+ ［ 7 ］ Barbacci   M   R   et   al .   Durra :   a   structure   description   language   for   developing   distributed   applications .   Software   Engineering   Journal ,   1993 , 8 ( 2 ) : 83 ～ 94 
+ ［ 8 ］ Magee   J ,   Dulay   N ,   Kramer   J .   Structuring   parallel   and   distributed   programs .   Software   Engineering   Journal ,   1993 , 8 ( 2 ) : 73 ～ 82 
+ 收稿 日期 ： 1998 - 06 - 08 ， 修改 日期 ： 1998 - 09 - 14 

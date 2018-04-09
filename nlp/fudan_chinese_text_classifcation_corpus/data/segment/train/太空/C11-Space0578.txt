@@ -1,0 +1,35 @@
+上海 航天 
+ AEROSPACE   SHANGHAI 
+ 2001   Vol.18   No.1   P.50 - 54 
+ 
+ 
+ 
+ 
+ 基于 图像 自 匹配 性 的 景象 匹配 区 的 选定 准则 
+ 马龙 　   缪栋 　   沈绪 榜 　   
+ 摘 　 要 ： 定义 了 图像 的 自 匹配 性 ， 并用 自 匹配 系数 作为 光学 景象 匹配 区 的 选定 准则 ， 和 以前 提出 的 相关 长度 、 独立 像元数 准则 进行 了 分析 对比 ， 说明 了 这 两个 准则 的 实质 。 通过 分析 和 实验 得出 了 相对 于 相关 匹配 算法 而言 ， 自 匹配 系数 准则 效果 更佳 的 结论 ， 对于 光学 景象 匹配 区 的 选择 具有 一定 的 实用价值 。 
+ 关键词 ： 光学 景象 匹配 ； 相关 算法 ； 选定 准则 
+ 分类号 ： TJ765.3 　 文献 标识码 ： A 
+ 文章 编号 ： 1006 － 1630 （ 2001 ） 01 － 0050 － 05 
+ A   Selection   Criterion   of   Scene   Matching   Field   Based   on   Image   Self - Matching 
+ MA   Long （ Xi ' an   Second   Artillery   Engineering   College ， Xi ' an   Shaanxi   710025 , China ） 　 
+ MIAO   Dong （ Xi ' an   Second   Artillery   Engineering   College ， Xi ' an   Shaanxi   710025 , China ） 　 
+ SHEN   Xu - bang （ Lishan   Microelectronic   Crop .   Xi ' an   Shaanxi   710054 ， China ） 　 
+ 
+ Abstract ： The   Image   self - matching   is   defined ,   the   self - matching   coefficient   has   been   used   as   a   selection   criterion   of   scene   matching   field .   This   selection   criterion   has   been   analyzed   and   contrasted   with   the   previous   criterion   named   correlation   length   and   the   number   of   independent   image   element .   The   essentials   of   the   two   criterions   have   been   showed .   Through   analysis   and   experiment ,   a   conclusion   has   been   obtained   that   the   selection   criterion   of   self - matching   is   more   effective   to   correlation - matching   algorithm .   It   is   valuable   for   the   selection   of   scene   matching   field . 
+ Keywords ： Scene   matching ；   Correlation   algorithm ；   Selection   criterion 
+ 
+ 作者简介 ： 马龙 （ 1976 － ） ， 男 ， 硕士生 ， 研究 领域 ： 航天器 测试 与 控制技术 ； 缪栋 （ 1940 － ） ， 男 ， 教授 ， 博士生 导师 ， 研究 领域 ： 控制 理论 与 应用 、 人工神经网络 、 数字 处理 技术 ； 沈绪 榜 （ 1933 － ） ， 男 ， 院士 ， 研究员 ， 博士生 导师 ， 研究 领域 ： 32 位 嵌入式 RISC 微 计算机 设计 与 智能 计算机 等 。   
+ 作者 单位 ： 马龙 （ 西安 第二炮兵 工程学院 , 陕西 西安   710025 ） 　 
+ 　 　 　 　 　 缪栋 （ 西安 第二炮兵 工程学院 , 陕西 西安   710025 ） 　 
+ 　 　 　 　 　 沈绪 榜 （ 骊山 微电子 公司 , 陕西 西安   710054 ） 　 
+ 
+ 参考文献 ： 
+ ［ 1 ］ TANG   Min - shen . The   application   of   correlation   matching   technique   in   image   Guidance   [ C ] . Proceeding   of   CSAA   1st   Electronic   Conference   of   the   Youth . Los   Angeles.1994 . CSAA.1994 
+ ［ 2 ］ 孙仲康 , 沈振康 . 数字图像处理 及其 应用 [ M ] . 北京 ： 国防工业 出版社 , 1985 . 
+ ［ 3 ］ 荆仁杰 , 叶秀清 , 徐胜荣 等 . 计算机 图像处理 [ M ] . 杭州 ： 浙江大学 出版社 , 1990 . 
+ ［ 4 ］ 桑农 , 李捷 , 张天序 . 景 区域 误差 模拟 生成 技术 研究 [ J ] . 华中理工大学 学报 . 1998 , 26 ： 24 － 28 . 
+ ［ 5 ］ 彭嘉雄 . 模板 与 图像 相关 的 定位精度 分析 [ J ] . 宇航学 报 . 1990 , （ 2 ） ： 8 － 15 . 
+ 
+ 收稿 日期 ： 1999 年 12 月 24 日 
+ 出版日期 ： 2001 年 2 月 25 日 

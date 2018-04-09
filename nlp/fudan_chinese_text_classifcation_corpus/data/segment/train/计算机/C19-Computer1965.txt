@@ -1,0 +1,74 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 1999 年   第 18 卷   第 1 期   Vol.18   No.1   1999 
+ 
+ 
+ 
+ VB 和 AUTOCAD   for   Windows   之间 的 DD E通 信 
+ 程远国 　 成军农 　 王俊 
+ 　 　 摘要 ： 在 Visual   Basic 和 AutoCAD 之间 建立 DD E通 信 的 方法 和 步骤 ， 并 结合 实例 进行 了 说明 。 
+ 　 　 关键词 ： Visual   Basic 语言 　 AutoCAD 绘图 软件 　 动态 数据交换 ( DDE ) 
+ 　 　 　 　 AutoCAD   for   Windows   软件 是 国内 比较 流行 的 CAD 软件 ， VB 是 Windows 环境 下 主要 的 应用 开发工具 之一 。 VB 和 AutoCAD 都 支持 强有力 的 DDE 功能 ， 用 VB 编写 具有 DDE 功能 的 程序 来 控制 AutoCAD ， 既能 与 AutoCAD 交换 各种 复杂 的 数据结构 ， 又 能 向 AutoCAD 发送 命令 ， 有利于 提高 开发 效率 ， 缩短 开发周期 。 本文 结合 实例 介绍 了 用 VB 开发 AutoCAD 的 途径 和 方法 。 
+ 1 　 VB 和 AutoCAD 之间 的 DD E通 信 
+ 1.1 　 DDE 简介 
+ 　 　 DDE 即 动态 数据交换 ( dynamic   data   exchange ) ， 是 指 Windows 环境 下 应用程序 间 进行 实时 数据交换 和 通信 。 其中 提出 交换 请求 的 1 方 称为 客户程序 ( Client   Application ) ， 对 交换 请求 作出反应 或 提供 服务 的 1 方 称为 服务程序 ( Server   Application ) 。 2 个 应用程序 之间 进行 动态 数据交换 ， 实际上 是 在 它们 之间 建立 了 1 条 数据通道 。 服务程序 和 客户程序 之间 的 数据 传递 有 “ 热 链接 ” 和 “ 冷 链接 ” 2 种 方式 。 所谓 “ 热 链接 ” 是 指源 数据 改变 后 ， 自动 对 客户程序 使用 的 相关 数据 进行 修改 ， 而 无需 客户程序 提出 更新 数据 的 要求 。 “ 冷 链接 ” 是 指源 数据 改变 后 ， 只有 在 客户程序 提出 更新 数据 的 要求 后 才 更改 客户程序 所 使用 的 数据 。 
+ 　 　 笔者 将 VB 作为 服务程序 ， 把 AutoCAD 作为 客户程序 ， 由 VB 发出 AutoCAD 能够 使用 的 命令 ， 然后 ， 通过 冷 链接 的 方式 将 绘图 命令 作为 1 批 数据 发送到 AutoCAD 中去 。 AutoCAD 接受 数据 后 ， 就 正常 地 执行 数据 中 包含 的 命令 ， 从而 达到 控制 AutoCAD 的 目的 。 
+ 1.2 　 VB 中 使用 DDE 的 方法 和 步骤 
+ 　 　 ( 1 ) 通过 链接 控件 建立 VB 和 AutoCAD 之间 的 链接 关系 。 
+ 　 　 VB 中能 和 其他 Windows 应用程序 建立 DD E通 道 的 控件 有 文本框 、 标签 和 图片 框 。 通过 设置 这些 控件 的 如下 属性 值来 建立 和 AutoCAD 的 链接 关系 。 
+ 　 　 LinkMode 属性 用来 建立 DDE 的 链接 方式 ， 其值 可 设置 为 ： 
+ 　 　 “ 0 - None ” ( 缺省 ) ： 没有 DDE 交互 ； 
+ 　 　 “ 1 - Hot ” ： 热 链接 ； 
+ 　 　 “ 2 - Cold ” ： 冷 链接 。 
+ 　 　 LinkTopic 属性 值 确定 客户程序 名 和 通信 主题 ， 格式 为 ： 
+ 　 　 服务器应用程序 名 ｜ 标题 
+ 　 　 对于 AutoCAD   r14 ， 即 为 ： autocad . r14 . ddc ｜ system 。 
+ 　 　 ( 2 ) 执行 上述 控件 的 LinkExecute 方法 进行 DD E通 信 。 
+ 　 　 ( 3 ) 设置 控件 的 LinkMode 属性 为 0 来 关闭 DDE 链接 。 
+ 2 　 实例 
+ 　 　 1 . 在 VB 环境 下 启动 1 个 新 工程 ， 建立 1 个 新 窗体 ， 其 控件 属性 如表 1 所示 。 其中 文本框 txtLinkCAD 用于 向 AutoCAD 发送 命令 。 
+ 表 1 　 窗 体内 的 控件 属性 描述 
+ 
+ 控件 类型 属性 属性 值 控件 类型 属性 属性 值 
+ 文本框 NametxtLinkCAD 命令 按钮 NameCmdDelete 
+ 　 TextTextl 　 Caption 删除 
+ 命令 按钮 NamecmdLinkCAD 命令 按钮 NameCmdEmd 
+ 　 Caption 建立 链接 　 Caption 结束 
+ 命令 按钮 NamecmdLine 　 　 　 
+ 　 Caption 直线 　 　 　 
+ 
+ 
+ 　 　 2 . 编写 如下 代码 ： 
+ 　 　 Private   Sub   cmdDeleteClick ( ) 
+ 　 　 ` 向 AutoCAD 发送 “ 删除 ” 命令 
+ 　 　 txtLinkCAD . LinkExecute “ erase " + Chr ( 13 ) 
+ 　 　 End   Sub 
+ 　 　 
+ 　 　 Private   Sub   cmdEndClick ( ) 
+ 　 　 ` 关闭 已经 建立 的 DDE 链接 ， 结束 程序运行 
+ 　 　 txtLinkCAD . LinkMode = 0 ‘ 置 LinkMode 的 属性 值为 0 ， 以清 
+ ‘ 除 DDE 链接 
+ 　 　 End   Sub 
+ 　 　 
+ 　 　 Private   Sub   cmdLineClick ( ) 
+ 　 　 ` 向 AutoCAD 发出 “ 直线 ” 命令 ， chr ( 13 ) 代表 回车键 
+ 　 　 txtLinkExecute “ line " + Chr ( 13 ) 
+ 　 　 End   Sub 
+ 　 　 Private   Sub   cmdLinkCADClick ( Index   As   Integer ) 
+ 　 　 ` 设定 用于 DD E通 信 的 主题 ， 用于 通知 AutoCAD 由谁来 提 ‘ 供 数据 ， “ AutoCAD . r14 . dde " 为 应用程序 名 ， “ system " 为通 
+ ‘ 信 的 主题 
+ 　 　 txtLinkCAD . LinkTopic = “ autocad . r14 . dde ｜ systcm " 
+ 　 　 ‘ LinkMode 属性 用于 建立 链接 ， LinkMode = 2 表示 以冷 链接 
+ ‘ 模式 激活 DD E通 道 
+ txtLinkCAD . LineMode = 2 
+ 　 　 End   Sub 
+ 　 　 3 . 程序运行 
+ 　 　 程序 在 中文 Windows95 、 VB5.0 中文 企业 版 、 AutoCAD   R14 环境 下 通过 。 注意 在 运行 前 ， 一定 要 先 加载 AutoCAD 。 单击 “ 建立 链接 ” 按钮 ， 完成 VB 应用程序 和 AutoCAD 间 DD E通 道 的 建立 。 单击 “ 直线 ” 和 “ 删除 ” 按钮 ， VB 应用程序 向 AutoCAD 发送 “ 直线 ” 和 “ 删除 ” 命令 ， 单击 “ 结束 ” 按钮 ， 关闭 已 建立 的 DD E通 道 ， 结束 程序运行 。   
+ 3 　 结论 
+ 　 　 1997 年 5 月 ， AutoDesk 公司 推出 了 AutoCAD   R14 版本 ， 它 提供 的 ActiveX   Automation 编程技术 ， 标志 着 AutoCAD   2 次 开发技术 取得 了 历史性 的 转折 。 ActiveX   Automation 是 面向对象 的 编程 接口 ， 它 使用 了 OLE 的 Automation 技术 ， AutoCAD 被 登录 为 1 个 其他 Windows 应用程序 可以 操作 的 对象 ， 用户 可以 访问 AutoCAD 所有 的 图形 对象 和 非 图形 对象 ， 可以 使用 多种 Windows95 编程语言 如 VB ， VC ＋ ＋ ， Delphi 等 来 进行 2 次 开发 。 
+ 　 　 笔者 用 VB5.0 通过 AutoCAD   R14 的 ActiveX   Automation 技术开发 了 1 个 完整 的 矿井 通风 图形处理 系统 ， 体会 是 ： 在 传送 标准 AutoCAD 命令 ( 例如 “ Modify ” ) 菜单 下 的 图形 编辑 命令 、 “ Drawing ” 菜单 下 实体 绘制 命令 ( 如 直线 、 弧线 等 ) 时 ， 使用 DDE 反而 更 方便 ( 尽管 它 是 一种 较为 原始 的 技术 ) ， 但 在 操纵 图形 实体 如 获取 实体 数据 ( 控制点 坐标 、 颜色 、 图层 、 线型 等 ) 等 方面 则 不如 使用 ActiveX   Automation 技术 ， 将 它们 结合 使用 会 大大提高 开发 效率 。 
+ 作者 单位 ： 徐州 中国矿业大学 通风 与 安全 实验室 ( 221008 ) 
+ 参考文献 
+ 　 1 　 林启隆 . Visual   Basic   for   Windows 程序设计 ， 北京 ： 清华大学出版社 ， 1997 
+ 　 2 　 Craing   J   C . Microsoft   Visual   Basic   4.0 开发人员 指南 ， 北京 ： 电子 工业 出版社 ， 1997 
+ ( 收稿 日期 ： 1998 - 08 - 10 ) 

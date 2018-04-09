@@ -1,0 +1,43 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000 　 Vol.19 　 No.4 　 P.10 - 11 
+ 
+ 
+ 
+ Matlab 和 Visual   C++ 接口 中 编译 环境 的 配置 
+ 李江红 　 田涛 
+ 摘   要 ：   Ｍ ａ ｔ ｌ ａ ｂ 语言 以及 Ｍ ａ ｔ ｌ ａ ｂ 和 Ｃ 接口 的 ３ 种 方式 ， 分析 了 采用 接口方式  ｃ  时 ， Ｍ ａ ｔ ｌ ａ ｂ 和 Ｖ ｉ ｓ ｕ ａ ｌ   Ｃ ＋ ＋ 接口 在 各种 编译 方式 下 编译 环境 的 设置 方法 ， 为 用户 扩展 Ｍ ａ ｔ ｌ ａ ｂ 的 应用 范围 、 提高 程序 的 执行 效率 提供 了 有益 的 帮助 。 
+ 关键词 ：   Ｍ ａ ｔ ｌ ａ ｂ 语言   Ｖ ｉ ｓ ｕ ａ ｌ   Ｃ ＋ ＋ 接口 
+ 　 　 Matlab 是 美国 MathWorks 公司 推出 的 一种 以 矩阵 为 基本 编程 单位 的 高效 数值 计算 语言 ， 是 一个集 科学计算 、 图像处理 、 声音 处理 于 一体 的 高度 集成系统 。 Matlab 为 用户 提供 了 丰富 的 Windows 图形界面 设计 方法 ， 使 用户 能够 在 利用 其 强大 数值 计算 功能 的 同时 设计 出 友好 的 图形界面 。 在 编程 效率 、 可读性 、 可移植性 和 可扩充性 上 ， Matlab 远远 优于 其它 高级 编程语言 。 由于 利用 Matlab 能够 设计 出 功能强大 、 界面 优美 、 性能 稳定 的 高质量 程序 ， 它 受到 了 越来越 多用户 的 欢迎 ， 成为 了 当今 国际 上 最 流行 的 控制系统 计算机辅助 设计 的 软件 。 
+ 　 　 然而 作为 一种 以 解释 方式 运行 的 高级 计算机 语言 ， Matlab 程序 的 执行 效率 较 低 。 为了 解决 这一 问题 ， MathWorks 公司 提供 了 Matlab 和 C 的 接口 ， 通过 接口 ， 用户 就 能 在 C 程序 中 调用 Matlab 中 的 函数 ， 从而 实现 既 能 拥有 Matlab 强大 的 数值 计算 功能 又 能 享受 高度 执行 效率 的 愿望 [ 2 ] 。 MathWorks 公司 提供 的 Matlab 和 C 的 接口方式 共有 3 种 ： ( 1 ) 将 Matlab 程序 编译成 MEX 文件 、 C 或 C ＋ ＋ 文件 ； ( 2 ) 在 C 、 C ＋ ＋ 程序 中 利用 Matlab   Engine 调用 Matlab 函数 ； ( 3 ) 在 C 、 C ＋ ＋ 程序 中 利用 Matlab   C   Math   Library 或 Matlab   C ＋ ＋   Math   Library 调用 Matlab 函数 。 其中 通过 方式 ( 1 ) 、 ( 2 ) 生成 的 程序 只有 在 安装 了 Matlab 系统 上 才能 正常 运行 ， 而 由 方式 ( 3 ) 生成 的 程序 则 没有 这样 的 要求 ， 它 能够 以 独立 执行程序 的 形式 运行 ， 即使 在 客户 没有 安装 Matlab 系统 下 。 方式 ( 3 ) 唯一 的 缺点 就是 不能 利用 Matlab 中 丰富 的 图形 句柄 处理函数 ， 但是 对于 Visual   C ＋ ＋ 等 开发工具 而言 ， 这 不是 一个 很 严重 的 问题 。 因此 方式 ( 3 ) 是 实现 功能 和 效率 兼顾 的 最好 接口 方法 。 
+ 　 　 因此 通过 Matlab 和 C ＋ ＋ 的 接口 ， 用户 就 可以 编写 C ＋ ＋ 源程序 ， 在 程序 中 调用 Matlab 中 的 函数 。 但是 要 想 顺利 地 将 C ＋ ＋ 源程序 编译成 可执行程序 ， 只有 在 正确 地 设置 C ＋ ＋ 的 编译 环境 后 才能 完成 。 笔者 在 基于 Visual   C ＋ ＋ 开发 一个 计算机 监控 系统 的 过程 中 ， 为了 利用 Matlab 提供 的 强大 数值 计算 和 处理 功能 ， 通过 接口方式 ( 3 ) 调用 了 Matlab   C ＋ ＋   Math   Library 中 的 函数 。 下面 就 以 Visual   C ＋ ＋   6 ． 0 为例 对 编译 环境 的 设置 方法 进行 详细 介绍 。 
+ 1 　 Matlab 和 Visual   C ＋ ＋ 接口 中 编译 环境 的 配置 
+ 　 　 对于 通过 接口方式 （ 3 ） 调用 Matlab   C ＋ ＋   Math   Library 中 函数 的 Visual   C ＋ ＋ 源程序 ， 将 它 编译成 可执行程序 共有 2 种 方法 。 一种 是 命令行 形式 ， 另 一种 是 通过 Visual   C ＋ ＋ 集成 开发 环境 ， 下面 针对 这 2 种 方式 分别 介绍 它们 的 编译 环境 配置 。 为 方便 起 见 ， 设待 编译 的 C ＋ ＋ 源程序 文件 为 FileName ． cpp ； MATLAB 是 系统 安装 Matlab 的 目录 ， 该 目录 的 特征 是 它 的 子目录 bin 中 至少 含有 matlab ． exe 、 medit ． exe 、 mbuild ． exe 等 文件 。 
+ 　 　 1 ． 命令行 方式 
+ 　 　 在 DOS 环境 下 ， 命令 mbuild   FileName ． cpp 将 把 FileName ． cpp 编译成 可执行文件 FileName ． exe 。 但是 在 编译 之前 必须 通过 命令 mbuild   － setup 正确 地 配置 编译 环境参数 。 系统 在 执行 mbuild   － setup 的 过程中将 向 用户 提出 一些 问题 ， 用户 必须 根据 自己 具体 的 情况 作出 相应 的 答复 。 但是 目前 Matlab 只 支持 对 Visual   C ＋ ＋   4 ． 2 ， Visual   C ＋ ＋   5 ． 0 通过 mbuild   － setup 配置 编译 环境参数 ， 而且 一些 用户 在 配置 过程 中 可能 因为 不 理解 系统 的 提示 而 作出 错误 的 选择 ， 从而 为 正确 配置 编译 环境参数 带来 一些 困难 。 
+ 　 　 实际上 通过 命令 mbuild   － setup 配置 的 编译 环境参数 保留 在 目录 MATLAB 中 的 compopts ． bat 文件 中 。 只要 用户 能够 正确 地 理解 和 设置 该 文件 General   parameters 中 的 环境变量 MSVC ＿ ROOT ， MSVCDir 和 MSDevDir ， 就 能 不 依赖 mbuild   － setup 也 能 正确 地 配置 编译 环境 。 
+ 　 　 MSVC ＿ ROOT 是 系统 安装 Visual   C ＋ ＋ 目录 的 路径 ， 该 目录 的 特征 是 VC （ 对于 Visual   C ＋ ＋ 4 ． 2 、 5 ． 0 ） 或 VC98 （ 对于 Visual   C ＋ ＋   6 ． 0 ） 是 它 的 子目录 ； MSVCDir 是 Visual   C ＋ ＋ 应用程序 所在 目录 的 路径 ， 该 目录 的 特征 是 其 上级 目录 的 路径 就是 MSVC ＿ ROOT ， 并且 至少 包含 bin 、 include 、 lib 、 mfc 等 子目录 。 对于 Visual   C ＋ ＋   4 ． 2 、 5 ． 0 它 是 VC ； 对于 Visual   C ＋ ＋   6 ． 0 它 是 VC98 ； MSDevDir 是 Visual   C ＋ ＋ 开发 环境 所在 目录 的 路径 ， 该 目录 的 特征 为 gallary 、 template 等 是 它 的 子目录 。 对于 Visual   C ＋ ＋   4 ． 2 、 5 ． 0 它 是 SharedIDE ； 对于 Visual   C ＋ ＋   6 ． 0 它 是 Common ＼ MSDev98 。 实际上 只要 根据 各个 目录 的 特征 就 能 正确 配置 这 3 个 环境变量 。 例如 对于 Visual   C ＋ ＋   6 ． 0 ， 笔者 用 notepad ． exe 打开 compopts ． bat 后 将 上述 3 个 环境变量 设置 为 ： 
+ 　 　 set   MSVC ＿ ROOT ＝ E ： ＼ Program   Files ＼ Microsoft   Visual   Studio 
+ 　 　 set   MSVCDir ＝ ％ MSVC ＿ ROOT ％ ＼ VC98 
+ 　 　 set   MSDevDir ＝ ％ MSVC ＿ ROOT ％ ＼ Common ＼ MSDev98 
+ 　 　 其中 的 E ： ＼ Program   Files ＼ Microsoft   Visual   Studio 是 安装 Visual   C ＋ ＋ 目录 的 路径 。 
+ 　 　 2 ． Visual   C ＋ ＋ 集成 开发 环境 
+ 　 　 用 命令行 mbuild   FileName ． cpp 编译 执行程序 具有 速度 快 的 优点 ， 但是 调试程序 却 极 不 方便 。 用 Visual   C ＋ ＋ 集成 开发 环境 编译 、 调试程序 则 没有 这样 的 不便 。 因此 集成 开发 环境 常是 首选 的 编译 和 调试 应用程序 的 工具 ， 而 由 mbuild   － setup 配置 的 编译 环境 在 集成 开发 环境 中 没有 任何 作用 ， 编译 环境 的 配置 只能 在 集成 开发 环境 中 完成 。 
+ 　 　 在 集成 开发 环境 中 正式 配置 编译 环境 之前 ， 首先 必须 完成 Matlab 中 动态链接库 的 导入 工作 。 在 MATLAB ＼ extern ＼ include 中 存在 libmx ． def 、 libmatlb ． def 、 libmmfile ． def 等 定义 文件 ， 若 在 DOS 环境 中 对 它们 执行命令 ： 
+ 　 　 lib ／ def ： 文件名 ． def ／ out ： 文件名 ． lib   ／ machine ： ix86 将 获得 libmx ． lib 、 libmatlb ． lib 、 libmmfile ． lib 等 新 文件 。 再 将 这 3 个 新 文件 拷贝到 目录 MATLAB ＼ extern ＼ lib 中 即可 。 
+ 　 　 下面 以 安装 在 E ： ＼ Matlab ＼ 的 Matlab 为例 ， 介绍 集成 开发 环境 中 编译 环境 配置 的 几个 步骤 。 读者 在 配置 时应 根据 自己 的 情况 作 相应 的 处理 。 
+ 　 　 （ 1 ） 设置 Matlab 中 头文件 （ ． h ） 及 动态链接库 文件 （ ． dll ） 的 路径 ， 由 集成 开发 环境 中 菜单 Tools → Options → Directories 。 在 Directories 的 Show   directories   for 栏中 首先 选择 Include   files ， 再 在 Directories 栏中 分别 加入 ： E ： ＼ Matlab ＼ extern ＼ include 和 E ： ＼ Matlab ＼ extern ＼ include ＼ cpp ； 然后 在 Show   directories   for 栏中 选择 Library   files ， 再 在 Directories 栏中 分别 加入 E ： ＼ Matlab ＼ bin 、 E ： ＼ Matlab ＼ extern ＼ lib 。 
+ 　 　 （ 2 ） 定义 预处理 宏 MSVC 、 MSWIND 。 由 集成 开发 环境 中 菜单 Project → Settings … → C ／ C ＋ ＋ 。 在 C ／ C ＋ ＋ 的 Category 栏中 选择 Preprocessor ， 然后 在 出现 的 Preprocessor   definition 栏中 加入 MSVC 、 MSWIND 。 
+ 　 　 （ 3 ） 设置 运行 时 动态链接库 。 由 集成 开发 环境 中 菜单 Project → Settings … → C ／ C ＋ ＋ 。 在 C ／ C ＋ ＋ 的 Category 栏中 选择 Code   Generation ， 然后 在 出现 的 Use   run － time   library 栏中 选择 Multithreaded   DLL 。 
+ 　 　 （ 4 ） 在 完成 （ 1 ） 、 （ 2 ） 、 （ 3 ） 之后 ， 就 可以 建立 WorkSpace 了 。 不过 在 源程序 中 必须 加上 ＃ include “ matlab ． hpp ” ， 并且 在 编译程序 之前 把 libmx ． lib 、 libmatlb ． lib 、 libmatpm ． lib 和 libmmfile ． lib 等 文件 添加 到 WorkSpace 。 方法 是 由 集成 开发 环境 中 菜单 Project → Add   to   Project → Files … 。 再 在 出现 的 Insert   Files   to   Project 对话框 中 从 目录 E ： ＼ Matlab ＼ extern ＼ lib 中 选择 上述 文件 后 按 OK 键 。 
+ 2 　 总结 
+ 　 　 在 完成 编译 环境 的 配置 后 ， 就 能 将 C ＋ ＋ 源程序 成功 地 编译成 可执行程序 了 。 为了 使 读者 能够 自己 发现 并 解决 编译 过程 中 出现 的 问题 ， 下面 介绍 几条 经验 。 （ 1 ） 如果 系统 报告 找 不到 文件 ， 一般 是 path 设置 的 问题 。 解决 的 方法 是 首先 利用 Windows 的 查找 功能 找到 相应 文件 ， 再 把 该 文件 所在 的 目录 加入 到 path 。 （ 2 ） 编译 过程 中 出现 Link   2001 号 错误 。 产生 该类 错误 的 一般 原因 是 没有 把 所 需 的 形如 * ． lib 的 链接库 文件 加入 到 WorkSpace 中 。 由于 报告 错误 的 同时 给出 了 不能 解析 的 函数 名 ， 因此 应该 根据 函数 名 确定 相应 的 lib 文件 。 方法 是 利用 Visual   C ＋ ＋ 所带 的 DumpBin ． exe 函数 [ 3 ] ， 在 DOS 下 执行命令 ： 
+ 　 　 dumpbin ／ exports   文件名 ． dll   ／ out    用户 文件 ． txt 
+ 其中 的 dll 文件 可以 根据 自己 的 经验 选取 。 执行 该 命令 后 ， 用 notepad ． exe 打开 用户 文件 查看 里面 是否 含有 不能 解析 函数 的 名称 。 如果 有 ， 则 在 系统 中 查找 和 dll 文件名称 相同 但 文件类型 为 lib 的 文件 ， 找到 后 将 其 加入 WorkSpace 即可 。 如果 用户 文件 不 含 不能 解析 函数 的 名称 ， 则 再 尝试 其它 dll 文件 。 
+ 李江红 ( 上海交通大学 自动化系 Ａ ９ ７ ０ ３ ２  ２ ０ ０ ０ ３ ０ ) 
+ 田涛 ( 上海交通大学 自动化系 Ａ ９ ７ ０ ３ ２  ２ ０ ０ ０ ３ ０ ) 
+ 参考文献 
+ １ ， 薛定宇 ． 控制系统 计算机辅助 设计 — Ｍ Ａ Ｔ Ｌ Ａ Ｂ 语言 及 应用 ． 北京 ： 清华大学出版社 ， １ ９ ９ ６ 
+ ２ ， Ｍ Ａ Ｔ Ｌ Ａ Ｂ   Ｃ ＋ ＋   Ｍ ａ ｔ ｈ   Ｌ ｉ ｂ ｒ ａ ｒ ｙ   Ｕ ｓ ｅ ｒ ＇ ｓ   Ｇ ｕ ｉ ｄ ｅ ． Ｔ ｈ ｅ   Ｍ ａ ｔ ｈ － Ｗ ｏ ｒ ｋ ｓ   Ｉ ｎ ｃ ， １ ９ ９ ８ 
+ ３ ， Ｒ ｉ ｃ ｈ ｔ ｅ ｒ   Ｊ ． Ａ ｄ ｖ ａ ｎ ｃ ｅ ｄ   Ｗ ｉ ｎ ｄ ｏ ｗ ｓ   ３ ｒ ｄ   Ｅ ｄ ｉ ｔ ｉ ｏ ｎ ． Ｍ ｉ ｃ ｒ ｏ ｓ ｏ ｆ ｔ   Ｐ ｒ ｅ ｓ ｓ ， １ ９ ９ ９ 
+  收稿 日期 ： １ ９ ９ ９ － １ ０ － １ ２ 

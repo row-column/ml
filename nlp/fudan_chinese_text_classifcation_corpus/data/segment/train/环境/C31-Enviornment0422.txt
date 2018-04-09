@@ -1,0 +1,69 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1999 年 　 第 19 卷 　 第 3 期 　 Vol.19   No.3   1999 
+ 
+ 
+ 
+ 水 环境 两相分 层流 数值 模拟 
+ 沈 永明 　 王亚玲 　 郑永红 
+ 摘要 ： 以 研究 水 环境 两相分 层流 精细 预报 模型 为 目标 , 广泛 地 涉及 了 两相 湍流 精细 模拟 的 理论 和 方法 . 用 Eulerian   坐标系 中多 流体 模型 统一 描述 两相 各自 的 运动 , 并 分别 对 两相 本身 的 湍流 输运 规律 以及 相间 相互作用 规律 进行 模拟 , 建立 了 水 环境 两相分 层流 的 双 流体 模型 . 对 包含 有 浮力 和 密度 分层 的 两相 湍流 进行 了 数值 模拟 , 计算结果 正确 地 反映 了 分层 及 紊动 特征 , 与 实测 结果 吻合 较 好 . 
+ 关键词 ： 分 层流 ； 两相 湍流 ； 双 流体 模型 ； 水 环境 
+ 中 图 分类号 ： X143   文献 标识码 ： A   文章 编号 ： 1000 -   6923 ( 1999 ) 03 -   0215 -   04 
+ Numerical   simulation   of   stratified   turbulent   two - phase   flow   in   aquatic   environment .   
+ SHEN   Yong - ming , WANG   Ya - ling , ZHENG   Yong - hong 
+ ( State   Key   Laboratory   of   Coastal   and   Offshore   Engineering ,   Dalian   University   of   Technology ,   Dalian   116023 , China ) .   China   Environmental   Science .   1999 , 19 ( 3 ) ： 215 ～ 218 
+ Abstract ： The   two - fluid   model   of   stratified   turbulent   two - phase   flow   in   aquatic   environment   is   developed   in   this   paper . The   motion   of   each   phase   is   described   by   a   unified   multi - fluid   model   in   an   Eulerian   coordinate   system . The   laws   of   turbulent   transportation   for   each   phase   and   the   restriction   of   each   other   between   the   two   phases   are   completely   simulated . The   complex   two - phase   turbulence   with   strong   buoyancy   effects   is   selected   to   examine   numerically . The   extensive   experimental   data   obtained   in   stratified   flow   are   used   here . Comparison   of   the   results   of   numerical   simulation   with   the   experimental   data   is   conducted . It   has   shown   that   the   results   of   numerical   simulation   are   satisfactory . 
+ Key   words ： stratified   flow ； two - phase   turbulence ； two - fluid   model ； aquatic   environment 
+ 　 　 在 河口 由于 海水 和 淡水 的 密度 不同 , 一般 情况 下 海水 和 淡水 混合 后 将 产生 密度梯度 而 形成 密度 分 层流 , 其 特点 是 流场 中 包含 有 紊动 和 因 两 相间 的 密度 差而 产生 的 浮力 . 这类 分层 流动 的 紊动 掺混 比较复杂 , 势流 理论 、 粘性 层流 理论 以及 单相 流 湍流 理论 等 都 存在 着 一定 的 局限性 . 本文 基于 多 流体 模型 概念 , 建立 了 水 环境 两相分 层流 的 双 流体 模型 , 它 区别 于 单相 流 湍流 模型 的 最 重要 的 特点 之一 就是 相间 耦合 观点 . 模型 的 基本 思想 [ 1 ] 是 把 两相 都 看成 是 连续介质 , 即 看成 是 双 流体 系统 , 认为 两相 湍流 流动 是 两种 流体 各自 的 运动 及其 相互作用 的 综合 ; 两种 流体 在 时空 上 共存 , 这 既 可 理解 为 在 一个 有限 空间 单元 中 , 两种 流体 各 占据 一部分 体积 , 具有 各自 的 容积 分数 , 
+ 　 　 也 可 理解 为 在 一个 空间 位置 上 两种 流体 各以 一定 的 概率 出现 ; 两种 流体 当作 可以 互相 渗透 的 连续介质 , 它们 的 运动 规律 遵守 各自 的 控制 微分方程 组 ; 两种 流体 之间 又 存在 着 质量 、 动量 和 能量 方面 的 相互作用 . 对于 构成 分 层流 的 两相 , 无论 它们 怎样 运动 , 它们 的 相 标记 不变 , 令 k   = 1 和 k   = 2 分别 表示 第一 相 和 第二 相 两种 流体 . 
+ 1   数学模型 
+ 　 　 由 描述 湍流 瞬时 量 变化规律 的 微分方程 , 通过 Reynolds 分解 和 平均 , 并 对 关联 项 引入 梯度 模拟 进行 封闭 处理 , 可得 两相 湍流 体系 的 状态参数 平均值 变化规律 的 控制 方程 . 
+ 第 k 相 流体 的 时 均 连续 方程 ( 容积 分数 方程 ) : 
+ 　 ( 1 ) 
+ 第 k 相 流体 的 时 均 动量 方程 : 
+ 　 ( 2 )   
+ 第 k 相 流体 湍流 动能 Kk 方程 : 
+ 　 ( 3 ) 
+ 第 k 相 流体 湍流 动能 耗散 率 ε k 方程 : 
+ 　   ( 4 ) 
+ 其中 : 
+ 　 ( 5 ) 
+ 　 ( 6 ) 
+ 　 ( 7 ) 
+ 　 ( 8 ) 
+ 　 ( 9 ) 
+ 　 ( 10 ) 
+ 　 ( 11 ) 
+ 　 ( 12 ) 
+ 式 中 : t 为 时间 ( s ) ; 下标 k 和 l 表示 流体 种类 , 可取 1 或 2   (   k   1   l   ) ; ρ k 为 第 k 相 流体 的 物质 密度 ( kg / m3 ) ; Fk   和 F   l   分别 为 第 k 相 和 第 l 相 流体 的 时 均 容积 分数 ; Uki 和 Uli 分别 为 第 k 相 和 第 l 相 流体 的 时 均 速度 的 i 分量 ( m / s ) ; μ ek 和 μ el 分别 为 第 k 相 和 第 l 相 流体 的 有效 动力 粘性 系数 ( Pa · s ) ; σ Φ k 为 第 k 相 流体 的 湍流 Schmidt 数 , 一般 取作 常数 , 但 浮力 作用 对 σ Φ k 的 数值 有 明显 的 影响 , 稳定 分层 和 不 稳定 分层 分别 增加 和 减小 σ Φ k , 可用 Munk - Anderson 公式 计算 这一 影响 [ 2 ] ; P 为 混合物 的 时 均 压强 ( Pa ) ; ρ r 为 环境 流体 的 物质 密度 ( kg / m3 ) ; gi 为 重力 加速度 的 i 分量 ( m / s2 ) ; Fki 为 第 l 相对 第 k 相 流体 时均 摩擦阻力 的 i 分量 ( N / m3 ) ; ε 为 混合物 的 密度 ( kg / m3 ) ; K   为 混合物 的 湍流 动能 ( m2 / s2 ) ; e   为 混合物 的 湍流 动能 耗散 率 ( m2 / s3 ) ; μ k 为 第 k 相 流体 的 动力 粘性 系数 ( Pa · s ) ; μ tk   为 第 k 相 流体 的 动力 涡 粘性 系数 ( Pa · s ) ; Kf 、 Km 、 σ kk 、 σ ε k 、 σ Φ 0 、 C1 、 C2 和 C μ 为 经验 常数 , 它们 的 取值 分别 为 Kf = 0.05 、 Km = 0.1 、 σ kk = 1.0 、 σ ε k = 1.3 、 σ Φ 0 = 1.0 、 C1 = 1.44 、 C2 = 1.92 和 C μ   =   0.09 . 方程 ( 1 ) ～ ( 12 ) 构成 了 水 环境 两相分 层流 双 流体 模型 . 
+ 2 　 数值 计算 
+ 　 　 双 流体 模型 微分方程 组是 多元 非线性 椭圆型 偏微分 方程组 . 除 具有 非线性 、 耦合 性 和 统一性 的 特点 之外 , 其 区别 于单 流体 模型 微分方程 组 最 重要 的 特点 是 : 控制 微分方程 的 数目 增加 了 一倍 ; 流体 间 的 相互作用 强化 了 方程 的 非线性 和 方程 间 的 耦合 , 这种 耦合 有 两 方面 , 一是 同一 相 的 控制 方程 之间 的 耦合 , 二是 不同 相 的 控制 方程组 间 的 耦合 , 即 相间 耦合 . 控制 微分方程 组 的 数值 解对 初值 、 离散 化 方法 、 迭代 流程 和 迭代 方法 等 的 依赖 更为 强烈 , 这 是 强 耦合 的 直接 后果 . 为了 克服 数值 求解 上 的 困难 , 必须 降低 以至 消除 非线性 和 强 耦合 . 由于 用 统一 的 多 流体 模型 来 描述 两相 流体 的 流动 , 可用 统一 的 Eulerian 场中 的 差分 方法 来 进行 求解 . 因而 , 求解 单相 流 问题 的 SIMPLE 算法 可 推广应用 于 两 相流 问题 的 求解 , 利用 两相 混合物 的 连续性 方程 来 建立 压力 校正 方程 . 用 从 无 滑移 单 流体 模型 过渡 到 双 流体 模型 的 过渡 求解 方法 , 通过 欠 松弛 和 适当 的 迭代 流程 , 完成 两相 耦合 系统 的 数值 求解 . 
+ 3 　 模型 的 数值 验证 及 结果 讨论 
+ 3.1   算例 
+ 　 　 如图 １ 所示 , 两股 既有 速度 差 又 有 密度 差 的 流体 通过 分 隔板 平顺 汇合 [ 3 ] , 上部 水体 与 下部 水体 相遇 , 发生 相互 卷吸 、 掺混 . 流场 中 不仅 有 重力 , 还有 因两相 之间 存在 的 密度 差而 产生 的 浮力 , 形成 了 一个 存在 流速 及 密度 都 有 分层 的 两相 湍流 流动 . 求解 区域 的 边界 由 进口 边界 、 自由面 边界 、 下游 出口 边界 及 壁面 边界 组成 . 双 流体 模型 的 方程组 属于 两相 椭圆型 , 因此 在 求解 区域 的 每 一 边界 上 都 应 给出 边界条件 , 才能 得到 问题 的 解 . 在 进口 边界 , 流速 、 紊动 特征 量 及 密度 作为 本质 边界条件 给出 ; 在 自由面 边界 , 作刚 盖 近似 , 同时 采用 对称 平面 条件 , 考虑 到 自由 表面 对 湍动 的 抑制作用 , 自由 面上 湍流 动能 耗散 率 由 经验 公式 [ 2 ] 来 确定 ; 在 下游 出口 边界 , 湍流 已 达到 自 相平衡 , 可 给出 各 物理量 沿 出口 法向 梯度 为 零 ; 在 壁面 边界 , 采用 粘性 无 滑移 条件 , 并 假定 没有 质量 交换 , 此外 , 对 近壁 网格 结点 采用 壁 函数 方法 [ 2 ] 来 处理 近壁 粘性 次层 . 
+ 
+ 图 1 　 流动 图案 示意 
+ Fig.1   Flow   geometry   and   coordinate   system 
+ 3.2   计算结果 及 讨论 
+ 　 　 图 2 ～ 图 4 中 给出 了 在 5 、 10 、 40m 断面 处 的 流速 、 湍流 动能 、 相对 密度 ( 为 无量 纲数 , 等于 ρ - ρ   1 / ρ 2 - ρ 1 ) 的 计算 及 验证 结果 ( 图中 , — 为 计算 值 ;   ·   为 实测值 ) . 从总体上 看 , 计算结果 与 实验 资料 [ 3 ] 吻合 很 好 . 模型 较 好 地 模拟 了 存在 密度梯度 的 两 相分 层流 中 各种 物理量 的 变化规律 , 它 正确 反映 了 所 期待 和 预料 的 这类 流动 的 分层 及 紊动 特征 , 因为 作为 分层 根源 的 分 界面 处 强烈 的 各向异性 是 两相 相互间 的 物质 、 动量 和 能量 相互作用 引起 的 , 湍流 双 流体 模型 很 好 地 反映 了 这种 相互作用 . 从图 2 , 图 4 中 可 看出 , 由于 浮力 的 作用 , 两 相间 的 耦合 呈 “ 抑制型 ” , 即 两 相间 的 耦合 并 不是 使 参数 分布 趋于 均匀 , 而是 竭力 使 两相 参量 都 维持 它们 各自 的 秩序 . 上层 水体 向前 流动 , 并 有 向 下层 扩展 的 趋势 , 下层 水体 又 向上 顶托 , 阻止 了 上层 水体 的 下潜 , 形成 了 流动 及 密度 分层 现象 . 两相 在 交界面 上 发生 掺混 、 卷吸 , 其 强度 随两相 之间 密度 差 的 增大 而 减小 . 从 双 流体 模型 的 归一化 平均 参数 的 剖面图 中 可以 看出 , 平均 参数 是 复杂 变化 的 内部 过程 的 综合 外观 , 双 流体 模型 从 构成 流体 的 各相 出发 , 着眼于 它们 各自 的 运动 及其 相互作用 . 因此 , 不但 可以 模拟 流体 运动 的 “ 外观 ” , 而且 更 可以 揭示 流体 复杂 的 内部 过程 , 使 人们 能 更 深入 地 认识 两相 掺混 、 卷吸 的 内部结构 和 机理 , 这是 任何 单 流体 模型 所 不及 的 . 
+ 
+ 图 2 　 预报 和 实测 的 两相 混合物 流速 剖面 
+ Fig.2   Predicted   and   measured   profiles   of   velocity   of   mixture 
+ 
+ 图   3 　 预报 和 实测 的 两相 混合物 湍流 动能 剖面 
+ Fig .   3   Predicted   and   measured   profiles   of   turbulent   kinetic   energy   of   mixture 
+ 
+ 图 4 　 预报 和 实测 的 相对 密度 剖面 
+ Fig.4   Predicted   and   measured   profiles   of   relative   density 
+ 4 　 结 　 语 
+ 4.1   建立 了 水 环境 两相分 层流 双 流体 模型 . 选择 了 一个 包含 有 许多 流动 结构 的 两相 流动 体系 为 模拟 对象 , 进行 数值 模拟 , 并 与 实验 资料 进行 对比 , 结果表明 效果 良好 , 双 流体 模型 能 充分反映 两相 流体 的 分层 现象 . 
+ 4.2   两相分 层流 双 流体 模型 的 实质 是 引入 了 反映 两相 流体 共存 事实 的 容积 分数 ; 考虑 了 两相 之间 的 滑移 对 变量 的 输运 ; 明确 了 两相 之间 存在 的 复杂 相互作用 . 因此 , 双 流体 模型 不但 可以 模拟 流体 的 “ 外观 ” , 而且 更 可以 揭示 其 两相 流动 与 混合 的 复杂 内部 过程 . 
+ 基金项目 ： 国家自然科学基金 资助 项目 ( 59779023 ) 
+ 作者简介 ： 沈 永明 ( 1963 - ) , 男 , 云南昆明 人 , 博士 , 大连理工大学 海岸 和 近海 工程 国家 重点 实验室 教授 、 博士生 导师 , 主要 从事 港湾 、 河口 水质 模拟 方面 的 研究 工作 . 参加 完成 了 国家自然科学基金 资助 项目 “ 浮力 回流 和 浮力 环流 的 工程 湍流 流动 研究 ” ( 获 1995 年度 电力工业部 科学技术 进步 一等奖 ) 的 研究 工作 . 发表 论文 30 余篇 . 
+ 作者 单位 ： （ 大连理工大学 海岸 和 近海 工程 国家 重点 实验室 , 辽宁   大连   116023 ） 
+ 致谢 ： 英国 CHAM 公司 M .   R .   Marlin   博士 对本 研究 提出 了 宝贵 建议 并 提供 了 有关 实验 数据 , 使 模型 验证 得以 顺利进行 , 特此 致谢 . 
+ 参考文献 ： 
+ [ 1 ] Markatos   N   C ． Computer   simulation   techniques   for   turbulent   flows   [ J ] . Encyclopedia   of   Fluid   Mechanics , 1985 ,   6   ( 1 ) :   1259 -   1275 . 
+ [ 2 ] Rodi   W . Prediction   methods   for   turbulent   flows   [ M ] .   New   York :   McGraw - Hill   International   Book   Company ,   1980 . 
+ [ 3 ] Uittenbogaard   R   E . Measurement   of   turbulence   fluxes   in   a   steady ,   stratified   mixing   layer   [ A ] . In : 3rd   Inter .   Symp .   on   Refined   Flow   Modelling   and   Turbulence   Measurements   [ C ] . Tokyo , 1988 .   725 -   732 . 
+ 收稿 日期 ： 1998 - 09 - 09 

@@ -1,0 +1,49 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000 　 Vol.19 　 No.6 　 P.15 , 40 
+ 
+ 
+ 
+ 
+ 基于 VB 与 SQL   Server 自动 构成 与 发送 Email 
+ 张 鸿源 　 贾克斌 
+ 摘   要 ： 通过 VB 与 SQL   Server 的 集成 ， 利用 VB 中 的 远程 数据 控制 与 远程 数据 对象 控件 从 数据库 中 读取 有关 的 产品 信息 ， 形成 所需 Email 的 方法 。 
+ 关键词 ： 远程 数据 控制   远程 数据 对象   ODBC 驱动程序   电子邮件 
+ 　 　 随着 数据库 技术 的 不断 发展 完善 以及 数据仓库 的 出现 ， 许多 公司 将 大量 的 数据 存放 在 数据库 中 ， 利用 数据库 管理系统 ( 如 ： SQL   Server ， Oracle ， Sybase 等 ) 对 数据 进行 有效 的 管理 。 但是 由此 也 带来 了 与 数据库 之间 的 通信 问题 。 本文 提出 了 一种 与 数据库 进行 通信 的 简便 方法 。 并 利用 VB 控件 和 SQL   Server 实现 了 自动 发送 电子邮件 的 功能 ， 从而 实现 了 办公室 自动化 。 
+ 1     发送 Email 功能 的 实现 
+ 　 　 本 系统 是 通过 加载 VB 的 MAPI   Session 和 MAPI   Message 控件 并 调用 其 函数 来 发送 Email 的 。 MAPI 全 称为 电子邮件 应用 程序接口 ( Mail   Application   Programmer   Interface ) ， 它 是 Windows 开发 服务 框架 系统 的 一部分 ， MAPI 开放 服务 框架 系统 如图 1 所示 。 MAPI 是 一系列 的 核心 系统 部件 ， 它们 可 将 任何 用于 电子邮件 或 工作组 的 应用程序 与 适应 MAPI 的 消息 服务 天衣无缝 地 连接起来 。 例如 ， 通过 使用 MAPI 驱动程序 ， Microsoft   Exchange 消息 系统 可 被 连接 到 绝大多数 私用 或 公用 电子邮件系统 。 它 采用 统一 的 接口 ， 即 路由器 选择 MAPI   DLL ( 16 位 ) 和 MAPI32 . DLL ( 32 位 ) ， 用户 无须 考虑 各种 服务器之间 的 区别 ， 利用 它 可以 方便 地 开发 邮件系统 。 下面 介绍 编制 一个 完整 的 邮件 开发 系统 需要 用到 的 4 类 MAPI 函数 ， 即 ： 消息 类 函数 、 地址 类 函数 、 附属 类 函数 、 接收 和 接受器 类 函数 。 在 本 程序 的 开发 中 利用 了 下列 函数 ： 
+ 
+ 图 1     MAPI 开放 服务 框架 系统 
+ 　 　 ( 1 ) 消息 类 函数 中 的 compose 函数 ( 清空 编辑 缓冲 ， 以便 写 新邮件 ) 、 send 函数 ( 发送 写 好 的 邮件 ) 、 signon 函数 ( 登录 邮件 服务器 ， 如 ： Windows95 的 Exchange 、 Windows   NT 的 Windows   message ) 。 
+ 　 　 ( 2 ) 接收 和 接受器 类 函数 中 的 RecipdisplayName 函数 ( 收件人 的 Email 地址 ) 、 RecipType 函数 ( 表明 消息 来自 于 何方 ， 其值 为 0 表示 为 发送者 ； 1 表示 来自 To ； 2 表示 来自 Copy ) 。 通过 调用 上述 函数 就 可以 发送 Email 了 。 应 注意 的 是 ， 由于 VB 的 MAPI 控件 要求 登录 到 支持 MAPI . DLL 的 邮件 服务器 ， 必须 配置 Microsoft   Exchange 或 Windows   Messageing 等 支持 MAPI . DLL 的 邮件 服务器 ， 否则 运行 时 将 显示 login   failed 。 
+ 2     形成 Email 文本 
+ 　 　 由于 Email 的 内容 主要 是 一些 相关 产品 的 信息 ， 而且 这些 信息 分布 在 数据库 的 不同 表格 中 ， 因此 程序 就要 与 数据库 进行 连接 ， 并 以 不同 的 条件 从 相关 的 表格 中 读取 有用 信息 ， 形成 符合要求 的 Email 文本 。 在 VB 中有 3 种 与 数据库 相连 的 方法 ： 
+ 　 　 ( 1 ) 基于 RDO   ＆   RDC 开发 与 数据库 连接 的 程序 。 
+ 　 　 ( 2 ) 利用 ODBC   API 直接 与 数据库 连接 。 
+ 　 　 ( 3 ) 利用 VBSQL   DB － Library   API 直接 与 SQL   Server 
+ 相连 。 
+ 　 　 上述 3 种 方法 对 数据库 操作 的 示意图 如图 2 所示 。 
+ 
+ 图 2     与 数据库 相连 的 方法 对 数据库 的 操作 
+ 　 　 其中 开放式 数据库 互连 ( ODBC ) 应用 程序设计 接口 ( API ) 定义 了 与 数据库 无关 的 编程 模型 ， 利用 它 提供 的 单一 API 接口 ， 可以 访问 任何 具有 ODBC 驱动程序 的 数据库 或 数据库 服务器 ， 而 无需 考虑 ODBC 兼容 级别 。 因而 使用 ODBC   API 开发 的 应用程序 具有 本地 代码 编程 模型 的 性能 和 灵活性 。 同时 ， 它 的 编程 方法 是 相当 通用 的 ， 可以 用于 多种 数据库 格式 。 而 Visual   Basic   Library   for   SQL   Server ( VBSQL ) 是 为 Visual   Basic 和 Microsoft   SQL   Server 特别 设计 、 调整 的 DB － Library   API 的 实现 。 VBSQL 提供 了 几乎 所有 的 数据库 API ， 并 被 支持 为 Microsoft   SQL   Server 本地 接口 。 VBSQL 与 ODBC   API 相似之处 在于 ： 它们 都 提供 最 广泛 的 灵活性 ， 而且 在 某些 情况 下 ， 都 提供 比 RDO 更好 的 对 SQL   Server 的 访问 。 然而 利用 RDO   ＆   RDC 开发 与 数据库 连接 的 程序 简便易行 ， 而且 由于 RDO   ＆   RDC 也 是 通过 调用 底层 的 ODBC   API 来 与 数据库 通信 ， 因此 具有 一定 的 灵活性 。 尽管 使用 ODBC   API 和 VBSQL   DB － Library   API 能 最大 限度 地 直接 控制 数据库 ， 可以 得到 更 高 的 性能 和 更 大 的 灵活性 ， 但 却 大大增加 程序 的 复杂性 。 本 系统 在 后台 运行 且 每天 只 运行 1 次 ， 对 程序运行 速度 和 灵活性 没有 很 高 要求 。 考虑 到 简便性 和 一定 的 灵活性 ， 本 程序 采用 RDO 和 RDC 控件 实现 对 数据库 的 访问 。 首先 通过 远程 数据 控制 ( RDC ) 的 属性 可以 在 与 数据源 连接 的 同时 建立 一个 远程 数据 对象 ( RDO ) 的 结果 集 ( rdoResultset ) 。 其中 要 连接 的 数据源 应该 在 ODBC   Administrator 中 事先 建立 好 ， 所 连接 的 数据库 可以 是 Access 、 SQL   Server 、 Foxpro 、 Excel 等 。 当用 RDC 与 数据源 连接 以后 ， 就 可以 用 OpenResultset ( “ Select   * from 表明 Where 条件 ” ) 语句 建立 新 的 RDO 结果 集 ， 这样 就 可以 访问 任意 的 数据表 从而 得到 有用 的 信息 。 
+ 图 3 是 一封 自动 生成 的 Email 。 
+ 
+ 图 3     自动 生成 的 Email 
+ 3     利用 SQL   Server 的 任务调度 功能 实现 程序 的 自动 触发 
+ 　 　 在 SQL   Server 中有 一项 SQL   Executive 服务 ， 该 服务 具有 管理 事件 、 任务 和 警报 的 功能 。 其中 任务 管理 功能 可以 对 定义 好 的 任务 进行 调度 。 创建 一项 任务 的 步骤 如下 ： 
+ 　 　 ( 1 ) 启动 SQL   Executive   Manager ， 选择 相应 的 服务器 ； 
+ 　 　 ( 2 ) 在 Server 菜单 上 单击 Scheduled   Tasks ， 出现 Manage   Scheduled   Tasks 窗口 ； 
+ 　 　 ( 3 ) 单击 New   Tasks ； 
+ 　 　 ( 4 ) 在 出现 的 NAME 对话框 中 ， 填入 任务 名 ； 
+ 　 　 ( 5 ) 在 Type 中 选择 CmdExec （ 表明 此 任务 为 COM 或 EXE 文件 ） ； 
+ 　 　 ( 6 ) 选中 Enable 复选框 ， 使得 此 任务 可以 被 调度 ； 
+ 　 　 ( 7 ) 在 Command 中 输入 此 任务 包含 的 可执行文件 的 路径 ； 
+ 　 　 ( 8 ) 若想 重复 执行 任务 ， 选择 Recurring ； 
+ 　 　 ( 9 ) 在 Occurs 下 单击 Daily ， 即 每天 执行 1 次 ； 
+ 　 　 ( 10 ) 单击 OK ； 
+ 　 　 ( 11 ) 单击 Add 。 
+ 　 　 这样 就 完成 了 任务 的 定义 ， 此 任务 将 根据 要求 每天 执行 1 次 。 应 注意 ， 要 进行 任务调度 必须 保证 SQL   Executive   Manager 已经 启动 。 
+ 　 　 单独 使用 VB 或 SQL   Server 的 邮件 功能 不能 满足 一些 特殊 的 功能 要求 。 本文 将 二种 方法 结合 起来 ， 利用 VB 实现 发送 邮件 及 与 数据库 通信 的 功能 ， 同时 利用 了 SQL   Server 的 任务调度 功能 ， 实现 了 Email 的 构成 和 自动 定时 发送 。 
+ 张 鸿源 （ 北京工业大学 信息 与 信号处理 研究室 100022 ） 
+ 贾克斌 （ 北京工业大学 信息 与 信号处理 研究室 100022 ） 
+ 收稿 日期 ： 1999 － 12 － 12 

@@ -1,0 +1,84 @@
+计算机 工程 
+ COMPUTERENGINEERING 
+ 1999 年 　 第 25 卷 　 第 7 期 　 Vol.25 　 No.5 　 1999 
+ 
+ 
+ 
+ Internet 上 的 英文 搜索引擎 
+ 刁倩 　 张惠惠 　 王永成 
+ 摘要 　 介绍 了 Internet 上 几个 典型 英文 搜索引擎 的 设计 原理 , 并 对 它们 的 性能 做 了 一定 的 测试 和 比较 , 并 提出 了 改进 思想 。 
+ 关键词 　 Internet 　 搜索引擎 　 Yahoo ！ Inktomi 　 hotbot 　 Architext 　 Excite 
+ English   Search   Engine   on   Interet 
+ Diao   Qian   Zhang   Huihui   Wang   Yongcheng 
+ Institute   of   Image   Processing   &   Psttern   Recognition ， Shanghai   Jiaotong   University ； Bao   Zhaolong   Library   of   Shanghai 
+ Abstract ： In   the   paper ， three   English   search   engines   on   Internet   are   introduced ， including   the   design   principles . We   also   test   and   compare   them   and   xhow   the   improved   idea . 
+ Kew   words ： Internet ； search   engine ； Yahoo ！ ； Inktomi ； hotbot ； Architest ； Excite 
+ 　 　 近几年来 ， Internet 上 的 信息 越来越 丰富 ， 每个 月 的 增长率 约 为 20% ， 检索 和 查询 这些 信息 资源 已 迫在眉睫 。 传统 的 DDS ( Dewey   Decimal   System ) 和 LCC ( Library   of     Congress   Classification ) 分类索引 方法 已 无法 有效 处理 网上 日新月异 的 英文 信息 ， 而 中图法 也 无法 适应 逐渐 丰富 起来 的 网上 中文信息 。 于是 网上 出现 了 众多 信息 搜索引擎 ( Search   Engine ) ， 其中 英文 搜索引擎 居多 ， 它们 一方面 使 我们 可以 在 一定 程度 上 从 网上 获取 有用 信息 ， 另一方面 由于 刚 起步 不久 而 存在 较 多 不 尽如人意 之 处 。 我们 就 这些 英文 搜索引擎 中 的 几个 典型 ( Yahoo ! 、 Inktomi 和 Excite ) 在 性能 和 工作 原理 上 做 了 一定 的 研究 与 测试 。 之所以 称 Yahoo ! 、 Inktomi 和 Excite 为 搜索引擎 中 的 典型 ， 是因为 它们 代表 了 搜索引擎 的 3 个 不同 的 技术 层次 。 Inktomi 的 关键词 检索 技术 在 当前 搜索引擎 中 可以 说 是 最 成熟 的 ， 采用 其 技术 的 Hotbot 搜索引擎 分别 荣获 PC   Magazine   Editor ' s   Choice   1996 、 1997 年度 奖 , PC   Computer   MVP   1997 年度 奖 , CNET   Editor ' s   Choice   1998 年度 奖 。 Architext 公司 的 Excite 搜索引擎 首先 采用 了 “ 概念 检索 ” 技术 ， 此 技术 是 提高 网上 信息检索 准确率 的 关键 措施 ， 采用 此 技术 将 有助于 实现 网上 信息 的 自动 分类 ； Yahoo ! 是 当前 唯一 真正 实现 网上 信息 分类 的 搜索引擎 ， 它 提供 了 优秀 的 分类目录 ( 主题 ) 浏览 功能 ， 对 网点 信息 按 主题 建立 分类索引 ， 按 字母 顺序 列出 14 个大类 ， 每个 大类 所 包含 的 子类 有 精炼 的 描述 ， 每个 子类 有 数以千计 的 Internet 网站 信息 。 许多 网上 信息 研究 人员 已视 Yahoo ! 分类目录 中 的 信息 为 网上 信息 研究 样本 ， 当作 标准 进行 测试 。 
+ 1 　 Yahoo ! 
+ 　 　 Yahoo ! ( www . yahoo . com ) 于 1994 年 由 美籍华人 杨 致远 ( Jerry   Yang ) 和 David   Filo 设计 ， 它 收集 约 20 万个 网站 ， 约 有 2 万个 目录 。 它 在 网上 影响 广泛 ， 每天 约 有 80 万人 在 Internet 上 使用 它 。 而且 这些 数字 仍 随着 时间 不断 推移 ， 到 1996 年 至 1997 年 ， 每天 约 有 400 万人次 访问 它 。 Yahoo ! 的 工作 过程 是 首先 收集 新 网站 的 域名 ( URL ) ， 其中 绝大部分 URL 通过 网站 建立 者 以 Email 方式 提供 ， 其余部分 由 Yahoo ! 的 网上 软件 机器人 ( Spider / Softbot ) 通过 扫描 网上 的 链接 来 搜集 。 然后 由 20 名 Yahoo ! 分类 专家 对 这些 网站 进行 人工 分类 。 
+ 　 　 由于 采用 人工 分类 的 方式 ， Yahoo ! 有 两个 难以解决 的 缺点 ： 一是 Yahoo ! 如果 使用 更 多 的 分类 专家 来 提高 分类 速度 以 跟上 网上 信息 不断 增加 的 步伐 ， 则 众多 分类 专家 将 导致 更 多 的 分类 分歧 ， 从而 效率 降低 ； 二是 若 Yahoo ! 将 分类 专家 的 人数 减至 较 少 ， 则 Yahoo ! 所 能 分类 的 知识面 会 收缩 ， 信息 分类 的 准确度 与 可信度 将 降低 。 
+ 　 　 Yahoo ! 具有 关键词 检索 和 分类目录 浏览 两种 检索 方式 。 我们 先对 分类目录 浏览 这种 检索 方式 进行 了 测试 。 测试 的 方法 是 在 Yahoo ! 的 分类目录 中 寻找 有关 “ Information   Retrieval ” ” 英文 信息 ， 通过 浏览 这些 信息内容 来 测试 出 在 Yahoo ! 分类目录 浏览 的 查准率 。 首先 在 http : / / www . yahoo . com 网址 上 浏览 Yahoo ! 的 总 分类目录 ， 于是 发现 在 yahoo : science : computer   science : library   and   information   science ： 上 有 6 个子 分类目录 ， 其中 包括 information   retrieval 子目录 ， 进入 该 目录 后 浏览 其中 所有 html 链接 ， 共有 7 条 ， 都 与 “ Information   Retrieval " ” 有关 ， 也就是说 其 准确率 为 100% 。 由于 无法 得知 Internet 上 共有 多少 英文 信息 与 “ Information   Retrieval " ” 有关 ， 所以 无法 得到 Yahoo ! 分类目录 浏览 方式 的 查全率 。 
+ 　 　 然后 我们 又 对 Yahoo ! 的 关键词 检索 方式 进行 测试 。 测试 的 内容 仍 是 寻找 有关 “ Information   Retrieval " ” 英文 信息 。 具体方法 是 选取 含义 与 “ Information   Retrieval " ” 密切相关 的 检索 词 N   =   31 个 ， 记为 Wi ( i = l , … , N ) ， 分别 以 
+ 　 　 Wi 
+ 　 　 Wi - “ Information   Retrieval " ” 
+ 　 　 为 检索 式 ， 输入 到 Yahoo ! 关键词 检索 字符 框中 ， 从而 得到 两组 不同 检索 结果 ， 记为 R ( 1 ) i ， R ( 2 ) i ， 则 有 查准率 P 为 ： 
+ 　 　 
+ 　 　 最终 得到 Yahoo ! 关键词 检索 方式 的 查准率 为 ： 
+ 　 　 
+ 2 　 Inktomi 
+ 　 　 Inktomi ( www . inktomi . com ) 由 加州大学 伯克利分校 计算机系 的 Eric   Brewer 和 Paul   Gauthier 设计 。 它 是 当前 网站 信息 的 最大 索引 之一 ， 约 有 1.1 亿个 文件 的 索引 。 Inktomi 应用 蜂窝式 计算 ( Hive   Computing ) ， 即用 网络 将 大量 工作站 联结 而 构成 一个 超级 工作站 ( Supercomputer ) ， 实现 并行计算 ， 该 方法 可 随着 工作 任务 的 繁简 来 增减 工作站 的 数目 。 Inktomi 对 所有 用 Spider 搜集 到 的 网站 进行 了 倒排 索引 。 所谓 倒排 索引 是 指 计算机 构成 一个 表格 ， 该 表格 的 行 代表 文献 ， 列 代表 词 。 如果 文献 X 中 含有 词 Y ， 则 表中 X 行 Y 列 的 位置 置             “ 1 ” 。 为了 找到 含有 某个 词 的 所有 文献 ， 计算机 只 计算 相应 列中 “ 1 ” 的 个数 。 这种 倒排 索引 表格 可以 加快 检索 速度 ， 因为 检索 时 计算机 不再 扫描 文献 本身 ， 而 只是 扫描 表格 的 相应 列 。 Inktomi 在 主机 上 只 存储 倒排 索引 表 ， 其 存储 长度 为原 文献 长度 的 4% 。 
+ 　 　 Inktomi 主要 是 关键词 检索 方式 ， 所 查询 到 的 仅 是 那些 含有 关键词 的 网上 信息 ， 无法 给 用户 以 上下文 提示信息 。 我们 仍用 上述 31 个 与 Information   Retrieval 有关 的 检索 词对 利用 Inktomi 检索 技术 的 hotbot 搜索引擎 进行 测试 ， 测试方法 同 前 ， 则 hotbot 的 查准率 约 为 0.0645 。 与 Yahoo ！ 相比 ， 它 各次 查询 结果 均 多于 Yahoo ！ ， 即 它 的 整体 查全率 比 Yahoo ！ 高 。 
+ 3 　 Architext 
+ 　 　 Architext 软件 公司 创立 于 1993 年 ， 其 制作 的 搜索引擎 Excite ( www . excite . com ) 受到重视 ， 因为 它 不再 仅仅 是 基于 关键词 检索 ， 而是 趋向 基于 概念 检索 ( Concept   index ) 。 Excite 的 倒排 索引 表中 的 行 不再 是 文献 ， 而是 文献 所 代表 的 概念 或 含义 。 这些 概念 的 建立 主要 是 基于 词义 间 的 联系 ， 如 同义词 、 反义词 等 ， 这种 联系 通过 统计 方法 得到 。 例如 它 可以 把 含有 movie 和 film 的 文献 都 归 在 film 这一 概念 下 ， 因为 这 两者 是 同义词 。 Excite 建立 词义 间 联系 上 有 一个 基本 假设 ： 即 经常 在 一起 出现 的 词 必定 有 一定 联系 。 也就是说 ， 在 统计 词频 时 ， Excite 考虑 到 了 词 同现 率 。 Excite 采用 一个 称为 “ 智能 概念 抽取 ” ( ICE ) 的 专用 查询 软件 ， 允许 用户 用 自然语言 提问 。 它 可以 实现 两个 功能 ， 一是 用 ICE 自动 编制 摘要 ， 二是 实现 概念 检索 。 
+ 　 　 Excite 由于 进行 信息 自动 分类 的 技术 过于 简单 而 使 系统 的 鲁棒性 不好 , 我们 在 测试 中 发现 ， 在 使用 36 个 检索 词 的 检索 结果 中 ， 有 3 个 没有 检索 结果 。 而且 Excite 没有 像 Yahoo ！ 那样 能 提供 上下文 关系 的 目录 。 我们 仍用 前述 方法 测试 Excite ， 结果 它 的 准确率 为 0 。 尽管 准确率 为 0 ， 但 实际 浏览 它 的 检索 结果 ， 会 发觉 它 的 一些 检索 结果 的 相关性 较 Hotbot 高 ， 这 是因为 它 采用 概念 检索 的 技术 ， 不 一定 只是 含有 检索 词 的 文献 被 检索 到 ， 与 检索 词 相关 的 文献 也 有 可能 被 收入 检索 结果 中 。 与 Yahoo ！ 和 hotbot 相比 ， 它 的 查询 结果 平均 多于 Yahoo ！ ， 少于 hotbot , 即 它 的 整体 查全率 介于 两者之间 。 
+ 4 　 结论 
+ 　 　 通过 对 Yahoo ! 、 Inktomi ( hotbot ) 、 Architext ( Excite ) 这 3 个 网上 搜索引擎 的 关键词 检索 方式 进行 研究 与 测试 ， 我们 得到 如表 1 所示 的 测试数据 。 
+ 表 1   3 种 搜索引擎 关键词 检索 方式 性能 测试数据 表 
+ 检索 词 ( ) YAHOO ! ( R / R ) HOTBOT ( R / R ) EXCITE ( R / R ) 
+ Boolean * * 692 / 01203 / 1036349 / 215 
+ Cluster138 / 83 * 60929 / 20666098720 / 98280 
+ collaborative   fitering7 / 71538 / 12971230 / 1060 
+ collection   fusion * * 27 / 039 / 1847 / 22 
+ content - based   filtering * * 41 / 083 / 6653 / 35 
+ cosine   similarity * * 24 / 029 / 1215 / 4 
+ recoordination   of   terms0 / 0 * * 1 / 00 / 0 
+ postcordination   of   terms0 / 0 * * 2 / 00 / 0 
+ probabilistic   model * * 666 / 01001 / 858530 / 427 
+ query442581 / 442581 * 25850 / 514323196890 / 191340 
+ query   expansion * * 332 / 0487 / 176307 / 53 
+ recall361442 / 361442 * 93253 / 372773149650 / 147060 
+ indexing231312 / 231312 * 22174 / 11941651770 / 39904 
+ information   extraction1 / 11664 / 166463860 / 56978 
+ information   filtering3 / 32371 / 165671650 / 63410 
+ information   need * * 3538205 / 0 * 6766 / 68610 / 0 
+ inverse   document   frequency * * 82 / 0188 / 3579 / 17 
+ inverted   file * * 422 / 0677 / 292275 / 81 
+ weighting10281 / 1028131713 / 3018416060 / 14628 
+ softbot3sites / 163024321 / 237233 / 161 
+ routing （ 2   categories + 163   sites ） / 95734 * 135999 / 24535495120 / 84976 
+ sigir2   sites / 580201581 / 4611177 / 297 
+ signature   file5   sites / 5   sites11841 / 108623290 / 3260 
+ spider （ 11   categories + 607   sites ） / 105618142015 / 13151363440 / 59171 
+ stemming3   sites / 2   sites * 1266 / 3683016010 / 15037 
+ stopword * 343 / 104142496 / 450245 / 135 
+ term   frequency * * 442 / 0694 / 446301 / 206 
+ text   collection * * 462 / 0672 / 533488 / 377 
+ tipster3   sites / 826451814 / 1607956 / 777 
+ tree10   sites / 999421614 / 10951498 / 1001 
+ vector   space   model * * 277 / 0417 / 34169 / 23 
+ 
+ 　 　 在 表 1 中 ， 带 * * 号 的 数字 为 R ( 2 ) i 是 0 且 R ( 1 ) i 不是 0 的 检索 词 的 个数 ， 即 检索 结果 完全正确 的 个数 。 加 * 号 的 数字 为 检索 结果 小于 的 检索 词 ， 也 就是 R ( 2 ) i 比 R ( 1 ) i 检索 结果 多 的 检索 词 ， 这种 检索 结果 是 不合理 的 ， 应予以 剔除 。 由表 1 得到 3 个 搜索引擎 的 关键词 检索 方式 的 性能 对比 ， 如表 2 所示 。 
+ 表 2   三个 搜索引擎 性能 对比 
+ 搜索引擎 Yahoo ! Inktomi ( hotbot ) Architext ( Excite ) 
+ 准确率 好 较 好不好 
+ 查全率 不 好好 较 好 
+ 
+ 　 　 由表 2 可以 看出 ， Yahoo ! 由于 采用 分类 技术 而 使 检索 准确率 高于 其它 搜索引擎 ， 但 又 因为 尚 处于 手工 分类 阶段 而 在 查全率 方面 差于 其它 搜索引擎 。 Inktomi 的 关键词 检索 技术支持 的 网上 信息 搜索引擎 较为 成熟 和 先进 ， 性能 也 较 好 ， 但 由于 关键词 检索 技术 本身 的 内在 缺陷 而 使 其 技术支持 的 搜索引擎 准确率 仍 无法 达到 Yahoo ! 的 阶段 ， 而且 检索 方法 单一 ， 无法 满足用户 的 多方面 要求 ， 如 无法 给 用户 以 上下文 提示信息 。 Architext 的 Excite 搜索引擎 虽然 率先 引入 了 “ Concept   index ” 技术 ， 但 由于 并 没有 采用 较为 智能 的 方法 实现 此 技术 而 使 系统 的 性能 表现 较差 ， 因此 仍 有待 改进 。 当前 搜索引擎 性能 的 提高 应从 两 方面 着手 。 一方面 提高 现有 关键词 搜索引擎 的 性能 ， 另一方面 须 实现 网上 信息 自动 分类 技术 。 “ Concept   index ” 技术 是 实现 信息 自动 分类 技术 的 有效途径 ， Architext 的 Excite 搜索引擎 的 基于 统计 方法 的 “ Concept   index ” 构造 方式 有待 改进 。 更为 智能 的 方法 ， 如 神经网络 的 聚类 算法 等 应 尽量 引入 到 信息 自动 分类 技术 中 。 
+ 作者简介 ： 刁倩   女 ， 26 岁 ， 博士生 ， 主研 方向 ： 中文信息处理 、 模式识别 与 人工智能 
+ 作者 单位 ： 上海交通大学 97300BA 班 , 上海交通大学 图书馆 , 上海交通大学 电脑 技术 研究所 上海 200030 
+ 参考文献 
+ 1 　 Steinberg   S , Seek     and   Ye   Shall     Find   ( Maybe ) . WIRED   Magazine , 1996 - 05 
+ 2 　 Chen   H , Schuffels   C , Orwig   R . Internet   Categorization   and   Search : A   Self - Organizing   Approach . http : / / www . bpa . arizona . edu / papers / 
+ 3 　 曾 民族 . 网络 信息检索 现状 和 性能 评价 . 情报学 报 ， 1997 , 16 ( 4 ) 
+ 4 　 章琳 , 张保明 . WWW 检索 工具 比较 研究 . 情报学 报 , 1998 , 17 ( 4 ) 
+ 收稿 日期 ： 1998 - 11 - 02 

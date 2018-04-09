@@ -1,0 +1,89 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 　 Vol.36 　 No.6 　 P.732 - 736 
+ 
+ 
+ 
+ ATM 网络 中 关键 服务 生存性 保证 机制 
+ 王东霞 　 窦 文华 　 周兴铭 
+ 摘 　 要 ： 生存性 是 ATM 网络 中 亟待解决 的 问题 . 文中 在 介绍 了 当前 ATM 网络 中 基于 VP 层 的 故障 恢复 机制 后 ， 引入 生存 重要性 因子 表征 网络 中 不同 服务 的 生存 重要性 ， 定义 了 加权 恢复 率 ； 基于 关键 服务 生存性 保证 的 要求 ， 提出 了 关键 VC 预 建立 保护 连接 和 关键 VC 优先 的 实时 恢复 两种 解决 方式 ， 并 综合 形成 了 关键 服务 生存性 的 保证 机制 . 分析 和 模拟 的 结果表明 该 机制 能 优先 保证 关键 服务 的 恢复 ， 有效 地 提高 了 整个 网络 的 生存能力 . 
+ 关键词 ： 网络 生存性 ， 生存 重要性 因子 ， 加权 恢复 率 ， 关键 服务 ， 生存性 保证 机制   
+ 分类号 ： TP393 
+ A   GUARANTEED   MECHANISM   OF   CRITICAL   SERVICE 
+ SURVIVABILITY   IN   ATM   NETWORK 
+ WANG   Dong - Xia ， DOU   Wen - Hua ， ZHOU   Xing - Ming 
+ ( Institute   of   Computer   Technology ,   National   University   of   Defense   Technology ,   Changsha   410073 ) 
+ Abstract ： Survivability   is   an   important   issue   in   ATM .   Following   the   description   of   the   current   ATM   VP   restoration   mechanism ,   the   survivability   importance   factor   is   introduced   to   describe   the   difference   survivability   requirement   of   various   services   in   ATM   network   and   the   weighted   restoration   ratio   is   defined .   To   meet   the   survivability   guaranteed   requirement   of   critical   services ,   a   mechanism   composed   of   two   strategies ,   critical   VC   preassign   protection   connection   and   prior   realtime   restoration ,   is   presented   here .   The   result   of   analysis   and   simulation   shows   that   this   mechanism   guarantees   the   survivability   of   the   critical   service   and   enhances   the   survivability   of   the   network .   
+ Key   words ： network   survivability ,   survivability   importance   factor ,   weighted   restoration   ratio ,   critical   service ,   survivability   guaranteed   mechanism ▲ 
+ 1 　 引 　 　 言 
+ 　 　 宽带 网络 中 的 故障 会 影响 到 大量 用户 ， 造成 巨大损失 . 怎样 使得 网络安全 、 可靠 地 运行 ， 在 故障 发生 时 ， 能够 尽快 从 故障 中 恢复 ， 尽量 保证 现有 服务 、 尤其 是 关键 服务 的 连续性 ， 即 实现 网络 的 生存性 ［ 1 ］ ， 成为 目前 宽带 网络 研究 中 关键 而且 亟待解决 的 问题 . ATM 是 B - ISDN 的 标准 传输 网络 ， 针对 ATM 生存性 问题 的 故障 快速 恢复 技术 研究 已 成为 ATM 的 一个 重要 研究 方向 . 本文 首先 介绍 ATM 网络故障 恢复 机制 的 基本 过程 ， 针对 不同 服务 的 生存性 要求 引入 生存 重要性 因子 ， 给出 一个 加权 生存性 测度 定义 ， 为 保证 网络 中 关键 服务 生存性 ， 提出 关键 服务 生存性 保证 机制 ， 并 模拟 分析 了 该 机制 的 性能 .   
+ 2 　 ATM 网络 的 故障 恢复 机制 
+ 　 　 故障 发生 后 ， 进行 快速 恢复 是 提高 ATM 生存性 的 主要 手段 . ATM 网络 快速 故障 恢复 的 基本原理 是 在 故障 发生 后 ， 通过 重新 路由 ， 将 受 影响 连接 的 流量 切换 到 变更 路径 上 ， 以 保证 服务 连续性 ， 实现 故障 恢复 . 故障 恢复 技术 从 实施 的 控制 机制 可 分为 集中控制 方式 和 分布式 实现 方式 . 前者 在 网络 中 存在 一个 中心 节点 ， 由 它 负责 故障 的 恢复 . 后者 又 称为 自愈 技术 ， 最初 由 Grover ［ 2 ］ 提出 ， 用于 STM 网络 恢复 ， 后来 被 扩展 到 ATM 网络 中 ［ 3 ］ . 目前 ATM 快速 故障 恢复 机制 的 研究 主要 集中 在 VP 层 的 自愈 技术 上 ， 实施 过程 一般 包括 4 个 阶段 ： ①   故障 检测 和 报告 ;   ②   空闲 容量 的 查找 ;   ③   带宽 的 分配 及 变更 路径 的 建立 ;   ④   切换 到 变更 路径 . 
+ 　 　 当 故障 发生 时 ， 如 一条 链路 失败 ， 通常 链路 下游 节点 将 检测 到 故障 ， 通知 被 称为 发送 点 的 节点 . 由 发送 点 产生 并 发送 空闲 容量 查找 消息 ， 消息 中 包括 故障 链路 标识 、 受 影响 的 VP 标识 、 受 影响 的 VP 带宽 大小 等 . 收到 消息 的 中间 节点 将 自己 的 节点 标识 和 可用 空闲 容量 写入 消息 中 ， 并 继续 传递 该 消息 . 这样 ， 当 消息 最终 到达 另一端 节点 （ 称为 选择 点 ） 时 ， 该 节点 可 根据 收到 的 消息 ， 确定 变更 路径 ， 沿 变更 路径 发送 消息 ， 建立 路由表 项 ， 确认 空闲 容量 为 VP 变更 路径 上 分配 的 带宽 . 最后 ， 选择 点 在 收到 发送 点 的 应答 消息 后 ， 完成 受 影响 的 VP 从 工作 路径 到 变更 路径 的 切换 . 恢复 机制 在 具体实施 时 ， 根据 变更 路径 的 指定 时间 可以 分为 预先 计算 变更 路径 和 实时 计算 变更 路径 两大类 ， 预先 计算 中 变更 路径 的 容量 可以 预先 分配 ， 也 可以 实时 查找 . 
+ 3 　 关键 服务 与 生存性 测度 
+ 　 　 宽带 网络 中 的 服务 是 多种多样 的 ， 不同 服务 的 生存 重要性 也 各不相同 ［ 4 ］ . 某些 服务 ， 如 军事 通信 、 银行 的 网上 巨额 现金 事务 等 ， 如果 因 故障 而 中断 ， 则 可能 会 产生 严重后果 ， 造成 巨大损失 ， 故 这些 服务 要求 很 高 的 生存性 保证 ； 有 一些 服务 则 因 用户 交纳 了 额外 的 费用 而 需要 网络 提供 较 高 的 生存性 保证 . 网络 应 保证 类似 服务 的 连续 、 可靠 ， 在 出现 故障 时 ， 要 给 以及 时 的 完全恢复 . 其它 一些 服务 如 一般 的 E — mail 服务 ， 则 可以 容忍 一定 的 故障 中断 ， 采取 重新 连接 或 通知 用户 的 方式 来 处理 . 为 区别 各类 服务 的 生存 重要性 ， 我们 引入 生存 重要性 因子 . 假设 网络 提供 按 生存性 要求 不同 划分 的 M 类 服务 ， 相应 第 i 类 服务 的 生存 重要性 因子 为 Si ， i = 1 ， … ， M . 取 生存性 要求 最低 的 第 1 类 服务 的 生存 重要性 因子 作为 基数 1 ， 则 其它 类 服务 的 Si 可 根据 服务 的 特性 、 收费 等取 大于 1 的 数 . 网络 的 生存性 测度 ［ 5 ， 6 ］ 采用 生存 重要性 的 加权 恢复 率 表示 如下 ： 
+ 
+ 其中 ， S — RR 是 加权 恢复 率 ， 0 ≤ S — RR ≤ 1 ； 
+ 　 　 　 FCi 指受 故障 影响 第 i 类 服务 的 带宽 大小 ， 可用 等效 容量 ( equivalent   capacity ) 标识 ； 
+ 　 　 　 R - FCi 是 第 i 类 服务 中 恢复 的 带宽 大小 ； 
+ 　 　 　 wi 为 加权 系数 ， ; 
+ 　 　 考虑 大多数 情况 ， 我们 把 对 生存 重要性 要求 很 高 的 服务 称为 关键 服务 ， 相对而言 其它 服务 均 可 称为 普通 服务 ， 即 网络 按 不同 生存 重要性 提供 两类 服务 . 记 普通 服务 为 第 1 类 服务 ， 其 生存性 重要 因子 为 S1 ， 关键 服务 的 生存 重要性 因子 为 S2 ， 则 此时 的 生存性 测度 如下 ： 
+ 
+ 其中 ， w1 = S1 / ( S1 + S2 ) , 　 w2 = S2 / ( S1 + S2 ) . 
+ 4 　 关键 服务 生存性 保证 机制 
+ 　 　 当前 的 恢复 机制 研究 集中 于 VP 层 ， 以 尽量 多 、 尽可能 快地 恢复 受 故障 影响 的 服务 . 在 实际 中 常常 由于 空闲 容量 等 限制 ， 并非 所有 的 服务 连接 都 能 得以 完全恢复 . 一般 VP 恢复 以 一组 VC 为 单位 进行 ， 恢复 粒度 大 ， 对 空闲 容量 不易 充分利用 ， 从 某种程度 上 影响 了 恢复 率 . 最 关键 的 是 一般 VP 恢复 没有 区分 不同 端端 服务 （ VC ） 的 生存性 要求 ， 以致 不能 很 好 地 支持 关键 服务 连接 的 恢复 . 为此 ， 考虑 服务 连接 不同 的 生存 重要性 ， 我们 提出 了 关键 服务 生存性 保证 机制 . 该 机制 中 引入 VC 层 恢复 ， 优先 保证 关键 服务 的 生存性 ， 在 此基础 上 再 对 普通 服务 尽量 地 恢复 . 关键 服务 生存性 保证 机制 具体 可 包括 以下 两种 实现 方式 ： 
+ 　 　 ( 1 )   关键 VC 预 建立 保护 连接 的 方式 
+ 　 　 该 方式 （ 以下 简记 为 VCP1 ） 对 关键 服务 在 建立 VC 连接 的 同时 建立 相应 备用 VC 连接 . 备用 VC 与 工作 VC 在 路径 上 互不 相关 ， 但 分配 与 工作 VC 同样 的 网络资源 ， 形成 保护 连接 . 一旦 网络 发生 故障 ， 恢复 过程 为 ： ①   检测 到 链路 故障 的 节点 发送 消息 ， 通知 受 影响 VP 的 端 交换 节点 . 由 各 VP 端 交换 节点 负责 查询 本 VP 中所 包含 的 关键 VC ， 产生 消息 通知 相应 VC 的 源 节点 ， VC 源 节点 收到 消息 后 ， 立即 切换 到 备用 VC 连接 上 . 如图 1 所示 . ② VP 端 交换 节点 同时 启动 VP 恢复 机制 ， 按 除去 所 含 关键 VC 容量 后 的 VP 带宽 要求 进行 VP 恢复 . 
+ 
+ 
+ 图 1 　 关键 VC 预 建立 保护 连接 方式 图例 
+ 　 　 VCP1 优点 是 对 大多数 故障 情形 ， VC 保护 连接 都 可以 100% 地 保证 关键 服务 的 恢复 ， 缺点 是 保护 连接 占用 了 网络资源 . 因而 VCP1 适用 于 网络 中 空闲 资源 充足 或 关键 服务 连接 要求 带宽 不多 的 情况 . 
+ 　 　 ( 2 ) 关键 VC 优先 的 实时 恢复 方式 
+ 　 　 在 关键 服务 要求 带宽 较 高时 ， 对 每个 关键 服务 的 VC 连接 都 建立 备用 VC ， 会 造成 网络资源 的 过 多 闲置 . 实际 中 ， 网络 常常 因为 资源 紧张 而 没有 足够 的 空闲 容量 建立 保护 连接 ， 此时 可 采用 实时 恢复 方式 （ 以下 简记 为 VCP2 ） . VCP2 不 要求 对 关键 服务 建立 备用 VC ， 而是 在 VP 端点 建立 备用 VP ［ 3 ］ ， 备用 VP 不 分配 容量 . 考虑 到 主要 保证 关键 服务 VC 的 恢复 ， 并 不 针对 每个 工作 VP 单独 建立 备用 VP ， 而是 相同 端 节点 的 多个 VP 共享 一个 ( 或 几个 ) 备用 VP ， 这样 更 利于 VC 的 恢复 . 恢复 过程 为 ： ①   检测 到 链路 故障 的 节点 发消息 到 受 影响 VP 的 端点 . VP 端点 在 备用 VP 上 查询 空闲 容量 ， 如果 空闲 容量 充足 ， 则 直接 对受 影响 的 VP 实施 恢复 . ②   如果 空闲 容量 不足 ， 则 对 各 VP 中受 影响 的 关键 VC 优先 实施 恢复 ， 在 剩余 的 空闲 容量 上 继续 对 其它 连接 进行 恢复 . 如图 2 所示 . 
+ 
+ 
+ 图 2 　 关键 VC 优先 的 实时 恢复 方式 图例 
+ 　 　 VCP2 关键 是 要 进行 VC - Packing 处理 ， 即将 一组 待 恢复 关键 VC 的 带宽 有效 地 “ 填塞 ” 入 备用 VP 上查 到 的 空闲 容量 中 . 我们 采用 按 VC 带宽 由大到 小 的 顺序 ，   先 将 难以 恢复 的 带宽 大 的 VC 予以 填塞 ， 以 容纳 尽量 多 的 待 恢复 VC 容量 ， 提高 关键 服务 的 恢复 率 . 
+ 　 　 通过 在 受 影响 的 VP 中 采用 VC - Packing 方式 优先 恢复 关键 VC 连接 ， VCP2 最大 程度 地 保证 了 关键 服务 的 恢复 ， 同时 由于 采用 了 资源 的 动态 管理 ， 对 资源 利用 更 有效 ， 故 VCP2 适合 在 资源 紧张 或 关键 VC 连接 带宽 较 高时 使用 . 
+ 　 　 当 具体 实现 恢复 机制 时 ， 两种 方式 可以 结合 起来 ， 即 采用 VCP1 对 关键 服务 的 VC 连接 建立 备用 VC ( 可能 部分 关键 VC 连接 由于 资源 限制 未能 建立 备用 VC ) ， 同时 采用 VCP2 建立 共享 的 备用 VP . 故障 发生 时 ， 由 VP 端 交换 节点 发送 消息 启动 VC 保护 连接 恢复 ， 同时 启动 实时 恢复 ， 进一步 完成 无 备用 VC 关键 服务 的 优先 恢复 和 普通 服务 的 恢复 . 如图 3 所示 . 
+ 
+ 
+ 图 3 　 关键 服务 生存性 保证 机制 框图 
+ 5 　 分析 与 模拟 
+ 　 　 由 上述 恢复 过程 中 可以 看出 ， 在 我们 的 恢复 机制 中 ， 考虑 了 关键 服务 的 生存性 保证 要求 ， 通过 保护 连接 的 建立 或是 关键 VC 的 优先 恢复 ， 使得 关键 VC 的 恢复 率 尽可能 达到 1 ， 并 在 保证 关键 服务 生存性 的 同时 实现 了 整个 网络 的 高 生存性 . 
+ 　 　 下面 我们 对 关键 服务 生存性 保证 机制 进行 分析 和 模拟 . 由于 VCP1 中 关键 服务 得到 100% 的 保证 ， 对 VCP1 主要 集中 于 空闲 容量 开销 等 适用 条件 的 讨论 ， 故 本文 主要 模拟 、 分析 VCP2 中 对 关键 服务 生存性 保证 的 性能 ， 并 将 其 与 一般 VP 恢复 机制 的 性能 进行 比较 . 
+ 　 　 模拟 条件 如下 ： 
+ 　 　 ( 1 )   考虑 单链 路 故障 情形 ； 
+ 　 　 ( 2 )   网络 中 工作 流量 和 空闲 容量 分布 均匀 ； 
+ 　 　 ( 3 )   端端 VP 均 为 10 条 ， 带宽 在 ［ 5 ， 15 ］ 之间 随机 分布 ； 
+ 　 　 ( 4 )   给出 4 种 模型 ， Model1 、 2 、 3 、 4 ， 分别 对应 4 种 空闲 容量 占 总 容量 的 比例 ： 15% 、 20% 、 25% 、 30% ， 在 各种 模型 下 的 备用 VP 数均 为 5 条 . 
+ 　 　 比较 时 采用 的 生存性 测度 为 ： 
+ 
+ 在 VCP2 中 由于 绝对 优先 保证 了 关键 服务 的 恢复 ， 故有 ： 
+ 
+ 　 　 图 4 是 关键 VC 与 普通 VC 各 占 一半 时 的 恢复 情况 （ 1 ） . 可以 看出 在 4 种 模型 下 ， VCP2 均 实现 了 较 高 的 加权 恢复 率 ， 关键 服务 明显 得以 优先 恢复 ， 并 尽可能 地 实现 了 生存性 保证 ， 即 关键 服务 的 恢复 率 接近 或 达到 了 1 . 而 在 一般 VP 恢复 机制 中 ， 关键 服务 、 普通 服务 的 恢复 率 以及 总 的 加权 恢复 率 3 者 没有 区别 ， 其中 关键 服务 的 恢复 率 和 加权 恢复 率均 低于 VCP2 中 的 相应 恢复 率 . 在 模型 1 下 ， 由于 空闲 容量 较 低 ， 低于 待 恢复 VP 总 容量 的 一半 ， 这时 VCP2 先 将 关键 VC 由大到 小 按 VC 粒度 进行 恢复 ， 在 关键 服务 恢复 率 尽可能 高 的 同时 高效 地 利用 了 空闲 容量 ， 使得 总 的 加权 恢复 率 较 高 ； 一般 VP 恢复 机制 则 直接 进行 VP 恢复 ， 关键 VC 没有 得到 优先 保证 ， 而且 相比 于 VCP2 有 较 多 空闲 资源 的 浪费 . 在 后 3 种 模型 中 ， 空闲 容量 相对 较 高 ， VCP2 均 先 使得 关键 VC 得到 100% 的 恢复 ， 实现 了 关键 服务 的 生存性 保证 . 
+ 
+ 
+ 图 4 　 恢复 情况 （ 1 ） 示例 
+ 　 　 图 5 是 关键 VC 占 总 故障 流量 10% 的 恢复 情况 （ 2 ） ， 与 情况 （ 1 ） 相比 ， 由于 这时 关键 VC 较少 ， 恢复 相对 容易 ， 在 4 种 模型 中 VCP2 均 使得 关键 VC 得到 100% 的 恢复 ， 剩余 的 空闲 容量 使得 普通 VC 也 得到 了 较 高 的 恢复 ， 最终 使得 总 的 加权 恢复 率 升高 . 
+ 
+ 
+ 图 5 　 恢复 情况 （ 2 ） 示例 
+ 6 　 结束语 
+ 　 　 我们 针对 ATM 网络 生存性 的 问题 ， 从 分析 网络 中 各种 服务 生存 重要性 不同 的 角度 出发 ， 提出 了 关键 服务 生存性 的 保证 机制 ， 通过 定性分析 和 初步 模拟 ， 展示 了 该种 机制 的 优越性 . 目前 ， 正在 建立 更 准确 的 网络 模型 ， 进行 深入 模拟 、 量化 和 评价 该 机制 的 时间 和 空闲 容量 的 开销 ， 讨论 实现 优化 的 条件 ， 进一步提高 该 恢复 机制 的 性能 . ■ 
+ 作者简介 ： 王东霞 ， 女 ， 1974 年 3 月生 ， 博士 研究生 ， 主要 研究 方向 为 高速 网络 、 现代 军用 网 　 　 　 　 　 　 络 体系 . 
+ 　 　 　 　 　 窦 文华 ， 男 ， 1946 年 12 月生 ， 教授 ， 博士生 导师 ， 主要 研究 方向 为 高速 计算机网 　 　 　 　 　 　 络 、 CIMS 、 并行 与 分布 处理 、 自动控制 等 . 
+ 　 　 　 　 　 周兴铭 , 男 ， 1938 年 12 月生 ， 教授 ， 博士生 导师 ， 中国科学院 院士 ， 主要 研究 方向 　 　 　 　 　 　 为 高性能 计算机 体系结构 、 并行 与 分布 处理 、 计算机网络 、 并行 数据库 等 .   
+ 作者 单位 ： 王东霞 ( 国防科学技术大学 计算机 学院 　 长沙 　 410073 ） 
+ 　 　 　 　 　 窦 文华 ( 国防科学技术大学 计算机 学院 　 长沙 　 410073 ） 
+ 　 　 　 　 　 周兴铭 ( 国防科学技术大学 计算机 学院 　 长沙 　 410073 ） 
+ 参考文献 ： 
+ ［ 1 ］ Wu   T   H , McDonald   J   C .   Integrity   of   public   telecommunications   networks .   IEEE   Journal   on   Selected   Areas   in   Communications ,   1994 ,   12 ( 1 ) :   1 ～ 3 
+ ［ 2 ］ Grover   W   D .   The   self - healing   network :   A   fast   distributed   restoration   technique   for   networks   using   digital   cross - connect   machines . In :   Proc   of   IEEE   Global   Telecommunications .   Tokyo ,   1987 .   1090 ～ 1095 
+ ［ 3 ］ Kawamura   R ,   Sato   K ,   Tokizawa   I .   Self - healing   ATM   networks   based   on   virtual   path   concept .   IEEE   Journal   on   Selected   Areas   in   Communications ,   1994 ,   12 ( 1 ) :   120 ～ 127 
+ ［ 4 ］ Izmailov   R   et   al .   Design   and   analysis   of   a   congestion - free   overlay   on   a   high - speed   network .   IEEE / ACM   Trans   on   Networking ,   1997 ,   5 ( 6 ) :   970 ～ 979 
+ ［ 5 ］ Moitra   S   D   et   al .   Some   new   survivability   measures   for   network   analysis   and   design .   IEICE   Transactions   on   Communications ,   1997 ,   E80 - B ( 4 ) :   625 ～ 631 
+ ［ 6 ］ 陈山枝 等 . 网络 恢复 机制 可用性 的 定义 及其 应用 . 通信 学报 , 1997 , 18 ( 7 ) : 1 ～ 8 
+ ( Chen   Shanzhi   et   al .   Definitions   of   restoration   mechanism   availability   and   their   applications .   Journal   of   China   Institute   of   Communications ( in   Chinese ) ,   1997 ,   18 ( 7 ) :   1 ～ 8 ) 
+ 收稿 日期 ： 1998 - 08 - 10 
+ 修稿 日期 ： 1998 - 11 - 19 

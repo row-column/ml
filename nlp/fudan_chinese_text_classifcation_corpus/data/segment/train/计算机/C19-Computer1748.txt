@@ -1,0 +1,127 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 19 卷   第 3 期     Vol.19   No.3   1999 
+ 
+ 
+ 
+ 基于 区域 特征 的 交互式 图像 分割 方法 及其 应用 
+ 刘 宁宁 　 田捷 
+ 摘 　 要 　 交互式 图像 分割 方法 因 其 能够 处理 复杂 的 图像 而 得到 了 广泛 的 研究 . 文章 提出 了 一种 基于 代理 机 模型 的 交互式 图像 分割 方法 . 代理 机是 完成 特定 功能 的 模块 , 它 通过 控制 界面 和 汇报 界面 实现 与 操作者 的 交互 . 该 代理 机以 欲 分割 区域 的 特征 作为 其 组成部分 之一 . 该 方法 在 医学 图像 分割 问题 中 的 应用 取得 了 较 好 的 结果 . 
+ 关键词 　 图像 分割 , 代理 机 , 区域 特征 , 医学 图像 . 
+ 中图法 分类号 　 TP391 
+ Region   Feature - based   Interactive   Segmentation   Method 
+ and   Its   Application   in   Medical   Image   Analyzing 
+ LIU   Ning - ning   TIAN   Jie 
+ ( Institute   of   Automation   The   Chinese   Academy   of   Sciences   Beijing   100080 ) 
+ Abstract 　   The   interactive   segmentation   techniques   attract   more   and   more   attention   in   that   these   techniques   can   handle   complicated   images .   In   this   paper ,   an   interactive   image   segmentation   method   is   proposed   based   on   proxy   model .   The   proxy   is   a   task - specific   module   which   carries   out   certain   function .   Communications   between   an   operator   and   computer   is   realized   by   means   of   the   control   interface   and   the   report   interface   of   proxy .   The   proposed   proxy   is   constructed   on   the   basis   of   region   features   of   a   to - be - segmented   region   in   an   image .   This   method   is   applied   to   solve   the   segmentation   problem   in   medical   images   and   the   result   shows   that   this   method   is   effective   in   such   complicated   image   as   medical   image . 
+ Key   words 　 Image   segmentation ,   proxy   model ,   region   feature ,   medical   image . 
+ 　 　 图像 分割 是 计算机 图像处理 与 分析 中 的 一个 经典 问题 , 其本质 问题 尚未 得到 圆满解决 , 至今 没有 一个 通用 而且 有效 的 分割 方法 能够 满足 不同 目的 的 需要 . 这一 问题 在 医学 图像 分析 中 显得 更为 突出 . 医学 图像 是 反映 人体 生物 组织 的 复杂 图像 , 信息量 大 , 而且 缺少 可供使用 的 能够 刻画 生物 组织 的 数学模型 ［ 1 ］ . 对 这种 图像 进行 分割 处理 , 欲 得到 满意 的 结果 仅仅 依靠 常规 方法 是 难以 奏效 的 . 目前 , 针对 图像 分割 问题 进行 了 多种 方法 的 探究 , 如 文献 ［ 2 ～ 4 ］ 等等 . 这些 方法 在 一定 程度 上 借鉴 了 交互式 分割 的 思想 . 本文 针对 医学 图像 的 特点 和 实际 应用 的 要求 ［ 5 ］ , 提出 了 一种 融合 分割 区域 信息 的 交互式 模型 , 在 分割 过程 中 引入 控制者 的 作用 . 我们 根据 该 模型 , 以 MRI 图像 为 实验 对象 进行 了 初步 的 实验 验证 , 实验 结果表明 , 这是 一个 值得 深入探讨 的 方法 . 
+ 1   方法 描述 
+ 　 　 分析 分割 过程 , 我们 可以 将 图像 分割 划分 为 两个 子 过程 : 目标 识别 定位 过程 和 目标 提取 过程 , 这 两 部分 缺一不可 . 常规 方法 是 将 整个 分割 任务 完全 模型 化 , 由 计算机 自主 完成 , 而 不 需要 人 的 参与 . 但是 , 大量 实践 表明 ， 计算机 自主 分割 的 结果 往往 准确性 较差 . 自动 分割 方法 一般 是 针对 不同 的 问题 研究 不同 的 方法 , 有 很大 的 局限性 . 对于 医学 图像 来讲 , 由于 人体 内部 生物 组织 的 蠕动 以及 成像 的 特点 , 使得 自动 分割 方法 面对 如此 复杂 的 情况 束手无策 , 从而 造成 自动 分割 方法 的 失败 . 另外 , 自动 分割 方法 是 基于 模型 的 分割 方法 , 而 在 医学 图像 分析 中 , 我们 无从 获得 可 用于 分割 目的 的 模型 , 从而 注定 了 自动 分割 在 多维 复杂 数据 的 医学 图像 分析 中 的 失败 . 
+ 　 　 从 目标 定位 与 提取 的 角度 出发 , 我们 可以 发现 一个 特点 : 人 擅长于 目标 的 识别 定位 , 而 计算机 算法 则 善于 精确 地 进行 目标 的 提取 . 人 可以 容易 地 发现 感兴趣 目标 的 空间 位置 , 并且 定性 地 给出 目标 的 大小 和 几何 形状 . 这种 定性 能力 是 计算机所 不 具备 的 , 而 将 这种 能力 转换 为 计算机 可以 应用 的 数学模型 则 是 不 可能 做到 的 , 这 正是 造成 图像 分割 问题 难以 圆满解决 的 难点 . 然而 , 计算机 基于 数学模型 精确 地 提取 目标 的 能力 则 又 是 人 所 望尘莫及 的 . 这 表明 , 如果 将 人 的 作用 有机 地 融入 到 图像 分割 过程 中 , 则 可能 得到 满意 的 结果 , 即 当要 解决 定性 问题 时 （ 如 目标 的 定位 ） , 由人 给出 适当 的 提示 , 而 精确 的 计算 处理 工作 则 由 计算机 执行 . 这样 人 与 计算机 可以 达到 互相 取长补短 的 效果 , 就 有 可能 得到 满意 的 分割 结果 . 如何 在 图像 分割 过程 中使 人 有效 地 融合 进去 是 这 一 思想 的 关键 . 我们 认为 ， 人 参与 计算机 自动 分割 的 过程 需要 把握 一定 的 度 , 即 : 人 怎样 参与 以及 参与 的 程度 . 在 我们 初步 的 研究 中 定义 了 两个 准则 : 一个 是 在 分割 过程 中为 用户 提供 有效 的 控制 方法 ; 另 一个 是 尽量减少 人 的 参与 时间 , 以 确保 实时 操作 的 实现 . 
+ 1.1   基于 代理 机 的 交互 模型 
+ 　 　 在 本文 中 ， 我们 提出 并 设计 实现 了 代理 机 作为 人机交互 的 具体 模型 , 通过 代理 机将 人 的 作用 与 计算机 有机 地 结合 起来 . 我们 定义 代理 机是 一种 由 计算机 具体 执行 的 、 完成 特定 功能 的 计算 模块 , 它 负责 完成 精确 的 计算 任务 . 代理 机 不仅 能够 独立 完成 计算 任务 , 而且 本身 具有 良好 的 人机 通讯 的 接口 . 代理 机 通过 控制 界面 和 汇报 界面 实现 与 操作者 的 通讯 . 代理 机 结构 如图 1 所示 . 在 某 一 具体任务 的 完成 过程 中 , 代理 机 随时 向 控制者 汇报 其 当前 的 工作 状态 , 在 完成 一定 阶段 的 任务 时 , 将 任务 完成 结果 及时 地 提交 给 控制者 . 控制者 可以 根据 代理 机 的 状态 或 阶段 任务 结果 及时 调整 控制策略 , 指引 代理 机 进行 新 的 工作 . 在 代理 机 执行 具体 的 计算 任务 时 , 控制者 并 不 进行 干涉 , 而 只是 根据 代理 机 的 状态 或 任务 完成 结果 来 确定 代理 机 的 工作 状况 是否 正常 , 以及 提交 的 任务 结果 是否 可以 接受 , 从而 确定 代理 机下 一步 的 工作 目标 . 
+ 　 　 如图 1 所示 , 控制者 通过 控制 界面 为 代理 机 提供 指示 , 代理 机 通过 汇报 界面 向 控制者 汇报 处理过程 中 代理 机 的 状态 . 在 阶段 任务 完成 后 , 代理 机将 阶段 任务 的 完成 结果 通过 任务 评判 环节 提交 给 控制者 进行 评判 . 在 本文 中 ， 我们 设计 了 静态 代理 机 , 即 控制者 仅仅 根据 代理 机 的 阶段 任务 完成 结果 进行 控制策略 的 修订 , 以 指导 代理 机 的 下 一步 工作 . 在 结构图 中 , 控制者 由人 担任 , 我们 也 可以 看出 , 代理 机 模型 具有 反馈 机制 . 这样 , 我们 可以 将 图像 分割 过程 中 的 目标 定位 这 一定 性 任务 提交 给 控制者 完成 , 精确 的 计算 任务 由 代理 机 完成 , 并且 控制者 随时 调整 控制 代理 机 的 策略 . 
+ 
+ 图 1 
+ 1.2   代理 机 的 构成 
+ 　 　 模型 中 的 关键 是 代理 机 的 建构 , 代理 机 的 创建 在 具体任务 的 完成 中 具有 重要 作用 . 在 本文 中 , 我们 设计 实现 了 融合 分割 区域 特征 的 静态 代理 机 模型 . 代理 机由 两个 子 模块 组成 : 区域 增长 子 模块 和 寻 优子 模块 . 区域 增长 子 模块 完成 特定 区域 的 增长 以及 增长 区域 特征提取 的 任务 ; 寻优子 模块 完成 边缘 的 优化 计算 任务 . 控制者 与 代理 机 通过 鼠标 实现 交互 通讯 . 下面 说明 工作 原理 , 操作者 可以 容易 地 判定 欲 分割 区域 的 空间 位置 , 从而 将 代理 机 的 起始 工作 区域 限制 在 图 2 内 方框 所示 的 范围 中 . 如果 操作者 在 方框 范围 中 的 欲 分割 区域 内 指定 某一 像素点 作为 代理 机 的 工作 起点 , 则 代理 机将 以 该 点 为 起始 条件 , 启动 区域 增长 模块 首先 进行 区域 增长 计算 , 当 达到 一定 要求 时 , 提取 已 增长 区域 的 特征 , 然后 等待 指令 以 启动 寻优 模块 . 寻优 模块 的 工作 方式 如图 3 所示 , 
+ 
+ 
+ 图 2 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 图 3   
+ 控制者 通过 鼠标 预先 粗略地 指定 所 需 计算 的 路径 , 使 代理 机 根据 该 初始 路径 进行 边界 搜索 , 得到 在 给定 路径 条件 下 的 较优 路径 , 经 控制者 评判 以 确定 该 结果 是否 可以 接受 . 寻优子 模块 的 构造 如图 4 所示 , 模块 的 输入 为 预先指定 的 边界点 及其 相邻 的 像素点 , 代理 机 根据 欲 分割 区域 的 特征 计算 局部 的 较优 边界 , 并且 将 结果 报告 给 控制者 , 如果 对 结果 不 满意 , 则 调整 初始 路径 进行 新 的 计算 , 直至 得到 满意 的 分割 结果 为止 .   
+ 
+ 图 4 
+ 　 　 在 本文 中 , 我们 定义 物体 边界 元素 为 任意 两 相邻 像素 之间 的 连线 , 则 对 某 一点 而言 , 可能 的 边界 元素 有 8 条 , 方向 分别 为 k.45 ° , 其中 k = 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 . 另外 , 定义 用来 刻画 边界 元素 是否 能够 成为 目标 边缘 的 属性 , 我们 在 实验 中 采用 分割 区域 的 统计 平均 灰度 值 、 平均 灰度 均 方差 、 局部 区域 一 阶梯 度 变化 函数 作为 刻画 边界 元素 的 属性 特征 . 定义 如下 : 
+ 　 　 ( 1 )   平均 灰度 设 Pi 为 灰度 值 i 的 概率 , 则 特定 区域 的 灰度 平均值 为 μ , , 则 区域 归一化 平均 灰度 值为 , 其中 M 为 特定 区域 的 最大 灰度 值 . 
+ 　 　 ( 2 )   平均 灰度 变化 均 方差 σ   特定 区域 的 灰度 平均 变化 均 方差 为 , 则 归一化 为 . 
+ 　 　 另外 , 考虑 到 在 物体 边缘 , 往往 梯度 的 变化 幅度 比较 明显 , 因此 在 实现 中 采用 了 局部 梯度 变化率 作为 特征 , 我们 定义 该 特征 为 grad = ( Σ ( max ( gi ) - gi ) ) / max ( gi ) , 其中 gi 为 指定 路径 上 的 一系列 像素点 的 梯度 值 , i ∈ Ω , Ω 为 指定 像素点 集 . 将 特征值 转换 为 指标 函数 来 判断 局部 像素 边 是 分割 边缘 的 可能性 , 由 代理 机 根据 指标 函数 寻找 分割 边缘 , 作为 代理 机 的 工作 结果 . 指标 函数 为 , 式 中 f 为 特征函数 , c 为 特征 转换 函数 , w 为 权值 . 在 本文 中 ， 选择 f 为 平均 灰度 均值 函数 、 平均 灰度 变化 均 方差 函数 、 局部 梯度 变化 函数 . 对于 灰度 平均值 、 灰度 方差 , 选择 特征 转换 函数 为 高斯 函数 , 可以 分析 得到 : 当 δ 越小 , G ( x ) 值越 大 ; 对于 局部 梯度 特征 , 可以 选择 线性 函数 作为 转换 函数 , 因此 得到 R = ω 1 . G ( ξ , δ ) + ω 2L ( grad ) , 注意 到 梯度 特征 表示 , 梯度 值越 大 , grad 值越 小 , 因此 在 处理 中 , 需将 该 特征 作 符号 处理 , 即 ω 2 ＜ 0 . 线性 函数 选择 为 L ( x ) = . grad , 其中 i 为 指定 像素点 集中 的 元素 . 
+ 1.3   具体 实现 
+ 　 　 整个 分割 过程 分为 两个 阶段 . 第 1 阶段 为 分割 区域 增长 阶段 . 在 该 阶段 , 首先 由 控制者 在 预 分割 区域 内 任选 一点 （ 如图 2 所示 ） , 然后 启动 代理 机 根据 该 信息 进行 区域 增长 操作 . 本文 设计 了 自 适应 区域 增长 方法 . 首先 以 操作者 指定 的 原始 点为 核心 点 core , 以 core 为 中心点 , 得到 其 5 × 5 邻域 , 计算 该 邻域 的 平均 灰度 μ = , 其中 Θ 为 以 core 为 中心 的 5 × 5 邻域 , i 为 像素 的 灰度 值 . 在 本文 中 , 设 阈值 th = ｜ μ - core ｜ , 根据 阈值 准则 判定 可以 成为 分割 区域 内点 的 像素点 . 算法 如下 : 设 赋予 图像 { g ( i , j ) } 的 每个 像素 有 n 维 属性 F ( i , j ) = ［ f1 ( i , j ) , f2 ( i , j ) , ... , fn ( i , j ) ］ T , 中心点 的 属性 为 C ( a , b ) = ［ core1 ( a , b ) , core2 ( a , b ) , ... , coren ( a , b ) ］ T ,   则 测度 为 M ( i , j ; a , b ) = ‖ C ( a , b ) - F ( i , j ) ‖ = nk ｜ corek ( a , b ) - fk ( i , j ) ｜ , 在 本文 中 ， 属性 为 像素点 的 灰度 值 . 在 区域 增长 过程 中 , 代理 机 可以 根据 控制者 的 评判 ， 以新 的 区域 点 更新 μ = , 即 Θ 是 可变 的 . 当 运算 停止 时 , 代理 机 等待 操作者 的 评判 , 以 决定 是否 停止 区域 增长 . 算法 程序 伪 代码 如下 : 首先 , 将 核心 点 设定 为 操作者 指定 的 像素点 , 以 核心 点为 中心 , 建立 其 5 × 5 邻域 Θ , 计算 Θ 的 灰度 均值 μ , 将 阈值 设 为 μ . 
+ 　 　 BEGIN 
+ 　 　 Step   1 : 
+ 　 　 core = Selected - key - point ( ) ; 
+ 　 　 Θ = Build - neighbors - of   ( core , 5 ) ; 
+ 　 　 μ = Mean - of - ( Θ ) ; 
+ 　 　 th = ｜ μ - core ｜ ; 
+ 　 　 End   of   Step   1 
+ 　 　 我们 定义 3 个 操作 集合 : ( 1 )   分割 区域 集合 R _ Set , 用于 保存 区域 增长 过程 中 得到 的 分割 区域 的 像素点 ; ( 2 )   计算 集合 Cal _ set , 其中 的 元素 被 用来 检验 是否 符合 属于 分割 区域 , 在 我们 的 方法 里 , Cal _ set 中 的 元素 总是 等于 4 , 即 4 个 相邻 像素 ; ( 3 )   临时 集合 tmp _ set , 在 该 集合 中 保存 新 的 候选 中心点 , Cal _ set 中 的 元素 根据 该 集合 的 像素点 生成 . 若 Cal _ set 中 的 元素 属于 预 分割 区域 , 则 将 该点 加入 到 R _ Set 中 , 同时 生成 该点 的 4 个 相邻 像素点 并且 加入 到 集合 tmp _ set 中 , 等待 下 一步 的 处理 ; 若 Cal _ set 中 的 点 不 属于 预 分割 区域 , 则 将 该 点 从 tmp _ set 中 删除 , 加入 到 集合 final _ set 中 . 其中 集合 final _ set 保存 临时 “ 野点 ” ( 所谓 “ 野点 ” 系指 处理 中 不 符合要求 的 像素点 ) , 这部分 像素点 在 最后 处理 . 当 算法 计算 到 tmp _ set 集合 中 无 元素 时 , 则 停止 区域 增长 . 算法 首先 进行 初始化 如下 : 
+ 　 　 BEGIN 
+ 　 　 Step   2 : 
+ 　 　 Initialize _ set   ( R _ Set ) ; 
+ 　 　 Initialize _ set   ( tmp _ set ) ; 
+ 　 　 Initialize _ set   ( Cal _ set ) ; 
+ 　 　 End   Step   2 
+ 　 　 END   BEGIN 
+ 　 　 初始化 后 , R _ Set 集合 中有且 仅 有 一个 像素点 core ; 计算 集合 Cal _ set 初始化 后 包括 以 core 为 中心 得到 的 core 点 的 4 个 相邻 像素点 , 即 Cal _ set = { core ( i , j - 1 ) , core ( i , j + 1 ) , core ( i - 1 , j ) , core ( i + 1 , j ) } . tmp _ set 集合 为空 . 根据 阈值 准则 判断 计算 集合 中 的 像素点 是否 属于 欲 分割 区域 , 若 是 , 则 将 该 像素点 加入 到 集合 R _ Set 中 , 同时 生成 该点 的 4 个 相邻 像素点 , 并且 将 4 个 相邻 像素点 加入 tmp _ set 集合 中 , 等待 下 一步 处理 . 若该 点 不 属于 分割 区域 , 则 将 该 点 从 计算 集合 中 删除 , 加入 到 final _ set 集合 中 , 等待 最后 处理 ; 依次 计算 ， 直到 Cal _ set 集合 为空 为止 . 然后 再 依次 以 临时 集合 tmp _ set 中 的 各个 像素点 为 新 的 中心点 , 建立 新 中心 像素点 的 4 个 邻域 , 更新 Cal _ set , 重复 以上 步骤 , 直到 集合 tmp _ set 不再 存在 任何 像素点 为止 . 计算 时 , 必须 保证 tmp _ set 集合 中 无 重复 元素 . 最后 再 处理 final _ set   中 的 野点 , 以 保证 区域 中 的 野点 能够 得到 正确处理 . 算法 如下 : 
+ 　 　 BEGIN 
+ 　 　 While   ( Cal _ set   not   empty ) 
+ 　 　 { poi = select _ poi _ from   ( Cal _ set ) ; 
+ 　 　 if ‖ poi - μ ‖ ＜ th   then 
+ 　 　 add _ poi _ to   ( R _ Set ) ; 
+ 　 　 Net ［ 4 ］ = Build _ neighbor _ of   ( poi ) ; 
+ 　 　 add _ Net _ to   ( tmp _ set ) ; 
+ 　 　 Delete _ poi _ from   ( Cal _ set ) ; 
+ 　 　 else 
+ 　 　 Delete _ poi _ from   ( Cal _ set ) ; 
+ 　 　 add _ poi _ to   ( final _ set ) ; 
+ 　 　 } 
+ 　 　 While   ( tmp _ set   NOT   EMPTY ) 
+ 　 　 { poi = Select _ poi _ from   ( tmp _ set ) ; 
+ 　 　 Nei ［ 4 ］ = Build _ neighbor _ of   ( poi ) ; 
+ 　 　 if   pixel ∈ ( Nei ∩ R _ Set )   then   Delete _ poi _ from   ( Nei ) ; 
+ 　 　 add _ Nei _ to   ( Cal _ set ) ; 
+ 　 　 While   ( Cal _ set   not   empty ) 
+ 　 　 { poi = Select _ poi _ from   ( Cal _ set ) ; 
+ 　 　 if ‖ poi - μ ‖ ＜ th   then 
+ 　 　 add _ poi _ to   ( R _ Set ) ; 
+ 　 　 Nei ［ 4 ］ = Build _ neighbor _ of   ( poi ) ; 
+ 　 　 add _ Nei _ to   ( tmp _ set ) ; 
+ 　 　 Delete _ poi _ from   ( Cal _ set ) ; 
+ 　 　 else 
+ 　 　 add _ poi _ to   ( final _ set ) ; 
+ 　 　 Delete _ poi _ from   ( Cal _ set ) ; 
+ 　 　 } 
+ 　 　 } 
+ 　 　 END   BEGIN 
+ 　 　 最后 针对 野点 进行 处理 , 处理 准则 为 : 若野点 的 4 相邻 像素点 中有 3 个点 属于 增长 区域 , 则 将 该 野点 融合 到 增长 区域 中 , 从而 保证 了 区域 增长 的 完整性 , 即 不 存在 空洞 现象 . 代理 机 根据上述 算法 进行 区域 增长 , 在 停止 工作 后 , 提取 增长 区域 的 统计 特征 , 计算 该 区域 的 平均 灰度 和 灰度 均 方差 , 即 所 需 的 两个 区域 特征 ζ , δ . 试验 中 ， 根据 该 算法 得到 的 增长 区域 如图 5 所示 . 分割 的 第 2 阶段 启动 代理 机 的 寻优 模块 . 由 控制者 预先 画出 欲 分割 目标 的 粗略 边界 , 如图 5 所示 . 然后 由 代理 机 计算 边缘 点 依次 进行 , 直至 得到 封闭 的 边缘 . 根据 前面 所述 , 如果 我们 能够 根据 初始 路径 得到 一系列 像素点 集合 , 使得 这些 像素点 在 初始 路径 条件 下 , 所 得到 的 指标 函数 值 最大 , 则 这些 像素点 就 判定 为 所欲 分割 区域 的 边缘 像素点 . 即 . 其中 Γ 为 控制者 指定 的 初始 路径 的 像素点 集合 , Nei ( Γ ) 为 初始 路径 的 各个 像素点 的 8 邻域 像素点 的 集合 . 定义 两个 操作 集合 , 用户 指定 点集 O _ Set , 计算 点集 C _ Set , 其中 C _ Set 中 的 点 为 根据 指标 函数 计算 得到 的 像素点 . 算法 描述 如下 : 
+ 　 　 While   O _ Set   NOT   Empty   Do   begin 
+ 　 　 x = Select _ one _ point _ of   ( O _ Set ) ; 
+ 　 　 Nx = Build _ neighbor _ of   ( x ) ; 
+ 　 　 For   y ∈ Nx   Do 
+ 　 　 Ty = R =  i ω i * ci * ( fi ( y ) ) ; 
+ 　 　 P = ( Tx ≥ Ty ) ? Tx : Ty 
+ 　 　 add _ to _ C _ Set ( p ) ; 
+ 　 　 Remove _ P _ from ( O _ Set ) ; 
+ 　 　 End   For 
+ 　 　 End   While 
+ 　 　 在 实验 中 , 我们 选用 从 MRI 设备 上 获取 的 关于 人体 脚部 的 MRI 图像 . 图 6 为 其中 的 一个 断层 数据 , 
+ 
+ 
+ 图 5   代理 机 跟踪 结果 　 　 图 6   原始 MRI 图像 
+ 该组 数据 的 成像 物理 数据 如表 1 所示 .   
+ 表 1 
+ 
+ 图像 来源 图像 高度 图像 宽度 成像 位数 断层 厚度 成像 水平 分辨率 成像 垂直 分辨率 成像 断层 数 
+ MRI127   pixel181   pixel16bits / pixel1.700   0mm0.546   875mm0.546   875mm27 层 
+ 
+ 如图 6 所示 , 分割 鼠标 所 指向 的 目标 区域 . 按照 上述 方法 , 首先 在 分割 区域 中 选取 初始 中心点 , 基于 该点 进行 区域 增长 计算 , 得到 如图 5 所示 的 预 分割 区域 . 代理 机 计算 得到 的 该 区域 的 平均 归一化 灰度 值为 0.541   667 , 平均 灰度 均 方差 为 0.164   583 . 最后 的 边缘 由 代理 机 计算 得到 , 如图 5 所示 . 最后 对 分割 结果 进行 标定 , 得到 图 7 的 结果 . 图 8 是 各个 分割 得到 的 区域 . 
+ 
+ 
+ 图 7   实际 分割 区域   图 8   分割 后 的 区域   
+ 2   结   论 
+ 　 　 我们 根据 人机交互 的 思想 ［ 6 ］ 提出 了 基于 代理 机 的 交互式 图像 分割 模型 , 并且 进行 了 初步 研究 . 实验 结果表明 , 这一 方法 对于 医学 图像 的 分割 问题 能够 得到 较 好 的 结果 , 是 一种 值得 探索 的 图像 分割 手段 . 但是 , 还有 很多 问题 值得 进一步 研究 , 比如 : 指标 函数 的 选择 、 转换 函数 的 选择 、 特征 选取 以及 交互 手段 及 交互 模型 的 改进 等等 . 另外 , 在 具体 实现 过程 中 , 参考 了 文献 ［ 7 ］ 的 部分 源程序 , 在 此 表示感谢 . 
+ 　 　 本文 研究 得到 国家自然科学基金 和 国家 863 高科技 项目 基金 资助 . 作者 刘 宁宁 , 1970 年生 , 博士 , 主要 研究 领域 为 图像处理 , 模式识别 . 田捷 , 1960 年生 , 博士后 , 研究员 ， 博士生 导师 , 主要 研究 领域 为 计算机 视觉 , 计算机 图形学 , 多媒体系统 . 
+ 　 　 本文 通讯联系 人 : 田捷 ， 北京   100080 , 中国科学院自动化研究所 
+ 作者 单位 ： 中国科学院自动化研究所   北京 　 100080 
+ 参考文献 
+ ［ 1 ］ Udupa   J   K ,   Herman   G   T .   3D   Imaging   in   Medicine .   CRC   Press ,   1991 
+ ［ 2 ］ Mortensen   E ,   Morse   B ,   Barrett   W   et   al .   Adaptive   boundary   detection   using   “ Live - Wire ”   two - dimensional   dynamic   programming .   In :   IEEE   Processing   of   Computers   in   Cardiology .   New   York :   IEEE   Press ,   1992 .   635 ～ 638 
+ ［ 3 ］ Kass   M ,   Witkin   A ,   Terzopoulus   D .   Snakes :   active   contour   models .   Computer   Vision ,   1987 , 1 ( 4 ) : 321 ～ 331 
+ ［ 4 ］ Geiger   D ,   Gupta   A .   Dynamic   programming   for   detecting ,   tracking ,   and   matching   deformable   contours .   IEEE   Transactions   on   PAMI ,   1995 , 17 ( 3 ) : 294 ～ 302 
+ ［ 5 ］ Rhodes   M   L .   Computer   graphics   and   medicine :   a   complex   partnership .   IEEE   Computer   Graphics   and   Applications ,   1997 , ( 1 ) : 22 ～ 28 
+ ［ 6 ］ 戴汝为 , 王珏 , 田捷 . 智能 系统 的 综合 集成 . 杭州 : 浙江 科学技术 出版社 , 1994 
+ ( Dai   Ru - wei ,   Wang   Jue ,   Tian   Jie .   Metasynthesis   of   Intelligent   System .   Hangzhou :   Zhejiang   Science   and   Technology   Publishing   House ,   1994 ) 
+ ［ 7 ］ 田捷 等 . 实用 图像 分析 与 处理 . 北京 : 电子 工业 出版社 , 1995 
+ ( Tian   Jie   et   al .   Practical   Image   Processing   and   Analyzing   Techniques .   Beijing :   Electronics   Industry   Publishing   House ,   1995 ) 
+ （ 1998 - 03 - 11 收稿 ） 

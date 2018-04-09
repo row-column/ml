@@ -1,0 +1,252 @@
+宇   航   学   报 
+ JOURNAL   OF   ASTRONAUTICS 
+ 1998 年 4 月     第 19 卷     第 2 期 科技期刊 
+ 
+ 
+ 带 挠性 附件 的 航天器 系统 
+ 动力学 特性 研究 
+ 匡金炉 
+ ( 北京航空航天大学 宇航 学院 * 北京 * 100083 ) 
+ 摘     要       本文 研究 了 带 挠性 附件 的 航天器 系统 动力学 特性 。 带 挠性 附件 的 
+ 航天器 系统 建模 为 刚性 主体 带 挠性 附件 ( 挠性 附件 的 末端 带有 刚性 质量 ) , 根 
+ 据拟 坐标 下 的 Lagrange 定理 建立 了 主 刚体 姿态 运动 与 挠性 附件 振动 相互 耦合 
+ 的 动力学 状态方程 。 针对 一类 带 挠性 附件 的 航天器 系统 编制 了 有关 计算 软件 , 
+ 利用 该软件 以 SCOLE 模型 ( SCOLE 是 Spacecraft   Control   Laboratory   Experiment 
+ 的 缩写 , 其 系统 构形 可 参见 文献 ［ 2 ］ ［ 3 ］ ) 为例 进行 动力学 分析 , 我们 得到 
+ 了 与 NASA 有关 报告 几乎 完全 一样 的 结果 。 本项 研究 为 一类 带 挠性 附件 的 航天 
+ 器 控制系统 设计 提供 了 一种 合适 的 动力学 理论 模型 。 
+ 
+ 主题词     挠性 航天器 动力学     耦合 振动     SCOLE 模型 
+ 　 
+ DYNAMICS   OF   SPACECRAFT 
+ WITH   FLEXIBLE   APPENDAGES 
+ Kuang   Jinlu 
+ ( School   of   Spacecraft   Technology , Beijing   University   
+ of   Aeronautics   and   Astronautics * Beijing * 100083 ) 
+ Abstract     The   dynamics   of   spacecraft   with   flexible   appendages   is   investigated . The   set   of   
+ dynamical   equations   which   are   derived   by   means   of   a   Lagrangian   approach   in   terms   of   
+ quasicoordinates   incorporate   rigid - body   attitude   dynamics   and   three - dimensional   
+ vibrations   of   the   complete   assembly   comprising   the   rigid   shuttle , the   flexible   beams , and   the   
+ reflectors   with   offset   masses   at   the   ends . The   final   set   of   dynamical   equations   obtained   are   
+ nonlinear   and   coupled   in   terms   of   the   flexible   modes   and   the   rigid - body   modes . The   
+ equations   are   further   linearized   and   evaluated   numerically   to   include   the   first   eighteen   
+ flexible   modes . The   computer   program   written   by   us   could   calculate   natural   frequencies   
+ and   three - dimensional   mode   shapes   and   the   rotation - couple   coefficient   matrix   of   the   
+ state   equations   of   the   system . It   is   shown   that   the   dynamical   modes ( of   the   SCOLE   model )   
+ derived   from   our   computer   program   are   the   same   as   the   NASA ' s   reports . This   research   
+ yields   a   model   for   designing   control   systems   to   perform   three - axis   stabilized   spacecraft   with   
+ appendages . 
+ 
+ Key   words     Dynamics   of   spacecraft   with   flexible   appendages       Coupled   vibration     
+ SCOLE   model 
+ 
+ 1     背景 
+ 
+ 　 　 随着 航天技术 的 发展 , 航天器 主 刚体 常 带有 大型 挠性 太阳电池 帆板 与 挠性 
+ 天线 装置 或 其它 挠性 附近 。 在 这种 航天器 的 飞行 与 控制 过程 中 , 作用 在 航天器 
+ 上 的 扰 动力 和 控制力 不仅 会 激起 航天器 的 位置 与 姿态 的 改变 , 而且 会 激起 挠性 
+ 附件 的 弹性 振动 , 挠性 附件 的 弹性 振动 进而 又 影响 航天器 的 整体 运动 与 控制 ［ 
+ 1 - 10 ］ 。 因此 , 在 航天器 的 动力学 分析 与 控制 设计 中 , 必须 计及 附件 结构 挠性 
+ 影响 , 在 航天器 的 动力学 模型 中 引入 结构 挠性 因素 。 在 分析 带有 挠性 附件 的 航 
+ 天器 动力学 时 , 通常 是 同时 考虑 航天器 的 姿态 运动 与 附件 的 弹性 振动 , 建立 包 
+ 含 附件 结构 动力学 分析 在内 的 挠性 航天器 动力学 分析 的 统一 的 计算机程序 , 本 
+ 文 基于 这种 思想 。 
+ 
+ 2     系统 运动 方程 推导 
+ 
+         
+ 
+ 图 1   航天器 的 构形 
+ 该 航天器 系统 由 刚性 主体 与 给定 数目 的 挠性 附件 组成 ［ 1 ］ ( 挠性 附件 的 末端 带 
+ 有 刚性 质量 ) 。 为了 建立 运动 方程 引入 以下 三套 坐标系 ( 如图 1 ) : 1 ) 惯性 坐标系 
+ OXYZ ; 2 ) 与 主 刚体 固连 的 随体 坐标系 oxyz , o 在 航天器 系统 质心 位置 ; 3 ) 与 挠性 
+ 附件 e 固连 的 坐标 xeyeze 坐标 原点 在 附件 e 与 主体 的 铰接 点 ( e = 1 , 2 , N ) 。 图中 有 
+ 关 符号 说明 见 附录 A 。 
+ 
+ 　 　 假设 ω 为 坐标系 oxyz 相对 于 惯性 空间 的 角速度 矢量 , 由 其 在 坐标系 oxyz 
+ 中 的 分量 描述 ; ω  e 为 坐标系 xeyeze 相对 于 坐标系 oxyz 的 角速度 矢量 , 由 其 在 
+ 坐标系 xeyeze 中 的 分量 描述 ; 又 设 Ee 为 从 坐标系 oxyz 到 坐标系 xeyeze 的 方向 余 
+ 弦 矩阵 ; Vo 代表 刚性 主体 质心 o 的 速度 , 由 在 坐标系 oxyz 中 的 分量 描述 ; 考虑 到 
+ 挠性 附件 相对 于主 刚体 的 角速度 ω e 为 已知 , 因此 , 系统 的 未知 运动 可 由 刚体 运 
+ 动 Vo 、 ω 及 弹性 运动 ue ( e = 1 , 2 , … , N ) 描述 。 拟 坐标系 下 的 Lagrange 方程 是 
+ 由常 微分方程 与 偏 微分方程 组成 的 混合 微分方程 组 , 它 表明 带 挠性 附件 的 航天 
+ 器 系统 属于 分布 参数 系统 范围 。 根据 混合 微分方程 进行 控制系统 设计 尚 缺乏 
+ 足够 的 理论依据 , 因此 , 必须 求助于 空间 离散 化将 偏 微分方程 转化 为 常微分 方 
+ 程 。 为 达到 此 目的 , 设 挠性 附件 e 上 一点 的 弹性 位移 矢量 为 : 
+ ue ( re , t ) = Φ e ( re ) qe ( t ) 
+ 这里 , Φ e 为 容许 函数 矩阵 , qe 为 广义坐标 矢量 。 为了 导出 系统 方程 的 具体 形式 , 
+ 必须 先 写出 系统 功能 、 势能 和 非 保守力 所 做 的 虚功 等 之 表达式 ( 本文 从略 ) 。 
+ 系统 动能 可写 为 : 
+ T = T1 + T2 + T3 
+ 其中 , T1 代表 主 刚体 动能 与 挠性 附件 ( 梁 ) 动能 之 和 , T2 代表 末端 刚体 之 动能 , 
+ T3 为 修正 项 , 该 修正 项 起因于 梁之 扭转 ［ 3 ］ 。 
+ 
+ 　 　 假设 末端 刚体 起因于 弹性 变形 而 相对 于 弹性 附件 ( 未 变形 状态 ) 的 转动 
+ 角度 矢量 为 β e , 在 小 变形 假设 条件 下 有 ［ 3 ］ : 
+ ( d β e ) / ( dt ) = Ψ e ( dqe ) / ( dt ) 
+ 这里 , Ψ e 为 与 矩阵 Φ e ( re ) 有关 的 矩阵 。 
+ 
+ 　 假设 作用 于主 刚体 的 实际 力主 矢为 Fo , 而 实际 力主 矩为 Mo , 又 设 挠性 附件 所 受 
+ 的 分布力 矢量 为 fe , 其中 : 矢量 Fo 、 Mo 由 其 在 坐标系 oxyz 中 的 分量 表示 ; 分布力 
+ 矢量 fe 由 其 在 坐标系 xeyeze 中 的 分量 表示 。 引入 弹性 小 变形运动 假设 , 忽略 高于 
+ 二次 的 有关 项 , 将 动能 表达式 、 势能 表达式 、 广义力 表达式 代入 拟 坐标系 下 的 
+ Lagrange 方程 , 通过 整理 得 : 
+ 
+ 
+ 其余 符号 类推 。 在 方程 ( 1b ) 的 推导 过程 中 还 用到 如下 等式 : 
+ ( ETere ) # eETe = ETer # e 
+ 
+ 
+ 这里 , Fei 为 依赖于 时间 的 
+ 力幅值 , 而 δ ( re - rei ) 为 空间 Dirac   delta 函数 。 
+ 
+         考虑 到 轨道 运动 周期 远比 姿态 运动 周期 为 长时 , 可以 略去 其 质心 的 轨道 运动 。 
+ 此外 , 假设 挠性 附件 相对 于主 刚体 的 角速度 为 ω e = 0 , 线性化 处理 后 引入 模态 正 
+ 交化 坐标 及 模态 阻尼 , 系统 姿态 动力学 方程 ( 1b ) 、 ( 1c ) 可写 为 ( 设 作用 于 附件 
+ 上 的 外力 为 零 ) : 
+ 
+ （ 2a )     ( 2b ) 
+ 这里 , ξ 为 模态 阻尼 对角 矩阵 , Ω 为 模态 频率 对角 矩阵 , 且 : 
+ ξ = diag ( ξ 1 , ξ 2 , … , ξ N )   Ω = diag ( Ω 1 , Ω 2 , … , Ω N ) 
+ θ 为主 刚体 姿态 角 向量 , p 为 系统 挠性 附件 模态 坐标 向量 ( N 维 ) , C 为 旋转 — 振动 耦 
+ 合 系数 矩阵 , M0 为 作用 于主 刚体 的 控制 力矩 向量 。 3       带 偏置 末端 惯性质量 的 连续 
+ 梁 三维 模态 分析 
+ 
+         
+ 
+ 图 2   端部 带 偏置 惯性质量 的 梁 数学模型 
+ 刚性 主体 附加 挠性 天线 所 组成 的 子系统 ( SCOLE 模型 ) 可 建模 为 带 偏置 末端 惯性 
+ 质量 的 连续 梁 系统 ( 如图 2 ) , 连续 梁 的 三维 振动 由 xe 、 ye 方向 的 弯曲 振动 与 绕 ze 
+ 轴 的 扭转 振动 耦合 而成 ［ 2 ］ 。 设梁 的 横截面 积为 A , 材料 密度 为 ρ , xe - ze 平面 
+ 弯曲 刚度 为 ( EI ) x , ye - ze 平面 弯曲 刚度 为 ( EI ) y , 梁 截面 扭转 刚性 模量 为 G Ψ , 截面 
+ 惯性 极矩 为 Ip , 梁之 长度 为 L , 端部 xe = 0 的 末端 刚体 m0 与 端部 xe = L 的 末端 刚体 mL 
+ 的 惯性 张量 分别 为 : 
+ 
+ 末端 质量 m0 在 xe 、 ye 方向 的 质心 位置 为 Δ x0 、 Δ y0 。 而 末端 质量 mL 在 xe 、 ye 方向 
+ 的 质心 位置 为 Δ xL 、 Δ yL 。 又 设带 偏置 末端 惯性质量 的 连续 梁 三维 耦合 振动 的 固 
+ 有 频率 为 ω b 。 
+ 
+         令 xe 方向 的 弯曲 振型 为 : 
+ rx ( ze ) = A1sin ( β xze ) + B1cos ( β xze ) + C1sinh ( β xze ) + D1cosh ( β xze ) 
+ ye 方向 的 弯曲 振型 为 : 
+ ry ( ze ) = A2sin ( β yze ) + B2cos ( β yze ) + C2sinh ( β yze ) + D2cosh ( β yze ) 
+ 绕 ze 轴 的 扭转 振型 为 : 
+ θ ( ze ) = A3sin ( β zze ) + B3cos ( β zze ) 
+ 这里 , 
+ 
+ 
+ 据 剪力 、 弯矩 与 扭矩 应该 满足 的 端部 边界条件 , 经过 复杂 的 推导 过程 , 可 得 关于 
+ 系数 A1 、 B1 、 C1 、 D1 、 A2 、 B2 、 C2 、 D2 、 A3 、 B3 的 线性代数 方程组 可 在 文献 ［ 2 ］ 
+ 中查 到 。 关于 系数 A1 、 B1 、 C1 、 D1 、 A2 、 B2 、 C2 、 D2 、 A3 、 B3 的 线性代数 方程组 
+ 有 非零解 的 条件 为 其 系数 行列式 为 零 , 该 行列式 方程 是 表 3.1 中所列 十九个 参数 
+ ( 变量 ) 的 复杂 函数 , 根据 超越 函数 方程 的 求根 二分法 可 求得 带 末端 偏置 质量 的 连 
+ 续梁 子系统 ( SCOLE 模型 ) 的 固有频率 序列 , 进而 容易 得知 该 子系统 ( SCOLE ) 的 振动 
+ 模态 。 本文 编制 的 有关 “ 带 末端 偏置 质量 的 连续 梁 子系统 的 固有频率 与 模态 ” 分 
+ 析 的 部分 软件 通过 SCOLE 模型 动力学 进行 了 验证 。 SCOLE 模型 ( Ⅰ ) ［ 2 ］ 与 SCOLE 模 
+ 型 ( Ⅱ ) 总体 参数 如表 3.1 , SCOLE ( Ⅰ ) 模型 的 有关 动力学 结果 的 前 5 阶 动力学 与 文献 
+ ［ 2 ］ 所 给 的 结果 ( 文献 ［ 2 ］ 仅 给出 了 前 5 阶 ) 完全一致 。 限于 篇幅 , 这里 省略 
+ SCOLE ( Ⅰ ) 与 SCOLE ( Ⅱ ) 的 前九阶 动力学 结果 ( 指其 固有频率 与 模态 ) 。 
+ 表 3.1   SCOLE 模型 ( Ⅰ ) 与 SCOLE 模型 ( Ⅱ ) 参数 
+ 参数 SCOLE ( Ⅰ ) SCOLE ( Ⅱ ) 国际 单位 
+ L0.3962400 E + 020.3657600 E + 02m 
+ m00.9298801 E + 050.9298801 E + 05kg 
+ mL0.1814055 E + 030.3628111 E + 03kg 
+ Ixx00.1228627 E + 070.1228627 E + 07kg * m2 
+ Iyy00.9212363 E + 070.9212363 E + 07kg * m2 
+ Izz00.9616053 E + 070.9616053 E + 07kg * m2 
+ Ixy00.0000000 E + 000.0000000 E + 00kg * m2 
+ IxxL0.2442482 E + 050.5156351 E + 05kg * m2 
+ IyyL0.1266834 E + 050.1146338 E + 05kg * m2 
+ IzzL0.3718950 E + 050.7382673 E + 05kg * m2 
+ IxyL - 0.1027199 E + 05 - 0.1172391 E + 05kg * m2 
+ Δ x00.0000000 E + 000.0000000 E + 00m 
+ Δ y00.0000000 E + 000.0000000 E + 00m 
+ Δ xL0.5715000 E + 010.4776216 E + 01m 
+ Δ yL - 0.9906000 E + 01 - 0.1090574 E + 02m 
+ ρ A0.4578247 E + 010.4578247 E + 01kg / m 
+ EI0.1651920 E + 080.1651920 E + 08N - m2 
+ ρ Ip0.4046318 E + 010.4046318 E + 01kg - m 
+ GIp0.1651920 E + 080.1651920 E + 08N - m2 
+ 
+ 
+ 4     编程 求解 
+ 
+ 　 　 本文 按 上述 计算公式 编制 了 Fortran 程序 2000 多条 , 只 要求 输入 航天器 
+ 系统 的 几何 尺寸 及 位置 参数 和 物理 参数 ( 如图 3 ) , 即可 以求 出 系统 惯性 参数 
+ 矩阵 It 、 Me 、 Ke 及 耦合 系数 矩阵 I6e 。 有关 积分 公式 可用 MATHEMATICA 数学 
+ 软件 库 推导 出 解析 公式 并 自动 转换成 Fortran 程序 。 
+ 
+ ( 对称 布置 的 ) 挠性 ( 梁式 ) 天线 - 1 位置 参数 : ro1x = 0.1097280 E - 01m 。 
+ ro1y = - 0.1097280 E - 01m 。   ro1z = 0.1155192 E + 00m 。 
+ ( 对称 布置 的 ) 挠性 ( 梁式 ) 天线 - 4 位置 参数 : ro4x = 0.1493520 E - 01m 。 
+ ro4y = - 0.1493520 E - 01m 。   ro4z = 0.16550640 E + 00m 。 
+ 
+ 
+ 图 3   复杂 结构 航天器 的 简化 模型 
+ 　 　 单个 挠性 天线 1 或 3 的 有关 参数 如 SCOLE ( Ⅰ ) , 单个 挠性 天线 2 或 4 的 有关 
+ 参数 如 SCOLE ( Ⅱ ) 。 带 挠性 附件 的 航天器 系统 ( 如图 3 ) 动力学 模型 的 有关 结 
+ 果请 参考 附录 B 。 
+ 
+ 5   结论 
+ 
+ 　 　 1 . 根据 坐标 下 的 Lagrange 方程 可以 方便 地 推导 主 刚体 姿态 运动 与 挠性 
+ 附件 振动 相互 耦合 的 动力学 状态方程 , 本文 给出 了 有关 系数 矩阵 的 计算公式 。 
+ 
+ 　 2 . 编制 了 计算 软件 , 据 给定 的 总体 尺寸 与 物理 参数 能 计算 出 动力学 状态 方 
+ 程中 所 出现 的 所有 参数值 ( 包括 系统 惯性 参数 矩阵 ) 。 
+ 
+ 　 3 . 本文 编制 的 软件 通过 SCOLE 模型 的 前 5 阶 动力学 进行 验证 , 准确无误 。 从 
+ 带 四个 挠性 附件 的 航天器 动力学 分析 可知 , 挠性 附件 低频 模态 密集 , 对 控制 稳 
+ 定性 的 威胁 较大 。 
+ 
+ 　 4 . 据 系统 旋转 — 振动 耦合 系数 矩阵 得知 , 挠性 附件 ( 三维 ) 振动 的 各阶 模态 
+ 对 航天器 的 偏航 、 俯仰 与 滚转 姿态 皆 同时 具有 不同 程度 的 影响 。 
+ 本文 于 1995 年 2 月 24 日 收到 
+ 
+ 参考文献 
+ 1     Meirovitch   L , Kwak   K . Dynamics   and   Control   of   Spacecraft   with   Retargeting   Flexible   
+ Antennas . J . Guidance , 1990 , 13 ( 2 ) : 241 - 248 
+ 2     Robertson   DK . Three - dimensional   Vibration   Analysis   of   a   Uniform   Beam   with   Offset   
+ Inertial   Masses   at   the   Ends . NASA   TM   86393 
+ 3     Kakad   YP . Dynamics   of   Spacecraft   Control   Laboratory   Experiment   ( SCOLE )   Slew   
+ Maneuvers . N88 - 10082 
+ 4 肖业伦 . 航天器 飞行 动力学 原理 . 宇航 出版社 , 1995 
+ 5 章仁为 . 静止 卫星 的 轨道 和 姿态控制 . 科学出版社 , 1987 
+ 6 缪炳祺 . 挠性 卫星 姿态 动力学 模型 的 建立 . 宇航学 报 , 1986 , 7 ( 4 ) 
+ 7 王照 林 . 运动 稳定性 及其 应用 . 高等教育出版社 , 1992 
+ 8 张乃恭 . 卫星 挠性 附件 的 动力学 问题 — — 太阳电池 阵 动力学 的 有限 分析 . 光学 
+ 机械 , 1981 , ( 6 ) 
+ 9 邵成勋 , 黄 文虎 等 . 带 挠性 附件 的 卫星 的 姿态 动力学 方程 . 宇航学 报 , 1989 , 
+ 10 ( 2 ) : 79 - 85 
+ 10 刘墩 , 杨 大明 . 带 挠性 附件 卫星 的 模型 化及 截断 . 宇航学 报 , 1989 , 10 ( 4 ) 
+ : 87 - 95 
+ 
+ 
+ 附录 A 
+ 　 
+ 图 1 中 有关 符号 说明 
+ 
+         R0 代表 从 坐标系 OXYZ 的 原点 O 至 坐标系 oxyz 的 原点 o 的 矢量 , 由 其 在 坐标 
+ 系 OXYZ 中 的 分量 描述 ; roe 代表 挠性 附件 与 主 刚体 连接点 在 坐标系 oxyz 中 的 
+ 位移 矢量 , 由 其 在 坐标系 oxyz 中 的 分量 描述 ; re 代表 挠性 附件 上 的 典型 点 在 
+ 坐标系 xeyeze 中 的 位置矢量 , 由 其 在 坐标系 xeyeze 中 的 分量 描述 ; ue 代表 挠性 
+ 附件 上 的 典型 点 在 坐标系 xeyeze 中 的 弹性 位移 矢量 , 由 其 在 坐标系 xeyeze 中 的 
+ 分量 描述 ; ( mref ) e 代表 弹性 附件 e 的 末端 刚体 质量 ; mr 代表 主 刚体 的 质量 ; me 代 
+ 表 挠性 附件 - e 的 质量 ; ( Iref ) e 代表 弹性 附件 e 的 末端 刚体 对过 其 质心 的 主 惯性 
+ 坐标系 的 惯性 张量 矩阵 。 
+ 　 　 动力学 状态方程 ( 2a ) - ( 2c ) 中 所 出现 的 有关 中间 变量 函数 
+ 
+ 
+ 
+ 
+ 
+ 
+ 附录 B   带 挠性 附件 的 航天器 系统 动力学 模型 ( 2a , 2b ) 中 的 有关 参数 
+ Ω 1 = . 1807123E + 00 ; Ω 2 = . 2213053E + 00 ; Ω 3 = . 2596716E + 00 
+ Ω 4 = . 2988057E + 00 ; Ω 5 = . 4070885E + 00 ; Ω 6 = . 5103190E + 00 
+ Ω 7 = . 7164350E + 00 ; Ω 8 = . 9422634E + 00 ; Ω 9 = . 9685386E + 00 
+ Ω 10 = . 1119778E + 01 ; Ω 11 = . 2079677E + 01 ; Ω 12 = . 2366811E + 01 
+ Ω 13 = . 2617651E + 01 ; Ω 14 = . 2902120E + 01 ; Ω 15 = . 3379574E + 01 
+ Ω 16 = . 3470118E + 01 ; Ω 17 = . 4192612E + 01 ; Ω 18 = . 4210485E + 01 
+ 
+ 系统 惯量 矩阵 为 : 

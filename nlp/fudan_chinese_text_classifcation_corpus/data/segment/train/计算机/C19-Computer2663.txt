@@ -1,0 +1,104 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年 　 第 10 卷 　 第 9 期 　 Vol.10 　 No.9 　 1999 
+ 
+ 
+ 
+ 基于 最大 交叉 熵 估计 高斯 混合 模型 参数 的 方法 * 
+ 马继涌 　 高文 
+ 摘要 　 传统 的 基于 最大 似然 估计 高斯 混合 模型 参数 的 方法 是 一种 无 导师 的 学习 方法 . 该 方法 的 主要 缺点 是 学习 算法 在 估计 一类 模式 模型 中 的 参数 时 只 利用 了 该类 模式 中 的 训练样本 ， 而 未 考虑 其他 类 训练 样本分布 的 影响 ， 因此 ， 这种 方法 的 识别 效果 往往 不够 理想 . 该文 提出 了 利用 最大 交叉 熵 估计 高斯 混合 模型 参数 的 方法 ， 这种 方法 考虑 了 不同 类 之间 的 样本 区分 性 . 同时 , 为了 提高 获得 全局 最优 解 的 可能性 ， 文章 给出 一种 利用 进化 规划 求解 最优 参数 的 算法 ， 并 将 这种 方法 用于 非 限定 文本 的话 者 识别 . 实验 表明 ， 该 方法 比 传统 的 参数估计 方法 识别 效果 要 好 . 
+ 关键词 　 最大 交叉 熵 ， 高斯 混合 模型 ， 进化 规划 ， 话者 识别 . 
+ 中图法 分类号 　 TP391 
+ An   Approach   for   Estimating   Parameters   in   Gaussian   Mixture   Model   Based   on   Maximum   Cross   Entropy 
+ MA   Ji - yong , GAO   Wen 
+ ( Department   of   Computer   Science   and   Engineering   Harbin   Institute   of   Technology   Harbin   150001 ) 
+ Abstract 　 The   traditional   approach   for   estimating   parameters   in   Gaussian   mixture   models   ( GMM )   based   on   maximum   likelihood   is   a   kind   of   unsupervised   learning   method ,   its   shortage   is   that   the   parameters   in   GMM   are   derived   only   by   the   training   samples   in   one   class   without   taking   the   effect   of   sample   distributions   of   other   classes   into   account ,   hence ,   its   recognition   is   usually   not   ideal .   In   this   paper ,   an   approach   is   presented   for   estimating   parameters   in   GMM   based   on   the   maximum   cross   entropy   of   different   classes ,   this   method   takes   the   discriminations   of   samples   in   different   classes   into   account .   To   increase   the   possibility   of   obtaining   the   global   optimal   solution ,   this   paper   proposes   an   approach   for   estimating   the   optimal   parameters   in   GMM   based   on   evolutionary   programming .   An   experiment   has   been   carried   out   using   the   method   for   the   text - independent   speaker   recognition ,   the   results   have   shown   that   the   recognition   accuracy   is   higher   than   that   of   the   traditional   approach .   The   method   has   also   fast   convergent   speed . 
+ Key   words 　 Maximum   cross   entropy ,   Gaussian   mixture   model ,   evolutionary   programming ,   speaker   recognition . 
+ 　 　 高斯 混合 模型 ( Gaussian   mixture   model , 简称 GMM ) 广泛应用 于 模式识别 和 数据分析 ［ 1 ］ 等 领域 . 例如 , G . Hinton 等 人 ［ 2 ］ 利用 这种 方法 研究 了 手写体 数字 识别 问题 . 另外 ， GMM 也 广泛应用 于 非 限定 文本 的话 者 识别 ［ 3 ］ , 并 取得 了 良好 的 识别 效果 . 传统 的 GMM 方法 是 无 导师 的 学习 方法 ， 模型 中 的 参数 只用 一类 训练样本 通过 最大 似然 估计 方法 得到 ， 而 未 考虑 其他 类 训练样本 的 分布 影响 . 一般 在 训练样本 不够 充分 的 条件 下 ， 模型 的 区分 性 往往 不够 理想 . 从 理论 上 讲 ， 如果 训练样本 在 样本空间 里 分布 得 足够 稠密 ， 用 这种 方法 估计 出 的 参数 在 最大 似然 意义 下 是 最优 的 . 然而 ， 在 实际 应用 中 ， 由于 实验 条件 的 限制 ， 往往 不 可能 得到 无限 多 的 训练样本 . 另外 ， 由于 特征提取 方法 的 缺陷 使得 不同 类别 的 训练样本 在 样本空间 中 存在 相互 覆盖 的 现象 ， 因此 ， 有 必要 进行 有 区分 性 的 估计 模型 参数 ， 以 改进 模型 的 识别 精度 . 理论 上 讲 ， 最佳 的 估计 参数 方法 应该 使 模型 的 后验 误识率 最小 ， 然而 ， 这 在 实际 应用 中 很 难 做到 . 文献 ［ 4 ］ 利用 贝叶斯 判别分析 给出 了 一种 区分 性 的 估计 高斯 混合 模型 参数 的 方法 ， 得到 了 良好 的 结果 . 文献 ［ 5 ］ 讨论 了 一般 混合 模型 在 专家 混合 ( mixtures   of   experts ) 模型 中 的 应用 . 由于 两个 类别 的 概率密度 的 交叉 熵 是 这 两个 类别 的 区分 性 的 一种 度量 . 交叉 熵 越 大 ， 两个 类别 的 区分 性越 大 . 因此 在 模型 训练 时 , 可以 利用 以 不同 类别 的 整体 交叉 熵 最大 为 优化 目标 ， 估计 模型 参数 . 基于 这种 思想 ， 本文 提出 了 基于 最大 交叉 熵 的 GMM 模型 参数估计 方法 . 由于 这种 方法 考虑 了 不同 类别 样本 的 区分 性 ， 使得 模型 识别 精度 较 好 . 
+ 1 　 基于 最大 交叉 熵 的 参数估计 方法 
+ 　 　 设 Ω 1 , Ω 2 , ... , Ω N 是 N 个 不同 的 类 ， 第 i 类 的 训练样本 构成 的 集合 记为 Xi ， 并 假定 每个 类别 出现 的 先验概率 相等 . 样本 x 在 类别 Ω i 中 出现 的 条件 概率密度 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 式 中 pik ( x ) ～ Np ( μ ik , Σ ik ) ( 正态分布 ) ， x 是 p 维 向量 ， μ ik , Σ ik 分别 是 均值 向量 和 协方差 矩阵 , cik ≥ 0 , ,   它们 是 要 被 估计 的 参数 . 
+ 　 　 第 i 类别 相对 第 j 类别 的 交叉 熵 （ 也 称为 信息 的 散度 或 Kullback - Leibler 距离 ） 定义 为 ［ 6 ］ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 ( 2 ) 
+ 　 　 N 个 不同 类别 的 整体 交叉 熵 定义 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 3 ) 
+ 　 　   以 整体 交叉 熵 最大 为 优化 目标 ， 在 约束条件 为 cik ≥ 0 , 的 条件 下 ， 估计 模型 中 的 参数 , 可以 利用 拉格朗 日 乘数 法 求解 这个 优化 问题 , 为了 得到 计算 cik , μ ik , Σ ik 参数 的 迭代 方法 ， 下面 给出 5 个 引理 ， 其中 运算符 ( x ) ′ 表示 对列 向量 x 求 转置 . 
+ 　 　 记 d2 ( x , u , Σ ) = ( x - μ ) ′ Σ - 1 ( x - μ ) ， Σ = ( σ ij ) p × p ， 则 有 下述 引理 成立 . 
+ 　 　 引理 1 . 
+ 
+ 式 中 { Σ - 1 ( x - μ ) ( x - μ ) ′ Σ - 1 } ij 表示 矩阵 Σ - 1 ( x - μ ) ( x - μ ) ′ Σ - 1 第 i 行第 j 列 的 元素 , 即 ▽ Σ d2 ( x , μ , Σ ) = - Σ - 1 ( x - μ ) ( x - μ ) ′ Σ - 1 . 
+ 　 　 引理 2 . 
+ 
+ 式 中 { Σ - 1 ( x - μ ) } i 表示 Σ - 1 ( x - μ ) 的 第 i 个 分量 , 即 ▽ μ d2 ( x , μ , Σ ) = - 2 Σ - 1 ( x - μ ) . 
+ 　 　 引理 3 .   设 A = ( α ij ) p × p 是 一个 p 阶 方阵 ， 则 
+ 
+ 式 中 Aij 是 矩阵 A 中 元素 aij 的 代数 余子式 ， 设 A * = ( Aij ) p × p 是 A 的 伴随 矩阵 ， 则 有 AA * = A * A = | A | I , A - 1 = A * ， 其中 I 是 单位矩阵 . 
+ 　 　 引理 4 .   设 pik ( x ) ～ Np ( μ ik , Σ ik ) ， 由 引理 2 可得 
+ ▽ μ ikpik ( x ) = pik ( x ) Σ - 1ik ( x - μ ik ) . 
+ 　 　 引理 5 .   设 pik ( x ) ～ Np ( μ ik , Σ ik ) ， 由 引理 1 和 引理 3 可得 
+ 
+ 　 　 由式 ( 3 ) 可以 构造 下述 目标 函数 
+ 　 　 　 　 　 　 　 　 　 　 　 ( 4 ) 
+ 式 中 λ 是 拉格朗 日 因子 , , μ 是 一个 大于 零 的 罚 因子 ， 一般 取 一个 较大 的 值 . 
+ 　 　 为了 极大 化 目标 函数 HTotal , 应 满足 下述 条件 
+ 　 　 　 　 　 　 　 　 　 　 　 　 ( 5 ) 
+ 式 中 ， 
+ 
+ 由于 , 对式 ( 5 ) 两边 同乘 cik 后 ， 对 k 求和 可 得 
+ 
+ 式 中 . 
+ 　 　 由式 ( 5 ) 和 上述 关系 可得 HTotal 关于 cik 的 偏 导数 
+ 　 　 　 　 　 ( 6 ) 
+ 　 　 由式 ( 4 ) 和 引理 4 可得 
+ 　 　 　 　 　 　 　 　 　 　 　 ( 7 ) 
+ 式 中 Uik ( x ) = Σ - 1ik ( x - μ ik ) . 
+ 　 　 由式 ( 4 ) 和 引理 5 可得 
+ 　 　 　 　 　 　 　 　 　 　 ( 8 ) 
+ 式 中 Vik ( x ) = Σ - 1ik ( x - μ ik ） ( x - μ ik ) ′ Σ - 1ik - Σ - 1ik . 
+ 　 　 得到 关于 参数 cik , μ ik , Σ ik 的 梯度 信息 后 ， 原则上 可 利用 梯度 上升 法等 传统 优化 方法 求解 ， 但 由于 传统 的 优化 方法 是 一种 贪心 算法 ， 算法 一般 不能 得到 全局 最优 解 . 为了 提高 获得 全局 最优 参数 cik , μ ik , Σ ik 的 可能性 ， 可 采用 现代 的 遗传算法 和 进化 规划 . 遗传算法 是 一种 模仿 生物进化 机制 的 求解 最优化 问题 的 随机 搜索算法 ， 它 是 由 美国 J . H . Holland 教授 在 70 年代 提出 的 . 由于 这种 算法 具有 全局性 、 通用性 以及 并行性 ， 从而 成为 解决 一般 优化 问题 的 一种 有效 算法 . 由于 遗传算法 需要 对 参数 编码 ， 比较 适应 于 函数 不 具有 连续 的 微分 量 的 函数 ， 计算速度 较慢 . 进化 规划 ( evolutionary   programming , 简称 EP ) ［ 7 ］ 是 模拟 进化 优化 算法 的 一个 分支 . 本文 建议 采用 进化 规划 求解 这个 优化 问题 ， 因为 在 下述 的 遗传 规划 算法 里 ， 不 需要 对 参数 编码 ， 没有 引进 同辈 个体 的 交叉 算子 . 
+ 　 　 本文 给出 一种 修正 的 算法 如下 ： 
+ 　 　 ( 1 )   根据 式 ( 4 ) 的 目标 函数 构造 个体 的 适应性 函数 . 
+ 　 　 ( 2 )   随机 选取 初始 群体 ， 共 Ng 组 cik , μ ik , Σ ik 的 初值 ， Ng 是 群体 规模 . 参数 μ ik 的 初值 可 利用 VQ 或 GMM 方法 估计 , μ ik 的 初值 可选为 类 Ω i 的 码本 的 第 k 个 码字 ； Σ ik 可 利用 第 k 个 码字 附近 的 训练样本 的 协方差 矩阵 近似 逼近 ， 可选为 对角 阵 ， cik 的 初值 设定 为 1 / M . 
+ 　 　 ( 3 )   父辈 的 个体 cik , μ ik , Σ ik 按 如下 方式 产生 后代 
+ 　 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 9 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 10 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 11 ) 
+ cik , μ ik , Σ ik 的 后代 为 , , ， 这个 过程 相当于 变异 . 
+ 　 　 ( 4 )   依据 选择 原理 ， 从 cik , μ ik , Σ ik 和 , , 中 选择 Ng 个 适应性 好 的 个体 进行 下一代 . 
+ 　 　 ( 5 )   重复 上述 过程 , 直到 满足 终止 条件 为止 ， 本文 采用 限制 最大 遗传 代数 . 
+ 　 　 由此可见 ， 上述 算法 的 第 3 步 和 传统 的 梯度 算法 与 随机 搜索算法 在 形式 上 类似 ， 由于 父辈 的 个体 cik , μ ik , Σ ik 产生 后代 时 ， 是 沿着 正 梯度 的 方向 产生 子代 的 , , ， 因此 ， 后代 优于 父辈 . 在 进行 第 4 步 的 选择 过程 时 ， 一些 性能优越 的 父辈 及其 后代 被 保留 下来 ， 继续 产生 新 的 后代 . 性能优越 的 父辈 产生 的 后代 比较 多 ， 性能 差 的 父辈 产生 的 后代 较少 . 另外 ， 在 进化 过程 中 ， 方差 σ 2ik 控制 变异 的 特性 , 它 是 随 遗传 代数 的 增加 而 逐渐 减小 的 . 
+ 　 　 由 上述 分析 可见 ， 以上 算法 与 传统 的 梯度 上升 算法 相比 的 优点 是 ， 采用 多个 路径 同时 搜索 最优 解 ， 获得 全局 最优 解 的 可能性 增大 . 
+ 　 　 识别 时 ， 对于 给定 的 测试 样本 向量 x ， 它 隶属 的 类别 可 由 下述 条件 概率 确定 
+ 
+ 　 　 另外 , 模型 混合 项 M 的 确定 可 根据 实验 效果 确定 ， M 太小 使得 模型 的 精度 不够 理想 ， M 太 大会 发生 过 拟合 ( over   fitting ) 问题 , 一般 要 折衷 选取 . 
+ 2 　 GMM 的 正则 化 
+ 　 　 在 缺少 训练样本 的 条件 下 , 在 计算 高斯 概率密度 中 的 协方差 矩阵 Σ - 1 时 ， 可能 会 发生 数值 不稳定性 的 情况 ， 为了 增加 数值 稳定性 ， 可以 修正 协方差 矩阵 Σ 为 = Σ + δ I ， 这里 ， I 是 单位矩阵 ， δ 是 一个 正 的 正则 化 参数 ； 另 一种 方法 是 用 Σ 的 Moore - Penrose 广义 逆阵 Σ + 代替 Σ - 1 ， 
+ 　 
+ 式 中 λ 1 ≥ λ 2 ≥ ... ≥ λ r > 0 ， ek 是 矩阵 Σ 的 对应 于 特征值 λ k 的 单位 特征向量 . 行列式 | Σ | 的 值 利用 λ k 代替 ， 高斯 概率密度函数 中 的 ( 2 π ) p / 2 项由 ( 2 π ) r / 2 代替 . 在 正则 化 方法 中 ， 矩阵 Σ 的 较 小 的 特征值 λ k ( k > r ) 被 截断 ， 以 提高 数值 稳定性 . 第 3 种 方法 是 , 在 计算 中 只用 矩阵 Σ 的 对角线 上 的 元素 构成 的 矩阵 近似 它 ， 同时 在 对角线 上 的 每个 元素 上 加上 一个 小 的 正数 ， 或者 在 高斯 混合 模型 中 对 不同 的 协方差 矩阵 取成 一个 相同 的 协方差 矩阵 ， 这种 方法 同样 可以 提高 数值 稳定性 . 
+ 3 　 实验 结果 
+ 　 　 将 上述 方法 应用 于 闭集 的 非 限定 文本 话者 辨认 ， 其中 GMM 模型 中 的 混合 项数 M 取为 32 ， 语音 的 采样 频率 为 8kHz ， 利用 语音 的 短时 能量 和 过 零率 提取 语音 的 浊音 音素 ， 语音 的 特征 是 16 阶 LPC ( linear   predictive   coefficients ) 倒谱 系数 ， 16 阶 LPC 倒谱 系数 的 一阶 中心 差分 和 16 个 通道 的 归一化 的 LPC 剩余 倒谱 组成 的 48 维 向量 ， 帧 长为 32ms ， 帧 移为 16ms . 话者 集由 60 人 组成 ， 男性 30 人 ， 女性 30 人 ， 每个 话者 的 训练 语音 是 在 不同 的 4 个 时期 采集 的 ， 总长度 为 150s 左右 ， 测试 语音 的 长度 分别 取为 30s ， 实验 和 测试 间隔时间 为 3 个 多月 . 采用 对角 矩阵 估计 模型 中 的 协方差 矩阵 . 种群 规模 Ng 取为 9 ， 最大 遗传 代数 取为 16 . 
+ 　 　 利用 GMM 模型 进行 话者 识别 时 ， 从 物理 意义 上 讲 ， 式 ( 1 ) 的 高斯 混合 密度 中 的 各个 分量 概率密度 pik ( x ) 对应 于 一个 浊音 音素 的 平稳 段 的 语音 特征 的 概率密度 . 假定 每个 浊音 音素 出现 的 概率 是 等 可能 的 . 这样 假定 的 理由 ， 虽然 从 语音学 的 统计 意义 上 看 每个 浊音 音素 出现 的 可能性 不 一定 是 一样 的 ， 但 由于 训练样本 的 限制 ， 我们 不 可能 利用 有限 的 训练样本 准确 地 获得 每个 浊音 音素 的 出现 的 概率 . 如果 在 模型 训练 时 ， 利用 式 ( 9 ) 对 cik 进行 重新 估计 ， 最后 得到 的 cik 只 反映 了 训练样本 中 每个 浊音 音素 出现 的 可能性 . 这 对 识别 是 没有 意义 的 ， 因为 识别 时 所用 的 测试 样本 的 浊音 音素 出现 的 可能性 与 训练 时 很少 一样 . 因此 ， 在 模型 训练 时 没有 利用 式 ( 9 ) 对 cik 进行 重新 估计 ， 混合 比 cik 始终 取为 1 / M . 实验 结果 也 表明 ， 不 对 混合 项 的 重估 ， 识别 精度 较 高 并且 训练 的 计算 量少 . 
+ 　 　 表 1 中 ML - GMM 和 MCE - GMM 分别 对应 最大 似然 估计 方法 和 最大 交叉 熵 估计 的 GMM 方法 . 其中 识别率 是 对 30s 的 测试 语音 按 帧 统计 的 ， 可见 MCE - GMM 方法 的 识别率 比 ML - GMM 方法 的 识别率 高出 2% . 
+ 表 1   不同 学习 算法 的 识别率 
+ 
+ 识别方法 ML - GMMMCE - GMM 
+ 正确 识别率 ( % ) 9799 
+ 
+ 4 　 结   论 
+ 　 　 本文 给出 了 基于 最大 交叉 熵 估计 高斯 混合 模型 参数 的 方法 . 利用 该 方法 进行 了 非 限定 话者 识别 实验 ， 实验 结果表明 ， 这种 方法 的 识别 效果 比 基于 最大 似然 估计 GMM 参数 方法 的 识别 效果 好 . 同时 ， 这种 算法 与 传统 的 梯度 下降 算法 相比 的 优点 是 ， 采用 多个 路径 同时 搜索 最优 解 ， 具有 全局性 、 通用性 和 并行性 ， 使 获得 全局 最优 解 的 可能性 增大 . 相对 于 最大 似然 估计 方法 ， 这种 方法 的 缺点 是 计算 量 较大 ， 对话者 集 以外 的 新增 话者 要 进行 重新 训练 . 
+ * 　 本文 研究 得到 国家 重点 自然科学 基金 和 国家 863 高科技 项目 基金 资助 . 
+ 本文 通讯联系 人 ： 马继涌 ， 北京 100080 ， 北京 海淀区 中关村 科学院 南路 8 号 ， 算 通科技 发展 有限公司 
+ 作者简介 ： 马继涌 ， 1963 年生 ， 博士生 ， 助理 研究员 ， 主要 研究 领域 为 语音 识别 ， 话者 识别 . 
+ 　 　 　 　 　 高文 ， 1956 年生 ， 教授 ， 博士生 导师 ， 主要 研究 领域 为 多功能 感知 技术 ， 图像压缩 . 
+ 作者 单位 ： 哈尔滨工业大学 计算机科学 与 工程系 　 哈尔滨 　 150001 ， E - mail :   mjy @ cti . com . cn 
+ 参考文献 ： 
+ ［ 1 ］ Nandakishore   Kambhatla .   Local   models   and   Gaussian   mixture   models   for   statistical   data   processing   ［ Ph . D .   Thesis ］ .   Department   of   Computer   Science   and   Engineering :   Oregon   Graduate   Institute   of   Science   &   Technology ,   1996 
+ ［ 2 ］ Hinton   G ,   Revon   M ,   Dayan   P .   Recognizing   handwritten   digits   using   mixtures   of   linear   models .   In :   Tesauro ,   Touretzky ,   Leen   eds .   Advances   in   Neural   Information   Processing   Systems .   Cambridge ,   Massachusetts :   MIT   Press ,   1995 .   1015 ～ 1022 
+ ［ 3 ］ Reynolds   D   A .   Speaker   identification   and   verification   using   Gaussian   mixture   speaker   models .   Speech   Communication ,   1995 , 17 ( 1 ) : 91 ～ 108 
+ ［ 4 ］ Ormpneit   D ,   Tresp   V .   Improved   Gaussian   mixtures   density   estimates   using   Bayesian   penalty   terms   and   network   averaging .   Advances   in   Neural   Information   Processing   Systems .   Cambridge ,   Massachusetts :   MIT   Press ,   1996 
+ ［ 5 ］ Moerland   Perry .   Mixtures   of   experts   estimate   a   posteriori   probability .   In :   Gerstner   W   ed .   Proceedings   of   the   International   Conference   on   Artificial   Neural   Networks .   Berlin :   Springer - Verlag ,   1997 .   499 ～ 504 
+ ［ 6 ］ Cover   T ,   Thomas   J .   Elements   of   information   theory .   New   York :   John   Wiley   &   Sons ,   Inc . ,   1991 
+ ［ 7 ］ Fogel   D   B .   An   introduction   to   simulated   evolutionary   optimization .   IEEE   Transactions   on   Neural   Networks ,   1994 , 5 ( 1 ) : 3 ～ 14 
+ 收稿 日期 ： 1998 - 04 - 16 ， 修改 日期 ： 1998 - 09 - 21 

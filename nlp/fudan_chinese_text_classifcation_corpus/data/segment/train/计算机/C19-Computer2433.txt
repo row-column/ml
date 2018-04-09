@@ -1,0 +1,155 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH 
+ AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 12 期   Vol.36   No.12   1999 
+ 
+ 
+ 
+ 一种 笔段 序列 匹配 联机 汉字 识别方法 
+ 唐降 龙 　 孙广玲 　 刘家 锋 　 容 　 军 
+ 摘 　 要 　 文中 针对 行 书体 汉字 的 识别 ， 提出 一种 笔段 序列 匹配 汉字 识别方法 . 选择 笔段 数 、 笔段 书写 顺序 、 笔段 位置 作为 主要 的 识别 特征 . 首先 ， 在 预处理 阶段 ， 为了 减小 汉字 类内 分散性 ， 采用 笔段 密度 均衡化 非线性 规整 法对 笔段 位置 进行 了 非线性 规整 ； 进而 在 笔段 序列 的 基础 上 ， 采用 动态 规划 算法 寻找 待识 笔段 序列 与 候选 笔段 序列 的 最优 匹配 路径 ； 根据 此 路径 ， 得到 匹配 笔段 集 ， 缺少 笔段 和 多余 笔段 ； 然后 计算 出待 识字 与 每个 候选 字 的 识别 距离 ； 最后 ， 对 识别 距离 排在 前 10 个 的 候选 汉字 ， 利用 匹配 笔段 集 ， 选择 其它 特征 ， 作 进一步 的 判别 ， 从而 得到 最终 的 识别 结果 . 实验 结果表明 ， 本 识别方法 对于 书写 较 潦草 但 笔顺 比较稳定 的 行 书体 汉字 ， 收到 了 比较 好 的 识别 效果 . 
+ 关键词 　 联机 手写体 汉字 识别 ， 笔段 序列 ， 动态 规划 算法 
+ 中图法 分类号 　 TP391.4 
+ A   SEGMENT   SEQUENCE   MATCHING   METHOD   FOR   ON - LINE 
+ CHINESE   CHARACTER   RECOGNITION 
+ TANG   Jiang - Long ,   SUN   Guang - Ling ,   LIU   Jia - Feng ,   and   HUANG   Jian - Hua 
+ ( Department   of   Computer   Science   and   Technology ， 
+ Harbin   Institute   of   Technology ,   Harbin   150001 ) 
+ Abstract 　 A   method   based   on   segment   sequence   matching   is   proposed   for   on - line   Chinese   character   recognition .   The   stroke   number ,   strode   order ,   and   stroke   position   are   selected   as   the   three   primary   recognizing   features .   Firstly ,   in   order   to   lessen   the   dispersion   in   class ,   a   non - linear   shape   normalization   algorithm - line   density   equalization   is   used   to   equalize   the   stroke   position .   Then ,   dynamic   programming   algorithm   is   used   to   look   for   a   optimal   matching   path   between   a   candidate   segment   sequence   and   an   unknown   segment   sequence ;   The   matching   segment   set   and   lacked   and   reduced   segments   are   obtained   based   on   the   optimal   matching   path ;   The   distance   between   an   unknown   character   and   every   candidate   is   calculated .   Finally ,   the   candidates   whose   distances   are   ordered   pre - ten   are   deeply   determined   using   the   segment   matching   set   and   selecting   other   features ,   so   the   final   recognizing   result   is   obtained .   The   experimental   results   show   that ,   the   proposed   method   could   yield   good   recognizing   effect .   
+ Key   words 　 on - line   Chinese   character   recognition , segment   sequence , dynamic   programming   algorithm 
+ 1 　 引 　 　 言 
+ 　 　 联机 手写体 汉字 识别 技术 不仅 在 理论 上 有 重要 的 研究 意义 ， 而且 在 实际 中 也 有 很 重要 的 应用 价值 ［ 1 ］ . 此项 技术 的 技术水平 近几年 得到 了 突飞猛进 的 发展 ， 其 研究 的 焦点 已 集中 在 如何 提高 行 书体 汉字 的 识别率 上 . 行 书体 汉字 的 主要 特点 是 笔划 或 部件 之间 的 粘连 现象 比较严重 ， 因此 使 基于 笔划 或 部件 的 识别方法 难以获得 较 高 的 识别率 ， 但此 特点 导致 行 书体 汉字 的 笔顺 变化 较 楷体 汉字 的 笔顺 变化 明显 减少 ， 这样 就 可以 利用 汉字 的 笔顺 信息 ， 在 提取 出笔 段 之后 ， 将 笔段 按照 汉字 的 书写 顺序 排成 一个 序列 ； 此 序列 从 整体 上 描述 了 一个 汉字 . 行 书体 汉字 笔顺 的 相对 稳定性 使得 这种 描述 汉字 的 方式 成为 可行 . 然后 在 此基础 上 ， 定义 基于 笔段 序列 的 距离 度量 函数 . 文献 ［ 2 ］ 提出 了 3 种 算子 ， 即 交换 算子 Exchange 、 增加 算子 Add 和 删除 算子 Delete ， 分别 作用 于 两个 对应 笔段 、 缺少 笔段 、 多余 笔段 3 种 对象 ， 算子 映射 后 的 数值 的 累加 和 作为 两个 序列 的 距离 . 这种 距离 度量 函数 有 一定 的 合理性 ； 但 删除 算子 映射 结果 是 其 所 作用 待识 笔段 序列 中 某个 笔段 的 长度 ， 但是 待识 汉字 的 笔 段长度 是 非常 不 稳定 的 ， 因此 也 使 最终 的 识别 距离 很 不 稳定 . 为此 ， 本文 只 采用 交换 算子 和 增加 算子 ， 利用 动态 规划 算法 ， 在 待识 笔段 序列 与 候选 笔段 序列 之间 ， 寻找 出 一条 最优 匹配 路径 ； 根据 此 最优 路径 ， 得到 匹配 笔段 集 ， 缺少 笔段 和 多余 笔段 ； 并 针对 这 3 种 情况 ， 定义 了 3 个 不同 的 距离 公式 ， 最后 的 识别 距离 是 这 3 个 距离 之 和 ； 在 最后 对前 10 个 候选 字 进一步 的 判别 过程 中 ， 也 利用 了 已 得到 的 匹配 笔段 集 . 采用 本文 提出 的 方法 得到 的 匹配 笔段 集及 待识 序列 和 候选 序列 的 距离 都 更具 合理性 和 准确性 . 
+ 2 　 预处理 
+ 　 　 这里 的 预处理 指已 提取 笔段 后 的 预处理 . 包括 以下 两个 阶段 . 
+ 2.1 　 归一化 
+ 　 　 由于 书写 者 书写 汉字 的 大小不一 ， 所以 必须 归一化 到 统一 大小 . 这里 取 100 × 100 的 方阵 . 
+ 
+ ( 1 ) 
+ 
+ ( 2 ) 
+ ( x , y ) 是 归一化 前笔 段 端点 坐标 ； ( x ′ , y ′ ) 是 归一化 后 笔段 端点 坐标 . 
+ 2.2 　 非线性 规整 
+ 　 　 为了 减小 类内 分布 的 分散性 及 使类 内 分布 的 中心 距 和 类间 分布 的 中心 距 尽量 远离 ， 必须 对 归一化 后 的 汉字 进行 非线性 规整 . 文中 采用 笔段 密度 均衡化 的 非线性 规整 方法 ［ 3 ］ . 
+ 　 　 定义 1 . 设 f ( i , j ) ， i = 0 ， 1 ， … ， I ; j = 0 , 1 , … ， J 是 I × J 方阵 内在 位置 ( i , j ) 处 是否 有 笔段 穿越 的 标志 ； f ( i , j ) = 1 时 ， 表示 在 ( i , j ) 处有 笔段 穿越 ； f ( i , j ) = 0 时 ， 表示 在 ( i , j ) 处无笔 段 穿越 ； 
+ 对于 第 i 行 的 笔段 密度 为 　 　 　 　 　 　 ( 3 ) 
+ 
+ ( 4 ) 
+ 对于 第 j 列 的 笔段 密度 为 　 　 　 　 　 　 ( 5 ) 
+ 
+ ( 6 ) 
+ 其中 常数 α 的 含义 在 后面 有 说明 . 
+ 　 　 定义 2 . 笔段 分布 在 i , j 轴上 的 笔段 密度 总和 分别 为 
+ 
+ ( 7 ) 
+ 
+ ( 8 ) 
+ 　 　 式 ( 3 ) 和 式 ( 5 ) 中 使用 了 一个 常数 α , 当 α = 0 时 , 字内 上下 或 左右部 间 的 空间 区域 将 被 完全 压缩 ; 这样 的 非线性 规整 效果 太 强烈 而且 不 自然 , 因而 常数 α 被 添加 进来 以 减轻 这种 效果 . 经 试验 , 设定 此值 为 1 . 
+ 
+ ( 9 ) 
+ 
+ ( 10 ) 
+ 　 　 ( x , y ) 为 非线性 规整 前 的 坐标值 ， ( x ′ , y ′ ) 为 非线性 规整 后 的 坐标值 . 　 　 
+ 3 　 求 识别 距离 
+ 3.1 　 求取 最优 匹配 路径 
+ 　 　 根据 引言 中 所述 ， 匹配 路径 应该 受到 一定 的 限制 ， 参见 图 1 . 如图所示 ， 路径 中不应 出现 第 2 类 直角 . 求 两个 笔段 序列 间 最优 匹配 路径 问题 可以 形式 地 描述 如下 ： 
+ 　 　 设待识 笔段 序列 的 长度 是 n , Q = { qj | j = 1 , 2 , … ， n } ； 
+ 
+ 图 1 
+ 　 　 候选 笔段 序列 的 长度 是 m , P = { pi | j = 1 , 2 , … ， n } ； 
+ 　 　 
+ 　 　 w1 为 权值 ， 这里 设定 w1 = 1.2 ； 
+ 　 　 其中 x * h 表示 第 * 笔段 头 端点 的 x 坐标值 ； y * h 表示 第 * 笔段 头 端点 的 y 坐标值 ； 其中 x * t 表示 第  笔段 尾端 点 的 x 坐标值 ； y * t 表示 第 * 笔段 尾端 点 的 y 坐标值 ； 问题 ： 求 R 中 一个 满足 下列 条件 的 序列 , 用 seq 表示 ; 使 ‖ seq ‖ = min { ‖ seqk ‖ | k = 1 , 2 , … } ； 其中 
+ 
+ 其中 jl 表示 第 l 步中 包含 的 待识 笔段 序列 里 的 待识 笔段 号 . 须 满足条件 
+ 　 ① oper ( r1 ) = ‖ p1 - q1 ‖ ； 
+ 　 ② ( il - 1 = iland   jl - 1 = jl - 1andjl - 2 ≠ jl - 1 ) or ( il - 1 = il - 1and   jl - 1 = jl ) or ( il - 1 = il - 1and   jl - 1 = jl - 1 ) ； 
+ 此 问题 可用 动态 规划 算法 ［ 4 ］ 解 出 ， 算法 如下 ： 
+ 　 　 m = | P | ； n = | Q | ； 
+ 　 　 if ( m ≤ 0   or   n   ≤   0   )   return   FAIL ； 
+ 　 　 else 
+ 　 　 　 　 for   i   =   1   to   m   do 
+ 　 　 　 　 　 　 for   j   =   1   to   n   do 
+ 　 　 　 　 　 　 　 　 if (   i   =   1   and   j   =   1   ) 
+ 　 　 　 　 　 　 　 　 　 　 D ［ i , j ］   =   ‖ p1   -   q1 ‖ ; 
+ 　 　 　 　 　 　 　 　 else   if ( Pointer ( i , j - 1 ) → j   =   j - 1   and   D ［ i - 1 , j ］ = min ( D ［ i - 1 , j ］ , D ［ i - 1 , j - 1 ］ )   or   Pointer ( i , j - 1 ) → j ≠ j - 1   and   D ［ i - 1 , j ］ = min ( D ［ i - 1 , j ］ , D ［ i - 1 , j - 1 ］ , D ［ i , j - 1 ］ ) 
+ 　 　 　 　 　 　 　 　 　 　 D ［ i , j ］ = D ［ i - 1 , j ］ + w1 × len ( pi ) ; 
+ 　 　 　 　 　 　 　 　 else 
+ 　 　 　 　 　 　 　 　 　 　 D ［ i , j ］ = D ［ i - 1 , j - 1 ］ + ‖ pi -   qj ‖ ; 
+ 　 　 return   D ［ m , n ］ ； 
+ 　 　 其中 D ［ i , j ］ 表示 以 pi 笔段 为 终止 笔段 的 子 候选 笔段 序列 与 以 qj 笔段 为 终止 笔段 的 子待识 笔段 序列 的 最 短距离 . Pointer ( i , j - 1 ) → j 表示 以 ( pi , qj - 1 ) 为 终点 的 最 短距离 路径 上 终点 所 指向 的 待识 笔段 序列 的 待识 笔段 号 . 
+ 　 　 应当 指出 ， 上述 算法 求出 的 距离 并 不是 识别 距离 ； 此步 运算 的 目的 在于 得到 最优 匹配 路径 ， 利用 此 路径 求 出 识别 距离 . 
+ 3.2 　 寻找 匹配 笔段 集 、 多余 笔段 和 缺少 笔段 
+ 　 　 ( 1 ) 匹配 笔段 集 
+ 　 　 从 对求 最优 匹配 路径 问题 的 定义 及 对 匹配 路径 的 限制 来看 ， 匹配 笔段 应 出现 在 图 1 中 所示 的 水平 路径 或 斜线 路径 上 . 具体 为 
+ 　 　 ‖ piMPl - qjMPl ‖ + | len ( piMPl ) - len ( qjMPl ) | = min { ‖ pil - qjl ‖ + | len ( pil ) - len ( qjl ) | , 
+ 　 　 ( piMPl , qjMPl ) ∈ HPl , ( pil , qjl ) ∈ HPl , l = 1 , 2 , … ， s } 
+ 　 　 ( piMPl , qjMPl ) 为 匹配 笔段 对 ， HPl 为 第 l 个 局部 水平 路径 上 的 笔段 对 集合 ， s 为 局部 水平 路径 个数 . 斜线 路径 上 每 一步 所 对应 的 笔段 对 都 是 匹配 笔段 对 . 
+ 　 　 ( 2 ) 多余 笔段 
+ 　 　 多余 笔段 指待识 笔段 序列 中未 被 匹配 的 笔段 . 
+ 　 　 ‖ pil - qjl ‖ + | len ( pil ) - len ( qjl ) | ≠ min { ‖ pil - qjl ‖ + | len ( pil ) - len ( qjl ) | , 
+ 　 　 ( piMPl , qjMPl ) ∈ HPl , ( pil , qjl ) ∈ HPl , l = 1 , 2 , … ， s } 
+ 　 　 满足 上式 的 所有 笔段 对 中 的 qj 笔段 都 是 多余 笔段 . 
+ 　 　 ( 3 ） 缺少 笔段 
+ 　 　 缺少 笔段 指 候选 序列 中未 被 匹配 的 笔段 . 
+ 　 　 
+ 　 　 VPk 为 第 k 个 局部 垂直 路径 上 的 笔段 对 集合 , z 为 局部 垂直 路径 个数 . 满足 上式 的 所有 笔段 对 中 的 pi 笔段 都 是 多余 笔段 . 
+ 3.3 　 计算 识别 距离 
+ 　 　 识别 距离 定义 为 匹配 距离 与 失配 距离 之 和 . 
+ 　 　 ( 1 ) 匹配 距离 
+ 
+ ( 11 ) 
+ 　 　 其中 C0 为 匹配 笔段 对 的 个数 ； pil , qjl 分别 表示 第 l 个 匹配 对 的 候选 序列 中 的 笔段 和 待识 序列 中 的 笔段 . 
+ 　 　 ( 2 ) 失配 距离 
+ 　 　 这 又 分 两种 情况 考虑 ： 缺少 笔段 和 多余 笔段 . 
+ 　 　 ① 缺少 笔段 
+ 
+ ( 12 ) 
+ 　 　 其中 C1 为 缺少 笔段 的 个数 ； pl 为 第 l 个 缺少 笔段 . 
+ 　 　 ② 多余 笔段 
+ 　 　 首先 定义 4 个点 ： 
+ 　 　 o1 为 多余 笔段 的 前 一个 笔段 匹配 对 的 两个 匹配 尾端 点 的 其中 一个 端点 ， o2 为 另 一个 端点 . 
+ 　 　 o3 为 多余 笔段 的 后 一个 笔段 匹配 对 的 两个 匹配 头 端点 的 其中 一个 端点 ， o4 为 另 一个 端点 . 
+ 　 　 　 　 　 　 　 　 　 ( 13 ) 
+ 　 　 其中 C2 为 多余 笔段 的 个数 ； ohl 为 第 l 个 多余 笔段 的 头 端点 ， otl 为 第 l 个 多余 笔段 的 尾端 点 ， 两点 之间 的 距离 取 欧氏 距离 . 
+ Dis = Dis0 + Dis1 + Dis2 ; 
+ ( 14 ) 
+ 　 　 由于 候选 笔段 序列 的 长度 不同 ， 所以 要 对 Dis 进行 归一化 . 这里 用来 进行 归一化 的 系数 为 C0 ， 即 匹配 笔段 对 的 个数 ， 即 
+ Dis1 = Dis / C0 ; 
+ ( 15 ) 
+ 4 　 对前 10 个 候选 字作 进一步 判别 
+ 　 　 上述 识别方法 对 相似 字 的 区分 能力 不足 ， 因此 本文 采取 了 对 识别 距离 排在 前 10 位 的 汉字 作 进一步 判别 的 识别 策略 . 在 这 一步 的 运算 中 ， 对 每 一个 训练样本 我们 都 利用 已有 方法 寻找 到 匹配 笔段 集 ， 根据 此 匹配 笔段 集 统计 出 模板 中 每 一笔 段 与其 下 一笔 段 的 连接 概率 ， 每 一笔 段 丢失 概率 和 每 一笔 段 方向 码 （ 本文 取 0 ， 1 ， 2 ， 3 四种 方向 码 ， 分别 对应 横 、 竖 、 撇 、 捺 ） 概率 ， 即 
+ 
+ 式 中 N 为 训练样本 总数 ； 对 每 一 候选 汉字 ， 计算 距离 为 
+ 
+ ( 16 ) 
+ 　 　 式 中 m 为 模板 中笔 段 个数 . 
+ 　 　 最终 识别 距离 FinalDis = Dis1 + w2 × Dis2 ; 　 　 　 　 　 　 　 ( 17 ) 
+ 　 　 w2 为 权值 ， 这里 设定 w2 = 0.3 . 
+ 5 　 实验 结果 及 分析 
+ 　 　 测试 国标 一级 汉字 ， 平均 每字 200 个 样本 , 其中 100 个 为 楷体 样本 ( 按 汉字 书写 规则 书写 字样 ) , 100 个 为 行体 样本 ( 按 书写 者 自己 习惯 书写 字样 ) , 共 200 人 收集 了 757555 个 样本 . 测试 结果 如下 ： 
+ 表 1 　 识别率 统计表 
+ 
+ 　 第 1 候选 率前 10 候选 率 
+ 楷书 96.79% 99.38% 
+ 行书 92.95% 98.68% 
+ 
+ 　 　 分析 误识 的 原因 如下 : 
+ 　 　 ( 1 ) 粗 分类 错误 ; 
+ 　 　 ( 2 ) 汉字 内 相似 字过 多 , 导致 误识 ; 
+ 　 　 ( 3 ) 待 识字 变形 过大 , 无法 正识 ; 
+ 　 　 ( 4 ) 特殊 的 写法 或 难见 的 笔顺 .   
+ 本 课题 得到 国家 “ 八 六三 ” 高技术 计划 基金项目 （ 项目编号 863 - 306 - ZD03 - 02 - 06 ） 和 黑龙江省 自然科学 基金项目 ( 项目编号 F9908 ) 资助 . 
+ 作者简介 ： 唐降 龙 ， 男 ， 1960 年 11 月生 ， 博士 ， 教授 ， 主要 研究 方向 为 模式识别 、 中文信息处理 
+ 　 　 　 　 　 人工智能 等 . 
+ 　 　 　 　 　 孙广玲 ， 女 ， 1974 年 5 月生 ， 博士 研究生 ， 主要 研究 方向 为 手写体 汉字 识别 . 
+ 　 　 　 　 　 刘家 锋 ， 男 ， 1969 年 10 月生 ， 博士 ， 副教授 ， 主要 研究 方向 为 人工智能 、 模式识别 . 
+ 　 　 　 　 　 容军 ， 男 ， 1975 年 7 月生 ， 硕士 研究生 ， 主要 研究 方向 为 机器 学习 . 
+ 作者 单位 ： 哈尔滨工业大学 计算机科学 与 工程系 　 哈尔滨 　 150001 
+ 参考文献 
+ 　 1 　 张中 . 汉字 识别 技术 . 北京 : 清华大学出版社 , 1992 
+ ( Zhang   XingZhong .   Chinese   Character   Recognition   Technology ( in   Chinese ) .   Beijing :   Tsinghua   University   Press ,   1992 ) 
+ 　 2 　 Tsay   Y   T ,   Tsai   W   H .   Attributed   string   matching   by   split - and - merge   for   on - line   Chinese   character   recognition .   IEEE   Trans   PAMI ,   1993 ,   15 ( 2 ) :   180 ～ 185 
+ 　 3 　 Hiromitsu   Yanada   et   al .   A   nonliner   normalization   method   for   handprinted   kanji   characters   recognition - line   density   equalization .   Pattern   Recognition .   1990 ,   23 ( 9 ) :   1023 ～ 1029 
+ 　 4 　 傅清祥 ,   王晓东 .   算法 与 数据结构 .   北京 :   电子 工业 出版社 ,   1998 
+ ( Fu   QingXiang ,   Wang   Xiaodong .   Algorithm   and   Data   Structure ( in   Chinese ) .   Beijing :   Electronics   Industry   Press ,   1998 ) 
+ 原稿 收到 日期 ： 1999 - 02 - 08 ； 修改稿 收到 日期 ： 1999 - 06 - 14 . 

@@ -1,0 +1,106 @@
+计算机 应用 
+ COMPUTER   APPLICATIONS 
+ 1999 年   第 19 卷   第 6 期   Vol.19   No.6   1999 
+ 
+ 
+ 
+ Internet 三维 多媒体演示 系统 的 开发 
+ 俞方桦 　 陈 剑光 　 陈 家训 
+ 　 　 摘 　 要 　 VRML ( 虚拟现实 建模语言 ) 是 新型 的 Internet 三维 世界 描述语言 ， 它 具有 可 交互 、 支持 多媒体   、 高性能 等 特点 。 通过 对 实际 演示 系统 的 分析 ， 简要 叙述 了 VRML 的 动画 、 Javascript 接口 、 多媒体 以及 VRML 的 优化 技术 。 
+ 　 　 关键词 　 Internet ， VRML ， JavaScript ， 关键帧 动画 
+ 1 　 由 来 
+ 　 　 随着 Internet 在 我国 的 逐渐 普及 ， 各 高校 都 相应 地 建立 起 基于 TCP / IP 协议 的 校园网 ， 并 陆续 开通 了 World   Wide   Web 、 FTP 、 E - mail 等 应用服务 。 基于 TCP / IP 的 Internet 应用 技术 成熟 、 种类 丰富 ， 而且 不断 有 新兴 的 技术 涌现 。 最近 ， 我们 利用 最新 的 Internet 三维 技术 VRML ( 虚拟现实 建模语言 ) 为 我校 的 重大 科研项目 “ 针织 横机 电脑 控制系统 ” 制作 了 一个 可 在 Internet 上 浏览 的 、 三维 的 实时 多媒体演示 系统 。 
+ 2 　 VRML 概述 
+ 2.1 　 VRML 语言 
+ 　 　 VRML — — Virtual   Reality   Modeling   Language “ 虚拟现实 建模语言 ” 是 一种 “ 用来 描述 可 在 World   Wide   Web 上 运行 的 、 可 交互 的 3D 世界 和 对象 的 文件格式 ” ［ 1 ］ 。 VRML 规范 1.0 由 SGI 制订 ， 主要 参考 了 SGI 的 Open   Inventor 文件格式 。 最近 的 正式 版本 为 2.0 ， 由 国际标准化组织 ISO 和 国际 电气 技术 委员会 IEC 标准化 ， 编号 ISO / IEC   WD   14772 。 
+ 　 　 VRML 语言所 描述 的 三维 场景 可以 说 是 一个 “ 节点 ” 的 集合 。 节点 ( node ) 是 三维 世界 的 基本 元素 ， 几何体 、 视点 ( 即 照相机 ) 、 灯光 、 接受 输入 的 传感器 ( sensor ) 以及 控制 动画 的 插件 ( interpolator ) 都 以 节点 的 形式 定义 和 使用 。 节点 可以 引用 和 嵌套 。 这样 ， 所有 的 三维 场景 中 的 对象 组成 一个 层次 的 、 树型 的 结构 。 
+ 　 　 从 最 严格 的 意义 上 讲 ， VRML 不算 一种 编程语言 ， 至少 它 不是 编程人员 所说 的 编译 型 语言 ， 它 必需 依赖 解释程序 来 解释 执行 ， 即 VRML 浏览器 。 VRML 浏览器 既 可以 是 WWW 浏览器 ( 如 Netscape 和 Internet   Explorer ) 的 plug - in ， 也 可以 是 独立 的 应用程序 。 VRML 和 HTML ( Hyper   Text   Marked   Language ， 超文本 标记 语言 ) 十分 类似 ， 都 是 以 ASCII 形式 编写 。 同样 ， 就象 浏览 Web 页面 一样 ， 客户机 通过 Internet 下载 VRML 场景 文件 ( 以 wrl 为 后缀名 ) ， 再 由 浏览器 解释 执行 并 显示 。 由于 采用 了 这种 “ 可 执行 代码 技术 ” ， 仅 需 传送 小型 的 指令 代码 文件 ， 而 不是 数目 大得 惊人 的 多媒体 数据 就 能 在 Internet 上 浏览 三维 世界 了 。 
+ 2.2 　 VRML 语言 的 特点 
+ 　 　 VRML 语言 的 诞生 为 World   Wide   Web 世界 带来 了 新 的 活力 ： 充满 幻想 的 三维 世界 和 更加 丰富 的 交互 功能 ， 使得 Web 站点 不再 是 单一 的 二维 页面 。 综合 起来 ， VRML 具有 以下 特点 ： 
+ 　 　 .   可 交互 ： VRML 提供 了 丰富 的 接口 用于 接收 操作 输入 和 与 浏览器 通信 。 
+ 　 　 .   支持 多媒体 ： 包括 3D 声音 和 各种 格式 的 音频 ( WAV , MIDI ) 、 视频 ( MPEG - 1 ) 以及 动画 等 。 
+ 　 　 .   平台 无关 ： VRML 编写 的 文件 可 在 任何 平台 上 运行 ， 它 仅 与 不同 的 VRML 浏览器 相关 ( 效果 会 有 差异 ) 。 
+ 　 　 .   结构化 ： VRML 的 元素 具有 良好 的 界面 和 描述 简单 的 语法 。 
+ 　 　 .   可 重组 ： 用 VRML 生成 的 图形 元素 可 被 重复使用 。 
+ 　 　 .   易 扩展 ： VRML 不仅 可以 让 开发者 定义 自己 的 节点 类型 ， 还 为 Javascript 、 Java 等 语言 提供 了 调用 的 接口 。 
+ 　 　 .   标准化 ： VRML 中 引入 的 元素 都 符合 或 支持 已有 标准 。 
+ 3 　 演示 系统 的 设计 与 实现 
+ 3.1 　 运行 环境 
+ 　 　 源文件 驻留 在 Web 服务器 上 ， 客户机 端 需有 Netscape   Communicator   4.0 +   或 InternetExplorer   4.0 + ( 运行 在 Windows   95 上 ) ， 以及 任何 支持 VRML 规范 2.0 的 VRML 浏览器 。 我们 所 使用 的 VRML 浏览器 是 SGI 的 Cosmo   Player   2.0 ， 它 以 plug - in 的 方式 在 Netscape / IE 下 运行 。 SGI 是 VRML 的 主要 制订 者 ， 浏览器 的 兼容性 好 ， 完全 支持 2.0 规范 ； 另外 ， plug - in 方式 比较 灵活 ， 可以 同时 浏览 HTML 的 页面 和 VRML 的 三维 场景 。 而 以 stand - alone 方式 运行 的 VRML 浏览器 并 不 都 能 完全 支持 最新 的 HTML 标准 ， 更 不用说 Javascipt 和 Java 了 。 
+ 3.2 　 设计 与 实现 
+ 3.2 . 1 　 三维 模型 的 制作 
+ 　 　 首先 ， 使用 3DS   MAX 参照 实际 的 针织 横 机制 作 了 一个三维 的 模型 ， 并 在 模型 的 不同 位置 放置 了 多个 照相机 ( 视点 ) ， 以便 切换 观察 的 视角 。 通过 3DS   MAX 的 渲染 ( render ) 功能 ， 我们 生成 了 横机 模型 在 不同 视点 的 效果图 ， 准备 放到 网页 上 。 图 1 是 横机 模型 的 前 视图 。 
+ 
+ 图 1 　 针织 横机 模型 的 前 视图 
+ 　 　 在 完成 模型 制作 后 ， 我们 使用 3DS   MAX 的 VRML   Exporter ( 3DS   MAX 的 plug - in ) 将 MAX 格式 的 模型 转换成 VRML   2.0 格式 。 
+ 3.2 . 2 　 交互 功能 的 实现 
+ 　 　 为了 能 逼真 地 模拟出 针织 横机 的 工作 原理 ， 我们 加入 了 几个 交互 功能 。 
+ 　 　 a )   操作过程 演示 
+ 　 　 当 用 鼠标 在 针织 横机 左下 的 控制面板 上 单击 时 ， 横机 机头 复位 并 开始 从 左向右 移动 编织 ， 同时 齿轮 装置 转动 ， 机体 下侧 的 样布 缓缓 吐 出 。 该 过程 由 VRML 的 动画 技术 实现 。 VRML 中 动画 是 一种 “ 线性 关键帧 ” 动画 ， 由 插件 ( Interpolator ) 节点 定义 一 线性 分段 函数 f ( t ) ， f ( t ) 将 时间 t 分成 n 段 ( ( - ∞ ， k0 ) , ［ k0 ,   k1 ) ,   ［ k1 ,   k2 ) ,   ...   ,   ［ k ( n - 1 ) ,   ∞   ) ) 称 “ 关键帧 ” ； 每段 有 对应 的 值 vi ( 0 ≤ i ≤ n - 1 ) ， 称 “ 关键帧 值 ” 。 通常 ， 关键帧 非负 递增 。 于是 ， f ( t ) 如下 定义 ： 
+ f ( t ) = v0 , 　 　 　 　 　 　 　 　 　 t   <   k0 , 
+ 　 　 = v ( n - 1 ) , 　 　 　 　 　 　 　 t   >   k ( n - 1 ) , 
+ 　 　 = vi , 　 　 　 　 　 　 　 　 　 t   =   ki   ( - 1 < i < n ) , 
+ 　 　 = linterp ( t , vj , v ( j + 1 ) ) , kj   < t < k ( j + 1 ) 且 - 1 < j < n - 1 
+ 　 　 linterp ( ) 是 线性 的 中间 帧 生成 函数 。 具体 的 帧 值 可能 是 物体 的 位置 坐标 、 面 的 法 向量 、 方向 角 甚至于 颜色 值 ； 时间 传感器 ( TimerSensor ) 定义 动画 的 执行 时间 。 
+ DEF   Object01 - TIMER   TimeSensor   {   loop   FALSE   cycleInterval   1   } , 
+ DEF   Object01 - POS - INTERP   PositionInterpolator   { 
+ key   ［ 0 ,   0.1 ,   0.2 ,   0.3 ,   0.4 ,   0.5 ,   0.6 ,   0.7 ,   0.8 ,   0.9 ,   1 ,   ］ 
+ keyValue   ［ - 0.2245   31.12   78.51 ,   28.51   30.57   78.51 ,   54.2   30.07   78.51 , …   …   …   …   ］ 
+ } , 
+ 　 　 上例 中 ， 动画 执行 时间 为 1 秒 ， 分成 10 段 ， 对应 有 10 个 关键帧 值 ， 分别 定义 在 相应 时间 点处 的 物体 坐标 。 动画 的 触发 使用 “ 接触 传感器 ” ( TouchSensor ) ， 并 使用 ROUTE / TO 语法 将 触发 消息 传给 时间 传感器 ， 由 其 控制 动画 执行 ： 
+ 　 DEF   touch — 1   TouchSensor { } 
+ 　 　 …   …   …   … 
+ ROUTE   touch — 1 . touchTime   TO   Object01 - TIMER . startTime 
+ ROUTE   Object01 - TIMER . fraction — changed 
+ TO   Object01 - POS - INTERP . set — fraction 
+ 　 　 时间 传感器 每 过 一个 时间段 就 发消息 fraction — changed 给 插件 ， 插件 根据 时间段 决定 物体 的 运动 状态 并 实现 动画 。 同样 ， 齿轮 运动 、 样布 滚动 都 采用 类似 的 方法 实现 。 
+ 　 　 b )   样布 的 更换 
+ 　 　 演示 模型 下方 有 三块 不同 质料 的 样布 ， 点击 任何 一块 ， 横机里 的 样布会 相应 地 改变 ， 于是 织出 的 布料 也 不 一样 。 这里 ， 除了 运用 了 接触 传感器 以外 ， 还 加入 了 一段 Javascript 小 程序 。 
+ 　 　 样布 物体 的 材质 如下 定义 ： 
+ 　 　 　 …   …   …   … 
+ texture   DEF   text00   ImageTexture   { 
+ url   " ... / hengji / texture01 . jpg " 
+ } 
+ 　 　 供选择 的 布料 分别 定义 为 text01 ， text02 ， text03 。 同时 为 每个 布料 都 定义 了 一个 　 　 　 　 TouchSensor ， 例如 ， touch — text01 。 
+ 　 　 替换 为 text01 的 Javascript 代码 ： 
+ DEF   change — text01   Script { 
+ 　 　 EventIn   SFTime   touch 
+ 　 　 EventOut   MFString   text01 — changed 
+ 　 　 Field   SFNode   textnode   USE   text01 
+ 　 　 url ［ " javascript : 
+ 　 　 　 function   touch ( data , time ) } 
+ 　 　 　 　 text01 — changed = textnode . url ; 
+ 　 　 } " 
+ 　 ］ 
+ } 
+ 　 　 消息 传送 方式 ： 
+ 　 　 ROUTE   touch — text01 . touchTime   TO   change — text01 . touch 
+ ROUTE   change — text01 . text01 — changed   TO   text00 . url 
+ 　 　 点击 text01 时 ， touch — text01 将 点击 时间 传给 change — text01 的 touch ( ) 函数 ( 第一句 ROUTE ) ， 该 函数 将 变量 text01 — changed 的 值 设成 text01 的 材质 文件名 ( textnode . url ) ， 然后 将 text01 — changed 的 值 传给 text00 ( 第二句 ROUTE ) ， 从而 完成 材质 的 替换 。 
+ 3.2 . 3 　 其它 功能 的 实现 
+ 　 　 除 以上 交互 功能 外 ， 演示 系统 还 实现 了 以下 特性 ： 
+ 　 　 .   三维 可 漫游 的 界面 。 由 VRML 浏览器 提供 的 漫游 功能 使得 只 需 鼠标 或 键盘 的 简单 操作 就 可以 任意 移动 视角 ， 包括 移动 、 旋转 等 ， 这 使得 三维 的 横机 模型 比 二维 的 视图 更 真实 和 易于 理解 。 
+ 　 　 .   多媒体 支持 。 通过 简单 的 编程 ， 我们 在 演示 系统 中 加入 了 背景音乐 ， 并 在 虚拟 场景 中 应用 了 3D 声响 。 
+ 　 　 .   丰富 的 链接 。 在 演示 系统 中 ， 使用 URL ( Uniform   Resource   Location ) 语法 加入 了 许多 超文本 的 链接 ， 例如 增加 用于 切换 视角 的 链接 以便 在 不同 视角 间 快速 切换 。 又 比如 通过 链接 跳至 不同 的 HTML 页面 。 
+ 4 　 优化 
+ 　 　 在 Internet 上 开发 网络应用 或 资源 时 ， 带宽 问题 不可 忽视 。 由于 现有 的 网络带宽 往往 无法 满足 多媒体 应用 的 需求 ， 那么 对于 三维 实时 场景 来说 是否 更加 不切实际 ？ 在 开发 这个 三维 演示 系统 时 ， 我们 充分考虑 到 了 网络 传输速度 问题 ， 并 对 三维 场景 和 源代码 做 了 一些 优化 。 
+ 　 　 三维 模型 的 优化 　 过于 复杂 的 三维 模型 会 使 VRML 文件 过于 庞大 ， 延长 传输 时   间 ； 并且 会 增加 客户机 端的 负担 ， 很难 得到 平滑 的 运行 效果 。 通常 ， 模型 的 复杂程度 由 多边形 ( polygon ， 三角形 或 四边形 ) 的 数量 来 衡量 ， 依据 我们 的 经验 ， 3DS   MAX 中 的 模型 复杂度 与 生成 的 VRML 文件 规模 有 如下 的 近似 关系 ： 1000   polygon   ≈ 100k   bytes 。 有效 地 减少 多边形 的 数量 可以 大大减少 源文件 的 规模 。 我们 使用 3DS   MAX 提供 的 优化 器来 优化 模型 。 在 不 明显 影响 模型 视觉效果 的 前提 下 ， 优化 器 通常 可以 达到 90% 以上 的 优化 效果 。 
+ 　 　 VRML 场景 的 优化 　 利用 VRML 本身 提供 的 语法 特性 减少 重复 定义 和 描述 ， 以减   少 文件 的 字节数 。 例如 ， 使用 “ 原型 ” ( primitive )   代替 顶点 集合 来 描述 简单 三维 物体 。 VRML 本身 提供 了 包括 六面体 、 球 、 锥 、 圆柱 等 多种 原型 。 另外 ， 对于 VRML 中 重复 出现 的 物体 使用 “ 实例 ” ( instance ) 以 避免 重复 代码 。 在 VRML 中 ， 实例 通过 DEF 和 USE 来 定义 和 引用 ： 
+ 　 　 　 …   …   …   … 
+ coord   DEF   zhu03 - COORD   Coordinate   { 
+ point   ［   …   …   …   … 
+ ］ 
+ } 
+ 　 　 …   …   …   … 
+ USE   zhu03 - COORD   Coordinate 
+ 　 　 VRML 文件 的 优化 和 压缩 　 VRML 的 源文件 是 ASCII 类型 的 ， 其中 有 许多 不必要 的   回车符 、 空格符 和 TAB 符 ， 将 这些 字符 去掉 能 使 文件大小 减少 近 1 / 3 ， 而且 完全 不 影响 执行 。 在 最终 的 VRML 场景 编辑 完成 后 ， 我们 还 使用 了 GNUZIP 对 VRML 文件 进行 压缩 ， VRML 浏览器 会 自动识别 和 解压 gzip 格式 的 压缩文件 。 通常 ， gzip 对 VRML 的 压缩率 在 10% ～ 35% 之间 。 
+ 　 　 经过 以上 的 优化 和 压缩 ， 演示 系统 的 主 文件 仅 有 不到 35k 字节 ， 使用 33.6 k 的 Modem 不到 2 秒 就 能 下载 了 。 另外 ， 贴图 文件 都 是 JPEG 格式 ， 声音文件 为 MIDI 格式 或 很 短 的 WAV ， 这些 都 使得 整个 系统 的 规模 减小 。 
+ 5 　 小结 
+ 　 　 VRML — — 虚拟现实 建模语言 是 最新 的 面向 Internet 的 三维 世界 描述语言 ， 它 具有 可 交互性 、 支持 多媒体 、 节省 网络带宽 等 特点 ， 非常适合 开发 三维 网上 应用 。 
+ 作者简介 ： 俞方桦 　 硕士 研究生 。 主要 方向 为 网络 与 多媒体技术 。 
+ 陈 剑光 　 硕士 研究生 。 
+ 作者 单位 ： 中国 纺织 大学 信息 学院 　 上海 ( 200051 ) 
+ 参考文献 
+ ［ 1 ］ 　 The   Virtual   Reality   Modeling   Language   Specification   Version   2.0 .   ISO / IEC   WD   14772 , 1996 ; ( 4 ) 
+ ［ 2 ］ 　 VRML   Exporter   v1.0   release   notes   Kinetic   Inc . ,   1996 
+ 收稿 日期 : 1998 - 12 - 08 ( 修改稿 ) 

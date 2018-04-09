@@ -1,0 +1,116 @@
+计算机 应用 
+ COMPUTER   APPLICATIONS 
+ 1999 年   第 19 卷   第 9 期   Vol.19   No.9   1999 
+ 
+ 
+ 
+ 一种 实时 过程 控制 中 的 数据挖掘 算法 研究 
+ 杨 学兵 　 刘胜军 　 蔡 庆生 
+ 　 　 摘 　 要 　 计算机 在 工业生产 过程 控制 中 的 应用 已 十分 广泛 ， 因此 这一 领域 的 数据挖掘 方法 研究 也 具有 十分 重要 的 意义 。 本文 将 根据 这一 领域 的 特殊 情况 ， 提出 一种 实时 有效 的 自动 数据挖掘 算法 ， 以便 使 计算机 能 在 实时 过程 控制 中 自动 挖掘 ， 并 根据 挖掘 的 结果 进行 趋势 预测 。 
+ 　 　 关键词 　 数据挖掘 ， 过程 控制 ， 序列 模式 
+ A   DATA   MINING   ALGORITHM   IN   REAL - TIME 
+ PROCESS   CONTROL   SYSTEM 
+ Yang   Xuebing 　 Liu   Shengjun 　 Cai   Qingsheng 
+ Department   of   Computer   Science ,   University   of   Science   and   Technology   of   China ,   Anhui . Hefei   230027 
+ 　 　 Abstract 　 Computers   are   widely   used   in   the   field   of   real - time   process   control ,   and   it ′ s   very   necessary   to   pay   more   attention   to   the   research   in   this   field .   In   this   article ,   we ′ ll   give   an   efficient   mining   algorithm   in   real - time   data . 
+ 　 　 Keywords 　 Data   mining ,   Process   control ,   Sequential   pattern 
+ 1 　 引言 
+ 　 　 数据库 中 进行 知识 发现 KDD ( Knowledge   Discovery   in   Database ) ， 是 目前 人工智能 研究 中 一个 极富 应用 前景 的 新 领域 。 在 这 一 领域 中 ， 目前 已有 了 大量 的 知识 发现 算法 ， 大部分 算法 都 能 从 数据库 中 发现 有效 的 知识 ， 由于 算法 的 设计 目标 是从 各种类型 的 大中型 数据库 中 挖掘 知识 ， 具有 一定 的 通用性 ， 但 算法 效率 较 低 ， 难以 满足 工业生产 过程 中 的 实时性 要求 ， 很难 直接 用于 实时 过程 控制 中 。 我们 曾多次 参与 实时 过程 中 的 数据 采集 及 控制软件 的 开发 ， 在 受到 基于 范例 推理 CBR ( Case   Based   Reasoning ） 方法 ［ 1 ］ 及 KDD 中 序列 模式 发现 ( Sequential   Pattern   Mining ) ［ 2 ］ ［ 3 ］ ［ 4 ］ ［ 5 ］ 的 启发 下 , 考虑 到 实时 过程 控制 中 的 特殊性 ， 给出 了 实时 过程 控制 中 的 数据挖掘 算法 DMRP ( Data   Mining   in   Real - time   Processing ) 。 
+ 　 　 工业生产 过程 控制 是 很 特殊 的 一个 领域 ， 计算机 在 其中 多数 起着 数据 采集 、 状态 监测 和 实时控制 的 作用 ， 这一 过程 中 同样 会 产生 大量 的 实时 采集 数据 （ 如 电流 、 电压 、 温度 、 气压 、 流量 、 电机 转速 、 开关 量 等 ） ， 人工 一般 是 很 难 理解 这些 数据 及其 关系 的 ， 更 不用说 及时 地 总结 并 进行 预测 了 ， 如果 能 让 计算机 自动 实时 地 从 产生 的 数据 中 抽取 知识 或 规则 ， 并 利用 获得 的 知识 对 即将 进行 的 过程 进行 估计 预测 ， 或 根据 已 获得 的 知识 对 发生 偏离 的 过程 进行 实时 纠正 ， 那么 将会 收到 更加 良好 的 效果 。 
+ 2 　 问题 描述 
+ 2.1 　 实时 过程 控制 的 特点 
+ 　 　 与 通常 的 数据库 管理系统 中 的 数据 （ 如 商场 购物 数据 ， 银行 储蓄 、 贷款 数据 等 ） 相比 ， 生产 过程 中 产生 的 数据 有着 明显 的 特点 ， 主要 表现 在 以下 几个 方面 ： 
+ 　 　 重复性 　 生产 过程 一般 是 一批 一批 地 生产 产品 的 ， 设备 运转 具有 明显 的 周期性 ， 若 数据 采集 是 按 一定 的 时间 间隔 进行 ， 则 每 周期 采集 的 数据量 是 一定 的 。 
+ 　 　 数据 的 准确性 　 生产 过程 中 的 数据 是 直接 采集 的 不 落地 数据 ， 因此 数据 准确性 高 ， 处理过程 中 不必 考虑 数据 缺省 等 情况 。 
+ 　 　 杂音 数据 少 　 过程 控制 中 考虑 到 成本 问题 ， 采集 的 信号 一般 都 是 经过 精心 选取 的 ， 因此 对 过程 控制 没有 直接 影响 的 信号 通常 是 不会 被 采集 的 。 
+ 2.2 　 问题 的 形式 描述 
+ 　 　 生产 过程 的 一个 周期 所 产生 的 有序 采集 数据 称之为 一个 序列 （ Sequence ） ， 它 包含 了 从 周期 开始 到 周期 结束 期间 各 时刻 ( t ) 的 采集 值 ， 每个 时刻 t 的 采集 值 是 相应 时刻 的 一个 状态值 集 St ( Status - Set ) , St = { st1 , st2 , ． ． ． , stm } 。 每个 完整 序列 我们 也 称之为 一个 范例 ( Case ) 。 
+ 　 　 设 数据 集 D = { Case1 , Case2 , ． ． ． , Casen } ， 它 表示 一个 已 采集 的 范例 的 集合 ， Casei 表示 第 i 个 周期 所 对应 的 范例 ， 1 ≤ i ≤ n ， Casei = { Sti1 , Sti2 , ． ． ． , Stik } ， k 为 一 周期 中共 采集 的 状态 数 ， Stih = { st1 , st2 , ． ． ． , stm } 表示 第 i 个 范例 序列 中 第 h 个项 ， 1 ≤ h ≤ k ， st1 , st2 , ． ． ． , stm 为 第 i 范例 序列 中 h 时刻 采集 的 各 状态值 。 
+ 　 　 设 范例 集 S ′ = { S1 ′ , S2 ′ , … , Sv ′ } , 1 ≤ i < j ≤ v ,   Si ′ ∈ D , Sj ′ ∈ D ,   Si ′ ≠ Sj ′ ， v 是 D 中 互不 相同 序列 的 总数 。 S ′ 本质 上 是 D 的 一个 投影 ， Si ′ = { Sti1 , Sti2 , … , Stim } 。 
+ 　 　 再设 序列 集 S = { S1 , S2 , ． ． ． , Sv } ， 其中 Si = { Sti1   U   { c1 } , Sti2   U   { c2 } ， … ， Stip   U   { cp } , … , Stik   U   { ck } } , 1 ≤ i ≤ v ， 1 ≤ p ≤ k ， 其中 ， cp 为子 序列 { Sti1 , Sti2 , … , Stip } 在 D 中 重复 的 总 次数 。 
+ 　 　 本 算法 的 目的 主要 是从 集合 D 中 产生 出 集合 S ， 再 利用 S 来 生成 规则 用以 预测 。 为了 说明 方便 ， 再 定义 有关 概念 如下 ： 
+ 　 　 .   范例 数 ( case — number ) , 指 D 中 的 序列 （ 范例 ） 总 个数 。 
+ 　 　 .   最低 范例 数 ( min — case — num ) , 指 用户 给定 的 一个 数 ， 使得 若 数据 集 D 中 范例 总数 低于 此数 ， 则 不 产生 任何 规则 。 
+ 　 　 .   子 序列 （ sub — sequence ） , 指 范例 序列 中 从 第一个 元素 开始 的 一个 连续 元素 构成 的 子集 。 
+ 　 　 .   k 子 序列 （ k — sub — sequence ） , 指 元素 个数 为 k 的 子 序列 。 
+ 　 　 .   支持 度 ( support ) ， 指 D 中子 序例 的 重复 次数   /   D 中 总 的 范例 数 。 
+ 　 　 .   最低 支持 度 ( min — support ) , 指 用户 给定 的 一个 数 ， 若子 序列 的 支持 度 大于 等于 此数 ， 则 此子 序列 为 频繁 子 序列 。 
+ 　 　 .   信任度 ( confidence ) , 一个 范例 是从 周期 开始 到 周期 结束 的 一个 完整 有序 序列 （ 按 时间 序 ） ， 若 存在 这样 一个 序列 ， 即 St1 , St2 , … , Sti - - > Stj , … , Stk , 其中 1 ≤ i ≤ j ≤ k 。 信任度 指此 k 子 序列 的 支持 度 与 i 子 序列 St1 , St2 , … , Sti 的 支持 度 的 比值 。 
+ 　 　 .   最低 信任度 ( min — confidence ) , 用户 给定 的 值 ， 某 规则 的 信任度 必须 大于 此值 方可 视为 有效 规则 ， 有效 规则 可用 来 预测 未来 趋势 。 
+ 　 　 .   状态 比较 函数 ( compare ) ， 根据 具体 领域 而 定义 的 一个 判别 两个 范例 序列 中 相应 位置 的 两个 状态值 集 是否 相似 的 函数 ， 通过 此 函数 ， 可 依次 比较 两 序列 中 相应 项 是否 均 相似 来 判断 两个 序列 是否 相似 ， 此 函数 返回值 为 - 1 ， 0 或 1 ， 分别 表示 < ， = ， > 。 
+ 3 　 算法 
+ 3.1 　 从 集合 D 中 生成 集合 S 算法 generate — S 
+ 初始化 ： S = { } , D = 目前 已 存在 的 所有 Cases 组成 的 集合 , 
+ datacount = 0 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / datacount 用以 标记 D 中 的 范例 总数 
+ for   all   Case ∈ D   do   　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 循环 扫描 所有 例子 一遍 
+ 　 if   Case 不 在 S 中 then 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 如果 此 范例 是 首次 出现 ， 则 
+ 　 　 将 Cases 变成 Sx ， 将 Sx 中 所有 c 置 为 0 ,   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 将 此 范例 变成 含有 计数 域 c 的 新 序列 
+ 　 　 S = S   U   { Sx } 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 并 将 其 加入 集合 S 中 
+ 　 fi 
+ 　 for   all   Si ∈ S   do 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 循环 检查 S 中 的 所有 序列 ， 并 酌情 调 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 整 所有 子 序列 的 出现 计数 
+ 　 　 for   all   Si 的 子 序列 Subk   do 
+ 　 　 　 if   Subk 是 Case   的 k 子 序列   then 
+ 　 　 　 　 Si 中 第 k 项中 的 ck 加 1 
+ 　 　 　 fi 
+ 　 　 od 
+ 　 od 
+ 　 datacount = datacount + 1 
+ od 
+ 3.2 　 实时 增量 更新 及 预测 算法 RTIUPA 
+ 假设 一 周期 采集 数据 为 v 次 
+ LOOP   start 直到 机器设备 停止 生产 
+ 　 Stemp = { } , 并 等待 一新 周期 开始 , k = 0 
+ 　 do   while   k < =   v 
+ / / 依次 读入 一 周期 中 采集 的 各 状态值 ， 并 处理 。 
+ 　 　 等待 读入 一 状态 集 Stk = { st1 , st2 , … , stm } , 
+ 　 　 Stemp = Stemp   U   { Stk   U   ck ′ } , k = k + 1 , ck ′ = 1 
+ 　 　 for   all   Si ∈ S   do 
+ 　 　 　 if   Stemp 是 Si 的 一个 k 子 序列 then 
+ 　 　 　 　 Si 中 的 相应 子 序列 的 计数 ck = ck + 1 , ck ′ = ck 
+ 　 　 　 fi 
+ 　 　 od 
+ 　 　 if   datacount > = 最小 范例 数   then 
+ 　 　 　 if   k < v   且 Stemp 的 支持 度 （ support ） 大于 
+ 　 　 　 　 最小 支持 度 ( min — support )   then 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 预测 
+ 　 　 　 　 Stemp1 = Stemp 
+ 　 　 　 　 for   j = k + 1   to   v   do 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 找 未来 最大 可能 序列 
+ 　 　 　 　 　 在 S 中 找出 包含 Stemp1 子 序列 的 具有 最大 cj + 1 的 j + 1 子 序列 Stemp2 
+ 　 　 　 　 　 if   Stemp   = = > Stemp2 的 信任度 ( conf ) 大于 最低 信任度 ( min — conf )   then 
+ 　 　 　 　 　 　 Stemp1 = Stemp2 
+ 　 　 　 　 　 else 
+ 　 　 　 　 　 　 break 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 退出 此层 循环 
+ 　 　 　 　 　 fi 
+ 　 　 　 　 od 
+ 　 　 　 　 如果 j > k , 则 Stemp1 为 未来 最大 可能 序列 ， 输出 预测 情况 。 
+ 　 　 　 fi 
+ 　 　 fi 
+ 　 od 
+ 　 if   Stemp 不 在 S 中 then 
+ 　 　 S   =   S   U   { Sx }   　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 将 新 范例 加入 S 中 
+ 　 fi 
+ 　 D = D   U   { Stemp } 
+ 　 datacount = datacount + 1 
+ 　 LOOP   continue 
+ 3.3 　 DMRP 算法 
+ 　 　 if   首次 运行   then 
+ 　 　 　 call   generate — S 
+ 　 　 else 
+ 　 　 　 call   RTIUPA 
+ 　 　 fi 
+ 4 　 算法 分析 
+ 　 　 如果 是 首次 运行 ， 则 需 扫描 数据库 一次 （ 调用 generate — S ） ， 产生 集合 S ， 考虑 到 机器设备 的 重复性 ， 集合 S 的 元素 数量 应较 少 ， 因此 算法 执行 时间 主要 是 由 数据库 D 的 元素 个数 和 每个 序列 的 长度 来 决定 ， 即 时间 复杂度 约 为 （ n × k ） , n 为 D 中 例数 ， k 为 序列 长度 。 
+ 　 　 RTRUPA 算法 是 实时 运行 ， 算法 效率 主要 由 3.2 程序 中 的 两个 for 循环 决定 ， 这 两个 循环 均 依赖于 S ， 而 S 一般 较 小 ， 所以 这 两个 效率 很 高 ， 能 满足 实时性 要求 。 
+ 注 ： 本文 研究 得到 国家自然科学基金 资助 。 
+ 作者简介 ： 杨 学兵 　 在职 硕士 研究生 。 研究 方向 ： 人工智能 、 知识 发现 。 
+ 刘胜军 　 在职 硕士 研究生 。 研究 方向 ： 人工智能 、 知识 发现 。 
+ 蔡 庆生 　 教授 ， 博士 研究生 导师 。 研究 方向 ： 人工智能 、 知识 发现 。 
+ 作者 单位 ： 中国 科学技术 大学 计算机科学 系 　 安徽 . 合肥 （ 230027 ） 
+ 参考文献 
+ ［ 1 ］ 　 史忠植 . 高级 人工智能 . 北京 ： 科学出版社 ， 1997 , 12 
+ ［ 2 ］ 　 R . Agrawal , R . Srikant .   Mining   Sequential   Patterns.11 th , Int ′ l   Conf .   on   Data   Engineering ( DE - 95 ) , Taipei ,   Taiwan ,   March   1995 
+ ［ 3 ］ 　 R . Srikant , R . Agrawal .   Mining   Sequential   Patterns .   Generalizations   and   Performance   Improvements .   EDBT - 96 , Avignon , France , March   1996 
+ ［ 4 ］ 　 欧阳 为民 ， 蔡 庆生 . 在 数据库 中 自动 发现 广义 序贯 模式 . 软件 学报 ， 1997 ; 8 （ 11 ） ： 864 - 870 
+ ［ 5 ］ 　 C . Hidber .   Online   Association   Rule   Mining .   Technical   Report ,   UCB / GSD - 98 - 1004 , Department   of   Electrical   Engineering   and   Computer   Science ,   University   of   California   at   Berkeley 
+ 收稿 日期 : 1999 - 03 - 18 

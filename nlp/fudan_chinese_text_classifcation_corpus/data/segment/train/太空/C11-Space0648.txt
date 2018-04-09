@@ -1,0 +1,30 @@
+上海 航天 
+ AEROSPACE   SHANGHAI 
+ 2001   Vol.18   No.3   P.1 - 4 
+ 
+ 
+ 
+ 
+ 星载 合成孔径雷达 回波 多普勒 频率 的 计算 
+ 袁孝康 　   
+ 摘 　 要 ： 从星载 合成孔径雷达 ( SAR ) 与 目标 的 相对运动 关系 出发 ， 以 SAR 发射 信号 的 波长 、 卫星 的 轨道 参数 和 目标 的 位置 ( 地 心 经纬度 ) 为 已知 条件 ， 导出 了 计算 目标 回波 的 多普勒 频率 的 解析 公式 ， 这 对于 星载 SAR 系统 的 性能 分析 和 初步设计 具有 重要 作用 。 
+ 关键词 ： 合成孔径雷达 ； 星载 合成孔径雷达 ； 回波 多普勒 频率 计算 ； 多普勒 效应 
+ 分类号 ： TN958.2 　 文献 标识码 ： A 
+ 文章 编号 ： 1006 - 1630 ( 2001 ) 03 - 0001 - 04 
+ Calculation   of   Echo   Doppler   Frequency   for   Satellite - Borne   SAR   
+ YUAN   Xiao - kang （ No.509   Institute   of   SAST , Shanghai   200240 , China ） 　 
+ 
+ Abstract ： In   this   paper , the   formula   for   calulating   echo   Doppler   frequency   of   satellite - borne   synthetic   aperture   radar   ( SAR )   is   derived   in   detail . In   the   formula , the   target   position   ( the   longitude   and   latitude )   are   considered   as   a   known   condition   . The   formula   is   significative   for   analysis   of   performance   and   preliminary   design   for   satellite - borne   SAR . 
+ Keywords ： Synthetic   aperture   Radar   ( SAR ) ; Satellite - borne   SAR ; Calculation   of   Echo   Doppler   frequency ; Doppler   effect 
+ 
+ 作者简介 ： 袁孝康 （ 1939 - ） ， 男 ， 研究员 ， 上海市 宇航 学会 会员 ， 研究 领域 ： 空间 电子学 。   
+ 作者 单位 ： 袁孝康 （ 上海 航天技术 研究院 509 所 ， 上海   200240 ） 　 
+ 
+ 参考文献 ： 
+ ［ 1 ］ Li   F   K , Held   D   N , Curlander   J . Doppler   parameter   estimation   for   spaceborne   synthetic   radar [ J ] . IEEE   Transactian   an   Geoscience   and   Remote   Sensing.1985 ; GE - 23 ( 1 ) : 47 - 55 . 
+ ［ 2 ］ QJ1028 - 86   航天 产品 常用 坐标系 规范   [ S ] . 
+ ［ 3 ］ QJ1667 - 89   卫星 位置 预报 简易 计算方法   [ S ] . 
+ ［ 4 ］ QJ1437 - 88   计算 卫星 运行 轨道 的 数学模型 直角坐标 方程   [ S ] . 文章 编号 ： 1006 - 1630 （ 2001 ） 03 - 0019 - 03 
+ 
+ 收稿 日期 ： 2000 年 8 月 31 日 
+ 出版日期 ： 2001 年 3 月 1 日 

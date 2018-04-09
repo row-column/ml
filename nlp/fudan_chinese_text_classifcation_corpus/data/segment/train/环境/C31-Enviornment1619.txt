@@ -1,0 +1,84 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1999 年 　 第 19 卷 　 第 3 期 　 Vol.19   No.3   1999 
+ 
+ 
+ 
+ 丙烯醛 与 DNA 碱基 反应 机理 的 AM1 研究 
+ 周志刚 　 戴乾 圜 　 钟儒刚 
+ 摘要 ： 采用 AM1 方法 计算 了 在 水合 质子 的 参与 下 , 丙烯醛 与 DNA 鸟嘌呤 碱基 发生 烷化 加成 的 可能 的 反应 过程 , 从 得到 的 能量 关联 图 可以 看出 , 除了 其中 的 一个 分子 内 质子 迁移 过程 外 , 其余 的 每 一 反应 过程 体系 的 能量 均 是 降低 的 . 计算 得到 的 各 关键步骤 的 反应 活化能 均 不大 , 反应 易于 进行 . 根据 计算 的 自由 能 可以 看出 , 整个 反应 能够 自发 进行 , 说明 丙烯醛 可 经过 2 次 烷化 加成反应 与 DNA 碱基 发生 交联 作用 . 
+ 关键词 ： 丙烯醛 ； 反应 机理 ； 交联 ； 双区 理论 ； AM1 
+ 中 图 分类号 ： X132   文献 标识码 ： A   文章 编号 ： 1000 -   6923 ( 1999 ) 03 -   0197 -   04 
+ The   study   on   mechanism   of   acrolein   reaction   with   DNA   base   by   AM1 .   
+ ZHOU   Zhi - gang1 , DAI   Qian - huan2 , ZHONG   Ru - gang2 
+ ( 1 . Center   of   Environmental   Science , Peking   University , Beijing   100871 , China ； 2 . The   Center   of   Chemistry   and   Bioengineering   of   cancer ,   Beijing   Polytechnic   University ,   Beijing   100022 , China ) .   China   Environmental   Science.1999 , 19 ( 3 ) ： 197 ～ 200 
+ Abstract ： A   series   of   proposed   basic   reactions   of   acrolein   with   DNA   Guanine   with   the   participation   of   acid   have   been   computed .   The   results   show   that   the   energy   of   the   reaction   system   drops   in   all   reactions   except   one   reaction   of   proton   rearrangement   within   the   molecule .   The   computed   active   energies   of   key   reactions   are   mild ,   so   these   reactions   take   place   easily .   The   total   reaction   can   take   place   spontaneously   according   to   the   computed   D   G .   It   indicates   that   acrolein   can   cross - link   with   DNA   through   two   times   alkylating   additive   reaction   with   DNA   base . 
+ Key   words ： acrolein ； reaction   mechanism ； cross - linking ； di - region   theory ； AM1 
+ 　 　 自从 认识 到 氯乙烯 可 诱导 人 的 罕见 肝 血管瘤 以后 , 相继 发现 二 氯乙烯 、 丙烯腈 、 丙烯醛 等 烯烃 衍生物 在 职业 环境 具有 致癌 危险性 , 如 丁烯 醛 可 引发 小鼠 肝癌 [ 1 ] , 有机物 的 不 完全 燃烧 所 产生 的 丙烯醛 ( ACR ) , 已 证实 具有 直接 致 突性 [ 2 - 5 ] . 丙烯醛 的 羰基 C1 和 烯烃 C3 原子 均 可 与 碱基 氮 原子 发生 烷化 加成反应 [ 6 , 7 ] . C3 原子 与 DNA 碱基 发生 烷化 反应 后 , C1 原子 可 再 与 另 一 相邻 碱基 发生 烷化 反应 而 表现 出 的 符合 “ 双区 理论 ” [ 8 ] 的 双 官能 烷化 DNA 的 能力 , 对于 研究 环境 中 广泛 存在 的 a   - b   不饱和 羰基 化合物 与 DNA 碱基 的 作用 机制 , 认识 DNA 损害 具有 重要 的 意义 . 
+ 1 　 模型 和 计算方法 
+ 　 　 丙烯醛 可 在 DNA 鸟嘌呤 ( G ) 的 N - 1 、 N2 和 N - 7 、 腺嘌呤 的 N - 1 、 N6 和 N - 7 以及 胞嘧啶 的 N4 处烷化 [ 7 ] . 其中 环外 氮 原子 的 烷化 , 对 形成 DN A股 间 交联 贡献 较大 , 故本 计算 以 鸟嘌呤 环 N2 上 的 烷化 反应 为 计算 模型 . 计算 时 对 反应物 、 生成物 和 中间 过渡态 等 进行 全 几何 构型 优化 , 并 对 过渡态 的 几何 构型 进行 简并 振动 力常数 和 内 禀 反应 坐标 的 计算 , 确认 结构 的 合理性 和 诸 相关 结构 之间 的 联系 . 由于 研究 的 是 一个 整体 反应 过程 , 电子相关 能 在 结果 比较 中 大部分 互抵 , 故 在 上述 计算 中均 未 考虑 电子组态 的 相互作用 . 
+ 　 　 计算 使用 MOPAC   6.3 软件 的 AM1 方法 , 在 PII - 200 PC机 上 完成 . 分子 初始 结构 建立 和 计算 后 分子结构 、 分析 均 采用 Alchemy 软件 . 
+ 　 　 丙烯醛 和 丙烯醛 正离子 的 结构 及 电荷分布 特性 计算 采用 Gaussian   94   中 的 ab   initio   方法 , 选用 6 - 31G ( d ) 基组 , 全 优化 几何 构型 , 在 SGI 工作站 上 完成 . 
+ 2 　 结果 与 讨论 
+ 2.1   试剂 的 亲 电性 特征 
+ 　 　 首先 采用 ab   initio 方法 计算 丙烯醛 和 丙烯醛 羰基 质子化 正离子 各 原子 的 电荷 特性 , 结果 列于 表 1 . 由表 1 可 看出 , 从 电性 上 来说 , 亲核 试剂 可 进攻 C1 和 C3 原子 , 但 均 优先 进攻 两 化合物 的 C1 原子 . 质子化 后 , C3 上 正 电性 的 增加 大于 C1 上 正 电性 的 增加 , C3 的 反应 性 得到 提高 . 
+ 2.2   反应 过程 的 能量 特征 
+ 　 　 在 水合 质子 的 参与 下 , 丙烯醛 ( ACR ) 与 DNA 鸟嘌呤 ( G ) N2 反应 的 可能 反应 过程 如图 1 所示 . 计算 得到 的 该 反应 过程 的 能量 关联 图如图 2 所示 . 其中 化合物 ( B ) 和 化合物 ( C ) ( 见图 1 ) 的 能量 差较 小 , 化合物 ( E ) 和 化合物 ( F ) 上 鸟嘌呤 N2 上 的 质子转移 到 水分子 的 过程 能量 差异 也 较 小 , 可以 忽略 , 因而 在 讨论 时 可以 忽略 两 过程 的 能量 差异 . 从图 2 中 看出 , 除了 过程 IV 即 质子 在 H2O 参与 作用 下 从 氮 原子 转移 的 醛 基氧上 的 过程 体系 能量 升高 外 , 其它 反应 过程 体系 的 能量 均 降低 . 从 反应 过程 I 到 反应 过程 V ( 或 VI ) 的 整个 过程 能量 下降 值为 421kJ / mol . 
+ 表 1 　 计算 得到 的 丙烯醛 及 正离子 的 原子 电荷 
+ Table   1   The   computed   atomic   chargers   of   acrolein   and   its   cation 
+ 分子 C1C2C3O4 
+ 丙烯醛 0.466 - 0.0070 . 032 - 0.491 
+ 丙烯醛 正离子 0.6470 . 0450.319 - 0.011 
+ 
+ 
+ 　 
+ 图 1 　 丙烯醛 与 鸟嘌呤 的 可能 反应 过程 
+ Fig.1   The   possible   reaction   path   of   acrolein   with   guanine 
+ 
+ 图 2 　 反应 过程 的 能量 关联 图 
+ Fig.2   The   relationship   of   energies   and   reaction 
+ 　 　 反应 过程 I 、 III 和 IV 均 为 水 参与 下 的 质子转移 反应 过程 , 选取 反应 过程 I , 即 丙烯醛 质子化 过程 和 反应 过程 IV 的 羰基 质子化 过程 为 模型 进行 了 过渡态 优化 和 反应 路径 计算 . 反应 过程 I 中 体系 能量 随 反应 路径 变化 的 曲线 如图 3 所示 . 反应 经 过渡态 ( TS1 ) 生成 能量 较 反应物 更 低 的 产物 . 在 过渡态 , 迁移 的 质子 与 羰基 氧原子 的 距离 为 0.1427 nm , 与 水中 氧原子 的 距离 为 0.1097 nm , 迁移 的 质子 更 靠近 水分子 即 过渡态 结构 更 接近 反应物 的 结构 . 该 反应 过程 的 活化能 较 低 , 只有 22.2 kJ / mol , 反应 很易 进行 . 
+ 
+ 图 3 　 丙烯醛 质子化 ( 过程 I ) 能量 曲线 
+ Fig.3   The   energy   curve   of   acrolein   protonation 
+ 坐标 1 . 迁移 质子 与 羰基 氧核 间距   坐标   2 . 迁移 质子 与 水中 氧核 间距 
+ 　 　 反应 过程 IV 的 羰基 质子化 过程 中 体系 能量 变化 曲线 如图 4 所示 , 该 过程 能量 变化 与 反应 过程 I 非常 相似 . 在 过渡态 ( TS2 ) 迁移 的 质子 与 羰基 氧原子 的 距离 为 0.1413 nm , 与 水中 氧原子 的 距离 为 0.1100 nm , 处于 过渡态 的 迁移 的 质子 更 靠近 水分子 . 该 反应 过程 的 活化能 较 低 , 只有 19.21 kJ / mol , 反应 同样 易 进行 . 
+ 
+ 图 4 　 化合物 ( C ) 羰基 质子化 过程 ( IV ) 能量 曲线 
+ Fig.4   The   energy   curve   of   compound   C   protonation 
+ 坐标 1 . 迁移 质子 与 羰基 氧核 间距   坐标 2 . 迁移 质子 与 水中 氧核 间距 
+ 　 　 对于 烷化 加成反应 , 计算 了 发生 第 1 次 烷化 加成 和 第 2 次 烷化 加成反应 过程 即 反应 过程 II 、 V 和 VI 的 过渡态 和 反应 路径 . 计算 得到 的 反应 过程 II 体系 的 能量 随 反应 路径 变化 的 曲线 如图 5 所示 . 反应 体系 跨越 一定 的 能 障经 过渡态 ( TS3 ) 生成 能量 较 反应物 更 低 的 产物 . 在 过渡态 , 鸟嘌呤 环外 N2 距 丙烯醛 C3 的 距离 为 0.209 nm , 过渡态 结构 比较 接近 于 加成 反应物 状态 . 该 反应 过程 的 活化能 为 52.3 kJ / mol , 反应 较易 进行 . 
+ 
+ 图 5 　 化合物 ( A ) 与 G 烷化 加成 过程 ( II ) 能量 曲线 
+ Fig.5   The   energy   curve   of   compound   A   react   with   G 
+ 　 　 计算 得到 的 反应 过程 V 体系 的 能量 变化 曲线 如图 6 所示 . 反应 跨越 很小 的 能 障经 过渡态 ( TS4 ) 生成 能量 较 反应物 更 低 的 产物 . 该 反应 过程 的 活化能 很小 , 反应 几乎 没有 能障 , 说明 决定 反应 的 是 反应物 浓度 ( 碰撞 机率 ) 和 空间结构 ( 碰撞 取向 ) 等 因素 , 而 不是 能量 因素 . 在 过渡态 , 鸟嘌呤 环外 N2 距 丙烯醛 C1 的 距离 为 0.221 nm , 过渡态 结构 非常 接近 反应物 状态 . 
+ 
+ 图 6 　 化合物 D 烷化 加成 过程 ( V ) 能量 曲线 
+ Fig.6   The   energy   curve   of   compound   D   react   with   G 
+ 　 　 同样 , 还 对 反应 过程 VI , 即 化合物 ( C ) 不 经 羰基 质子化 而 直接 与 鸟嘌呤 反应 的 过程 进行 了 反应 过渡态 优化 和 反应 路径 计算 . 该 反应 的 活化能 为 205.2 kJ / mol . 对比 经 反应 过程 IV 和 V 发生 烷化 加成反应 的 途径 的 最大 能障 为 76.6 kJ / mol , 说明 烷化 反应 经 羰基 质子化 后 再 进行 烷化 反应 能量 上 更为 有利 . 
+ 2.3   反应 过程 的 热力学 特征 
+ 　 　 计算 了 上述 各 反应 过程 热力学 值 , 列于 表 2 . 从表 2 可 得到 , 除了 反应 过程 IV , 其余 均 为 放热 过程 . 反应 II 和 V 为 烷化 加成反应 过程 , 反应 的 有序 程度 增加 , 反应 过程 熵 减少 较 多 ; 而 反应 过程 I 、 III 和 IV 均 为 分子 内 质子 迁移 过程 , 熵 变化 不大 . 反应 过程 I 、 II 、 和 V 为 自发 反应 过程 , 并且 反应 自发 程度 很大 ; 反应 过程 III 的 D   G 为 正值 但 较 小 , 反应 也 能 进行 一定 程度 ; 反应 过程 IV 的 D   G 值为 正值 且 较大 , 反应 程度 很 低 , 由于 下 一步 反应 的 D   G 的 绝对值 远大于 该 反应 过程 的 D   G 值 , 整个 反应 过程 的 自发 程度 仍 很 高 . 
+ 表 2 　 计算 得到 的 反应 过程 的 热力学 值 
+ Table   2   The   calculated   thermodynamic   properties   of   reactions 
+ 热力学 项反   应   过   程 
+ IIIIIIIVV 
+ D   H   ( kJ / mol ) - 121 - 180 - 443 - 159 
+ D   S   ( J / mol )   - 7.25 - 191.8 - 17.924 . 6 - 190.8 
+ D   G   ( kJ / mol ) - 118.8 - 122.81 . 33435.7 - 102.1 
+ 
+ 3 　 结 　 论 
+ 　 　 通过 计算 得出 , 在 水 和 质子 的 参与 下 , 丙烯醛 与 DNA 鸟嘌呤 环外 氮 原子 发生 烷化 加成反应 的 各步 反应 过程 能量 基本上 是 下降 的 . 计算 的 几个 关键 反应 的 活化能 都 不大 , 反应 易于 进行 . 从 整个 反应 的 自由 能 来看 , 反应 是 能够 自发 进行 的 . 说明 丙烯醛 可 与 DNA 碱基 经 2 次 烷化 加成反应 而 发生 交联 作用 , 对于 进一步 揭示 其 基因毒性 机制 具有 一定 意义 . 
+ 基金项目 ： 国家自然科学基金 资助 项目 ( 29377269 ) 
+ 作者简介 ： 周志刚 ( 1966 - ) , 男 , 河北 沧州 人 , 北京大学 环境 科学 中心 博士生 , 主要 从事 有机化学 化工 、 环境 计算 化学 等 方面 的 研究 工作 . 负责 承担 过 “ 二硫代 膦 酸盐 捕收剂 的 研究 ” 、 “ MIBC 起泡 剂 扩大 中试 研究 ” 等 部级 科研项目 . 发表 论文 10 余篇 . 
+ 作者 单位 ： 周志刚 　 北京大学 环境 科学 中心 , 北京   100871 ； 
+ 　 　 　 　 　 戴乾 圜 　 钟儒刚 　 北京工业大学 癌 化学 与 生物工程 中心 , 北京   100022 
+ 参考文献 ： 
+ [ 1 ] Chung   F   L , Tanaka   T , Hecht   S   S . Induction   of   liver   tumors   in   F344   rats   by   crotonaldehyde   [ J ] .   Cancer   Res . , 1986 , 46 : 1285 -   1289 . 
+ [ 2 ] Beauchamp   R   O   Jr , Andjelkovich   D   A , Kligerman   A   D , et   al . A   critical   review   of   the   literature   on   acrolein   toxicity   [ J ] .   CRC   Crit .   Rev .   Toxicol . , 1985 , 14 : 309 -   380 . 
+ [ 3 ] Witz   G . Biological   interactions   of   a   , b   - unsaturated   aldehydes   [ J ] .   Free   Radical   Biol .   Med . , 1989 , 7 : 333 -   349 . 
+ [ 4 ] Eder   E , Henschler   D , Neudecker   T . Mutagenic   properties   of   allylic   and   a   , b   - unsaturated   carbonyl   compounds :   consideration   of   alkylating   mechanisms   [ J ] .   Xenobiotica , 1982 , 12 : 831 -   848 . 
+ [ 5 ] Eder   E , Deininger   C , Neudecker   T ,   et   al . Mutagenicity   of   b   - alkylsubstituted   acrolein   congeners   in   the   salmonella   typhimurium   strain   TA100   and   genotoxicity   testing   in   the   SOS - chromotest   [ J ] .   Environ .   Mol .   Mutagen , 1992 , 19 : 338 -   345 . 
+ [ 6 ] Chenna   A , Iden   C   R . Characterization   of   2 ’ - deoxycytidine   and   2 ’ - deoxyyuridine   adducts   formed   in   reactions   with   acrolein   and   2 - bromoacrolein   [ J ] .   Chem .   Res .   Toxicol . , 1993 , 6 : 261 -   268 . 
+ [ 7 ] Chung   F   L , Roy   K   R , Hecht   S   S . A   study   of   reaction   of   a   , b   - unsaturated   carbonyl   compounds   with   deoxyguanosine   [ J ] . J . Org .   Chem . , 1988 , 53 : 14 -   17 . 
+ [ 8 ] 戴乾 圜 . 化学 致癌 及 化学 致癌 机理 的 研究   [ J ] . 中国 科学 ( B 辑 ) , 1979 , ( 10 ) : 964 -   977 . 
+ 收稿 日期 ： 1998 - 09 - 07 

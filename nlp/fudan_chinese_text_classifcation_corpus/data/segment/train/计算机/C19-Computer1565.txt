@@ -1,0 +1,64 @@
+信息 与 控制 
+ INFORMATION   AND   CONTROL 
+ 1999 年   第 28 卷   第 2 期   Vol.28   No.2   1999 
+ 
+ 
+ 
+ 具有 多 滞后 非线性 定常 关联 控制 
+ 系统 的 镇定 性 研究 * 
+ 邓则 名 　 张 新政 
+ 　 　 摘要 　 建立 了 多组 多 滞后 定常 非线性 控制系统 的 结构 概念 ， 采用 李雅普 诺夫 函数 分解 等价 法 ， 由   Riccati 矩阵 微分方程 的 对称 正定 解 矩阵 构造 正定 二次 型 V 函数 ， 给出 了 无 滞后 无 扰动 参数 线性 定常 控制 孤立 子系统 的 镇定 性 ， 蕴含 具有 滞后 控制 向量 函数 的 扰动 结构 参数 的 多组 多 滞后 区间 系数 定常 非线性 关联 控制系统 的 关联 鲁棒 镇定 的 一个 充分条件 ， 同时 给出 了 扰动 参数 与 滞后 非线性 项 界线 的 估计 公式 ． 
+ 　 　 关键词 　 李雅普 诺夫 分解 等价 法 , 多组 多 滞后 , 非线性 控制 大 系统 , 关联 鲁棒 镇定 
+ THE   STUDY   OF   STABILIZATION   OF   NONLINEAR   CONSTANT 
+ INTERCONNECTED   CONTROL   SYSTEMS   WITH   TIME - DELAYS 
+ DENG   Zheming 　 ZHAND   Xinzheng 
+ ( Guangdong   Univ .   of   Technology ,   Guangzhou ,   P . R .   China   510090 ) 
+ 　 　 Abstract 　 In   this   paper ,   the   concepts   of   structure   for   nonlinear   constant   interconnected   control   systems   with   multigroup   time - delays   are   formulated .   The   structure   and   interconnected   stabilization   of   nonlinear   constant   interconnected   control   systems   with   multigroup   time - delays   and   perturbation   structure   parameters   is   considered   based   on   the   equivalence   method   of   stabilization .   Meanwhile ,   the   estimated   formulas   of   bounds   for   delay   and   perturbed   parameter   of   robust   stabilization   are   given . 
+ 　 　 Key   words 　 equivalence   method   of   lyapunov ' s   function ,   nonlinear   interconnected   control   systems ,   multigroup   time - delays ,   the   interconnected   robust   stabilization 
+ 　 　 1 　 引言 
+ 　 　 任何 实际 系统 不可避免 地 存在 着 滞后 现象 ， 例如 数控机床 控制系统 中 伺服系统 的 信息 传递 以及 开关 就 存在 着 滞后 现象 ， 工程 实际 中 许多 问题 必须 用 非线性 模型 来 刻画 ， 例如 ： 电力系统 、 受限 机器人 等 ． 近年来 非线性 系统 的 镇定 性 研究 越来越 受到 众多 学者 们 的 关注 ． 在 实际 系统 中 ， 对象 不可避免 地 存在 建模 不确定性 及 参数 不确定性 ， 因此 ， 对 一个 具有 不确定性 的 非线性 系统 研究 其鲁棒 镇定 性 就 成为 一个 很 重要 的 课题 ． 
+ 　 　 由于 干扰 因素 的 存在 ， 某些 回路 暂时 中断 或 又 接通 时 ， 滞后 控制系统 发生 结构 上 的 变化 ， 又 需要 研究 滞后 关联 控制系统 的 结构 与 镇定 ． 控制规模 的 扩大 ， 如 多层 、 递阶 、 多 回路 、 负反馈 、 多 输入 、 多 输出 间 的 控制系统 的 响应 ， 是 一个 多组 多 滞后 控制系统 结构 变化 ， 因此 需要 研究 具有 滞后 控制 向量 函数 多组 多 滞后 区间 系数 定常 非线性 关联 控制系统 的 结构 与 关联 鲁棒 镇定 问题 ． 
+ 　 　 在 文献 [ 1 ] 中 我们 已 采用 李雅普 诺夫 函数 等价 法 \ [ 2 ~ 4 \ ] ， 研究 了 滞后 线性 定常 关联 控制系统 的 结构 与 关联 镇定 ． 本文 将 采用 李雅普 诺夫 函数 分解 等价 法 ， 研究 具有 滞后 控制 向量 函数 ， 多 滞后 区间 系数 ， 定常 非线性 关联 控制系统 的 结构 与 关联 鲁棒 镇定 问题 ． 
+ 　 　 2 　 结构 与 关联 鲁棒 镇定 
+ 　 　 考虑 具有 滞后 控制 向量 函数 多 滞后 区间 系数 定常 非线性 关联 控制系统 
+ 　 　 　 　 　 　 　 　 ( 1 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 2 ) 
+ 此处 
+ 　 　 ( 3 ) 
+ gi 是 X , X ( t - τ ) ,   U , U ( t - τ ) , E1i , E2i ,   E3i , E4i 的 不确定性 函数 ． 
+ 其中 ( α = r , s , d , f , g , h ； β = 1 , 2 , 3 , 4 , 5 , 6 ) 都 是 确定性 函数 ． 
+ 　 　 令 
+ 
+ ( i , j = 1 , … , n ;   f = 1 , … , m ; η = 1 , … , p ) 
+ 　 　 对 多组 多 滞后 非线性 区间 系数 定常 关联 控制系统 ( 1 ) , ( 2 ) ， 如果 我们 不 考虑 它 的 扰动 结构 关联 项 和 滞后 扰动 关联 项 以及 非线性 项 ， 则 ( 1 ) , ( 2 ) 化为 无 滞后 无 结构 扰动 参数 的 线性 定常 控制系统 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 4 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 5 ) 
+ 此处 A ( t ) = ( aij ) n × n ,   B ( t ) = ( bif ) n × m ,   C ( t ) = ( cfj ) p × n 为 定常 矩阵 . 
+ 　 　 定义 1 　 对 滞后 ( r = s , f , h ) 及 关联矩阵 ( α = r , s , d , f , g , h , β = 1 , 2 , 3 , 4 , 5 , 6 ) , 如果 多组 多 滞后 非线性 区间 系数 定常 关联 控制系统 ( 1 ) 的 闭环 系统 的 零解 是 渐近 稳定 的 , 则 称 多组 多 滞后 非线性 区间 系数 定常 关联 控制系统 关联 鲁棒 镇定 ． 
+ 　 　 控制系统 ( 4 ) ， ( 5 ) 可以 记 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 6 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 7 ) 
+ 假定 ( A . B ) 可控 ， ( A . C ) 可 观测 ， 对 ( 6 ) 存在 使 二次 性能指标 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 8 ) 
+ 取 极小值 的 最优 反馈 向量 函数 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 9 ) 
+ 并且 使得 线性 定常 控制系统 ( 6 ) 的 闭环 系统 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 10 ) 
+ 的 零解 是 渐近 稳定 的 ， 这里 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 11 ) 
+ P 是 Riccati 矩阵 代数 非线性 方程 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 12 ) 
+ 的 唯一 对称 正定 解 ． Q = CTC , R ( t ) 分别 是 n × n 维 ， m × m 维 的 正定 对称 矩阵 ． 由 正定 对称 矩阵 P ， 我们 构造 二次 型 V 函数 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 13 ) 
+ 由于 V ( t ) 是 正定 对称 二次 型函数 存在 正数 β 1 ＞ 0 , β 2 ＞ 0 ， 并 有 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 14 ) 
+ 由 ( 13 ) 式 的 V ( t ) 沿着 线性 定常 控制系统 ( 6 ) 的 轨线 对 t 求 导数 , 得到 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 15 ) 
+ 由于 XT ( t ) ( Q - PBR - 1BTP ) X ( t ) 是 正定 二次 型函数 ， 从而 有 
+ 　 　 　 　 　 　 　 　 　 　 　 ( 16 ) 
+ 从 ( 16 ) 我们 得到 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 17 ) 
+ 令 
+ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 18 ) 
+ 设在 定义域   G : | Xi | ≤ H , | Uj | ≤ H , ( i = 1 , … , n ; j = 1 , … , m ;   任意 t ≥ t0 ) 非线性 项对 所有 变元 连续 ， 且 有 

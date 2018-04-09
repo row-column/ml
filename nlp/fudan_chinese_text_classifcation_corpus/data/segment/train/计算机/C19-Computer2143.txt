@@ -1,0 +1,111 @@
+计算机 应用 研究 
+ APPLICATION   RESERCH   OF   COMPUTERS 
+ 2000     Vol.17 　 No.1 　 P.26 - 28 
+ 
+ 
+ 
+ 
+ VRML 虚拟空间 协同 生成 原型 系统 的 研究 与 开发 
+ 刘一松 
+ 摘   要   以 该文 作者 自行 开发 的 VRML 虚拟空间 协同 生成 原型 系统 （ MVRC ） 为 基础 ， 提出 了 借助 VRML 的 外部 程序接口 EAI ， 人 - 机 交互 地 生成 VRML 虚拟空间 的 方法 ； 论述 了 通过 采用 集中式 系统结构 、 利用 TCP / IP 协议 下 的 Java   Socket 网络通信 机制 以及 构造 相应 的 网络通信 数据包 等 方法 ， 实现 异地 多个 用户 协同工作 的 过程 。 MVRC 可以 成为 实现 诸如 虚拟 教室 、 多用户 虚拟 展览馆 应用 系统 以及 虚拟社区 的 基础 。 
+ 关键词   VRML   EAI   CSCW   虚拟空间 生成 
+ 　 　 虚拟现实 建模语言 （ VRML ） 是 描述 虚拟环境 中 场景 的 一种 标准 ， 利用 它 可以 在 Internet 上 建立 交互式 三维 多媒体 虚拟 境界 。 VRML 的 基本特征 包括 ： 分布式 、 交互式 、 平台 无关 、 三维 、 多媒体 集成 、 逼真 自然 等 ， 被 称为 第二代 Web ， 其 应用领域 非常 广泛 ， 包括 科学研究 、 教育 、 工程 、 建筑 、 商业 、 娱乐 、 广告 、 电子商务 等 ， 已 被 越来越 多 的 人 所 重视 。 
+ 　 　 VRML 像 HTML 一样 ， 用 文本格式 来 描述 虚拟 境界 ， 这种 创建 虚拟 境界 的 方法 ， 既 繁琐 又 不 直观 ， 较 难 为 一般 使用 人员 所 接受 。 VRML 虚拟空间 生成 系统 ( VRML   Authoring   software ) 可以 使 用户 通过 可视化 拖放 的 方法 ， 人 - 机 交互 地 生成 VRML 虚拟空间 ， 并 保存 于 VRML 文件   ( 扩展 名为 . wrl )   中 ， 而 用户 完全 不 需要 掌握 VRML 的 语法 和 规范 。 国外 已经 有 一些 单用户 的 虚拟空间 生成 系统 的 商品 软件 ， 如 Silicon   Graphics 公司 的 Cosmo   Worlds   2.0   、 Platinum   Technology 公司 的   VRCreator   2.0 等 。 而 多用户 的 VRML 虚拟空间 协同 生成 系统 ( VRML   Cooperative   Authoring   software ) 能 使 异地 的 多个 用户 协同工作 ， 共同 生成 一个 VRML 虚拟空间 ； 也 可以 使 设计者 在 生成 VRML 虚拟空间 的 同时 ， 与其 客户 进行 实时 交互 ， 以及 时 满足 客户 的 需求 。 目前 ， VRML 虚拟空间 协同 生成 系统 正 处于 研究 阶段 ， 还 没有 出现 可用 的 商品 软件 。 
+ 　 　 本文 主要 以 我们 自行 开发 的 多用户 VRML 虚拟空间 生成 原型 系统 ( MVRC ) 为 基础 ， 论述 了 人 - 机 交互 地 生成 VRML 虚拟空间 的 方法 ， 以及 实现 异地 多用户 协同工作 的 方法 。 
+ 1 　 VRML 虚拟空间 的 生成 技术 
+ 1.1 　 Java   Applet 借助 EAI 访问 VRML 虚拟 境界 
+ 　 　 在 VRML 中 ， 节点 是 构成 虚拟 场景 的 基本 单元 。 节点 由域 和 事件 组成 ， 域 的 取值 决定 了 节点 的 取值 ， 从而 决定 了 虚拟 境界 的 当前 状态 。 事件 包括 Eventin ( 入 事件 ) 、 Eventout ( 出 事件 ) 以及 exposedField ( 外露 域 ) 的 一对 隐含 的 事件 入口 ( set _ xxx ) 和 事件 出口 ( xxx _ changed ) ， 事件 为 节点 提供 了 接受 外界 ( 如 外部 程序 Java   Applet ) 消息 以及 向 外界 发送 消息 的 能力 , 通过 事件 可以 动态 改变 虚拟 境界 的 状态 。 
+ 　 　 VRML 文件 描述 的 虚拟 境界 需要 经过 带有 VRML 插件 ( plug - in ) 的 浏览器 的 解释 , 才能 呈现 给 观察者 。 而 VRML 的 EAI ( External   Authoring   Interface 外部 程序接口 ) 是 一个 与 VRML 插件 相 联系 的 Java 包 ， 它 由 三 部分 组成 : Vrml . external 、   Vrml . external . field 、 Vrml . external .   exception 。 EAI 允许 一个 Java   Applet 主要 以 三种 方式 访问 VRML 中 的 场景 ： ① 可以 发送 一个 事件 到 VRML 场景 中 节点 的 事件 入口 。 ② 可以 收到 VRML 场景 中 节点 的 事件 出口 发出 的 最新 值 。 ③ 当 VRML 场景 中 节点 的 事件 出口 发出 一个 事件 时 ， 能 得到 一个 通知 ， 激活 callback 方法 。 
+ 　 　 借助于 在 Java   Applet 使用 EAI ， 可以 实现 Java   Applet   与 VRML 虚拟空间 之间 的 相互 通信 。 具体 的 实现 方法 是 ： VRML 文件 可以 通过 HTML 文件 的 标记 < EMBED > 或 < OBJECT > 等 包含 在 HTML 文件 中 ， 而 Java   Applet 可以 通过 HTML 文件 的 标记 < CODE > 等 同样 包含 在 HTML 文件 中 ， 这样 包含 在 同一个 HTML 文件 的 Java   Applet 和 VRML   虚拟 境界 可以 相互 访问 ， 如图 1 。 
+ 
+ 图 1 　 Java   Applet 借助 EAI 访问 VRML 虚似 境界 
+ 1.2 　 　 VRML 虚拟空间 的 生成 
+ 　 　 MVRC 主要 用 基元 构造 法 人机交互 地 生成 VRML 虚拟空间 ， 即 用户 能 创建 （ 或 删除 ） 任意 多个 物体 ， 包括 如 正方体 、 球体 、 圆锥体 、 圆柱体 、 文本 等 基元 物体 和 用户 预先 设计 的 物体 ； 能 用 移动 、 旋转 、 缩放 、 改变 颜色 等 造型 变换 方式 ， 变换 和 组合 这些 物体 ， 以 构造 一个 虚拟空间 。 
+ 　 　 MVRC 系统 的 虚拟空间 主要 由 基元 物体 、 用户 预先 设计 的 物体 和 用户 替身 ( Avatar ) 组成 ， 可 将 它们 设计 成 三种 节点 类型 ： BaseObject （ 基元 物体 ） 、 CustomObject （ 用户 预先 设计 的 物体 ） 和   AvatarObject （ 用户 替身 ） 。 其中 BaseObject 节点 类型 的 结构 如下 。 
+ Proto   BaseObject [ 
+ 　 　 ExposedField   SFVec3f 　 　 　 　 　 translation 　 　 　 　 # 位移 
+ 　 　 ExposedField   SFRotation 　 　 　 rotation 　 　 　 　 　 　 # 旋转 
+ 　 　 ExposedField   SFVec3f 　 　 　 　 　 scale 　 　 　 　 　 　 　 # 缩放 
+ 　 　 ExposedField   SFColor 　 　 　 　 　 diffusecolor 　 　 　 　 # 颜色 
+ 　 　 ExposedField   SFBool 　 　 　 　 　 touchsensorenabled 　 # 锁定 / 解锁 
+ 　 　 ExposedField   SFBool 　 　 　 　 　 spheresensorenabled 　 # 交互 属性 
+ 　 　 ExposedField   SFBool 　 　 　 　 　 timesensorenabled 　 　 # 动画 属性 
+ 　 　 Eventin 　 　 SFNode 　 　 　 　 　 　 objectNodes 　 　 　 　 　 # 物体 的 几何 造型 
+ 　 　 Eventout 　 　 SFTime 　 　 　 　 　 　 touchtime 
+ 　 　 Eventout 　 　 SFRotation 　 　 　 　 rotation _ changed 
+ ] {   ...   } 
+ 　 　 MVRC   用 VKIND ( 0 ， 1 ， 2 ） 将 物体 分为 三类 ， 用 VID ( 物体 序号 ) 来 识别 某一 物体 是 哪 一类 中 的 哪 一个 物体 。 MVRC 分别 用 三个 Java 类 ： CBaseObject 、 CCustomObject 、 CAvatarObject 来 生成 并 保存 三种 物体 中 的 每个 物体 的 状态 数据 ， 根据 保存 的 每个 物体 的 状态 数据 和 VRML 的 语法 ， 就 可 生成 VRML 文件 以 保存 创建 的 虚拟空间 。 生成 VRML 虚拟空间 的 具体方法 和 关键 Java 代码 如下 。 
+ 　 　 1 )   构造 初始 的 VRML 虚拟空间 ( Init . wrl ) 
+ Inline { url   " scene . wrl " }   
+ 　 　 　 　 　 　 　 　 / / scene . wrl 描述 了 VRML 的 初始 虚 场景 ， 可以 为空 
+ 　 　 　 　 DEF   ROOTNODE   Transform   { }   
+ 　 　 　 　 　 　 　 / / ROOTNODE 是 所有 生成 物体 的 根 节点 
+ 　 　 　 DEF   BIGBOX   ProximitySensor   {   
+ 　 　 　 　 　 　 　 / / 节点 BIGBOX 能 跟踪 本地 协作者 的 视点 
+ 　 　 　 　 　 size   1000   1000   1000   / / 的 移动 和 转向 。 
+ 　 　 } 
+ 　 　 在 Java   Applet 中 ， 建立 与 VRML 浏览器 ( Browser ) 即 Init . wrl 的 联系 : 
+ browser = Browser . getBrowser ( this ) ;   
+ 　 　 　 　 　 　 　 　 　 　 / / 获得 VRML 浏览器 ( Browser ) 的 句柄 , 
+ Node   rootNode = browser . getNode ( " ROOTNODE " ) ;   
+ 　 　 　 　 　 　 　 　 　 　 / / 获得 ROOTNODE 的 句柄 
+ addChildren = ( EventInMFNode )   rootNode . getEventIn   
+ 　 　 　 　 　 　 ( " addChildren " ) ; 
+ removeChildren   =   ( EventInMFNode )   rootNode . getEventIn   
+ 　 　 　 　 　 　 ( " removeChildren " ) ; 
+ Node   box   =   browser . getNode ( " BIGBOX " ) ;   
+ 　 　 　 　 　 　 　 　 　 　 / / 获得 BIGBOX 等 节点 的 句柄 
+ 　 　 2 ) 在 Browser 中 创建 物体 
+ 　 　 创建 物体 在 类 CBaseObject 、 CCustomObject 、 CAvatarObject 中 实现 ， 例如 values = " Box " ： 
+ Node [ ]   nodes 
+ Nodes = browser . createVrmlFormString ( " BaseObject 节点 的 文本 内容 " ) 
+ EventInSFVec3f   set _ translation = nodes [ 0 ] . getEventIn ( " translation " ) 
+ EventOutSFVec3f   translation _ changed = nodes [ 0 ] . getEventOut ( " translation " ) 
+ ... 
+ objectNodes = ( EventinSFNode ) nodes . getEventIn ( " objectNodes " ) 
+ objectNodes . setValue ( browser . createVrmlFromString ( values + " { } " ) 
+ addChildren . setValue ( nodes )   / / 将 创建 的 物体 加到 Browser 中 
+ 　 　 3 )   对 物体 设值 和 取值 
+ 　 　 通过 设值 ， 可 对 物体 进行 移动 、 旋转 、 缩放 、 改变 颜色 等 变换 ； 通过 取值 可 获得 物体 的 当前 状态 。 例如 values 为 位移 值 。 
+ set _ translation . setValue ( ( ( VSFVec3f ) values ) . getValue ( ) )   / / 平移 物体 
+ float [ ]   val =   translation _ changed . getValue ( )   / / 获取 平移 值 
+ 　 　 4 )   从 Browser 中 删除 物体 
+ removeChildren . setValue ( nodes ) 
+ 2 　 VRML 虚拟空间 协同 生成 的 研究 与 实现 
+ 　 　 要 使 异地 的 多个 用户 能 协同工作 ， 共同 生成 一个 VRML 虚拟空间 。 必须 使得 所有 用户 当前 获得 的 信息 保持一致 ， 实现 WYSIWIS 的 效果 ； 应该 提供 一个 人 - 人 交互 界面 ， 使 用户 能 感知 当前 群体 工作 的 状态 ， 并 能 与 其他 用户 进行 语言 交流 ； 必须 充分考虑 可能 出现 的 冲突 ， 提供 解决 冲突 的 办法 。 实现 这些 的 基础 是 建立 多用户 通信 环境 和 构造 通信 数据包 。 
+ 2.1 　 建立 CSCW 系统结构 和 构造 多用户 间通信 数据包 
+ 　 　 目前 ， CSCW 系统结构 的 实现 方法 有 集中式 和 分散式 ( 复制 式 ) 两大类 。 我们 自行 开发 的 MVRC 采用 集中式 系统结构 ， 遵循 客户 / 服务器 模式 ， 服务器 通过 TCP / IP 协议 下 的 Java   Socket 机制 与 每个 客户机 相连接 。 采用 集中式 方式 易于 实现 用户 间 信息 的 一致 和 事件 的 同步 。 
+ 　 　 服务器 为 每 一个 发出 连接 请求 的 用户 创建 一个 线程 ， 负责 接受 用户 的 操作 请求 ， 请求 被 处理 后 发出 响应 ， 必要 时 把 这个 响应 通过 相应 的 线程 广播 给 其他 用户 。 客户端 生成 一个 线程 与 服务器 连接 和 通讯 ， 用户 大部分 的 操作 都 须 向 服务器 提出 请求 ， 请求 得到 响应 后 ， 才能 作 相应 的 处理 ， 得到 结果 ， 如图 2 。 
+ 
+ 图 2 　 MVRC 的 系统结构 
+ 　 　 一个 用户 在 客户机 上 所 产生 的 数据 信息 ( 用户 所 操作 的 对象 、 操作 的 类型 、 操作 的 结果 ) ， 如 用户 的 加入 或 退出 、 替身 移动 或 转向 、 替身 自身 动作 、 创建 或 删除 一个 物体 、 对 物体 进行 移动 ( 旋转 、 缩放 、 改变 颜色 ) 变换处理 、 对 物体 进行 锁定 或 解锁 、 用户 间 的 对话 等 ， 可 形成 一个 请求 数据包 ： 
+ VKIND 
+ 操作 对象 类型 VID 
+ 操作 对象 序号 VIP 
+ 操作 类型 Vfield 
+ 操作 的 数据类型 Values 
+ 操作 的 数据 值 
+ 
+ 　 　 这个 请求 数据包 传送 给 服务器 ， 经过 处理 后 ， 服务器 会 产生 一个 结构 相同 的 响应 数据包 ， 并 传回 给 该 用户 。 必要 时 将 这个 响应 数据包 广播 给 所有 的 用户 ， 以及 时 改变 他们 的 VRML 虚拟空间 和 Java   Applet 界面 的 状态 。 这样 就 可以 实现 用户 间 信息 的 一致 和 事件 的 同步 ， 获得 WYSIWIS 的 效果 。 
+ 2.2 　 协同 感知 
+ 　 　 为 实现 多用户 在 协同工作 时能 感知 当前 群体 工作 的 状态 ， 可 在 VRML 虚拟空间 中 用 一个 带有 用户名 的 3D 替身 ( avatar ) 来 代表 一个 用户 ， 3D 替身 是 VRML 场景 中 一个 特殊 的 物体 ， 是 用户 形象 和 行为 在 虚拟环境 中 的 表现 。 
+ 　 　 利用 VRML 的 PoximitySensor 节点 可以 跟踪 本地用户 视点 的 移动 和 转动 并 获得 位置 和 方向 值 ， 这对值 通过 网络 可用 以 改变 其他 用户 的 VRML 虚拟空间 中该 用户 3D 替身 的 位置 和 方向 。 这样 其他 用户 就 能 感知 到 该 用户 正移 向 或 转向 某个 区域 的 某个 对象 ， 正 关注 什么 。 
+ 　 　 用户 间 的 交流 可以 简单 地 通过 文本 的 形式 来 实现 ， 如 在 Java   Applet 界面 中 包含 接收 对话框 和 发送 对话框 。 要 使 用户 间 在 交流 的 同时 ， 能 感知 到 对方 的 身体 动作 和 面部 表情 ， 可 对 3D 替身 预先 设计 几种 动画 （ 如 摇头 、 点头 、 举手 等 ） 和 面部 表情 （ 如 高兴 、 生气 等 ） ， 用户 可 选择 并 驱动 替身 的 这些 动画 和 面部 表情 。 
+ 2.3 　 用 锁定 机制 避免 冲突 
+ 　 　 MVRC 采用 锁定 机制 避免 多个 用户 同时 对 同一 物体 进行 修改 ( 变换 ) 而 可能 发生 的 冲突 。 用户 要 对 某 一 物体 进行 修改 时 ， 先 必须 向 服务器发送 一个 锁定 该 物体 的 请求 。 若 此时 该 物体 未 被 其他 用户 锁定 ， 则 服务器 向 该 用户 发出 一个 摽 尚薷 母梦 锾 鍞 的 响应 ， 同时 向 其他 用户 发出 一个 “ 可 修改 该 物体 ” 的 消息 。 一个 用户 只有 对 某 物体 解锁 后 ， 才 可以 提出 另 一个 锁定 请求 。 MVRC 中 物体 节点 的 ( ExposedField   SFBool )   touchsensorenabled 域 可用 以 对 物体 的 锁定 和 解锁 。 
+ 3 　 MVRC 的 操作界面 和 实验 运行 环境 
+ 　 　 MVRC 主要 用 基元 构造 法 ， 人机交互 地 生成 具有 简单 动画 和 交互 能力 的 VRML 虚拟空间 。 当 用户 所在 的 客户机 与 服务器 连接 成功 时 ， 就 会 出现 MVRC 的 Java   Applet 操作界面 ， 如图 3 。 
+ 
+ 图 3 　 MVRC 的 Java   Applet 操作界面 
+ 　 　 异地 的 多个 用户 可 在 各自 的 VRML 浏览器 ( Browser ) 中 共同 生成 一个 VRML 虚拟空间 ， 并 可 同时 在 这个 VRML 虚拟空间 中 漫游 ， 如图 4 。 其中 ， 标有 搇 ee 數奈 锾 逦  挥 没  嫔怼 ? / P >   
+ 
+ 图 4 　 VRML 浏览器 ( Browser ) 中 显示 的 虚拟空间 
+ 　 　 MVRC 原型 系统 在 服务器 上 的 实验 运行 环境 为 : Windows95 或 Windows   NT 、 MS   Personal   Web   Server 、 Java   sdk1.1 . 5 ； 客户端 的 实验 运行 环境 为 ： Windows95 、   Netscape4.0 、 Cosmoplay2.1 ( VRML 插件 ) 、 Npcosmop21 . zip ( Cosmoplay2.1   EAI 包 ) 。 MVRC 系统 在 局域网 上 的 实验 运行 达到 了 预期 的 效果 。 
+ 4 　 结论 
+ 　 　 MVRC 是 一个 VRML 虚拟空间 协同 生成 原型 系统 。 MVRC 借助 EAI ， 以 人机交互 的 方式 ， 实现 了 VRML 虚拟空间 的 生成 。 MVRC 采用 了 集中式 系统结构 ， 利用 TCP / IP 协议 下 的 Java   Socket 网络通信 机制 ， 建立 了 服务器 对 多个 客户机 的 多点 传输 ； 根据 VRML 虚拟空间 生成 系统 的 特定 环境 ， 构造 了 相应 的 网络 传输 的 数据包 ； 采用 了 锁定 机制 ， 以 消除 群体 工作 中 可能 发生 的 冲突 。 总之 ， MVRC 实现 了 多用户 间 信息 的 一致 和 事件 的 同步 ， 达到 了 WYSIWIS 的 效果 ， 并 具有 一定 的 协同 感知 的 能力 。 
+ 从 另 一 角度看 ， MVRC 也 是 一个 分布式 虚拟现实 系统 ， 该 系统 能 使 多个 用户 同时 在 同一 虚拟空间 中 漫游 ， 共同 作用 于 同一 虚拟空间 中 的 场景 ， 并 能 进行 人 - 人 交互 。 MVRC 可以 成为 实现 如下 应用 系统 的 基础 ： 虚拟 聊天室 、 多用户 虚拟 展览馆 、 虚拟 教室 、 具有 虚拟现实 环境 的 会议 系统 、 协同 编著 系统 、 多用户 虚拟 商场 购物 系统 、 网上 多人 3D 游戏 等等 。 
+ 刘一松 （ 江苏 理工大学 计算机科学 系   镇江   212013 ） 
+ 参考文献 
+ 1 ， ( 美 ) Chris   Marrin ,   Bruce   Campbell 著 ,   王海燕 等 译 .   21 天学通 VRML2 .   北京 ： 人民邮电出版社 ,   1998 
+ 2 ， Chris   Marrin ,   Proposal   for   a   VRML   2.0   Informative   Annex 桬 xternal   Authoring   Interface   Reference ,   http : / / cosmosoftware .   com / products /   EAIReference . html   January   21 ,   1997 
+ 收稿 日期 ： 1999 年 6 月 28 日 

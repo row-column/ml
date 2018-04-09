@@ -1,0 +1,99 @@
+计算机 应用 研究 
+ APPLICATION   RESEARCH   OF   COMPUTERS 
+ 2000   Vol.17   No.3   P.96 - 97 
+ 
+ 
+ 
+ 
+ Windows 下 高精度 定时 的 实现 
+ 洪锡军 　 陈彩贞 　 李从心 
+ 摘 　 要 ： 高精度 定时 是 许多 工业 控制 过程 中 的 关键技术 。 在 简要 分析 了 Windows 的 基本 运行机制 之后 ， 给出 了 Windows 中 常用 的 一些 定时 方法 ， 并作 了 必要 的 比较 。 
+ 关键词 ： 高精度 定时   消息 机制   定时器   系统 中断 
+ 1 　 引言 
+ 　 　 在 工业生产 控制系统 ， 特别 是 对 控制 性能 要求 较 高 的 控制系统 和 数据 采集 系统 中 ， 需要 高精度 定时 。 开发 这样 的 系统 如果 在 DOS 下 进行 ， 虽然 定时器 和 中断 的 设定 比较 方便 ， 通过 对 计算机硬件 ( 系统 时钟 ) 的 设置 就 可以 完成 ， 但 其 人机界面 的 设计 则 是 一件 很 费时间 和 精力 的 事情 。 如果 能 在 Windows 下 开发 这些 系统 ， 则 能 充分发挥 Windows 的 图形界面 的 功能 ， 使得 开发 出 的 系统 界面 友好 ， 操作 方便 ， 功能强大 。 其中 ， 怎样 实现 Windows 下 的 高精度 定时 是 关键 。 
+ 　 　 众所周知 ， 在 Windows 下 编程 是 基于 消息 机制 的 ， 任何 事情 的 执行 都 是 通过 发送 和 接收 消息 来 完成 的 。 这样 就 带来 了 一个 问题 ： 一旦 计算机 的 CPU 被 某个 进程 占用 ， 或 系统资源 紧张 时 ， 发送 在 消息 队列 中 的 消息 就 暂时 被 挂 起 ， 得不到 实时处理 。 因此 ， 不能 简单 地 通过 消息 引发 一个 对 定时 要求 严格 的 事件 。 另外 ， 由于 在 Windows 中 已经 封装 了 计算机 低层 硬件 的 访问 ， 所以 ， 要 想 通过 直接 利用 访问 硬件 来 完成 高精度 定时 ， 一般 是 非常 困难 的 ( 需要 借助于 一些 工具 软件包 ) 。 基于 这些 原因 的 考虑 ， 在 实际 应用 时 ， 应 针对 具体 定时 精度 的 要求 ， 采取 相适应 的 定时 方法 。 
+ 2 　 Windows 中 常用 定时 方法 
+ 2.1 　 使用 Windows 中 提供 的 常规 定时器 
+ 　 　 在 一些 常见 的 软件开发 平台 上 都 提供 了 这个 定时器 Timer 控件 ， 使用 起来 很 方便 ， 利用 它 可以 实现 一定 精度 的 定时 功能 ， 但是 ， 由于 Windows 定时器 是 建立 在 IBM   PC机 硬件 和 ROM   BIOS 中 系统 定时器 的 简单 扩充 基础 之上 的 ， 虽然 其 最小 分辨 精度 能够 达到 毫秒 级 ， 但 其 最小 定时 精度 不 可以 小于 55ms 。 另外 ， 通过 SetTimer (   ) 函数 设置 的 常规 定时器 的 定时 事件 也 是 由 消息 引发 的 ， 而 Windows 是 一个 多任务 的 操作系统 ， 在 其 消息 队列 中 定时器 消息 WM _ TIMER 的 优先级 是 很 低 的 ， 所以 ， 较难 保证 所 发出 去 的 定时 消息 能 被 及时 响应 和 处理 ； 此外 ， Windows 的 工作 方式 为 抢占 式 ， 其 内部 的 时间 管理 函数 并 不能 实现 等 间隔 的 时间 控制 。 因此 ， 该种 方法 只能 应用 于 定时 要求 不是 很 高 的 地方 。 
+ 2.2 　 使用 多媒体 定时器 
+ 　 　 Microsoft 公司 在 其 多媒体 Windows 中 提供 了 高精度 定时器 的 低层 API 支持 。 利用 多媒体 定时器 可以 很 精确 地 读出 系统 的 当前 时间 ， 并且 能 在 非常 精确 的 时间 间隔 内 完成 一个 事件 、 函数 或 过程 的 调用 。 
+ 　 　 利用 多媒体 定时器 的 基本功能 ， 可以 通过 以下 两种 方法 实现 高精度 定时 ： 
+ 　 　 ( 1 )   timeGetTime (   ) 函数 。 定时 精度 为 ms 级 ， 该 函数 返回 从 Windows 启动 开始 所 经过 的 时间 ( 单位 ： ms ) 。 其 函数 说明 为 ： 
+ Declare   Function   timeGetTime   Lib " winmm . dll "   Alias   
+ 　 　 " timeGetTime "   (   )   As   Long 
+ 　 　 由于 使用 该 函数 是 通过 查询 的 方式 进行 定时 控制 的 ， 所以 ， 应该 建立 定时 循环 来 进行 定时 事件 的 控制 。 
+ 　 　 ( 2 )   timeSetEvent (   ) 函数 。 利用 该 函数 可以 实现 周期性 的 函数调用 。 其 函数 说明 为 ： 
+ Declare   Function   timeSetEvent   Lib   " winmm . dll "   Alias   
+ 　 　 " timeSetEvent "   
+ 　 　 ( ByVal   uDelay   As   Long ,   ByVal   uResolution   As   Long , 
+ 　 　 ByVal   lpFunction   As   Long ,   ByVal   dwUser   As   Long , 
+ 　 　 ByVal   uFlags   As   Long )   As   Long 
+ 　 　 其中 的 参数 说明 ： 
+ 　 　 uDelay   延迟时间 ； 
+ 　 　 uResolution   时间 精度 ， 在 Windows 中 缺省值 为 1   ms ； 
+ 　 　 lpFunction   回调 函数 ， 为 用户 自定义 函数 ， 定时 调用 ； 
+ 　 　 dwUser   用户 参数 ； 
+ 　 　 uFlags   标志 参数 ； 
+ 　 　 TIME _ ONESHOT ：   执行 一次 ； 
+ 　 　 TIME _ PERIODIC ： 周期性 执行 。 
+ 　 　 具体 应用 时 ， 可以 通过 调用 timeSetEvent (   ) 函数 ， 将 需要 周期性 执行 的 任务 定义 在 lpFunction 回调 函数 中 ( 如 ： 定时 采样 、 控制 等 ) ， 从而 完成 所 需 处理 的 事件 。 不过 要 注意 的 是 ： 任务 处理 的 时间 不能 大于 周期 间隔时间 。 另外 ， 在 定时器 使用 完毕 后 ， 应 及时 调用 timeKillEvent (   ) 将 之 释放 。 该 函数 说明 为 ： 
+ Declare   Function   timeKillEvent   Lib   " winmm . dll "   Alias 
+ 　 　   " timeKillEvent " 
+ 　 ( ByVal   uID   As   Long )   As   Long 
+ 2.3 　 利用 系统 定时 中断 
+ 　 　 ( 1 ) 系统 定时 逻辑 概述 
+ 　 　 在 Intel 微型 计算机系统 中 ， 有 一个 以 Intel   8253   ( AT 机是 8254 ) 为 核心 组成 的 系统 定时 逻辑 。 8253 是 一个 可编程 间隔 定时器 / 计数器 ， 通过 它 可以 把 这种 通用 的 、 多 定时 的 元件 当作 一个 系统软件 中 的 I / O 端口 阵列 来 处理 ， 所以 8253 解决 了 微型 计算机系统 中 最 普遍 的 问题 之一 ， 即 在 软件 的 控制 下 产生 高精度 的 定时 。 
+ 　 　 8253 含有 三个 独立 的 计数器 0 、 1 和 2 ， 每个 计数器 包括 三个 寄存器 ， 分别 为 ： 8 位 的 控制 寄存器 ， 16 位 的 计数 寄存器 CR 和 16 位 的 输出 锁 存器 OL ， 共同 占用 一个 I / O 端口地址 。 设置 定时 时 ， 在 计数器 0 的 CLK 端 加上 1.19318 MHz 的 信号 ( 每个 CLK 信号 使 计数器 减 1 ) ， 并 将 工作 方式 设成 3 ， 产生 对称 的 方波 ， 预置 CR 中 时间常数 为 0 ( 即 216 ) ， 这样 ， OUT 端 输出 的 就是 1.19318 MHz / 216 = 18.2 Hz 的 方波 ， 其 周期 约 为 55   ms ( 这 也 解释 了 为什么 用 SetTimer (   ) 函数 设置 定时 时 ， 最小 定时 间隔 不能 小于 55ms ) 。 如果 需要 更 精确 的 定时 ， 则 可以 通过 修改 CR 中 的 计 数值 来 实现 。 
+ 　 　 ( 2 ) 8253 控制 字 的 设置 
+ 　 　 控制 字 格式 
+ 
+ 　 　 SC — 选择 计数器 ： 
+ 　 　 SC1 ,   SC0   = 00 ， 01 ， 10 　 　 　 　 　 分别 选择 计数器 0 、 1 、 2 
+ 　 　 　 　 　 　 = 11 　 　 　 　 　 　 　 　 　 非法 。 
+ 　 　 RL — 读出 / 装入 ： 
+ 　 　 RL1 ,   RL0   = 00 　 计数器 锁存 操作 ， 
+ 　 　 　 　 　 　 = 10 　 仅 读出 / 装入 最高 有效 字节 ( 高 8 位 ) ， 
+ 　 　 　 　 　 　 = 01 　 仅 读出 / 装入 最低 有效 字节 ( 低 8 位 ) ， 
+ 　 　 　 　 　 　 = 11 　 先 读出 / 装入 最低 有效 字节 ， 再 是   最高 有效 字节 。 
+ 　 　 M — 工作 方式 ： M2 ， M1 ， M0 = 000 ， 001 ， × l0 ， × 11 ， 100 ， 101 分别 表示 方式 0 ～ 5 。 
+ 　 　 BCD = 0   二进制 计数器 ( 16 位 ) ， BCD = 1   BCD 计数器 ( 4 个 二进制 数 一组 ) 。 
+ 　 　 8253 的 六种 工作 方式 的 设置 是 在 初始化 时用 输出 指令 写 控制 字来 实现 的 ， 其中 ， 方式 0 为 在 结束 计数 时 中断 ， 方式 4 为 软件 触发 选通 。 
+ 2.4 　 利用 多线程 机制 
+ 　 　 ( 1 ) 多线程 机制 的 概述 
+ 　 　 多 进程 、 多线程 是 抢占 式 操作系统 的 重要 特征 ， 所有 的 32 位 操作系统 ， 如 Windows   9x 、 Windows   NT 、 Unix 等 都 支持 这种 特性 。 在 实际 应用 中 ， 我们 可以 将 不同 的 任务 放在 不同 的 线程 中 进行 ， 通过 线程 间 的 同步 机制 来 达到 高精度 定时 的 目的 。 例如 ， 一个 进程 中 运行 了 两个 线程 ， 其中 ， 数据 采集 ( 从 端口 读取数据 ) 放在 第一个 线程 中 ， 数据处理 放在 第二个 线程 中 。 这样 ， 当 数据 采集 完成 后 ， 第一个 线程 就 可以 发信号 通知 第二个 线程 处理 数据 ， 而 第二个 线程 完成 了 数据处理 后 ， 再次 发信号 通知 第一个 线程 继续 下 一次 的 数据 采集 。 从而 实现 了 每隔 一定 的 时间 处理 一个 事件 。 
+ 　 　 ( 2 ) 多线程 的 创建 和 同步 
+ 　 　 一般 地 ， 创建 多线程 时 ， 先 创建 一个 主线 程 ， 再 创建 一个 或 多个 子 线程 ， 在子 线程 中 完成 需要 做 的 事情 。 Windows   9x 或 Windows   NT 中 创建 线程 的 函数 为 CreateThread 。 
+ 　 　 在 V C++ 中其 调用 格式 为 ： 
+ BOOL   CreateThread ( DWORD   dWCreateFlags = 0 , 
+ 　 　 UINT   nStackSize = 0 , 
+ 　 　 LPSECURITY _ ATTRIBUTES   lpSecurityAttrs = NULL ) ； 
+ 　 　 在 Windows 基本 的 SDK 函数库 中 ， 其 调用 方式 为 ： 
+ HANDLE   CreateThread ( 
+ 　 LPSECURITY _ ATTRIBUTES   lpThreadAttributes , 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 / / pointer   to   security   attributes 
+ 　 DWORD   dwStackSize , 　 　 　 / / initial   thread   stack   size 
+ 　 LPTHREAD _ START _ ROUTINE   lpStartAddress , 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 / / pointer   to   thread   function 
+ 　 LPVOID   lpParameter , 　 　 / / argument   for   new   thread 
+ 　 DWORD   dwCreationFlags , 　 / / creation   flags 
+ 　 LPDWORD   lpThreadId 　 　 　 / / pointer   to   receive   thread   ID ) ； 
+ 　 　 其中 ， lpThreadAttributes ： 线程 的 安全 属性 ， 在 Windows   95 中 忽略 ； dwStackSize ： 线程 的 堆栈 大小 ； lpStartAddress ： 线程 函数 的 起始 地址 ； lpParameter ： 传递 给 新 线程 的 参数 ； dwCreationFlags ： 创建 线程 时 说明 线程 的 状态 ； lpThreadId ： 线程 的 标志 号 。 
+ 　 　 为了 使 线程 能 在 一起 适当 地 、 协调 地 工作 ， 线程 的 同步 是 非常 重要 的 ， 在 Windows 中 ， 线程 同步 对象 有 ： 临界 区 ( Critical   section ) 、 互斥 ( Mutex ) 、 信号量 ( Semaphore ) 和 事件 ( Event ) 。 其中 ， 临界 区 、 互斥 量 和 信号量 通常 用来 控制 对 数据 的 访问 ， 事件 则 用来 发信号 以 表示 某一 动作 完成 。 其 创建 用 CreateEvent (   ) 函数 ， 格式 为 ： 
+ HANDLE   CreateEvent ( 
+ 　 LPSECURITY _ ATTRIBUTES   lpEventAttributes , 
+ 　 　 　 　 　 　 　 　 　 　 　 　 / / pointer   to   security   attributes 
+ 　 BOOL   bManualReset , 　 　 / / flag   for   manual - reset   event 
+ 　 BOOL   bInitialState , 　 　 / / flag   for   initial   state 
+ 　 LPCTSTR   lpName 　 　 　 　 / / pointer   to   event - object   name ) ； 
+ 　 　 通过 线程 的 同步 对象 可以 在线 程间 合理 地 分配 时间 片 ， 从而 达到 对 时间 的 控制 。 
+ 3 　 结束语 
+ 　 　 在 Windows 下 ， 各种 高精度 定时 方法 在 实现 上 都 有 其 各自 的 优越性 ， 具体 应用 时应 根据 实际 的 需要 合理 地 进行 选择 。 本文 在 实例 中 采用 多媒体 定时器 的 方法 ， 实现 了 每隔 0.005 s 对 棉纺 过程 中线 纱 粗细 的 采样 ， 获得 了 比较 好 的 稳定性 和 精确度 。 
+ 洪锡军 ( 上海交通大学 国家 模具 CAD 工程 中心   上海   200030 ) 
+ 陈彩贞 ( 上海交通大学 国家 模具 CAD 工程 中心   上海   200030 ) 
+ 李从心 ( 上海交通大学 国家 模具 CAD 工程 中心   上海   200030 ) 
+ 参考文献 
+ 1   李宝琛 ,   吴 发文 等 .   微型 计算机 常用 器件 手册 .   福州 ：   福建 科学技术 出版社 ,   1985 
+ 2   [ 美 ]   Kate   Gregory 著 ,   康博 创作室 译 .   Visual   C++   5 开发 使用手册 .   北京 ： 机械 工业 出版社 ,   1998 
+ 3   [ 美 ]   Dan   Appleman 著 ,   京京 翻译 组译 .   Visual   Basic   5.0   Win32   API 开发人员 指南 .   北京 ： 机械 工业 出版社 ,   1999 
+ 4   Phadke .   Synchronized   sampling   and   phasor   measurements   for   relaying   and   control .   IEEE   Trans   PD ,   l994 , 9 ( 1 ) :   443 ～ 449 
+ 收稿 日期 ： 1999 年 10 月 26 日 

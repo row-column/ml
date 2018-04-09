@@ -1,0 +1,114 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1999 年 　 第 19 卷 　 第 4 期 　 Vol.19 　 No.4 　 1999 
+ 
+ 
+ 
+ ZCMR 法从 废物 中 制取 活性炭 及 在 含铬 废水处理 中 应用 
+ 宁   平 　 彭金辉 　 高建培 
+ 摘要 ： 采用 微波 照射 - 氯化锌 ( ZCMR ) 法从 废物 中 制取 锯末 活性炭 及 烤 胶 废料 活性炭 , 用 所得 的 两种 活性炭 处理 含铬 废水 , 结果表明 , ZCMR 法制 取 的 废物 活性炭 对 电镀 废水 中 铬 的 吸附 容量 是 市售 一级 粉末 活性炭 的 1.72 ～ 1.8 倍 ,   过滤 速度 是 市售 活性炭 的 1.6 ～ 1.7 倍 ,   极限 吸附 量 达 21.5 ～ 22.5 mg / g . 
+ 关键词 ： 微波 照射 ； 烤胶 废料 ； 锯末 ； 活性炭 ； 含铬 废水 
+ 中 图 分类号 ： X703   文献 标识码 ： A   文章 编号 ： 1000 -   6923 ( 1999 ) 04 -   0306 -   04 
+ Manufacture   of   activated   carbon   with   the   method   of   zinc   chloride - microwave   radiation   from   waste   and   itapplication   in   treatment   of   wastewater   of   containing   chromium . 
+ NING   Ping ,   PENG   Jin - hui ,   GAO   Jian - pei   ( Department   of   Environmental   Engineering ,   Kunming   University   of   Science   and   Technology ,   Kunming   650093 , China ) .   China   Environmental   Science .   1999 , 19 ( 4 ) ： 306 ～   309 
+ Abstract ： Manufacture   method   of   activated   carbon   with   zinc   chloride - microwave   radiation   ( ZCMR )   from   wood   powder   and   waste   rubber   are   studied .   The   activated   carbon   produced   by   the   method   was   used   to   adsorb   Cr6 +   in   wastewater . The   result   shows   that   the   adsorption   capacity   of   Cr6 +   on   the   activated   carbon   from   wood   powder   and   waste   rubber   is   1.72 ～ 1.8   times   and   the   filtering   rate   is   1.6 ～ 1.7   times   as   high   as   in   comparison   with   the   powdered   activated   carbon   of   the   first   grade   standard   in   market .   The   maximum   adsorption 抯   capacity   for   Cr6 +   is   21.5   to   22.5 mg / g . 
+ Key   words ： microwave   radiation ； waste   rubber ； wood   powder ； activated   carbon ； wastewater   of   containing   chromiun 
+ 　 　 用 活性炭 处理 含铬 废水 已 得到 广泛应用 . 工业 规模 所用 的 活性炭 性能 低于 市售 一级 粉末 活性炭 , 且 存在 生产 过程 中 污染 严重 , 使用 过程 中 过滤 困难 、 吸附 容量 小 等 缺点 . 目前 工业用 粉末 活性炭 多用 传统 氯化锌 法 生产 , 生产 过程 中 耗用 大量 优质 原材料 , 生产成本 较 高 , 价格昂贵 , 给 实际 广泛应用 带来 经济 困难 [ 1 ] . 另外 传统 的 氯化锌 法制 取 活性炭 热 利用率 低 、 劳动强度 大 , 改革 传统 氯化锌 法制 取 活性炭 生产工艺 是 必然趋势 . 
+ 　 　 本文 提出 了 利用 微波 内部 加热 , 在 微波 辐照 下用 氯化锌 法 ( ZCMR ) 生产 活性炭 的 新 方法 , 并用 此法 生产 锯末 活性炭 及 烤 胶 废料 活性炭 , 用 所得 的 两种 活性炭 处理 含铬 废水 , 该法 在 活性炭 生产 过程 中 具有 节能 、 快速 、 加热 易 控制 等 优点 . 用 锯末 活性炭 及 烤 胶 废料 生产 的 ZCMR 活性炭 性能 优于 市售 一级 粉末 活性炭 , 对 含铬 废水 具有 较 好 的 净化 效果 . 
+ 1   实验 部分 
+ 1.1   废物 活性炭 的 制取 
+ 　 　 将 废物 锯末 及 烤 胶 废料 分别 与 氯化锌 溶液 混合 浸渍 12h 后 , 装在 石英 坩埚 中 , 放入 多模 微波 腔体 中 进行 辐照 , 随后 对 辐照 产品 进行 漂洗 、 烘干 、 粉碎 和 筛分 , 得到 粉状 活性炭 . 
+ 　 　 氯化锌 溶液 浓度 为 50% , 废物 ( 干 ) : 氯化锌   =   1 : 2.5 , 微波 频率 为 2.45 GHz , 微波 最大 功率 为 10W . 　 　 
+ 　 　 采用 林业部 LY216 - 79 标准 测定 产品 指标 [ 2 ] . 
+ 1.2   废物 活性炭 吸附 含铬 废水 
+ 　 　 实验 水样 为 昆明 某厂 含铬 电镀 废水 , 将 市售 一级 活性炭 及 自制 废物 活性炭 在 110 ℃ 下 烘干 2.5 h , 分别 称取 烘干 后 的 两种 废物 活性炭 及 市售 一级 活性炭 不同 量 的 5 个 样品 于 10 个 250   mL 锥形瓶 中 , 分别 加入 含铬 废水 150mL , 于 pH   6.7 , 25 ℃ 下 在 恒温 振器 上 振荡 , 振荡 速率 为 130 次 / min , 振荡 时间 为 1.5 h . 平衡 样经 过滤 分析 溶液 浓度 , 计算 活性炭 吸附 量 . 
+ 　 　 Cr6 + 分析 采用 分光 光度法 , 光波长 560nm , 1cm 石英 比色皿 . 含铬 废水 原水 浓度 为 162mg / L . 
+ 2   结果 与 讨论 
+ 2.1   废物 活性炭 特性 分析 
+ 　 　 微波 辐照 时间 8min , 制取 的 活性炭 得率 41% . 质量指标 见表 1 . 
+ 表 1   市售 一级 活性炭 与 ZCMR 废物 活性炭 质量指标 比较 
+ Table   1   Comparison   of   ZCMR   activated   carbon   from   waste   with   powdered   activated   carbon   
+ of   the   first   grade   standard   in   market 
+ 活性炭 亚甲蓝 脱色 率 ( mL / g ) 比 表面积 
+ ( m2   / g ) 孔隙率 ( % ) 真 密度 ( g / cm3 ) pH 值 灼烧 残渣 ( % ) 总铁 ( % ) 氯化物 ( % ) 
+ 市售 一级 12064043.22 . 2061.260 . 030.1 
+ ZCMR 烤胶 废料 120101148.41 . 9861.010 . 020.1 
+ ZCMR 锯末 18098145.42 . 0161.300 . 030.1 
+ 
+ 　 　 由表 1 可见 ,   ZCMR 废物 活性炭 亚甲蓝 脱色 率 120 ～ 180mL / g , 比 表面积 981 ～ 1011m2 / g . 林业部 LY216 - 79 ( 783 型 ) 产品 指标 中 , 一级 活性炭 标准 的 亚甲蓝 脱色 率为 120mL / g , 比 表面积 640m2 / g . 两者 相 比较 , 实验 中 经 微波 辐照 后 的 亚甲蓝 脱色 率为 国家标准 一级品 的 1 ～ 1.5 倍 , 比 表面积 为 国家标准 一级品 的 1.53 ～ 1.6 倍 , 其它 指标 均 符合 国家一级 产品 ( LY216 - 79 ) 标准 . 　 　 
+ 　 　 在 微波 辐照 下 , 样品 内部 迅速 被 加热 , 由于 氯化锌 和 水分子 急剧 挥发 , 造成 物料 有 更 显著 的 多孔结构 , 活性炭 比 表面积 增加 , 从而 得到 较 高 的 亚甲蓝 脱色 率 . 
+ 　 　 在 传统 氯化锌 法 制造 活性炭 工艺 中 , 加热 从 原料 外部 开始 , 经过 相当 长 的 时间 , 才能 由表及里 进行 加热 形成 微孔 , 一般 需经 预热 、 干燥 、 炭化 和 活化 4 个 阶段 , 需较 长 的 时间 ( 至少 6h ) 、 较 多 的 能量 . 而 在 微波 辐照 下 , 仅用 8   min 就 可 完成 上述 4 个 过程 , 时间 仅为 传统 方法 的 1 / 45 . 
+ 2.2   含铬 废水 吸附 
+ 2.2 . 1   市售 一级 活性炭 吸附 含铬 废水   用 市售 一级 活性炭 吸附 浓度 为 162   mg / L 的 含铬 废水 , 实验 结果 见表 2 . 由表 2 可知 , 市售 一级 活性炭 吸附 含铬 废水 的 平均 过滤 速度 为 9.25   ml / L , 吸附 性能 尚可 . 
+ 表 2   市售 一级 活性炭 吸附 含铬 废水 实验 结果 
+ Table   2   Adsorption   results   of   Cr + 6   in   wastewater   with   powdered   activated   carbon   of   the   first   grade   
+ standard   in   market 
+ 序号 吸附剂 量   ( g ) 过滤 速度   ( mL / min ) 平衡 浓度 Ce   ( mg / L ) 平衡 吸附 量 qe   ( mg / g ) 
+ 11.010 . 177.612 . 66 
+ 21.69 . 858.19 . 74 
+ 32.49 . 148.67 . 10 
+ 43.29 . 238.35 . 78 
+ 55.19 . 528.23 . 94 
+ 
+ 　 　 以 lgqe 对 lgCe 作图 , 可得 Freundlich 吸附 等温线 为 一 直线 ( 图 1 ) , 图 1 中 直线 斜率 1 / n   =   1.18 ,   超出 易 吸附 ( 1 / n   =   0.1 ～ 0.5 ) 范围 [ 3 ] , 但 低于 难 吸附 上限 ( 1 / n2 ) . 吸附平衡 常数 K   =   0.078 , 市售 一级 活性炭 Cr6 +   吸附 Freundlich 等温 式 如下 : 
+ qe = 0.078 Ce1.18   
+ ( 1 ) 
+ 式 中 : qe 为 活性炭 平衡 吸附 量 ( mg / g ) ; Ce 为 废水 中 Cr6 + 平衡 浓度 ( mg / L ) . 
+ 2.2 . 2   ZCMR 废物 活性炭 吸附 含铬 废水   用 自产 ZCMR 废物 活性炭 吸附 浓度 为 162mg / L 的 含铬 废水 , 实验 与 市售 一级 活性炭 吸附 Cr6 + 实验 平行 进行 , 结果 见表 3 . 由表 3 可知 , 自产 ZCMR 废物 活性炭 吸附 含铬 废水 后 平均 过滤 速度 为 15.6   mL / min , 吸附 性能 良好 . 
+ 表 3   自制 ZCMR 废物 活性炭 吸附 含铬 废水 实验 结果 
+ Table   3   Adsorption   results   of   Cr + 6   in   wastewater   with   ZCMR   activated   carbon   from   waste 
+ 　 
+ 序号 ZCMR 锯末 活性炭 ZCMR 烤胶 废料 活性炭 
+ 吸附剂 ( g ) 滤速 
+ ( mL / min ) 平衡 浓度 
+ ( mg / L ) 平衡 吸附 量 
+ ( mg / g ) 吸附剂 ( g ) 滤速 
+ ( mL / min ) 平衡 浓度 
+ ( mg / L ) 平衡 吸附 量 
+ ( mg / g ) 
+ 10.816 . 160.619 . 021.018 . 250.016 . 80 
+ 21.415 . 839.013 . 201.517 . 831.313 . 10 
+ 32.415 . 622.98 . 692.217 . 620.29 . 67 
+ 43.215 . 513.86 . 953.017 . 411.27 . 54 
+ 55.115 . 18.04 . 605.117 . 23.44 . 66 
+ 
+ 
+ 图 1   市售 一级 活性炭 吸附 Cr6 + 的 吸附 
+ 等温线 
+ Fig.1   Adsorption   isotherm   for   Cr + 6   on   powdered   activated   carbon   of   the   first   grade   standard   in   market 
+ 　 　 以 lgqe 对 lgCe 作图 , 得 Freundlich 吸附 等温线 为 一 直线 , 如图 2 所示 . 
+ 
+ 图 2   ZCMR 废物 活性炭 吸附 Cr6 + 的 吸附 等温线 
+ Fig .   2   Adsorption   isotherm   for   Cr6 +   from   waste   ZCMR   activated   carbon   
+ 1 . ZCMR 锯末 活性炭   2 . ZCMR 烤胶 废料 活性炭 
+ 
+ 　 　 锯末 活性炭 在 图 2 中 直线 斜率 1 / n   =   0.63 , 接近 0.1 ～ 0.5 的 易 吸附 范围 , 吸附平衡 常数 K   =   1.38 , 废物 活性炭 对 含铬 废水 中 Cr6 +   吸附 Freundlich 等温线 可用 ( 2 ) 式 表示 : 
+ qe = 1.38 Ce0.63   
+ ( 2 ) 
+ 　 　 对 烤 胶 废料 活性炭 在 图 2 中 直线 斜率 1 / n   =   0.39 ,   属于 0.1 ～ 0.5 的 易 吸附 范围 , 吸附平衡 常数 K   =   3.22 , 烤胶 废料 活性炭 对 含铬 废水 中 Cr6 +   吸附 Freundlich 等温线 可用 ( 3 ) 式 表示 : 
+ qe = 3.22 Ce0.39   
+ ( 3 ) 
+ 　 　 实验 结果表明 , 废物 活性炭 比市售 优质 活性炭 性能 更好 , 吸附 Cr6 +   能力 更高 . 
+ 2.3   市售 一级 活性炭 与 ZCMR 废物 活性炭 吸附 性能 比较 
+ 　 　 市售 一级 活性炭 与 ZCMR 废物 活性炭 吸附 性能 比较 见图 3 . 
+ 
+ 图 3   市售 一级 活性炭 与 ZCMR 废物 活性炭 吸附 Cr6 + 能力 比较 
+ Fig .   3   Comparison   of   the   adsorption   capacity   of   Cr6 +   of   ZCMR   activated   carbon   from   waste   and   powdered   acti - 
+ vated   carbon   of   the   first   grade   standard   in   market 
+ 1 . 市售 一级 活性炭   2 . ZCMR 锯末 活性炭   3 . ZCMR 烤胶 废料 
+ 活性炭 
+ 　 　 由图 3 可 看出 , 市售 一级 活性炭 达到 饱和 时 对 Cr6 +   的 极限 吸附 量 为 12.5   mg / g , 而 废物 活性炭 的 吸附 量 高达 21.5 ～ 22.5 mg / g , 废物 活性炭 的 吸附 容量 是 市售 一级 活性炭 的 1.72 ～ 1.8 倍 ; ZCMR 锯末 活性炭 吸附 废水 时 平均 过滤 速度 为 15.6   mL / min , ZCMR 烤胶 废料 活性炭 为 17.7   mL / min , 而 市售 一级 活性炭 平均 过滤 速度 为 9.52   mL / min , ZCMR 废物 活性炭 的 过滤 速度 是 市售 一级 活性炭 的 1.6 ～ 1.7 倍 . 因此 , 无论 从 吸附 容量 还是 从 过滤 速度 , ZCMR 废物 活性炭 都 明显 优于 市售 一级 活性炭 . 
+ 3   结语 
+ 3.1   ZCMR 废物 活性炭 对 含铬 废水 的 吸附 属于 易 吸附 过程 , 其 吸附 容量 是 市售 一级 活性炭 的 1.72 ～ 1.8 倍 , 极限 吸附 量 达 21.5 ～ 22.5 mg / g . 
+ 3.2   ZCMR 废物 活性炭 的 后 处理过程 方便 易行 , 其 过滤 速度 为 市售 活性炭 的 1.6 ～ 1.7 倍 . 
+ 3.3   ZCMR 烤胶 废料 活性炭 对 含铬 废水 的 吸附 易于 ZCMR 锯末 活性炭 . 
+ 3.4   ZCMR 废物 活性炭 可 用于 替代 目前 废水处理 系统 中 性能 一般 的 工业 级 粉末 活性炭 , 其 操作 性能 、 吸附 容量 超过 市售 一级 活性炭 , 比 工业用 活性炭 更加 优越 , 该 产品 一旦 工业化 , 必将 以 其 优质 、 高效 、 使用方便 、 原料 价 兼 易得 等 优势 在 废水处理 中 得到 广泛 的 推广应用 . 
+ 基金项目 ： 云南省 人才 基金 资助 项目 ( 9850 ) 
+ 作者简介 ： 宁   平 ( 1958 - ) , 男 , 云南 开运 人 , 昆明 理工大学 环境 工程系 教授 、 博士后 , 主要 从事 环境污染 控制 及 数学模拟 等 研究 工作 . 参加 了 省 重点项目 “ 黄磷 尾气 净化 制取 甲酸 ” 等 20 余项 的 研究 工作 . 出版 专著 2 部 , 发表 论文 80 余篇 . 
+ 作者 单位 ： 昆明 理工大学 环境 工程系 , 云南   昆明   650093 
+ 参考文献 ： 
+ [ 1 ] 曹玉登 .   煤制 活性炭 及 污水 治理   [ M ] .   北京 : 中国 环境 科学出版社 , 1995.4 . 
+ [ 2 ] 中华人民共和国 林业部 标准 司 .   粉状 活性炭 标准   [ M ] .   北京 : 中国林业 出版社 , 1992.127 . 
+ [ 3 ] 张希衡 .   水污染 控制工程   [ M ] .   北京 : 冶金工业 出版社 , 1993 .   199 . 
+ 
+ 收稿 日期 ： 1998 - 11 - 11 

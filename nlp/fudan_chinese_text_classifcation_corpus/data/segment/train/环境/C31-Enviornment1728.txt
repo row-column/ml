@@ -1,0 +1,43 @@
+环境 科学研究 
+ RESEARCH   OF   ENVIRONMENTAL   SCIENCES 
+ 2001   Vol.14   No.1   P.61 - 64 
+ 
+ 
+ 
+ 
+ 我国 部分 商品 瓶装 饮用水 中 挥发性 有机物 的 研究 
+ 肖 贤明 　   王新明 　   刘祖发 　   傅家 谟 　   
+ 摘 　 要 ： 应用 Tekmar3000 吹扫 捕集 - 气 相色谱 质谱 组合 分析仪 ， 参照 USEPA 的 标准 分析方法 ， 对 我国 某些 商品 瓶装 饮用水 中 挥发性 有机物 进行 了 定量分析 ， 结果表明 ， 其 含量 一般 在 1 ～ 8 μ g / L ， 其中 普遍 含有 具三致 潜力 的 卤代烃 与 苯 系物 。 虽然 这些 毒 理性 指标 均 可 达到 我国 瓶装 饮用 纯净水 卫生标准 ， 但 与 国外 优质 瓶装 饮用水 相比 ， 存在 明显 的 差距 。 瓶装 饮用水 中 挥发性 有机物 主要 与 深度 处理 技术 和 组合 工艺 有关 ， 可 通过 改进 这些 技术 而 得以 有效 控制 。 
+ 关键词 ： 挥发性 有机物 ； 　 毒 理性 ； 　 瓶装 饮用水 
+ 分类号 ： X799 　 文献 标识码 ： A 
+ 文章 编号 ： 1001 - 6929 ( 2001 ) 01 - 0061 - 04 
+ Study   on   Volatile   Organic   Compounds   in   Some   Bottled   Water   for   Drinking   Produced   in   China 
+ XIAO   Xian - ming （ State   Key   Laboratory   of   Organic   Geochemistry , Guangdong   Key   Laboratory   of   Environmental   Resource   Utilization   and   Protection , Guangzhou   Institute   of   Geochemistry , CAS , Guangzhou 　 510640 , China ） 　 
+ WANG   Xin - ming （ State   Key   Laboratory   of   Organic   Geochemistry , Guangdong   Key   Laboratory   of   Environmental   Resource   Utilization   and   Protection , Guangzhou   Institute   of   Geochemistry , CAS , Guangzhou 　 510640 , China ） 　 
+ LIU   Zu - fa （ State   Key   Laboratory   of   Organic   Geochemistry , Guangdong   Key   Laboratory   of   Environmental   Resource   Utilization   and   Protection , Guangzhou   Institute   of   Geochemistry , CAS , Guangzhou 　 510640 , China ） 　 
+ FU   Jia - mo （ State   Key   Laboratory   of   Organic   Geochemistry , Guangdong   Key   Laboratory   of   Environmental   Resource   Utilization   and   Protection , Guangzhou   Institute   of   Geochemistry , CAS , Guangzhou 　 510640 , China ） 　 
+ Abstract ： By   using   a   system   combining   Tekmar   3000   purge   and   trap   concentrator   with   HP   5972   GC / MSD , with   reference   to   the   US   EPA   standard   test   methods , a   quantitative   analysis   on   volatile   organic   compounds   ( VOCs )   in   some   bottled   waters   for   drinking   produced   in   China   was   made . The   results   showed   that   all   of   these   bottled   waters   contain   a   minor   amount   of   VOCs , mostly   in   the   range   of   1.0 ～ 8.0   μ g / L , including   halogenated   hydrocarbons   and   BTEX   which   are   carcinogenic   and   mutagenic   chemicals . It   was   noted   that   the   VOCs   in   these   bottled   waters   are   obviously   higher   than   that   in   two   types   of   well - known   bottled   water   from   France   although   they   are   much   lower   than   Chinese   national   standard   of   bottled   water   for   drinking . The   VOCs   in   the   bottled   waters   are   mainly   related   to   the   techniques   and   their   combination   to   be   used   to   purify   the   waters , and   can   be   removed   by   improving   these   techniques . 
+ Keywords ： volatile   organiccompounds ; 　 　 toxicity ; 　 bottled   water   for   drinking 
+ 基金项目 ： 广东省 科委 科技攻关 百项 工程项目 资助 ( 99B06901G ) 
+ 作者简介 ： 肖 贤明 ( 1962 - ) ， 男 ， 湖南 汉寿县 人 ， 研究员 ， 博士 .   
+ 作者 单位 ： 肖 贤明 （ 中国科学院   广州 地球化学 研究所   有机 地球化学 国家 重点 实验室 及 广东省 环境 资助 利用 与 保护 重点 实验室 ， 广东   广州 　 510640 ） 　 
+ 　 　 　 　 　 王新明 （ 中国科学院   广州 地球化学 研究所   有机 地球化学 国家 重点 实验室 及 广东省 环境 资助 利用 与 保护 重点 实验室 ， 广东   广州 　 510640 ） 　 
+ 　 　 　 　 　 刘祖发 （ 中国科学院   广州 地球化学 研究所   有机 地球化学 国家 重点 实验室 及 广东省 环境 资助 利用 与 保护 重点 实验室 ， 广东   广州 　 510640 ） 　 
+ 　 　 　 　 　 傅家 谟 （ 中国科学院   广州 地球化学 研究所   有机 地球化学 国家 重点 实验室 及 广东省 环境 资助 利用 与 保护 重点 实验室 ， 广东   广州 　 510640 ） 　 
+ 参考文献 ： 
+ ［ 1 ］ 司徒 福康 . 市售 饮用水 的 发展 与 展望 ［ J ］ . 净水 技术 ， 1997 ， 61 ( 3 ) ， 36 ～ 40 . 
+ ［ 2 ］ Thomason   M   M , Bertsch   W . Evaluation   of   sampling   methods   for   the   dertermination   of   trace   organics   in   water ［ J ］ . J   Chromatogr , 1983 , 279 : 383 ～ 395 . 
+ ［ 3 ］ Longbotton   J   E , Lichtenberg   J   J . Method   601 , purgable   halecarbons , in   test   method , methods   for   organic   chemical   and   analysis   of   municipal   and   industrial   waste   water ［ S ］ . EPA   600 / 482 - 657 , Environmental   Protection   Agency , Lincinnati , OH , 1982 . 
+ ［ 4 ］ 王新明 . 珠江三角洲 一些 城市 挥发性 有机物 初步 研究 ［ Ph - D ］ . 广州 ： 中国科学院 广州 地球化学 研究所 ， 1997.13 ～ 18 . 
+ ［ 5 ］ Crump   K . Environmental   impact   and   health   effects   ［ A ］ . Plley   R   L , Gorchev   H , Hamilton   D   H , eds . Water   chlorination : environmental   impact   and   health   effects ［ C ］ . Ann   Arbor , Ml : Ann   Arbor   Science   Publishers   Inc , 1983.4 : 1487 ～ 1490 . 
+ ［ 6 ］ Fishbein   L . Potential   halogenatel   industrial   carcinogenic   and   mutagenic   chemicals , I : Halogenatal   saturated   hydrocarbons ［ J ］ . Sci   Total   Environ , 1979 , 11 : 163 ～ 169 . 
+ ［ 7 ］ Simmon   V   F . The   mutagenic   activity   of   halogenatel   compounds   found   in   chlorinated   drinking   water ［ A ］ . Jolley   R   L , Gorchev   H , Hamilton   D   H , eds . Water   chlorination : environmental   impact   and   health   effects ［ C ］ . Ann   Arbor , MI : Ann   Arbor   Sciences   Publishers   inc . , 1981.2 : 417 ～ 423 . 
+ ［ 8 ］ Rook   J   J . Formation   of   haloformes   during   chlorination   of   natural   waters ［ J ］ . Water   Treat   Exam , 1974 , 23 : 234 ～ 240 . 
+ ［ 9 ］ Peters   C   J . Factors   influencing   the   formation   of   haloforms   in   the   chlorination   of   humic   materials ［ J ］ . Environ   Sci   Technol , 1980 , 64 : 1391 ～ 1399 . 
+ ［ 10 ］ Stuart   W , Krasnev . The   occurrence   of   disinfection   by - products   in   US   drinking   water ［ J ］ . J   AWWA , 1989 , 81 ( 8 ) : 41 ～ 53 . 
+ ［ 11 ］ 李正明 ， 王兰昌 . 矿泉水 和 瓶装水 生产 技术 手册 ［ M ］ . 北京 ： 中国 轻工业 出版社 ， 1994.35 ～ 79 . 
+ ［ 12 ］ Herman   R . Pre - filters   may   effect   RO   removal   of   fluoride , mercury   and   chromium ［ J ］ . Water   Condition   and   Purification , 1999 , 41 ( 6 ) : 106 ～ 110 . 
+ ［ 13 ］ Epstein   S   S , Zavon   M . Is   there   a   threshold   for   cancer ? ［ A ］ . Manners   D   X , ed . International   water   quality   symposium : water   Its   effects   on   life   quality ［ C ］ . Wash   D   C , Water   Quality   Research   Council , 1974.54 ～ 62 . 
+ ［ 14 ］ 许保玖 . 给水 处理 理论 与 设计 ［ M ］ . 北京 ： 中国 建筑 工业 出版社 ， 1992.1 ～ 100 . 
+ 收稿 日期 ： 1999 年 12 月 30 日 
+ 出版日期 ： 2001 年 1 月 30 日 

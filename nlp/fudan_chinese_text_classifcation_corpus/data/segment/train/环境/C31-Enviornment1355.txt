@@ -1,0 +1,107 @@
+环境 科学 学报 
+ ACTA   SCIENTIAE   CIRCUMSTANTIAE 
+ 1999 年   第 19 卷   第 5 期   Vol.19   No.5   1999 
+ 
+ 
+ 
+ 外源 稀土 微肥 对 土壤 氮磷 养分 的 影响 * 
+ 鲁 　 鹏 　 刘定芳 　 马 　 梅 　 王子 健 
+ 摘要 　 通过 小区 试验 和 盆栽 试验 ， 研究 了 施加 不同 的 浓度 稀土 微肥 对 土壤 中 有效 氮 、 有效 磷 浓度 以及 土壤 脲酶 活性 的 影响 . 结果表明 ， 施加 高浓度 稀土 微肥 将 会 影响 土壤 中 有效 氮 和 有效 磷 的 浓度 . 在 分析 与 之 相关 的 土壤 酶 活性 时 发现 ， 施加 低浓度 稀土 微肥 ( ≤ 1mg / kg ) 促进 土壤 脲酶 活性 并 增加 土壤 有效 氮 浓度 ， 而 施加 高浓度 稀土 微肥 ( ≥ 5mg / kg ) 则 明显 的 抑制 土壤 脲酶 活性 并 减少 土壤 有效 氮 浓度 ； 施加 稀土元素 浓度 与 土壤 有效 磷 浓度 之间 有 较 好 的 负相关 关系 ( r = - 0.961 ， p < 0.05 ) . 
+ 关键词 　 稀土 ； 土壤 ； 有效 氮 ； 有效 磷 ； 脲酶 活性 . 
+ Effect   of   REE - fertilizer   on   soil   nitrogen   and   phosphorus 
+ LU   Peng , LIU   Dingfang , MA   Mei , WANG   Zijian   ( State   Key   Laboratory   of   Environmental   Aquatic   Chemistry , Research   Center   for   Eco - Environmental   Sciences , Beijing   100085 ) 
+ Abstract 　 Through   plot   and   pot   experiments , the   potential   effects   of   applying   rare - earth   elements ( REEs )   as   micro - fertilizer   on   the   activity   of   soil   urease , soil   available   nitrogen   and   phosphorus   were   screened . Results   from   the   plot   experiment   indicated   that   REEs   application   influenced   the   supplement   and   metabolism   of   soils   available   nitrogen   and   phosphorus . The   findings   were   confirmed   by   the   pot   experiments . It   was   demonstrated   that   REEs   could   promote   of   the   activity   of   soil   urease   and   cause   an   increase   in   the   concentration   of   soil   available   nitrogen   when   applied   in   low   dose ( < 1   mg / kg   soil ) . The   activity   of   soil   urease   was   inhibited   when   applied   in   higher   doses ( > 5   mg / kg   soil )   and   the   concentration   of   available   nitrogen   decreased   in   a   dose - dependent   mode   with   increasing   REEs   concentration . A   significant   correlation   was   observed   between   the   concentration   of   REEs   and   soil   available   phosphorus ( r = - 0.961 , p < 0.005 ) . 
+ Keywords 　 REEs , soil   available   nitrogen , available   phosphorus , soil   urease . 
+ 　 　 我国 大面积 推广 使用 含 稀土 化肥 始于 70 年代 . 研究 发现 微量 稀土 能够 增加 粮棉 产量 ［ 1 ］ ， 改善 土壤 中钙 、 镁 元素 的 植物 有效性 ， 促进 叶绿素 的 合成 以及 促进 种子 萌发 和 根系 发育 ［ 2 ］ 等 . 我国 在 有关 施用 稀土元素 对 不同 植物 的 有益 影响 以及 其 作用 机理 上 进行 了 大量 的 研究 工作 ， 而 对 其 在 环境 及 对 农业土壤 生态系统 的 有害 影响 ［ 3 ］ 的 研究 较少 . 有关 研究 结果 存在 矛盾 ， 如 有些 研究 工作者 认为 施加 稀土 微肥 可以 促进 植物 对 氮 ［ 4 , 5 ］ 和 磷 ［ 6 ］ 的 吸收 利用 ； 而 另外 一些 研究 工作者 认为 稀土元素 与 土壤 - 植物 系统 的 氮磷 代谢 无关 ［ 7 ］ ， 并且 施加 稀土元素 会 干扰 土壤 的 养分 代谢 ， 因而 降低 其 植物 有效性 ［ 8 ］ . 为了 进一步 阐明 长期 施加 含 稀土 化肥 对 农业土壤 生态系统 的 影响 ， 本文 通过 室外 小区 试验 和 盆栽 试验 ， 讨论 稀土元素 对 土壤 氮磷 的 影响 . 
+ 1   试验 方法 
+ 1.1 　 小区 试验 
+ 　 　 试验 用地 选在 北京市 北郊 ， 实验 土质 为 砂质 粘 壤土 ( 粘粒 20.2% ， 粉粒 28.6% ， 砂粒 51.2% ) ， 有机质 含量 为 0.80% ， pH 值 和 土壤 阳离子 交换量 分别 为 7.70 和 16.0 mg / g ( 土 ) ， 总氮 和 总 磷 含量 分别 为 0.124% 和 0.06% ， 有效 氮 和 有效 磷 浓度 分别 为 21.3 ppm 和 12.6 ppm . 实验设计 4 个 小区 ， 每 小区 12m2 . 播种 春 玉米 ， 在 生长 苗期 一次性 均匀 表面 喷施 ， 施用量 分别 为 0 、 16 、 32 和 64mg / m2 的 稀土 微肥 ( 商品 名 ： “ 常乐 ” ) . 喷施 前 和 收获 后 分别 采集 土壤 样品 . 
+ 1.2 　 盆栽 试验 
+ 　 　 土壤 取自 试验小区 ， 自然 风干 后过 1mm 筛 . 取 0.5 kg 置于 直径 为 12cm 深 12cm 的 塑料盆 中 ， 每盆种 10 棵 春 玉米 ， 于 出苗 后 数天 根部 土壤 施入 ， 稀土元素 施用量 分别 为 0 、 1 、 5 、 10 、 20 和 30mg / kg 土 的 “ 常乐 ” 微肥 ， 各设 4 个 重复 ， 采集 施加 前 和 施加 3 星期 内 的 土壤 样品 进行 分析 . 
+ 1.3 　 样品 制备 和 测定方法 
+ 　 　 微肥 中 稀土元素 的 组成 ， 喷施 溶液 浓度 以及 元素 La 和 其它 稀土元素 的 比值 如表 1 所示 . 
+ 表 1 　 施加 稀土 微肥 中 稀土元素 的 浓度 
+ Table   1   Composition   and   concentrations   of   REEs   in   applied 
+ 
+ 元素 名称 稀土 微肥 ， 
+ mg / g 浓度 ， 
+ mg / LLa / RE 
+ La132.4939 . 746 　 
+ Ce63.2518 . 9752.1 
+ Pr26.397 . 9185.0 
+ Nd40.0112 . 0043.3 
+ Sm4.021 . 20633.0 
+ Gd2.460 . 73853.9 
+ Dy0.050 . 0162484.1 
+ Total268.6280 . 587 　 
+ 
+ 　 　 将 土壤 样品 在 室内 自然 风干 ， 研磨 ， 根据 测试 的 不同 要求 分别 过 60 目 和 100 目筛 ， 土壤 有   效氮 的 测定 采用 碱解 扩散 法 ［ 9 ］ ， 有效 磷 的 测量 采用 0.5 mol / L 碳酸氢钠 浸提 法 ［ 10 ］ ， 土壤 脲酶 分析 根据 G . Hoffmonn 法 ［ 11 ］ 进行 . 
+ 1.4 　 数据处理 方法 
+ 　 　 考虑 到 各 实验 小区 在 时间 和 空间 的 异质性 ， 若 试验 结果 满足 以下 3 个 条件 ， 则 可 认为 施加 稀土 微肥 对 土壤 有效 氮 和 有效 磷有 影响 ： ( a ) 施加 稀土 微肥 前后 测量 数据 的 差值 超过 二倍 的 背景 值 的 标准偏差 ( 指 施加 稀土 微肥前 4 个 试验小区 测定 值 的 标准偏差 ， n = 4 ) ； ( b ) 存在 一个 与 剂量 相关 的 关系 ； ( c ) 由于 稀土元素 大部分 赋存 于 土壤 表层 ， 因此 在 表层 土壤 的 测量 得到 的 施加 前后 差别 须 比 深层 土壤 更为 显著 . 
+ 2 　 结果 与 讨论 
+ 2.1 　 施加 稀土 微肥 对 土壤 中 有效 氮 的 影响 
+ 表 2 　 小区 实验 中 施加 稀土 微肥 对 土壤 有效 氮 的 影响 ( mg / kg ) 
+ Table   2   Influence   of   REEs   on   soil   available   nitrogen ( mg / kg ) 
+ 
+ 土壤 深度 ， 
+ cm 土壤 有效 氮 
+ ( n = 4 ) 施加 前后 的 差值 ( mg / m2 ) 
+ 0163264 
+ 2021.3 ± 3.52 . 2 - 1.4 - 7.5 - 11.7 
+ 4019.0 ± 2.70 . 8 - 7.3 - 7.8 - 4.2 
+ 6020.7 ± 2.1 - 0.4 - 4.2 - 13.6 - 10.2 
+ 8015.3 ± 5.76 . 7 - 6 - 10 - 11.8 
+ 10019.1 ± 4.25 . 5 - 13.1 - 2.8 - 11.3 
+ 
+ 　 　 从表 2 中 可 看出 ， 施加 稀土 之后 试验小区 不同 层深 的 土壤 有效 氮 的 浓度 都 有 不同 程度 的 降低 ， 而 对照 小区 中 有效 氮 的 浓度 相对 稳定 或 略有 增加 . 当 施加 稀土 浓度 较 高时 ( ≥ 32mg / kg ) ， 处理 组 土壤 施加 稀土 前后 有效 氮 浓度 的 差值 大于 二倍 的 背景 标准偏差 ； 同时 在 表层 20cm 土壤 中 可以 观测 到 剂量 相关 关系 . 因此 ， 可以 认为 随着 施加 稀土 浓度 的 增加 ， 表层 土壤 有效 氮 浓度 减少 . 
+ 　 　 从表 2 中 可 看出 ， 施加 稀土 之后 试验小区 不同 层深 的 土壤 有效 氮 的 浓度 都 有 不同 程度 的 降低 ， 而 对照 小区 中 有效 氮 的 浓度 相对 稳定 或 略有 增加 . 当 施加 稀土 浓度 较 高时 ( ≥ 32mg / kg ) ， 处理 组 土壤 施加 稀土 前后 有效 氮 浓度 的 差值 大于 二倍 的 背景 标准偏差 ； 同时 在 表层 20cm 土壤 中 可以 观测 到 剂量 相关 关系 . 因此 ， 可以 认为 随着 施加 稀土 浓度 的 增加 ， 表层 土壤 有效 氮 浓度 减少 . 
+ 　 　 比较 施加 稀土 前后 表层 土壤 有效 氮 和 土壤 脲酶 活性 ， 可以 发现 土壤 脲酶 活性 的 变化趋势 与 有效 氮 浓度 的 变化趋势 相似 . 如图 1 所示 ， 施加 0 、 16 、 32 和 64mg / m2 的 稀土 微肥后 ， 20cm 表层 土壤 有效 氮 浓度 在 对照 小区 略有 上升 ( + 11% ) ， 而 在 处理 组 分别 比 施加 前 降低 了 19.7% ， 32.5% 和 46.4% . 与 有效 氮 浓度 变化趋势 相似 ， 对照 小区 土壤 中 土壤 脲酶 活性 上升 25% ， 而 处理 组 分别 比 施加 前 降低 了 15.4% ， 31.3% 和 54.5% . 表层 20cm 土壤 中 施加 稀土 对 有效 氮 和 土壤 脲酶 活性 的 影响 趋势 一致 . 
+ 　 　 针对 上述 实验 结果 进行 了 盆栽 试验 ， 以 进一步 明确 施加 稀土 与 土壤 有效 氮及 土壤 脲酶 的 关系 . 实验 结果 如图 2 所示 . 从图 中 可 看出 ， 施加 低浓度 稀土 ( ≤ 1mg / kg ) 能 促进 土壤 脲酶 活性 、 引起 土壤 有效 氮 浓度 的 增加 . 当 施加 高浓度 稀土 ( ≥ 5mg / kg ) 时 ， 随着 施加 剂量 的 增大 ， 土壤 脲酶 活性 受到 抑制 ， 土壤 有效 氮 浓度 明显降低 . 盆栽 和 小区 试验 结果 得出 的 结论 相同 ， 说明 较大 剂量 的 稀土元素 有 可能 影响 到 土壤 有效 氮 的 代谢 或 补充 过程 . 这个 结果 与 以往 关于 施加 稀土元素 能够 促进 植物 生长 的 看法 不 一致 ， 因此 有 必要 进一步 研究 ， 以 探明 其 影响 机理 . 
+ 
+ 
+ 图 1 　 稀土元素 对 土壤 ( 20cm 层 ) 有效 氮 和 脲酶 活性 的 影响 
+ Fig.1   Influences   of   REEs   on   soil   available   nitrogen   and   enzymatic   activity   of   urease 
+ 
+ 
+ 图 2 　 盆栽 实验 中 稀土 对 土壤 有效 氮 浓度 和 土壤 脲酶 活性 的 影响 
+ Fig.2   Influence   of   REEs   on   soil   available   nitrogen   and   enzymatic   activity   of   soil   urease   in   pot   experiments 
+ 2.2 　 施加 稀土 微肥 对 土壤 中 有效 磷 的 影响 
+ 　 　 施加 稀土元素 对 土壤 20cm 表层 中 有效 磷 浓度 有 明显 影响 . 如表 3 所示 ， 对照 小区 ， 甚至 16mg / m2 处理 组 的 土壤 有效 磷 浓度 在 施加 稀土 微肥后 有所增加 ， 当 施加 量 为 32mg / m2 和 64mg / m2 时 ， 表层 土壤 中 有效 磷 浓度 显著 下降 ， 与 施加 稀土元素 浓度 相关 . 而 较 深层 土壤 ( > 20cm ) 中 ， 未 观察 到 稀土 对 有效 磷 浓度 有 规律性 的 影响 . 
+ 　 　 盆栽 试验 结果 如图 3 所示 ， 施加 稀土元素 浓度 与 土壤 有效 磷 的 浓度 之间 存在 显著 负相关 关系 ( r = - 0.961 ， p < 0.05 ) ， 当 施加 稀土元素 浓度 达到 30mg / kg 土时 ， 土壤 有效 磷 浓度 下降 近一半 . 
+ 　 　 从 小区 和 盆栽 试验 的 结果 可以 看出 ， 施加 稀土元素 将 对 土壤 有效 磷 浓度 产生 影响 . 值得注意 的 是 ， 这个 结论 与 以前 的 研究者 们 认为 施加 稀土元素 与 土壤 有效 磷 的 供应 无关 ［ 5 ］ 相 矛盾 . 有关 作用 机理 有待 进一步 的 研究 工作 予以 证实 . 
+ 
+ 
+ 图 3 　 盆栽 实验 中 稀土 对 土壤 有效 磷 的 影响 
+ Fig.3   Influence   of   REEs   on   soil   available   phosphorus   in   pot   experiments 
+ 表 3 　 小区 实验 中 施加 稀土 微肥 对 土壤 有效 磷 的 影响 ( mg / kg ) 
+ Table   3   Influence   of   REEs   on   soil   available   phosphorus ( mg / kg ) 
+ 
+ 土壤 深度 ， 
+ cm 土壤 有效 磷 
+ ( n = 4 ) 施加 前后 的 差值 ( mg / m2 ) 
+ 0163264 
+ 2012.6 ± 1.31 . 90.3 - 2.4 - 6.0 
+ 4011.5 ± 2.00 . 0 - 2.4 - 1.2 - 
+ 606.9 ± 0.74 . 50.21 . 40.2 
+ 809.6 ± 1.2 - 2.4 - 0.71 . 7 - 0.5 
+ 10011.0 ± 1.3 - 0.5 - 2.4 - 2.1 - 2.1 
+ 
+ 3 　 结论 
+ 　 　 室外 小区 试验 和 盆栽 试验 结果表明 ， 施加 稀土元素 将 可能 对 土壤 中 有效 氮 和 有效 磷 的 浓度 和 代谢 产生 影响 . 有 必要 就 稀土 农用 对 土壤 氮磷 养分 供给 的 影响 机理 、 程度 、 及 土壤 调控 能力 进一步 研究 . 
+ * 国家自然科学基金 ( 29890280 - 2 ) 资助 
+ 王子 健 : 通讯联系 人 
+ 作者 单位 : 中国科学院 生态环境 研究 中心 国家 重点 环境 水化学 实验室 ， 北京 　 100085 
+ 参考文献 
+ 1 　 Bosheng   G . A   new   application   field   for   rare   earthagriculture . In : Rare   Earth   Horizons , Proc . Of   Conf . Nat . Measurement   Lab . , 2728   April   1987 . Canberra : Department   of   Industry , Technology   and   commence.1987 . 237 — 246 
+ 2 　 常江 . 镧 对稻 、 麦根 组织 细胞膜 透性 和 营养 代谢 吸收 积累 的 影响 . 植物 生理学 通讯 ， 1991 ， 27 ( 10 ) ： 17 — 21 
+ 3 　 Dimitr   S   Todorovsky . Effect   of   the   application   of   superphosphate   on   rare   earths    content   in   the   soil . The   Science   of   the   Total   Environment , 1997 , 203 : 13 — 16 
+ 4 　 竺 伟民 ， 张 自立 . La 、 Ce 、 Pr 、 Nd 对 小麦 、 棉花 生长 和 营养 代谢 的 效应 . 安徽 农学院 学报 ， 1986 ( 增刊 ) ： 1 — 5 
+ 5 　 竺 伟民 等 . 稀土 农乐 对 水稻 的 “ 效应 期 ” 初探 . 稀土金属 ， 1985 ， 5 ： 6 — 10 
+ 6 　 张继 榛 等 . 稀土 对 冬小麦 产量 及 营养 代谢 的 影响 . 安徽 农学院 学报 ， 1986 ( 增刊 ) ： 11 — 15 
+ 7 　 赵庆华 等 . 十五种 稀土元素 对 棉花 效应 研究 . 安徽 农学院 学报 ， 1986 ， ( 增刊 ) ： 43 — 48 
+ 8   Liang   C . N . , Tabatabai   M . A . , Effects   of   trace   element   on   nitrification   in   soils , J . Environ . Qual . , Vo17 , no.2 , 1978 , 291 — 193 
+ 9 　 南京 农学院 主编 . 土壤 农化 分析 . 北京 ： 农业 出版社 . 1980.78 — 81 
+ 10   中华人民共和国 国家标准 ， GB   7853 — 87 . 森林土壤 有效 磷 的 测定 . 1988 
+ 11   吴松 荫 等 . 土壤 酶 及其 研究法 . 北京 ： 农业 出版社 . 1986.296 — 297 
+ 1998 - 02 - 23 收到 原稿 
+ 1998 - 06 - 23 收到 修改稿 

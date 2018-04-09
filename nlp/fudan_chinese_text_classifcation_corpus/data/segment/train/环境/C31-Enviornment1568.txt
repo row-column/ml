@@ -1,0 +1,96 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1999 年 　 第 19 卷 　 第 1 期   Vol.19   No.1   1999 
+ 
+ 
+ 
+ 厌氧 颗粒 污泥 对 五氯酚 ( PCP ) 的 吸附 、 解吸 及 生物降解 
+ 郝丽芳 　 周岳溪 　 张 寒霜 
+ 摘要 ： 以未 驯化 污泥 接种 的 升 流式 厌氧 污泥 床 反应器 可 形成 降解 五氯酚 ( PCP ) 的 颗粒 污泥 . 颗粒 污泥 去除 PCP 的 主要 机制 是 生物降解 作用 , 而 不是 生物 吸附 作用 . PCP 在 颗粒 污泥 上 的 吸附 和 解吸 符合 Freundlich 等温 方程 , 吸附 和 解吸 的 Freundlich 常数 K 、 1 / n 分别 为 0.7857 mg / gSS 、 0.5079 和 1.1095 mg / gSS 、 0.3782 , 部分 PCP 被 不 可逆 吸附 . 与 其它 活 或 死 的 生物 材料 相比 , 本 试验 形成 的 颗粒 污泥 对 PCP 吸附 量 较 小 . 该 方程 较 准确 地 表达 了 UASB 反应器 内厌 氧 颗粒 污泥 对 PCP 吸附 量 的 变化规律 . 
+ 关键词 ： 五氯酚 ； 厌氧 颗粒 污泥 ； 生物降解 ； 生物 吸附 ； Freundlich 等温 方程 
+ 中 图 分类号 ： X703   文献 标识码 ： A   文章 编号 ： 1000 -   6923 ( 1999 ) 01 -   0005 -   04 
+ Biosorption ,   desorption   and   biodegradation   of   pentachlorophenol   ( PCP )   by   anerobic   granular   sludge   in   an   upflow   anerobic   sludge   blanket   ( UASB )   reactor . 
+ HAO   Li - fang , ZHOU   Yue - xi , ZHANG   Han - shuang ( Institute   of   Water   Environmental   Sciences ,   Chinese   Research   Academy   of   Environmental   Sciences ,   Beijing   100012 ,   China ) .   China   Environmental   Science.1999 , 19 ( 1 ) ： 5 ～ 8 
+ Abstract ： Granular   sludge   degrading   PCP   would   be   developed   in   an   UASB   reactor   treating   wastewater   containing   PCP ,   as   the   reactor   is   seeded   with   unadapted   sludge .   The   sorption   isotherm   and   desorption   isotherm   of   PCP   by   the   granular   sludge   were   determined ,   and   the   data   fitted   to   the   Freundlich   equation .   The   Freundlich   constant   K   and   1 / n   were   0.7857 mg / gSS   and   0.5079 ( r2 = 0.9793 )   for   the   sorption ,   and   1.1095 mg / gSS   and   0.3782 ( r2 = 0.9736 )   for   desorption ,   respectively .   This   indicated   that   a   part   of   PCP   was   irreversibly   sorbed   to   the   biomass .   The   sorption   capacity   by   anerobic   sludge   granules   was   much   weaker   than   its   previously   reported   sorption   by   other   live   or   dead   biological   materials .   With   empirically   determined   constants   from   this   study ,   the   Freundlich   model   can   describe   the   partitioning   behavior   of   PCP   in   the   UASB   reactor   reasonably   well .   PCP   removal   by   the   granules   was   due   to   biodegradation   rather   than   sorption . 
+ Key   words ： pentachlorophenol ； anerobic   granular   sludge ； biodegradation ； biosorption ； Freundlich   isotherm   equation 
+ 　 　 近 10 年来 , 利用 高效 厌氧 生物 处理工艺 ( 如 UASB 等 ) 处理 含五氯酚 废水 , 探索 其 工艺 运行 参数 和 机理 已 成为 一个 热点 [ 1 - 3 ] , 认为 微生物 的 还原 脱卤 可使 五氯酚 降解 [ 1 - 3 ] . 但是 , 此项工作 目前 仍 处于 开始 阶段 , 在 国内 有关 方面 的 报道 则 更少 . 在 这些 研究 中 关于 厌氧 颗粒 污泥 对 PCP 的 吸附 作用 和 解吸 作用 考虑 甚少 . 由于 UASB 反应器 内 生物量 巨大 , 有机物 在 生物 污泥 上 的 吸附 和 解吸 很 可能 对 这 类化合物 的 归 趋 方面 有 重要 作用 . 本 试验 在 利用 UASB 反应器 成功 地 培养 出 降解 PCP 厌氧 颗粒 污泥 的 基础 上 , 研究 PCP 在 厌氧 颗粒 污泥 上 的 吸附 和 解吸 以 确定 PCP 去除 的 主要 机制 , 同时 进一步 分析 UASB 反应器 处理 含 PCP 废水 的 效能 . 
+ 1   材料 与 方法 
+ 1.1   试验 材料 
+ 1.1 . 1   试验装置   反应器 由 有机玻璃 制成 , 内径 9cm , 高 104cm ; 上部 沉淀 区高 31cm , 容积 2.04 L ; 下部 反应 区高 72cm ( 其中 锥体 部分 高 7cm ) , 容积 4.58 L ; 总 容积 6.62 L , 有效 容积 6L . 内设 三相 分离器 , 下部 为 污泥 悬浮 层 和 污泥 床 , 沿 反应器 高度 设有 10 个 取样 口 . 
+ 　 　 将 结构 完全相同 的 1 # 、 2 # 两套 装置 置于 35 ±   1 ℃ 的 木制 恒温箱 内 , 其 温度 由 温度控制 仪 控制 ; 进水 由 蠕动泵 打入 反应器 底部 ; 产生 的 沼气 由 湿式 气体 流量计 计量 . 其中 2 # 反应器 进水 不加 PCP , 培养 非 降解 PCP 颗粒 污泥 ;   1 # 反应器 进水 投加 PCP , 培养 降解 PCP 的 颗粒 污泥 . 除 进水 PCP 成份 不同 外 , 两个 反应器 其它 工艺 条件 均 相同 . 水力 停留时间 ( HRT ) 为 24h . 进水 碱度 由 无水 Na2CO3 调节 , 保持 出水 pH 值 在 6.5 ～ 7.5 之间 . 
+ 1.1 . 2   试验 用水 特性   试验 用水 为 人工模拟 配水 . 以 葡萄糖 为 碳源 , 尿素 和 磷酸二氢钾 分别 为 氮源 和 磷源 ( 比例 为 COD : N : P = 200 : 5 : 1 ) . 1 # 反应器 进水 中投 加 定量 PCP . 
+ 1.1 . 3   接种 污泥 性状 及 反应器 接种   接种 污泥 取自 北京 啤酒厂 生产性 UASB 装置 中 的 颗粒 污泥 , 未 加 任何 营养物 放置 4 个 多月 后 不经 任何 处理 直接 接种 , 接种 量 为 15gVSS / L . 接种 时 污泥 已经 解体 , 大部分 为 0.3 mm 以下 的 细小 颗粒 . 反应器 接种 后 静置 4d 开始 连续 进水 运行 . 
+ 1.2   试验 方法 
+ 1.2 . 1   降解 PCP 和 非 降解 PCP 厌氧 颗粒 污泥 的 培养   由于 接种 污泥 活性 低 , 故 试验 开始 时 , 1 # 反应器 进水 不加 PCP , 待 基质 去除率 达 80% 以上 , 产 气量 明显 增大 时 , 进 水中 开始 投加 PCP . 根据 出 水中 COD 、 PCP 浓度 和 产气 情况 , 及时 递增 COD 负荷 、 PCP 负荷 和 水力 负荷 , 以 加速 降解 PCP 厌氧 颗粒 污泥 的 形成 . 2 # 反应器 进 水中 未加 PCP , 是 典型 的 有机物 废水 , 污泥 很易 颗粒化 , 形成 非 降解 PCP 的 厌氧 颗粒 污泥 . 
+ 1.2 . 2   厌氧 颗粒 污泥 对 PCP 的 吸附 和 解吸   每个 试管 注入 10mL 培养基 , 其中 含有 工业 葡萄糖 35mg , 磷酸二氢钾 0.66 mg , 尿素 1.57 mg 及 碳酸钠 17.5 mg ; 在 厌氧 状态 下 向 各 试管 中投 加 PCP 钠盐 储备 液 , 使 PCP 浓度 分别 为 1.1 、 8.2 、 11.8 、 17.9 、 23.1 和 28.9 mg / L . 将 上述 各 浓度 试管 分成 3 组 : 第 1 组先用 Na2S ( 0.5 mM ) 还原 培养基 , 然后 用 注射器 接种 0.5 mL 非 降解 PCP 的 厌氧 颗粒 污泥 ; 第 2 组 培养基 也 用 Na2S 还原 , 但 不 接种 颗粒 污泥 ; 第 3 组 培养基 不用 Na2S 还原 , 也 不 接种 颗粒 污泥 ; 将 上述 3 组 试管 置于 摇 床上 , 在 35 ±   1 ℃ 和 100 次 / min 条件 下 培养 14h [ 7 ] , 以 达到 吸附平衡 . 对 第 1 组 试管 , 3000r / min 离心 30min , 使泥 、 水 分离 , 再 测定 上 清液 PCP 浓度 . 然后 向 试管 中 污泥 注入 1.4 mL 培养基 , 混合 在 35 ±   1 ℃ 条件 下 继续 培养 6h 以 释放 被 吸附 的 PCP . 培养 结束 后 , 离心分离 , 测定 上 清液 PCP 浓度 及 各 试管 的 污泥 浓度 . 对 第 2 、 3 组 试管 , 3000r / min 离心 20min 后 , 测定 其中 的 PCP 浓度 . 
+ 1.2 . 3   反应器 内厌 氧 颗粒 污泥 对 PCP 吸附 量 的 测定   取 1 # 反应器 上 、 中 、 下 3 层 污泥 , 3000   r / min 离心 30min , 弃上 清液 ; 准确 称取 湿 污泥 2.0 g , 加入 1moL / L   NaOH 溶液 2.0 mL , 乙腈 1.0 mL , 摇床 振荡 10min 后 , 离心 ; 取上 清液 经 0.45 m   m 微孔 滤膜 过滤 后 , 供 高效 液相 色谱 ( HPLC ) 分析 , 测定 PCP 浓度 ; 同时 测定 污泥 浓度 . 
+ 1.2 . 4   高效 液相 色谱 ( HPLC ) 对 水样 中 PCP 的 分析   样品 的 前 处理 : 取 离心 后 上 清液 1.0 mL , 滴加 0.5 mL 乙腈 , 混合 ; 3000r / min 下 离心 20min , 再经 0.45 m   m 的 微孔 滤膜 过滤 后 上机 测定 ; 测定 条件 :   流动 相为 乙腈 和 5% 的 乙酸 水溶液 , 两者 体积 比为 8 : 2 . 流量 1.0 mL / min , 波长 300nm , 保留 时间 5.45 min . 
+ 1.2 . 5   化学分析 项目 与 分析方法   COD : 采用 标准 重铬酸钾 法测定 [ 4 ] ; SS 和 VSS 采用 重量 法测定 [ 4 ] ; pH 值 采用 HORIBA 公司 M - 8 型 pH 计 测定 [ 4 ] ; 厌氧 污泥 的 活性 [ 5 ] 采用 最大 比 产甲烷 速率 法测定 . 
+ 2   结果 与 讨论 
+ 2.1   厌氧 颗粒 污泥 对 PCP 的 吸附 、 解吸 
+ 　 　 PCP 是 一种 弱 有机酸 , 它 在 固液 二 相间 的 分配 受 液相 pH 值 、 温度 和 离子 强度 等 的 影响 [ 6 ] .   由于 降解 PCP 颗粒 污泥 的 脱氯 代谢 十分迅速 , 利用 此类 污泥 不 可能 得出 准确 的 PCP 吸附 或 解吸 动力学 关系 . 因此 , 必须 采用 非 降解 PCP 的 厌氧 颗粒 污泥 即 2 # 反应器 形成 的 降解 葡萄糖 颗粒 污泥 进行 吸附 试验 , 通过考察 2 # 反应器 内 的 颗粒 污泥 对 PCP 的 吸附 、 解吸 特性 , 确定 厌氧 反应器 内因 污泥 的 理化 作用 所 引起 的 溶液 中 PCP 浓度 减少 的 可能性 . 为 使 结果 与 反应器 内 的 情况 有 可比性 , 本 试验 选用 与 反应器 模拟 废水 相同 的 溶液 作为 吸附 、 解吸 介质 , 试验 的 工况 与 反应器 的 工况 相似 ( pH = 6.5 ～ 7.5 , 温度 35 ±   1 ℃ ) . 试验 结果 见图 1 . 从图 1 中 可以 看出 , 厌氧 颗粒 污泥 对 PCP 的 生物 吸附 和 解吸 符合 Freundlich 等温 方程 ： 
+ 吸附 等温线 ： X / M = 0.7857 Ce0.5079 ( R2 = 0.9792 )   
+ 解吸 等温线 ： X / M = 1.1095 Ce0.3782 ( R2 = 0.9738 )   
+ 
+ 图 1   厌氧 颗粒 污泥 对 PCP 的 Freundlich   吸附 和 解吸 等温线 
+ Fig.1   Freundlich   sorption   and   desorption   isotherm   for   PCP   by   anerobic   granular   sludge 
+ 1 . 吸附 等温线   2 . 解吸 等温线 
+ 　 　 吸附 和 解吸 的 Freundlich 常数 K 、 1 / n 分别 为 0.7857 mg / gSS 、 0.5079 和 1.1095 mg / gSS 、 0.3782 . 吸附 和 解吸 等温线 不同 , 因此 部分 PCP 被 颗粒 污泥 不 可逆 吸附 . 另外 , HPLC 检测 PCP 时未 检测 到 其它 氯 酚类化合物 , 说明 吸附 和 解吸 之间 的 差异 不是 由于 PCP 的 转化 所 造成 . 
+ 　 　 第 2 、 3 组 试管 培养 14   h 后 , PCP 浓度 无 变化 . 说明 培养基 内 不 含有 降解 PCP 的 成份 . 
+ 　 　 但是 , 如表 1 所示 , 与 好 氧 污泥 对 PCP 的 吸附 作用 相比 , 本 试验 的 吸附 量 较 小 . 其 原因 可能 是 微生物 对 物质 的 吸附 与其 膜 脂 有关 , 不同 的 脂类 具有 不同 的 吸附性 . 虽然 好 氧 与 厌氧 微生物 的 膜 脂 总量 相差不多 , 但 这 两类 微生物 的 膜 脂 成份 却 有着 本质 差别 . 另外 , 造成 这种 差异 的 原因 还 与 试验 条件 及 污泥 的 种类 有关 . 
+ 表 1   各种 生物 材料 对 PCP 吸附 作用 的 比较 
+ Table   1   The   compare   of   sorption   constants 
+ 吸附剂 ( 活 或 死 ) 温度 
+ ( ℃ ) 参数 文献 
+ 序号 
+ K1 / n 
+ 无根酒 曲菌 ( Rhizopus   arrhizus ) 　 　 　 　 
+ ( 活 ) 2032.10 . 56 [ 8 ] 
+ ( 死 ) 2028.80 . 90 [ 7 ] 
+ 好 氧 活性污泥 
+ ( 活 ) 　 
+ 20 　 
+ 85.1 　 
+ 0.60 　 
+ [ 8 ] 
+ ( 死 ) 2010.10 . 80 [ 7 ] 
+ 厌氧 颗粒 污泥 
+ ( 活 ) 　 
+ 28 　 
+ 1.15 　 
+ 0.47 　 
+ [ 3 ] 
+ ( 活 ) 350.78550 . 5018 * 　 
+ 
+ 注 ： *   本 试验 
+ 2.2   UASB 反应器 运作 效能 的 分析 
+ 　 　 在 实际 反应器 中 , 由于 厌氧 颗粒 污泥 对 PCP 的 降解 作用 , 不 可能 使 反应器 内固液 两相 之间 达到 真正 的 平衡 , 但 利用 相似 条件 下 培养 的 非 降解 PCP 的 颗粒 污泥 所 建立 的 Freundlich 模型 仍 较 好 地 预测 了 反应器 内 污泥 对 PCP 的 吸附 情况 . 假设 降解 PCP 的 颗粒 污泥 和 降解 葡萄糖 的 颗粒 污泥 对 PCP 的 吸附 和 脱 附 作用 相同 , 当 反应器 内 PCP 浓度 为 0.5 mg / L 时 , lg ( SS ) 厌氧 颗粒 污泥 靠 吸附 作用 去除 PCP 的 量 为 0.55 mg , 即 反应器 内 平衡 浓度 为 0.5 mg / L 时 , UASB 反应器 内 污泥 ( 约 260gSS ) 只能 吸附 143.5 mgPCP ; 但 按 PCP 去除 量计算 , 到 投加 PCP 后 的 第 23d , 投入 反应器 的 PCP 约 为 156mg , 两者 对比 表明 , 此时 厌氧 颗粒 污泥 已 开始 降解 PCP . 进一步 分析 可以 发现 , 运行 到 第 150d 时 , 进水 PCP 浓度 为 8mg / L , PCP 的 去除率 大于 80% . 如 按 80% 计算 , 则 反应器 的 颗粒 污泥 去除 PCP 的 量 约 40 ~ 42mg / d , 远大于 反应器 内 相应 浓度 时 的 PCP 吸附 量 , 也就是说 , 厌氧 颗粒 污泥 去除 PCP 主要 机制 是 生物降解 而 不是 生物 吸附 作用 . 
+ 2.3   反应器 内厌 氧 颗粒 污泥 对 PCP 吸附 量 的 实测值 与 预测值 的 比较 
+ 　 　 表 2 是 在 UASB 反应器 运行 过程 中 , 不同 出水 PCP 浓度 时 反应器 内厌 氧 颗粒 污泥 上 PCP 的 吸附 量 的 实测值 与 利用 Freundlich 吸附 方程 的 预测值 的 比较 . 由表 2 可知 , Freundlich 等温 方程 可以 较 准确 地 预测 UASB 反应器 内厌 氧 颗粒 污泥 对 PCP 吸附 量 的 变化规律 . 
+ 表 2   UASB 反应器 内厌 氧 颗粒 污泥 吸附 PCP 量 的 实测值 和 预测值 
+ Table   2   The   calculated   capacity   and   determined   capacity   of   sorption   of   PCP   by   anerobic   granular   sludge   in   UASB   reactor 
+ PCP 平衡 浓度 
+ ( mg / L ) 实测 吸附 总量 
+ ( mg ) 预测 吸附 总量 
+ ( mg ) 误差 
+ ( % ) 
+ 0.4125 . 7133.96 . 1 
+ 1.0221 . 1212.14 . 2 
+ 1.65317 . 2313.11 . 3 
+ 
+ 3   结论 
+ 3.1   UASB 反应器 内厌 氧 颗粒 污泥 去除 PCP 的 主要 机制 是 生物降解 作用 , 不是 生物 吸附 作用 . 
+ 3.2   UASB 反应器 内厌 氧 颗粒 污泥 对 PCP 的 吸附 符合 Freundlich 等温 方程 , 吸附 是 部分 不 可逆 的 . 该 方程 较 准确 地 表达 了 UASB 反应器 内厌 氧 颗粒 污泥 对 PCP 吸附 量 的 变化规律 . 与 好 氧 活性污泥 相比 , 厌氧 颗粒 污泥 对 PCP 的 吸附 量 较 小 . 
+ 基金项目 ： 国家自然科学基金 资助 项目 ( 59578013 ) 
+ 作者简介 ： 郝丽芳 ( 1965 - ) , 女 , 河北 安国 人 , 中国环境科学研究院 工程师 . 主要 从事 污水 的 微生物 处理 等 工作 . 曾 获 安徽省 科技进步 二等奖 . 参加 过 国家 “ 七五 ” 、 “   八五 ” 科技 攻关项目 . 发表 论文 及 著作 10 余篇 . 
+ 作者 单位 ： ( 中国环境科学研究院 水 环境 科学 研究所 , 北京   100012 ) 
+ 参考文献 ： 
+ 　 [ 1 ] 　 Nicholson   D   K   ,   S   L   Woods ,   J   D   Istok , et   al . Reductive   dechlorination   of   chlorophenols   by   a   pentachlorophenol - acclimated   meth -   anogenic   consortium   [ J ] .   Appl .   Environ .   Microbiol . ,   1992 ,   58 ( 8 ) : 2280 -   22862 . 
+ 　 [ 2 ] 　 Frank   O   Bryant , Dorothy   D   Hale ,   John   E   Rogers . Regiospecific   dechlorination   of   pentaclorophenol   by   dichlorophenol - adapted   Microorganisms   in   freshwater , anaerobic   sediment   slurries   [ J ] .   Appl .   Environ .   Microbiol . , 1991 , 57 : 2293 -   2301 . 
+ 　 [ 3 ] 　 Wei - min   Wu ,   Larshmi   Bhatnagar ,   J   Gregory   Zeikus .   Performance   of   anaerobic   granules   for   degradation   of   Pentachlorophenol   [ J ] .   Appl . Environ . Microbiol . , 1993 , 59 ( 2 ) : 389 -   397 . 
+ 　 [ 4 ] 　 魏复盛 , 寇洪茹 , 洪水 皆 等 . 水 与 废水 检测 分析方法   [ M ] . 北京 ： 中国 环境 科学出版社 , 1989 . 
+ 　 [ 5 ] 　 吴唯民 , 胡纪萃 . 厌氧 污泥 的 最大 比 产甲烷 速率 的 间歇 试验 测定法   [ J ] . 中国 给水 排水 , 1985.1 ( 4 ) : 30 -   36 . 
+ 　 [ 6 ] 　 Lee   L   S , P   C   Rao , P   N   Kedi - Kizza , et   al . Influence   of   solvent   and   sorbent   characteristics   on   distribution   of   pentachloropheno   in   octanol - water   and   soil - water   system   [ J ] . Environ .   Sci .   technol . ,   1990 , 24 : 655 -   681 . 
+ 　 [ 7 ] 　 Bell   J   P ,   Tsezos   M . Removal   of   hazardous   organic   pollutants   by   adsorption   on   microbial   biomass   [ J ] . Was .   Sci .   Technol . ,   1987 ,   19 :   409 -   416 . 
+ 　 [ 8 ] 　 Tsezos   M ,   Bell   J   P . Comparison   of   the   biosorption   and   desorption   of   hazardous   organic   pollutants   by   live   and   dead   biomass   [ J ] .   Wat . Res . , 1989 , 23 : 561 -   568 . 
+ 收稿 日期 ： 1998 - 06 - 17 

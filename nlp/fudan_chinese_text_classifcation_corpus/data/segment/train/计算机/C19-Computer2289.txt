@@ -1,0 +1,133 @@
+计算机 应用 研究 
+ APPLICATION   RESEARCH   OF   COMPUTERS 
+ 2000 　 Vol.17 　 No.5 　 P.103 - 106 
+ 
+ 
+ 
+ 利用 ATL   2.1 和 Visual   C++ 5 设计 ActiveX 控件 
+ 朱秋萍 　 李永茂 
+ 摘     要     详细 介绍 了 利用 ATL   2.1 和 Visual   C++ 5.0 设计 ActiveX 控件 的 方法 和 步骤 。 通过 ATL 开发 出 的 程序代码 尺寸 小 、 运行 速度 快 ， 适合 于 分布式计算 环境 。 
+ 关键词     ATL     ActiveX 控件 
+ 　 　 随着 Internet 技术 日新月异 的 发展 ， 传统式 的 一人 一台 电脑 、 互不 往来 的 基于 桌面 的 应用 已 开始 被 基于 Internet 的 协作 式 应用 所 取代 。 诸如 网上 购物 、 在线 图书 、 网上银行 、 网上 证券交易 等 网上 服务 越来越 受到 人们 的 关注 。 同时 ， 越来越 多 的 软件 公司 正 积极 地 进行 着 在 网上 分发 、 使用 软件 的 尝试 。 普通 的 HTML 页面 已 无法 支持 这种 分布式 、 交互式 的 应用 。 于是 许多 新 的 技术 应运而生 ， ActiveX 控件 便是 其中 较为理想 的 一种 。 然而 ， 利用 传统 的 C++ / MFC 去 开发 ActiveX 控件 却是 一件 令人 头痛 的 事情 ， 不仅 开发 过程 极为 复杂 ， 而且 开发 出 的 控件 依赖于 MFC 的 动态链接库 ( 其 最新 版本 有数 兆 大小 ) 。 对于 目前 的 Internet 带宽 ， 这样 的 ActiveX 控件 实在 是 一种 沉重 的 负担 。 若 运用 Visual   Basic 来 开发 ActiveX 控件 ， 确实 可以 大大简化 开发 的 复杂程度 ， 但 所 生成 的 代码 依然 庞大 。 利用 ATL ( Active   Template   Library ) 来 开发 ActiveX 控件 ， 其 生成 的 程序代码 不仅 尺寸 小 ， 而且 运行 速度 快 ， 能 很 好 地 适应 网上 分布式应用 的 需要 。 因此 ， 本文 将 详细 介绍 如何 利用 ATL 来 设计 ActiveX 控件 。 
+ 1     ActiveX 控件 、 COM 对象 和 ATL 简介 
+ 1.1     ActiveX 控件 与 COM 对象 
+ 　 　 ActiveX 控件 是 一种 基于 COM ( Component   Object   Model ) 机制 的 控件 类型 。 与 过去 的 OLE 控件 不同 ， ActiveX 控件 主要 对 代码 的 尺寸 和 速度 做 了 优化 ， 使 其能 满足 网络 环境 的 需要 。 COM 机制 使得 不同 的 对象 或 应用程序 之间 能 进行 跨 进程 或 跨 网络通信 ， 一个 COM 对象 仅仅 通过 接口 ( Interface ) 与 外界 进行 数据通信 ， 也就是说 ， 外界 其它 的 COM 对象 或 应用 通过 接口 就 能 调用 该 COM 对象 提供 的 函数 。 这种 透明性 使得 开发 大规模 的 分布式应用 成为 可能 。 每个 COM 对象 都 必须 能够 支持 IUnknown 接口 及其 三个 函数 ： AddRef ， Release ， QueryInterface 。 AddRef 和 Release 函数 用来 管理 COM 对象 的 生存期 ， 每 调用 一次 AddRef 函数 ， 就 将 引用 计数 ( Reference   Count ) 增加 1 ； 而 每 调用 一次 Release 函数 ， 就 将 引用 计数 减 1 ， 当 引用 计数 变为 0 时 ， 就 释放 该 COM 对象 。 调用 QueryInterface 函数 就 可以 通过 IUnknown 接口 去 查询 COM 对象 所 支持 的 接口 ， 进而 可以 通过 这些 接口 去 调用函数 。 COM 对象 接口 可 对应 于 C++ 中 只 含有 虚 函数 的 对象 ， 其 接口函数 列表 对应 于 C++ 对象 的 虚 函数 列表 。 因此 ， 可以 用 C++ 去 实现 COM 对象 接口 。 通常 一个 COM 对象 需要 实现 多个 接口 ， 在 C++ 中 可用 多重 继承性 加以 实现 。 
+ 1.2     ATL 
+ 　 　 ATL 是 一组 基于 模板 的 C++ 类集 。 它 着眼于 代码 大小 的 优化 ， 因而 只 提供 了 实现 控件 所 需 的 基本功能 ， 这 使得 用 ATL 和 用 MFC 进行 开发 有 许多 不同 。 ATL 的 体系结构 中类 与 类 之间 的 继承 关系 为 一倒 树结构 。 一个 ActiveX 控件 类 是 由 CComObjectRootExt 、 CComControl 和 CComCoClass 等 类 继承 而 来 。 
+ 　 　 CComObjectRootExt 类 负责管理 引用 计数 和 IUnKnown 的 外部 指针 ， CComCoClass 类 用来 定义 对象 的 缺省 类 工厂 和 聚集 模式 ( Aggregation   Model ) ， CComControl 类 提供 了 一组 用于 实现 ActiveX 控件 功能 的 方法 ， 其中 包括 对 窗口 的 实现 ( 由 CWindowImp 和 CWindow 而来 ) 。 最后 ， 通过 用 CComObject 类去 继承 该 ActiveX 控件 类来 实现 IUnKnown 的 方法 ( AddRef 、 Release 和 QueryInterface ) 。 本文 所用 的 ATL   2.1 版本 全面 支持 ActiveX 控件 的 OC94 和 OC96 规范 。 OC94 规范 规定 了 ActiveX 控件 的 许多 基本 特性 ， 如 属性 、 方法 、 事件 等 。 OC96 规范 则 增加 了 一些 高级 特性 ， 诸如 无 窗口 的 控制 、 非 矩形 窗口 和 支持 非 激活 鼠标 等 。 用 ATL   2.1 能 生成 两类 控件 ： Full   Controls 和 Internet   Explorer   Controls 。 Internet   Explorer   Controls 专门 用于 Internet   Explorer ， 功能 有限 ， 但 代码 较 小 。 而 Full   Controls 能 支持 较 多 的 接口 ， 可以 运行 在 诸如 Visual   C++ 、 Visual   Basic 和 ActiveX   Control   Test   Container 等 许多 不同 的 容器 中 ， 适合 一般 情况 下 使用 。 
+ 2     创建 ActiveX 控件 框架 
+ 2.1     用 ATL   COM   AppWizard 创建 项目 框架 
+ 　 　 本文 将 创建 一个 名为 MyControl 的 ActiveX 控件 。 在 Visual   C++ 开发 环境 中 ， 从 File 菜单 中 选取 New ， 选择 Projects 标签 页 中 的 ATL   COM   AppWizard ， 并 给出 项目 名 MyControl 。 单击 OK 后 ， AppWizard 将 显示 一个 对话框 ， 允许 开发者 对 将 生成 的 控件 指定 某些 设定 。 在 Server   Type 中 选择 DLL 类型 ， 其余 均 用 缺省 设置 ， 单击 Finish 后 ， AppWizard 将 完成 代码 的 生成 。 这时 在 ClassView 中 ， 我们 会 看到 少数几个 全局变量 和 全局 函数 ， 这些 函数 用来 注册 动态链接库 和 管理 其中 对象 的 生存期 。 但 只有 通过 ATL   Object   Wizard 加入 真正 的 控件 ， 所 开发 的 MyControl 控件 才 有 实用 意义 。 
+ 2.2     用 ATL   Object   Wizard 加入 控件 
+ 　 　 在 Workspace 窗口 的 ClassView 中用 鼠标 右键 单击 MyControl   Classes ， 选择 New   ATL   Object 。 在 ATL   Object   Wizard 对话框 的 左边 选择 Controls ， 有 三种 控件 类型 可 供选择 ： Full   Control 、 Internet   Control 和 Property   Page 。 我们 选择 Full   Control ， 单击 Next 继续 下 一步 。 接下来 我们 需要 对 该 控件 设定 一些 属性 。 在 ATL   Object   Wizard   Properties 对话框 中 ， 给出 该 控件 的 C++ 类名 ( C++ Short   Name )   Draw ； 在 Attributes 标签 页 中 ， 选中 Support   ISupportErrorInfo 和 Support   Connection   Points 检查 框 ， 其余 用 缺省 设置 ； 在 Stock   Properties 标签 页 中 ， 我们 选择 支持 Fill   Color 属性 。 Stock   Property 是 由 ATL 实现 的 常用 控件 属性 ， 不 需要 我们 添加 额外 代码 ， 单击 OK 便 完成 了 添加 控件 的 工作 。 此时 在 ClassView 中 我们 将 看到 实现 控件 的 CDraw 类 和 接口 IDraw 类 被 加 了 进来 。 从 Wizard 生成 的 Draw . h 代码 中 可以 得知 CDraw 是 由 CComObjectRootExt 、 CComCoClass 和 CComControl 多重 继承 而 来 。 同时 ， CDraw 还 支持 多个 接口类 。 另外 CDraw 中 还 对 COM 、 属性 、 连接点 、 消息 各类 作 了 映射 。 ATL 用 COM 映射 ( COM   Map ) 将 对象 或 控件 与 所 支持 的 接口 联系 起来 。 QueryInterface 函数 通过 检查 COM 映射 来 确认 某一 接口 是否 被 支持 。 属性 映射 ( Property   Map ) 用来 当 ISpecifyPropertyPages 接口 被 调用 时 枚举 出 对象 或 控件 所 拥有 的 属性 ， 可以 看到 在 属性 映射 中 已经 包括 了 属性 StockColorPage 。 连接点 映射 ( Connection   Point   Map ) 用于 ActiveX 控件 的 外部 ， 当 连接点 容器 ( Connection   Point   Container ) 想 寻找 一个 连接点 时 ， 就 通过 连接点 映射 来 检查 所有 的 连接点 。 消息 映射 ( Message   Map ) 与 MFC 中 的 消息 映射 非常 相似 ， 这里 就 不再 赘述 。 
+ 　 　 将 已有 的 程序代码 经过 编译 、 链接 后 ， 一个 能 运行 的 具有 最 基本功能 的 ActiveX 控件 便 生成 了 。 我们 可以 用 Visual   C++ 5 中 的 ActiveX   Control   Test   Container 来 对 生成 的 控件 进行 测试 。 单击 Edit 菜单 中 的 Insert   OLE   Control ， 在 列出 的 ActiveX 控件 中 选择 Draw   Class ， 便 能 看到 一个 矩形框 中 显示 着 ATL   2.0 的 字样 ， 这 就是 我们 所 开发 的 控件 。 还 可以 给 ActiveX 控件 添加 属性 和 属性 页 ， 由于 篇幅 的 原因 ， 这里 不再 赘述 。 下面 将 进一步 介绍 该 控件 的 其它 功能 。 
+ 3     给 ActiveX 控件 增加 事件 
+ 　 　 现在 ， 我们 要 给 Draw 控件 增加 Click 事件 和 KeyPress 事件 。 当 在 Draw 控件 中 点击 鼠标 时 便 会 触发 Click 事件 ， 而 在 键盘 上 敲击 任一 键 便 会 触发 KeyPress 事件 。 与 在 MFC 中 实现 事件 不同 ， ATL 留给 开发人员 许多 工作 去 做 。 首先 ， 我们 要 在 IDL 文件 中 手工 加入 对 事件 接口 的 描述 。 打开 MyControl 项目 中 的 MyControl . idl 文件 ， 在 Library   MYCONTROLLib 部分 加入 _ DrawEvents 接口 描述 ， 具体 如下 ： 
+ / / MyControl . idl 
+ library   MYCONTROLLib 
+ { 
+ 　 importlib ( ＂ stdole32 . tlb ＂ ) ; 
+ 　 importlib ( ＂ stdole2 . tlb ＂ ) ; 
+ 　 [   uuid ( 222E0C4E - 9E15 - 11D1 - 81A0 - 444553540000 ) , 
+ 　 　 helpstring ( ＂ Event   interface   for   Draw ＂ ) 
+ 　 ] 
+ 　 dispinterface   _ DrawEvents 
+ 　 { 
+ 　 　 properties : 
+ 　 　 methods : 
+ 　 　 　 [ id ( 1 ) ]   void   Click ( [ in ] long   x ,   [ in ]   long   y ) ; 
+ 　 　 　 [ id ( 2 ) ]   void   KeyPress ( [ in ] short   KeyAscii ) ; 
+ 　 } ; 
+ 　 [   uuid ( 222E0C50 - 9E15 - 11D1 - 81A0 - 444553540000 ) , 
+ 　 　 helpstring ( ＂ Draw   Class ＂ ) 
+ 　 ] 
+ 　 coclass   Draw 
+ 　 { 
+ 　 　 　 [ default ]   interface   IDraw ; 
+ 　 　 　 [ default ,   source ]   dispinterface   _ DrawEvents ; 
+ 　 } ; 
+ 　 [   uuid ( 222E0C51 - 9E15 - 11D1 - 81A0 - 444553540000 ) , 
+ 　 　 helpstring ( ＂ DrawProp   Class ＂ ) 
+ 　 ] 
+ 　 coclass   DrawProp 
+ 　 { 
+ 　 　 interface   IUnknown ; 
+ 　 } ; 
+ } ; 
+ 　 　 在 DrawEvents 前加 下划线 表明 该 接口 为 内部 接口 ， 用 Object   Viewer 是 看不见 的 。 _ DrawEvents 的 UUID 是 一用 十六进制 表示 的 、 长为 16 字节 的 任意 数 。 我们 可以 用 Components   and   Controls   Gallery 中 的 GUID   Generator 为 _ DrawEvents 生成 一个 UUID 。 
+ 　 　 接下来 ， 我们 要 生成 事件 的 实现 代码 。 ATL 用 代理 ( Proxy ) 的 方法 来 实现 事件 ， 代理 将 参数 ( 例如 Click 中 的 x ， y ) 填入 OLE   Automation 的 DISPPARAMS 结构 中 ， 然后 调用 IDispatch : : Invoke 方法 来 产生 事件 。 为了 在 MyControl 项目 中 生成 一个 代理 ， 我们 首先 编译 MyControl . idl . 然后 单击 菜单 Project   |   Add   To   Project   |   Components   and   Controls ， 在 Components   and   Controls   Gallery 中 选择 Developer   Studio   Components ， 然后 选择 插入 ATL   Proxy   Generator 。 在 TypeLibrary   name 文本框 中 键入 MyControl 类型 库 的 完整 路径 ， 将 _ DrawEvents 添加 至 Selected 框 ， ProxyType 选择 为 Connection   Point ， 单击 Insert 按钮 ， 给 所 生成 的 代理 指定 文件名 CPMyControl . h ， 完成 生成 代理 的 工作 。 为了 使 控件 能 发送 Click 和 KeyPress 事件 ， 在 Draw . h 中 加入 # include   & quot ; CPMyControl . h & quot ; ， 并且 在 CDraw 类 的 声明 中 增加 如下 代码 ： 
+ / / Draw . h 
+ class   ATL _ NO _ VTABLE   CDraw : 
+ 　 　 　 ... 
+ 　 　 　 public   IProvideClassInfo2Impl < & clsid _ draw ,   & DIID _   DrawEvents ,   & LIBID _ MYCONTROLLib > , 
+ 　 　 　 public   CProxy _ DrawEvents < cdraw > , 
+ 　 　 　 ... 
+ BEGIN _ CONNECTION _ POINT _ MAP ( CDraw ) 
+ 　 　 　 CONNECTION _ POINT _ ENTRY ( DIID _ DrawEvents ) 
+ END _ CONNECTION _ POINT _ MAP (   ) 
+ 　 　 将 事件 标识符 DIID _ DrawEvents 以取 地址 的 形式 取代 原来 IProvideClassInfo2Impl 中 的 NULL ， 从而 允许 他人 得到 _ DrawEvents 事件 的 类型信息 ， 同时 将 _ DrawEvents 事件 加入 到 连接点 映射 中 。 这样 ， 当 Draw 控件 被 插入 到 其它 的 容器 中 时 ( 例如 ActiveX   Control   Test   Container ) ， 这些 容器 想要 接收 Click 和 keyPress 事件 ， 便 调用 QueryInterface 来 查询 Draw 控件 的 IConnectionPointContainer 接口 。 Draw 控件 通过 连接点 映射 来 定位 其 事件 接口 _ DrawEvents ， 然后 调用 IConnectionPointImpl : : Advise 函数 建立 起 连接点 ( 即 _ DrawEvents 接口 ) 和 客户 ( 即 想要 接收 事件 的 容器 ) 之间 的 联系 。 当 事件 被 触发 时 ， CProxy _ DrawEvents : : Fire _   Click 或 CProxy _ DrawEvents : : Fire _ KeyPress 被 调用 。 这 两个 函数 均 通过 调用 IDispatch : : Invoke 来 实现 将 事件 通知 给 客户 。 
+ 　 　 最后 ， 我们 将 实现 触发 Click 和 KeyPress 事件 的 消息 响应 机制 ， 在 消息 映射 中 增加 消息 句柄 MESSAGE _   HANDLER ( WM _ LBUTTONDOWN ， OnLButtonDown ) 和 MESSAGE _ HANDLER ( WM _   CHAR ,   OnChar ) 。 其 实现 函数 如下 ： 
+ / / Draw . h 
+ LRESULT   OnChar ( UINT   uMsg ,   WPARAM   wParam ,   LPARAM   
+ 　 　 　 　 1Param ,   BOOL & amp ;   bHandled ) 
+ 　 { 
+ 　 　 Fire _ KeyPress ( wParam ) ; 
+ 　 　 return   0 ; 
+ 　 } 
+ LRESULT   OnLButtonDown ( UINT   uMsg ,   WPARAM   wParam ,   
+ 　 　 　 　 LPARAM   lParam ,   BOOL &   bhandled ) 
+ 　 { 
+ 　 WORD   xPos = LOWORD   ( lParam ) ; 　 / / horizontal   position   of   cursor 
+ 　 WORD   yPos = HIWORD ( lParam ) ; 　 / /   vertical   position   of   cursor 
+ 　 　 Fire _ Click ( xPos ,   yPos ) ; 
+ 　 　 return   0 ; 
+ 　 } 
+ 4     在 浏览器 中 使用 ActiveX 控件 
+ 　 　 在 生成 Draw 控件 框架 的 同时 ， ATL   Object   Wizard 生成 了 一个 名为 Draw . html 的 HTML 文件 ， 并 将 Draw 控件 插入 到 该 主页 中 。 现在 ， 给 该 主页 增加 对 Click 和 KeyPress 事件 响应 的 代码 。 我们 用 VBScript 来 实现 ： 
+ / /   Draw . html 
+ < html > 
+ < head > 
+ < title > ATL   2.0   test   page   for   object   Draw < / title > 
+ < / head > 
+ < body > 
+ < script   LANGUAGE = " VBScript " > 
+ < ! - - 
+ Sub   Draw _ Click ( x , y ) 
+ Draw . Shape   =   Draw . Shape + l 
+ End   Sub 
+ Sub   Draw _ KeyPress ( KeyAscii ) 
+ Draw . Shape   =   Draw . Shape - 1 
+ End   Sub 
+ - - > 
+ < / script > 
+ < object   ID = " Draw "   <   CLASSID = " CLSID : 222E0C50 - 9E15 - 11D1 - 81A0 - 444553540000 " > 
+ < param   NAME = " Shape "   VALUE = " 2 " > 
+ > 
+ < / object > 
+ < / body > 
+ < / html > 
+ 　 　 注意 到 < param   NAME = " Shape "   VALUE = " 2 " > ， 该 标记 在 IE 装载 Draw . html 时 给 Draw 控件 的 Shape 属性 赋 初值 。 为了 使该 标记 能起 作用 ， 我们 必须 给 Draw 控件 增加 IPersistPropertyBag 接口 。 ATL2.1 通过 IPersistPropertyBag 接口 来 支持 用 PARAM 标记 给 ActiveX 控件 的 属性 赋 初值 。 将 Public   IPersistPropertyBagImpl < cdraw > 加入 到 CDraw 的 类 声明 中 ， 并 在 COM 映射 中 增加 COM _ INTERFACE _   ENTRY _ IMPL ( IPersistPropertyBag ) 和 COM _   INTERFACE   _ ENTRY _ IMPL _ IID ( IID _ IPersist ,   IPersistPropertyBag ) 。 
+ 　 　 我们 可以 在 IE 中 观察 Draw 控件 运行 的 实际 状况 。 首先 将 IE 的 Safety   Level 设置 为 Medium ， 然后 打开 Draw . html 。 这时 ， 我们 将 看到 IE 会弹 出 两次 Safety   Violation 对话框 来 询问 用户 是否 加载 Draw 控件 。 这 两次 询问 ， 一次 是 针对 IDispatch 接口 ， 另 一次 则 是 针对 IPersistPropertyBag 接口 。 因为 我们 知道 Draw 控件 是 安全 的 ， 于是 可以 通知 IE 将 其 加载 。 为了 在 每次 打开 Draw . html 时 不再 显示 Safety   Violation 对话框 ， 我们 需要 给 Draw 控件 增加 IObjectSafety 接口 。 ATL 用 IObjectSafetyImpl 类来 实现 IObjectSafety 接口 。 在 CDraw 类 的 继承 声明 中 加入 Public   IObject   SafetyImpl < cdraw > ， 并 在 COM 映射 中 加入 COM _   INTERFACE _ ENTRY _ IMPL ( IObjectSafety ) 。 接着 ， 我们 需要 重载 IObjectSafetyImpl : : SetInterfaceSafety   Options 函数 ， 以便 标识 IPersistPropertyBag 接口 为 安全 。 因为 在 缺省 的 IObjectSafetyImpl : : SetInterface   SafetyOptions 实现 中 ， 只 标识 出 IDispatch 接口 是 安全 的 。 重载 代码 如下 ： 
+ / /   Draw . h 
+ STDMETHOD   ( SetInterfaceSafetyOptions )   ( REFIID   riid ,   DWORD   
+ 　 　 　 dwOptionSetMask ,   DWORD   dwEnabledOptions ) 
+ 　 { 
+ 　 　 ATLTRACE ( _ T ( ＂ IObjectSafetyImpl : : SetInterfaceSafety 
+ 　 　 　 　 　 　 Options \ n ＂ ) ) ; 
+ 　 　 if   ( riid   = =   IID - IPersistPropertyBag ) 
+ 　 　 { 
+ 　 　 m _ dwSafety   =   dwEnabledOptions   & dwOptionSetMask ; 
+ 　 　 return   S _ OK ; 
+ 　 } 
+ 　 　 return   IObjectSafetyImpl < cdraw > : : SetInterfaceSafetyOptions ( riid ,   
+ 　 　 dwOptionSetMask ,   dwEnabledOptions ) ; 
+ 　 } 
+ 5     ActiveX 控件 的 尺寸 
+ 　 　 鉴于 ActiveX 控件 主要 用于 网络 环境 ， 如何 控制 ActiveX 的 尺寸 就 成为 非常 重要 的 一个 环节 。 ATL   2.1 提供 了 两种 方式 来 生成 尽可能 小 的 控件 ： ReleaseMinSize 方式 和 ReleaseMinDependency 方式 。 这 两种 方式 都 尽可能 的 减小 控件 对 C 运行 时间 库 ( C   Runtime   Library ) 的 依赖 ， 从而 使 控件 的 尺寸 维持 在 几十 K 字节 左右 。 ReleaseMinSize 方式 利用 Atl . dll 来 注册 控件 ， 而 ReleaseMinDependency 方式 则 把 注册 的 代码 静态 地联入 控件 。 因此 ， 用 ReleaseMinDependency 方式 生成 的 代码 通常 比用 ReleaseMinSize 方式 生成 的 代码 大 8K 左右 。 以下 是 我们 用 这 两种 方式 生成 的 Draw 控件 ( MyControl . dl1 ) 的 代码 大小 ： Debug ( 292K ) ， Release   MinSize ( 39K ) ， ReleaseMinDependency ( 46.5 K ) 。 因此 为了 尽可能 减小 代码 的 尺寸 ， 我们 在 开发 ActiveX 控件 时 必须 对 所用 函数 有 较 好 的 了解 ， 尽可能少 用 依赖 运行 时间 库 的 函数 。 
+ 6     结束语 
+ 　 　 利用 ATL   2.1 和 Visual   C++ 5 ， 我们 可以 设计 出 ActiveX 控件 。 并且 ， 通过 ATL 开发 出 的 代码 尺寸 小 、 运行 速度 快 ， 适合 于 分布式计算 环境 。 在 开发 的 过程 中 ， 首先 ， Wizard 将 为 我们 建立 初步 的 框架 。 然后 ， 我们 加入 ATL 对象 并 编写 代码 来 予以 实现 。 该 实现 过程 与 用 Windows   SDK 开发 应用程序 很 相似 ， 我们 必须 使用 WIN32API 函数 。 最后 在 编译 、 链接 生成 ActiveX 控件 代码 时 ， 必须 尽量 减小 对 运行 时间 库 的 依赖 ， 从而 使 代码 尺寸 比较 小 。 
+ 朱秋萍 ( 武汉大学 电子信息 学院     武汉   430072 ) 
+ 李永茂 ( 武汉大学 电子信息 学院     武汉   430072 ) 
+ 参考文献 
+ 1 ， [ 美 ] David   Bennett 等 著 ,   徐     军等译 .   Visual   C++ 5 开发人员 指南 .   北京 :   机械 工业 出版社 ,   1998 年 9 月 
+ 收稿 日期 ： 1999 - 11 - 4 

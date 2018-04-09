@@ -1,0 +1,47 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 8 期   Vol.25   No.8   1999 
+ 
+ 
+ 
+ IPSOFACTO 快速 ATM 信元 传输 上 的 IP 交换 
+ 许飞 ， 许晓鸣 ， 杨煜普 ， 孙海荣 
+ 摘要 ： 介绍 了 一种 无需 信令 通过 ATM 交换机 建立 路径 ， 将 IP 流 映射 到 ATM 交换 的 技术 。 IPSOFACTO ( IP   Switching   Over   Fast   ATM   Cell   Transport ) 负责 将 IP 流 映射 到 一条 ATM 交换 路径 。 
+ 关键词 ： IPSOFACTO ； IP 交换 ； 交换 路径 
+ IPSOFACTO - - IP   Switching   over   Fast   ATM   Cell   Transport 
+ Xu   Fei , XuXiaoming , Yang   Yupu , Sun   Hairong 
+ ( Dept . of   Automation , Shanghai   Jiaotong   University , Shanghai   200030 ; 
+ State   Key   Lab . of   Optical   Communication , University   of   Electronic   and   Science   technology , Chengdu   610054 ) 
+ 【 Abstract 】 In   this   paper   a   techonology   of   setting   up   path   through   an   ATM   switch   without   signaling   system   and   reflection   IP   flows   to   an   ATM   switch   is   presented . The   function   of   IPSOFACTO   is   to   reflect   IP   flows   to   an   ATM   switching   path . 
+ 【 Key   words 】 IPSOFACTO ; IP   Switching ; Switching   path 
+ 　 　 ATM   技术 本身 是 一种 新 的 网络体系 ， 目前 达到 标准化 并 已 实现 的 主要 是 低层 通信 支持 环境 ： 物理层 、   ATM   层 和   AAL   层 ， 相当于   OSI   物理层 和 链路层 的 协议 。 随着   ATM   逐步 走向 实用化 ， 学术界 和 工业界 已 认识 到 建立   ATM   网络 上层 协议 国际标准 的 迫切性 和 重要性 。 如何 制定   ATM   网络 上层 协议 的 标准 一直 存在 两种 观点 。 一种 是 对 现有 上层 协议   (   如   TCP / IP )   进行 修改 和 移植 ， 可 最大 限度 地 保护 用户 在 网络 上 现有 的 投资 ， 并 可 缩短 标准化 周期 ， 加快   ATM   的 标准化 和 实用化 进程 。 但 由于 现有 的 上层 协议 是 基于 现有 各种 与   ATM   网络 差异 很大 的 低速 网络 的 ， 将 它们 进行 修改 以使 之 适合   ATM   网络 ， 并 真正 做到 “ 无逢 ” 连接   ( ATM   FORUM   的 局域网 仿真   LANE   和   IETF ( Internet   Engineering   Task   Force )   的   IPOA )   ， 有 很多 技术难题 。 另 一种 是 研究 全新 的   ATM   上层 协议 ， 以期 充分发挥   ATM   的 技术 优势 ， 但 意味着 浪费 大量 已有 的 网络 投资 ， 并 延长 标准化 周期 。   
+ 1   基本原理   
+ 　 　 IPSOFACTO   工作 的 基本前提 是 交换机 的 输入 端口 的 所有 未 用   VC   均 映射 到 交换 控制 处理器 。 如图   1   所示 。   
+ 
+ 图   1   未 用   VC   映射 到 路由器   
+ 　 　 信元级 数据 传递 的 交换 路径 的 建立 过程 如下 ： 发送 端 给 新 数据流 的 首 分组 在 进线 上 选择 一条 未用 的   VC   。 当 该线 的 下游 末端 的 交换 控制器 收到 首 分组 时 ， 就 根据   IP   路由表 选择 它 的 出线 ， 以及 该 出线 的 一条 未用 的   VC   。 然后 ， 交换 控制器 在   VC   表中 添加 一条 记录 《   {   输入 端口 ， 输入   VC }   ，   {   输出 端口 ， 输出   VC }   》   (   如图   2   示   )   ， 则 该 数据流 的 后续 分组 在 信元级 就 如此 交换 了 。   
+ 
+ 图   2   添加 一条 交换 路径   
+ 　 　 相对 于 数据 分组 ， 交换 控制器 不 为   IP   的 “ 控制 ” 信息 创建 交换 路径 ， 而是 通过 一条 预定 的 “ 控制   VC   ” 发送 和 接收   IP   “ 控制 ” 信息 。 交换 控制器 处理 这些   IP   “ 控制 ” 信息 的 结果 是 ， 建立 起 每串 数据流 的 传递 状态 。 如 通过 删除   VC   表中 的 一条 记录 ， 可 终止 某 数据流 的 前 向 传递 状态 ， 并 释放 相应 的 交换 路径 ， 同时 打上 该   VC   未 使用 的 标记 ， 留作 后 用 。   
+ 　 　 对于   PIM   “ 控制 ” 分组 与 数据 分组 的 区别 是   IP   信头 的 协议 号 。 而 对   TCP   ，   quot ;   控制 “ 分组 是 由   TCP   信头 的 标志   ( SYN / FIN )   来 决定 的 。   
+ 
+ 图   3   流出   VC   变成 未 用   VC   的 过程   
+ 　 　 使 上游 节点 的 正在 使用 的 流出   VC   变成 未 用   VC   的 过程 如图   3   所示 。   
+ 　 　 ( 1 )   给 该   VC   打 上 “ 暂态 ” 的 标记 ， 然后 向 下游 节点 发送 一条   RECLAIM   信息 ， 并 等待 回答 。   
+ 　 　 ( 2 )   当 下游 节点 收到 一条   RECLAIM   信息 ， 它 将 相应 的 流入   VC   打 上 “ 未 用 ” 标记 ， 并 向下 下游 节点 发送   RECLAIM   信息 同时 向 上游 节点 返回 一条   RECLAIM - ACK   信息 。   
+ 　 　 ( 3 )   一旦 上游 节点 收到   RECLAIM - ACK   信息 就 将 该   VC   标记 为 “ 未 用 ” 。   
+ 　 　 如果 上游 节点 在 一定 的 时间 内未 收到   RECLAIM - ACK   信息 ， 将 向 下游 节点 重 发   RECLAIM   信息 。   
+ 　 　 注意 ， 不必 对 每条   VC   这样 做 ， 而是 一对   RECLAIM   和   RECLAIM - ACCK   信息 ， 可 包含 多条   VC   的 状态 转换 。 显然 这 可 减少 交换机 间 的 控制 业务量 。   
+ 2   优化   TCP   流   
+ 　 　 对于   TCP   流 ， 在 数据 传递 前要 先 进行   3   次 握手 。 而 在   IPSOFACTO   下 ， 当首 分组   ( SYN )   被 前 向 传递 后 ， 交换 路径 就 建立 起来 了 ， 即 在 数据 传递 前 ， 一条 端到 端的 交换 路径 就 可 得 了 。 而 要 拆卸 这 条   (   即将 其 标记 为 “ 未 用 ”   )   ， 可 通过 发送   FIN   分组 和   FIN   的 应答 分组 到 交换 控制器   (   而 不是 交换 路径   )   来 实现 ， 也就是说 ， 这些 分组 被 用作 “ 控制 ” 信息 了 。   
+ 　 　 这种 优化 仅 在 这些 节点 起 作用 ， 它们 的   TCP   流 的 前 向 路径 对称   (   即 该 流 的 正向 的 流入 端口 正是 它 的 反向 流出 端口   )   。   
+ 3   小结   
+ 　 　 与   MPOA   不同 ，   IPSOFACTO   不 使用   ATM   信令 就 给   IP   流 建立 起 交换 路径 。   IPSOFACTO   实质 上 较 类似   Ipsilon   公司 的   IP   交换 和 东芝公司 的   CSR   。   Ipsilon   公司 的 方案 是从 下游 节点 选择   VC   对 一串 数据流 进行 交换 ，   CSR   却是 从 上游 节点 选择   VC   。 而   IPSOFACTO   是 基于 路由 信息 和   VC   的 状态   (   已用 或 未用   )   来 进行   IP   流 到 交换 路径 的 映射 的 。   
+ 　 　 IPSOFACTO   与 传统 的   ATM   网络 支持   IP   的 方案   (   如   IPOA   、   LANE   等   )   一样 ， 解决 了   ATM   网络 支持 传统 数据通信 业务 的 问题 ， 并 表现 出 了 其 优越性 ， 但 它 也 不能 为 不同 的 用户 提供 特定 的 服务质量   ( QOS )   ， 即 不 支持 多媒体通信 。   
+ 作者 单位 ： 上海交通大学 电信 学院 自动化系 ， 上海   200030 ； 
+ 　 　 　 　 　 电子科技 大学 光纤通信 国家 重点 实验室 ， 成都   610054 
+ 参考文献   
+ 1   Katsube   Y , Nagaml   K , Esak   H . Toshiba ' s   Router   Architecture   Extensions   for   ATM : Overview , RFC   2098 , 1997 - 02   
+ 2   Newman   P . Ipsilon   Flow   Management   Protocol   Specification   of   Ipv4   Version1.0 , RFC   1953 , 1996 - 05   
+ 3   Newman   P . IP   Switching : ATM   under   IP . IEEE / ACM   Transactions   on   Networking , 1997 - 09   
+ 4   孙海荣   . ATM   技术   .   成都 ： 电子科技 大学 出版社 ，   1998 - 03   

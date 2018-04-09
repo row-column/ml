@@ -1,0 +1,61 @@
+城市 环境 与 城市 生态 
+ URBAN   ENVIRONMENT   &   URBAN   ECOLOGY 
+ 1999 年   第 12 卷   第 4 期   Vol.12   No.4   1999 
+ 
+ 
+ 
+ 控制 星湖 内源性 营养物质 磷 负荷 的 有效性 研究 
+ 成晓玲 　 陈 华章 　 余 　 倩 　 刘春英 　 黄上 信 
+ 　 　 摘要 ： 本文 研究 了 天然 沸石 与 石灰 ， 铝盐 、 铁盐 对 湖水 — 沉积物 系统 中 的 湖水 脱 磷 的 可能性 ， 以期 在 对 星湖 内源性 营养物质 磷 负荷 的 控制 方面 提供 科学依据 。 
+ 　 　 关键词 ： 天然 沸石 ； 石灰 ； 铝盐 ； 铁盐 ； 内源 磷 负荷 
+ 　 　 中 图 分类号 ： X524 　 　 文献 标识码 ： A 　 　 文章 编号 ： 1002 - 1264 ( 1999 ) 04 - 0007 - 02 
+ Effectiveness   of   Controlling   Internal   Phosphorus   Loading   in   Xing   Lakes 
+ CHENG   Xiao - ling1 ， CHEN   Hua - zhang1 ， YU   Qian2 ， LIU   Chun - ying1 ， HUANG   Shang - xin1 
+ （ 1 . Experiment   and   Research   Center ， Guangdong   University   of   Technology , Guangzhou   510090 ) 
+ ( 2 . Dept .   of   Chemical   Engineering ， Guangdong   University   of   Technology ,   Guangzhou   510090   ) 
+ Abstract ： The   possibility   of   reducing   phosphorus   loading   by   using   of   natural   zeolite   ， Calcium   lime   and   Aluminium   salt ,   Ferris   salt   additions   to   lake   water - sediment   system   is   proposed   in   the   paper .   It   is   expected   to   provide   scientific   basis   for   control   of   internal   phosphorus   loading   in   Xing   Lakes . 
+ Key   words ： natural   zeolite ； 　 Calcium   lime ； 　 Aluminium   salt ； 　 Ferris   salt ； 　 internal   phosphorus   loading   
+ 　 　 湖泊 的 富营养化 近些年来 已 成为 一个 世界性 的 环境 问题 ， 并 已 越来越 多地 引起 人们 的 重视 。 湖泊 污染 的 防治 ， 可以 概括 为 两 方面 的 措施 ： 一是 外 环境治理 ， 包括 截断 污水 或者 去除 污水 中 的 污染 物质 和 营养物质 ； 二是 内 环境治理 ， 即 减少 污水 中 的 污染 物质 和 营养物 的 量 。 无论 外 环境 还是 内 环境 整治 ， 目的 都 在于 降低 营养物质 的 负荷 ， 控制 住 藻类 的 异常 增殖 ， 逐步提高 水 的 质量 。 为了 有效 地 控制 湖泊 内部 磷 富集 ， 应视 不同 情况 ， 采取 不同 的 方法 ［ 1 - 3 ］ 。 国外 就 有 利用 投加 铝 盐 等 办法 来 沉淀 湖中 的 磷酸盐 ， 以 减缓 湖泊 富营养化 的 程度 ［ 4 - 6 ］ 。 本文 利用 pH 为 7.86 和 总 磷 含量 为 0.056 　 mg / L 的 星湖 湖水 与 沉积物 组成 的 系统 进行 了 投加 天然 沸石 与 生石灰 、 铁盐 、 铝盐 等 的 湖水 脱 磷 的 实验室 试验 ， 探讨 其脱 磷 的 效果 ， 为 星湖 综合治理 方案 提供 技术 依据 。 
+ 1 用 天然 沸石 控制 内源性 磷 负荷 研究 
+ 　 　 分别 向 有 湖水 — 沉积物 组成 的 模拟系统 中 ， 定量 投入 经过 焙烧 过 的 粉状 天然 沸石 进行 交换 和 吸附 试验 ， 第五天 取样 测定 总磷 ， 测定 结果 见图 1 。 
+ 
+ 
+ 图 1 　 天然 沸石 脱 磷 试验 
+ 　 　 从图 1 中 可以 看出 ， 天然 沸石 的 投入量 增加 ， 磷 的 脱除 率 随之 增加 ， 当 沸石 的 量 增加 到 1000 　 mg / L 时 ， 磷 的 脱除 率 上升 为 57.14% 。 试验 结果表明 ， 天然 沸石 对 磷 有 较 好 的 脱除 效果 。 
+ 2 　 用 石灰 控制 内源性 磷 负荷 研究 
+ 　 　 水体 的 pH 值 决定 磷酸 根 存在 的 形式 。 在 较 高 pH 下 ， 石灰 与 磷酸 根 离子 发生 反应 ， 生成 CaHPO4 或 Ca5 ( OH ) ( PO4 ) 3 ， 达到 去除 磷 的 目的 。 为此 我们 向 湖水 — 沉积物 组成 的 模拟系统 中 投入 一定量 石灰 ， 第五天 取样 测定 pH 值 和 总 磷 ， 结果 见图 2 和 图 3 。 
+ 
+ 
+ 图 2 　 石灰 投入量 与 pH 值 的 变化 
+ 
+ 
+ 图 3 　 石灰 脱 磷 试验 
+ 　 　 从图 2 、 图 3   中 可以 看出 ， 石灰 的 加入 ， 导致 湖水 pH 值 提高 ， 湖水 中 总 磷 浓度 增加 。 加入 的 量 越 多 ， pH 值越 高 ， 总磷 的 浓度 增加 的 越 多 。 
+ 3 　 用 铁盐 控制 内源性 磷 的 研究 
+ 　 　 磷能 同 铁盐 生成 不 溶性 的 磷酸 铁 。 加入 铁盐 过量 时 ， 多余 的 铁盐 会 生成 氢氧化铁 ， 而 氢氧化铁 又 可以 吸附 那些 不 稳定 的 扩散 状态 的 胶体 而 生成 絮凝 作用 ， 因而 也 促进 水质 净化 。 原 湖水 的 pH 值为 7.86 ， 而 当 投入 铁盐 时 ， pH 值 将 在 7.60 - 7.90 范围 内 变化 ， 对 湖水 的 酸碱度 影响 不 大 。 从图 4 可以 看出 ， 随着 投入 铁盐 量 的 增加 ， 一般 能 脱除 原 湖水 总磷 的 21 - 48% ， 总磷 含量 降到 了 0.03 　 mg / L 以下 。 
+ 
+ 
+ 图 4 　 铁盐 脱 磷 试验 
+ 4 　 用 铝 盐 控制 内源性 磷 负荷 的 研究 
+ 　 　 磷酸 根 离子 也 能 同 铝 生成 磷酸 铝 沉淀 。 当向 水体 中 投入 硫酸铝 或 聚合 氯化铝 后 ， 多余 的 铝 盐 水解 ， 生成 氢氧化铝 胶体 。 由于 氢氧化铝 是 絮凝 物 ， 具有 很强 的 凝聚性 ， 对 磷 、 悬浮 颗粒 有 较 强 的 吸附性 ， 能 使 水体 透明度 增加 。 我们 试验 了 硫酸铝 及 聚合 氯化铝 对 湖水 — 沉积物 模拟 体系 的 脱 磷 效果 ， 结果 见图 5 、 图 6 。 
+ 
+ 
+ 图 5 　 硫酸铝 脱 磷 试验 
+ 
+ 
+ 图 6 　 聚合 氯化铝 脱 磷 试验 
+ 　 　 从图 5 、 图 6 可以 看出 ， 硫酸铝 和 聚合 氯化铝 都 可以 脱除 原 湖水 总磷 的 50% 左右 。 其 pH 值 的 变化 范围 为 7.55 - 7.86 ， 总磷 含量 降到 0.03 　 mg / L 以下 。 从 试验 中 还 发现 投入 铝盐 后 ， 湖水 澄清 快 ， 且 使 湖底 表面 沉积物 颗粒 变粗 ， 不易 泛起 。 
+ 5 　 结论 
+ 　 　 （ 1 ） 向 湖水 — 沉积物 模拟系统 投加 天然 沸石 对 湖水 脱 磷 有 较 好 的 效果 。 加入 石灰 导致 pH 值 增高 和 磷 的 释放 增大 ， 也 影响 水生 生物 的 生存环境 。 
+ 　 　 （ 2 ） 向 湖水 投加 有 化学 与 混凝 作用 的 铁盐 与 铝 盐 试验 都 有 较 好 效果 ， 能 脱除 原 湖水 总磷 含量 的 50% 左右 ， 并 使 其 含量 分别 降到 0.03 mg / L 以下 ， 但 以 铝 盐 较佳 ， 它 既 可 使 湖水 易清 ， 而且 药剂 用量 少 ， 这种 方法 值得 进一步 探索 。 
+ 作者简介 ： 成晓玲 　 女 ， 讲师 ， 从事 教学 及 科研工作 。 
+ 作者 单位 ： 成晓玲 ， 陈 华章 ， 刘春英 ， 黄上 信 　 广东 工业 大学 实验 研究 中心 ， 广州 　 510090 
+ 　 　 　 　 　 余 　 倩 　 广东 工业 大学化学 工程系 ， 广州 　 510090 
+ 参考文献 
+ ［ 1 ］ 　 彭近 新 ， 陈慧君 .   水质 富营养化 与 防治 ( 第一版 ) ， 北京 ： 中国 环境 科学出版社 ， 1988 ： 157 - 161 
+ ［ 2 ］ 　 金相灿 ， 屠清瑛 .   湖泊 富营养化 调查 规范 ( 第二 版 ) ， 北京 ： 中国 环境 科学出版社 ， 1990 ： 208 - 238 
+ ［ 3 ］ 　 罗阳 ， 刘敬 .   控制 湖泊 内源 磷 负荷 的 有效性 研究 .   水资源 保护 ， 1996 （ 2 ） ： 52 - 55 
+ ［ 4 ］ 　 Babin   J . ,   E .   E .   Prepes ,   T . P .   Murphy   &   H .   R .   Hamilton .   A   test   of   lime   on   algal   biomass   and   total   phosphorus   concentrations   in   Edmonton   stommater   retention   lakes , 1989 
+ ［ 5 ］ 　 Prepas   E .   E . ,   R .   P .   Murphy ,   J .   M .   Crosby ,   D .   T .   Walty .   Reduction   of   phosphorus   and   chlorophyll   a   concentrations   following   CaCO3   and   Ca ( OH ) 2   additions   to   hypereutrophic   Figure   Eight   Lake .   Alberta .   Env .   Sci .   Technol ,   1990 ( 24 ) :   1252 - 1258 
+ ［ 6 ］ 　 Smeltzer   E . ,   A   successful   alumlaluminate   treatment   of   lake   Morey .   Vermont :   lake   Reserv .   Mang , 1990 ( 6 ) :   
+ 9 - 19 

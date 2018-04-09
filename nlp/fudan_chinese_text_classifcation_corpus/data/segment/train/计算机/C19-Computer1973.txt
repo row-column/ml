@@ -1,0 +1,161 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 1999 年   第 18 卷   第 2 期   Vol.18   No.2   1999 
+ 
+ 
+ 
+ 在 五笔 输入 模块 中 扩充 专业 词组 的 一种 方法 
+ 林传利 
+ 　 　 摘 　 要 ： 对 五笔字型 输入 模块 进行 扩充 的 具体方法 ， 扩充 后 的 输入 模块 可 最大 限度 地 提高 专业 文献 的 录入 速度 。 
+ 　 　 关键词 ： 五笔字型 输入法 　 词组 　 编码 
+ 1 　 问题 的 提出 
+ 　 　 五笔字型 输入法 作为 一种 快速 高效 的 汉字 录入 方法 ， 常 被 专业 录入 人员 作为 首选 的 输入法 ， 其 录入 速度 在 很大 程度 上 取决于 编码 词库 中 词组 的 数量 和 质量 。 现今 公认 的 词组 最 丰富 的 五笔 输入 模块 为 UCDOS5.0 及 以上 版本 所 提供 的 五笔 输入 模块 ， 其 词组数量 达 2 万条 左右 ， 但 对 一些 特定 专业 的 词组 处理 起来 很 麻烦 ， 影响 了 专业 文献 的 录入 速度 。 UCDOS 虽 提供 了 自定义词 组 的 功能 ， 但 自定义词 组 的 用途 极其 有限 ， 并且 安全性 差 。 因此 ， 为了 提高 五笔字型 输入法 处理 专业 词组 的 速度 ， 利用 UCDOS 附带 的 万能 汉字输入 法 编码 管理器 IMDMNG . EXE 和 数据库 语言 提供 了 一整套 五笔字型 输入 模块 按 用户 自己 的 需要 进行 词组 扩充 的 方法 。 此 方法 特点 是 方便 、 实用 、 扩充 词组 管理 方便 ， 可 最大 限度 地 提高 五笔 输入 模块 在 录入 速度 方面 的 优势 。 
+ 2 　 扩充 词库 的 建立 及 编码 
+ 　 　 扩充 词库 可以 使用 任何 不带 排版 格式 的 文本编辑 器 编辑 建立 ， 其 格式 为 ： 每条 词组 1 行 ， 每条 词组 前后 不能 有 空格 。 当 扩充 词组数量 较大 时 ， 容易 出现 相同 的 词组 以及 遗漏掉 常用 词组 。 为此 ， 可用 数据库 FOXBASE + 编程 将 新 形成 的 文本文件 ( 如 WB . TXT ) 按 词组 的 国标码 进行 排序 ( 程序 见 附 1   IND . PRG ) ， 排序 时要 用到 1 个 仅 有 1 个 字 段 ca 的 数据库 文件 MX . DBF 。 排序 过程 自动 筛除 重复 词组 ， 通过 对 排序 后 的 文件 进行 观察 ， 可 增加 遗漏 词组 ， 通过 反复 多次 排序 及 增加 词组 ， 直到 满意 为止 。 增加 词组 应 考虑 到 输入 时 长短 皆宜 ， 可 将 一些 常 使用 的 词组 作为 多条 词组 输入 ， 如 牛顿 第一 定律 、 牛顿 、 第一 定律 等等 ， 以 增加 可靠 键入 ， 提高 录入 速度 。 将 最新 形成 的 文件 用 * . TXT 保存 ， 如 WBA . TXT 。 
+ 　 　 扩充 词库文件 修改 满意 后 ， 下 一步 工作 就是 按 五笔 编码 规则 给 每 一条 词组 加上 五笔 编码 。 如果 扩充 词组 较 多 ， 手工 编码 显得 过于 麻烦 ， 可以 采用 UCDOS ( 5.0 及 以上 版本 ) 附带 的 万能 汉字输入 法 编码 管理器 IMDMNG . EXE 提供 的 第三项 功能 ( 其 使用 方法 可用 IMDMNG / ? 方式 查寻 ) ， 即 根据 指定 的 编码 字典 ， 给 文本文件 自动 加上 编码 。 对 上面 形成 的 WBA . TXT 的 命令 格式 为 ： 
+ 　 　 IMDMNG   WB . IMD   WBA . TXT   WBB . TXT 
+ 新 形成 的 WBB . TXT 即 是 自动 加上 五笔 编码 的 扩充 词库 。 
+ 　 　 下 一步 ， 利用 IMDMNG . EXE 提供 的 第一项 功能 将 已 编译 好 的 编码 字典 反编译 为 文本文件 的 编码 源文件 。 对原 五笔 输入 模块 WB . IMD ( 从 5.0 到 7.0 都 一样 ， 在 ＼ UCDOS ＼ DRV 目录 下 ) 反编译 为 WBX . TXT 的 命令 为 ： 
+ 　 　 IMDMNG   WB . IMD   WBX . TXT 
+ 以上 操作 均 指 所 涉及 到 的 文件 在 当前目录 下 ， 否则 就 应 带上 文件 所在 的 盘符 及 路径 。 至此 完成 了 第二步 工作 。 
+ 3 　 输入 模块 的 生成 及 挂接 
+ 　 　 UCDOS 中 的 输入法 管理系统 不仅 要求 词库 正文 的 每 一行 前 12 位为 编码 区 ， 12 位 之后 放 词组 ， 而且 还 要求 所有 字 、 词组 按 编码 排序 。 因此 ， 前面 得到 的 WBB . TXT 还 不能 以块 的 形式 插入 到 WBX . TXT 用于 操作系统 输入法 中 ， 必须 对原 词库 构成 的 整体 按 编码 排序 ， 并 按 要求 将 重码 放在 同一 行 ， 重码 间 留 一 空格 。 
+ 　 　 为此 ， 可用 附 2 所 提供 的 数据库 FOXBASE + 排序 源程序 UTU . PRG 来 按 UCDOS 格式 实现 这一 步骤 ， 使用 该 程序 前 需要 用 数据库 建立 1 个 包含 2 个 字 段 cb , cc 的 库 文件 MY . DBF ， 同时 还要 用到 前面 用过 的 库 文件 MX . DBF 生成 编码 源文件 的 文件 头 。 排序 过程 通过 编码 和 词组 建立 索引 文件 的 方式 自动 筛除 扩充 词库 与 原 词库 中同 编码 的 全同 词组 ， 同时 将 重码 放在 同一 行 ， 重码 间 留 一 空格 。 排序 所 形成 的 扩充 后 的 编码 源文件 为 WBXU . TXT 。 运行 该 程序 新 形成 的 编码 源文件 的 结构 与 原 编码 源文件 WBX . TXT 的 结构 完全相同 ， 由 文件 头及 正文 2 部分 组成 ， 正文 被 扩充 后 重新 排序 ， 并 自动 清除 与 原 词库 中同 编码 的 同名 词组 ， 保留 了 原 容错码 ， WBX . TXT 的 文件 头 结构 只 需 查看 该 文件 便 可 知道 。 
+ 　 　 最后 ， 利用 IMDMNG . EXE 提供 的 第二项 功能 ， 将 文本 形式 的 编码 源文件 WBXU . TXT 编译 为 编码 字典 ， 对 新 形成 的 WBXU . TXT ， 其 命令 格式 为 ： IMDMNG   WBXU . TXT   WB . IMD 并 将 新 形成 的 WB . IMD 拷贝到 ＼ UCDOS ＼ DRV 目录 下 ， 通过 SETUP 命令 设置 即可 使用 扩充 五笔 了 。 对 使用 UCDOS5.0 的 客户 ， 新 的 编码 字典 必须 为 WB . IMD ， 对原 字典 进行 覆盖 即可 ； 对 使用 UCDOS6.0 及 以上 版本 的 客户 ， 可 使用 以 IMD 为 扩展名 的 其它 名字 ， 系统 设置 命令 会 自动检测 到 新 模块 的 存在 ， 并 可 按 配置 要求 自动 挂 上 。 通过 对 功能键 设置 的 修改 ， 6.0 及 以上 版本 的 用户 还 可 同时 挂 上 原 五笔 及 扩充 五笔 。 
+ 4 　 输入 模块 向 WINDOWS 格式 转换 及 挂接 
+ 　 　 WINDOWS 是 目前 大家 用 得 最 多 的 操作系统 之一 ， 但 它 的 中文版 中 没有 五笔 输入法 ， 即使 安装 上 通用 五笔 输入法 ， 在 专业 文献 处理 上 也 显得 捉襟见肘 。 通过 对 UCDOS 编码 及 WINDOWS 下 通用码 表 输入法 编码 的 分析 得知 ， 二者 存在 3 点 区别 ： ( 1 ) 文件 头 格式 不同 ； ( 2 ) 正文 部分 编码 与 字词 的 排列 方式 不同 ， WINDOWS 要求 的 格式 是 ： 字词 在 前 ， 编码 在 后 ， 中间 不留 空格 ； ( 3 ) 对 重码 的 处理 方法 不同 ， WINDOWS 要求 所有 重码 分行 表示 。 对 扩充 后 的 近 3 万条 词汇 ， 用 手工 调整 显然 太 笨拙 了 。 既然 能 找出 它们 所 区别 的 地方 就 可 利用 数据库 管理 数据 的 优势 ， 编程 实现 从 UCDOS 编码 向 WINDOWS 编码 的 转换 ， 其 基本 步骤 的 方框图 如图 1 所示 。 
+ 
+ 
+ 图 1     UCDOS 编码 向 WINDOWS 编码 转换 的 步骤 
+ 　 　 在 用 数据库 FOXBASE + 编程 时 ， 可 通过 查找 UCDOS 编码 格式 下 重码 间 的 空格 ， 由 1 段 2 层 嵌套 的 循环 程序段 来 实现 重码 的 分解 ， WINDOWS 的 通用码 表 输入法 的 文件 头 可用 几个 输出 语句 实现 ， 用 对 编码 和 词 组建 索引 文件 的 方式 可 消除 全同 重码 并 使 原 容错码 原样 保留 ， 其余 可用 数据库 的 简单 语句 。 运行 UTW . PRG 数据库 程序 ( 见 附 3 ) ， 通过 读取 WBX . TXT 及 WBB . TXT   2 个 文件 ， 就 可用 数据库 MY . DBF 把 在 UCDOS 下 使用 的 扩充 五笔 编码 源文件 自动 转换 到 WINDOWS 系统 下 使用 的 通用码 表 输入法 格式 的 编码 源文件 WBXW . TXT 上 。 
+ 　 　 PWIN3 . X 下用 通用码 表 输入法 挂接 ， 将 WBXW . TXT 经 “ 码表 生成器 ” 转换成 WBXW . MB 文件 ， 再 在 “ 面版 控制 ” 中 “ 输入法 ” 上 通过 WINMB . IME 即可 挂 接到 PWIN3 . X 上 使用 。 
+ 　 　 在 PWIN95 中 ， 通过 在 附件 下 安装 的 输入法 生成器 ， 在 弹出 的 对话框 中选 “ 创建 输入法 ” ， 单击 “ 浏览 ” ， 找到 WBXW . TXT ， 再 单击 “ 转换 ” ， 完成 之后 单击 “ 确定 ” 。 再选 “ 创建 ” 即可 直接 将 扩充 后 的 五笔 输入 模块 挂接 在 PWIN95 中 使用 。 在 PWIN98 中 安装 方法 与 PWIN95 完全 类似 ， 不再 详述 。 
+ 　 　 PWIN3 . X 通用码 表 输入 模块 码表 源文件 的 文件 头 格式 为 ： 
+ 　 　 ［ Description ］ 
+ 　 　 Name = 扩充 五笔 　 ； 该 等 号 后 用户 可 指定 1 个 适当 的 名字 
+ 　 　 Maxcode = 4 
+ 　 　 UseCode = “ abcdefghijklmnopqrstuvwxy " 
+ 　 　 Wildchar = “ z " 
+ 　 　 Sort = 0 
+ 　 　 ［ TEXT ］ 
+ 　 　 该 文件 头中 Sort = 0 表示 挂接 输入法 时 不 需要 对 编码 文本文件 排序 ； Sort = 1 表示 挂接 前要 对 编码 文件 排序 。 
+ 　 　 以上 所 介绍 的 方法 ， 适合 于 任何 专业 的 输入 人员 对 输入 模块 进行 专业 词汇 的 扩充 ， 类似 的 方法 也 可 用于 其它 实用 的 输入法 对 专业 词汇 的 扩充 。 需要 注意 的 是 ： 扩充 词库 的 完整 建立 是 一个 实践 中 不断完善 的 过程 ， 最好 把 扩充 词库 的 文本文件 单独 存放 ， 以备 随时 再 进行 扩充 。 以下 所 附 程序 在 FOXBASE + 上 调试 通过 ， 同样 能 在 FOXPRO2.5   FOR   DOS 下 运行 ， 并且 在 FOXPRO 下 ， 程序运行 的 时间 大为 缩短 。 
+ 附 1 ： IND . PRG 
+ 扩充 词库 按 词库 国标码 排序 源文件 ： 
+ set   talk   off 
+ set   safe   off 
+ clear 
+ @ 12 , 10   say “ 正在 进行 排序 ， 请 等待 … … " 
+ use   mx 
+ if . not . eof ( ) 
+ 　 zap 
+ 　 endif 
+ append   from   wba . txt   sdf 
+ index   on   ca   to   cn   unique 
+ set   print   to   wbb . txt 
+ set   print   on 
+ do   while . not . eof ( ) 
+ 　 ? trim ( ca ) 
+ skip 
+ enddo 
+ zap 
+ set   print   off 
+ use 
+ return 
+ 附 2 ： UTU . PRG 
+ 原 编码 文本 与 扩充 词库 合并 ， 按 编码 自动 排序 形成 扩充 后 五笔 输入 模块 编码 源文件 ： 
+ set   talk   off 
+ set   safe   off 
+ clear 
+ @ 12 , 10   say “ 正在 进行 扩充 排序 ， 请 等待 … … " 
+ use   mx 
+ if . not . eof ( ) 
+ 　 zap 
+ endif 
+ append   from   wbx . txt   sdf 
+ set   print   to   wbxu . txt 
+ set   print   on 
+ locate   for   upper ( substr ( ca , 1 , 1 ) ) = ‘ A ' 
+ 　 nb = recno ( ) - 1 
+ 　 delete   for   recno ( ) > nb 
+ pack 
+ go   top 
+ do   while . not . eof ( ) 
+ 　 ? ca 
+ 　 skip 
+ enddo 
+ zap 
+ use   my 
+ if . not . eof ( ) 
+ 　 zap 
+ endif 
+ append   from   wbx . txt   sdf 
+ append   from   wbb . txt   sdf 
+ locate   for   upper ( substr ( cb , 1 , 1 , ) ) = ` A ' 
+ nb = recno ( ) 
+ delete   for   recno ( ) < nb 
+ pack 
+ index   on   cb + cc   to   cu   unique 
+ 　 go   top 
+ 　 cb1 = cb 
+ 　 cc1 = trim ( cc ) 
+ do   while . not . eof ( ) 
+ 　 　 skip 
+ 　 if   cb = cb1 
+ 　 　 cc1 = cc1 + ‘ ’ trim ( cc ) 
+ 　 　 cb1 = cb 
+ 　 else 
+ 　 ? cb1 + cc1 
+ 　 cb1 = cb 
+ 　 cc1 = trim ( cc ) 
+ endif 
+ enddo 
+ zap 
+ set   print   off 
+ use 
+ return 
+ 附 3 ： UTW . PRG 
+ ［ UCDOS 扩充 五笔 编码 向 WINDOWS 通用码 表 输入法 编码 格式 自动 转换 的 FOXBASE + 程序 ］ 
+ set   talk   off 
+ set   safe   off 
+ clear 
+ @ 12 , 10   say “ 正在 进行 格式 转换 ， 请 等待 … … " 
+ use   my 
+ if . not . eof ( ) 
+ 　 zap 
+ endif 
+ append   from   wbx . txt   sdf 
+ append   from   wbb . txt   sdf 
+ locate   for   upper ( substr ( cb , 1 , 1 ) ) = ` A ' 
+ nb = recno ( ) 
+ delete   for   recno ( ) < nb 
+ pack 
+ index   on   cb + cc   to   cw   unique 
+ set   print   to   wbxw . txt 
+ set   print   on 
+ ? “ ［ Description ］ " 
+ ? “ Name = 扩充 五笔 " 
+ ? “ MaxCodes = 4 " 
+ ? “ UsedCodes = ` abcdefghijklmnopqrstuvwxy ' " 
+ ? “ WildChar = z " 
+ ? “ Sort = 0 " 
+ ? “ ［ Text ］ " 
+ go   top 
+ do   while . not . eof ( ) 
+ 　 i = at ( ‘ ’ , cc ) 
+ ? substr ( cc , 1 , i - 1 ) + cb 
+ 　 　 do   while   substr ( cc , i + 1 , 1 ) < > ‘ ’ 
+ 　   px = substr ( cc , i + 1 ) 
+ 　 　   k = at ( ‘ ’ , px ) 
+ 　   py = substr ( px , 1 , k - 1 ) 
+ ? trim ( py ) + cb 
+ 　 　   i = i + k 
+ 　   enddo 
+ 　 skip 
+ enddo 
+ zap 
+ set   print   off 
+ use 
+ return   
+ 作者 单位 ： 重庆 师范学院 物理学 与 信息技术 系 ( 400047 ) 
+ ( 收稿 日期 ： 1998 - 11 - 11 ) 

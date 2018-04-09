@@ -1,0 +1,189 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 　 Vol.36 　 No.6 　 P.745 - 750 
+ 
+ 
+ 
+ VLAN 拓扑 发现 算法 研究 
+ 郭瑜茹 　 张斌 　 石 冰心 
+ 摘 　 要 ： VLAN 是 计算机网络 领域 的 一个 新 的 研究 方法 ， 其 作用 是 增强 了 网络 配置 与 管理 的 灵活性 . 文中 给出 了 一种 VLAN 拓扑 发现 的 新 算法 . 它 从 分析 入手 ， 系统地 描述 了 运算 实现 过程 并 定义 了 拓扑 发现 的 数据结构 . 它 能 在 基于 Window / NT ,   V C++ 5.0 ,   WinSock2.0 ,   WinSNMP2.0 平台 上 进行 . 这 对 制作 具有 自己 版权 的 网络管理 系统软件 将 是 极 有益 的 借鉴 和 参考 . 
+ 关键词 ： 网络管理 ， VLAN ， 网络拓扑 发现 ， 算法 
+ 分类号 ： TP393 
+ AN   ALGORITHM   FOR   TOPOLOGY   DISCOVERY   ON   VLAN 
+ GUO   Yu - Ru ， ZHANG   Bin ， SHI   Bing - Xin ， 
+ （ Department   of   Electronic   &   Information   Engineering ， Huazhong   University   of   Science   and   Technology ，   Wuhan   430074 ） 
+ Abstract ： VLAN   is   a   new   research   method   on   computer   networks ,   which   can   increase   flexibility   of   configuration   and   management   for   networks .   The   paper   here   gives   something   about   VLAN   topology   discovery .   It   first   analysises   a   case ,   and   then   proposes   an   algorithm   and   data   structure   about   topology .   The   algorithm   is   based   on   the   platform   of   Windows / NT   ,   VC + 　 + 5.0 ,   WinSock2.0 ,   and   WinSNMP2.0 .   It   would   be   beneficial   and   advisable   for   developing   a   network   management   system   software . 
+ Key   words ： network   management ,   virtual   LAN ,   topology   discovery ,   algorithm ▲ 
+ 1 　 引 　 　 言 
+ 　 　 VLAN （ 虚拟 LAN ） 与 LAN 相 比较 ， 具有 以下 优点 ［ 1 ］ ： 改进 管理效率 、 控制 广播 报文 、 增强 网络 的 安全性 、 实现 集中化 的 管理控制 . 随着 VLAN 技术 的 使用 ， 必将 使 网络管理 系统软件 随之 而 发展 . 
+ 　 　 网络拓扑 是 整个 网络 管理系统 的 基础 之一 . 没有 它 ， 配置管理 、 故障 管理 等 均 无从谈起 ［ 2 ］ . 但 逻辑 网络拓扑 发现 局限于 自动 发现 路由 和 网络 内 的 子网 ， 而 对于 物理层 及 链路层 的 网络拓扑 却 无能为力 ， 且 无法 确定 VLAN 的 划分 和 配置 等 ， 也 无法 管理 虚拟 网 . 针对 这一 缺陷 ， 必须 使用 多层 网络拓扑 发现 算法 ， 或 虚拟 网络拓扑 发现 算法 ， 以 提供 对 VLAN 进行 管理 的 必要 手段 . 
+ 　 　 在 国外 ， 1997 年 以后 推出 的 基于 Windows   的 网络管理 软件 已 开始 具备 VLAN 拓扑 发现 以及 管理 VLAN 的 功能 ， 如 Bay 公司 的 Optivity7 ． 0 等 .   目前 ， 在 国内 几份 核心 期刊 上 1997 年 以后 发表 的 论述 关于 VLAN 拓扑 发现 的 论文 还 没有 ， 也 没有 成熟 的 网络管理 软件产品 具有 VLAN 拓扑 发现 这一 功能 . 
+ 　 　 本文 提出 了 基于 Windows 平台 的 VLAN 拓扑 发现 的 数据 描述 及 算法 实现 ， 其 内容 对 制作 具有 自己 版权 的 网络管理 系统软件 将 是 极 有益 的 借鉴 和 参考 . 
+ 2 　 VLAN 拓扑 发现 的 算法 描述 
+ 　 　 网络拓扑 图是 网络 实体 以及 它们 之间 存在 的 联结 关系 的 图形化 表示 . 获取 网络拓扑 图 包含 发现 网络 中 存在 的 实体 和 从 这些 实体 中 获取 描述 设备 间 联结 关系 的 信息 . VLAN 拓扑 发现 网络 在 物理层 、 数据 链路层 、 网络层 的 网络拓扑 信息 ， 且 同时 获取 整个 园区 网内 VLAN 的 划分 及 配置 等 信息 . 
+ 2.1 　 VLAN 网络拓扑 图例 与 分析 
+ 　 　 VLAN 是 以 ATM 网络 上 面向 联结 的 传输方式 和 相关 技术 、 虚拟 局域网 上 的 面向 无 联结 的 传输方式 . VLAN 的 功能 主要 由 具有 VLAN 功能 的 交换机 等 主干 网络设备 及 软件 实现 . VLAN 的 实现 依赖于 主干 端口 和 边缘 端口 的 概念 ［ 3 ］ . 如图 1 所示 ， 主干 端口 用于 联结 具有 VLAN 功能 的 交换机 等 ， 如 交换机 Center1 的   1 ， 2 ， 3 ， 4 端口 . 边缘 端口 则 用于 联结 网络 内 的 其余部分 . 互相 联结 的 交换机 上 的 端口 可以 属于 同一个 VLAN ， 如 交换机 West   的 端口 5 与 East 的 端口 8 同 属于 VLAN6 . 每个 VLAN 可 包含 同一 交换机 的 若干个 端口 ， 如 交换机 East 上 的 VLAN3 包含 端口 5 ， 6 ， 7 . 同一个 端口 可以 同时 属于 多个 VLAN ， 该 端口 所 联结 的 微 网段 （ microsegment ） 成为 多个 VLAN 的 公共 部分 . 
+ 　 　 为 实现 VLAN 的 拓扑 发现 ， 需要 明确 以下 若干 具体 方面 ： 
+ 　 　 ①   路由器 与 交换机 间 的 联结 关系 ； 
+ 　 　 ②   交换机 间 的 互联 （ ISL ） 的 联结 关系 ； 
+ 　 　 ③   交换机 的 各 端口 上 所 联结 的 链路层 的 网络 结点 集合 ； 
+ 　 　 ④   各 VLAN 的 IP地址 范围 ； 
+ 　 　 ⑤   各 VLAN 所 拥有 的 交换机 以及 交换机 的 端口 ； 
+ 　 
+ 
+ 
+ 图   1 　 配置 了 VLAN 的 园区 网络拓扑 图 
+ 　 　 这样 就 明确 了 VLAN 的 拓扑 关系 . 下面 以 Cisco 公司 的 网络设备 ， 如 Cisco7204 ， Catalyst3000 等 为例 ， 分别 加以 论述 . 
+ 2.2 　 确定 路由器 与 交换机 间 的 联结 关系 
+ 　 　 在 包含 有 Catalyst3000 型 交换机 的 子网 内 ， 网络 终端 通常 是 直接 与 交换机 相 联结 的 ， 交换机 再 与 路由器 的 某 一 接口 相 联结 . 每 一个 交换机 均 配置 有 一个 IP地址 . 若 交换机 SW1 的 IP地址 属于 路由器 Router   的 某 一 网段 S1 的 IP地址 范围 ， 且 S1 与 Router 的 某 一 接口 I1 相 联结 ， 便 可 推断出 SW1 与 Router 的 I1 接口 间 可能 相互 联结 . 
+ 　 　 然后 ， 由 路由器 的 接口 所 联结 的 网络 类型 、 工作 状态 ， 交换机 的 主干 端口 的 联结 状态 是否 为 联结 以及 联结 的 类型 ， SW1 的 主干 端口 与 其它 交换机 的 ISL 的 联结 关系 来 进一步 确定 两者 间 是否 有 联结 存在 . 
+ 2.3 　 确定 ISL 的 联结 关系 
+ 　 　 ISL 用以 联结 支持 VLAN 功能 的 高速 主干 设备 ， 如 Catalyst3000 交换机 、 Cisco7200 系列 的 路由器 、 高性能 集线器 等 . 它 可以 将 VLAN 从 一个 交换机 上 扩展 到 多个 交换机 上 . 园区 网内 的 各 交换机 的 主干 端口 相互 联结 即可 形成 ISL ［ 4 ］ . 
+ 　 　 由 MIB 库中 的 对象 vianTrunkPortIfIndex , 以及 ciscoEsPortTable 所 确定 的 ciscoEsPortNumber 与 ciscoEsPortIfIndex 间 的 对应 关系 ， 即可 确定 各 交换机 的 所有 主干 端口 所在 的 端口号 ［ 5 ］ . 
+ 　 　 但 交换机 之间 的 联结 信息 难以 直接 查 到 ， 只能 通过 下面 两种 方式 间接 得到 . 
+ 　 　 ( 1 )   通过 VLAN 所属 的 端口 信息 确定 ISL 的 联结 
+ 　 　 这里 ， 由于 VLAN 若 能够 存在 于 不同 的 交换机 上 ， 则 这些 交换机 之间 必定 有 主干 线路 相 联结 ［ 5 ］ . 由此 ， 分布 于 不同 交换机 上 的 VLAN 可以 用于 帮助 确定 交换机 间 的 联结 信息 . 由 MIB 库中 的 对象 vianTrunkPortViansEnabled   可 知道 不同 交换机 上 的 主干 端口 所 支持 的 VLAN ， 若 同一 VLAN 存在 于 不同 的 交换机 上 ， 则 可以 确定 这 两个 交换机 之间 通过 各自 含有 该 VLAN 的 主干 端口 相 联结 . 
+ 　 　 ( 2 )   通过 虚拟 联结 表 （ VC   Table ） 确定 ISL 的 联结 
+ 　 　 每 一个 虚拟 联结 具有 唯一 的 虚拟 联结 编号 ， 且 虚拟 联结 是 分段 标识 的 . 每个 交换机 均 维护 一个 虚拟 联结 表 ， 每 一个 虚拟 联结 对应 于 虚拟 联结 表 的 一个 表项 ， 虚拟 联结 表 给出 同一 虚拟 联结 的 不同 分段 之间 的 虚拟 联结 编号 间 的 对应 关系 ［ 6 ］ . 若 两 交换机 间 存在 有 虚拟 联结 ， 则 一个 交换机 的 某 一 表项 的 Outgoing   V C# 必会 与 另 一个 交换机 的 某 一 表项 的 Incoming   VC ＃ 有 相同 的 值 ， 且 前 一 表项 的 OutputPort 端口 与 后 一 表项 InputPort 端口 相 联结 . 这样 ， 即可 确定 交换机 间 的 端口 联结 关系 . 对 每 一个 VC 表都 进行 相同 方式 的 处理 ， 即可 确定 ISL 的 联结 . 
+ 2.4 　 交换机 的 各 端口 所 联结 的 链路层 的 网络 结点 集合 
+ 　 　 在 MIB 库中 ， 网络 结点 的 MAC 地址 的 对象 为 ciscoEsPortStnAddress , 该 网络 结点 所 联结 的 交换机 由 对象 ciscoEsPortStnSwitchNumber 得到 ， 该 网络 结点 所 联结 的 交换机 的 端口号 由 对象 ciscoEsPortStnPortNum 给出 . 由 这三项 即 可以 确定 交换机 的 各 端口 所 联结 的 链路层 的 网络 结点 的 MAC 地址 集合 . 
+ 　 　 更进一步 ， 借助于 ipNetToMediaTable ， 即 可以 将 这里 的 MAC 地址 翻译 为 IP地址 ， 然后 ， 对 每 一个 可以 得到 的 IP地址 作 Ping 操作 ， 便 可以 得到 交换机 的 端口 所 联结 的 活动 网络 结点 的 信息 . 
+ 2.5 　 各 VLAN 的 IP地址 范围 
+ 　 　 在 MIB 库中 ， 与 VLAN 的 IP地址 相对 应 的 对象 为 ciscoEsVLANInfolpAddress ， 与 VLAN 的 子网 屏蔽 码 相对 应 的 对象 为 ciscoEsVLANInfolpSubnetMask . 由 它们 可 得到 各 VLAN 所 包含 的 IP地址 范围 . 计算公式 如下 ： 
+ 　 　 设 VLAN 的 IP地址 为 A1 . A2 . A3 . A4 ， 到 VLAN 这 一级 为 C 类 地址 ， 设 VLAN 的 子网 屏蔽 码为 255.255 . 255 . M1 ， 则 VLAN 的 IP 结点 集合 为 （ A1 . A2 . A3 . （ A4 & M1 ） ＋ 1 ， A1 . A2 . A3 . （ A4 & M1 ） ＋ （ 255 － M1 ） ） . 
+ 2.6 　 各 VLAN 所属 的 交换机 及其 端口 
+ 　 　 同一 VLAN 可以 拥有 在 一个 或 若干个 交换机 上 的 若干个 端口 . 因此 ， 为 得到 某一 VLAN 所 包含 的 全部 端口 ， 必须 扫描 园区 网内 的 全部 的 交换机 ， 分别 取出 不同 交换机 的 VLAN 的 端口配置 信息 ， 然后 ， 以 VLAN 的 标识号 为 索引 进行 合并 ， 即可 得到 每个 VLAN 的 全部 所属 的 交换机 与 端口 . 
+ 　 　 在 MIB 库中 ， 与 VLAN 的 标识号 相对 应 的 对象 为 ciscoEsVLANPortVLANNumber ， 与 交换机 的 编号 相对 应 的 对象 为 ciscoEsVLANPortSwitchNumber ， VLAN 所属 的 端口 信息 由 MIB 库中 的 对象 ciscoEsVLANPortPorts 经过 分解 得到 . 
+ 3 　 数据 描述 与 组织 
+ 　 　 本文 对 主要 网络设备 均 采用 结构 数组 的 方式 加以 描述 . 而且 ， 网络拓扑 信息 的 数组 存储 方式 与 链表 存储 方式 相 比较 ， 具有 以下 优点 ： 利用 网络拓扑 信息 的 有序性 及 确定 性能 实现 对 数组 项 的 直接 访问 ， 从而 满足 对 网络拓扑 数据 频繁 访问 时 的 速度 需要 . 为 克服 数组 存储 方式 在 作 增加 、 删除 操作 时 的 不够 灵活 的 缺点 ， 本文 在 对 网络拓扑 数据 作 刷新 时 ， 采用 整体 而 非 局部 进行 . 
+ 　 　 下面 C语言 格式 ， 给出 有关 数据 描述 ， 各 数据项 的 含义 见 注释 . 
+ 3.1 　 路由器 及其 网关 的 数据 描述 
+ struct {   char   IPAddress ［ 17 ］ ；   / / 存储 路由器 的 IP地址 
+ 　 　 　 int   pBNode ,   pENode   ；   / / 指向 存储 网关 及 接口 信息 的 结构 数组 的 起始 、 终止 数据项 
+ 　 　 　 ...   / / 其它 信息 
+ 　 　 　 } DirConRoute ［ 50 ］ ；   / / 存储 网络 内 所有 路由器 信息 
+ struct {   char   IPAddress ［ 17 ］   ；   / / 存储 网关 的 IP地址 
+ 　 　 　 char   NetMaskAddr ［ 17 ］   ；   / / 存储 子网 的 屏蔽 码 
+ 　 　 　 int   SubNetOrSwitch   ；   / / 用以 标识 接口 联结 的 是 普通 子网 ／ 交换机 
+ 　 　 　 int   IfType   ；   / / 子网 拓扑 类型 ， 仅 对于 联结 子网 的 情形 
+ 　 　 　 int   pBNode   ,   pENode   ,   / / 指向 子网 内 网络 结点 的 起始 、 终止 数据项 ， 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 仅 对于 联结 子网 的 情形 
+ 　 　 　 int   SwitchNum   ；   / / ／ 交换机 的 编号 ， 仅 对于 联结 交换机 的 情形 
+ 　 　 　 char   SwitchIPAddr ［ 17 ］   ；   / / 交换机 的 IP地址 ， 仅 对于 联结 交换机 的 情形 
+ 　 　 　 ...   / / 其它 信息 
+ 　 　 　 } DirConGateWay ［ 500 ］   ；   / / 存储 所有 路由器 接口 信息 及 网络 中 的 网关 信息 
+ 3.2 　 交换机 的 数据 描述 
+ struct   {   int   SwitchNum   ；   / / 交换机 的 编号 
+ 　 　 　 　 char   SwitchIPAddr ［ 17 ］   ；   / / 交换机 的 IP地址 
+ 　 　 　 　 int   Ports   ；   / / 交换机 的 端口数 
+ 　 　 　 　 int   pBNode   ,   pENode   ；   / / 指向 存储 交换机 的 端口 信息 的 
+ 　 　 　 　 / / 结构 数组 的 起始 、 终止 数据项 
+ 　 　 　 　 ...   / / 其它 信息 
+ 　 　 　 　 }   Switch ［ 50 ］   ；   / / 存储 所有 交换机 的 信息 
+ 3.3 　 交换机 端口 数据 描述 
+ struct   {   int   PortNum   ；   / / 端口 的 编号 
+ 　 　 　 　 int   Trunk   ；   / / 端口 是否 为主 干 端口 ， 1 是 ／ 0 非 
+ 　 　 　 　 char   DvcIPAddr ［ 17 ］   ；   / / 主干 端口 所联 的 网络设备 的 IP地址 ， 仅 对 主干 端口 的 情形 
+ 　 　 　 　 int   Port   ；   / / 主干 端口 所联 的 网络设备 的 接口 ／ 端口号 ， 仅 对 主干 端口 的 情形 
+ 　 　 　 　 int   pBNode   ,   pENode   ；   / / 端口 所 联结 的 网络 结点 在 网络 结点 结构 数组 的 起始 、 
+ 　 　 　 　 / / 终止 数据项 ， 仅 对 非 主干 端口 的 情形 
+ 　 　 　 　 ...   / / 其它 信息 
+ 　 　 　 　 } SPorts ［ 1000 ］   ；   / / 存储 所有 交换机 的 端口 的 信息 
+ 3.4 　 VLAN 的 数据 描述 
+ Struct   {   char   Name ［ 100 ］   ；   / / VLAN 的 名字 
+ 　 　 　 　 char   BIPAddr ［ 17 ］   ；   / / VLAN 的 起始 IP地址 
+ 　 　 　 　 char   EIPAddr ［ 17 ］   ；   / / VLAN 的 终止 IP地址 
+ 　 　 　 　 ...   / / 其它 信息 
+ 　 　 　 　 int   PortsCount   ；   / / VLAN 所 拥有 的 所有 交换机 的 端口 总数 
+ 　 　 　 　 int   SwitchNum ［ 50 ］   ；   / / VLAN 所 拥有 的 每 一个 交换机 的 编号 
+ 　 　 　 　 int   PortNum ［ 50 ］   ；   / / VLAN 所 拥有 的 每 一个 交换机 端口 的 编号 
+ 　 　 　   / / 上面 两项 配对 使用 ， 用以 记录 VLAN 所 拥有 的 每 一个 交换机 的 每 一个 端口 
+ 　 　 　 　 ...   / / 其它 信息 
+ 　 　 　 　 }   VLANs ［ 200 ］ ；   / / 存储 所有 VLAN 的 信息 
+ 3.5 　 网络 点 的 数据 描述 
+ struct   {   char   IPAddress ［ 17 ］   ；   / / 存储 网络 内 结点 的 IP地址 
+ 　 　 　 　 unsigned   char   Type   ；   / / 结点 的 类型 
+ 　 　 　 　 ...   / / 与 网络 结点 有关 的 其它 信息 
+ 　 　 　 　 }   NetNodes ［ 5000 ］   ；   / / 记录 网络 中 的 所有 结点 的 信息 
+ 4 　 虚拟 网络拓扑 发现 的 算法 实现 
+ 4.1 　 实现 平台 
+ 　 　 本文 实现 平台 为 园区 网 、 Windows   95 /   NT 、 V C++ 5.0 、 WinSNMP2.0 、 WinSock2.0 . WinSNMP2.0 为 MG 公司 提供 的 DLL 及 APL . 
+ 4.2 　 获取 MIB 值 
+ 　 　 在 此 ， 仅 简述 获取 MIB 值 的 过程 . 在 用 SnmpStartup ( ) ， SnmpOpen ( ) 初始化 及 建立 对话 之后 ， 用 SnmpStrToEntity ( ) 建立 管理者 实体 和 代理 实体 ， 并 分别 设立 它们 的 超时 及 重传 特性 ， 接着 以 SnmpCreateVb ( ) 为 要 取回 的 MIB 对象 建立 VBL ， 然后 ， 以   SnmpCreatePdu ( ) 创建 SNMP - PDU - GET 或 SNMP - PDU - GETNEXT 型 的 PDU ， 并 以 SnmpSendMsg (   ) 发出请求 报文 . 
+ 在 响应 进程 内 ， 以 SnmpRecvMsg ( ) 取回 报文 ， 接着 以 SnmpGetPduData ( ) 取出 PDU ， 然后 以 SnmpGetVb ( ) 取出 Vb ， 经过 分析 处理 之后 ， 即可 得 MIB 对象 的 当前 值 . 
+ 4.3 　 数据分析 与 存储 
+ 　 　 ( 1 ) 由 虚拟 联结 表 获取 ISL 联结 信息 交换机 的 VC 表 分别 如表 1 、 2 、 3 所示 . 对表 1 的 第 1 个 表项 ， 其 Outgoing   V C# 的 值 为 27 ， 以 27 为 索引 查找 其余 交换机 的 VC   Table 的 Incoming   V C# ， 若能 找到 匹配 值 ， 如表 2 的 第 1 表项 所示 ， 则 可知 交换机 Center1 的 OutputPort 端口 3 和 交换机 West 的 InputPort 端口 1 相 联结 . 同理可知 ， West 的 端口 2 与 Center3 的 端口 4 相 联结 ， … … ， 由此 即可 知道 ISL 联结 关系 . 
+ 表 1   Center1 的 VC   Table 
+ 
+ InputPortIncoming   V C# OutputPortOutgoing   V C# 
+ 952327 
+ 74117 
+ … … … … … … … … 
+ 
+ 表 2   West 的 VC   Table 
+ 
+ InputPortIncoming   V C# OutputPortOutgoing   V C# 
+ 127723 
+ 811254 
+ … … … … … … … … 
+ 
+ 表 3   Center3 的 VC   Table 
+ 
+ InputPortIncoming   V C# OutputPortOutgoing   V C# 
+ 454342 
+ 17291 
+ … … … … … … … … 
+ 
+ 
+ 　 　 ( 2 ) 交换机 的 各 端口 所 联结 的 链路层 的 网络 结点 集合 
+ 　 　 表 4   ciscoEsPortStn   Table 给出 的 内容 对应 于 1 号 交换机 （ 即 Center1 ） . 由 这里 列出 的 5 个 表项 的 内容 可知 ， 端口 5 联结 1 个 网络 结点 ， 其 MAC 地址 为 00.80 . 24.3 b.8 e.90 ， 端口 6 联结 3 个 网络 结点 ， 其 MAC 地址 为 01.80 . c2.00 . 00.00 ， 01.80 . c2.00 . 00.02 ， 01.80 . c2.00 . 00.06 ， … … ， 由此 便 可 得到 交换机 的 各 端口 所 联结 的 链路层 的 网络 结点 的 信息 . 
+ 表 4 　 ciscoEsPortStn   Table 
+ 
+ SwitchNumberPortNumAddress 
+ 1500.80 . 24.3 b.8 e.90 
+ 1601.80 . c2.00 . 00.00 
+ 1601.80 . c2.00 . 00.02 
+ 1601.80 . c2.00 . 00.06 
+ 1701.00 . 0c . cc . cc . cc 
+ … … … … … … 
+ 
+ 　 　 借助于 表 5   ipNetToMedia   Table 即可 将 MAC 转换 为 IP地址 ， 由此 进一步 得到 交换机 的 各 端口 所 联结 的 IP 结点 的 信息 . 
+ 表 5 　 ipNetToMedia   Table 
+ 
+ PhysAddressNetAddress 
+ 00.80 . 24.3 b.8 e.90210 . 42.137 . 2 
+ 01.80 . c2.00 . 00.00210 . 42.138 . 3 
+ 01.80 . c2.00 . 00.02210 . 42.138 . 5 
+ 01.80 . c2.00 . 00.06210 . 42.138 . 9 
+ 01.00 . 0c . cc . cc . cc210.42 . 143.43 
+ … … … … 
+ 
+ 　 　 在 确定 这些 信息 之后 ， 便 可以 存储 交换机 的 端口 信息 . 
+ 　 　 按 以下 方式 进行 即可 存储 交换机 的 每 一个 端口 的 信息 （ 交换机 的 端口 数据 描述 见 第 3.3 节 ） ， 先 将 网络 结点 按 端口 分组 ， 依次 分别 对 每 一个 端口 作 如下 操作 ： 先 将 其 端口号 填入 Port 域 ， 然 
+ 后 ， 若该 端口 为主 干 端口 ， 则 Trunk 域 填入 1 ， 且 将 所 联结 的 主干 网络设备 的 IP地址 填入 DvcIPAd 
+ dr 域 ； 若该 端口 是非 主干 端口 ， 则 将 该 端口 上 所 联结 的 网络 结点 依次 存入 网络 结点 结构 数组 ， 并 
+ 将 在 网络 结点 数组 中 的 起始 、 终止 数组 项 位置 填入 pBNode ， pENode 域 . 这样 便 可 实现 对 端口 信息 的 存储 . 
+ 　 　 ( 3 ) VLAN 的 数据 的 分析 与 存储 
+ 　 　 VLAN 的 数据 描述 如 第 3.4 节中 所述 . 由 第 2.5 节 的 内容 知道 ， 对 园区 网 内 配置 每 一个 VLAN ， 都 有 唯一 的 VLAN 编号 识 它 . ciscoEsVLANPortPorts 的 值 是 一个 位串 ， 它 的 每 一位 对应 于 交换机 的 一个 端口 . 同一 VLAN 可以 同时 拥用 多台 交换机 . 
+ 　 　 这里 ， 先 将 PortCount 的 值 赋为 0 . 然后 ， 对 VLAN 所 拥有 每 一台 交换机 的 数据 ， 依次 按 以下 方式 进行 处理 ： 
+ 　 　 设 ciscoEsVLANPortPorts 位串 的 值 为 bn , ... , bi , ... , b3 , b2 , b1 ， （ 如 交换机 Center1 上 的 VLAN2 的 位串 为 0000000111000000 ， 说明 VLAN 联结 端口 7 ， 8 ， 9 ） . 从 最低 位 b1 向 最高 位 bn 扫描 ， 若 某位 bi 的 值 为 1 ， 则 将 I 的 值 填入 PortNum ［ PortsCount ］   数组 中 ， 将 
+ ciscoEsVLANPortSwitchNumber 的 值 填入 SwitchNum ［ PortsCount ］ 数组 中 ， 然后 ， 将 PortsCount 的 值加 1 ， 如此 继续下去 ， 直到 最高 位 bn . 
+ 　 　 按此 方式 处理 完 每 一台 交换机 的 数据 之后 ， 即可 得到 该 VLAN 所 拥用 的 交换机 及其 端口 的 信息 . 
+ 5 　 结 　 　 论 
+ 　 　 本文 提出 的 虚拟 网络拓扑 发现 算法 已 实现 . 依据 本文 提出 的 算法 编制 的 程序 ， 运行 结果表明 ， 它 能够 完整 地 显示 出 整个 园区 网 的 多层 拓扑 信息 、 VLAN 的 划分 及 配置 信息 等 . 并且 能够 为 网络管理 的 其它 部分 提供 真实 、 准确 的 网络拓扑 ， 为 性能 管理 、 配置管理 等 提供 图形化 的 操作界面 . ■ 
+ 基金项目 ： 本 课题 得到 “ 九五 ” 国家 重点 科技 攻关项目 “ 基于 园区 网络 的 先进 网络管理 运行 系 　 　 　 　 　 　 统 ” 资助 . 
+ 作者简介 ： 郭瑜茹 ， 女 ， 1959 年 1 月生 ， 博士 研究生 ， 高级 工程师 ， 研究 方向 为 计算机网络 与 　 　 　 　 　 　 计算机网络 性能 仿真 . 
+ 　 　 　 　 　 张斌 ， 男 ， 1968 年生 ， 博士 ， 研究 方向 为 数字通信 与 计算机网络 . 
+ 　 　 　 　 　 石 冰心 ， 男 ， 1936 年生 ， 教授 ， 博士生 导师 ， 研究 方向 计算机网络 与 多媒体通信 . 
+ 作者 单位 ： 郭瑜茹 （ 华中理工大学 电信 系 　 武汉 　 430074 ） 
+ 　 　 　 　 　 张斌 （ 华中理工大学 电信 系 　 武汉 　 430074 ） 
+ 　 　 　 　 　 石 冰心 （ 华中理工大学 电信 系 　 武汉 　 430074 ） 
+ 参考文献 ： 
+ ［ 1 ］ Hamming   R ,   Huber   M   N ,   Schroder   S .   ATM   Concepts ,   Protocols ,   and   Applications ,   2nd   ed ,   Reading .   MA :   Addison - Wesley ,   1994 
+ ［ 2 ］ Stallings   W .   SNMP   SNMPv2   and   CMIP .   Reading ,   MA :   Addison - Wesley ,   1994 
+ ［ 3 ］ Black   U   D .   ATM :   Internetworking   with   ATM .   Englewood   Cliffs ,   NJ :   Prentice   Hall ,   1998 
+ ［ 4 ］ Catalyst   3000   Series   Switch :   3000 ,   3100 ,   3200 .   Cisco   System   Inc ,   1997 
+ ［ 5 ］ CISCO - VTP - MIB   Definitions .   SMIVC   v1.6 . 29 .   Cisco   System   Inc ,   1994 
+ ［ 6 ］ Kwok   T .   The   New   Paradigm   for   Internet ,   Intranet ,   and   Residential   Broadband   Service   and   Applications .   Englewood   Cliffs ,   NJ :   Prentice   Hall ,   1998 
+ 收稿 日期 ： 1998 - 07 - 16 
+ 修稿 日期 ： 1999 - 03 - 29 

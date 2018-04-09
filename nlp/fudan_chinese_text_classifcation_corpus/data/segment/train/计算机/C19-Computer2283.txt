@@ -1,0 +1,100 @@
+计算机 应用 研究 
+ APPLICATION   RESEARCH   OF   COMPUTERS 
+ 2000 　 Vol.17 　 No.5 　 P.84 - 86 
+ 
+ 
+ 
+ 基于 Web 应用 系统 开发 的 纯 Java 实现 技术 
+ 吴鹏 　 陈文亮 　 李 卫国 
+ 摘     要     针对 当前 在 基于 Web 应用 系统 开发 中 流行 的 三层 浏览器 / 服务器 模型 ， 给出 了 系统 的 纯 Java 技术 实现 。 包括 用户服务 层 ( 客户端 ) 的 Java   Applet 技术 、 应用服务 层 ( 服务器端 ) 的 Java   Servlet 技术 、 用户服务 层 与 应用服务 层 的 通信 技术 和 应用服务 层 与 数据服务 层 的 JDBC 通信 技术 。 
+ 关键词     Web     浏览器     服务器     B / S     Java 
+ 1     引言 
+ 　 　 近年来 Internet   /   Intranet   技术 的 迅猛发展 和 基于 HTTP 协议 的 Web 技术 的 广泛应用 ， 极大 地 改变 了 传统 的 工作 模式 和 生产方式 ， 使 更 大 范围 内 的 资源共享 和 协同工作 成为 可能 。 在 Internet   /   Intranet   上 ， 以 Web   技术 为 核心 可以 构成 一个 与 用户 平台 无关 的 统一 而 简单 的 交流 方式 ， 把 已有 的 和 未来 的 有关 数据库 、 多媒体 、 安全 设施 等 各种 技术 纳入 以 Web 为 核心 的 浏览器 / 服务器 ( B / S ) 模式 中 ， 使 浏览器 成为 人们 交流 的 万能 工具 ， 可以 突破 树型 结构 的 限制 ， 更 容易 地以 任务 为 中心 组织 信息 交流 。 与 此 相对 应 的 ， 基于 Web 技术 的 应用 系统 的 开发 也 成为 了 软件开发 中 的 热点 。 
+ 　 　 在 现有 的 各种 基于 Web 应用 系统 的 开发 方案 中 ， 由于 Java 语言 先天 就是 Internet 互联网 蓬勃发展 的 产物 ， 因而 具有 其它 任何 开发 平台 所 无法比拟 的 优势 。 
+ 　 　 Java 语言 由 Sun   Microsystems 公司 开发 ， 是 一种 面向对象 和 平台 无关 的 编程语言 。 Sun 将 Java 描述 为 一种 具有 简单 性 、 面向对象 性 、 动态性 、 分布 性 、 可移植性 、 多 进程 、 平台 无关 性 、 高性能 、 健壮性 和 安全性 的 语言 。 由于 它 所 具有 的 这些 特点 和 优点 ， 使得 它 已经 成为 跨平台 应用 开发 的 一种 规范 ， 在 世界 范围 内 广泛 流行 。 由于 Java 程序 是 运行 在 Java 虚拟机 环境 中 的 ， 它 不 依赖于 特定 的 系统 ， 所以 编程人员 只 需 一次性 开发 一个 “ 通用 ” 的 最终 软件 即可 在 多个 平台 环境 中 使用 ， 这 将 大大 加快 软件产品 的 开发 。 
+ 2     基于 Web 应用 的 系统结构 
+ 　 　 典型 的 基于 Web 应用 系统 的 计算 模式 为 采用 三层 结构 的 浏览器 / 服务器 模型 ( B / S 模型 ) 。 该 模型 包括 用户服务 层 、 应用服务 层 和 数据服务 层 ( 如图 1 ) 。 与 传统 的 两层 结构 相比 ， 增加 了 应用服务 层 ， 用于 处理 复杂 的 应用逻辑 、 数值 计算 、 数据分析 等 与 用户界面 和 数据 存储 无关 的 工作 。 在 三层 结构 中 ， 许多 与 应用 相关 的 工作 从 客户端 抽取 出来 ， 放入 独立 的 应用服务器 中 。 因此 ， 用户界面 、 应用 处理 、 数据库 管理 分为 三 部分 ， 每 部分 完成 特定 的 功能 。 这样 ， 一方面 减少 了 网络 上 的 数据 流通量 ， 降低 了 网络 负载 ； 另一方面 也 减轻 了 客户机 的 负担 。 
+ 
+ 图 1 
+ 　 　 从 安全性 考虑 ， 与 应用 相关 的 算法 应当 是 保密 的 ， 如果 关键 算法 在 Applet 中 ， 一旦 下载 到 别人 的 机器 上 ， 有 可能 被 解密 ， 而用 三层 结构 将 关键 算法 放在 应用服务 层 可以 避免 此 问题 。 另外 对 数据 应用 来说 ， 将 数据库 的 连接 与 查询 放在 服务器端 ， 即 中间 的 应用服务器 层 ， 集中 在 一台 机器 上 ， 只 需 安装 一个 数据库 用户 许可 ， 也 避免 了 客户端程序 直接 访问 数据库 。 
+ 3     基于 Web 应用 的 Java 实现 技术 
+ 　 　 当 系统 全部 采用 Java 技术 实现 后 ， 其 三层 结构 可 描述 如图 2 。 
+ 
+ 图 2 
+ 3.1     用户服务 层 ( 客户端 ) 的 实现 技术 
+ 　 　 该层 的 实现 采用 Java   Applet 技术 。 Java   Applet 程序 是 一种 特殊 类型 的 Java 程序 ， 它 可以 通过 标签 嵌入 到 HTML 文件 中 ， 在 网页文件 被 调用 期间 随同 HTML 文件 一起 被 下载 到 客户端 ， 由 支持 Java 的 浏览器 解释 执行 ， 实现 与 用户 的 交互 。 
+ 　 　 在 引入 Java 之前 的 Web 页 仅 能 提供 静态 信息 ， 缺少 动态 的 交互 特性 ， 即 信息 和 用户 之间 仅 是 一种 显示 和 浏览 的 关系 ， 缺少 一种 实时 、 动态 的 交互 和 表达能力 。 而 Java 和 Web 的 结合 则 有效 地 改变 了 Web 的 上述 缺陷 ， 用户 只 需要 在 支持 Java 的 浏览器 中 加进 一个 引用 Java 应用程序 的 标签 ， 所 链接 的 Java 程序 就 会 自动 下载 到 用户 的 计算机 上 执行 。 这样 就 一改 Web 仅 能传送 静态 信息 的 现象 ， 使得 可 执行 内容 在 网络 环境 中 的 传送 和 自动 执行 成为 可能 ， 同时 也 大大提高 了 Web 处理 复杂 事务 的 能力 。 下面 是 一个 典型 的 嵌入 了 Java   Applet 的 HTML 文件 的 例子 ： 
+ < html > 
+ < head > 
+ < title > A   Java   Applet   Example < / title > 
+ < / head > 
+ < body > 
+ < applet   CODE = " example . class "   WIDTH = " 400 "   HEIGHT = " 300 " > 
+ < / applet > 
+ < / body > 
+ < / html > 
+ 3.2     应用服务 层 ( 服务器端 ) 的 实现 技术 
+ 　 　 Sun 公司 提供 的 Servlet 技术 是 应用服务 层 Java 实现 的 技术 基础 。 与 客户端 的 Java   Applet 与 浏览器 之间 的 关系 相 类似 ， 在 服务器端 ， Java   Servlet 程序 由 支持 Java 的 Web 服务器软件 负责管理 和 解释 。 开发 Java   Servlet 程序 需要 额外 的 JSDK 软件包 ( Java   Servlet   Development   Kit ) 支持 ， 与 JDK 一样 ， 该 包由 Sun 公司 免费 提供 。 
+ 　 　 ( 1 ) Servlet 技术 概述 
+ 　 　 Servlet 是 对 面向 请求 / 应答 方式 的 服务 的 一种 功能 扩展 ， 一个 Servlet 程序 可以 接收 来自 客户端 的 服务 请求 ， 经过 处理 后 再 将 结果 返回 给 客户端 。 JSDK 开发 软件包 的 核心 是 Servlet 接口 ， 所有 的 Servlet 程序 都 必须 通过 一个 类 直接 或 间接 的 实现 该 接口 。 Servlet 接口 提供 了 用于 管理 Servlet 和 与 客户端 通信 的 方法 。 
+ 　 　 当 Servlet 程序 接收 一个 来自 客户端 的 请求 时 ， 它 将 收到 两个 对象 — ServletRequest 和 ServletResponse 。 ServletRequest 类 封装 了 从 客户端 到 服务器端 的 请求 ， 而 ServletResponse 类 封装 了 从 服务器端 到 客户端 的 响应 。 上面 提到 的 Servlet 接口 和 ServletRequest 、 ServletResponse   两个 类 构成 了 Servlet 程序 的 基本 骨架 。 
+ 　 　 ( 2 ) Servlet 的 生存期 
+ 　 　 当 一个 Servlet 程序 被 装载 的 时候 ， 方法 init 首先 被 调用 ， 并且 该 方法 仅仅 在 Servlet 程序 被 初次 装载 时 被 调用 。 当 它 被 卸载 时 ， 方法 destroy 将 被 调用 。 一个 已 被 载入 的 Servlet 程序 不能 被 重新 装载 ， 除非 它 先 被 卸载 。 在 一个 生存 期间 ， 方法 init 和 destroy 仅会 被 调用 一次 。 
+ 　 　 初始化 完成 之后 ， Servlet 就 可以 处理 用户 的 请求 了 ， 这个 过程 是 通过 方法 service 进行 的 。 Servlet 是 支持 多线程 的 ， 每 一个 来自 客户 的 请求 都 会 打开 一个 独立 的 Servlet 线程 去 执行 service 方法 。 
+ 　 　 由于 Servlet 是 多线程 的 ， 所以 在 一个 Servlet 程序 的 生存 期间 ， 很 重要 的 一点 就是 要 注意 代码 的 线程 安全性 ， 主要 是 使 各 线程 间 的 操作 同步化 。 在 某些 情况 下 可能 不 需要 多线程 服务 ， 为 保证 同时 不会 有 两个 线程 运行 ， 可 通过 实现 接口 SingleThreadModel 来 达到 。 
+ 　 　 ( 3 ) 用于 HTTP 协议 的 Servlet 
+ 　 　 开发 自己 的 Servlet 程序 时 ， 必须 直接 或 间接 的 实现 Servlet 接口 。 由于 在 大多数 情况 下 编写 Servlet 程序 都 是 为了 扩展 基于 HTTP 协议 的 服务 功能 ， 所以 最 简单 的 方法 就 是从 HttpServlet 类 派生 用户 自己 的 类 。 
+ 　 　 HttpServlet 类 是 Servlet 技术 提供 的 一个 很 重要 的 类 ， 它 实现 了 Servlet 接口 并且 提供 了 一个 处理 HTTP 协议 的 框架 。 它 的 service 方法 支持 标准 的 HTTP / 1.1 请求 ， 并 能够 将 不同 的 请求 分发 到 各自 相应 的 处理过程 。 为了 编写 用户 自己 的 请求 处理过程 ， 必须 重载 下面 的 这些 方法 ： 
+ 　 　 ． doGet 　 　 用于 处理 GET 请求 
+ 　 　 ． doPost 　 　 用于 处理 POST 请求 
+ 　 　 ． doPut 　 　 用于 处理 PUT 请求 
+ 　 　 ． doDelete 　 　 用于 处理 DELETE 请求 
+ 　 　 所有 这些 方法 都 有 两个 参数 ： 一个 封装 了 来自 客户端 的 请求 数据 ， 它 是 一个 类 HttpServletRequest 的 对象 ； 另 一个 封装 了 送往 客户端 的 响应 数据 ， 它 是 一个 类 HttpServletResponse 的 对象 。 下面 是 一个 Servlet 程序 的 例子 ， 它 处理 了 GET 请求 和 POST 请求 ： 
+ / *   This   is   a   simple   example   of   an   HTTP   Servlet . 
+ 　 *   It   responds   to   the   GET   method   of   the   HTTP   protocol   * / 
+ public   class   SimpleServlet   extends   HttpServlet 
+ { 
+ 　 　 public   void   doGet   (   HttpServletRequest   req ,   
+ 　 　 　 　 HttpServletResponse   res   ) 
+ 　 　 　 throws   ServletException ,   IOException 
+ 　 　 　 { 
+ 　 　 　 / /   set   header   field   first 
+ res . setContentType   (   & quot ; text / html & quot ;   )   ; 
+ / /   the   get   the   writer   and   write   the   response   data 
+ PrintWriter   out   =   res . getWriter ( )   ; 
+ 　 　 　 out . println ( & quot ; < head > < title > SimpleServlet   Output 
+ 　 　 　 　 　 < / title > < / head > & quot ; ) ; 
+ 　 　 　 out . println ( & quot ; < body > < h1 > This   is   SimpleServlet   Output 
+ 　 　 　 　 　 < / h1 > < / body > & quot ; ) ; 
+ 　 　 　 out . close ( ) ; 
+ 　 　 　 } 
+ 　 　 } 
+ 3.3     用户服务 层 ( 客户端 ) 与 应用服务 层 ( 服务器端 ) 的 通信 技术 
+ 　 　 在 客户端 的 Applet 中 ， 只 需要 把 应用服务 层 的 Java   Servlet 看作 是 一个 普通 的 URL ， 即可 实现 与 Servlet 的 通信 连接 ， 发送 请求 ， 获得 响应 。 下面 的 代码 实现 了 与 上面 提到 的 SimpleServlet 的 通信 ( 此处 假设 所 使用 的 Web   Server 为 Sun 公司 的 Java   Web   Server1.1 ， 对于 其它 系统 代码 中 的 URL 会 稍 有 不同 ， 具体情况 请 查看 相应 的 软件 说明 ) ： 
+ URL   url   =   getCodeBase ( ) ; 
+ URL   server   =   new   URL (   url . getProtocol ( ) ,   url . getHost ( ) ,   
+ 　 url . getPort ( ) , 　 　 ＂ / servlet / SimpleServlet ＂ ) ; 
+ URLConnection   con   =   server . openConnection ( ) ; 
+ con . setDoOutput (   true   ) ; 
+ con . setRequestMethod ( ＂ GET ＂ )   ; 
+ 　 　 在 建立 连接 之后 就 可以 使用 URLConnection 的 两个 函数   getInputStream ( ) 、 getOutputStream ( ) 与 Web 服务器端 的 Servlet 传递数据 。 
+ 3.4     应用服务 层 与 数据服务 层 的 通讯 技术 
+ 　 　 数据服务 层 处理 所有 数据 查询 与 存储 操作 ， 实际上 它 一般 是 关系 数据库系统 。 所以 应用服务 层 与 数据服务 层 的 通信 实际上 是 Java   Servlet 程序 访问 数据库 的 过程 。 
+ 　 　 Java 的 跨平台 能力 使得 人们 意识 到 在 Java 应用程序 中 使用 关系数据库 访问 技术 是 很 有 必要 的 ， 这个 技术 就是 JDBC 标准 ( Java   Database   Connection ) 。 JDBC 是 一个 Java 数据库 连接 API ， 它 是 JavaSoft 公司 开发 的 Java   Enterprise   APIs 的 一部分 。 从 一个 开发者 的 角度 来看 ， JDBC 是 第一个 标准化 的 把 关系 型 数据库 和 Java 程序 集成 到 一起 的 尝试 ， 它 可以 给 Java 程序员 提供 访问 各种 关系数据库 的 统一 接口 。 由于 JDBC 要 通过 调用 ODBC 间接 的 访问 数据库 ， 所以 在 使用 JDBC 时 需要 在 本地 配置 数据源 。 
+ 　 　 以下 代码 给出 了 一个 连接 数据库 的 例子 ： 
+ String   DataSource   = ＂ MyDatabase ＂ ; 
+ Class . forName   ( ＂ sun . jdbc . odbc . JdbcOdbcDriver ＂ )   ; 
+ Connection   connection   =   DriverManager . getConnection 
+ 　 　 　 (   DataSource , ＂ username ＂ , ＂ password ＂ )   ; 
+ 　 　 要 处理 来自 一个 数据库 的 数据 ， 一个 Java 程序 要 遵循 下面 的 一般性 步骤 。 首先 ， 程序 调用 getConnection 方法 来 获得 Connection 对象 ， 然后 它 创建 Statement 对象 并且 准备 一个 单独 的 SQL 语句 。 
+ 　 　 一个 SQL 语句 可以 被 立即 执行 ( Statement 对象 ) 、 可以 是 一个 编译 的 语句 ( PreparedStatement 对象 ) 、 或者 可以 是 一个 预先 存储 过程 的 调用 ( CallableStatement 对象 ) 。 当 executeQuery 方法 被 执行 时 ， 它 返回 一个 ResultSet 对象 。 像 update 或 delete 这样 的 SQL 语句 不会 返回 一个 ResultSet ， 对于 这样 的 语句 ， 要 使用 executeUpdate 方法 ， 它 返回 一个 整数 表示 的 SQL 语句 作用 到 的 行数 。 
+ ResultSet 包含 使用 next 方法 进入 语法分析 过 的 数据 行 。 在 事务处理 应用 中 ， rollback 和 commit 这样 的 方法 可以 被 用于 取消 SQL 语句 所 做 的 改动 ， 或者 使 SQL 语句 所 做 的 改动 永久 有效 。 
+ 4     结束语 
+ 　 　 在 众多 的 基于 Web 应用 系统 的 开发技术 中 ， 由于 Java 技术 所 特有 的 平台 无关 性 、 网络 分布 性 等 特性 ， 使得 它 可以 跨越 多种 硬件 和 软件 环境 ， 成为 Internet / Intranet 上 应用 系统 的 理想 的 开发 平台 。 作者 本人 已经 利用 上述 技术 成功 的 开发 了 基于 Web 的 制造 过程 分析 及 信息管理系统 ， 并且 应用 于 某 公司 实际 的 生产 过程 管理 ， 收到 了 理想 的 效果 。 
+ 吴鹏 ( 南京航空航天大学 机电 工程学院       南京   210016 ) 
+ 陈文亮 ( 南京航空航天大学 机电 工程学院     南京   210016 ) 
+ 李 卫国 ( 南京航空航天大学 机电 工程学院     南京   210016 ) 
+ 参考文献 
+ 1 ， Joseph   Weber ,   Java1.1 使用 大全 ( 第 3 版 ) .   北京 : 电子 工业 出版社 
+ 2 ， JavaSoft   Java   Web   Server   Online   Document 
+ 收稿 日期 ： 1999 - 12 - 6 

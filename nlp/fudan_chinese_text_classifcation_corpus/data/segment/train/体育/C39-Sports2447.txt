@@ -1,0 +1,26 @@
+中国 体育 科技 
+ CHINA   SPORT   SCIENCE   AND   TECHNOLOGY 
+ 1999 年   第 35 卷   第 7 期   Vol.35   No.7   1999 
+ 
+ 
+ 
+ 自行车 踏 蹬 圆滑 度 测定 分析 系统 的 研制 与 应用 
+ 熊开宇 　 全如璐 　 延 　 锋 　 赵芝英 
+ 摘要 ： 本 课题 设计 、 研制 了 适合 训练 现场 使用 的 自行车 踏 蹬 圆滑 度 测定 分析 系统 ， 微型化 的 设备 安装 在 赛车 上 不会 影响 运动员 的 骑行 ， 记录 下 的 信号 输入 到 计算机 ， 经过 自动 数据分析 程序处理 后 ， 可以 马上 对 运动员 的 踏 蹬 技术水平 进行 诊断 和 评定 。 
+ 关键词 ： 自行车 ∥ 踏 蹬 ∥ 圆滑 度 ∥ 测定 ∥ 计算机 
+ A   Research   on   Making   and   Applying   the   Measurement   and   Analysis   System   of   the   Bicycle ' s   Pedalling   Smoothness 
+ Xiong   Kaiyu ,   Quan   Rulu ,   Yan   Feng ,   Zhao   Zhiying 
+ Abstract : This   research   design   and   make   a   measuring   and   analyzing   system   of   the   bicycle ' s   pedalling   smoothness   that   could   be   used   on   the   training   spot .   The   microminiaturization   apparatus   set   up   on   the   racing   bicycle   will   not   influence   the   athlete ' s   riding .   The   signals   recorded   by   the   apparatus   will   be   transmitted   to   the   computer   and   after   processed   by   auto - data   analysis   program ,   they   will   immediately   indicate   the   diagnosis   and   evaluation   result   of   the   athlete ' s   pedalling   technique   level . 
+ Key   words : bicycles ∥ padalling   smoothness ∥ computer 
+ 前言 
+ 　 　 自行车 前进 动力 来自 运动员 踏蹬力 的 大小 和 频率 ， 因此 ， 对于 运动员 的 踏 蹬 技术 ， 国内外 进行 了 大量 研究 。 踏 蹬 技术 可 划分 为 下 蹬 ( 90 ° ) 、 后 趴 ( 180 ° ) 、 上 提 ( 270 ° ) 和 前 挑 ( 360 ° ) 4 个 阶段 。 踏 蹬 力越 均匀 ， 工作效率 就 越 高 。 前 苏联 自行车 运动 训练 专家 B . B . 吉莫 申 科夫 通过 长期 研究 发现 ， 自行车 运动员 在 圆周 踏 蹬 过程 中 ， 牙盘 各点 瞬间 角速度 越 趋向 恒定 ， 越 有利于 运动员 体能 的 发挥 ， 并 首先 提出 “ 圆滑 度 ” 概念 ， 应用 “ 圆滑 度 ” 来 评定 运动员 踏 蹬 技术 的 优劣 。 另 一位 专家 基莫塞 柯夫 采用 踏板 测力 系统对 圆滑 度 进行 了 研究 。 发现 运动员 在 踏 蹬 圆周 中 ， 最大 用力 在 90 ° 和 120 ° ， 最小 用力 在 0 ° 和 180 ° 。 因此 ， 将 0 ° 称为 圆周 踏 蹬 的 “ 上死点 ” ， 将 180 ° 称为 圆周 踏 蹬 的 “ 下死点 ” 。 尤戈克 . 拉吉 哈斯 姆 . 来 纳克 夫 研究 发现 ， 自行车 运动员 踏 蹬 “ 死 点 ” 不是 在 一个 固定 角度 ， 而是 在 一个 区域 。 他 认为 ， 不同 等级 运动员 的 踏 蹬 “ 死 点 ” 区域 原则上 在 1 周中 时间 和 位置 均 有 区别 。 同一 等级 运动员 有 许多 特点 ， 但 又 表现 出 专项 上 的 不同 。 我国 许多 学者 也 对 自行车 运动员 踏 蹬 圆滑 度 进行 过 详细 的 研究 。 
+ 　 　 过去 ， 大部分 研究 都 是 在 实验室 内 完成 ， 不能 真实 反映 出 比赛 和 训练 时 的 实况 。 能 现场 测试 自行车 运动员 踏 蹬 圆滑 度 的 测定 分析 系统 目前 还 未 见 报道 。 本 研究 的 初衷 是 设计 、 研制 一套 适合 训练 现场 使用 的 自行车 踏 蹬 圆滑 度 测定 分析 系统 ， 为 改进 和 提高 运动员 踏 蹬 技术 提供 可靠 的 依据 。 
+ 1 　 自行车 踏 蹬 圆滑 度 测定 分析 系统 的 组成 
+ 　 　 自行车 踏 蹬 圆滑 度 测定 分析 系统 主要 由 传感器 、 接口 电路 、 计算机 及 应用软件 组成 ( 图 1 ) 。 
+ 
+ 图   1 　 自行车 踏 蹬 圆滑 度 测定 分析 系统 框图 
+ 1.1 　 踏 蹬 速度 传感器 
+ 　 　 踏 蹬 速度 传感器 的 作用 是 将 自行车 运动员 踏 蹬 速度 信息 转换 为 电脉冲 信号 ， 它 是 本 系统 的 关键部件 ， 对 其 基本 要求 是 结构 简单 ， 抗干扰性 强 ， 耗电 少 ， 体积小 ， 重量轻 ， 灵敏度 高 ， 电路 简单 。 本 系统 选用 了 磁敏 数字 开关 传感器 ， 此 传感器 可以 将 磁 信号 直接 转换 为 标准 的 电脉冲 信号 。 其 优点 是 “ 无 反弹 惰性 ” ， 无 机械 触点 ， 开关 次数 可达 100 ， 000 次 / s 。 其 结构 为 在 同一 硅 芯片 内 包括 稳压器 、 霍尔 电压 产生器 、 信号 放大器 、 触发 电路 和 输出 晶体管 ， 它 保证 开关 工作 稳定 和 没有 振荡 现象 。 
+ 　 　 磁 信号 来自 固定 在 自行车 牙盘 上 的 小 磁铁 ， 小 磁铁 采用 中科院 生产 的 高 磁性 稀土 磁铁 ， 体积 为 5 × 2 × 1   mm 。 小 磁铁 均匀分布 在 牙盘 圆周 上 ( 图 2 ) 。 小 磁铁 间隔 为 30 ° ， 整个 圆周 上 共 固定 12 块 小 磁铁 ， 在 0 ° 与 30 ° 之间 外加 一块 定位 用 小 磁铁 ， 总共 13 块 小 磁铁 。 如果 需要 提高 测试 精度 ， 可以 每 15 ° 固定 一块 小 磁铁 。 
+ 
+ < img   src = " image7 / t37 - 1 . gif "   width = " 178 "   height = " 

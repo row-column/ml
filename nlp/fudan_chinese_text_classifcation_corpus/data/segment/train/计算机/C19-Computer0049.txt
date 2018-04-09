@@ -1,0 +1,104 @@
+计算机 应用 
+ Computer   Applications 
+ 1999 年   第 19 卷   第 7 期     Vol.19   No.7   1999 
+ 
+ 
+ 
+ Solaris   系统 动态链接库 的 建立 及其 程序设计 接口 
+ 曹广华 　 袁子 龙 　 李鹏 举 
+ 
+ 　 　 摘 　 要 　 建立 用户 自己 的 动态链接库 、 使用 动态 链接 程序设计 接口 是 大型 、 高质量 程序设计 的 一项 重要 技术 。 Solaris 操作系统 为 其 应用程序 提供 了 很 好 的 动态 链接 环境 。 本文 对 Solaris   系统 动态链接库 的 建立 方法 、 使用 动态 链接 程序设计 接口函数 进行 了 讨论 。 
+ 　 　 关键词 　 动态 链接 ， 动态链接库 ， 动态 链接 接口函数 
+ 
+ 　 　 动态 链接 技术 是 计算机 系统软件 的 一项 重要 技术 ， 它 采用 动态 代码 共享 技术 ， 不但 使 整个 系统资源 得到 有效 使用 ， 而且 增强 了 应用程序 的 通用性 、 稳定性 和 可扩展性 。 在 现代 UNIX 操作系统 中 ， 系统软件 和 大型 应用软件 都 采用 动态 链接 技术 。 本文 以 Sun 工作站 使用 的 Solaris 操作系统 为例 分析 其 动态 链接 环境 、 动态链接库 的 建立 及其 使用 方法 。 　 
+ 1 　 Solaris   的 动态 链接 环境 
+ 　 　 Sun 工作站 使用 的 Solaris 操作系统 ( UNIX ) 为 其 应用程序 提供 了 很 好 的 动态 链接 环境 ［ 1 ］ 。 通过 系统 提供 的 链接 程序 ( link   editor ) 、 共享 函数库 ( shared   library ) 和 运行 时 链接 器 ( runtime   linker ) ， 我们 可以 方便 地 建立 和 运行 动态 可执行程序 。 
+ 1.1 　 Solaris 系统 的 函数库 
+ 　 　 Solaris 操作系统 在 / usr / lib 目录 中 提供 各种 函数库 ， 包括 各种 静态 库 （ lib < name > . a ） 和 各种 动态 链接 共享 库 （ lib < name > . so ） ， 这些 函数库 作为 缺省值 在 编译程序 时 被 系统 链接 程序 链接 ， 根据 不同 情况 生成 静态 链接 或 动态 链接 可执行程序 。 动态 链接 可执行程序 在 运行 时 还要 由 系统 运行 时 链接 程序 动态 调用 所 需要 的 动态 链接 共享 库 ［ 1 ］ 。 
+ 1.2 　 Solaris 系统 的 链接 程序 
+ 　 　 Solaris 系统 的 链接 程序 ld 本质 上 是 一个 动态 链接 程序 ， 即 系统对 目标 码 进行 链接 时 ， 优先选择 动态链接库 。 例如 ， 如果 系统 在 / usr / lib 目录 中 同时 存在 静态 数学 函数库 libm . a 和 动态 数学 函数库 libm . so ， 则 命令 % cc   prog . c   - o   prog   - lm 自动 链接 libm . so ， 生成 动态 链接 可执行程序 。 
+ 　 　 在 程序 编译 过程 中 ， 可以 采用 不同 的 选项 控制系统 链接 程序 的 执行 ， 从而 得到 静态 链接 可执行程序 、 动态 链接 可执行程序 ［ 2 ］ 或 共享 函数库 。 
+ 1.3 　 Solaris 系统 的 运行 时 链接 程序 
+ 　 　 Solaris 系统 提供 的 运行 时 链接 器是 ld . so ， 它 在 动态 可执行程序 运行 时 被 启动 ， 以 选择 合适 的 共享 库 ， 控制 动态 可执行程序 的 运行 ［ 1 ］ 。 
+ 　 　 
+ 2 　 建立 动态链接库 
+ 　 　 采用 动态 链接 技术 设计 程序 时 ， 除了 使用 系统 提供 的 标准 动态链接库 之外 ， 建立 用户 自己 的 动态链接库 、 使用 动态 链接 程序设计 接口 设计 程序 是 一项 十分 重要 的 技术 。 
+ 　 　 Solaris 系统 提供 的 编译程序 、 链接 程序 、 共享 函数库 和 运行 时 链接 程序 为 用户 使用 其 标准 动态链接库 提供 了 支持 ， 同时 也 允许 用户 自己 建立 动态链接库 。 Solaris1 . x （ SunOS4.1 . x ） 和 Solaris2 . x （ SunOS5 . x ） 的 链接 程序 通过 生成 PIC 码 ( position   independent   code ) 使 动态 链接 码作 到 最大 限度 的 共享 。 PIC 码 不用 修改 就 可 用于 任何 进程 地址 中 ， 这样 就 减少 了 进程 对 内存空间 的 要求 和 I / O 请求 ， 在 代码 共享 的 同时 提高 了 系统 运行 效率 ［ 3 ］ 。 下面 我们 以 C语言 为例 ， 说明 在 Solaris 系统 中 建立 动态链接库 的 方法 。 
+ 2.1 　 Solaris1 . x 中 动态链接库 的 建立 
+ 　 　 设 需要 建库 的 C语言 子程序 为 f1 . c 、 f2 . c 、 … 、 fn . c （ 注意 ， 这些 程序 中 不 包含 main 函数 且 各 源程序 文件 中 没有 外部 参考 全局变量 ） ， 要 建立 的 动态链接库 的 名称 为 mylib ， 根据 UNIX 系统 函数库 的 命名 规则 ［ 1 ］ ， 要 建立 的 动态链接库 的 文件名 为 libmylib . so ， 建库 的 步骤 和 命令 如下 ： 
+ 　 　 *   生成 PIC 格式 的 目标 码 ： 
+ 　 　 %   cc   - pic   - c   * . c 
+ 　 　 *   将 PIC 目标 码 链接 成 动态链接库 ： 
+ 　 　 %   ld   - o   libmylib . so.1 . 1   - assert   pure - text   * . o 
+ 　 　 *   使用 符号 链接 生成 所 需要 的 动态链接库 文件 ： 
+ 　 　 %   ln   - s   libmylib . so.1 . 1   libmylib . so 
+ 　 　 Solaris1 . x 生成 动态链接库 时 ， 版本信息 需要 一个 主号 ( major ) 和 辅号 ( minor ) ， 即 文件名 libmylib . so.1 . 1 的 版本号 “ 1.1 ” 中 ， 前 一个 “ 1 ” 为主 号 ， 后 一个 “ 1 ” 为辅 号 ， Solaris2 . x 中 只 使用 主号 。 
+ 2.2 　 Solaris2 . x 中 动态链接库 的 建立 
+ 　 　 设 需要 建库 的 C语言 子程序 为 f1 . c 、 f2 . c 、 … 、 fn . c ， 要 建立 的 动态链接库 的 文件名 为 libmylib . so ， 在 Solaris2 . x 系统 中建 库 的 步骤 和 命令 如下 ： 
+ 　 　 *   生成 PIC 格式 的 目标 码 ： 
+ 　 　 %   cc   - K   PIC   - c   * . c 
+ 　 　 *   将 PIC 目标 码 链接 成 动态链接库 ： 
+ 　 　 %   ld   - o   libmylib . so.1   - G   - z   text   * . o 
+ 　 　 *   使用 符号 链接 生成 所 需要 的 动态链接库 文件 ： 
+ 　 　 %   ln   - s   libmylib . so.1   libmylib . so 
+ 　 　 Solaris2 . x 生成 动态链接库 时 ， 可以 使用 - h 选项 记录 版本信息 。 例如 ， 下面 的 命令 将 版本号 “ libfoo . so.1 ” 记录 在 了 libfoo . so.1 共享 函数库 中 ： 
+ %   cc   - K   PIC   - h   libfoo . so.1   - o   libfoo . so.1   f1 . c   f2 . c   f3 . c 
+ 　 　 这样 ， 使用 libfoo . so.1 的 程序 在 运行 时 首先 链接 该 共享 库 。 例如 ， 下面 的 编译 命令 
+ %   cc   - o   prog   prog . c   - Ldir   - lfoo 
+ 　 　 使用 了 libfoo . so.1 库 ， prog 程序 在 运行 时 自动 链接 该 共享 库 ， 即使 / usr / lib 中 的 libfoo . so 符号 链接 指向 了 新 版本 的 libfoo . so.2 ， 这样 就 保证 了 依赖于 libfoo . so.1 程序 的 正常 运行 。 
+ 2.3 　 新建 动态链接库 的 使用 
+ 　 　 新建 的 动态链接库 可以 放到 / usr / lib 目录 中 作为 标准 附加 库 使用 ［ 1 ］ ， 也 可以 单独 放到 其它 目录 中 使用 。 例如 ， 新建 的 libmylib . so （ 可以 是 符号 链接 ） 放到 / usr / lib 目录 中 时 ， 使用 该库 时 编译 命令 如下 ： 
+ 　 　 %   cc   prog . c   - o   prog   - lmylib 
+ 　 　 此时 的 动态链接库 为 标准 附加 库 。 
+ 　 　 如果 新建 的 libmylib . so 放到 / home / lib 目录 中 ， 使用 该库 时 的 编译 命令 如下 ： 
+ %   cc   prog . c   - o   prog   - L / home / lib   - lmylib 
+ 　 　 此时 的 函数库 没有 在 标准 目录 位置 ， 编译 时应 使用 - L 选项 指明 其 所在位置 ， 运行 时应 设置 LD _ LIBRARY _ PATH 环境变量 指明 该 共享 库 的 位置 ［ 1 ］ 。 　 　 
+ 3 　 动态 链接 程序设计 接口 
+ 　 　 Solaris 系统 提供 动态 链接 程序设计 接口函数 直接 使用 动态 链接 函数库 中 的 函数 ， 以 提高 程序 的 运行 效率 ［ 2 ］ 。 接口函数 包括 建立 动态 链接 dlopen ( ) 、 返回 共享 码 地址 dlsym ( ) 、 关闭 动态 链接 dlclose ( ) 和 动态 链接 错误处理 dlerror ( ) 四个 函数 。 下面 举例说明 他们 的 用法 。 
+ 　 　 设 pnum ( ) 是 当前目录 中 动态 链接 函数库 libtest . so.1 中 的 函数 ， 其 内容 如下 ： 
+ / *   libtest . so.1 中   * / 
+ # include   < stdio . h > 
+ ... 
+ void   pnum ( int   num ) 
+ { 
+ printf ( " num = % d \ n " , num ) ; 
+ } 
+ ... 
+ 　 　 使用 动态 链接 程序接口 函数调用 pnum ( ) 库函数 的 程序 如下 ： 
+ # include   < stdio . h > 
+ # include   < dlfcn . h >   　 　 　 　 　 　 　 　 / *   必需 包含 该 头文件   * / 
+ main ( ) 
+ { 
+ void   * open _ handle ,   　 　 　 　 　 　 　 　 / * 库 句柄 * / 
+ ( * access _ handle ) ( ) ;   　 　 　 　 　 　 　 　 / * 函数 句柄 * / 
+ / * 装入 共享 库 ， 获得 库 句柄   * / 
+ open _ handle = dlopen ( " . / libtest . so.1 " , RTLD _ LAZY ) ; 
+ if ( open _ handle = = NULL ) { 
+ printf ( " dlopen   failed :   % s \ n " , dlerror ( ) ) ; 
+ exit ( 1 ) ; 
+ } 
+ / * 获得 pnum 函数 的 句柄   * / 
+ access _ handle = ( void ( * ) ( ) ) dlsym ( open _ handle , " pnum " ) ; 
+ if ( access _ handle = = NULL ) { 
+ printf ( " dlsym   failed :   % s \ n " , dlerror ( ) ) ; 
+ exit ( 1 ) ; 
+ } 
+ / *   使用 函数 句柄 调用 pnum 函数   * / 
+ ( * access _ handle ) ( 10 ) ; 
+ / *   关闭 共享 库 ， 程序 结束 * / 
+ if ( dlclose ( open _ handle ) ! = 0 ) { 
+ printf ( " dlclose   failed :   % s \ n " , dlerror ( ) ) ; 
+ exit ( 1 ) ; 
+ } 
+ } 
+ 　 　 该 程序 非常简单 ， 主 函数 main 直接 调用 共享 库中 的 pnum 函数 打印输出 一个 整数 10 。 程序 中 的 说明 行 详细 说明 了 接口函数 的 使用 方法 。 
+ 　 　   
+ 4 　 结束语 
+ 　 　 建立 和 使用 动态 链接 函数库 是 现代 程序设计 的 重要 技术 ， 它 对 提高 程序 的 灵活性 和 高效性 都 起到 了 非常 重要 的 作用 ， 特别 对于 大型 应用程序 的 设计 尤其 重要 ， 应 引起 我们 足够 的 重视 。 
+ 　 　 曹广华 　 讲师 。 主要 研究 方向 ： UNIX 系统 、 分布式 数据 采集 系统 。 
+ 　 　 作者 单位 ： 曹广华 　 袁子 龙 　 李鹏 举 （ 大庆 石油学院 勘探 系 　 黑龙江 ． 安达 151400 ） 
+ 参考文献 
+ ［ 1 ］ 　 曹广华 .   Solaris   系统 的 动态 链接 环境 与 使用 .   中国 计算机 报 （ 光盘 Info   CD ） ， 1998 ； ( 4 ) 
+ ［ 2 ］ 　 SunSoft ,   Inc . SunOS5.5   Linker   and   Libraries   Manual , Mountain   View ， 1996 
+ ［ 3 ］ 　 Sun   Microsystems   Inc . SunOS5.5   Online   Manual ,   1995 
+ 　 　 收稿 日期 : 1999 - 01 - 12 

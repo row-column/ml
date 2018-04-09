@@ -1,0 +1,156 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年 　 第 36 卷 　 第 11 期 　 Vol.36 　 No.11 　 1999 
+ 
+ 
+ 
+ 空间数据 采掘 的 研究 与 发展 
+ 石 　 云 　 孙玉方 　 左 　 春 
+ 摘 　 要 ： 数据 采掘 的 研究 已 从 关系 型 和 事务 型 数据库 扩展 到 空间 数据库 空间数据 采掘 是 一个 很 有 发展前景 的 领域 ， 它 是 在 大量 空间数据 中 进行 知识 发现 的 技术 . 文中 总结 了 空间数据 采掘 领域 中 的 研究成果 ， 概括 出 空间数据 采掘 的 体系结构   、 查询语言 及 相关 方法 ， 并 探讨 了 目前 存在 的 问题 和 发展 方向 . 
+ 关键词 ： 数据库 知识 发现 ， 空间数据 采掘 ， 空间 数据库 
+ 中图法 分类号 ： TP311.13 
+ THE   RESEARCH   AND   DEVELOPMENT   OF   SPATIAL 
+ DATA   MINING 
+ SHI   Yun ,   SUN   Yu - Fang ,   and   ZUO   Chun 
+ ( Institute   of   Software ,   Chinese   Academy   of   Sciences ,   Beijing   100080 ) 
+ Abstract 　 Recent   studies   have   extended   the   scope   of   data   mining   from   relational   and   transactional   databases   to   spatial   databases .   Spatial   data   mining ,   that   is   knowledge   discovery   from   huge   amounts   of   spatial   data ,   is   a   prom   ising   research   filed .   In   this   paper ,   current   techniques   used   in   spatial   datamining ,   including   the   architecture ,   query   language ,   and   related   methods ,   are   summarized ,   and   future   research   directions   are   discussed . 
+ Key   words 　 KDD ,   spatial   data   mining ,   spatial   database 
+ 1 　 引 　 言 
+ 　 　 无论是 商业 企业 、 科研机构 还是 政府部门 ， 在 过去 若干年 时间 里 都 积累 了 海量 数据 ， 目前 这   些 数据 仍然 保持 着 猛烈 的 增长势头 . 如此 大量 的 数据 向 传统 的 信息 和 知识 抽取 方法 提出 巨大 挑战 . 数据 采掘 或 数据库 知识 发现 （ KDD ） 作为 一个 新 的 研究 领域 和 新 的 技术 正 方兴未艾 ， 用于 从 大 瞋 数据库 中 发现 有趣 的 、 隐含 的 、 以前 不 知道 的 知识 ［ 1 ］ . 
+ 　 　 近来 数据 采掘 的 研究 已 从 关系 型 和 事务 型 数据库 扩展 到 空间 数据库 . 空间 数 杮 采掘 就 是从 大量 空间数据 中 发现 知识 ， 是 一个 很 有 发展前景 的 领域 .   因为 大量 空间数据 从 遥感 、 地理信息系统 ( GIS ) 、 多媒体系统 、 医学 和 卫星 图像 等 多种 应用 中 收集 出来 ， 收集 到 的 数据 远远 超过 人脑 分析 的 能力 . 空间 数据库 保存 有 空间 对象 ， 这些 空间 对象 用 空间 数据类型 和 对象 的 空间 关系 表示 . 空间数据 有 许多 不同于 关系数据库 的 特性 . 它 带有 拓扑 和 / 或 距离 信息 ， 通常 以 复杂 的 多维 空间 索引 结构 组织 ， 通过 空间数据 存取方法 存取 ， 常常 需要 空间 推理 、 几何 计算 和 空间 知识 表示 技术 . 这些 特性 使得 从 空间数据 中 采掘 信息 具有 很多 挑战性 的 问题 ［ 2 ］ . 空间数据 采掘 指 的 是从 空间 数据库 中 抽取 隐含 的 知识 、 空间 关系 或非 显式 地 存储 在 空间 数据库 中 的 其它 模式 ［ 3 ］ ， 用于 理解 空间数据 、 发现 空间 和 非 空间数据 间 的 关系 、 构建 空间 知识库 、 查询 优化 、 空间 数据库 数据 重组 、 以 简单 精确 的 方式 描述 通用 特征 等等 . 
+ 　 　 本文 总结 了 空间数据 采掘 领域 中 的 研究成果 ， 概括 出 空间数据 采掘 的 体系结构 、 查询语言 及   相关 方法 ， 并 探讨 了 目前 存在 的 问题 和 发展 方向 . 
+ 2 　 空间数据 采掘 体系结构 
+ 　 　 数据 采掘 有 各种各样 的 体系结构 ， 如 Han 提出 的 通用 数据 采掘 原型 DBLEARN / DBMINER ［ 4 ］ 、 Holsheimer 等 人 的 并行 体系结构 ［ 5 ］ 、 Matheus 等 人 的 多 组件 体   系 结构 ［ 6 ］ . 所有 这些 体系结构 都 可 将 其 扩展 用于 空间数据 采掘 . 相比之下 ， Matheus   等 人 提出 的 体系结构 要 更 通用 一些 ， 已经 被 一些 研究者 们 采纳 ， 该 体系结构 如图 1 所示 . 
+ 
+ 
+ 图 1 　 空间数据 采掘 体系结构 
+ 　 　 在 多 组件 体系结构 中 ， 用户 可以 控制 采掘 过程 中 的 每个 步骤 （ 见图 1 ） ， 在 知识库 中 存储 背   景 知识 ， 如 空间 和 非 空间概念 层 ， 或 有关 数据库 的 信息 . 采掘 处理过程 主要 由 4 个 组件 完成 ： DB 接口 、 聚焦 、 模式 抽取 、 评估 . 利用 DB 接口 从 数据源 取出 数据 ， 该 接口 允许 进行 查询 优化 ， 利用 空间数据 索引 结构 （ 如 R 树 ） 等 方法 来 进行 高效 处理 ； 聚焦 组件 进行 对象 和 属性 抽取 ， 决定 哪些 数据 对 模式识别 是 有用 的 ； 模式 抽取 组件 发现 规则 和 模式 ， 该 组件 使用 统计学 、 机器 学习 和 数据 采掘 技术 结合 计算 几何学 算法 来 发现 规则 和 关系 ； 评估 组件 评价 所 发现 的 模式 的 有趣 程度 和 重要性 ， 以 去除 明显 和 冗余 的 知识 .   4 个 组件 通过 控制器 进行 交互 ， 采掘 的 结果 最终 传给 用户 . 
+ 3 　 空间数据 采掘 方法 
+ 　 　 空间数据 采掘 不同于 一般 的 数据 采掘 . 关系 型 数据 采掘 的 算法 假定 数据 是 独立 的 ， 而 在 空间   数据库 中 一个 对象 可能 会受 其 邻近 若干个 对象 的 影响 ， 数据 之间 也许 相互依赖 . 因此 ， 必须 展 传统 的 数据 采掘 技术 至 空间 采掘 技术 ， 以便 更好 地 分析 复杂 的 空间 现象 和 空间 对象 . 空间数据 采掘 利用 了 诸如 空间 数据结构 、 空间 推理 、 计算 几何学 等 已有 的 技术 ， 并 提出 很多 新 的 有效 的 空间数据 采掘 方法 . 它 对 传统 空间 分析方法 进行 了 扩展 ， 将 重点 放在 实现 效率 、 与 数据库系统 的 结合 、 与 用户 较 好 地 交互 、 以及 发现 新 类型 的 知识 的 问题 上 ［ 7 ］ . 
+ 　 　 本 节 首先 引入 空间 分析方法 的 背景 ， 接着 介绍 基于 泛化 、 聚类 、 分类 、 空间 关联 、 以及 聚合   邻近 的 空间数据 采掘 方法 ， 最后 概要 介绍 了 空间数据 采掘 的 一个 特例 ： 图像 数据库 的 采掘 .   
+ 3.1 　 背 　 景 
+ 3.1 . 1 　 空间 数据结构 、 空间 操作 和 查询 
+ 　 　 空间数据 采掘 的 算法 中 包括 诸如 空间 连接 、 地图 覆盖 、 最近 邻接 查询 等 空间 操作 . 用于 此类   运算 的 高效 的 空间 存取方法 （ SAM ） 和 数据结构 是 空间数据 采掘 的 一个 关心 焦点 ［ 8 ］   . 
+ 　 　 ( 1 )   空间 数据结构 
+ 　 　 空间 数据结构 包括 点 、 线 、 矩形 等 . 对 这些 数据 的 索引 采用 多维 树 概念 . 多维 树 包含 四叉树 、   k - d 树 、 R 树 、 R * 树 等 . 其中 最 著名 的 且 在 文献 中 讨论 得 最 多 的 是 R 树 与其 变种 R * 树 . 存储 在 R 树中 的 对象 用 最小 边界 矩形 （ MBR ） 近似 . R 树中 的 每个 节点 存储 一 矩形 集合 . 在 叶 节点 存有 代表 多边形 的 边界 和 多边形 的 MBRs 的 指针 . 在 树 的 内部 节点 每个 矩形 与 一 指向 子女 的 指针 关联 ， 代表 存在 子女 中 的 所有 矩形 的 MBRs . 
+ 　 　 ( 2 )   空间 运算 
+ 　 　 空间 连接 是 时间 复杂度 最大 的 空间 操作 之一 . Brinkhoff 等 人 提出 了 一个 有效 的 多层次 处理   方法 ［ 9 ］ ， 利用 R * 树 和 空间 对象 邻近 的 空间 连接 . 首先 使用 MBRs ， 用 邻近 操作 找到 可能 的 相交 对象 对 其 进行 过滤 ； 然后 执行 详细 的 几何 运算 ， 检查 相交 以便 进行 细化 . 
+ 　 　 Koudas 和 Sevcik ［ 10 ］ 提出 S3J （ Size   Separation   Spatial   Join ） 空间 连接 技术 ， 对 数据 空间 进行 层次性 分解 ， 用于 当 空间数据 集合 中 不 存在 空间 索引 时 计算 两个 或 多个 空间数据 集合 的 空间 连接 . 
+ 　 　 Theodoridis 等 人 ［ 11 ］ 提出 空间 数据库 连接 查询 的 成本 模型 ， 采用 空间 数据结构 来 支持 多维 数据 的 连接 查询 ， 用于 空间 查询 优化 . 
+ 　 　 另外 一种 重要 的 空间 操作 是 地图 覆盖 ， 它 在 地理信息系统 中 尤为重要 . 
+ 　 　 ( 3 )   空间 查询处理 
+ 　 　 Aref 和 Samet ［ 12 ］ 提出 空间 查询处理 的 优化 策略 ， 为 空间 数据库 提出 一个 称为 SAND （ 空间 和 非 空间数据 ） 的 体系结构 ， 这是 一个 使用 空间 操作 的 扩展 的 关系数据库 模型 ［ 13 ］ . 该 体系结构 既 提供 空间 数据库 的 空间 组件 ， 也 提供 非 空间 组件 ， 以 参与 查询处理 . 
+ 3.1 . 2 　 统计学 空间 分析 
+ 　 　 统计 方法 是 分析 空间数据 的 最 常用 的 方法 . 统计 方法 有 较 强 的 理论 基础 ， 拥有 大量 的 算法 ，   并 包含 多种 优化 技术 . 它 能够 有效 处理 数值 型 数据 ， 通常 会 导出 空间 现象 的 现实 模型 . 然而 ， 该 方法 基于 统计 不 相关 假设 ， 而 实际上 在 空间 数据库 中 许多 空间数据 通常 是 相关 的 ， 即 空间 对象 受其 邻近 对象 的 影响 ， 难以 满足 这种 假设 ， 这样 就 会 引起 问题 . 采用 对 依赖 变量 带有 空间 保护 的 Kriging 或 回归 模型 能 在 某种程度 上 减轻 这个 问题 . 但是 ， 这样 会 使 整个 建模 过程 过于 复杂 ， 只能 由 具有 相当 领域 知识 的 统计学 专家 来 完成 ， 终端用户 难以 采用 该 技术 来 分析 空间数据 . 另外 ， 统计 方法 对 非线性 规则 不能 很 好 建模 ， 处理 字符 型 数据 的 能力 较差 ， 难以 处理 不 完全 或 不确定性 数据 ， 而且 运算 的 代价 较 高 . 文献 ［ 1 ］ 中 提出 了 一些 方法 用以 克服   统计学 空间 分析方法 的 缺点 . 
+ 3.2 　 基于 泛化 的 方法 
+ 　 　 数据库 中 的 数据 和 对象 在 原始 的 概念 层次 包含 有 详细 的 信息 ， 经常 需要 将 大量 数据 的 集合 进   行 概括 并 以 较 高 的 概念 层次 展示 . 基于 泛化 的 知识 发现 假定 背景 知识 以 概念 层次 的 形式 存在 . 概念 层次 可 由 专家 提供 ， 或 借助 数据分析 自动 生成 . 空间 数据库 中 可以 定义 两种 类型 的 概念 层次 ： 非 空间概念 层 和 空间概念 层 . Han   and   Fu ［ 4 ］ 提出 一个 有效 的 数据 泛化 技术 ： 面向 属性 的 归纳 . 它 首先 执行 一个 数据 采掘 查询 ， 采集 数据库 中 相关 数据 的 集合 ， 然后 ， 通过 提升 泛化 层次 ， 在 较 高 概念 层次 上 概括 空间 和 非 空间数据 间 的 泛化 关系 以 进行 数据 泛化 . 泛化 的 结果 可用 泛化 关系 或 数据 立方体 的 形式 表达 ， 用以 执行 进一步 的 OLAP 操作 ， 也 可以 映射 为 概括 表 、 图表 或 曲线 来 进行 可视化 表示 ， 还 能 从中 抽取 特征 和 判别 规则 . Lu 等 人 ［ 2 ］ 将 面向 属性 的 归纳 扩展 至 空间 数据库 ， 提出 两个 算法 ： 空间数据 支配 泛化 和 非 空间   数据 支配 泛化 . 
+ 　 　 ( 1 )   空间数据 支配 泛化 算法 
+ 　 　 算法 采用 高阶 谓词 描述 空间 区域 . 首先 ， 根据 空间 层次 合并 空间 区域 ， 得到 包含 少量 区域 的   一张 地图 . 然后 ， 采用 面向 属性 的 归纳 技术 生成 每个 区域 的 非 空间 描述 . 查询 的 结果 采用 每 渪 泛化 区域 的 特征 谓词 的 析取 来 描述 . 
+ 　 　 ( 2 )   非 空间数据 支配 泛化 算法 
+ 　 　 算法 首先 对非 空间 属性 作 面向 属性 的 罒 纳 ， 将 其 泛化 至 更 高 的 概念 层次 . 然后 ， 将 具有 相同   的 泛化 属性 值 的 相邻 区域 合并 在 一起 ， 可用 邻近 方法 忽略 具有 不同 非 空间 描述 的 小 区域 . 查询 的 结果 生成 包含 少量 区域 的 地图 ， 这些 区域 共享 同一 层次 的 非 空间 描述 . 
+ 3.3 　 基于 聚类 的 方法 
+ 　 　 空间数据 聚类 在 一个 大 的 多维 数据 集合 中 采用 距离 度量 以 标识 出聚类 ， 由此 来 发现 数据 集合   的 整个 分布模式 . 
+ 　 　 ( 1 )   基于 随机 搜索 的 聚类 方法 CLARANS 
+ 　 　 CLARANS （ Clustering   Large   Applications   based   upon   RANdomized   Search ） 算法 由 Ng 和 H   an ［ 14 ］ 提出 ， 其聚类 过程 可以 表示 为 查找 一个 图 ， 图中 的 每个 节点 都 是 潜在 的 解决方案 . 在 替换 一个 中心点 后 获得 的 聚类 称为 当前 聚类 的 邻居 . 随意 测试 的 邻居 的 数目 由 参数 maxneighbor 限制 . 如果 找到 一个 更好 的 邻居 ， 将 中心点 移至 邻居 节点 ， 重新 开始 上述 过程 ， 否则 在 当前 的 聚类 中 生成 一个 局部 最优 . 找到 一个 局部 最优 后 ， 再 任意 选择 一个 新 的 节点 重新 寻找 新 的 局部 最优 . 局部 最优 的 数目 被 参数 numlocal 限制 . 可以 看到 ， CLARANS 并 不 搜索 遍 所有 的 求解 空间 ， 也 不 限制 在 任何 具体 的 采样 中 . CLARANS 每次 迭代 的 计算 复杂度 与 对象 的 数量 基本 呈 线性关系 . CLARANS 也 可 检测 出 离开 本体 的 部分 ， 例如 不 属于 任何 聚类 的 点 . 基于 CLARANS 的 空间数据 聚类 算法 也 有 两种 ： 空间 支配 算法 和 非 空间 支配 算法 . 
+ 　 　 CLARANS 方法 的 缺点 是 要求 要 聚类 的 对象 必须 预先 都 调入 内存 里 ， 这 对 非常 大 的 空间 数据库   是 不合理 的 . 
+ 　 　 ( 2 )   CLARANS 聚焦 法 
+ 　 　 抽样 方法 可 提高 聚类 算法 的 效率 ， 但 差 的 抽样 会 导致 差 的 聚类 质量 . Ester 等 人 ［ 15 ］ 利用 空间 数据结构 提出 了 提高 抽样 质量 的 算法 . 该 算法 仅仅 聚类 R * 树叶 节点 最 中央 的 对象 .   因为 在 叶 节点 中仅 存储 了 邻近 的 点 ， 所以 损失 的 聚类 质量 很小 ， 在 实验 中约 为 1.5% ～ 3.2% ， 而 聚类 的 速度 大约 提高 了 50 倍 . 另外 一种 技术 是 利用 R * 树结构 仅 在 对象 对 上 执行 计算 ， 以 提高 聚类 的 效率 . 
+ 　 　 聚焦 方法 通过 引入 R 树 方法 可 用于 处理 大型 数据 ， 缺点 是 R 树 的 构建 并 不 容易 而且 要 耗费 相当 的 计算 量 . 　 　 
+ 　 　 ( 3 )   平衡 迭代 消减 聚类 法 BIRCH 
+ 　 　 Zhang 等 人 ［ 16 ］ 提出 平衡 迭代 消减 聚类 法 BIRCH （ Balanced   Iterative   Reducing   and   Clustering ） ， 以 解决 上述 聚焦 方法 的 难点 . 它 是 一种 较为 灵活 的 增量 式 聚类 方法 ， 能 根据 内存 的 配置 大小 而 自动 调整 程序 对 内存 的 需要 . 它 有 两个 概念 ： 聚类 特征 （ clustering   feature ） 和 聚类 特征 树 （ CF - tree ） . 
+ 　 　 聚类 特征 CF 是 一个 三元组 ， 它 总结 了 一簇 个体 的 有关 信息 ， 从而 使得 一簇 点 的 表示 可以 总结 为 对应 的 一个 聚类 特征 ， 而 没 必要 再用 具体 的 这 一组 点来 表示 . 给定 一组 有 N 个点 、 维数 为 d 的 一簇 个体 { Xi } ， 则 这 簇 个体 的 聚类 特征 可 表示 为 其中 ， N 是 点 的 个数 ， 是 N 个点 的 线性 和 ， 即 = 它 代表 了 这 簇点 的 重心 ； SS 是 N 个点 的 平方和 ， 即 它 代表 了 这 簇点 的 直径 大小 ， SS 越小 ， 这 簇点 聚得 越紧 . 
+ 　 　 聚类 特征 树是 一个 满足 两个 条件 的 平衡 树 . 两个 条件 分别 是 ： 分枝 因子 和 簇 直径 的 限制 . 分枝   因子 规定 了 树 的 每个 节点 的 子女 的 最 多个 数 ； 而 簇 直径 体现 了 对 一簇 点 的 直径 大小 的 限制 ， 即 聚类 特征 的 SS 不能 太 大 ， 否则 不能 聚为 一类 . 非 叶子 节点 上 存储 了 它 的 子女 的 聚类 特征 的 和 ， 因此 该 节点 总结 了 其 子女 的 信息 . 
+ 　 　 聚类 特征 树 可以 动态 构造 ， 因此 不 要求 所有 数据 一次 读入 内存 ， 而 可以 从 外存 上 逐个 读入 数据项 . 新 的 数据项 总是 插入 到 树 中 与 该 数据 距离 最近 的 叶子 上 . 如果 插入 后 使得 该 叶子 的 直径 大小 超过 了 簇 直径 ， 则 需要 把 该 叶子 或 其它 叶子 分裂 ， 直到 叶子 能够 插入 到 树 中 而 同时 满足 簇 直径 的 限制 . 新 的 数据项 插入 后 ， 它 的 信息 就 可以 从 叶子 一直 传递 到 树根 ， 即 重新 计算 该 叶子 的 各个 祖先 的 聚类 特征值 . 
+ 　 　 通过 改变 簇 直径 的 限制 大小 ， 可以 修改 聚类 特征 树 的 大小 . 簇 直径 限制 值越 小 （ 要求 类里 的   各个 数据项 相似 度大 ） ， 树会 越大 ； 反之 ， 树越 小 . 因此 ， 当 存储 树 的 内存 不够 大时 ， 可以 把 簇 直径 限制 值 设置 为 较大 的 值 ， 然后 重新 构造 该树 ， 重构 时 可以 直接 从 原来 的 树叶子 计算 ， 不 需要 重新 读入 数据 . 
+ 　 　 BIRCH 算法 具有 良好 的 算法 伸缩性 、 对 数据 输入 顺序 不 敏感性 以及 较 好 的 聚类 效果 . 该 方法 是   一种 通用 技术 ， 可 用于 各种 聚类 算法 . 
+ 　 　 ( 4 )   对带 噪声 的 应用 的 基于 密度 的 空间 聚类 算法 DBSCAN 
+ 　 　 DBSCAN （ Density   Based   Spatial   Clustering   of   Applications   with   Noise ） ［ 17 ］ 基于 聚类 中密度 的 概念 ， 用来 发现 带有 噪声 的 空间 数据库 中 任意 形状 的 聚类 . 该 算法 的 效率 较 高 ， 但 算法 执行 前 需 输入 阈值 参数 . 
+ 　 　 ( 5 )   大型 空间 数据库 基于 距离 分布 的 聚类 算法 DBCLASD 
+ 　 　 Xu 等 人 ［ 18 ］ 提出 大型 空间 数据库 基于 距离 分布 的 聚类 算法 （ Distribution   Based   Clustering   of   Large   Spatial   Databases ） ， 与 CLARANS 算法 相比 ， 它 可以 发现 高质量 的 任意 形状 的 聚类 ； 而 与 DBSCAN 相比 ， 它 不 需要 任何 输入 参数 . DBCLASD 的 效率 介于 CLARANS 算法 与 DBSCAN 算法 之间 ， 接近 于 DBSCAN 算法 . 
+ 　 　 ( 6 )   采用 遗传算法 进行 空间 聚类 
+ 　 　 一般 的 聚类 算法 都 采用 所谓 的 “ 爬山 法 ” 来 寻求 局部 最优 ， 而 Vladimir 提出 利用 遗传算法 进   行 启发式 搜索 来 寻找 聚类 的 中心点 ， 得到 的 聚类 质量 证明 比 普通 聚类 要 好 . 
+ 3.4 　 基于 分类 的 方法 
+ 　 　 目前 空间 数 杮 分类 的 研究 尚 处在 起步 阶段 . Ester 等 人 提出 一种 空间 对象 分类 方法 ［ 19 ］ ， 该 方法 采用 ID3 算法 ， 并 使用 邻域 图 的 概念 ， 分类 标准 基于 分类 对象 的 非 空间 属性 以及 描述 分类 对象 与其 邻近 位置 相关 对象 间 空间 关系 的 属性 、 谓词 和 函数 . 该 方法 的 缺点 是 没有 分析 邻近 对象 非 空间 属性 的 聚合 值 ， 而 实际 中 如果 一个 对象 在 其 邻近 区域 内 某 属性 的 聚合 值 与 另 一个 对象 邻近 若干个 区域 内 对应 属性 的 聚合 值 相同 ， 那么 这 两个 对象 的 属性 就 应 视为 类似 . 另外 ， 该 算法 也 没有 进行 相关性 分析 ， 可能 会 生成 低质量 的 决策树 . 而且 ， 算法 没有 考虑 非 空间 和 空间 属性 值中 可能 存在 的 概念 层次 . 
+ 　 　 Ng 和 Yu 提出 了 一种 方法 以 抽取 专题地图 上 聚类 的 强 的 、 公共 的 、 判别 性 的 特征 ［ 20 ］ ， 提出 聚类 特征值 的 度量 . 在 搜索 聚类 公共 特征 的 过程 中 ， 算法 选择 那些 主题 值 与 聚类 值 最 类似 的 主题 ； 而 在 搜索 聚类 判别 特征 的 过程 中 ， 算法 选择 能 最好 地 判别 两个 聚类 的 主题 . 该 算法 仅 适用 于 分析 专题地图 的 属性 值 . 
+ 　 　 Koperski 和 Han 对 Ester 等 人 的 算法 ［ 19 ］ 中 相应 的 问题 进行 了 改进 ［ 21 ］ ， 使得 计算 时间 复杂度 降低 . 但是 基于 决策树 的 分类 算法 不 适合 处理 带有 不 完整 信息 的 问题 . 空间数据 分类 标准 中   包含 数据 间 的 空间 关系 ， 从 某个 训练 数据 集 来讲 ， 空间 属性 极有 可能 缺失 . 如果 输入 数据 出现 了 不 一致 、 噪声 等 情况 ， 决策树 算法 可能 会 造成 迯 分 ， 就 会 严重 影响 决策树 算法 的 预测 准确度 . 因而 采用 决策树 空间 分类 算法 不能 很 好 地 体现 地理 空间 关系 忹 于 分类 的 影响 . 对 空间数据 分类 的 方法 尚需 进一步 的 研究 . 
+ 3.5 　 基于 空间 关联 的 方法 
+ 　 　 空间 关联 是 将 一个 或 多个 空间 对象 与 其它 空间 对象 相关联 . Agrawal 等 人 引入 关联 规则 的 概念   是 为了 采掘 大型 的 事务 型 数据库 . Koperski 等 人 将 这个 概念 扩展 至 空间 数据库 ［ 3 ］ . 空间 关联 规则 的 形式 是 XY ( c% ) ， X 和 Y 都 是 空间 或非 空间 的 谓词 的 集合 ， c% 是 规则 的 可信度 . 空间 谓词 有 3 种 形式 ： 表示 拓扑 关系 的 谓词 ， 如 相交 、 覆盖 等 ； 表示 空间 方向 的 谓词 ， 如东 、 西 、 左 、 右 等 ； 表示 距离 的 谓词 ， 如 接近 、 远离 等 . 
+ 　 　 在 大型 数据库 中 ， 可能 存在 大量 的 对象 间 的 关联 ， 但 其中 大部分 只 适用 于 少量 对象 ， 或者 规   则 的 可信度 较 低 . 空间 关联 规则 使用 两个 阈值 ： 最小 支持 度 和 最小 可信度 ， 以 过滤 出 描述 少量 对象 的 关联 和 具有 低 可信度 的 规则 . 在 对象 非 空间 描述 的 不同 层次 上 这 两个 阈值 均 不 相同 ， 因为 如果 使用 相同 的 阈值 ， 在 低 的 概念 层次 上 可能 找 不到 有趣 的 关联 ， 原因 是 此时 满足 相同 谓词 的 对象 的 数目 可能 相当 少 . 
+ 3.6 　 聚合 邻近 法 
+ 　 　 聚合 邻近 是 根据 聚类 边界 和 对象 边界 之间 的 距离 ， 对 聚类 中点 的 集合 与其 邻近 对象 的 接近 程   度 的 度量 . Knorr 和 Ng ［ 22 ］ 提出 CRH （ C 为 圆 ， R 是 矩形 ， H 是 凸包 ） 算法 能 快速 查找 聚类 的 邻近 对象 . 在 算法 中 采用 多层次 邻近 以 逐渐 减少 候选 对象 . 先 划出 包围 圆 ， 然后 使用 矩形 来 去除 与 聚类 有 较大 聚合 距离 的 对象 ， 接着 计算 出聚类 中 的 点 与 过滤 出 的 每个 对象 的 凸包 边界 的 聚合 邻近 . 该 算法 能求 出 具有 最佳 聚合 邻近 的 对象 ， 显示 出聚类 中点集 与 对象 的 最小 和 最大 距离 、 平均 距离 、 以及 落 在 指定 阈值 距离 范围 内 的 点 的 比例 . 实验 证明 ， 算法 CRH 的 效率 很 高 . 
+ 3.7 　 采掘 图像 数据库 的 方法 
+ 　 　 图像 数据库 是 一类 特殊 的 空间 数据库 ， 其 数据 几乎 全部 是 图像 或 图片 . 图像 数据库 用于 遥感 、 医学 图像 等 应用 ， 通常 以 栅格 形式 表示 ， 栅格 代表 一个 或 多个 光谱 范围 的 图像 密度 .   图像 数据库 的 采掘 可以 看成 是 空间数据 采掘 的 一部分 ， 其 主要 问题 在于 如何 区分 图像 . 以下 列出 对 这方面 问题 的 一些 研究 . 
+ 　 　 ( 1 )   POSS - II   （ Second   Palomar   Observatory   Sky   Survey ） 
+ 　 　 Fayyad 等 人 使用 决策树 方法 来 对 大约 3TB 的 卫星 图像 中 的 星系 对象 进行 分类 ［ 23 ］ . 数据 图像 先经 低层 图像处理 系统 FOCAS 的 预处理 ， 选择 欲 分类 对象 并 生成 诸如 图像 要素 、 面积 、 密度 、 方向 等 的 基本 属性 . 由 天文学家 来 对 训练 数据 集中 的 对象 进行 分类 . 基于 这种 分类 ， 建立 决策树 算法 的 训练 集 . 利用 学习 算法 获得 的 决策树 ， 可 找到 一个 较为 强健 的 最小 的 规则 集合 . 该 方法 专用 于 天文学 应用 . 
+ 　 　 ( 2 )   Magellan 研究 
+ 　 　 Magellan 研究 ［ 24 ］ 分析 火星 表面 大约 30 , 000 个 高精度 的 雷达 图像 ， 目标 是 为了 识别 火山 ， 这是 一项 手工 做 约 需 10 人年 的 任务 . 系统 由 3 个 基本 部分 组成 ： 数据 聚焦 组件 、 特征 抽取 组件 和 分类 学习 组件 . 同 其它 数据 聚焦 技术 一样 ， 数据 聚焦 组件 通过 将 区域 中心 像素点 的 密度 与 估计 的 其 相邻 像素点 的 密度 的 平均值 作 比较 ， 识别 出 图像 中 可能 包含 火山 的 部分 ， 用于 提高 系统 整体 效率 . 特征 抽取 组件 从 数据 中 抽取 有趣 的 特征 . 不能 使用 诸如 边缘 检测 或 霍夫 变换 等 一般 的 模式识别 方法 ， 因为 这些 方法 处理 自然 数据 中 的 可变性 和 噪声 的 能力 较差 . 查找 精确 描述 火山 的 属性 非常 困难 ， 因此 将 包含 火山 图像 的 矩阵 分解 为 特征向量 ， 采用 特征值 作为 描述 火山 的 属性 . 分类 学习 方法 采用 决策树 ， 用于 区别 火山 和 看起来 象 火山 的 对象 . 
+ 　 　 ( 3 )   基于 内容 的 时空 查询 CONQUEST 
+ 　 　 Shek 等 人 ［ 25 ］ 提出 一个 分布式 并行 查询 和 分析 环境 CONQUEST （ CONtent - based   QUE   rying   in   Space   and   Time ） ， 用于 采掘 地球科学 栅格数据 库 . CONQUEST 与 其它 栅格数据 库采   掘 工具 的 区别 是 它 考虑 了 数据 集合 中 的 时间 组件 ， 并且 允许 进行 并行 和 分布式 处理 . 系统 可   从 大量 的 数据 集合 中 抽取 复杂 的 时空 对象 . CONQUEST 定义 了 一系列 的 操作 用于 地球科学 查询   中 对象 的 描述 和 抽取 . 
+ 4 　 空间数据 采掘 查询语言 
+ 　 　 到 目前为止 ， 尚 没有 对 空间数据 采掘 查询语言 SDMQL （ Spatial   Data   Mining   Query   Languag ） 的 定义 .   Han 等 人 ［ 26 ］ 为了 采掘 地理 空间 数据库 设计 了 一种 地理 数据 采掘 查询语言 GMQL （ Geo - Mining   Query   Language ） ， 它 是 对 空间 SQL 的 扩展 ， 并 成功 地 应用 于 空间数据 采掘 系统 原型 GeoMiner 中 . GMQL 可 作为 制定 SDMQL 的 基础 ， 以 进一步 界定 SDMQL 语言 的 基本 原语 . 
+ 　 　 SDMQL 的 设计 指导 原则 应为 ： 
+ 　 　 ( 1 )   在 空间数据 采掘 请求 中应 说明 用于 采掘 的 相关 数据 集 ； 
+ 　 　 ( 2 )   在 空间数据 采掘 请求 中应 说明 想要 采掘 的 知识 的 种类 ； 
+ 　 　 ( 3 )   采掘 过程 中 应该 可能 运用 相关 的 背景 知识 ； 
+ 　 　 ( ? )   采掘 结果 应该 能用 较 概括 的 或 多层次 概念 的 术语 来 表述 ； 
+ 　 　 ( 5 )   应 能够 说明 各种各样 的 阈值 ， 使得 可以 灵活 地 过滤 掉 那些 不是 很 令人 感兴趣 的 知识 ； 
+ 　 　 ( 6 )   应 采用 类似 SQL 的 语法 以 适应 在 高级 语言 的 水平 上 进行 数据 采掘 并 与 关系 查询语言 SQL 保   持 自然 的 融合 . 
+ 5 　 空间数据 采掘 系统 原型 GeoMiner 
+ 　 　 加拿大 Simon 大学 开发 出一 空间数据 采掘 系统 原型 GeoMiner ［ 26 ］ . 该 系统 在 空间 数据库 建模 中 使用 SAND ［ 13 ］ 体系结构 ， 包含 有三大 模块 ： 空间数据 立方体 构建 模块 、 空间 联机 分析 处理 （ OLAP ） 模块 和 空间数据 采掘 模块 ， 采用 的 空间数据 采掘 语言 是 GMQL . 目前 已能 采掘 3 种 类型 的 规则 ： 特征 规则 、 判别 规则 和 关联 规则 .   GeoMiner 的 体系结构 如图 2 所示 ， 包含 4 个 部分 ： ① 图形用户界面 ， 用于 进行 交互式 地 采掘 并 显示 采掘 结果 ； ② 发现 模块 集合 ， 含有 上述 3 个 已 实现 的 知识 发现 模块 以及 4 个 计划 实现 的 模块 ( 分别 以实 线框 和 虚 线框 表示 ) ； ③ 空间 数据库 服务器 ， 包括 MapInfo ， ESRI / Oracle   SDE ， Informix - Illustra 以及 其它 空间 数据库 引擎 ； ④ 存储 非 空间数据 、 空间数据 和 概念 层次 的 数据库 和 知识库 . 
+ 
+ 
+ 图 2 　 GeoMiner   体系结构 
+ 6 　 空间数据 采掘 的 未来 方向 
+ 　 　 空间数据 采掘 是 一个 非常 年轻 而 富有 前景 的 领域 ， 有 很多 研究 问题 需要 深入探讨 ， 这 也 是 该   领域 的 未来 方向 . 
+ 　 　 ( 1 )   在 面向对象 （ Object - Oriented ， 简称 OO ） 的 空间 数据库 中 进行 数据 采掘 
+ 　 　 目前 在 实际 中 应用 的 空间数据 采掘 方法 都 假定 空间 数据库 中 采用 的 是 扩展 的 关系 模型 ， 而关   系型 数据库 并 不能 很 好 地 处理 空间数据 . 许多 研究者 指出 ， OO 模型 比 传统 的 关系 模型 或 扩展 关系 模型 更 适合 处理 空间数据 ， 如 矩形 、 多边形 和 复杂 的 空间 对象 可 在 OO 数据库 中 很 自然 地 建模 . 因此 ， 可以 考虑 建立 面向对象 的 空间 数据库 以 进行 数据 采掘 . 需要 解决 的 问题 是 如何 使用 OO 方法 设计 空间 数据库 ， 以及 怎样 从 数据库 中 采掘 知识 . 目前 OO 数据库 技术 正在 走向 成熟 ， 在 空间数据 采掘 中 开发 OO 技术 是 一个 具有 极大 潜力 的 领域 . 文献 ［ 27 ］ 、 ［ 28 ］ 对此 问题 作 了 初步 探讨 . 
+ 　 　 ( 2 )   进行 不确定性 采掘 
+ 　 　 证据 推理方法 可 用于 图像 数据库 的 采掘 ， 以及 其它 经过 不确定性 建模 的 数据库 的 分析 . Bell   等 人 ［ 29 ］ 证明 ， 证据 理论 比 传统 的 概率模型 ， 如 贝叶斯 等 方法 进行 不确定性 建模 的 效果 要 好 . 另外 ， 还 可 考虑 通过 利用 统计学 、 模糊 逻辑 和 粗糙集 方法 以 处理 不确定性 和 不 完整 的 信息 ， 该 领域 尚有 待 拓展 . 
+ 　 　 ( 3 )   多边形 聚类 技术 
+ 　 　 目前 空间 聚类 问题 的 解决方案 尚 局限 在 对点 对象 的 聚类 ， 该 问题 的 未来 方向 是 处理 可能 重 矠   的 对象 的 聚类 ， 如 多边形 聚类 . 
+ 　 　 ( 4 )   多维 规则 可视化 
+ 　 　 理解 所 发现 规则 的 最 有效 的 方式 是 进行 图形 可视 猖 . 多维 数据 可视化 已有 相应 文献 研究 ［ 30 ］ ， 而 多维 规则 可视化 仍 是 一个 不 成熟 的 领域 ， 可 考虑 采用 计算机 图形学 中 的 一些 可视化 技术 . 
+ 　 　 ( 5 )   基于 泛化 的 空间数据 采掘 机制 需要 进一步 的 开拓 ， 以 处理 多 专题地图 和 多层次 的 交互   式 采掘 ， 并 与 空间 索引 、 空间 存取方法 和 数据仓库 技术 有效 结合 . 
+ 　 　 ( 6 )   空间数据 分类 领域 尚需 找到 真正 高效 的 空间 分类 方法 ， 以 处理 带有 不 完整 信息 的 问题 .   
+ 　 　 ( 7 )   基于 模式 或 基于 相似性 的 采掘 以及 元规则 指导 的 空间数据 采掘 尚需 探讨 . 
+ 　 　 ( 8 )   空间数据 采掘 查询语言 SDMQL 需 进行 详细 设计 和 标准化 . 
+ 　 　 ( 9 )   大量 的 遥感 图像 要求 更 多 的 数据 采掘 方法 ， 用以 检测 嬂 常 、 查找 相似 的 图片 ， 以及 发   现 不同 现象 间 的 关系 .   
+ 7 　 结束语 
+ 　 　 通过 上文 对 空间数据 采掘 技术 的 讨论 ， 可以 看出 空间数据 采掘 是 一项 诱人 而 又 充满 挑战性 的   前沿技术 ， 它 将 为 空间 信息系统 赋予 知识 发现 的 能力 ， 并 推进 智能化 空间 信息系统 的 发展 . 
+ * 本 课题 得到 国家 “   八 六三 ” 306 主题 ( 项目编号 863306 - ZD - 07 - 4 ) 的 资助 . 
+ 作者简介 ： 石云 ， 女 ，   1972 年 11 月生 ， 博士 研究生 ， 主要 研究 领域 为 数据库 知识 发现 、 空间数据 采掘 . 
+ 　 　 　 　 　 孙玉方 ， 男 ， 1947 年生 ， 研究员 ， 博士生 导师 ， 主要 簔 究 领域 为 大型 数据库 和 网络应用 系统 、 操作   系统 、 中文信息处理 . 
+ 　 　 　 　 　 左春 ， 男 ， 1959 年生 ， 研究员 ， 主要 研究 领域 为 大型   数据库 和 网络应用 系统 、 数据库 知识 发现 . 
+ 作者 单位 ： 中国科学院 软件 研究所 　 北京 　 100080 
+ 参考文献 
+ 1 　 Fayyad   U ,   Piatetsky - Shapiro   et   al .   From   data   mining   to   knowledge   discovery :   An   overview .   In :   Advances   in   Knowledge   Discovery   and   Data   Mining .   Menlo   Park ,   CA :   AAAI / MIT   Press ,   1996 
+ 2 　 Lu   W ,   Han   J   et   al .   Discovery   of   general   knowledge   in   large   spatial   databases .   In :   ProcFar   East   Workshop   on   Geographic   Information   Systems .   Singapore ,   1993 .   275 ～ 289 
+ 3 　 Koperski   K ,   Han   J .   Discovery   of   spatial   association   rules   in   geographic   information   databases .   In :   Proc   4th   Int ' l   Symp   on   Large   Spatial   Databases ( SSD   ' 95 ) ,   Portland ,   Maine ,   1995 .   47 ～ 66 
+ 4 　 Han   J ,   Fu   Y .   Exploration   of   the   power   of   attribute - oriented   induction   in   data   mining .   In :   Advances   in   Knowledge   Discovery   and   Data   Mining .   Menlo   Park   ,   CA :   AAAI / MIT   Press ,   1996 
+ 5 　 Holsheimer   M ,   Kersten   M .   Architectural   support   for   data   mining .   CWI   Tech   Rep :   CS - R9429 ,   1994 
+ 6 　 Matheus   C   J ,   Chan   P   K   et   al .   Systems   for   knowledge   discovery   in   databases .   IEEE   Trans   on   Knowledge   and   Data   Engineering ,   1993 ,   5 ( 5 ) :   903 ～ 913 
+ 7 　 Koperski   K ,   Han   J ,   Adhikary   J .   Mining   knowledge   in   geographical   data , 　 Communications   of   ACM ,   1999 
+ 8 　 Guting   R   H .   An   introduction   to   spatial   database   systems .   VLDB   Journal ,   1994 ,   3 ( 4 ) :   357 ～ 400 
+ 9 　 Brinkhoff   T ,   Kriegel   H   P   et   al .   Efficient   processing   of   spatial   joins   using   R - trees .   In :   Proc   AC ? - SIGMOD   Conf   Management   of   Data ,   Washington ,   1993 .   237 ～ 246 
+ 10 　 Koudas   N ,   Sevcik   K   C .   Size   separation   spatial   join .   In :   Proc   ACM - SIGMO   D   Conf   Management   of   Data ,   1997 .   324 ～ 335 
+ 11 　 Theodoridis   Y ,   Stefanakis   E   et   al .   Cost   models   for   join   queries   in   spatial   databases .   In :   Proc   of   ICDE ' 98 ,   Florida ,   USA ,   1998 .   476 ～ 483 
+ 12 　 Aref   W   G ,   Samet   H .   Optimization   strategies   for   spatial   query   processing .   In :   Proc   17th   Int ' l   Conf   VLDB ,   Barcelona ,   Spain ,   1991 .   81 ～ 90 
+ 13 　 Aref   W   G ,   Samet   H .   Extending   DBMS   with   spatial   operations .   In :   Proc   2nd   Symp   SSD ' 91 ,   Zurich ,   Switzerland ,   1991 .   299 ～ 318 
+ 14 　 Ng   R ,   Han   J .   Efficient   and   effective   clustering   method   for   spatial   datamining .   In :   Proc   of   Int ' l   Conf   VLDB ,   San   Francisco ,   CA :   Morgan   Kaufmann ,   1994 .   144 ～ 155 
+ 15 　 Ester   M ,   Kriegel   H   P   et   al .   Knowledge   discovery   in   large   spatial   d   atabases :   Focusing   techniques   for   efficient   class   identification .   In :   Advances   i   n   Spatial   Databases ,   Proc   of   4th   Symp   SSD ' 95 ,   Berlin :   Springer - Verlag ,   1995 .   67   ～ 82 
+ 16 　 Zhang   T   et   al .   BIRCH :   An   efficient   data   clustering   method   for   very   large   databases .   In :   Proc   of   ACM - SIGMOD   Int ' l   Conf   on   Man ? gement   of   Data .   ACM ,   New   York ,   1996 .   103 ～ 114 
+ 17 　 Ester   M ,   Kriegel   H   P   et   al .   A   density - based   algorithm   for   discover   ing   clusters   in   large   spatial   databases   with   noise .   In :   Proc   2nd   Int ' l   Conf   on   K   nowledge   Discovery   and   Data   Mining .   Oregon :   AAAI   Press ,   1996 
+ 18 　 Xu   X   et   al .   A   distribution - based   clustering   algorithm   for   mining   in   large   spatial   databases .   In :   Proc   of   ICDE ' 98 ,   Florida ,   USA ,   1998 .   476 ～ 483 
+ 19 　 Ester   M ,   Kriegel   H   P   et   al .   Spatial   data   mining :   A   database   approac   h .   In :   Proc   Int ' l   Symp   on   Large   Spatial   Databases   ( SSD ' 97 ) ,   Berlin ,   Germany ,   199   7 .   47 ～ 66 
+ 20 　 Ng   R   T ,   Yu   Y .   Discovering   strong ,   common   and   discriminating   characteris   tics   of   clusters   from   thematic   maps .   In :   Proc   of   the   11th   Annual   Symp   on   Geograp   hic   Information   Systems .   1997 .   392 ～ 394 
+ 21 　 Koperski   K ,   Han   J   et   al .   An   efficient   two - step   method   for   classifi   cation   of   spatial   data ,   In :   Proc   Int ' l   Symp   on   Spatial   Data   Handling   SDH ' 98 ,   Van   couver ,   BC ,   Canada ,   1998 
+ 22 　 Knorr   E   M ,   Ng   R   T .   Finding   aggregate   proximity   relationships   and   common   alities   in   spatial   data   mining .   IEEE   Trans   Knowledge   and   Data   Eng ,   8 ( 6 ) :   884 ～ 897   
+ 23 　 Fayyad   U   M ,   Djorgovski   S   G   et   al .   Automating   the   analysis   and   catal   oging   of   sky   surveys .   Advances   in   Knowledge   Discovery   and   Data   Mining .   Menlo   Par   k ,   CA :   AAAI /   MIT   Press ,   1996 
+ 24 　 Fayyad   U   M ,   Smyth   P .   Image   database   exploration :   Progress   and   challenge   s .   In :   Proc   of   Knowledge   Discovery   in   Databases   Workshop .   Menlo   Park ,   CA :   AAAI   P   ress ,   1993 .   14 ～ 27 
+ 25 　 Shek   E   C   et   al .   Scalable   exploratory   data   mining   of   distributed   geo   scientific   data .   In :   Proc   of   the   Second   Int ' l   Conf   on   Knowledge   Discovery   and   D   ata   Mining .   Menlo   Park ,   CA :   AAAI   Press ,   1996 .   32 ～ 37 
+ 26 　 Han   J   et   al .   A   system   prototype   for   spatial   data   mining .   In :   Proc   A   CM - SIGMOD   Conf   Management   of   Data ,   AZ ,   USA ,   1997 .   324 ～ 335 
+ 27 　 Mohan   L ,   Koshyap   R   L .   An   object - oriented   knowledge   representation   for   spatial   information .   IEEE   Trans   on   Software   Engineering ,   1988 ,   14 ( 5 ) :   675 ～ 681 
+ 28 　 Han   J ,   Nishio   S ,   Kawano   H .   Knowledge   discovery   in   object - oriented   and   active   databases .   In :   Fuchi   F ,   Yokoi   T   eds .   Knowledge   Building   and   Knowledge   Sharing ,   Ohmsha / IOS   Press ,   1994 .   221 ～ 230 
+ 29 　 Bell   D   A ,   Anand   S   S ,   Shapcott   C   M .   Database   mining   in   spatial   databases   .   International   Workshop   on   Spatio - Temporal   Databases ,   1994 
+ 30 　 Keim   D ,   Kriegel   H   P ,   Seidl   T .   Supporting   data   mining   of   large   databases   by   visual   feedback   queries .   In :   Proc   10th   of   Int ' l   Conf   on   Data   Engineering ,   Ho   uston ,   TX ,   1994 .   302 ～ 313   
+ 原稿 收到 日期 ： 1999 - 02 - 12 ； 修改稿 收到 日期 ： 1999 - 08 - 20 . 

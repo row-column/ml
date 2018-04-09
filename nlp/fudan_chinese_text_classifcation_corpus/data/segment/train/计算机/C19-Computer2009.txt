@@ -1,0 +1,44 @@
+微型机 与 应用 
+ WEIXINGJI   YU   YINGYONG 
+ 1999 年 3 月   第 18 卷   第 3 期   vol.18   No.3 
+ 
+ 
+ 
+ 快速 开发 Web 数据库 应用 
+ 秦俐 　 陆强 
+ 　 　 摘 　 要 ： Web 数据库 应用 的 意义 及其 基本 结构 ， 并 结合 开发 实   践 ， 论述 利用 Intrabuilder 快速 开发 Web 数据库 应用 的 过程 。 
+ 　 　 关键词 ： Web 　 数据库 　 Intrabuilder 　 开发工具 
+ 1 　 Web 数据库 应用 概述 
+ 　 　 将 Web 技术 与 数据库 技术相结合 ， 实现 Web 数据库 交互式 应用 已 成为 必然 ， 也 为 Inte   rnet / Intranet 以及 电子商务 的 大众化 奠定 了 基础 。 
+ 　 　 Web 数据库 交互 应用 的 实现 技术 包括 ： 脚本语言 Script ( 如 JavaScript 和 VBScript ) 、 公共 网   关 接口 CGI 、 应用 编程 接口 API ( 如 ISAP 和 NSAPI ) 、 JDBC 等 ， 它们 的 实现 模型 如图 1 所示 。 
+ 
+ 
+ 图 1 　 Web 数据库 交互 应用 实现 模型 
+ 　 　 用 上述 技术 实现 Web 数据库 交互式 应用 ， 用户 不仅 需要 精通 Web   Server 的 知识 ， 而且 需要 了   解 多种 技术 与 工具 ， 制作 流程 十分复杂 。 于是 人们 期待 1 种 高效率 的 集成 开发工具 ， 能够 便   捷地 构造 Web 解决方案 。 这里 推荐 Borland ( 现名 为 Inprise ) 公司 的 Intrabuilder ， 并 结合 我   们 的 工作 实践 介绍 利用 Intrabuilder 快速 开发 Web 数据库 应用 的 过程 。 
+ 2 　 Intrabuilder 简述 
+ 　 　 Intrabuilder 是 Borland 的 1 个 具有 创新性 的 Web 集成 开发工具 ， 内部 采用 JavaScript ， 它 包   括 B   orland 数据库 引擎 ( BDE ) 、 Intrabuilder   Designer 、 Intrabuilder   Server ( 包括 Intrabuild   er   Broker 和 Intrabuilder   Agents ) 以及 Borland 的 个人 Web 服务器 。 
+ 　 　 Intrabuilder   Broker ( INTRASRV . DLL 和 INTRASRV . ISV ) 是 Web 服务器 和 Intrabuilder 间 的 接口   ， 它 在 Web 服务器 上 运行 ， 支持 ISAPI 、 NSAPI 和 CGI 。 可以 在 安装 过程 中 根据 自己 的 Web 服务   器来 选择 相应 的 Broker 。 
+ 　 　 Intrabuilder   Agents 负责 根据 JavaScript 中 的 表单 ( Form ) 和 报表 ( Report ) 来 建立 HTML 页面   ， 其 内容 可 支持 所有 标准 的 Web 浏览器 。 它 能 自动 将 表单 文件 和 报表 文件 转换 为 HTML 格式 ，   并 根据 JavaScript 定义 的 处理 逻辑 来 响应 用户 的 操作 ， 完成 对 数据库 的 访问 。 
+ 　 　 Intrabuilder 支持 ODBC 、 ActiveX 和 Applet ， 并 支持 多种 Web 服务器 及 bmp 、 jpg 、 gif 等 图像   格式 ， 具有 可视化 、 专家 向导 等 快速 开发工具 的 特性 ， 可 进行 跨平台 的 Web 集成 开发 ， 能够   便捷 地 构造 Web 解决方案 ， 高效 的 SQL   Links 可 直接 与 Microsoft   SQL   Server 、 Oracle 、 Info   rmix 等 多种 数据库 连接 。 
+ 3 　 用 Intrabuilder 快速 开发 Web 数据库 的 实例 
+ 　 　 利用 Intrabuilder 集成 环境 ， 开发者 通常 可以 把 以前 若干天 的 工作 在 几分钟 内 完成 。 我们 在   学院 局域网 上 利用 Intrabuilder 开发 了 1 个 Web 数据库 应用 — — 学院 办公 系统 ， 客户端 用 IE 或   Netscape ， 中间层 用 Windows   NT 平台 上 的 IIS   Web   Server 和 ISAPI ， 底层 用 Microsoft   SQL   S   erver   DBMS 。 这里 以此 系统 为例 ， 介绍 利用 Intrabuilder 开发 Web 数据库 应用 的 一般 过程 。 
+ 　 　 1 . 开发工具 安装 
+ 　 　 ( 1 ) Windows   NT   4.0 上 安装 IIS 。 
+ 　 　 ( 2 ) Windows   NT   4.0 上 安装 Intrabuilder ， 安装 过程 中 选择 安装 ISAPI 和 SQL   Links   for   Mic   rosoft   SQL   Server 。 
+ 　 　 ( 3 ) 参照 Intrabuilder   Server 帮助 文档 ， 设置 IIS 为 Intrabuilder 的 缺省 Web   Server 。 
+ 　 　 2 . 后台 数据库 设计 及 实现 
+ 　 　 按 开发 需求 设计 数据库 表 、 视图 、 存储 过程 、 触发器 等 后台 数据库 结构 ， 并 在 SQL   Server 中   实现 ， 例如 学院 办公 系统 库 名为 JKXDB ， 其中 包括 student 、 class 、 department 等 几十个 表   、 视图 以及 许多 存储 过程 。 当然 ， Intrabuilder 也 提供 了 Table   Designer ， 用户 可 在 Intrab   uilder   Designer 开发 环境 中建 表 。 
+ 　 　 3 . 数据库 BDE 别名 和 工作 目录 定义 
+ 　 　 ( 1 ) 要 在 Intrabuilder   Designer 中 使用 Windows   NT 服务器 上 的 SQL   Server 数据库 JKXDB ， 需   要 定义 1 个 该 数据库 的 别名 ， 这 可用 BDE 管理器 完成 。 
+ 　 　 ( 2 ) 在 Intrabuilder 主目录 下 创建 1 个 工作 目录 ( 如 office ) ， 以 存放 后面 定制 的 文件 。 
+ 　 　 4 . 表单 、 报表 定制 
+ 　 　 ( 1 ) 在 Intrabuilder   Designer 中 使用 Form   Expert 快速 制作 各个 表单 ， 用户 不 需要 编写 任何   代码 ， 只 需用 鼠标 作些 选择 ， Intrabuilder 便会 构造 出 包含 当前 记录 字段名 、 字 段值 和 浏览   、 更新 、 查询 等 基本功能 按钮 的 表单 ( 结果 为 jfm 文件 ， 如 student . jfm ) 。 如果 需要 ， 用户 还   可以 用 Form   Designer 对 该 表单 进行 调整 改进 。 
+ 　 　 ( 2 ) 用 Report   Expert 快速 构造 各个 报表 ( 结果 为 jrp 文件 ， 如 student . jrp ) ， 并 可用 Report   D   esigner 调整 改进 ， 比如 ， 将 name 字段 在 报表 中 对应 对象 的 text 属性 做 如下 修改 ： 
+ 　 　 text = { ‖ ‘ < A   HREF = “ / svr / intrasrv . isv ? office / student . jfm ( ＼ ” + this . parent . parent . rowset . fields ［ “ studentNo ” ］ . value + ` ＼ ' ) > ' + this . form . dbostudent1 . rowset . fields ［ “ name ” ］ . value + ` < / A > ' } ； [   HT 〗 
+ 这样 就 为 报表 中 的 name 字段 内容 增加 了 热链 ， 用户 浏览 时用 鼠标 点击 某 学生 姓名 ， 便 可 得到   其 详细信息 。 
+ 　 　 5 . 浏览 和 使用 
+ 　 　 保证 Windows   NT 服务器 已 运行 IIS 和 Intrabuilder   Server ， 然后 在 客户机 上 运行 Webbrowser   ， 在 URL 中 输入 ： 
+ 　 　 http : / / jkxserver . jkx / svr / intrasrv . isv ? office / student . jrp ， 
+ 便 可 看到 所 定制 的 student . jrp 报表 ， 在 某个 学生 姓名 上 点击 ， 便 转到 student . jfm 表单 ， 并且 已 定位 到 该 学生 记录 。 在 该 URL 中 jkxserver . jkx 是 NT 主机名 , / svr / intrasrv . isv 是 Intrabuilder   server 文件 及其 虚拟目录 。 
+ 作者 单位 ： 南宁市 广西大学 计算机科学 系 ( 530004 ) 
+ （ 收稿 日期 ： 1998 - 09 - 23 ） 

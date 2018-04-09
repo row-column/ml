@@ -1,0 +1,183 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 8 期   Vol.25   No.8   1999 
+ 
+ 
+ 
+ Windows 环境 下 的 实时 视频 捕获 技术 
+ 石峻 ， 余松煜 
+ 摘要 ： 结合 软件 实现 PSTN 可视电话 的 实际 应用 ， 针对 其 实现 中 的 一个 重要环节 - - 实时 视频 捕获 ， 讲座 了 在 Windows 环境 下 利用 Visual   C++ 所 提供 的 Video   for   Windows 库函数 实现 实时 视频 采集 的 关键技术 ， 给出 了 软件 实现 视频流 捕获 的 结构 流程 和 相应 的 编程 示例 。 
+ 关键词 ： 视频 捕获 ； 可视电话 ； Video   for   Windows 
+ Real - time   Video   Sequence   capturing   Scheme   in   Windows 
+ Shi   Jun , Yu   Songyu 
+ ( Institutye   of   Image   Communication   and   Informatgion   Processing , Shanghai   Jiaotong   University , Shanghai   200030 ) 
+ 【 Abstract 】 Combining   with   the   application   of   Videophone   in   PSTN   by   using   software   and   aiming   at   an   important   aspect , real - time   video   sequence   capturing . in   the   realizatijn   of   it   , the   key   techniques   in   the   realization   of   real - time   video   sequence   capturing   using   the   Video   for   Windows   library   provided   by   Visual   C++   in   Windows   are   discussed . The   software   realization   diagram   for   real - time   video   sequence   capturing   is   proposed   and   corresponding   program   examples   are   provided . 
+ 【 Key   words 】 Video   sequence   capturing ; Videophone ; Video   for   Windows 
+ 　 　 随着 通信 技术 与 多媒体技术 的 飞速发展 ， 越来越 多 的 应用 不仅 要求 传输 与 处理 事先 存储 下来 的 图象 数据 ， 还 要求 应用 系统 能够 实时 获取 通信 对方 的 活动 图象 信息 ， 如 可视电话 系统 ， 桌面 视频会议 系统 等 的 多媒体 应用 中 。 因此 如何 实时 获取 数字视频 数据 就 成为 该类 应用 中 的 重要环节 和 关键 前提 。 同时 随着 计算机 运算 、 处理 性能 的 飞速发展 ， 原来 许多 需要 专用 硬件 设备 才能 实现 的 技术 ， 现在 已经 完全 可以 利用   CPU   的 高性能 通过 软件 来 实现 。 例如 现在 的   PSTN   可视电话 系统 已经 完全 可以 通过   PC   机用 软件 方案 实现 。 在 其 软件 实现 方案 中 ，   Windows   环境 下 的 实时 视频 捕获 就 成为 系统 实现 的 重要 前提 。   Visual   C++   所 提供 的   Video   for   Windows   库函数   (   简称   VFW )   是   Microsoft   于   1992   年 推出 的 关于 数字视频 的 软件包 ， 它 能够 灵活 地 实现 从 模拟 视频 源 采集 数字 视频信号 ， 并 将 其 存储 到 文件 中 或者 直接 对 视频 缓存 进行 处理 。   
+ 1   Video   for   Windows   函数 简介 
+ 　 　 Video   for   Windows   函数 是   Windows   环境 下 实现 实时 视频 捕获 的 重要 工具 ， 主要 包括   vfw . h   头文件 和   vfw32 . lib   函数库 。 由于   Video   for   Windows   函数 可以 方便 地 实现 视频 、 音频 数据流 到   AVI   文件 的 存储 ， 在   Visual   C++   中 也 将   Video   for   Windows   函数 称为   AVIcap   窗口 类 函数 。 通过 使用   AVIcap   窗口 类 函数 ， 可以 在 应用 中 方便 地 集成 视频 采集 功能 。   AVIcap   为 应用 提供 了 一个 访问 视频 采集 硬件 简便 的 、 基于 消息 的 界面 ， 并且 能够 控制 视频流 数据 存储 到 磁盘 的 过程 。   
+ 1.1   AVIcap   窗口 类 的 基本功能   
+ 　 　 AVIcap   窗口 类 是 完成 由 视频 捕获 硬件 获取数据 ， 并 按照 需要 的 格式 进行 存储 、 转换 的 重要 手段 ， 它 提供 的 主要 功能 包括 ： 
+ 　 　 1 )   动态 地同 视频 和 音频 输入 器 连接 或 断开 ；   
+ 　 　 2 )   设置 视频 捕获 速率 ；   
+ 　 　 3 )   提供 设置 视频 源 ， 视频格式 以及 是否 采用 视频压缩 的 对话框 ；   
+ 　 　 4 )   设置 视频 采集 的 显示 模式 为   Overlay   或者   Preview   模式 ；   
+ 　 　 5 )   实时 获取 每 一帧 数字视频 数据 ；   
+ 　 　 6 )   将 一 视频流 和 音频 流 捕获 并 保存 到 一个   AVI   文件 中 ；   
+ 　 　 7 )   按 用户 要求 捕获 某 一帧 数字 的 视频 数据 ， 并 将 单帧 图象 以   DIB   格式 的 文件 保存 ；   
+ 　 　 8 )   创建 、 保存 、 或 载入   RGB   格式 下 的 调色板 ；   
+ 　 　 9 )   将 捕获 图象 和 相关 的 调色板 拷贝到 剪切板 ；   
+ 　 　 10 )   指定 捕获 数据 的 文件名 ， 并 能够 将 捕获 的 内容 拷贝到 另 一个 文件 。   
+ 　 　 合理 使用 以上 主要 功能 是 实现 实时 视频 应用 的 关键 。   
+ 1.2   AVIcap   窗口 类 函数 分类   
+ 　 　 1 )   回调 函数   
+ 　 　 在   Windows   系统 中 ， 回调 函数 是 一类 特殊 的 函数 ， 功能 类似 于 中断 函数 。 其 调用 过程 由 系统 完成 ， 而 函数 的 具体内容 则 由 用户 自己 设定 。 在 系统 中当 某 一回 调 函数 被 设定 后 ， 在 某 一 特定 的 条件 满足 时 ， 系统 自动 调用 的 该 回调 函数 。 在   AVIcap   窗口 类中 的 回调 函数 如   capVideo - StreamCallback   ，   capStatusCallback   等 函数 。 该类 函数 在 使用 之前 需要 先由 用户 设定 函数 的 内容 ， 然后 将 其 注册 到 系统 中 ， 判断 调用 条件 是否 满足 以及 对 该 函数 的 调用 则 都 由 系统 自动 完成 ， 不 需要 显式 的 调用 命令 。   
+ 　 　 ( 2 )   宏   
+ 　 　 在   AVIcap   窗口 类中 ， 宏 的 使用 完全 类似 于 普通 的 函数 ， 其 功能 等同于 发送 相应 的 窗口 消息 。 例如   
+ 　 　 capSetCallbackOnVideoStream   与 显式 发送   WM _ CAP _ SET _ CALLBACK _ VIDEOSTREAM   消息 所 完成 的 功能 完全相同 。   
+ 　 　 ( 3 )   普通 函数   
+ 　 　 AVIcap   窗口 类中 的 普通 函数 只有 两个 ：   
+ 　 　 capCreateCaptureWindow   ；   
+ 　 　 capGetDriverDescription   。   
+ 1.3   AVIcap   窗口 类中 常用 的 结构   
+ 　 　 在   AVIcap   窗口 类中 有   4   种 常用 的 结构 ：   
+ 　 　 1 )   CAPSTATUS   ： 定义 捕获 窗口 的 当前 状态 ；   
+ 　 　 2 )   CAPDRIVERCAPS   ： 定义 捕获 设备 的 能力 ， 如 有无 视频 叠加   ( Overlay )   能力 ， 有无 控制 视频 源 、 视频格式 的 对话框 等 ；   
+ 　 　 3 )   CAPTUREPARMS   ： 包含 控制 视频流 捕获 过程 的 参数 ， 如 捕获 帧频 、 指定 键盘 或 鼠标键 以 终止 捕获 ， 捕获 的 时间 限制 等 ；   
+ 　 　 4 )   VIDEOHDR   ： 定义 了 视频 数据 块 的 头 信息 ， 在 编写 回调 函数 时 常用 到 其 数据 成员   lpData (   指向 数据 缓存 的 指针   )   和   dwBufferLength (   数据 缓存 的 大小   )   。   
+ 　 　 其中 前   3   种 结构 都 有 相应 的 函数 来 设置 和 获得 结构 包含 的 信息 。   
+ 2   视频 捕获 基本 结构 流程   
+ 　 　 视频 捕获 的 结构 框图 如图   1   所示 。   
+ 
+ 图 1   视频 捕获 软件 实现 的 结构 框图 
+ 　 　 要 进行 视频 捕获 首先 必须 创建 一个 捕获 窗 ， 所有 的 捕获 操作 及其 它 设置 都 是 以 它 为 基础 的 。 它 是 通过   capCreate - CaptureWindow   函数 创建 的 。   
+ 　 　 在 系统 回调 函数 中 常用 的 为 状态 设置 、 出错 处理 、 流 捕获 或 帧 捕获 等 回调 函数 ， 它们 的 注册 是 通过 相应 的 宏 完成 的 。 如   capSetCallbackOnError   将 系统 出错 处理 的 回调 函数 注册 到 系统 中 ， 当 系统 出错 时 自动 调用 进行 处理 。 具体 处理 的 内容 由 用户 自己 编写 。   
+ 　 　 捕获 窗 参数 设定 及 系统 参数 设定 需要 根据 用户 的 具体 要求 决定 。 这里 主要 对 视频 显示 的 两种 模式 即 ： 视频 叠加 模式   ( Overlay   模式   )   和 预览 模式   ( Preview   模式   )   加以 详细 说明 。   
+ 　 　 1 )   Overlay   模式 ： 该 模式 为 部分 采集 设备 所 具有 的 能力 ， 可以 通过   CAPDRIVERCAPS   结构 中 的   fHasOverlay   域来 判断 设备 是否 具备 该 模式 。 在   Overlay   模式 下 所 捕获 的 视频 数据 的 显示 不 需要 经过 占用 系统资源 ， 显示 速度 快 ， 同时 不 影响 系统 的 其它 任务 。 该 显示 模式 所 支持 的 视频 采集 格式 为   YUV   格式 。 通过   capOverlay   宏 完成 。   
+ 　 　 2 )   Preview   模式 ： 在 该 模式 下 显示 要 占用   CPU   资源 ， 视频 帧 由 系统 调用   GDI   函数 在 捕获 窗中 显示 。   Previes   模式 的 显示 速度慢 ， 该 显示 模式 所 支持 的 视频 采集 格式 为   RGB   格式 。 通过   capPreview   宏 实现 。   
+ 　 　 Preview   模式 和   Overlay   模式 都 只是 用以 显示 。 与 采集 的 过程 并 无多大 关系 。 它 主要 应用 于 采集 帧 的 本地 回显 。   
+ 　 　 参数设置 完成 之后 ， 视频 数据 的 采集 是 整个 应用 的 关键 ， 根据 应用 的 不同 可以 将 视频 帧 采集 到 的 文件 或 采集 的 缓存 直接 加以 处理 。 在 可视电话 的 应用 中 需要 实时 的 处理 采集 下来 的 帧 数据 ， 因此 我们 采用 了 将 视频 数据 采集 到 缓存 的 方式 。 它 的 优势 是 速度 快 ， 实时性 强 。 完成 视频 帧 到 文件 的 存储 可以 利用 相应 的 宏 实现 ， 如   capCaptureSequence   宏将 捕获 帧 存储 到 指定 的 文件 。 而 实现 视频 帧 到 缓存 的 捕获 则 需要 应用 回调 函数 和 相应 的 数据 块 结构   VIDEOHDR   。 这里   callback   函数 可以 使用   capSetCallbackOnFrame   或   capSetCallback - OnStream   来 注册 。 其 不同点 在于 后者 所 能够 达到 的 采集 速率 比 前者 要 高 ， 但 需要 用   capCaptureSequenceNoFile   加以 激活 。 其 相应 的 回调 函数 的 接口 及 内容 可以 完全一致 。   
+ 3   视频 捕获 程序 示例   
+ 　 　 以下 程序 将 视频 帧 捕获 到 指定 的 缓存 内 ， 以便 后序 处理 。   
+ 　 　 ( 1 )   定义 全局变量   
+ 　 　 HWND   ghWndCap ;   / /   捕获 窗 的 句柄   
+ 　 　 CAPDRIVERCAPS   gCapDriverCaps ;   / /   视频 捕获 设备 的 能力   
+ 　 　 CAPSTATUS   gCapStatus ;   / /   捕获 窗 的 状态   
+ 　 　 CAPTUREPARMS   gCapParms   ；   / /   捕获 窗 的   参数   
+ 　 　 unsigned   char   RBuf [ 192 * 144 * 2 ] ;   
+ 　 　 unsigned   char   * ReadBuf   =   RBuf ; / /   指定 捕获 帧 的 存储 缓存 指针   
+ 　 　 ( 2 )   定义 回调 函数 的 具体内容   
+ 　 　 / /   当 捕获 过程 发生 错误 时 调用   
+ 　 　 LRESULT   CALLBACK   ErrorCallbackProc   
+ 　 　 ( HWND   hWnd ,   int   nErrID ,   LPSTR   lpErrorText )   
+ 　 　 {   
+ 　 　   if   ( ! ghWndCap )   return   FALSE ;   
+ 　 　   if   ( nErrID   = =   0 )   return   TRUE ;   
+ 　 　 lstrcpy ( gachLastError ,   lpErrorText ) ;   
+ 　 　 MessageBox ( hWnd ,   lpErrorText ,   
+ 　 　   gachAppTitle , MB _ OK   |   
+ 　 　   MB _ ICONEXCLAMATION )   ;   
+ 　 　   return   ( LRESULT )   TRUE   ;   
+ 　 　 }   
+ 　 　 / /   当 捕获 窗 状态 改变 时 调用   
+ 　 　 LRESULT   CALLBACK   StatusCallbackProc   
+ 　 　 ( HWND   hWnd ,   int   nID ,   LPSTR   lpStatusText )   
+ 　 　 {   
+ 　 　   static   int   CurrentID ;   
+ 　 　   if   ( ! ghWndCap )   return   FALSE ;   
+ 　 　   if   ( nID   = =   IDS _ CAP _ END )   {   
+ 　 　 if   ( ( CurrentID   = =   
+ 　 　   IDS _ CAP _ STAT _ VIDEOAUDIO )   
+ 　 　   | |   ( CurrentID   = =   
+ 　 　   IDS _ CAP _ STAT _ VIDEOONLY ) )   
+ 　 　   return ( TRUE ) ;   
+ 　 　   }   
+ 　 　   CurrentID   =   nID ;   
+ 　 　   / /   更新 捕获 窗 的 状态   
+ 　 　   statusUpdateStatus ( gCapStatus ,   lpStatusText ) ;   
+ 　 　   return   ( LRESULT )   TRUE   ;   
+ 　 　 }   
+ 　 　 / /   当 捕获 过程 中 其它 应用 处于   Yield   时 调用   
+ 　 　 LRESULT   CALLBACK   YieldCallbackProc   
+ 　 　 ( HWND   hWnd )   
+ 　 　 {   
+ 　 　   / /   在 此仅作 消息传递 ， 可 根据 需要 处理   
+ 　 　   MSG   msg ;   
+ 　 　   if   ( PeekMessage (   msg ,   
+ 　 　   NULL , 0 , 0 , PM _ REMOVE ) ) {   
+ 　 　 　 　   TranslateMessage (   msg ) ;   
+ 　 　 　 　   DispatchMessage (   msg ) ;   
+ 　 　   }   
+ 　 　   return   ( LRESULT )   TRUE ;   
+ 　 　 }   
+ 　 　 / /   当 缓存 中 一帧 视频 数据 满时 调用   
+ 　 　 LRESULT   CALLBACK   capVideoStreamCallback   
+ 　 　 ( HWND   hWnd ,   LPVIDEOHDR   lpVHdr )   
+ 　 　 {   
+ 　 　   / /   将 一帧 的 图象 数据 拷贝到 指定 缓存   
+ 　 　   memcpy ( ReadBuf , lpVHdr - > lpData ,   
+ 　 　 　 　   lpVHdr - > dwBytesUsed ) ;   
+ 　 　   return   ( LRESULT ) TRUE ;   
+ 　 　 }   
+ 　 　 ( 3 )   启动 视频 捕获 窗   
+ 　 　 视频 捕获 窗 的 启动 过程 主要 由   ViewCapture   函数 实现 ， 视频 数据 的 采集 则 由 回调 函数 完成 。   
+ 　 　 void   ViewCapture ( void )   
+ 　 　 {   
+ 　 　 　 　   int   nID ;   
+ 　 　 　 　   BOOL   cError ;   
+ 　 　 　 　   CRect   Rect ;   
+ 　 　 　 　   nID   =   1 ;   
+ 　 　 　 　   cError   =   TRUE ;   
+ 　 　 / /   创建 视频 捕获 窗   
+ 　 　 　 　   hwndParent   =   m _ hWnd ;   
+ 　 　 　 　   GetClientRect (   Rect ) ;   
+ 　 　 　 　   hwndCap   =   capCreateCaptureWindow (   
+ 　 　 　 　 　   " My   capture   Window " ,   
+ 　 　 　 　 　   WS _ CHILD | WS _ VISIBLE ,   
+ 　 　 　 　 　   Rect . left , Rect . top , 192 ,   
+ 　 　 　 　 　   144 , hwndParent , nID ) ;   
+ 　 　   / /   由 捕获 窗 获取 视频 捕获 的 缺省 设置   
+ 　 　 capCaptureGetSetup ( hwndCap ,   gCapParms , sizeof ( CAPTUREPARMS ) ) ;   
+ 　 　 / /   设置 捕获 窗 的 参数   
+ 　 　 gCapParms . dwRequestMicroSecPerFrame   =   40000 ;   
+ 　 　   gCapParms . fCaptureAudio =   FALSE ;   
+ 　 　   gCapParms . fLimitEnabled =   FALSE ;   
+ 　 　   gCapParms . fAbortLeftMouse = FALSE ;   
+ 　 　   gCapParms . fAbortRightMouse = FALSE ;   
+ 　 　   gCapParms . fYield = TRUE ;   
+ 　 　 / /   注册 回调 函数   
+ 　 　   capSetCallbackOnError ( hWndCap ,   ErrorCallbackProc ) ;   
+ 　 　   capSetCallbackOnStatus ( hWndCap ,   StatusCallbackProc ) ;   
+ 　 　   capSetCallbackOnYield ( hWndCap ,   YieldCallbackProc ) ;   
+ 　 　   capSetCallbackOnVideoStream ( hwndCap ,   
+ 　 　 　 　   capVideoStreamCallback ) ;   
+ 　 　 / /   设置 捕获 窗 参数   
+ 　 　   capCaptureSetSetup ( hwndCap ,   gCapParms ,   
+ 　 　 　 　   sizeof ( CAPTUREPARMS ) ) ;   
+ 　 　 / /   建立 与 视频 捕获 设备 的 连接   
+ 　 　 capDriverConnect ( hwndCap , NULL ) ;   
+ 　 　 / /   获取 捕获 窗 当前 状态   
+ 　 　 capGetStatus ( hwndCap ,   gCapStatus ,   sizeof ( gCapStatus ) ) ;   
+ 　 　 / /   获取 视频 捕获 设备 的 能力   
+ 　 　 capDriverGetCaps ( hwndCap ,   
+ 　 　 gCapDriverCaps , sizeof ( CAPDRIVERCAPS ) ) ;   
+ 　 　 / /   设置 捕获 窗 的 显示 模式 为   Overlay   模式   
+ 　 　 capOverlay ( hwndCap , TRUE ) ;   
+ 　 　 / /   激活   capVideoStreamCallback   回调 函数   
+ 　 　 capCaptureSequenceNoFile ( hwndCap ) ;   
+ 　 　 }   
+ 　 　 ( 4 )   关闭 视频 捕获 窗   
+ 　 　 / /   注销 回调 函数   
+ 　 　 capSetCallbackOnError ( hWndCap , NULL ) ;   
+ 　 　 capSetCallbackOnStatus ( hWndCap , NULL ) ;   
+ 　 　 capSetCallbackOnYield ( hWndCap , NULL ) ;   
+ 　 　 capSetCallbackOnVideoStream ( hwndCap , NULL ) ;   
+ 　 　 / /   取消 与 视频 捕获 设备 的 连接   
+ 　 　 capDriverDisconnect ( hwndCap ) ;   
+ 　 　 在 以上 过程 中 ， 所 捕获 的 视频 帧 被 保存 到 了 指定 的 位置 ， 可以 根据 应用 的 需要 进行 处理 ， 如 进行 压缩 编码 或 传输 等 。   
+ 4   结束语   
+ 　 　 Visual   C++   所 提供 的   Video   for   Windows   函数 是 软件 方式 实现 实时 视频 捕获 重要 工具 ， 合理 利用 它 所 提供 的 函数 、 宏 、 结构 以及 回调 函数 可以 方便 地 实现 实时 视频 捕获 ， 为 后续 的 处理 工作 打 好 基础 。 在 多媒体通信 应用 中 尤为重要 。 本文 所 提出 的 应用 框架 适合 于 实时 视频 捕获 与 处理 的 大部分 应用 场合 ， 根据 不同 的 应用 要求 可以 作 相应 的 扩充 和 修改 ， 作者 应用 该 框架 实现 了 可视电话 系统 视频 输入 端的 实时 视频 捕获 功能 ， 并 将 其 集成 到 可视电话 的 应用 系统 中 ， 取得 了 满意 的 效果 。   
+ 作者 单位 ： 上海交通大学 图象 通信 与 信息处理 研究所 ， 上海   200030 
+ 参考文献   
+ 1   Kruglinski   D   J   著 ， 王国 印译   .   Visual   C++   技术 内幕   .   北京 ： 清华   大学 出版社 ，   1994   
+ 2   Norton   P   著 ， 孙凤 英译   .   MFC   开发   Windows95 / NT4   应用程序   .   北   京 ： 清华大学出版社 ，   1998   

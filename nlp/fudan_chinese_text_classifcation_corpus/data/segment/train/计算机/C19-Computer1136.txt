@@ -1,0 +1,91 @@
+自动化 学报 
+ ACTA   AUTOMATICA   SINICA 
+ 1999 年 　 第 25 卷 　 第 5 期 　 Vol.25   No.5   1999 
+ 
+ 
+ 
+ 基 于小波 网络 动态 补偿 的 广义 预测 控制器 
+ 王群 仙 　 李少远 　 李焕芝 　 陈 增强 　 袁著祉 
+ 摘 　 要 　 由于 广义 预测 控制器 依赖于 表征 过程 的 线性 模型 ， 没有 考虑 未 建模 误差 的 影响 ， 随着 预测 长度 的 增加 ， 其 预测 误差 也 增大 . 因此 ， 提出 用小波 网络 建立 误差 的 预测 模型 ， 并 对模型 预测 进行 动态 补偿 ， 以 抑制 模型 失配 的 影响 ， 增强 鲁棒性 . 仿真 结果表明 了 算法 的 有效性 . 
+ 关键词 　 小 波 网络 ， 预测 控制 ， 模型 失配 ， 鲁棒性 . 
+ GENERALIZED   PREDICTIVE   CONTROL   WITH   DYNAMIC   COMPENSATION   BASED   UPON   WAVELET   NETWORK 
+ WANG   Qunxian 　 LI   Shaoyuan 　 LI   Huanzhi 
+ ( Department   of   Electrical   Engineering   of   Hebei   University   of   Technology ,   Tianjin 　 300130 ) 
+ CHEN   Zengqiang 　 YUAN   Zhuzhi 
+ ( Department   of   Computer   &   System   Science ,   Nankai   University ,   Tianjin 　 300071 ) 
+ Abstract 　 Generalized   predictive   control   relies   on   the   process   linear   model   and   doesn ' t   consider   the   effect   of   unmodelled   error .   With   a   longer   prediction   length ,   the   prediction   error   becomes   greater .   Therefore   this   paper   presents   an   error   prediction   model   using   wavelet   network   and   uses   it   to   compensate   the   error   dynamically .   The   adjusted   GPC   can   reduce   the   influnce   of   unmodelling   section   and   enhance   its   robustness .   The   simulation   results   have   shown   the   method ' s   validity . 
+ Key   words 　 Wavelet   network ,   predictive   control ,   model   mismatch ,   robustness . 
+ 1 　 引 　 言 
+ 　 　 广义 预测 控制器 ( GPC ) ［ 1 ］ 的 在线 求解 基于 在线 辨识 的 过程 模型 ， 当 存在 建模 误差 时 ， 随着 预测 长度 的 增加 ， 预测 误差 也 增加 . 因此 ， 在 预测 控制 中 需要 引入 未来 输出 预测 误差 模型 ， 以 抑制 模型 失配 的 影响 ， 提高 控制器 的 鲁棒性 . 
+ 　 　 由 于小波 网络 ［ 2 ］ 作 非线性 函数 逼近 时 ， 性能 优于 同等 规模 的 神经网络 ， 网络 训练 过程 从根本上 避免 了 局部 最优 ， 因此 采用 小 波 网络 作为 预测 偏差 模型 的 估计 ， 其中 的 参数 学习 采用 收敛 速度 较 快 的 Davidon 最小 二 乘法 ( DLS ) ［ 3 ］ . 仿真 实验 表明 了 本文 算法 的 有效性 . 
+ 2 　 具有 误差 修正 的 广义 预测 控制器 
+ 　 　 设 系统 由 如下 CARIMA 模型 描述 
+ A ( z - 1 ) y ( k ) = B ( z - 1 ) u ( k - 1 ) + ξ ( k ) / Δ , 　 ( 1 ) 
+ 其中 y ( k ) , u ( k ) 分别 是 过程 的 输出 和 输入 ； ｛ ξ ( k ) ｝ 是 互不 相关 的 零 均值 噪声 序列 ； A ( z - 1 ) , B ( z - 1 ) , Δ ( z - 1 ) 均 是 z - 1 的 多项式 ， A ( z - 1 ) = 1 + a1z - 1 + … + anaz - na , B ( z - 1 ) = b0 + b1z - 1 + … + bnbz - nb , Δ = 1 - z - 1 . 
+ 　 　 控制器 设计所 基于 的 目标 函数 为 
+ 　 ( 2 ) 
+ 其中 y ( k + j ) 为 y ( k ) 的 向前 j 步 预报 值 ； N 为 最大 预测 前位 ； Nu 为 控制 前位 ； λ 是 控制 加权 因子 ； w ( k + j ) 是 设定值 柔化 序列 ， 为 
+ w ( k ) = y ( k ) , 　 w ( k + j ) = α w ( k + j - 1 ) + ( 1 - α ) yr ( k ) , 　 j = 1 , … , N , 　 ( 3 ) 
+ ( 3 ) 式 中 yr ( k ) 是 输出 设定值 ， α ∈ ［ 0 , 1 ) 称为 柔化 因子 . 
+ 　 　 基于 模型 的 预测 为 
+ ym ( k + j ｜ k ) = Fj ( z - 1 ) Δ u ( k + j - 1 ) + Gj ( z - 1 ) y ( k ) , 　 ( 4 ) 
+ 其中 degEj = j - 1 , degGj = na ， 且 
+ Ej ( z - 1 ) A ( z - 1 ) Δ ( z - 1 ) + z - jGj ( z - 1 ) = 1 , Fj = EjB . 　 ( 5 ) 
+ 令 　 则 
+ 　 ( 6 ) 
+ 令 ye ( k + j ｜ k ) 表示 系统 模型 的 预测 偏差 
+ ye ( k + j ｜ k ) = y ( k + j ) - ym ( k + j ｜ k ) , 　 ( 7 ) 
+ 则 极小 化 目标 函数 ( 2 ) 可 得到 误差 修正 的 广义 预测 控制 律 
+ 　 ( 8 ) 
+ 参数 定义 如下 
+ 
+ 其中 的 各 元素 也 是 系统 模型 的 前 N 项 阶跃 响应 系数 ｛ fi ｝ N - 1i = 0 . 取 Δ U 的 第一个 元素 Δ u ( k ) ， 即 为 控制 信号 增量 . 
+ 3 　 预测 误差 的 小波 网络 建模 
+ 3.1 　 小 波 网络 的 参数 学习 
+ 　 　 对 任一 函数 f ( x ) ∈ L2 ( Rn ) ， 可由 如图 1 的 小波 网络 描述 . 其中 n 为小波 网络 节点 个数 ， Ψ ( . ) 为 小 波函数 基 ， Di 为 膨胀 向量 ， ti 为 平移 向量 ， si 为 尺度 向量 ， ω i 为 权值 . 即 
+ 　 ( 9 ) 
+ 
+ 
+ 图 1 　 小 波 网络结构 
+ 　 　 设小波 网络 具有 m 个 输出 令 θ = ［ ti , si , ω p , i ］ T ， zi = Di . ( x - ti ) ， 网络 输出 对 参数 θ 的 偏 导数 为 
+ 　 ( 10 ) 
+ 　 ( 11 ) 
+ 　 ( 12 ) 
+ 设小波 网络 逼近 的 真实 输出 为 Y = ｛ yp ｝ p = 1 , … , m ， 定义 , 则 为 小波 网络 输出 对 各 参数 的 偏 导数 . 
+ 　 　 网络 参数 的 学习 采用 DLS ［ 3 ］ 算法 如下 ： 
+ θ k + 1 = θ k - Hk + 1 Φ k . Φ k , 　 ( 13a ) 
+ 　 ( 13b ) 
+ 其中 Hk 是 Hessian 阵 ， 0 < λ h ≤ 1 . 当 网络 输出 只有 一个 时 ， Hessian 阵 计算 中 没有 逆阵 计算 ； 当 计算 多个 输出 分量 时 ， 只 需 计算 输出 个数 大小 的 逆阵 . 
+ 3.2 　 误差 预测 
+ 　 　 在 第 k 时刻 ， 为了 得到 训练样本 ， 网络 的 输入 取 
+ Xkx = ［ y ( k - N ) , … , y ( k - na - N ) , u ( k - 1 - N ) , … , u ( k - nb - 1 - N ) ］ T . 
+ 根据 式 ( 6 ) ， ( 7 ) 得到 网络 的 输出 ， 为 
+ Ye ( k - N ) = ［ ye ( k - N + 1 ) ， … , ye ( k ) ］ T , 
+ 训练 的 方法 用 DLS . 依据 训练 后 的 网络 进行 预测 误差 的 预测 . 
+ 　 　 进行 误差 预测 时 ， 网络 的 输入 取 
+ Xk = ［ y ( k ) , … , y ( k - na ) , u ( k - 1 ) , … , u ( k - nb - 1 ) ］ T , 
+ 则 此时 网络 的 输出 为 Ye ( k ) ， 即 
+ Ye ( k ) = fWN ［ Xk , ( k ) ］ , 　 ( 14 ) 
+ 其中 为小波 网络 的 权 向量 . 
+ 4 　 仿真 实例 
+ 　 　 设 受控系统 为 如下 非线性 系统 仿真 中 ， 用变 遗忘 因子 的 最小 二 乘法 在线 辨识 非线性 系统 的 线性 模型 参数 ， 并 在线 利用 小 波 网络 学习 预测 误差 ， 根据 ( 8 ) 式 计算 控制 律 ， 其中 小 波 网络 基 函数 取 墨西哥 草帽 函数 f ( x ) = ( 1 - x2 ) e - x2 / 2 的 直 乘积 . 小波 网络 大小 取 6 - 10 - 4 ， na = 3 , nb = 1 , λ h = 0.95 ， N = 4 ， Nu = 4 ， λ = 0.1 ， α = 0.86 ， 跟踪 幅值 为 1 的 方波 ， 最后 400 步 的 仿真 曲线 见图 2 ， 3 . 
+ 
+ 
+ 
+ 图 2 　 跟踪 曲线 y 
+ 
+ 
+ 图 3 　 输入 曲线 u 
+ 　 　 从 仿真 曲线 看出 ， 系统 很 好 地 跟踪 了 设定值 的 变化 . 
+ 5 　 结 　 论 
+ 　 　 本文 基于 线性 预测 模型 和 小波 网络 动态 补偿 模型 而 构造 的 广义 预测 控制算法 ， 在 原有 广义 预测 控制器 的 基础 上 ， 利用 预测 误差 的 历史数据 建立 误差 预测 的 小波 网络 模型 ， 可以 作为 预测 误差 的 预测器 ， 修正 了 纯 基于 线性 模型 的 预测 ， 对模型 失配 有 很 强 的 抑制 能力 . 
+ 作者简介 ： 王群 仙 　 1969 年生 . 1990 年 毕业 于 河北 工业 大学 电气工程 系 ， 现为 南开大学 计算机 与 系统 科学系 博士生 . 目前 主要 从事 自 适应控制 、 神经网络 及小波 分析 等 研究 工作 . 
+ 　 　 　 　 　 李少远 　 1965 年生 . 副教授 、 博士 ， 现在 上海交通大学 继续 博士后 工作 . 研究 方向 为 预测 控制 、 神经网络 、 模糊控制 等 . 
+ 作者 单位 ： 王群 仙 　 李少远 　 李焕芝 　 河北 工业 大学 电气工程 系 　 天津 　 300130 
+ 　 　 　 　 　 陈 增强 　 袁著祉 　 南开大学 计算机 与 系统 科学系 　 天津 　 300071 
+ 参考文献 
+ 1 　 Clarke   D   W .   Application   of   generalized   predictive   control   to   industrial   process .   IEEE   CSM ,   1988 ,   8 ( 2 ) : 49 — 55 
+ 2 　 Juditsky   A ,   Hjalmarson   H ,   Benveniste   A   et   al .   Nonlinear   black - box   modeling   in   system   identification :   a   unified   overview .   Automatica .   1995 ,   31 ( 12 ) : 1691 — 1724 
+ 3 　 Kasparian   V ,   Batur   C , Zhang   H   et   al .   Davidon   least   squares - based   learning   algorithm   for   feedforward   neural   networks .   Neural   Networks .   1994 ,   4 ( 4 ) , 661 ～ 770 
+ 收稿 日期 ： 1998 - 02 - 25 
+ 修稿 日期 ： 1998 - 06 - 27 

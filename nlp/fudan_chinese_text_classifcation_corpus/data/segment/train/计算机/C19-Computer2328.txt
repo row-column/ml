@@ -1,0 +1,124 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 　 Vol.36 　 No.6 　 P.758 - 763 
+ 
+ 
+ 
+ 一种 基于 SCI 的 高效 输入 队列 分配 协议 
+ 温学颖 　 李舒 　 韩 承德 　 张志浩 
+ 摘 　 要 ： SCI ( scalable   coherent   interface ) 是 IEEE 于 1992 年 通过 的 高速 互联 标准 ， 它 为 机群系统 的 互联 提供 了 一个 高效 、 经济 、 可 扩展 的 解决方案 . 为了 更 有效 地 利用 SCI 标准 提供 的 高带宽 ， 文中 对 标准 中 的 输入 队列 分配 协议 — — A / B 年龄 协议 （ A / B   aging   protocol ） 进行 了 深入分析 ， 并 提出 了 一种 改进 方案 ： 智能 A / B 年龄 协议 . 文中 还 讨论 了 改进 方案 的 实现 及 性能 . 智能 A / B 年龄 协议 的 3 个 主要 优点 是 ： 有效 地 提高 了 带宽 利用率 ； 发送 包 的 平均 服务 延迟 明显降低 ； 引入 非常少 的 硬件 开销 . 分析 结果表明 ， 系统 阻塞 越 严重 ， 智能 A / B 年龄 协议 所 获得 的 改进 效果 越 显著 . 
+ 关键词 ： SCI ， 流量 控制 ， 机群系统 
+ 分类号 ： TP302 ； TN919.3 
+ AN   EFFICIENT   INPUT   QUEUE   ALLOCATION   PROTOCOL   FOR   SCI 
+ WEN   Xue - Ying ， ZHANG   Zhi - Hao 
+ ( Computing   Center ,   Tongji   University ,   Shanghai   200092 ) 
+ LI   Shu ， HAN   Cheng - De 
+ ( High   Performance   Computing   Center ,   Institute   of   Computing   Technology , 
+ Chinese   Academy   of   Sciences ,   Beijing   100080   ) 
+ Abstract ： SCI ( scalable   coherent   interface )   is   a   high   speed   interconnect   standard   approved   by   IEEE   in   1992 .   It   provides   a   high   performance ,   cost - effective ,   and   scalable   solution   to   the   interconnection   of   cluster   systems .   In   order   to   fully   utilize   the   high   raw   bandwidth   of   SCI ,   a   more   efficient   input   queue   allocation   protocol ,   Called   intelligent   A / B   aging   protocol   is   proposed .   The   implementation   and   performance   evaluation   of   the   intelligent   A / B   aging   protocol   is   also   given .   It   notably   increases   the   bandwidth   utilization   and   shortens   the   average   service   delay   of   send   packets .   The   analysis   shows   that   thd   intelligent   A / B   aging   protocol   improves   performance   more   significantly   as   the   workload   of   the   system   increases .   
+ Key   words ： SCI ,   flow   control ,   cluster   system ▲ 
+ 1 　 引 　 　 言 
+ 　 　 SCI ( scalable   coherent   interface ) 标准 ［ 1 ］ 是 IEEE 于 1992 年 通过 的 高速 互联 标准 . SCI 最 突出 的 特点 包括 ： 高带宽 、 低 延迟 、 可 扩展 和 优秀 的 性能 价格比 等 . 因此 ， 它 非常适合 机群系统 互联 的 需求 . 
+ 　 　 SCI 提供 的 服务 类似 于 计算机 总线 ， 其 单向 点到点 的 连接 有效 避免 了 总线结构 的 吞吐 率 限制 ， 并且 在 低 延迟 的 协议 中 实现 了 可靠 数据 传送 . SCI 的 传输 以 数据包 ( Packet ) 为 单位 ， 每个 数据包 又 由 一系列 字 （ Symbol ） 组成 ， 每个 字 包含 16 个 比特 . SCI 构成 网络 的 基本 结构 为 单环 ， 也 可 使用 交换 技术 （ switch ） 构成 各种 拓扑 结构 的 大规模 系统 . 
+ 　 　 SCI 是 一个 非常 活跃 的 研究 领域 . Dolphin 公司 已经 推出 了 遵循 SCI 协议 的 产品 PCI1   PCI - SCI ［ 2 ］ 和 SBUS - to - SCI ［ 3 ］ ： 前者 用于 连接 基于 PCI 总线 的 PII 工作站 ， 而 后者 则 用于 连接 基于 SBUS 的 Sparc 和 Ultra   Sparc 工作站 . 
+ 　 　 本文 主要 致力于 SCI 队列 分配 协议 中 的 A / B 年龄 协议 的 研究 ， 试图 将 其 优化 以 获得 更优 的 性能 . 文中 简单 介绍 了 SCI 协议 中 的 有关 概念 ： SCI 结点 接口 和 队列 分配 协议 中 的 A / B 年龄 协议 ； 提出 了 智能 A / B 年龄 协议 ， 并 对 这 一 改进 从 理论 上 分析 了 其 性能 ， 进而 给出 一个 有效 的 实现 方案 ； 最后 总结 了 本文 的 工作 及 以后 的 研究 方向 . 
+ 2 　 SCI 简介 
+ 　 　 ( 1 )   SCI 结点 接口 （ node   interface ） 
+ 　 　 结点 接口 ( 其 结构 如图 1 所示 ) 是 SCI 协议 中 的 核心 单元 . 一个 结点 接口 可 同时 接收 、 发送 及 旁通 ( bypass ) 数据包 . 
+ 　 　 结点 接口 的 接收 部分 包括 一个 弹性 缓冲 （ elastic   buffer ） 、 一个 分析器 （ parser ） 和 一个 分发 器 （ stripper ） . 结点 接口 的 发送 部分 包括 一个 旁通 队列 （ bypass   FIFO ） 、 一个 控制 信息 存储 缓冲 （ savedIdle   buffer ） 、 一个 多路 选择器 （ multiplexer ） 和 一个 CRC 编码器 （ CRC   encoder ） . 关于 各 部件 的 功能 ， 可以 参见 SCI 标准 ［ 1 ］ . 
+ 　 　 ( 2 )   A / B 年龄 （ A / B   aging ） 协议 
+ 　 　 A / B 年龄 协议 是 队列 分配 协议 的 一个 子集 ， 用来 控制 对 结点 接口 输入 队列 的 存取 . 它 采用 A / B 标签 来 识别 重 发包 的 相对 年龄 ， 并 优先 接受 最早 的 一批 重 发包 ， 从而 有效 地 保证 了 传输 的 前进 性 . 图 1 为 A / B 年龄 协议 的 服务 状态 转换 图 . 
+ 
+ 
+ 图 1 　 A / B 年龄 协议 的 状态 转换 图 
+ 3 　 A / B 年龄 协议 的 改进 
+ 　 　 SCI 协议 中 定义 的 带宽 很 高 ， 其 结点 接口 的 发送 时钟 周期 是 2ns ， 每个 周期 传送 一个 16 比特 的 字 （ symbol ） ， 所以 SCI 的 带宽 （ raw   bandwidth ） 应为 16 / （ 2 × 10 - 9 ） = 8Gbps . 然而 ， 在 实际 系统 中 ， 这样 高 的 带宽 并 没有 被 充分利用 . 流量 控制 是 提高 SCI 带宽 利用率 的 关键 ， 目前 这方面 真正 有 价值 的 研究 还 很少 见 . 文献 ［ 4 ］ 提出 了 调节 发送 时间 间隔 来 改善 流量 控制 ， 但 并 没有 给出 设置 发送 时间 间隔 的 算法 . 本文 对 队列 分配 协议 中 的 A / B 年龄 协议 进行 了 集中 分析 ， 进而 提出 了 智能 A / B 年龄 协议 . 
+ 3.1 　 智能 A / B 年龄 协议 
+ 　 　 我们 用 一个 四元组 来 标识 一个 发送 包 的 有关 信息 ps = 〈 i ， j ， cmdphase ， s - statusj 〉 ， 
+ 其中 ， i 是 源 结点 ， j 是 目的 结点 ， cmdphase 是 发送 包 的 command . phase 域值 ， s - statusj 是 这个 发送 包 到达 目的 结点 j 时 ， 结点 j 的 服务 状态 （ serve   status ） . 
+ 　 　 记 Ps 为 所有 ps 的 集合 ， 我们 可以 把 Ps 分成 如下 两类 ： 
+ 　 　 ①   Ps - allow = { ps   ： s - statusj = SERVE - NA   or   s - statusj   = SERVE - NB   or   ( s - statusj   = SERVE - A   and   cmdphase = RETRY - A )   or   ( s - statusj = SERVE - B   and   cmdphase = RETRY - B ) } 
+ 　 　 ②   Ps - disallow = { ps ： ( s - statusj = SERVE - A   and   cmdphase ≠ RETRY - A )   or   ( s - statusj   = SERVE - 
+ B   and   cmdphase ≠ RETRY - B ) } 
+ 　 　 考察 如图 4 所示 的 A / B   年龄 协议 可知 ， Ps - disallow 中 的 发送 包有 这样 一个 特点 ： 无论 目的 结点 j 的 接受 队列 是否 有 足够 的 空间 可以 接受 这个 发送 包 ， 结点 都 不会 接受 它 . Ps - disallow 及其 对应 的 回音 包 （ echo   packet ） 集合 显然 是 对 SCI   带宽 的 一种 巨大 浪费 . 下面 将 介绍 我们 的 改进 方法 . 
+ 　 　 在 SCI 标准 的 A / B   年龄 协议 中 ， 发送 结点 仅能 从 返回 的 回音 包中 获取 关于 接收 结点 的 有限 信息 ， 而 无法 知道 接收 方 的 服务 状态 ， 如果 发送 包被 拒绝 ， 发送 结点 只会 机械 地 根据 给定 的 规则 设置 重 发包 的 cmdphase ， 然后 进行 重发 . 我们 的 改进 方法 的 基本 思想 是 ： 如果 已知 某 接收 结点 j 的 服务 状态 为 SERVEA ( 或 SERVE - B ) ， 则 结点 j 服务 状态 的 改变 应 尽快 地 通知 环内 其他 结点 ， 使 各 发送 方 根据 得到 的 信息 ， 避免 发送给 j 它 肯定 不会 接受 的 NOTRY ， DOTRY 或 RETRY - B （ 或 RETRY - A ） 包 ， 从而 有效 地 减少 Ps - disallow 的 数量 来 提高 带宽 利用率 . 
+ 　 　 与 SCI 标准 中 的 A / B   年龄 协议 相比 ， 在 我们 的 改进 方法 中 ， 发送 结点 具有 更 多 的 “ 智能 " ， 因此 我们 把 改进 方法 称为 智能 A / B   年龄 协议 . 下面 介绍 智能 A / B   年龄 协议 的 实现 ， 并 讨论 它 的 3 个 主要 优点 ： 有效 地 提高 了 带宽 利用率 ； 发送 包 的 平均 服务 延迟 明显降低 ； 引入 非常少 的 硬件 开销 ， 而且 完全 不 影响 SCI 原有 功能 的 实现 . 
+ 　 　 采用 智能 A / B   年龄 协议 的 SCI 结点 接口 的 结构 如图 2 所示 ： 
+ 
+ 
+ 图 2 　 智能 A / B   年龄 协议 的 SCI 结点 接口 结构图 
+ 　 　 在 采用 智能 A / B   年龄 协议 的 SCI 结点 中 ， 最 重要 的 部件 是 服务 状态表 （ serve   status   table ， SST ） 、 智能 分发 器 （ intelligent   stripper ） 和 智能 发送器 （ intelligent   transmitter ） . 与 原 标准 中 的 分发 器 （ stripper ） 相比 ， 在 智能 分发 器中 ， 增加 了 一个 NOTIFYBUFFER 和 一些 控制 逻辑 . 所 增加 的 控制 逻辑 主要 完成 两个 功能 ： 
+ 　 　 ①   当 结点 作为 接收 结点 时 ， 服务 状态 一 发生变化 ， 就 发送 一个 特殊 的 NOTIFY 包 ， 尽快 通知 环内 其他 结点 ； 
+ 　 　 ②   识别 NOTIFY 包 ， 并 更新 服务 状态表 . 
+ 　 　 结点 i 的 智能 分发 器 的 处理 流程 如下 ： 
+ 
+ 
+ 图 3 　 智能 分发 器 的 处理 流程图 
+ 我们 定义 的 NOTIFY 包 格式 及其 中 的 SERVESTATUS 域 的 说明 ， 如表 1 及表 2 所示 ： 
+ 表 1 　 NOTIFY 包 格式 
+ 
+ FLAG ［ NOTIFY   PACKET ］ 
+ 1TARGETID 
+ 1SERVESTATUS ( 2 ) 　 　 RESERVED ( 14 ) 
+ 1SOURCEID 
+ 0CRC 
+ 
+ 表 2 　 SERVESTATUS 的 说明 
+ 
+ ［ SERVESTATUS ］ 
+ 00NA → A 
+ 01A → NB 
+ 10NB → B 
+ 11B → NA 
+ 
+ 
+ 　 　 以 接收 结点 j 为例 ， 在 它 产生 的 NOTIFY 包中 TARGETID = SOURCEID = j . 按照 SCI 标准 的 处理 逻辑 （ 我们 的 改进 方法 不 影响 SCI 标准 的 这部分 逻辑 ） ， 这个 包将 从 结点 j 出发 ， 沿环 遍历 环内 所有 结点 ， 最后 回到 结点 j ； 同时 ， 这个 包 的 标识 （ FLAG ） 与 一般 的 回音 包 相同 . 在 SCI 标准 中 ， 其他 回音 包 的 TARGETID 一定 不 等于 SOURCEID ， 所以 当 这个 包 经过 环内 任意 一个 结点 时 ， 就 会 被 结点 的 智能 分发 器 识别 出来 ， 然后 更新 SST 中 相应 的 条目 . 
+ 　 　 SST 的 格式 可 参见 表 3 .   
+ 　 　 　 　 表 3 　 SST 的 格式 
+ 
+ NODEIDSERVESTATUS 
+ … … 
+ 
+ 　 　 SST 中 保存 了 环内 每个 结点 的 服务 状态 . SCI 环 初始化 时 ， 将 环内 每个 结点 的 NODEID   填入 表内 ， 并 将 表中 每一项 的 服务 状态 都 置 为 SERVENA .   初始化 完成 后 ， 结点 的 智能 分发 器 识别 到 NOTIFY 包时 ， 就 会 更新 SST .   结点 在 发送 包 之前 ，   智能 发送器 （ intelligent   transmitter ） 先 查看 SST ， 如果 接收 结点 的 状态 为 SERVEA ( 或 SERVEB ) ， 而待 发送 包 的 command . phase 为 NOTRY ， DOTRY ， RETRYB ( 或 RETRYA ) 时 ， 就 暂 不 发送 这个 包 . 
+ 3.2 　 引入 的 硬件 开销 
+ 　 　 从 上面 的 介绍 可知 ，   采用 智能 A / B   年龄 协议 的 SCI 结点 引入 的 硬件 开销 包括 ： SST ，   Intelligent   Stripper   中 加入 的 存储器 ( 寄存器 )   NOTIFYBUFFER ， 以及 Intelligent   Stripper ， Intelligent   Transmitter 和 SCI 初始化 时 的 控制 逻辑 . 先 考察 SST 的 容量 ： SST 的 每个 条目 要 保存 NODEID 和 SERVESTATUS ， 根据 SCI 的 标准 ， NODEID 的 宽度 为 16 个 比特 ， SERVESTATUS 共有 4 种 状态 ， 用 2 个 比特 表示 就 足够 了 ， 所以 SST 的 每个 条目 宽度 为 18 比特 . 又 由于 SCI 每个 环内 的 结点 数 一般 不 超过 10 （ 因为 单环 中 的 结点 过多 将 会 大大降低 整个 系统 的 性能 ［ 5 ］ ） ， 所以 SST 的 容量 不会 超过 180 比特 ， 而且 查表 的 速度 也 很快 . Intelligent   Stripper   中 加入 的 NOTIFYBUFFER 容量 为 2 个 字 （ symbol ） ， 即 32 比特 . 所以 采用 智能 A / B   年龄 协议 的 SCI 结点 引入 的 存储器 开销 不会 超过 30 个 字节 ，   而 Intelligent   Stripper , Intelligent   Transmitter 和 SCI 初始化 时 增加 的 控制 逻辑 只是 一些 非常简单 的 比较 判断 等 逻辑 ， 这些 存储器 开销 和 控制 逻辑 开销 与 实现 SCI 标准 所 需 的 大量 的 存储器 ( 缓冲 ) 和 非常复杂 的 控制 逻辑 相比 ， 是 非常 小 甚至 可以 忽略 的 . 
+ 3.3 　 智能 A / B 年龄 协议 的 性能 分析 
+ 　 　 考虑 如图 4 所示 的 一个 含 n 个 结点 的 环 . 以 结点 0 从 SERVENA 转换 到 SERVEA ， 再 从 SERVEA   转换 到 SERVENB 为例 ( 从 SERVENA 转换 到 SERVEA ， 再 从 SERVEA   转换 到 SERVENB 的 分析 与 之 完全 类似 ) . 
+ 
+ 
+ 　 　 　 　 图 4 　 含 n 个 结点 的 SCI 环 
+ 
+ 
+ 图 5 　 服务 状态 转换 时序 图 
+ 　 　 如图 5 所示 ， 结点 0 在 时刻 t1 从 SERVENA 转换 到 SERVEA ， 根据 智能 A / B   年龄 协议 ，   结点 0 将 发出 第 1 个 NOTIFY 包 ， 记为 pnotify1 ； 在 时刻 tnotify1 ， i   ， 包 pnotify1 经过 结点 i ， 结点 i 的 智能 分发 器 识别 出 pnotify1 并 更新 SST 中 关于 结点 0 的 条目 . 根据 环 的 拓扑 结构 ， 应有 tnotify1 ， i < tnotify1 ， i + 1 ( 0 < i < n - 1 ) .   结点 0 在 时刻 t2 从 SERVEA 转换 到 SERVENB ， 并 发出 第 2 个 NOTIFY 包 ， 记为 pnotify2 ， 结点 i 在 时刻 tnotify2 ， i 识别 出 第 2 个 NOTIFY 包并 更新 SST . 
+ 　 　 在 时刻 t1 与 时刻 tnotify1 ， i 之间 ， 虽然 结点 0 的 状态 已经 变为 SERVEA ， 但 由于 pnotify1 还 没有 到达 结点 i ， 所以 结点 i 还是 有 可能 在 这 段时间 内 发出 目的 结点 为 0 且 command . phase 为 NOTRY ， DOTRY 或 RETRYB 的 包 ， 即 属于 Psdisallow 的 包 ， 此时 改进 方案 与 SCI 标准 的 协议 相同 . 如果 采用 智能 A / B 年龄 协议 ， 在 时刻 tnotify1 ， i 之后 ， 结点 i 就 不会 发送 目的 结点 为 0 且 command . phase 为 NOTRY ，   DOTRY 或 RETRYB 的 包 ，   即 Psdisallow 的 数量 为 0 ， 这 就是 本文 改进 的 关键所在 .   
+ 　 　 在 时刻 t2 与 时刻 tnotify2 ， i 之间 ， 虽然 结点 0 的 状态 已经 变为 SERVE - NB ， 因而 可以 接受 以 结点 0 为 目的 结点 的 所有 的 包 ， 但 对于 结点 i 来说 ， 由于 pnotify2 还 没有 到达 结点 i ， 所以 不会 发送 目的 结点 为 0 且 command . phase 为 NOTRY ，   DOTRY 或 RETRYB 的 包 ， 延缓 了 这些 包 的 发送 . 但 这种 延缓 从 后面 的 分析 中 可以 看到 是 非常 小 的 . 
+ 　 　 我们 记 采用 SCI 标准 中 A / B 年龄 协议 的 带宽 利用率 为 η AB ， 采用 智能 A / B 年龄 协议 的 带宽 利用率 为 η IAB ， 并 定义 R = η IAB / η AB . 由 以上 分析 可见 ， 通常 情况 下 都 有 R > 1 ， 且 
+ R = f ( ( tnotify1 ， i -   t1 ) / ( t2 - t1 ) ， ( tnotify2 ， i - t2 ) / ( t2 - t1 ) ) 
+ ( tnotify1 ， i   - t1 ) / ( t2   -   t1 ) 和 ( tnotify2 ， i   -   t2 )   / ( t2 -   t1 ) 越小 ， 则 R 越大 . 
+ 　 　 本来 ， 在 SCI 协议 中 定义 了 广播 包 （ 发送 包 的 一种 特殊 形式 ） ， 这 使得 我们 有 可能 定义 一个 专门 的 广播 包来 广播 结点 服务 状态 的 改变 . 然而 ， 广播 包 到达 后 ， 必须 先 进入 结点 的 输入 队列 ， 然后 才 会 被 处理 . 此外 ， 广播 包 的 长度 也 要 比 NOTIFY 包 的 长度 大 很多 . 而 我们 之所以 采用 类似 ECHO 包 的 格式 来 定义 NOTIFY 包 ， 并 在 智能 分发 器 进行 处理 ， 就是 希望 能 在 第一 时刻 通知 各 结点 ， 即 ： 使 tnotify1 ， i － t1 和 tnotify2 ， i － t2 尽可能 小 . 基于 这种 实现 策略 ， 在 实际 系统 中 可 得到 非常 小 的 ( tnotify1 ， i   -   t1 ) / ( t2   -   t1 ) 和 ( tnotify2 ， i   -   t2 )   / ( t2 -   t1 ) . 
+ 　 　 再 考虑 系统 在 不同 负载 下 的 性能 . 如果 阻塞 越 严重 ， 被 标记 为 BUSYA （ 或 BUSYB ） 的 包 就 越 多 ， 因而 接收 结点 处于 SERVEA （ 或 SERVEB ） 状态 的 时间 越长 ， 即 t2   -   t1 越大 ， 所以 R 也 越 大 . 这 说明 了 系统 阻塞 越 严重 ， 智能 A / B 年龄 协议 的 改进 效果 越 显著 . 
+ 　 　 另外 ， 在 结点 0 的 SERVESTATUS 变成 SERVEA 之后 ， 按照 SCI 标准 的 协议 ， 向 结点 0 发送 的 Psdisa 
+ llow 包 的 数量 远远 大于 采用 智能 A / B 年龄 协议 时 Psdisallow 包 的 数量 ， 进而 导致 采用 SCI 标准 的 协议 处理 完 所有 RETRYA 包 的 时间 ( 即 t2 － t1   )   远远 大于 采用 智能 A / B 年龄 协议 时 的 时间 . 所以 智能 A / B 年龄 协议 一方面 减少 了 无用 的 包 传输 ， 提高 了 带宽 的 有效 利用率 ； 另一方面 使 发送 包 的 平均 服务 延迟 明显降低 . 
+ 3.4 　 智能 A / B 年龄 协议 应用 于 大规模 并行处理 系统 的 情形 
+ 　 　 对于 用 SCI 互联 的 大规模 并行 系统 ， 一般 是 将 结点 分组 ， 每组 包含 8 ～ 10 个 结点 并 构成 一个 环 . 环与环 之间 可以 采用 各种 拓扑 结构 互联 . 在 本文 中 ， 我们 只 讨论 智能 A / B   年龄 协议 对 环内 的 流量 控制 进行 改进 ， 对于 环间 的 通信 ， 完全 可以 按照 SCI 标准规定 的 协议 进行 而 不 影响 其 正确性 和 性能 . 对于 在 整个 大规模 并行 系统 范围 中 应用 智能 A / B   年龄 协议 ， 我们 的 基本 思想 是 把 服务 状态 存放 在 环 间通信 所 必须 经过 的 SCI   SWITCH 中 . 限于 篇幅 ， 我们 在 此 暂 不 介绍 有关 的 具体 实现 方案 和 性能 分析 . 
+ 4 　 结 　 　 语 
+ 　 　 本文 深入分析 了 SCI 标准 中 的 A / B 年龄 协议 ， 并 指出 了 它 在 带宽 利用率 方面 的 缺点 ， 进而 提出 了 一种 切实可行 的 改进 方案 — 智能 A / B 年龄 协议 . 我们 还 给出 了 该 改进 方案 的 具体 实现 和 性能 分析 . 该 改进 方案 避免 了 不必要 的 包 重传 ， 从而 在 提高 了 带宽 利用率 的 同时 ， 降低 了 包 的 平均 服务 延迟 . 而且 该 方案 所 增加 的 硬件 开销 非常少 ， 易于 实现 . 
+ 　 　 由于 SCI 的 协议 十分复杂 ， 国际 上 对 这方面 的 性能 评价 主要 采用 测量 和 模拟 两种 方法 ， 而 理论 分析 方面 的 成果 十分 鲜见 . 对于 用 SCI 互联 的 并行处理 系统 ， 在 各种 不同 的 实际 工作 负载 ( workload ) 下 ， 如何 深入分析 影响 性能 的 各种因素 ， 将 是 我们 今后 的 主要 研究 方向 . ■ 
+ 基金项目 ： 本 课题 得到 国家自然科学基金 重大项目 基金 ( 项目编号 69896250 ) 和 中国科学院 基础性 重大项目 基金 ( 项目编号 KJ951 - 131 - B1 - 703 ) 资助 . 
+ 作者简介 ： 温学颖 ， 女 ， 1973 年 4 月生 ， 硕士 研究生 ， 目前 主要 从事 高速 网络 和 机群系统 互联 　 　 　 　 　 　 的 研究 . 
+ 　 　 　 　 　 李舒 ， 男 ， 1974 年 3 月生 ， 博士 研究生 ， 目前 主要 从事 分布式 并行 系统 的 研究 . 
+ 　 　 　 　 　 韩 承德 ， 男 ， 1940 年 4 月生 ， 研究员 ， 博士生 导师 ， 目前 主要 从事 高性能 计算机 的 　 　 　 　 　 　 研究 . 
+ 　 　 　 　 　 张志浩 ， 1942 年 11 月生 ， 教授 ， 目前 主要 从事 计算机 体系结构 的 研究 . 
+ 作者 单位 ： 温学颖 （ 同济大学 计算中心 　 上海 　 200092 ） 
+ 　 　 　 　 　 张志浩 （ 同济大学 计算中心 　 上海 　 200092 ） 
+ 　 　 　 　 　 李舒 （ 中国科学院计算技术研究所 高性能 计算机 研究 中心 　 北京 　 100080 ） 
+ 　 　 　 　 　 韩 承德 （ 中国科学院计算技术研究所 高性能 计算机 研究 中心 　 北京 　 100080 ） 
+ 参考文献 ： 
+ ［ 1 ］ IEEE   Standard   for   Scalable   Coherent   Interface ( SCI ) . IEEE   Std   1596 - 1992 ,   1992 
+ ［ 2 ］ PCI - 1   PCI - SCI   Cluster   Adapter   User ' s   Guide   for   Windows   NT   4.0 ,   Release   1.0 .   Dolphin   Interconnect   Solutions , Inc ， 1997 
+ ［ 3 ］ SBUS - to - SCI   Adapter   User ' s   Guide . Dolphin   Interconnect   Solutions , Inc ， 1997 
+ ［ 4 ］ Liebhart   M .   Performance   aspects   of   switched   SCI   systems . In :   The   6th   IEEE   Int ' l   Symposium   on   High   Performance   Distributed   Computing .   Portland ,   Oregon ,   1997 .   223 ～ 231 
+ ［ 5 ］ Omang   K , Parady   B .   Scalability   of   SCI   workstation   clusters ,   a   preliminary   study . In :   The   11th   Int ' l   Parallel   Processing   Symposium . Geneva ,   Switzerland , 1997 .   750 ～ 755 
+ 收稿 日期 ： 1998 - 08 - 20 
+ 修稿 日期 ： 1998 - 12 - 14 

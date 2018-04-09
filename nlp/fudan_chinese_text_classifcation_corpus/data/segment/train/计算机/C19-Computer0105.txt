@@ -1,0 +1,77 @@
+计算机 工程 
+ Computer   Engineering 
+ 1999 年 　 第 25 卷 　 第 9 期 　 Vol.25   No.9     1999 
+ 
+ 
+ 
+ 用 Windows   Sockets 实现 全 分布式系统 的 方法 
+ 胡慧圣 　 谢晓方 
+ 　 　 摘 　 要 ： 简要 介绍 一种 基于 Windows   NT 对 等 网络 的 安全 分布式系统 的 实现 方法 ． 该 方法 以 Visual   C++ 为 开发 平台 ， 采用 Windows   Sockets 网络 编程技术 ， 实现 了 系统 的 全 分布式 设计 ． 
+ 　 　 关键词 ： 网络 编程 ； Visual   C++ ； Windows   Sockets ； CSocket ； Windows   NT ； 全 分布式系统 
+ Implementation   of   an   Entirely   Distributed   System   with   Windows   Socket 
+ Hu   Huisheng   Xie   Xiaofang 
+ ( Naval   Aeronautical   Engineering   Academy ,   Yantai   264001 ) 
+ 　 　 Abstract 　 This   paper   introduces   a   method   to   reaize   an   Entirely   Distributed   System   based   on   Windows   NT   peer   network   system .   Inis   method   realizes   the   distribution   with   Windows   Sockets   in   Visual   C++ . 
+ 　 　 Key   words 　 Network   programming ;   Visual   C++ ;   Windows   Sockets ;   CSocket ;   Windows   NT ;   Entirely   distributed   system 
+ 　 　 在 某 新型 全 分布式 舰艇 指挥 控制系统 的 设计 中 ， 需要 实现 图 1 所示 的 通信 结构 ， 图中 的 连线 表示 系统 在 工作 过程 中 可能 的 连接 ， 可 在 系统 运行 期间 动态 连接 或 断开 。 实现 该 系统 的 核心 问题 是 设计 一个 具有 一定 通用性 的 通信接口 模块 。 
+ 
+ 图 1 　 全 分布式系统 通信 结构 示意图 
+ 　 　 Windows   NT 提供 了 两种 主要 的 网络 编程 接口 ： 管道 和 Windows   Sockets 。 其中 Windows   Sockets 的 目的 是 为了 实现 对 网络 细节 的 屏蔽 ， 程序员 不用 关心 网络 的 具体 实现 和 具体 协议 。 虽然 Windows   Socket 只 定义 了 对 TCP / IP 协议 的 抽象 说明 ， 但 任何 协议 族 都 可以 遵循 Windows   Sockets ， 只要 它 提供 有关 实现 的 动态链接库 。 
+ 　 　 鉴于 系统 的 工作 特点 决定 采用 Windows   Sockets 的 客户 / 服务器 模式 来 实现 网络通信 。 其中 雷达 等 探测器 和 火炮 等 武器 设备 都 作为 服务器 ， 只 等待 显控台 的 连接 请求 而 不 主动 请求 连接 ； 各显 控台 既 为 服务器 又 为 客户机 ， 随时 可 向 任一 单元 发出 连接 请求 ， 又 可 随时 接受 其它 显控台 的 连接 请求 。 而 这些 网络 功能 是 通过 设计 一个 通信线 程类 来 实现 的 。 
+ 1   通信线 程类 CComThread 类 的 实现 
+ 　 　 在 Visual   C++ 的 MFC 中 ， CAsyncSocket 类 描述 了 基本 的 Windows   Sockets 编程 接口 ，   CSocket 类 是从 CAsyncSocket 类 派生 而来 的 ， 它 是 在 更 高层次 上 对 套 接字 的 抽象 ， 并 可 使用 MFC 的 CArchive 类 ， 使得 进程 间 的 通信 类似 于 MFC 中 对 文件 的 序列化 。 因此 ， 使用 CSocket 类 实现 通信线 程类 。 通信线 程类 从 CWinThread 类 派生 ， 以下 简要 论述 其 实现 的 基本 步骤 ： 
+ 1.1 从 CSocket 类 派生 CListeningSocket 类 和 
+ 　 　 CConnectedSocket 类 
+ 　 　 CListeningSocket 类 对象 用于 服务器 侦听 网络连接 请求 。 其 主要 成员 有 通信线 程 的 指针 m _ pComThread ， 在 构造函数 中 赋值 ， 用于 向 通信线 程 发送 消息 。 该类 重载 基类 的 OnAccept (   ) 通知 函数 ， 即 在 有 网络连接 请求 时 通知 通信线 程 。 
+ 　 　 CConnectedSocket 类 对象 用于 代理 已 建立 连接 的 通信 任务 。 其 主要 成员 有 ： 通信线 程 的 指针 和 拥有 该 连接 的 本地 窗口 指针 用于 发送 各种 消息 ； 套接 字号 用于 在 通信线 程中 标识 已 连接 套 接字 ； 两个 档案 对象 指针 用于 该 通信 连接 的 数据 接收 和 发送 。 其 主要 方法 有 ： 初始化 Init (   ) 函数 用于 指定 通信线 程 指针 和 本地 窗口 指针 ； 重载 基类 OnReceive (   ) 通知 函数 用于 通知 通信线 程 接收数据 ； 重载 基类 OnClose (   ) 函数 用于 通知 通信线 程 连接 或 已经 断开 。 
+ 1.2   从 CObject 类 派生 CMsg 类 和 CMsgHead 类 
+ 　 　 CMsg 类 用于 描述 消息 基类 ， 任何 在 网上 传输 的 数据 消息 都 要 从 该类 派生 。 其 数据 成员 以 消息 名 标识 ， 而 具体 的 数据 消息 类 需要 有 自己 要 传输 的 数据 成员 。 其 方法 为 序列化 函数 ， 用于 序列化 消息 名 标识 ； 而 具体 的 数据 消息 类 需要 重载 序列化 函数 ， 并 在 其中 调用 基类 的 序列化 函数 以及 序列化 其它 需要 传输 的 数据 成员 。 
+ 　 　 CMsgHead 类 用于 描述 消息 头类 ， 通信线 程在 发送数据 前 都 要 先 发送 消息 头 对象 ， 用以 标识 将要 发送 的 数据 消息 类型 。 其 成员 和 方法 与 CMsg 类 相近 。 
+ 1.3   CComThread 类 的 主要 数据 成员 
+ 　 　 CListeningSocket 类 对象 指针 为 m _ pListeningSocket ， 当 通信线 程 作为 服务器 时令 其 侦听 网络连接 请求 ； 指针 链表 m _ ConnectedSocketList 用于 保存 已 建立 连接 的 CConnectedSocket 对象 指针 ， 通信线 程 根据 此 链表 查找 特定 的 通信 连接 来 发送数据 。 计数器 m _ PipeNumber 用于 标识 当前 建立 连接 的 套接 字号 ， m _ pWnd 用于 保存 服务器 窗口 指针 ， 几个 临时 对象 指针 用于 传递 消息 对象 指针 ， 以及 用于 接受 或 请求 连接 的 临时 CConnectedSocket 对象 指针 。 
+ 1.4   CComThread 类 主要 方法 的 实现 
+ 　 　 CreateSocket (   ) 创建 套 接字 消息 处理函数 ： 在 通信线 程 的 用户 希望 成为 服务器时 ， 向 通信线 程发 创建 套 接字 消息 ， 在 该 消息 处理函数 中 ， 通信线 程 根据 指定 端口号 构造 m _ pListeningSocket 对象 并 开始 侦听 。 
+ 　 　 ConnectSocket (   ) 连接 请求 消息 处理函数 ： 客户 窗口 通过 发送 此 消息 向 服务器 发出 连接 请求 。 在 该 函数 中 ， 通信线 程 构造 一个 CConnectedSocket 对象 ， 并 根据 指定 服务器 地址 和 端口号 发出 连接 请求 ， 若 连接 成功 则 计数器 计数 ， 设定 套接 字号 并 将 该 套 接字 加入 套 接字 链表 ， 并 通知 客户 窗口 连接 成功 及 该 连接 的 套接 字号 。 
+ 　 　 ProcessPendingAccept (   ) 接受 连接 方法 ： 当 服务器 的 侦听 套 接字 收到 连接 请求 时 调用 该 函数 ， 其 代码 如下 ： 
+ 　 　 CConnectedSocket *   pSocket   =   new   CConnectedSocket ( this ) ； 
+ 　 　 if   ( m _ pListeningSocket - > Accept ( * pSocket ) ) 
+ 　 　 { 
+ 　 　 　 　 　 m _ PipeNumber   ++ ； 
+ 　 　 　 　 　 pSocket - > Init ( m _ PipeNumber , m _ SourceWnd ) ； 
+ 　 　 　 　 　 m _ ConnectedSocketList . AddTail ( pSocket ) ； 
+ 　 　 　 　 　 m _ pWnd   - >   PostMessage (   MM _ LISTEN _ ACCEPT ,   m _ PipeNumber , NULL )   ; 
+ 　 　 } 
+ 　 　 else   delete   pSocket ； 
+ 　 　 SendMsg (   ) 发送数据 消息 处理函数 ： 当 通信 的 一方 要 发送数据 时 ， 向 通信线 程 发出 发送数据 消息 ， 传递 消息 对象 指针 和 套接 字号 ， 消息 处理函数 代码 如下 ： 
+ void   CComThread : : SendMsg ( CMsg *   pMsg , UINT   nPipeID ) 
+ { 
+ 　 　 for ( POSITIONpos = m _ ConnectedSocketList . 
+ 　 　 　 GetHeadPosition (   ) ； pos ! = NULL ； ) 
+ 　 　 { 
+ 　 　 CConnectedSocket *   pSocket   
+ 　 　 　 = (   CConnectedSocket * )   m _ ConnectedSocketList .   GetNext (   pos   ) ； 
+ 　 　 if (   pSocket   - >   m _ PipeID   =   =   nPipeID   ) 
+ 　 　 { 
+ 　 　 　 CMsgHead   MsgHead (   pMsg   - >   m _ MsgName   ) ； 
+ 　 　 　 MsgHead . Serialize ( * (   pSocket   - >   m _ pArchiveOut   )   ) ； 
+ 　 　 　 pMsg   - >   Serialize ( * (   pSocket   - >   m _ pArchiveOut   )   ) ； 
+ 　 　 　 pSocket   - >   m _ pArchiveOut   - >   Flush (   ) ； 
+ 　 　 　 pos   =   NULL ; 
+ 　 　 } 
+ 　 } 
+ } 
+ 　 　 ProcessPendingRead (   ) 接收数据 方法 ： 当 连接 套 接字 链表 中 的 某 一套 接字 有 数据 等待 接收 时 ， 调用 此 方法 。 该 方法 先 调用 ： 
+ 　 　 MsgHead . Serialize ( * ( pSocket - > m _ pArchiveIn ) ) ； 
+ 　 　 读入 消息 头 ， 并 根据 消息 头 中 消息 名 构造 消息 类 对象 ， 再 调用 ： m _ pMsg - > Serialize ( * ( pSocket - > m _ pArchiveIn ) ) ； 
+ 　 　 读出 消息 对象 ， 最后 通过 调用 ： 
+ 　 　 pSocket - > m _ pWnd - > PostMessage ( MM _ RECEIVE _ MSG , ( long ) MsgName , ( long ) m _ pMsg ) ; 
+ 通知 数据传输 目的 窗口 接收数据 。 
+ 　 　 DeleteConnect (   ) 断开连接 处理函数 ： 当 通信 的 一方 想 断开连接 或 另一方 已 断开连接 时 ， 调用 该 消息 处理函数 。 在 函数 中 ， 通信线 程 根据 指定 要 断开 的 连接 套接 字号 ， 在 已 连接 套 接字 链表 中 查找 该套 接字 并 将 其 删除 。 
+ 2 　 结束语 
+ 　 　 这种 方法 实现 的 通信线 程 具有 编程 简单 、 运行 可靠 等 优点 ， 基本 能 满足 设计 需要 ， 并 能 较 好 地 满足 通用性 要求 。 
+ 作者简介 ： 胡慧圣 ( 1976 ～ ) ， 男 ， 研究生 ， 主要 研究 方向 为 C3I 系统 
+ 作者 单位 ： 海军航空工程学院 ， 烟台 　 264001 
+ 参考文献 
+ 1   丁香 荣 . Microsoft   Visual   C++   4.1 编程 技巧 指南 . 西安 ： 电子   科技 大学 出版社 ， 1997 
+ 2   Visual   C++   5.0   Books   Online . Microsoft   Corp . , 1997 
+ 收稿 日期 ： 1998 - 12 - 10 

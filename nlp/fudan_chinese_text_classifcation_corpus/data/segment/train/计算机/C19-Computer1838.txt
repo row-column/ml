@@ -1,0 +1,62 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000   Vol.19   No.2   P.35 - 37 
+ 
+ 
+ 
+ 
+ 使用 Java 创建 组件 对象 模型 
+ 刘广聪 
+ 摘   要 ： 微软 虚拟机 如何 创建 和 使用 部件 对象 模型 对象 ， 给出 一些 基于 Microsoft   Internet   Explorer   4 ． 0   COM 对象 模型 的 示例 。 
+ 关键词 ：   COM 组件   封装   线程   虚拟机 
+ 1   什么 是 COM 
+ 　 　 COM 是 一种 流行 的 利用 独立 部件 来 创建 软件应用 程序 的 对象 模型 。 利用 COM 开发 的 二进制 界面 具有 平台 独立性 。 因此 ， 程序 的 各个 部分 可以 用 不同 的 编程语言 编写 ， 只要 这些 语言 兼容 COM 就行 。 COM 对象 还 促进 了 封装 和 对象 重用 技术 。 例如 ， 较 早 开发 的 函数 可以 包含 在 COM 封装 中 ， 从而 能够 在 Microsoft   Windows 分布式 网络应用 程序 体系 以及 其它 Web 环境 中 使用 。 
+ 　 　 通过 使用 Java ／ COM 封装 ， 微软 虚拟机  以下 简称 VM  可以 像 使用 普通 的 Java 对象 那样 使用 COM 对象 。 这些 Java 对象 包含 了 微软 虚拟机 用来 创建 和 维护 底层 COM 对象 所 需要 的 信息 。 
+ 　 　 COM 是 什么 ？ 简单 地说 ， COM 是 1 个 可 重用 的 程序 ， COM 定义 了 1 种 实现 与 编程语言 无关 的 组件 协同 的 二进制 标准 。 它 可 不用 做 任何 修改 ， 就 可 放置 在 兼容 COM 的 任何 语言 环境 中 ， 每 1 个 COM 部件 都 可以 实现 某些 标准 的 或者 定制 的 接口 。 这些 接口 是 客户端 和 部件 对象 之间 通信 的 二进制 标准 。 COM 接口定义 了 相关 的 方法 组 。 每 1 个 COM 接口 和 类 都 有 自己 的 全球 独立 标识 （ globally   unique   identifier ， GUID ） 。 GUID 是 1 个 128 位 的 标识 数字 ， 它 在 平台 、 计算机 和 应用程序 之间 唯一 标识 1 个 COM 接口 或类 。 COM 接口 的 GUID 是 1 个 接口 标识符 （ interface   idenifier ， IID ） ， 而 COM 类 的 标识符 是 1 个类 标识符 （ class   identifier ， CLSID ） 。 COM 接口 通过 接口定义 语言 （ Interface   Definition   Language ， IDL ） 来 定义 。 这个 定义 可以 通过 微软 接口定义 语言 编译器 （ Microsoft   Interface   Definition   Language ， MIDL ） 转换成 二进制 形式 。 二进制 接口定义 允许 类 的 运行 时 重用 ， 也 允许 COM 部件 对象 类 （ component   object   classes ， coclasses ） 的 实际 实现 ， 它们 的 接口 可以 用 任何 一种 合适 的 语言 实现 。 
+ 2   调用 COM 接口 的 方法 
+ 　 　 所有 的 COM 必须 扩展 根 接口 IUnknown ， 每 1 个 COM 对象 都 要 实现 IUnknown 。 IUnknown 方法 如下 ： 
+ 　 　 IUnknown ∷ AddRef （ ） ：   将 对象 接口 的 引用 计数器 ＋ 1 。 
+ 　 　 IUnknown ∷ QueryInterface （ ）  ： 请求 由 COM 对象 实现 的 另 一个 接口 ， 如果 对象 支持 这个 被 请求 的 接口 。 
+ 　     QueryInterface （ ） ： 获得 1 个 指向 接口 的 指针 ， 同时 调用 AddRef （ ）   。 
+ 　 　 IUnknown ∷ Release  （ ） ： 将 对象 调用 接口 的 引用 计数器 － 1 。 如果 引用 计数器 减到 0 ， 则 对象 从 内存 中 释放 掉 。 
+ 　 　 微软 定义 了 支持 共用 功能 的 COM 接口 。 例如 IPersist 和 派生 自 IPersist 的 类 包含 1 种 方法 ， 这种 方法 允许 1 个 客户 请求 对象 装载 它 自己 的 固定 数据 ， 从而 实现 对象 自己 的 初始化 。 COM 对象 可以 实现 IDispatch 接口 ， 这样 就 可以 被 诸如 VB 或 JavaScript 、 VBScript 以及 ASP 这样 的 脚本语言 调用 。 
+ 　 　 COM 对象 通过 用 任何 一种 支持 COM 的 编程语言 如 VB 、 Delphi 等 创建 1 个 对象 来 实现 ， 并且 COM 对象 应该 实现 IUnknown 以及 其它 微软 的 或者 定制 的 COM 接口 。 
+ 　 　 一般而言 ， 在 COM 中 接口 方法 不能 在 任意 线程 上 调用 。 无论 何时 ， VM 都 在 1 个 Java 实例 （ 例如 ， IUnknown ） 的 底层 操作 1 个 外部 COM 接口 指针 ， 虚拟机 必须 执行 任何 接口 指针 的 配置 工作 。 Java 可 调用 封装 （ Java － Callable   Wrappers ， JCW ） 是 1 个 包含 了 附加 的 类 文件属性 的 简单 的 Java 对象 。 VM 使用 在 Java 类中 微软 定义 的 属性 来 向 Java 应用程序 显露 COM 对象 。 这些 属性 是 利用 微软 的 Java 编译器 - - jvc 来 生成 的 ， 需要 在 Java 源代码 的 前面 附加 1 个 ＠ com 指示 。 除了 要 在 类 、 接口 和 方法 原型 的 前面 加上 这个 ＠ com 指示 以外 ， COM 组件 对象 类 和 接口 的 Java 实现 看起来 同 其它 Java 类 和 接口 没有 什么 区别 。 如果 JCW 被 标记 为 自由 线程 ， 则 调用 发生 在 该 线程 上 。 如果 该 包被 标记 为 COM 对象 可用 的 线程 环境 （ 房间 线程 ） ， 而 当前 线程 环境 又 不是 该包 的 宿主 线程 ， VM 就 将 切换 到 正确 的 线程 并且 在 该 线程 上 执行 调用 。 一旦 VM 配置 好 在 接口 上 开展 工作 的 正确 的 线程 上下文 ， 它 需要 为 调用 准备 一些 参数 。 如果 任何 1 个 参数 不 在 正确 的 上下文 中 ， 标准 COM 配置 就 向 外部 代码 送出 1 个 兼容 的 接口 指针 。 
+ 3   Java 中 的 COM 组件 对象 类 
+ 　 　 1 ． 应用 于 Microsoft   Internet   Explorer 组件 对象 类 的 Java 封装 。 
+ 
+ 
+ 　 　 2 ． ＠ com ． class 
+ 　 　 这个 位于 源文件 头 的 注释 是 由 jactivex 生成 的 ， 它 包含 了 所有 需要 的 命令行 参数 。 Java 的 类 定义 前面 有 1 个 包含 ＠ com ． class 指示 的 注释 块 ， 详细 地 说明 了 它 所 代表 的 COM 类 的 GUID ， 并且 指出 该类 支持 动态 构造 。 表 1 提供 了 ＠ com ． class 指示 的 完整 的 说明 。 
+ 　 　 语   法 ： 
+ ＠ com ． class  classid ＝ ＜ COM   CLSID ＞ ， DynamicCasts ， safe ， safeAddFlags ＝ ＜ integer ＞  
+ 　 　 表 2 给出 了 在 编译 ＠ com ． class 指示 时 ， 编译器 要 添加 到 生成 的 Java 类 文件 中 的 属性 。 
+ 表 1 　 ＠ com ． class 指示 的 说明 
+ 参数 描述 
+ class = < XOM   CLSID > 
+ 该 参数 是 必须 的 
+ 例如 ： classid = OBE35203 - 8F91 - 11CE - 9DE3 - 00AA004BB851 与 Java 实现 的 COM 类 相关 的 CLSID 
+ DynamicCasts 说明 该类 支持 动态 构造 ， 这 允许 Java 开者 将 它 投掷 到 不是 直接 由 Java 类 实现 的 接口 上 。 VM 通过 在 底层 COM 对象 上 为 目标 接口 调用 QueryInterface ( ) 方法 来 支持 该 属性 
+ Safe 说明 该类 可以 被 未经 验证 的 带有 COM _ Safety   安全 特性 的 类 安全 地 使用 
+ safeAddFlags = < int > 说明 有 1 个 字 ( 2 个 字节 ) 的 信息 要 压入 COM _ Safety 属性 . 
+ 注意 : 当前 的 微软 虚拟机 在读 COM _ Safety 属性 的 时候 将 忽略 这个 数据 
+ 表 2 　 添加 到 生成 的 Java 类中 的 属性 
+ 属性 范围 
+ COM _ ClassType   类 范围 
+ COM _ GuidPool 类 范围 
+ COM _ Safety   类 范围 
+ 　 　 该 程序 包含 了 Internet   Explorer 组件 对象 类 的 定义 ， 此 定义 实现 了 4 个 接口 ， 其中 3 个 分别 是 代表 IUnknown ， IwebBrowser2 和 IWebBrowserApp 这 3 个 COM 接口 的 JCW 。 接口 com ． ms ． com ． NoAutoScripting 被 VM 用作 1 个 标志符 ， 该 标志符 表明 此 COM 对象 不能 从 脚本 编程语言 访问 。 
+ 　 　 源文件 中 提供 的 方法 被 设定 为 隐藏 方式 ： 这些 方法 的 存在 仅仅 是 为了 满足 Java 的 需求 ， Java 要求 已 实现 的 接口 的 所有 方法 都 必须 是 存在 的 。 组件 对象 类 的 方法 的 本地 设定 会 通知 VM 这些 方法 的 实现 位于 底层 COM 对象 中 。 
+ 4   Java 中 的 COM 接口 方法 
+ 　 　 1 ．   jactivex 生成 的 COM 接口 IWebBrowserApp 的 源文件 ： 
+ 
+ 
+ 　 　 2 ．   ＠ com ． interface 
+ 　 　 源文件 tutorial ＼ ie ＼ IWebBrowserApp ． java 包含 1 个 Java 接口定义 ， 该 定义 通过 1 个类 范围 的 ＠ com ． interface 指示 来 指明 。 该 指示 包括 1 个 IID 和 需要 复现 的 COM 接口 的 类型 （ 在 这里 是 dual ） 。 
+ 　 　 tutorial ． ie ． IWebBrowserApp 接口定义 中 的 每 一个 方法 都 有 1 个 ＠ com ． method 指示 ， 该 指示 说明 此 COM 方法 是 如何 映射 到 Java 上 的 。 
+ 　 　 3 ．   ＠ com ． method 
+ 　 　 ＠ com ． method 标识符 说明 了 该 方法 的 分发 号 （ 用于 IDispatch 接口 ） ， 也 可能 是 vtable 偏移量 （ 用于 Vtable 接口 ） ， 或者 是 二者 都 有 （ 用于 Dual 接口 ） 。 该 标识符 包含 了 一系列 参数 ， 这些 参数 用于 说明 方法 到 等价 的 接口定义 语言 （ IDL ） 形式 的 映射 。 因为 COM 接口 支持 属性 ， 此 方法 有 可能 是 一个 接口 属性 的 典型 方法 ， 也 可能 是 属性 的 一个 存取 器 方法 。   
+ 5   小   结 
+ 　 　 本文 介绍 了 利用 Java 创建 COM 组件 的 方法 ， 并且 给出 一个 实例 。 微软 虚拟机 可以 为 每 一个 Java ／ COM 对象 自动 处理 引用 记数 、 碎片 收集 、 配置 和 线程 维护 工作 。 所有 这些 是 通过 将 COM 接口 的 内部 操作 和 基本 的 Java 功能 结合 在 一 起来 实现 的 ， 由于 篇幅 所 限 ， 有关 COM 对象 碎片 的 收集 、 分布式 的 COM 等 内容 在 这里 就 不 介绍 了 。 
+ 刘广聪 （ 广东 工业 大学 计算机系  510090 ） 
+ 收稿 日期 ： 1999 － 08 － 16 

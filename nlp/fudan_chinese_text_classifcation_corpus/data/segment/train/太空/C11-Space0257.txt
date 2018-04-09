@@ -1,0 +1,101 @@
+　 宇航学 报 
+ JOURNAL   OF   ASTRONAUTICS 
+ 1999 年   第 20 卷   第 3 期   vol.20   No.3   1999 
+ 
+ 
+ 
+ 　 振动 对 空间 光通信 系统 误码率 
+ 影响 的 分析 * 
+ 马 　 晶 　 谭立英 　 金恩培 * 　 耿完桢 * 　 黄 　 波 
+ 　 　 摘 　 要 　 在 空间 光通信 系统 中 ， 由于 卫星平台 的 振动 ， 使得 光 发射机 发生 摆动 ， 从而 对 通信 系统 的 误码率 产生 影响 。 本文 针对 发射 光束 为 高斯 光束 时 ， 振动 对 误码率 的 影响 问题 进行 了 研究 。 结果表明 ， 在 振动 时 不仅 振幅 影响 着 误码率 ， 而且 波长 也 对 误码率 有 影响 ， 但 通信 距离 对 误码率 的 影响 不 大 ， 一般 可以 忽略 。 
+ 　 　 主题词 　 空间 光通信 　 振动 　 误码率 
+ ANALYSIS   OF   INFLUENCE   OF   VIBRATION   
+ TO   BIT   ERROR   RATE   FOR   A   SYSTEM   OF   
+ SPACE   OPTICAL   COMMUNICATION 
+ Ma   Jing   Tan   Liying   Jin   Enpei    Geng   Wanzhen  
+ ( National   Key   Laboratory   of   Tunable   Laser   Technology , * Physics   Department , 
+ Harbin   Institute   of   Technology . Harbin.150001 ) 
+ Huang   Bo 
+ ( COSTIND.100034 . Beijing ) 
+ 　 　 Abstract 　 In   a   system   of   space   optical   communication , it   will   influence   to   bit   error   rate   of   the   communication   system   when   the   optical   transmitter   wiggles   as   vibration   of   the   satellite ' s   platform . The   influence   of   vibration   to   bit   error   rate   is   researched   and   it   aims   at   that   the   transmitting   beam   is   a   Gaussian   beam . The   results   show   that   the   bit   error   rate   is   influenced   by   not   only   amplitude   but   also   wavelength   when   vibration , but   influence   of   distance   of   communication   to   bit   error   rate   is   not   big   enough , in   general , it   may   be   neglected . 
+ 　 　 Key   words 　 Space   optical   communication   Vibration   Bit   error   rate 
+ 　 　 1 　 引言 
+ 　 　 在 空间 光通信 系统 中 ， 误码率 是 一个 非常 重要 的 参量 ， 它 直接 影响 着 空间 光通信 系统 的 通信 质量 。 而 在 实际 应用 中 ， 由于 各种 原因 会 使得 卫星平台 发生 振动 ， 这种 振动 又 会 影响 到 安装 于 平台 上 的 空间 光通信 系统 的 光学 发射 天线 ， 使 其 产生 摆动 。 这种 摆动 严重 时会 使 通信 中断 ， 更 多 的 时候 是 会 使得 光通信 系统 的 误码率 增加 ， 通信 质量 下降 ， 甚至 会 达到 无法 进行 通信 的 程度 。 在 日渐 受到重视 的 小 卫星 星座 中 ， 如果 采用 激光 星间 链路 ， 也 不可避免 地会 遇到 这个 问题 。 而且 由于 在 小 卫星 星座 中 ， 光 信号 往往 要 经过 多个 小 卫星 的 传递 ， 振动 对 通信 质量 的 影响 会 更加 严重 。 
+ 　 　 振动 对 空间 光通信 的 影响 问题 ， 已经 越来越 引起 人们 的 注意 。 欧空局 曾 对 卫星平台 的 振动 进行 了 空间 实测 ［ 1 ］ ， 利用 地基 激光雷达 对 卫星 振动 的 测量 也 已经 完成 ［ 2 ， 3 ］ 。 有人 提出 用 增加 发射功率 、 采用 更 复杂 的 瞄准 系统 及 增加 接收 天线 孔径 等 方法 去 补偿 振动 对 通信 的 影响 ， 但 这样 会 使星 上 的 光通信 系统 体积 、 重量 增加 或 能耗 、 成本 等 增加 ， 也 可能 会 增加 系统 的 复杂程度 ， 降低 系统 的 可靠性 。 Skormin 等 改进 了 技术 以 减小 振动 对 瞄准 系统 的 影响 ［ 4 ］ ； Chen 和 Gardner 则 分析 了 瞄准 、 跟踪 系统 的 随机误差 对星间 光通信 链路 的 影响 ［ 5 ］ ； Held 等 则 利用 卫星平台 振动 的 实测 数据分析 了 星间 光通信 系统 的 瞄准 和 跟踪 所 能 达到 的 精度 ［ 6 ］ 。 Arnon 则 对 空间 光通信 系统 及 小 卫星 星座 中 振动 对 误码率 的 影响 问题 进行 了 初步 的 分析 ［ 7 ］ 。 在 Arnon 的 分析 中 ， 对 问题 进行 了 大大的 简化 ， 很 重要 的 一点 就是 没有 考虑 到 由于 空间 光通信 系统 采用 激光 光源 ， 光 发射机 发射 的 是 高斯 光束 所 造成 的 影响 问题 。 本文 则 侧重 讨论 了 在 空间 光通信 系统 中 ， 当 发射 光束 为 高斯 光束 时 ， 振动 对 空间 光通信 系统 误码率 的 影响 问题 。 在 分析 中 ， 只 讨论 振动 对系统 误码率 的 影响 问题 ， 而 不 涉及 到 无 振动 时 ， 影响 误码率 的 其它 因素 。 通过 这些 分析 可以 看出 ， 当 空间 光通信 系统 受到 振动 时 ， 系统 各个 参量 的 选取 对 误码率 的 影响 大小 ， 从而 可 在 设计 空间 光通信 系统 时 进行 优化 选择 。 
+ 　 　 2 　 振动 对 误码率 的 影响 
+ 　 　 在 空间 光通信 系统 中 ， 采用 激光 作为 光源 ， 由 发射 天线 发射 的 光束 是 高斯 光束 。 设从 发射 天线 处 ( O ′ 点 ) 到 接收 天线 的 距离 为 z ， 在 接收 天线 处 光束 半径 为 w ( z ) ； 在 接收 平面 ( 接收 天线 所在 处 光束 的 横截面 ) 的 中心 处 ( O 点 ) 光强 为 I0 ， IA 是 接收 平面 上 A 点 的 光强 ， rA 是从 A 点到 中心 O 点 的 距离 ( 见图 1 ) 。 
+ 
+ 图 1 　 空间 光通信 系统 中 各 参量 位置图 
+ 　 　 对于 高斯 光束 有 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 而 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 2 ) 
+ 其中 w0 为 光束 的 腰 斑 半径 ， λ 是 所用 的 光波 波长 。 
+ 　 　 假定 在 通信 开始 时 ， 空间 光通信 系统 的 瞄准 系统 已经 使 发射 、 接收 天线 对准 ， 即 开始 时 接收 天线 位于 接收 平面 的 中心 处 ( O 点 ) 。 当 发射 天线 受到 振动 时 ， 发射 光束 的 中心 从 O 点 移动 到 A 点 ， 发射 光束 中心 移动 的 相对 角度 为 Δ θ ， 有 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 3 ) 
+ 为 简单 起 见 ， 假定 在 空间 光通信 系统 中选 二元 单 极性 码 作为 数字通信 系统 的 码型 ［ 8 ］ ， 并且 在 下面 的 讨论 中 不 考虑 其它 噪声 。 系统 的 判决 电平 可 按 通常 的 方法 取为 光束 中心 光强 的 一半 ， 即 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 4 ) 
+ 且 设 由于 振动 使得 接收 到 的 光强 变为 I α 时 ， 所 对应 的 Δ θ = α , rA = r α 。 则 当 接收 到 的 信号 光 强大 于 I α 时 ， 信号 被 判决 为 “ 1 ” ； 而 当 接收 到 的 光强 小于 I α 时 ， 接收 到 的 信号 被 认为 是 “ 0 ” 。 由前 几式 可得 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 5 ) 
+ 所以 有 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 6 ) 
+ 如果 发射 光束 的 振动 是 一 随机振动 ， 其 振动 的 角度 改变 量 Δ θ 的 概率密度 是 一 高斯分布 ［ 9 ］ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 7 ) 
+ 其中 σ 是 振动 的 标准偏差 。 
+ 　 　 因为 选择 了 二元 单 极性 码 ， 所以 正常 情况 下 发射 “ 1 ” 码时 接收 到 的 发射 光强 为 I0 ， 发射 “ 0 ” 码时 接收 到 的 发射 光强 为 0 。 如果 振动 使 发射 光束 摆动 时 ， 发射 “ 1 ” 码时 的 接收 光强 , 就 会 误判 为 “ 0 ” 码 ， 而且 Δ θ 为 正 或 负时 的 情况 是 一样 的 ， 所以 发射 “ 1 ” 码而 误判 为 “ 0 ” 码 的 误码率 BER ( 0 / 1 ) 可由 下式 得出 
+ 　 　 　 　 　 　 　 　 　 　 　 　 ( 8 ) 
+ 　 　 因为 我们 没有 考虑 其它 噪声 ， 易知 发射 “ 0 ” 码 而 被 误判 为 “ 1 ” 码 的 误码率 BER ( 1 / 0 ) = 0 。 一般 情况 下 ， 发射 信号 经过 扰码 后 ， “ 1 ” 码 和 “ 0 ” 码 的 数量 是 基本 相等 的 ， 所以 总 的 误码率 BER 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 9 ) 
+ 所以 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 10 ) 
+ 上式 中 是 误差 函数 。 由式 ( 2 ) 和 ( 6 ) 可 得 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 11 ) 
+ 此式 表明 ， 在 空间 光通信 系统 中 ， 由于 振动 的 影响 而 出现 的 误码 不仅 与 振动 的 标准偏差 ( 振动 幅度 ) 有关 ， 而且 还 与 所用 的 光波 波长 、 发射 天线 到 接收 天线 的 距离 以及 光束 的 腰 斑 半径 有关 ， 即 BER = BER ( λ , z , σ , w0 ) 。 
+ 　 　 3 　 数值 模拟 结果 及 分析 
+ 　 　 对式 ( 11 ) 进行 数值 模拟 就 可以 看出 振动 所 造成 的 误码 是 如何 随 空间 光通信 系统 的 各 参量 变化 的 ， 下面 分别 加以分析 。 
+ 　 　 3.1 　 振动 幅度 的 大小 对 误码率 的 影响 
+ 　 　 在 一般 空间 光通信 系统 中 ， w0 可 近似 用 发射 天线 的 孔径 来 代替 ， 约 在 几厘米 到 几十厘米 范围 内 ， z 则 在 数千公里 以上 。 首先 取 w0 = 12.5 cm 及 λ = 800nm ( 如 SILEX 系统 ［ 10 ］ 所 选用 的 ) ， 对式 ( 11 ) 进行 数值 模拟 ， 得到 振动 的 标准偏差 σ 与 误码率 的 关系 曲线 ( 图 2 ) 。 而 振动 的 标准偏差 反映 了 振动 幅度 的 大小 ， 所以 图 2 即为 振动 幅度 与 误码率 的 关系 曲线 。 
+ 
+ 图 2 　 振动 幅度 与 误码率 的 关系 曲线 
+ 　 　 从图 2 可以 看出 ， 随着 振动 幅度 的 加大 ， 误码率 在 逐渐 增大 ； 而且 当 振动 幅度 超过 一定 限度 后 ， 误码率 将 急剧 增加 。 
+ 　 　 3.2 　 振动 时 通信 距离 对 误码率 的 影响 
+ 　 　 典型 的 空间 光通信 系统 ， 如 欧空局 研制 的 SILEX 系统 中 ， λ 为 800nm 附近 ， w0 约 为 12.5 cm ， 而 通信 距离 约 为 4.5 × 107m 。 因此 对于 空间 光通信 系统 一般 有 , 于是 式 ( 11 ) 可简化 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 12 ) 
+ 　 　 从 上式 可 看出 此时 误码率 与 通信 距离 无关 。 利用 式 ( 11 ) 作出 误码率 与 通信 距离 和 振动 的 标准偏差 关系 曲线 ( 见图 3 ) 及 对应 于 一定 振动 幅度 的 误码率 与 通信 距离 曲线 族 ( 图 4 ) ， 也 可以 看出 通信 距离 对 误码率 的 影响 甚微 。 
+ 
+ 图 3 　 BER 与 σ 和 Z 的 关系 
+ 
+ 图 4 　 通信 距离 对 误码率 的 影响 比较 
+ 　 　 为了 进一步 讨论 通信 距离 对 误码率 的 影响 问题 ， 以 z = 5.0 × 106m 时 的 误码率 BER0 为 基准 ， 在 不同 的 σ 下 ， 对 每 一个 通信 距离 Z 所 对应 的 误码率 BERz 求其 与 BER0 的 差值 D ， 即 误码率 的 相对 变化 量 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 13 ) 
+ 从 D 的 变化 可 更 明显 地 看出 z 的 不同 对 误码率 的 相对 影响 情况 。 图 5 的 σ - D 关系 曲线 反映 了 在 同一个 z 值时 ， 振动 的 变化 对 误码率 相对 变化 的 影响 。 
+ 
+ 图 5 　 σ 与 D 的 关系 曲线 
+ 易 看出 ， 随着 σ 的 增大 ， 误码率 也 在 增大 ， 且 σ 超过 一定 值后 误码率 会 迅速 增加 ； 不同 的 z 值时 都 有 相似 的 规律 ， 并且 对于 同一个 σ ， 当 z 值 增加 时 误码率 的 相对 变化 会 趋于 饱和 ， 这 在 图 6 中 可 明显 看出 。 无论如何 ， 上述情况 时 误码率 相对 变化 的 大小 远远 小于 误码率 的 绝对值 ， 如图 6 中 误码率 的 相对 变化 量 小于 10 - 11 量级 ， 而图 2 及图 3 、 图 4 中 的 误码率 可 达到 10 - 5 量级 ， 因此 通信 距离 对 误码率 的 影响 是 很小 的 ， 故 在 图 4 中 几乎 看不出来 。 
+ 
+ 图 6 　 z - D 曲线 
+ 　 　 3.3 　 不同 振幅 时 波长 对 误码率 的 影响 
+ 　 　 振动 时 不同 波长 对 空间 光通信 系统 误码率 的 影响 可 从 图 7 看出 。 图 7 是 取 z = 4.5 × 107m 和 w0 = 12.5 cm 时 ， 针对 σ 为 4.01 × 10 - 7rad 及 5.00 × 10 - 7rad 计算 的 结果 。 
+ 　 　 图 7 表明 ， 在 空间 光通信 系统 发生 振动 时 ， 波长 对 误码率 的 影响 较大 。 当 波长 较 小时 ， 在 一定 的 振动 幅度 下 ， 误码率 可能 大到 不能容忍 的 程度 。 也 可以 说 ， 较长 的 波长 有利于 空间 光通信 系统对 振动 的 抗干扰性 。 所以 在 选择 空间 光通信 系统 的 波长 时 ， 也 应 充分考虑 到 波长 对 误码率 的 影响 问题 。 
+ 
+ 图 7 　 振动 时 波长 对 误码率 的 影响 
+ 　 　 4 　 结论 
+ 　 　 从 上面 的 讨论 可 看出 ， 当 空间 光通信 系统 受到 振动 的 影响 时 ， 通信 系统 的 误码率 不仅 与 振动 的 幅度 有关 ， 而且 还 与 通信 系统 选用 的 波长 以及 通信 距离 有关 。 通过 数值 模拟 分析 可 得出 如下 结论 ： 
+ 　 　 1 . 振动 的 幅度 对 误码率 有 直接 的 影响 ， 而且 当 振幅 超过 一定 值后 ， 误码率 将 急剧 上升 。 因此 在 空间 光通信 系统 中 ， 振动 的 影响 必须 加以 考虑 。 
+ 　 　 2 . 尽管 随着 通信 距离 的 增加 ， 误码率 也 会 略有 增加 ， 并且 振幅 较大 时 ， 误码率 的 增量 也 会 加大 。 但是 通信 距离 改变 时 ， 误码率 变化 量 的 绝对值 很小 ， 所以 通信 距离 对 误码率 的 影响 可以 忽略 。 
+ 　 　 3 . 在 空间 光通信 系统 受到 振动 时 ， 波长 对 误码率 的 影响 较大 。 波长 越长 ， 影响 越小 。 若 单纯 从这一点 考虑 ， 空间 光通信 系统 应选 用 较 长 的 波长 ， 以 提高 系统 的 抗振 性能 。 
+ 　 　 应当 说 ， 上面 的 讨论 还是 比较 基本 的 分析 。 我们 只 讨论 了 高斯 光束 在 受到 一 具有 高斯 概率密度 分布 的 随机振动 时 ， 振动 对系统 误码率 的 影响 。 而 实际 卫星平台 的 振动 情况 是 比较复杂 的 ， 虽然 国外 已经 对 某些 卫星平台 进行 了 空间 实测 ， 但 在 今后 空间 光通信 系统 的 研制 中 ， 还 需要 针对 具体 类型 的 卫星 进行 具体 的 分析 和 测试 。 然而 无论如何 ， 上述 工作 对于 今后 的 研究 还是 具有 一定 的 指导意义 。 
+ * 航天 基金 资助 项目 
+ 作者 单位 ： 马 　 晶 　 谭立英 　 金恩培 * 　 耿完桢 * ： 哈尔滨工业大学 可 调谐 激光 技术 国家级 重点 　 实验室 ， * 应用 物理系 . 哈尔滨 . 150001 
+ 　 　 　 　 　 黄 　 波 ： 总装备部 . 北京 . 100034 
+ 参考文献 
+ 　 　 1 　 Wittig   M , et   al . In - orbit   measurements   of   microaccelerations   of   ESA ' s   communication   satellite   Olympus . SPIE   Proc.1994 , 1218 : 205 - 214 
+ 　 　 2 　 Schultz   K   L , et   al . Satellite   vibration   measurements   with   an   autodyne   CO2   laser   radar . Appl . Opt.1994 , 33 ( 12 ) : 2349 - 2355 
+ 　 　 3 　 Schultz   K   L , et   al . Ground - based   laser   radar   measurement   of   satellite   vibrations . Appl . Opt.1992 , 31 ( 36 ) : 7690 - 7695 
+ 　 　 4 　 Skormin   V   A , et   al . Adaptive   jitter   rejection   technique   applicable   to   airborne   laser   communication   systems . Opt . Eng.1995 , 34 ( 5 ) : 1263 - 1268 
+ 　 　 5 　 Chen   C   C , et   al . Impact   of   random   pointing   and   tracking   errors   on   the   design   of   coherent   and   incoherent   optical   intersatellite   communication   links . IEEE   Trans . Commun.1989 , 37 ( 3 ) : 252 - 260 
+ 　 　 6 　 Held   K   J , et   al . Precision   pointing   and   tracking   between   satellite - borne   optical   systems . Opt . Eng.1988 , 27 ( 4 ) : 325 - 333 
+ 　 　 7 　 Arnon   S , et   al . Performance   limitations   of   free - space   optical   communication   satellite   networks   due   to   vibrations — analog   case . Opt . Eng.1997 , 36 ( 1 ) : 175 - 182 
+ 　 　 8 　 Peebles   P   Z . Digital   Communication   Principles . Prentice — Hall   Inc.1987 
+ 　 　 9 　 Yang   C   Y . Random   Vibration   of   Structures.1986 
+ 　 　 10 　 Oppenhauser   G , et   al . The   European   SILEX   project   and   other   advanced   concepts   for   optical   space   communications . SPIE   Proc.1991 , 1522 : 2 - 13 
+ 　 收稿 日期 : 1998 年 4 月 10 日 , 修回 日期 : 1998 年 10 月 22 日 

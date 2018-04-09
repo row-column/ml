@@ -1,0 +1,113 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1999 年 　 第 19 卷 　 第 3 期 　 Vol.19   No.3   1999 
+ 
+ 
+ 
+ 长江口 — 杭州湾 有机 污染 历史 初步 研究 
+ － － BHC 与 DDT 的 地层学 记录 
+ 陈建芳 　 叶新荣 　 周怀阳 　 夏小明 　 郑士龙 
+ 摘要 ： 近年来 长江口 — 杭州湾 表层 沉积物 中 BHC 与 DDT 的 含量 与 以前 表层 沉积物 有关 资料 的 对比 , 以及 经较 高精度 定年 柱状 样中 BHC 与 DDT 的 垂 向 分布 特征 均 显示 , 有机氯 农药 广泛 使用 作为 一个 污染 事件 , 自 开始 到 逐渐 消退 均 在 沉积 记录 中 得到 了 较 好 的 反映 . 研究 结果表明 , 污染物 的 分子 地层学 记录 对 恢复 有机 污染 史 具有 重要 意义 . 尽管 近年来 表层 沉积物 中 有机氯 农药 含量 已经 降至 很 低 , 但是 由于 细 颗粒 沉积物 再 悬浮 以及 海洋 浮游生物 对 有机氯 农药 的 高度 富集 , 其 对 海洋环境 的 影响 仍然 不可 忽视 . 
+ 关键词 ： 长江口 — 杭州湾 ； 有机氯 农药 ； 地层学 记录 ； 污染 史 
+ 中 图 分类号 ： X321   文献 标识码 ： A   文章 编号 ： 1000 -   6923 ( 1999 ) 03 -   0206 -   05 
+ Preliminary   study   on   the   marine   organic   pollution   history   in   Changjiang   Estuary — Hangzhou   Bay – – BHC   and   DDT   stratigraphical   records .   
+ CHEN   Jian - fang ,   YE   Xin - rong ,   ZHOU   Huai - yang ,   XIA   Xiao - ming , ZHENG   Shi - long 
+ ( Second   Institute   of   Oceanography , State   Oceanic   Administration , Hangzhou   310012 , China ) .   China   Environmental   Science .   1999 , 19 ( 3 ) ： 206 ～ 210 
+ Abstract ： According   to   the   variations   of   BHC   and   DDT   contents   in   the   surface   sediments   of   Changjiang   Estuary — Hangzhou   Bay   since   the   last   decade   as   well   as   the   vertical   changes   of   BHC   and   DDT   contents   in   sedimentary   cores   dated   by   210Pb ,   it   is   suggested   that   organochlorinated   pesticides   pollution   history   can   be   reconstructed   by   stratigraphical   records .   Although   very   low   BHC   and   DDT   contents   were   observed   in   recent   surface   sediments ,   their   concentrations   might   have   been   still   quite   high   for   a   long   time   in   suspended   material   due   to   reworking   of   fine   sediments   and   the   enrichment   of   organochlorinated   pesticides   by   plankton . 
+ Key   words ： Changjiang   Estuary — Hangzhou   Bay ； organochlorinated   pesticides ； stratigraphical   records ； pollution   history 
+ 　 　 长江口 — 杭州湾 海域 不仅 受 经济 发达 的 长江三角洲 污染物 排放 的 影响 , 而且 接纳 了 许多 来自 整个 长江流域 的 污染 物质 , 是 我国 沿海 海域 环境污染 较为 严重 的 海域 [ 1 ] . 河口 及 近海 沉积物 是 陆源 污染物 迁移 转化 的 归宿 地 与 积蓄 库 . 通过 有机 污染物 在 沉积 柱状 样 的 垂 向 变化 , 结合 高精度 的 定 年 则 可以 恢复 有机 污染 的 历史 [ 2 , 3 ] . 尽管 至 80 年代 初 世界 上 大多数 国家 已 相继 停止 生产 与 使用 有机氯 农药 , 但 由于 它们 在 自然环境 中 性质 稳定 , 加上 这些 高残留 农药 通过 大气 与 河流 搬运 入海 的 滞后效应 , 使 其 对 海洋环境 与 海洋生物 的 影响 可 持续 长 达 数十年 . 我国 海域 的 有机氯 农药污染 状况 , 自 80 年代 初 以来 曾作 过 一些 调查 与 研究 [ 4 -   14 ] , 但 其 在 海洋环境 中 的 污染 历史 , 国内 尚未 见 详细 报道 . 本文 根据 作者 在 长江口 – – 杭州湾 海域 表层 与 沉积 短柱样 BHC 与 DDT 的 分析 结果 , 结合 以前 的 资料 来 初步 揭示 有机氯 农药 的 污染 历史 , 评价 其 对 海洋 环境影响 趋势 . 
+ 1   材料 与 方法 
+ 1.1   样品 采集 
+ 　 　 表层 沉积物 取自 长江口 — 杭州湾 水域 , 其中 取样 点 E1 ,   E3 ,   E7 ,   E9 ,   E11 取于 1988 年 10 月 ( E1 ,   E3 ,   E7 ,   E9 加取 悬浮 颗粒物 ) ;   01 ,   02 ,   03 ,   04 取于 1992 年 1 月 . 柱状 样 B2 与 B7 于 1988 年 10 月 取自 杭州湾 北部 水下 平原 . 短柱样 B1 ,   C1 ,   Meso - 1 于 1997 年 10 月 采自 长江口 外 . 各 站位 布局 见图 1 . 图 1 中所 标的 G8103 ,   G8126 ,   G8128 ,   G8140 为 1981 年 中美 长江口 沉积作用 联合 调查 期间 所 取 柱状 样 [ 4 ] . 表层 沉积物 取 顶部 0 ～ 2cm , 柱状 样自 顶部 按 2 ～ 5cm 间隔 分层 取样 . 样品 经 自然 风干 、 粗磨 后经 四分法 分样 , 再细磨 至 80 目待 分析 . 
+ 
+ 图 1   长江口 – – 杭州湾 沉积物 取样 站位 布设 
+ Fig.1   Sediments   sampling   locations   in   Changjiang   Estuary   and   Hangzhou   Bay 
+ 1.2   BHC 与 DDT 分析 
+ 　 　 悬浮 体 或 沉积物 中 的 BHC 、 DDT 用 正己烷 – – 丙酮 混合 溶剂 作为 提取 剂 , 用索氏 提取 器 回流 提取 , 将 提取液 浓缩 , 柱 分离 , 然后 用 岛津 GC - 7AG 气相色谱仪 进行 分析 . 检测器 为 63Ni 电子 捕获 检测器 , 气 相色谱 条件 见 文献 [ 13 ] . 所得 结果 用 BHC 和 DDT 表示 , 它们 分别 代表 4 种 同分异构 体 ( a   - BHC 、 b   - BHC 、 g   - BHC 、 d   - BHC 及 PP ￠   - DDT 、 OP ￠   - DDT 、 PP ￠   - DDE 、 PP ￠   - DDD ) 的 总量 . 
+ 1.3   柱状 样 年代 标定 
+ 　 　 柱状 样 B2 ,   B7 用 210Pb 法 标定 年代 *   ; 短柱样 C1 用 同一 位置 柱状 样 G1 的 定 年 数据 ( 约 2cm / a , 由 日本 地质 调查 所 Dr . Kanai 提供 ) ; 短柱样 Meso - 1 按 附近 站位 G8140 沉积 速率 ( 3.2 cm / a ) 定年 [ 5 ] . 
+ 2 　 结果 与 讨论 
+ 2.1   表层 沉积物 有机氯 农药 近 20 年 来 的 变化 
+ 　 　 由表 1 可知 , 陆地 有机氯 农药 的 大量 使用 , 严重 污染 了 当时 河口 、 海湾 及 近海 的 海洋环境 . 其中 珠江口 、 渤海 及 厦门 湾 的 BHC 和 DDT 含量 较 高 , 而 长江口 、 杭州湾 含量 相对 较 低 . 这 可能 与 长江口 — 杭州湾 一带 来自 长江 的 大量 泥沙 输运 与 稀释 有关 . 从表 1 也 可以 看出 , 有机氯 农药 不仅 影响 到 近岸 海域 , 而且 也 可以 被 带到 远离 大陆 的 北 太平洋 . 
+ 表 1 　 80 年代 初 我国 海域 表层 沉积物 中 BHC 与 DDT 的 含量 分布   ( ng / g ) 
+ Table1   Distribution   of   BHC   and   DDT   contents   in   surface   sediments   
+ in   the   early   1980s   ( ng / g ) 
+ 海区 BHCDDT 取样 时间 海区 BHCDDT 取样 时间 
+ 长江口 [ 4 ～ 5 ] 0.95 ～ 5.90 ( 3.28 ) 6.9 ～ 16.0 ( 10.9 ) 1981 珠江口 [ 8 ] 6.5 ～ 91 ( 18.5 ) 2.2 ～ 75 ( 36.9 ) 1980 
+ 杭州湾 [ 6 ] 0.12 ～ 5.81 ( 1.20 ) 　 1981 ～ 1983 渤海 [ 9 ] 55.3 ～ 328.3 ( 152.2 ) 1.28 ～ 6.17 ( 2.19 ) 1980 
+ 厦门 湾 [ 7 ] 1.5 ～ 27.0 ( 11.0 ) 4.7 ～ 150 ( 24.0 ) 1982 北 太平洋 [ 10 ] 0.6 ～ 1.8 ( 1.2 ) 0.1 ～ 0.3 ( 0.15 ) 1983 
+ 
+ 注 :   括号 内 数据表示 平均值 
+ 　 　 有机氯 农药 自 本世纪 40 年代 在 农业 上 推广 , 至 60 年代 末 是 世界 上 产量 最高 , 用量 最大 的 农药 . 我国 于 50 年代 开始 使用 , 60 ～   80 年代 初 , 有机氯 农药 的 使用量 一直 占 我国 农药 使用量 的 一半 以上 , 至 70 年代 曾 占 到 农药 使用量 的 80% [ 16 ] . 自 1983 年 我国 政府 禁止 生产 与 使用 有机氯 农药 后 , 有机氯 农药 在 表层 沉积物 的 含量 开始 降低 , 如表 2 所示 , 1988 年 杭州湾 表层 沉积物 中 BHC 与 DDT 含量 分别 为 0.52 ～ 1.10   ng / g 与 1.04 ～ 3.46 ng / g ; 至 1992 年 , 在 长江口 泥沙 往南 输运 的 主要 通道 上 , 表层 沉积物 DDT 含量 下降 至 0.56 ～ 1.85 ng / g ;   而 到 1997 年 , 在 长江口 泥沙 主要 堆积 区内 ( Meso - 1 ) , 表层 沉积物 中 BHC 含量 下降 至 0.47 ng / g , DDT 含量 降至 0.31 ng / g , 比 附近 沉积环境 相似 的 G8140 与 G8103   ( 1981 年 取样 )   的 结果 有大辐度 的 减少 . 尽管 所 比较 的 取样 站位 不尽相同 , 但 从 沉积物 中 BHC 与 DDT 含量 的 影响 因素 诸如 沉积物 粒度 、 沉积 量 及 沉积物 稀释 等 考虑 , 表 2 所列 数据 反映 了 沉积物 中 有机氯 农药 含量 的 下降 趋势 . 
+ 表 2   80 年代 初 以来 长江口 — 杭州湾 表层 沉积物 中 BHC 与 DDT 的 含量 变化   ( ng / g ) 
+ Table   2   The   variations   of   BHC   and   DDT   contents   in   surface   sediments   in   Changjiang   Estuary — Hangzhou   Bay   since   1980s   ( ng / g ) 
+ 站 号 取样 时间 BHCDDT 站 号 取样 时间 BHCDDT 
+ G81031981 年 8 月 0.956 . 93011992 年 1 月 　 0.56 
+ G81261981 年 8 月 4.1316 . 0021992 年 1 月 　 0.57 
+ G81281981 年 8 月 4.9113 . 9031992 年 1 月 　 1.85 
+ G81401981 年 8 月 2.8012 . 6041992 年 1 月 　 0.76 
+ E11988 年 10 月 0.812 . 11B11997 年 10 月 0.360 . 10 
+ E31988 年 10 月 0.862 . 28C11997 年 10 月 0.360 . 22 
+ E71988 年 10 月 0.521 . 04C31997 年 10 月 0.240 . 05 
+ E91988 年 10 月 0.632 . 05Meso - 11997 年 10 月 0.470 . 31 
+ E111988 年 10 月 1.103 . 46 　 　 　 　 
+ 
+ 注 :   G8103 ～ G8140 资料 引 自 文献 [ 4 , 5 ] ,   E1 ～ E11 资料 引 自 文献 [ 15 ] 
+ 　 　 杭州湾 悬浮 颗粒物 的 分析 结果表明 , 在 有机氯 农药 停用 多年 之后 , 水体 悬浮 体中 的 BHC 仍高达 51.3 ng / g , DDT 高达 47.9   ng / g   ( 表 3 ) , 比 同期 沉积物 中 含量 高 一个 数量级 . 悬浮 体中 具有 如此 高 的 DDT 与 BHC 浓度 , 仍 将 对 海洋 生态环境 产生 严重 的 影响 . 这 可能 是因为 悬浮 体 的 粒径 比 沉积物 细 , 而 较 细 的 颗粒 容易 吸附 较 高 含量 的 BHC 与 DDT . 厦门 湾 [ 7 ] 、 珠江口 [ 8 ] 、 渤海 [ 9 ] 以及 长江口 早期 的 工作 [ 4 , 5 ] 都 表明 , DDT 与 BHC 在 沉积物 中 的 分布 并 不 随 离岸 的 远近 而 变化 , 而 主要 取决于 沉积物 的 粒度 . 
+ 表 3 　 杭州湾 1987 年 12 月 悬浮 颗粒 中 BHC 与 DDT 的 含量   ( ng / g ) 
+ Table   3   The   BHC   and   DDT   contents   in   suspended   material   in   Hangzhou   Bay   during   December   1987   ( ng / g ) 
+ 站 号 BHCDDT 站 号 BHCDDT 
+ E1 表 ( 小潮 ) 5.123 . 57E1 表 ( 大潮 ) 2.964 . 87 
+ E3 表 ( 小潮 ) 11.2712 . 20E3 表 ( 大潮 ) 6.428 . 43 
+ E7 表 ( 小潮 ) 17.797 . 09E7 表 ( 大潮 ) 10.6913 . 40 
+ E9 表 ( 小潮 ) 51.2547 . 86E9 表 ( 大潮 ) 0.1912 . 50 
+ E3 底 ( 大潮 ) 8.428 . 73E7 底 ( 大潮 ) 8.388 . 80 
+ E9 底 ( 大潮 ) 3.776 . 02E9 底 ( 大潮 ) 7.329 . 11 
+ 
+ 2.2   长江口 — 杭州湾 柱状 样中 BHC 与 DDT 含量 的 垂 向 分布 
+ 　 　 　 柱状 样 Meso - 1 与 C1 中 的 BHC 与 DDT 的 垂 向 分布 见表 4 . 柱状 样 Meso - 1 中 的 BHC 与 DDT 含量 分别 为 0.158 ～ 0.449 ng / g 与 0.176 ～ 0.940   ng / g ; C1 中 的 BHC 与 DDT 含量 则 分别 为 0.105 ～ 0.360   ng / g 与 0.039 ～ 0.220   ng / g . 两个 短柱样 中 有机氯 含量 与 80 年代 初 的 表层 沉积物 相比 都 已 相当 低 . 而 Meso - 1 中 BHC 和 DDT 的 含量 比 C1 略 高 , 可能 是 由于 Meso - 1 的 含沙量 低 , 仅为 0.3% ～ 3.3% , 而 C1 站 的 含沙量 达 40% ～ 50% 左右 . 两个 柱状 样中 较 高 的 BHC 与 DDT 含量 并 不 出现 在 最 下部 , 而是 分别 在 Meso - 1 的 5 ～ 8cm 处 , C1 站 的 0 ～ 1cm 处 , 这 可能 是 有机氯 在 沉积物 中 的 含量 除了 与 河流 以及 大气 从 陆地 搬运 入海 的 通量 有关 之外 , 还 与 泥沙 的 输入 与 稀释 、 沉积物 的 再 悬浮 、 底栖生物 的 扰动 等 因素 有关 . 而 上述 因素 如 泥沙 的 输入 均 呈现 较大 的 年际 变动 , 如 1998 年 的 特大 洪水 , 长江 入海 物质 通量 可能 要 比 往年 大得多 . 
+ 　 　 为了 较完整 地 考察 长江口 — 杭州湾 的 污染 历史 , 结合 柱状 样 210Pb 定年 对 柱样 B2 ,   B7 进行 杭州湾 有机氯 农药污染 史 考察 , 结果 如图 2 ( a ) . 由于 Meso - 1 与 G8140 同 处于 长江 入海 物质 的 主要 堆积 区 , 而且 沉积 速率 相近 [ 15 ] , 故 把 两个 柱状 样 的 分析 结果 合并 于图 2 ( b ) . 
+ 表 4   长江口 沉积 短柱样 Meso - 1 与 C1 中 BHC 与 DDT 的 垂 向 分布   ( ng / g ) 
+ Table   4   The   vertical   distributions   of   BHC   and   DDT   in   cores   Meso - 1   and   C1   from   Changjiang   Estuary   ( ng / g ) 
+ Meso - 1 站位 C1 站位 
+ 层位 ( cm ) BHCDDT 层位 ( cm ) BHCDDT 
+ 0 ～ 20.4730 . 3110 ～ 10.3550 . 220 
+ 2 ～ 50.1750 . 1761 ～ 20.2390 . 046 
+ 5 ～ 80.4990 . 9402 ～ 30.1720 . 101 
+ 8 ～ 110.1580 . 3383 ～ 40.1050 . 048 
+ 11 ～ 140.2200 . 4795 ～ 60.2400 . 140 
+ 14 ～ 170.1680 . 5158 ～ 90.1040 . 043 
+ 17 ～ 200.2170 . 77814 ～ 160.1360 . 045 
+ 20 ～ 230.3750 . 30018 ～ 200.3600 . 100 
+ 26 ～ 290.3920 . 59020 ～ 220.2000 . 088 
+ 32 ～ 350.3750 . 71024 ～ 260.1970 . 039 
+ 
+ 注 : 根据 沉积 速率 推算 , Meso - 1 的 沉积 时间跨度 大致 为 1987 ～ 1997 年 , C1 的 沉积 时间跨度 大致 为 1984 ～ 1997 年 
+ 　 　 从总体上 看 , 图 2 大体上 反映 了 有机氯 农药 从 开始 使用 到 禁用 这一 事件 的 整个 过程 . B7 柱样 沉积 速率 较为 稳定 , 平均 速率 为 1.2 cm / a . 据此 , DDT 的 峰值 出现 于 1976 年 前后 , 与 陆地 DDT 的 使用 高峰期 相吻合 [ 16 ] . B2 柱样 26cm 以上 沉积 速率 较 稳定 , 为 近 20 年 来 的 沉积 , 其 BHC 高峰 也 大致 在 1978 年 左右 . 而 B2 的 下 段 据 210Pb 测定 结果 为 较 老 的 沉积 , 可能 扰动 比较 强烈 . 图 2 ( b ) 则 更 清楚 、 完整 地 反映 了 有机氯 农药 的 污染 历史 , 柱样 G8140 为 1981 前 沉积物 中 BHC 、 DDT 的 分布 状况 , Meso - 1 则 为 1987 年 以来 的 沉积物 堆积 而成 . 可见 至 1987 年 后 有机氯 农药 含量 已经 很 低 , 表明 这一 事件 从 沉积 记录 来看 已 基本 过去 . 但 其 在 悬浮 颗粒 中 可 仍然 形成 高值 ( 见表 3 ) , 故对 海洋环境 的 影响 并未 消除 . 有机氯 农药 之所以 穿时 进入 30 年代 的 地层 , 按林敏 基等 [ 5 ] 的 解释 是 由于 大型 底栖生物 的 扰动 . 当然 , 有机氯 农药 在 全世界 范围 内 是 40 年代 开始 推广 使用 的 , 它们 有 可能 通过 大气 传输 影响 长江口 . 因为 在 极地 、 太平洋 深海 沉积物 中 能 检测 到 相当 浓度 的 BHC 与 DDT [ 10 ] , 表明 这种 可能性 是 存在 的 . 另外 , 比较 长江口 — 杭州湾 柱状 样中 BHC 与 DDT 的 含量 , 杭州湾 沉积物 中 它们 的 含量 要 低 得 多 , 这 一点 从表 1 的 表层 沉积物 分布 中 也 可 看出 , 这是 由于 杭州湾 沉积物 粒径 较 粗 , 水 动力 强烈 , 含有 较 高 DDT 与 BHC 含量 的 细 颗粒物 沉降 不 下来 , 反而 在 离岸 较远 的 长江口 外细 颗粒 沉积 区 形成 高值 . 
+ 
+ 图 2   长江口 — 杭州湾 柱状 样中 BHC 与 DDT 含量 的 垂 向 分布 
+ Fig.2   The   vertical   distribution   of   BHC   and   DDT   contents   in   cores   from   Changjiang   Estuary — Hangzhou   Bay 
+ 3 　 结 　 语 
+ 　 　 杭州湾 — 长江口 的 有机氯 农药污染 历史 可以 通过 比较 不同 时期 表层 沉积物 中 的 含量 分布 以及 经过 较 高精度 定年 的 柱状 样来 反映 . 说明 运用 分子 地层学 来 研究 河口 、 近海 以及 湖泊 污染 事件 具有 广泛 的 应用 前景 , 另外 , 在 开展 这方面 研究 时 , 首先 应 选择 沉积 速率 稳定 , 扰动 较少 的 代表性 区域 , 对于 不同 的 污染物 还 必须 明确 其 污染源 、 生产 使用 历史 及其 在 环境 中 的 迁移 转化 行为 . 如对 DDT 与 BHC 由于 其 性质 稳定 , 残留 期较 长 [ 4 ] , 可以 直接 根据 其 含量 恢复 其 污染 史 , 而 对于 较易 降解 的 污染物 , 则 还 必须 考虑 其 在 环境 中 的 自然 变化 因素 . 
+ 基金项目 ： 浙江省 自然科学 基金 资助 项目 ( 497003 ) ; 国家海洋局 青年 科学基金 资助 项目 ( 97107 ) ; 中日合作 项目 
+ 作者简介 ： 陈建芳 ( 1968 - ) , 男 , 浙江 余姚人 , 硕士 , 国家海洋局 第二 海洋 研究所 副研究员 , 主要 从事 海洋 有机 地球化学 研究 . 目前 主持 、 参加 “ 季风 在 南海 颗粒物 中 的 记录 : 来自 沉积物 捕获 器 的 证据 ” 、 “ 浙 、 沪 近海 工业化 以来 有机 污染 的 高分辨率 分子 地层学 记录 研究 ” 等 国家 、 省部级 基金项目 5 项 ; 并 承担 中日合作 “ 长江口 环境容量 研究 “ 等 多个 有关 有机 地球化学 方面 的 重大项目 的 研究 工作 . 发表 论文 20 余篇 , 有 多篇 论文 被 SCI 、 EI 、 CA 等 收录 . 
+ 作者 单位 ： （ 国家海洋局 第二 海洋 研究所 , 浙江   杭州 310012 ） 
+ *   徐征宇 . 杭州湾 柱状 样 210Pb 测年 结果 . 1989 ( 国家海洋局 第二 海洋 研究所 内部资料 ) 
+ 参考文献 ： 
+ [ 1 ] 沈   颖 .   海洋 环境污染 与 环境保护   [ J ] .   环境 科学 进展 ,   1997 ,   5 ( 1 ) :   67 -   75 . 
+ [ 2 ] Latimer   J   S ,   Quinn   J   G .   Historical   trends   and   current   inputs   of   hydrophobic   organic   compounds   in   an   urban   estuary :   the   sedimentary   record   [ J ] .   Environ .   Sci .   Technol . ,   1996 ,   30 : 623 -   633 . 
+ [ 3 ] 陈建芳 , 周怀阳 , 张 海生 等 . 工业化 以来 环境污染 历史 的 分子 ( 元素 ) 地层学 记录   [ J ] . 东海 海洋 , 1998 , 16 ( 3 ) : 64 -   69 . 
+ [ 4 ] Lin   Minji ,   Lin   Zhifeng ,   Zheng   Wenqing ,   et   al .   Determination   of   recent   sedimentation   rate   and   sedimentation   of   the   East   China   Sea   continental   shelf   by   BHC   dating   [ A ] . State   Oceanic   Administration   ( ed ) . Proceedings   of   International   Symposium   on   Sedimentation   on   the   Continental   Shelf ,   with   Special   Reference   to   the   East   China   Sea   [ C ] . Beijing : China   Ocean   Press ,   1983 ,   868 -   878 . 
+ [ 5 ] 林敏基 , 林 志峰 , 郑文庆 等 . 用 DDT 测年法 研究 东海 大陆架 现代 沉积作用   [ J ] . 台湾海峡 , 1986 , 5 ( 2 ) : 132 -   138 . 
+ [ 6 ] 中国 海湾 志 编委会 .   中国 海湾 志 — 第五 分册   [ M ] .   北京 :   海洋 出版社 ,   1990 ,   67 -   74 . 
+ [ 7 ] 陈淑美 ,   林敏基 ,   林志锋 .   厦门 港湾 表层 沉积物 BHC 和 DDT 含量 的 分布 .   台湾海峡 ,   1984 , 3 ( 1 ) :   32 -   37 . 
+ [ 8 ] 廖   强 .   粤西 海区 水质 、 底质 、 生物 中 有机氯 农药污染   [ J ] . 海洋环境 科学 , 1983 , 2 ( 4 ) : 37 -   40 . 
+ [ 9 ] 古堂秀 ,   徐贤义 ,   张添佛 .   渤海湾 的 有机氯 农药 和 多氯联苯   [ J ] .   海洋 科学 集刊 , 1988 , 29 : 77 -   85 . 
+ [ 10 ] 张 守法 , 刘彬昌 . 北 太平洋 海水 及 沉积物 中 有机氯 农药 的 含量 分布   [ J ] . 黄渤海 海洋 , 1986 , 4 ( 1 ) : 78 -   82 . 
+ [ 11 ] 叶新荣 , 杨和福 , 竺建奋 . 长江口 及 毗邻 海域 水体 中 PCBs 、 BHC 和 DDT   [ J ] .   海洋环境 科学 , 1991 , 10 ( 4 ) : 52 -   56 . 
+ [ 12 ] 蔡 福龙 , 林志锋 , 陈   英等 . 热带海洋 环境 中 BHC 和 DDT 的 行为 特征 研究   [ J ] . 海洋环境 科学 , 1998 , 17 ( 2 ) : 1 -   7 . 
+ [ 13 ] 叶新荣 , 卢   冰 .   长江口 及其 邻近 海区 的 有机 污染物   [ J ] .   东海 海洋 , 1995 , 13 ( 3 -   4 ) : 72 -   83 . 
+ [ 14 ] Lu   Bin ,   Zhu   Guihai ,   Zheng   Shilong ,   et   al .   Geochemical   characteristics   of   hydrocarbon   compounds   in   the   Hangzhou   Bay   [ J ] .   Acta   Oceanologica   Sinica , 1993 , 12 ( 1 ) : 115 -   132 . 
+ [ 15 ] DeMaster   D   J .   Rates   of   sediment   accumulation   and   particle   reworking   based   on   radiochemical   measurements   from   continental   shelf   deposits   in   the   East   China   Sea   [ J ] .   Continental   Shelf   Research , 1985 , 4 ( 1 -   2 ) : 143 -   158 . 
+ [ 16 ] 华小梅 , 单正军 . 我国 农药 的 生产 、 使用 状况 及其 污染环境 因子分析   [ J ] . 环境 科学 进展 , 1996 , 4 ( 2 ) : 33 -   45 . 
+ 收稿 日期 ： 1998 - 09 - 28 

@@ -1,0 +1,93 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 8 期   Vol.25   No.8   1999 
+ 
+ 
+ 
+ 利用 ARC / INFO 制作 彩色 晕 渲图 
+ 黎弘 ， 翟战强 ， 唐树 才 
+ 摘要 ： 在 对 HSV 彩色 视觉 模型 进行 分析 的 基础 上 ， 构造 了 一组 由 地形 高程 、 坡度 及 地表 法线 方向 到 HSV 色彩 空间 分量 的 映射 模型 ， 并 利用 ARC / INFO 的 AML 语言 编程 ， 在 SGI 工作站 上 实现 了 对 DEM 数据 的 晕 渲 处理 。 实验 表明 ， 该 方法 制作 的 晕 渲图 具有 动态 范围 大 、 立体感 强 、 色彩 丰富 的 特点 。 
+ 关键词 ： 可视化 ； 数字 高程 模型 ； 晕 渲图 
+ Making   Terrain   Shading   Map   with   ARC / INFO 
+ Li   Hong , Zhai   Zhanqiang , Tang   Shucai 
+ ( The   Third   Institute   of   the   Second   Artillery   Army , Beijing   100085 ) 
+ 【 Abstract 】 This   paper   presents   a   set   of   model   for   mapping   DEM   data   t ° HSV   color   space , experiment   is   programmed   with   AML   supported   by   ARC / INF ° software   on   the   SGI   workstation . The   shaded   image   with   the   method   described   in   the   paper   is   colorful   and   shows   wide   dynamic   range . 
+ 【 Key   words 】 DEM ; Visualization ; Shading   map 
+ 　 　 在 地图 制图 中 ， 经常 利用 地面 对 高程 的 晕 渲 处理 来 表现 地表 的 高程 分布 、 起伏 状况 及 坡度 变化 等 ； 在 作战 模拟 与 飞行 视景 仿真 中 ， 地形 晕 渲 处理 可 应用 于 对 战场 地理环境 的 可视化 。   
+ 　 　 地形 晕 渲 处理 包括   DEM   数据 生成 、 晕 渲 处理 建模 、 表面 色彩 分量 计算 等 步骤 。   DEM   数据 生成 一般 是 在 矢量化 等高线 和 离散 高程 点 的 基础 上 进行 内 插 生成 的 ， 这方面 的 文献 很多 ， 本文 不 作 讨论 ； 晕 渲 处理 建模 的 任务 是 ， 建立 地表 特征 与 视觉 空间 色彩 激励 分量 之间 的 映射 关系 ， 常用 的 视觉 空间 色彩 模型 有   RGB   组合 模型 和   HSV   组合 模型 。 文中 重点 讨论 了 基于   HSV   组合 视觉 模型 的 晕 渲 建模 和 色彩 分量 计算方法 ， 并 给出 了 在   ARC / INF ° 环境 下 实现 这一 过程 的   AML   语言 程序 。   
+ 1   HSV 彩色 视觉 模型   
+ 　 　 在 色彩 空间 中 ， 彩色 光 的 基本 参量 可以 用 明亮 度   ( Iten - sity )   、 色度   ( Hue )   和 饱和度   ( Saturation )   来 度量 。 明亮 度 是 光 作用 于 人眼 时 引起 的 明亮 程度 ， 一般来说 ， 彩色 光所含 能量 越大则 显得 越亮 ， 反之 则 暗 。 色调 反映 了 颜色 的 类别 ， 彩色 物体 的 色调 决定 于 物体 在 光 照射 下 所 反射 的 光谱 成分 。 饱和度 是 指 彩色 光所 呈现 的 深浅 程度 ， 对于 同一 色调 的 彩色 光 ， 其 饱和度 越高 ， 说明 它 的 颜色 越深 ， 饱和度 越低 颜色 越淡 。 依据   Tektronix   彩色 标准 ，   hue   的 值域 范围 为   0 - 360   ° ， 其中   0   ° 为 蓝色 ，   120 ° 为 红色 ，   180   ° 为 黄色 ，   240   ° 为 绿色 ； 明亮 度 的 范围 从   0   到   100   依次 表现 为 从 黑到 白 的 变化 ， 饱和度 从   0   到   100   表示 颜色 依次 加浓 。 基于   Tektronix   彩色 标准 的 基本 颜色 系 可用 图   1   所示 的 锥体 表示 ， 对于 现实 世界 中 的 任意 颜色 ， 可用 上述   3   个 基本 参量 来 描述 ， 而 在 视景 仿真 中则 可用 这   3   个 参量 来 合成 地面 景物 的 颜色 。   
+ 
+ 图 1     HSV 色彩 模型 
+ 2   DEM   格网 数据 的   HSV   模型 显示 方法   
+ 　 　 地形 晕绚 处理 就是 针对 已知 的 地面 高程 数据 ， 对 地形 表面 进行 着色 。 根据上述   HSV   视觉 模型 ， 可以 对 数字 地面 高程 模型   ( DEM )   数据 进行 分类 ， 分类 可以 依据   DEM   高程 数据 的 多种 统计 特征值 进行 ， 然后 将 不同 的 分类 结果 映射 到   HSV   视觉 空间 中 的   H   、   S   、   V   分量 ， 最后 将 这些 分量 合成 ， 即可 形成 彩色 图象 。   
+ 　 　 ( 1 )   建立 映射 模型   
+ 
+ 图 2   色度 （ hue ） 与 高程 值 之间 的 映射 关系 图 3   饱和度 与 坡度 的 映射 关系 
+ 
+ 　 　 将 高程 影射 到 色调   h   ， 高程 从 高到 低 ， 对应 的 颜色 由红到 绿 ， 即 最高 的 山用 红色 表示 ， 对应 的   h   为   120   ° ， 最低 的 山用 绿色 表示 ， 对应 的   h   为   240   °   (   参见 图   2 )   ； 将 地表 坡度 映射 到 饱和度   s   ， 坡度 越大 颜色 越深 ， 坡度 越浅 ， 颜色 越淡   (   参见 图画   3 )   ； 用 考虑 太阳光 照射到 地表 后 ， 在 某 一 观测 方位 形成 的 该 地表 点 的 反射 光强   I   映射 成 明亮 度   v   ， 反射光 越强 ， 对应 的 亮度 越强 。 具体 映射 关系 如下 ：   
+ s   =   10.0 * ( 90 - α )   /   9.0 　 　 ( 1 )   
+ 　 　 其中 ：   α   为 地面 角度 坡度   ;   
+ 　 　 ( 2 ) 
+ 　 　 其中   :   Z   为 地面 点 高程 值 ，   Zmax   、   Zmin   为 区域 最大 和 最小 高程 。   
+ v   =   I * 100 / 255 　 　 ( 3 )   
+ I   是 地形 表面 点 法线 方向 的 函数 ，   I   的 计算 将 在 下面 介绍 。   
+ 　 　 依据 式   ( 1 )   、   ( 2 )   、   ( 3 )   计算 地表 每 一点   H   、   S   、   V   分量 ， 将 它们 发送到 相应 的 显示 通道 ， 即可 组合成 反应 地表 形态 特征 的 彩色 图象 。   
+ 　 　 ( 2 )   地面 坡度   α   的 计算   
+ 　 　 坡度 有 两种 表示 方式 ， 一种 是 百分比 坡度   p α   ， 它 是 高度 的 增值 与 水平 距离 变化 值 之 比 ； 另 一种 是 角度 坡度   α   ， 即用 坡面 切线 与 水平面 的 夹角 表示   (   参见 图   4 )   。 用   z   =   f ( x , y )   表示 地面 地形 的 高程 分布 ， 则   p α   和   α   的 计算 可 表示 为 ：   
+ 
+ 图 4   坡度 的 表示 
+ p α ( x , y ) =   sqrt ( fx ' ( x , y ) 2 + f   y ' ( x , y ) 2 ) 　 　 ( 4 ) 
+ α   ( x , y )   =   Arctan ( p α ( x , y ) ) * 180 /   π 　 　 ( 5 ) 
+ 　 　 DEM   格网 数据 为 离散 的 地表 点 高程 值 ， 由   DEM   计算 地表 的 坡度 ， 可用 如下 差分 形式 计算 ：   
+ p α ( i , j ) =   sqrt ( ( dz / dx ) 2   + ( dz / dy ) 2 ) 　 　 ( 6 )   
+ 在 点   ( i , j )   处 的   dz / dx   和   dz / dy   可用 该点 周围 的   8   邻域 离散 点 的 高程 值 计算   (   参见 图   5 )   ：   
+ 
+ 图 5   点 （ i ， j ） 的 8 领域 坐 
+ 
+ 　 　 其中 ：   x _ mesh _ space   和   y _ mesh _ space   分别 为   X   和   Y   方向 的 格网 精度 。   
+ 　 　 ( 3 )   阴影 值   I   的 计算   
+ 　 　 明亮 度 反映 了 彩色 光 照射到 物体 表面 后 反射 到 观察 位置 的 能量 的 大小 ， 明亮 度 与 物体 表面 方向 、 观察者 位置 及 材质 等 因素 有关 ， 在 制作 彩色 晕 渲图 时 我们 忽略 表面 材质 因素 ， 假定 光照 和 观察 位置 如图   6   所示 ，   S   为 入射光 向量 ，   N   为点   P   处 表面 法 向量 ，   R   为 反射光 向量 ，   A   为 观测 向量 。 则 表面 点   P   反射 到 观测 位置 的 能量   I   可 采用 如下 简化 模型 计算 ：   
+ 
+ 图 6   表示 反射光 强度 的 计算 
+ I   =   255 [ kd   (   L   middot ;   N )   + ks   (   S   middot ;   V )   ] 　 　 ( 7 )   
+ 　 　 其中   kd   、 ks   为 反映 表面 反射 特性 和 漫反射 特性 的 常数 ， 当 给定 光照 角 、 观测 方位角 以及 观测 距离 时 ， 则   I   是 表面 点法 向量   N   的 单值 函数 。   ARC / INF ° 的   TIN   和   GRID   模块 均 提供 表面 阴影 计算 命令   (   函数   )   ， 可以 利用   TIN   提供 的 命令 计算 出 地形 表面 每 一点 的 阴影 值 ， 也 可 利用   GRID   提供 的 函数 对式   ( 7 )   编程 ， 实现 每一 表面 点亮 度 的 计算 。   
+ 3   结论 
+ 　 　 ARC / INF ° 手册 中 给出 了 基于 地形 高程 和 坡度 参数 的 等 范围 赋值 映射 方法 ， 用该 方法 制作 的 图 具有 软 表面   ( Soft   Surface )   的 感觉 。 本文 采用   HSV   彩色显示 模型 ， 建立 地面 点 高程 、 坡度 和 表面 法线 方向 到   HSV   色彩 分量 之间 的 映射 关系 ， 根据 人眼 的 视觉 特点 ， 对 地表 方向 和 坡度 采用 线性 映射 ， 而 对于 高程 采用 了 指数函数 变换 ， 这 便于 突出 地表 参数 的 动态 范围 ， 增强 立体 效果 。 利用 上述   HSV   模型 ， 我们 在   SGI   工作站 上 制作 了 多幅 地貌 晕 渲图 ， 实验 所用   DEM   数据 是 由   ARC / INF ° 的 空间 数据模型 产生 的 。 实验 表明 ， 用 本文 的 方法 绘制 的 晕 渲图 比   ARC / INF ° 手册 上 介绍 的 方法 建立 的 晕 渲图 具有 颜色 动态 范围 大 、 立体感 强 、 色彩 也 更 丰富 的 特点 ， 可以 更好 地 反映 地形 形态 的 变化 。 本文 给出 的   AML   源程序 在   SGI   上 的   ARC / INF ° 版本   1.7 . 4   下 调试 通过 ， 可以 方便 地 移植 到 其它 平台 的   ARC / INF ° 环境 下 运行 。   
+ 　 　 附   1   ： 用 本文 方法 制作   HSV   彩色 晕 渲图 的   AML   程序 ：   
+ 　 　 / *   由   DEM   栅格数据 制作 晕 渲 地形图 的   AML   程序   * /   
+ 　 　 / *   Program   Name :   hsv . aml   * /   
+ 　 　 / *   Author :   Grant   Lee ,   Hai   6 ,   QingHe   Building   ,   BeiJing   100085 * /   
+ 　 　 / *   Input :   DEM   lattice   - - - - % dgxlat%   * /   
+ 　 　 / *   Output :   Composite   map   - - - - hsvmap   * /   
+ 　 　 & getcover   lattice   % dgxlat%   / *   get   lattice   of   elevation   t ° process   
+ 　 　 / *   construct   saturation   component   lattice   ss   
+ 　 　 latticepoly   % dgxlat%   s _ poly   slope   slope . lut   / *   slope . lut   should   create   earlier   in   tables   
+ 　 　 latticereplace   % dgxlat%   s _ poly   ss   1.111   slope - code   
+ 　 　 kill   s _ poly   / *   kill   temperary   slope   polygon   coverage   
+ 　 　 / *   construct   hue   lattice   hh   
+ 　 　 grid   / *   use   grid   module   t ° process   
+ 　 　 disp   9999   3   
+ 　 　 & describe   % dgxlat%   
+ 　 　 & s   k   =   120.0   /   ln (   % grd $ zmax%   -   % grd $ zmin% + 1   )   
+ 　 　 docell   
+ 　 　 　 hh   =   120   +   % k%   *   ln (   % dgxlat%   -   % grd $ zmin%   )   
+ 　 　 end   / /   end   of   hue   lattice   gereration   
+ 　 　 / *   generate   value   lattice   vv   through   hillshade   
+ 　 　 / *   vv   should   be   within   the   range   of   ( 0 , 99 )   
+ 　 　 v   =   hillshade ( % dgxlat% , # , # , # , # )   / *   0   - -   255   * /   
+ 　 　 docell   
+ 　 　 　 vv   =   v   *   0.3922   / * vv :   0 - - 99   * /   
+ 　 　 end   
+ 　 　 q   
+ 　 　 ap   
+ 　 　 map   hsvmap   
+ 　 　 mape   hh 　 　 　 　   / *   set   map   extern   * /   
+ 　 　 gridcomposite   hsv   hh   ss   vv   linear   / *   show   composite   image   
+ 　 　 / *   Add   other   map   composite   such   as   legend , tittle   etc .   here   
+ 　 　 map   end   
+ 作者 单位 ： 第二炮兵 第三 研究所 ， 北京   100085 
+ 参考文献   
+ 1   Environmental   Systems   Research   Institute ,   INC . ,   Surface   Model -   ing   with   TIN   TM   
+ 2   Edwards   K , Davis   P   A . The   Use   of   Intensity - Hue - Saturation   Tran -   sformation   for   Producing   Color   Shaded - Relief   Images . Photogra -   mmetric   Engineering   and   Remote   Sensing ,   1994   ，   60 ( 11 )   ：   1369 -   1374   
+ 3   周新伦   .   数字 图象处理   .   北京 ： 国防工业 出版社 ，   1988   

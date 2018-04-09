@@ -1,0 +1,118 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1998 年   第 18 卷   第 5 期   No.5   Vol.18   1998 
+ 科技期刊 
+ 
+ CTMAB - 膨润土 去除 水中 有机物 的 性能 及 机理 *   
+ 朱利中 　 任晓刚 　 俞绍斌 　 郭伟强 　   ( 杭州大学 环境 科学系 ， 杭州   310028 ) 
+ 文 　 摘 　 用 溴化 十六 烷基 三甲 铵 ( CTMAB ) 改性 膨润土 ， 研究 了 CTMAB 膨润土 去除 水中 苯 、 甲苯 、 乙苯 、 硝基苯 、 苯胺 、 苯酚 、 对 硝基苯 酚 的 性能 、 机理 及 影响 因素 。 结果表明 ， CTMAB - 膨润土 去除 水中 有机物 的 能力 远大于 原土 ； CTMAB - 膨润土 对 苯 、 甲苯 、 乙苯 的 等温 吸附 曲线 呈 线性 ； 对 水中 苯酚 、 对 硝基苯 酚 的 等温 吸附 曲线 呈 非线性 ； 对 苯胺 、 硝基苯 的 等温 吸附 曲线 基本 呈 线性 。 CTMAB - 膨润土 吸附 水中 有机物 的 性能 及 机理 与 有机物 的 水溶性 或 辛醇 － 水 分配 系数 有关 。 
+ 关键词 　 CTMAB - 膨润土 　 阳离子 表面 活性剂 　 吸附 　 分配 　 水 处理   
+ Sorption   of   some   organic   pollutants   to   CTMAB - bentonite   from   water . Zhu   Lizhong ,   Ren   Xiaogang ,   Yu   Shaobin ， Guo   Weiqiang ( Department   of   Environmental   Science ,   Hangzhou   University ,   Hangzhou   310028 ) . China   Environmental   Science.1998 , 18 ( 5 ) : 450 ～ 454 
+ Abstract — CTMAB - bentonite   was   synthesized   by   the   exchange   of   cetyltrimethylammonium   ( CTMA )   cations   for   inorganic   ions   on   the   internal   and   external   surfaces   of   bentonite . The   properties   and   mechanisms   for   CTMAB - bentonite   to   sorb   benzene ,   toluene ,   ethylbenzene ,   nitrobenzene ,   aniline ,   phenol   and   p - nitrophenol   in   water   were   investigated   in   detail .   Benzene ,   toluene   and   ethylbenzene   sorption   to   CTMAB - bentonite   was   characterized   by   linear   isotherms ,   solute   partition ,   between   water   and   organic   phase   composed   of   the   large   alkyl   functional   groups   of   the   CTMAB   cations .   Phenol   and   p - nitrophenol   sorption   to   CTMAB - bentonite   was   caused   primarily   by   adsorption ,   relatively   strong   solute   uptake .   Their   isotherms   were   nonlinear . Nitrobenzene   and   aniline   sorption   to   CTMAB - bentonite   was   weak ,   and   the   isotherms   were   approximately   linear .   Their   sorption   was   caused   by   both   the   partition   and   the   solute   uptake .   The   sorption   mechanism   was   also   studied   by   octanol - water   partition   coefficients   of   organic   compounds . 
+ Key   words : CTMAB - bentonite 　 quaternary   ammonium   cation   　 adsorption 　   partition 　 water   treatment 
+ 　 　   膨润土 是 一种 天然 矿物 ， 主要 成份 是 铝硅酸盐 蒙脱 土 ， 具有 强 吸水性 、 可塑性 、 粘结性 和 强 离子交换 性 。 由于 膨润土 表面 硅氧 结构 极强 的 亲水性 以及 层间 阳离子 的 水解 ， 故 未经 改性 的 膨润土 ( 原土 ) 吸附 处理 有机物 的 性能 较差 。 用季 铵盐 阳离子 表面 活性剂 改性 膨润土 ， 制得 有机 膨润土 或 有机 - 无机 复合 膨润土 ， 可 大大 改善 膨润土 的 吸附 性能 ， 其 去除 水中 有机物 的 能力 至少 比原 土高 几十 至 几百倍 。 
+ 　 　 了解 有机 膨润土 吸附 水中 有机物 的 特征 、 机理 及 规律 对 有机 膨润土 在 水 处理 及 污染环境 修复 中 的 应用 至关重要 。 迄今 国内外 对 有机 膨润土 吸附 处理 水中 非 极性 有机物 的 性能 、 机理 及 影响 因素 作 了 深入 的 研究 〔 1 ， 2 〕 ， 而 对 极性 、 离子型 有机物 的 吸附 研究 非常少 。 有机 膨润土 吸附 水中 各类 有机物 的 机理 也 有待 深入研究 。 
+ 　 　 本文 用 阳离子 表面 活性剂 ( 溴化 十六 烷基 三甲 铵 ) 改性 膨润土 ， 研究 了 CTMAB - 膨润土 去除 水中 各类 有机物 ( 离子型 、 极性 和 非 极性 ) 的 性能 、 机理 及 影响 因素 。 结果表明 ， CTMAB - 膨润土 对 水中 有机物 的 吸附 能力 远大于 原土 ； 对 有机物 的 去除 能力 及 机理 与 有机物 本身 的 性质 、 辛醇 - 水 分配 比 有关 ， 还 与 改性 时 所用 表面 活性剂 的 浓度 、 性质 有关 。 
+ 1 　 材料 与 方法 
+ 1.1 　 实验 材料 及 仪器 
+ 　 　   所用 原土 为 浙江省 的 钠 基 膨润土 ， 经 测定 其 阳离子 交换 容量 ( CEC ) 为 74.64 meq / 100g 土 , 经 干燥 粉碎 、 研磨 ， 过 100 目筛 而成 。 溴化 十六 烷基 三甲 铵 和 有机 化合物 均 为 分析 纯 。 主要 仪器 有 THB - 82A 台式 恒温 振荡器 ， 电动 低速 离心机 ， 102G 型 气相色谱仪 。 
+ 1.2 　 测定方法 
+ 　 　 水中 苯酚 含量 用 4 - 氨基 安替比林 分光 光度法 测定 ， 最低 检测 浓度 为 0.1 mg / L ； 对 硝基苯 酚 的 含量 用 紫外 分光 光度法 直接 测定 ， 最大 吸收 波长 为 317nm ； 苯胺 、 硝基苯 的 含量 测定 分别 用 盐酸 萘 乙二胺 和 锌 还原 － 盐酸 萘 乙二胺 分光 光度法 测定 ， 检测 限为 0.12 mg / L ； 苯 、 甲苯 、 乙苯 均 用气 相色谱 测定 ， 其 检测 限 分别 为 0.9 、 2.9 、 1.6 μ g / mL 。 
+ 1.3 　 有机 膨润土 的 制备 
+ 　 　 用 溴化 十六 烷基 三甲 铵 ( CTMAB ) 对 膨润土 进行 改性 。 将 20g 膨润土 原土加 到 200mL 不同 浓度 的 CTMAB 溶液 中 ， 在 60 ～ 70 ℃ 水浴 条件 下 搅拌 2h ， 改性 成 的 有机 膨润土 ， 经 抽滤 ， 用 蒸馏水 洗涤 2 ～ 3 次 ， 在 80 ～ 90 ℃ 下 烘干 ， 然后 在 105 ℃ 下 活化 2h ， 研磨 过 100 目筛 ， 即 制成 不同 浓度 的 CTMAB - 膨润土 。 
+ 1.4 　 基本 实验 方法 
+ 　 　 在 150mL 碘 量瓶 中 分别 加入 0.5 g   CTMAB - 膨润土 ( 或 原土 ) ， 25mL 不同 浓度 的 有机物 溶液 ， 盖 紧后 ， 固定 在 恒温 振荡器 中 ， 在 25 ℃ 下以 120r / min 振荡 1h ， 离心 后取 上 清液 ， 测定 其中 有机物 的 残留量 ( 扣除 挥发 等 ) ， 计算 水中 有机物 的 去除率 及 吸附 量 。 
+ 　 　 实验 表明 ， 处理过程 中 水中 有机物 的 光解 和 碘 量瓶 对 其 吸附 可以 忽略不计 ； 苯酚 、 对 硝基苯 酚 、 苯胺 及 硝基苯 的 挥发 可以 忽略不计 ； 应用 顶空 采样 分析法 ， 测得 苯 、 甲苯 、 乙苯 的 挥发 率 分别 为 14.8% 、 8.7% 和 6.03% 。 
+ 2 　 结果 与 讨论 
+ 2.1 　 CTMAB - 膨润土 的 结构 与 分析 
+ 　 　 对 原土 和 一系列 CTMAB - 膨润土 进行 了 X - 射线 衍射 分析 ， 结果 见表 1 。 
+ 表 1 　 原土及 CTMAB - 膨润土 的 层 间距 
+ Table   1 　 Interlayer   spacing   of   natural   bentonite   and   CTMAB - bentonite 
+ 
+ 改性 时 CTMAB 
+ 浓度 ( % ) 层 间距 
+ ( nm ) 改性 时 CTMAB 
+ 浓度 ( % ) 层 间距 
+ ( nm ) 
+ 原土 1.29541 . 64 　 
+ 11.37651 . 834 
+ 21.43461 . 928 
+ 31.54471 . 902 
+ 
+ 　 　 由表 1 可见 ， CTMAB - 膨润土 的 层 间距 都 大于 原土 ； CTMAB - 膨润土 的 层 间距 随 改性 时 CTMAB 浓度 的 增加 而 增大 ， 但 当 CTMAB 浓度 大于 6% ( 此时 加入 的 CTMAB 量 相当于 82.4 mmol / 100g 土 ， 超过 了 原土 的 CEC ) 时 ， 其层 间距 基本 不变 ， 这是 由于 当 加入 的 CTMAB 量 小于 或 等于 膨润土 的 CEC 时 , CTMAB 可以 计量 方式 即 100% 被 交换 到 膨润土 上 ， 但 在 超过 CEC 后 ， 实际 发生 交换 的 CTMAB 就 不再 随 加入 量 的 增加 而 增大 。 
+ 2.2 　 CTMAB - 膨润土 处理 水中 有机物 适宜 条件 
+ 　 　 在 实验 pH 值 范围 内 ( pH   2 ～ 12 ) ， CTMAB - 膨润土 对 水中 苯胺 、 硝基苯 、 苯 、 甲苯 、 乙苯 5 种 有机物 的 去除率 基本 恒定 ； 对 苯酚 ( pKa = 9.96 ) 和 对 硝基苯 酚 ( pKa = 7.16 ) , 在 pH < pKa 时 , 去除率 基本 恒定 ， 在 pH > pKa 时 , 去除率 有 很大 的 提高 ( 表 2 ) 。 考虑 到 实际 应用 ， 实验 时 将 各种 有机物 水溶液 均 调节 到 pH   8 ～ 9 。 
+ 表 2 　 pH 值 对 有机 膨润土 去除 水中 有机物 的 影响 
+ Table   2 　 Effects   of   pH   on   the   removal   rates   of   organics   from   water 
+ 
+ 有机物 　 去除率 ( % ) 有机物 　 　 　 　 去除率 ( % ) 
+ 苯 51 ～ 58 　 苯酚 * 72 ～ 78 
+ 甲苯 60 ～ 68 　 苯酚 * * 86 ～ 100 
+ 乙苯 73 ～ 78 　 对 硝基苯 酚 * 91 ～ 95 
+ 硝基苯 33 ～ 37 　 对 硝基苯 酚 * * 98 ～ 100 
+ 苯胺 38 ～ 42 
+ 
+ 　 注 ： * 为 pH < pKa 时 的 去除率   * * 为 pH > pKa 时 的 去除率 
+ 　 　 在 室温 下 ， pH   8 ～ 9 ， 振荡 速度 为 120r / min 时 ， CTMAB - 膨润土 对 7 种 有机物 的 吸附 速率 稍 有 差别 ， 一般 在 振荡 45min 后 去除率 基本 恒定 ， 实验 选定 振荡 时间 为 1h 。 还 试验 了 CTMAB - 膨润土 用量 对 水中 有机物 去除率 的 影响 。 结果表明 ， 随着 用 土量 的 增加 ， 去除率 均 有 不同 程度 的 提高 ， 考虑 到 处理 费用 和 去除 效果 ， 选用 投土量 为 0.5 g / 25mL 。 
+ 2.3 　 表面 活性剂 浓度 对 CTMAB - 膨润土 去除 水中 有机物 性能 的 影响 
+ 　 　 以 苯胺 和 甲苯 为例 , 试验 了 不同 浓度 ( 1% ～ 5% ) 的 CTMAB - 膨润土 去除 水中 有机物 的 效果 。 从图 1 可以 看出 , 水中 有机物 的 去除率 随着 改性 所用 表面 活性剂 ( CTMAB ) 浓度 的 增加 而 升高 , 但 到达 一定 浓度 后 ， 去除率 基本 保持 不变 。 经过 对 水中 7 种 有机物 去除率 的 研究 ， 兼顾 处理 费用 ， 实验 时 选用 4% CTMAB 溶液 改性 制得 的 有机 膨润土 为 实验 材料 。 
+ 
+ 图 1 　 CTMAB 浓度 对 膨润土 去除 苯胺 、 甲苯 效率 的 影响 
+ Fig.1 　 Effects   of   CTMAB   concentrations   on   the   removal   rates 
+ of   aniline   and   toluene   from   water   by   CTMAB - bentonite 
+ 1 . 苯胺 　 2 . 甲苯 　 浓度 为 50 μ g / mL 　 pH   8 ～ 9 
+ 2.4 　 CTMAB - 膨润土 去除 水中 有机物 的 机理 及 影响 因素 
+ 2.4 . 1 　 等温 吸附 曲线 　 由于 水中 有机物 的 溶解度 相差 较大 ， 在 绘制 等温 吸附 曲线 时 ， 有机物 的 起始 浓度 范围 不 一样 。 4% CTMAB - 膨润土 对 7 种 有机物 的 等温 吸附 线见 图 2 ～ 图 5 。 
+ 
+ 图 2 　 4% CTMAB - 膨润土 去除 水中 苯酚 等温 吸附 曲线   
+ Fig.2 　 Isothermal   sorption   curves   of   phenol 
+ 　 　 从图 2 ， 图 3 可以 看出 ， 苯酚 、 对 硝基苯 酚 的 等温 吸附 曲线 呈现出 明显 的 非线性 ； 数据 经 回归 处理 ， 表明 CTMAB - 膨润土 对 水中 苯酚 、 对 硝基苯 酚 的 吸附 均 符合 Freundlich 模型 ， 其 回归方程 分别 为 Y = 0.133 C0.869 和 Y = 17.14 C0.494 ； 可以 认为 ， 有机 膨润土 对 水中 强 极性 有机物 的 去除 主要 是 表面 吸附 ， 即 水中 有机 膨润土 与 有机物 之间 主要 是 通过 分子 间 的 作用 。 
+ 
+ 图 3 　 4% CTMAB - 膨润土 去除 水中 对 硝基苯 酚 等温 吸附 曲线 
+ Fig.3 　 Isothermal   sorption   curves   of   p - nitrophenol 
+ 
+ 图 4 　 4% CTMAB - 膨润土 去除 水中 苯 、 甲苯 、 乙苯 等温 吸附 曲线 
+ Fig.4 　 Isothermal   sorption   curves   of   benzene 、 toluene   and   ethylbenzene 
+ 1 . 苯 　 2 . 甲苯 　 3 . 乙苯   
+ 　 　 从图 4 可以 看出 ， 苯 、 甲苯 、 乙苯 的 等温 吸附 曲线 呈现出 明显 的 线性 （ 其 回归方程 和 相关系数 见表 3 ） ， 这 主要 是 水中 有机物 在 有机 膨润土 - 水相 之间 分配 作用 的 结果 。 由于 表面 活性剂 阳离子 的 烷基 部分 在 膨润土 层间 堆集 在 一起 ， 形成 一层 有机 相 ， 对 水中 非 离子型 有机物 产生 “ 萃取 ” 作用 。 水中 有机 膨润土 对 苯胺 、 硝基苯 的 等温 吸附 曲线 基本 呈 线性 。 有机物 主要 通过 “ 萃取 ” 方式 与 有机 膨润土 中 的 表面 活性剂 发生 作用 。 当然 极性 有机 化合物 也 可以 通过 分子 间 作用 被 吸附 在 有机 膨润土 上 。 
+ 
+ 图 5 　 4% CTMAB - 膨润土 去除 水中 苯胺 和 硝基苯 等温 吸附 曲线 
+ Fig.5 　 Isothermal   sorption   curves   of   aniline   and   nitrobezene 
+ 1 . 苯胺 　 2 . 硝基苯 
+ 表 3 　 苯 、 甲苯 、 乙苯 等温 吸附 曲线 回归方程 和 相关系数 
+ Table   3 　 Linear   regression   data   for   sorption   isotherms 
+ 
+ 有机物 回归方程 相关系数 
+ 苯 Y = 0.088 X - 0.104 R = 0.995 
+ 甲苯 Y = 0.117 X + 0.147 R = 0.994 
+ 乙苯 Y = 0.228 X - 0.084 R = 0.962 
+ 
+ 表 4 　 辛醇 - 水 分配 系数 ( Kow ) 及 溶解度 〔 3 〕 
+ Table   4 　 Solubility   and   otanol - water   partition   coefficient   of   organics 
+ 
+ 有机物 　 Kow 溶解度 有机物 Kow 溶解度 
+ 苯酚 298.2 对 硝基苯 酚 811.6 　 
+ 硝基苯 710.2 苯 　 　 　 　 1400.072 
+ 苯胺 7.93 . 6 甲苯 　 　 　 5400.045 
+ 乙苯 1400 　 0.015 
+ 
+ 　 　 由此可见 ， 有机 膨润土 对 水中 有机物 的 去除 性能 及 作用 机理 与 有机物 本身 的 性质 有关 。 此外 ， 有机物 水溶性 或 辛醇 - 水 分配 系数 ( Kow ) 也 是 影响 有机 膨润土 吸附 有机物 性能 及 机理 的 一个 重要 因素 。 7 种 有机物 的 辛醇 - 水 分配 系数 ( Kow ) 见表 4 。 结果表明 ， 对非 极性 及弱 极性 有机物 ， Kow 愈大 ， 即 水溶性 愈差 ， 有机 膨润土 对 水中 有机物 的 分配 作用 越强 ； 对强 极性 有机物 Kow 愈大 ， 有机 膨润土 对 水中 有机物 的 去除 效果 越 好 ， 因为 有机 膨润土 由 原来 的 亲水性 转变 为 疏 水性 ， Kow 愈大 ， 使 有机物 在 有机 膨润土 表面 的 吸附 作用 越强 ， 从而 使 去除率 提高 。 
+ 2.4 . 2 　 改性 时 所用 CTMAB 浓度 的 影响 　 试验 不同 浓度 CTMAB - 膨润土 对 水中 甲苯 去除 性能 及 机理 的 影响 ( 图 6 ) 。 结果表明 ， 原土 对 水中 甲苯 的 吸附 呈 非线性 ； 有机 膨润土 对 其 吸附 呈 线性 ， 线性 的 斜率 随 改性 时 所用 表面 活性剂 浓度 增加 而 增大 ； 即 有机 膨润土 对 甲苯 的 吸附 是 分配 作用 的 结果 ， 而 分配 作用 的 强弱 与 改性 时 所用 表面 活性剂 浓度 有关 。 随着 表面 活性剂 浓度 ( 1% ～ 4% ) 的 增加 ， 有机 膨润土 中 有机 碳 含量 增加 ， 使 水中 有机物 在 有机 膨润土 中 的 分配 作用 加强 。 因此 ， 水中 有机物 的 去除率 随 改性 时 所用 的 表面 活性剂 的 浓度 ( < CEC ) 的 增加 而 增大 。 
+ 
+ 图 6 　 不同 浓度 CTMAB - 膨润土 及 原土 去除 水中 
+ 甲苯 等温 吸附 曲线 
+ Fig.6 　 Isothermal   sorption   curves   of   toluene 
+ 1 . 原土 　 2 .   1% CTMAB - 膨润土 　 3 .   2% CTMAB - 膨润土 
+ 4 .   3% CTMAB - 膨润土 　 5 .   4% CTMAB - 膨润土 
+ 　 　 研究 表明 ， 表面 活性剂 进入 膨润土 的 层间 ， 使层 间距 增大 ， 但 使 部分 小孔 被 堵塞 ， 由此 造成 有机 膨润土 比 表面积 减小 。 有机 膨润土 的 比 表面积 随 改性 时 所用 表面 活性剂 浓度 的 增加 而 减小 〔 4 〕 。 由此可见 ， 随着 改性 时 所用 表面 活性剂 浓度 的 增加 ， 水中 有机物 去除率 的 上升 与 表面 吸附 没有 多大 关系 ， 而是 分配 作用 增强 的 结果 。 
+ 3 　 小结 
+ 　 　 有机 膨润土 对 水中 有机物 的 去除率 比原 土有 很大 的 提高 ； CTMAB - 膨润土 对 水中 有机物 的 去除 呈 如下 规律 ： 有机 膨润土 对非 极性 及弱 极性 有机 化合物 ， 主要 是 分配 作用 ， 等温 吸附 曲线 呈 线性 ， 对 中等 极性 有机 化合物 ， 除了 分配 作用 以外 还有 吸附 作用 ； 对强 极性 有机 化合物 ， 主要 是 表面 吸附 作用 ， 等温 吸附 曲线 呈 非线性 ； 有机 膨润土 对 水中 的 同种 非 离子型 有机 化合物 的 去除率 及 吸附 量 随着 改性 时 所用 表面 活性剂 浓度 的 增加 而 增大 。 
+ 参考文献 
+ 1 　 Smith   J   A ,   Jaffe   P   R   ,   Chiou   C   T . Effect   of   ten   quaternary   ammoniun   cations   on   tetrachloromethane   sorption   to   clay   form   water .   Environ .   Sci .   Technol . ,   1990 ,   24 : 1167 ～ 1172 
+ 2 　 Smith   J   A ,   Galan   A . Sorption   of   nonionic   contaminants   to   single   and   dual   organic   cation   bentonites   from   water . Environ .   Sci .   Technol . ,   1995 ,   29 : 685 ～ 692 
+ 3 　 James   R   ,   Campbell   J   R ,   Luthy   R   G . Prediction   of   aromatic   solute   partition   coefficients   using   the   UNIFAC   group   contribution   model .   Environ .   Sci .   Technol . ,   1985 ,   19 : 980 ～ 985 
+ 4 　 朱利中 ， 胡 建中 ， 沈 小强 等 . 有机 膨润土 吸附 对 硝基苯 酚 的 性能 及水 处理 中 的 应用 初探 . 环境 科学 学报 ， 1995 ， 15 ( 3 ) : 316 ～ 321 
+ 作者简介   
+ 朱利中 　 男 ， 1959 年 10 月生 。 1993 年 破格晋升 为 教授 ， 现为 杭州大学 环境 科学 系主任 ， 环境工程 设计所 所长 。 主要 从事 环境 分析化学 、 污染 控制 化学 及水 处理 方面 的 科学研究 ； 主持 或 作为 主要 成员 完成 10 余项 国家 及 浙江省 自然科学 基金 资助 项目 ， 其中 7 个 项目 通过鉴定 或 评审 ； 曾 获 化工部 自然科学 三等奖 ， 国家教委 科技进步 二 、 三等奖 ， 两次 获 浙江省 科技进步 三等奖 。 出版 教材 或 专著 3 部 ， 发表 论文 75 篇 。 
+ 收稿 日期 ： 1997 - 12 - 24 
+ *   国家自然科学基金 资助 项目 ( 29777005 ) 

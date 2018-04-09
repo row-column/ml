@@ -1,0 +1,134 @@
+计算机 应用 研究 
+ APPLICATION   RESEARCH   OF   COMPUTERS 
+ 2000   Vol.17   No.3   P.106 - 107 
+ 
+ 
+ 
+ 
+ VB 访问 SQL   Server 数据库 技术 
+ 洪志全 
+ 摘 　 要 ： 介绍 了 VB 的 ADO 接口 访问 SQL   Server 数据库系统 的 基本 技术 ， ADO 接口 的 构成 、 功能 、 编程 方法 以及 Visual   Basic 对象 概念 ， 这 对 SQL   Server 应用 系统 的 开发 具有 普遍意义 。 
+ 关键词 ： SQL   Server   ADO 接口   VB 对象 
+ 　 　 SQL   Server 是 微软 推出 的 中小型 网络 数据库系统 ， 是 目前 最 常用 的 数据库系统 之一 。 随着 SQL   Server 网络 数据库 应用程序 日益 增多 ， 这种 Web 数据库 应用 系统 的 正常 运行 一般 依赖于 已 存在 的 用户 数据库 。 创建 维护 数据库 的 工作 可用 SQL   Server 提供 的 SQL   Enterprise   Manager 工具 来 进行 ， 如能 提供 一种 定制 的 数据库 管理工具 ， 通过 管理应用程序 来 管理 数据库 及其 设备 ， 对 用户 来说 无疑 是 最 理想 的 。 
+ 　 　 用 VB 开发 基于 SQL   Server 的 数据库系统 ， 可 使用 RDO   ( 远程 数据 对象 — Remote   Data   Object ) 和 ADO   ( ActiveX 数据 对象 — ActiveX   Data   Objects ) 等 方法 。 RDO 是 位于 ODBC   API 之上 的 一个 对象 模型 层 ， 它 依赖 ODBC   API 、 ODBC 驱动程序 以及 后 端 数据库 引擎 来 实现 ， 用 RDO 所 需 的 程序 短小 ( 约 250   KB ) 、 快速 。 RDO 具备 基本 的 ODBC 处理 方法 ， 可 直接 执行 大多数 ODBC   API 函数 ， RDO 包含 在 VB   4.0 / VB   5.0 企业 版中 ， 由 MSRDO32 . DLL 动态 连接 库来 实现 。 RDO 是 综合 了 DAO / Jet 、 VBSQL / DBLib 和 ODBC 的 优点 的 对象 模型 ， 包含 ODBC   API 应用层 ， 设计 为 在 后台 ( 服务器端 ) 有 数据库 存在 的 前提 下 运行 ， 是 针对 SQL   Server 和 Oracle 而 特别 设计 的 。 RDO 的 优势 在于 它 完全 被 集成 在 VB 之中 ， 可 直接 访问 SQL   Server 存储 过程 、 完全 支持 T - SQL 、 T - SQL 调试 集成 在 开发 环境 中 、 Visual   Database   Tools 的 集成化 等 。 但 微软 已 宣布 今后 不再 对 VBSQL / DBLib 进行 升级 ， 而 ODBC   API 函数 一般 的 编程 方式 也 不 为 人们 所 喜爱 ， RDO 的 应用 将 逐渐 减少 。 
+ 　 　 ADO 是 基于 全新 的 OLE   DB 技术 ， OLE   DB 可 对 电子邮件 、 文本文件 、 复合 文件 、 数据表 等 各种各样 的 数据 通过 统一 的 接口 进行 存取 。 随着 ActiveX 控件 的 升级 ( Windows   98 的 ActiveX   5.0 ) ， RDO 将 被 以 ActiveX 技术 为 基础 的 ADO 接口 所 替代 。 目前 ， 采用 ADO 接口 的 数据库 应用程序 还 比较 少 ， 为此 本文 将 主要 介绍 基于 ActiveX 技术 的 ADO 访问 SQL   Server   6.5 数据库 的 技术 和 方法 。 
+ 1 　 SQL   Server 安装 与 数据 设备 创建 
+ 　 　 SQL   Server 是 运行 于 Windows   NT 的 Web 数据库系统 ， 安装 于 NT 服务器 上 。 若 使用 NT   4.0 中文版 安装 SQL   Server   6.5 ， 主要 安装 参数 为 ： Master 盘 大于 120MB 、 语言 为 863 简体中文 、 网络协议 为 Name   Pipe   ( 命名 管道 协议 ) 、 排序 方式 为 二进制 排序 、 启动 NT 时 自动 运行 SQL   Server 等 。 
+ 　 　 当 SQL   Server 安装 完成 后 ， 首先 可用 SQL   Server 的 管理工具 SQL   Enterprise   Manager 创建 、 设置 数据库 设备 。 对于 一个 应用 系统 必须 创建 主 数据 设备 ( 如 GX _ DATA ) 、 日志 数据 设备 ( 如 DATA _ LOG ) ， 其 设备 大小 可 根据 存放 的 数据量 来定 ， 名称 必须 与 VB 访问 时 的 数据库 设备 名称 相同 。 另外 ， 还 可以 创建 临时 数据 设备 ( 如 TMPDBF ) 、 备份 数据 设备 ( 如 GX _ DATABF ) 等 ， 这些 设备 大小 为 ： 临时 数据 设备 一般 为主 数据 设备 的 1 / 4 ， 备份 数据 设备 有 多个 ( 每天 一个 ) ， 按 每周 计算 一般 为 5 ～ 6 个 备份 设备 ， 其 大小 可 根据 每天 的 数据量 来定 。 
+ 　 　 创建 各个 数据 设备 当然 也 可以 在 NT 网 的 工作站 中 直接 使用 程序 来 创建 ， 但 由于 多台 工作站 同时 使用 相同 的 数据 设备 ， 创建 时 需要 判断 该 数据 设备 是否 存在 ， 创建 时间 较长 ， 故 一般 采用 服务器 创建 。 
+ 　 　 各个 数据 设备 创建 完成 后 ， 就 可以 在 NT 网络 中 的 各个 工作站 上 开发 基于 SQL   Server   6.5 的 网络 数据库系统 。 由于 各个 工作站 的 所有 数据 均 存放 在 NT 服务器 上 ， 并 以 文件 包 方式 存放 在 数据 设备 中 ， 因此 其 数据 的 安全性 非常 高 。 
+ 2 　 VB 访问 SQL   Server 数据库 接口 
+ 　 　 VB 访问 SQL   Server 接口 可 分为 两类 ： 数据 设备 和 数据库 接口 ， 数据 设备 可用 SQL   Server 提供 的 SQL   Enterprise   Manager 工具 来 进行 ， 也 可 通过 VB 定制 。 VB 开发 数据库 管理系统 主要 是 实现 与 SQL   Server 数据库 的 连接 ， 基于 浏览器 的 ADO 接口 常用 函数 如下 ： 
+ 　 　 ( 1 ) 取 当前 的 工作 数据库 
+ 　 　 由于 管理 任务 一般 都 必须 在 Master 库中 完成 ， 因此 在 执行 管理 任务 之前 ， 最好 保存 当前工作 库 ， 以便 完成 任务 之后 再 切换 回 原来 的 任务 。 
+ Public   Function   SQLGetCurrentDatabaseName ( Cn   As   
+ 　 　 　 　 ADODB . Connection )   As   String 
+ 　 Dim   sSQL   As   String 
+ 　 Dim   RS   As   New   ADODB . Recordset 
+ 　 On   Error   GoTo   errSQLGetCurrentDatabaseName 
+ 　 sSQL = " select   CurrentDB = DB _ NAME   (   ) " 
+ 　 RS . Open   sSQL ,   Cn 
+ 　 SQLGetCurrentDatabaseName = Trim   $   ( RS !   CurrentDB ) 
+ 　 RS . Close 
+ 　 Exit   Function 
+ errSQLGetCurrentDatabaseName : 
+ 　 SQLGetCurrentDatabaseName = "   " 
+ End   Function 
+ 　 　 ( 2 ) 取 SQL   Server 安装 目录 下 的 DATA 子目录 路径 
+ 　 　 取 SQL   Server 的 设备 文件 缺省 目录 ， 返回 如 D : \ MSSQL   DATA \ 。 
+ Public   Function   SQLGetDataPath ( Cn   As   ADODB . Connection ) 
+ 　 　 As   String 
+ 　 Dim   sSQL   As   String 
+ 　 Dim   RS   As   New   ADODB . Recordset 
+ 　 Dim   sFullPath   As   String 
+ 　 On   Error   GoTo   errSQLGetDataPath 
+ 　 sSQL = " select   phyname   from   master .. sysdevices   where 
+ 　 　 　 　 name = ' master '   " 
+ 　 RS . Open   sSQL ,   Cn 
+ 　 sFullPath   =   RS !   phyname 
+ 　 RS . Close 
+ 　 SQLGetDataPath = Left   $   ( sFullPath ,   Len ( sFullPath )   - 10 ) 
+ 　 　   ' MASTER . DAT 的 大小 
+ 　 Exit   Function 
+ errSQLGetDataPath : 
+ 　 SQLGetDataPath = "   " 
+ End   Function 
+ 　 　 ( 3 ) 创建 一个 新 数据库 
+ Public   Function   SQLCreateDatabase65   ( Cn   As   ADODB . Connection , 
+ 　 　 　 sDBName   As   String ,   sDataDeviceName   As   String ,   nDataSize 
+ 　 　 　 As   Integer ,   Optional   sLogDeviceName ,   Optional   nLogSize )   As 
+ 　 　 　 Boolean 
+ 　 Dim   sSQL   As   String 
+ 　 On   Error   GoTo   errSQLCreateDatabase65 
+ 　 Dim   sDB   As   String 
+ 　 sDB   = SQLGetCurrentDatabaseName ( Cn ) 
+ 　 sSQL   =   " USE   master "   
+ 　 Cn . Execute   sSQL 
+ 　 sSQL   = " CREATE   DATABASE "   &   sDBName 
+ 　 sSQL   =   sSQL   & "   ON   "   &   sDataDeviceName   &   " = "   &   nDataSize 
+ 　 If   Not   IsMissing ( sLogDeviceName )   And   Not   IsMissing ( nLogSize ) 
+ 　 　 　 Then 
+ 　 sSQL   =   sSQL   &   " LOG   ON "   &   sLogDeviceName   &   " = " &   nLogSize 
+ 　 End   If 
+ 　 Cn . Execute   sSQL 
+ 　 sSQL   =   " USE "   &   sDB 
+ 　 Cn . Execute   sSQL 
+ 　 SQLCreateDatabase65   =   True 
+ 　 Exit   Function 
+ errSQLCreateDatabase65 : 
+ 　 On   Error   Resume   Next 
+ 　 sSQL   =   " USE   "   &   sDB 
+ 　 Cn . Execute   sSQL 
+ 　 SQLCreateDatabase65   =   False 
+ End   Function 
+ 　 　 ( 4 ) 判断 一个 数据库 是否 存在 
+ Public   Function   SQLExistDatabase ( Cn   As   ADODB . Connection ,   
+ 　 　 　 　 sDBName   As   String )   As   Boolean   
+ 　 Dim   sSQL   As   String 
+ 　 Dim   RS   As   New   ADODB . Recordset 
+ 　 Dim   bTmp   As   Boolean 
+ 　 on   Error   GoTo   errSQLExistDatabase 
+ 　 sSQL   =   " select   CntDB   =   count   (   *   )   "   
+ 　 sSQL   =   sSQL   &   " From   master . dbo . sysdatabases "   
+ 　 sSQL   =   sSQL   &   " Where   name   =   '   " &   sDBName   &   "   '   "   
+ 　 RS . Open   sSQL ,   Cn 
+ 　 If   RS !   CntDB   =   0   Then   bTmp   =   False   Else   bTmp   =   True 
+ 　 RS . Close 
+ 　 SQLExistDatabase   =   bTmp 
+ 　 Exit   Function 
+ errSQLExistDatabase : 
+ 　 SQLExistDatabase   =   False 
+ 　 Exit   Function 
+ End   Function 
+ 　 　 ( 5 ) 删除 一个 数据库 
+ Public   Function   SQLDropDatabase   ( Cn   As   ADODB . Connection ,   
+ 　 　 　 sDBName   As   String )   As   Boolean 
+ 　 Dim   sSQL   As   String 
+ 　 On   Error   GoTo   errSQLDropDatabase 
+ 　 If   Not   SQLExistDatabase ( Cn ,   sDBName )   Then   
+ 　 　 　 SQLDropDatabase   =   True 
+ 　 Exit   Function 
+ 　 End   If 
+ 　 Dim   sDB   As   String 
+ 　 sDB   =   SQLGetCurrentDatabaseName ( Cn ) 
+ 　 sSQL   =   " Use   master " 
+ 　 Cn . Execute   sSQL 
+ 　 sSQL   =   " DROP   DATABASE   "   &   sDBName 
+ 　 Cn . Execute   sSQL 
+ 　 sSQL   =   " USE   "   &   sDB 
+ 　 Cn . Execute   sSQL 
+ 　 SQLDropDatabase   =   True 
+ 　 Exit   Function 
+ errSQLDropDatabase : 
+ 　 On   Error   Resume   Next 
+ 　 sSQL   =   " USE   "   &   sDB 
+ 　 Cn . Execute   sSQL 
+ 　 SQLDropDatabase   =   False 
+ End   Function 
+ 3 　 应用 说明 
+ 　 　 ADO 是 开发 Web 数据库 应用程序 功能强大 的 对象 方法 ， 上述 各 函数 均 在 VB   4.0 企业 版 ， SQL   Server   6.5 下 通过 。 笔者 用 VB   4.0 的 ADO 接口 成功 地 开发 了 基于 SQL   Server6.5 系统 的 财务 网络 数据库 ， 支持 NT 网络 用户 、 远程 拨号 用户 查询 数据 ， 实际 应用 效果 较 好 。 因 篇幅 有限 ， 本文 仅 介绍 了 常用 VB 的 ADO 接口 访问 SQL   Server 的 接口函数 ， 对于 VB 定制 SQL   Server 数据库 设备 接口 方面 函数 ， 以及 其它 数据库 访问 接口函数 ， 可 与 笔者 联系 。 
+ 洪志全 ( 成都 理工学院   成都   610059 ) 
+ 参考文献 
+ 1   杨国 才 .   Visual   Basic   4.0 实用技术 与 方法 .   成都 ： 电子科技 大学 出版社 ， 1996 
+ 2   电脑 编程 技巧 与 维护 .   1999 年 第 5 期 
+ 收稿 日期 ： 1999 年 9 月 9 日 

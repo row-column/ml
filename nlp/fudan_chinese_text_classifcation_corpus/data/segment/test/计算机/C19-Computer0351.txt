@@ -1,0 +1,111 @@
+计算机 应用 
+ COMPUTER   APPLICATIONS 
+ 1999 年   第 19 卷   第 9 期   Vol.19   No.9   1999 
+ 
+ 
+ 
+ 可以 动态 修改 的 数据库系统 
+ 王臻 
+ 　 　 摘 　 要 　 本文 介绍 了 利用 PowerBuilder6.0 的 动态 （ Dynamic ） 数据 窗口 ( DataWindow ) 技术 修改 数据库 的 列 属性 名称 ， 并且 保存 所 做 修改 的 办法 。 
+ 　 　 关键词 　 数据 窗口 ， 对象 ， 数据库 
+ 　 　 在 实际 的 数据库 开发 中 ， 用户 往往 会 有 这样 的 要求 ， 他们 希望 能够 根据 企业 （ 公司 ） 环境 的 变化 实时 对 数据库 的 列 属性 名称 进行 调整 。 这些 调整 的 具体内容 在 数据库系统 的 开发 设计阶段 是 不能 确定 的 。 这 就 要求 数据库系统 有 良好 的 灵活性 和 可扩充性 。 
+ 　 　 下面 以 PowerBuilder6.0 为 开发工具 ， 介绍 具体 的 实现 方法 。 
+ 1 　 设计 思想 
+ 　 　 利用 PowerBuilder6.0 的 动态数据 窗口 ( DataWindow ) 技术 修改 数据库 的 列 属性 名称 。 同时 ， 定义 一个 附加 的 保存 表 ， 将 这些 列 属性 名称 的 修改 信息 保存 在 该表中 。 这样 可以 使 此次 所 做 的 修改 可以 保存 到 下次 修改 为止 。 
+ 2 　 数据 窗口 的 动态 修改 技术 
+ 　 　 在 数据 窗口 中 的 列 、 文本 、 按钮 、 图片 都 称为 数据 窗口 对象 （ Dwobject ） ， 它们 都 有 自己 的 属性 。 
+ 　 　 通过 动态 地 创建 数据 窗口 对象 中 的 对象 、 设置 数据 窗口 对象 的 属性 以及 数据 窗口 对象 中 对象 的 属性 、 访问 数据 窗口 控制 中 的 数据 可以 达到 修改 数据 窗口 外观 的 目的 。 
+ 　 　 程序 中 访问 数据 窗口 对象 的 方法 有 两个 ： 
+ 　 　 .   使用 describe (   ) ， modify (   ) 函数 
+ 　 　 下面 语句 获取数据 窗口 中 name 列 背景 颜色 （ background . color ） 属性 值 ： 
+ 　 　 dw — 1 . describe ( " name .   Background . color " ) 
+ 　 　 下面 语句 设置 数据 窗口 中 name 列 背景 颜色 为 白色 ： 
+ 　 　 dw — 1 . modify ( " name .   Background . color = 
+ string ( rgb ( 255 , 255 , 255 ) ) "   ) 
+ 　 　 .   使用 数据 窗口 表达式 
+ 　 　 数据 窗口 表达式 使用 点 操作符 （ . ） 来 指示 要 访问 的 对象 、 对象 中 的 对象 、 以及 对象 的 属性 。 其 语法 为 ： 
+ 　 　 dwcontrol . object . dwobjectname . 
+ {   . object . dwobjectname   . } { . property } = value   
+ 　 　 下面 语句 设置 数据 窗口 中 name 列 背景 颜色 为 白色 ： 
+ 　 　 dw — 1 . object . name . background . color 
+ = rgb ( 255 , 255 , 255 ) 
+ 　 　 以下 设计 过程 使用 的 是 数据 窗口 表达式 方法 。 
+ 3 　 设计 步骤 
+ 3.1 　 定义 表 结构 
+ 　 　 在 PowerBuilder6.0 的 数据库 画笔 （ DataBase   Painter ） 中 定义 表 结构 。 
+ 　 　 例如 ， 定义 职员 信息 表 （ personnel ） 结构 为   ：   
+ 　 　 personnel 
+ Per — id 　 　 　 　 Char ( 30 ) 　 　 NOT   NULL 
+ Per — name   Char ( 10 ) NOT   NULL 
+ Per — departmentChar ( 20 ) NOT   NULL 
+ 　 　 相应 的 header 及 label 名称 为 ： 
+ 　 　 　 ID 号 
+ 　 　 　 姓名 
+ 　 　 　 所在 部门 
+ 　 　 同时 ， 定义 保存 表 （ define ） 结构 为 ：   
+ 　 　 define 
+ Per — id — name 　 　 　 　 　 　 Char ( 30 ) NULL 
+ Per — name — name   Char ( 10 ) NULL 
+ Per — department — nameChar ( 20 ) NULL   
+ 　 　 相应 的 header 及 label 名称 为 ： 
+ 　 　 　 第一列 名称 
+ 　 　 　 第二列 名称 
+ 　 　 　 第三列 名称 
+ 3.2 　 定义数据 窗口 对象 
+ 　 　 利用 PowerBuilder6.0 的 数据 窗口 画笔 （ DataWindow   Painter ） 定义数据 窗口 对象 。 
+ 　 　 .   为 职员 信息 表 （ personnel ） 定义数据 窗口 对象 d — personnel ， PowerBuilder6.0 自动 将列 的 相应 文本 对象 （ 用于 显示 列 的 header 及 label 值 ） 命名 为 : 
+ Per — id — t   
+ Per — name — t   
+ Per — department — t 
+ 　 　 可以 通过 修改 这些 文本 对象 的 text 属性 达到 修改 列 属性 名称 的 目的 。   
+ 　 　 .   为 保存 表 （ define ） 定义数据 窗口 对象 d — define 。   
+ 3.3 　 设计 用户 操作 窗口 
+ 　 　 利用 PowerBuilder6.0 的 窗口 画笔 （ Window   Painter ） 定义 窗口 对象 。 
+ 3.3 . 1 　 定义 职员 信息 窗口 
+ 　 　 .   定义 职员 信息 窗口 对象 w — 1 ； 
+ 　 　 .   在 窗口 上 放置 数据 窗口 控件 dw — 1 ， 并 将 之 与 数据 窗口 对象 d — personnel 相连接 ， dw — 1 的 显示 属性 设置 为 visible ； 
+ 　 　 .   在 窗口 上 放置 数据 窗口 控件 dw — 2 ， 并 将 之 与 数据 窗口 对象 d — define 相连接 ， 在 窗口 画笔 中将 dw — 2 的 显示 属性 设置 为 invisible 。 
+ 　 　 W — 1 的 open 事件 的 处理程序 为 ： 
+ 　 　 {   
+ dw — 1 . settransobject ( sqlca ) 
+ dw — 2 . settransobject ( sqlca ) 
+ / / dw — 2 为 隐藏 的 列 属性 名称 的 保存 表 
+ dw — 1 . retrieve ( ) 
+ dw — 2 . retrieve ( ) 
+ dw — 1 . object . per — id — t . text = dw — 2 . getitemstring ( 1 , 1 ) 
+ dw — 1 . object . per — name — t . text = dw — 2 . getitemstring ( 1 , 2 ) }   
+ dw — 1 . object . per — department — t . text = dw — 2 . getitemstring ( 1 , 3 )   
+ }   
+ 　 　 .   在 窗口 上 放置 按钮 控件 “ 修改 列 属性 名称 ” （ cb — 1 ） 
+ 　 　 cb — 1 的 clicked   事件 的 处理程序 为 ：   
+ 　 　 {   open ( w — 2 )   
+ / /   用于 弹出 3.3 . 2 中 创建 的 列 属性 名称 保存 窗口 w — 2 
+ } 
+ 　 　 w — 1 窗口 的 外观 如图 1 。 
+ 
+ 图 1 
+ 3.3 . 2 　 创建 列 属性 名称 保存 窗口 
+ 　 　 .   创建 列 属性 名称 保存 窗口 对象 w — 2 ； 
+ 　 　 w — 2 的 open 事件 的 脚本 程序 为 ：   
+ 　 　 {   
+ dw — 2 . settransobject ( sqlca ) 
+ dw — 1 . retrieve ( ) 
+ }   
+ 　 　 .   在 窗口 上 放置 数据 窗口 控件 dw — 1 ， 并 将 之 与 数据 窗口 对象 d — define 相连接 。 
+ 　 　 .   在 窗口 上 放置 按钮 控件 “ 保存 ” （ cb — 1 ） ， cb — 1 的 clicked 事件 的 脚本 程序 为 ： 
+ 　 　 {   
+ if   update ( dw — 1 ) = 1   then   
+ commit   ; 
+ messagebox ( " ok ! " , " 成功 保存 ! " ) 
+ else   
+ rollback   ; 
+ messagebox ( " pity ! " , " 保存 失败 ! " ) 
+ end   if 
+ } 
+ 　 　 w — 2 的 外观 如图 2 。 
+ 
+ 图 2 
+ 　 　 本文 中 利用 PowerBuilder6.0 的 动态数据 窗口 技术 修改 应用程序 的 外观 ， 利用 隐藏 的 数据 窗口 保存 这些 改动 ， 满足 了 用户 的 需求 ； 这种 思路 还 可以 推广 到 其他 应用 中 。 
+ 作者简介 ： 王臻 　 硕士 研究生 。 主要 从事 计算机 软硬件 环境 、 MIS 及 数据库 应用 系统 的 研究 开发 工作 。 
+ 作者 单位 ： 中国科学院 空间 中心 四室 　 北京 （ 100080 ） 
+ 收稿 日期 : 1999 - 06 - 18 

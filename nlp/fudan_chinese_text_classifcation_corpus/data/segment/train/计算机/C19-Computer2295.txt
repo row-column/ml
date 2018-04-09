@@ -1,0 +1,137 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 5 期   Vol.36   No.5   1999 
+ 
+ 
+ 
+ 一个 增量 式 判定 树 学习 算法 INDUCE 
+ 骆 　 斌 　 周志华 　 陈兆乾 　 陈世福 
+ 摘 　 要 　 INDUCE 算法 采用 自顶向下 判定 树 归纳 的 学习 方法 ， 不仅 具有 健壮性 好 、 效率高 和 正确率 高等 优点 ， 还 具有 增量 学习 能力 ， 可以 动态 修正 概念 描述 的 不足 . 该 算法 还 运用 了 构造性 归纳 的 思想 ， 在 学习 过程 中 生成 新 的 描述 子 ， 使 概念 描述 空间 搜索 的 效率 得到 提高 . 运行 实例 表明 ， INDUCE 具有 很 好 的 应用 前景 . 
+ 关键词 　 判定 树 ， 增量 学习 ， 构造性 归纳 ， 神经网络 
+ 中图法 分类号 　 TP18 
+ INDUCE :   AN   INCREMENTAL   DECISION   TREE   ALGORITHM 
+ LUO   Bin ,   ZHOU   Zhi - Hua ,   CHEN   Zhao - Qian ,   and   CHEN   Shi - Fu 
+ ( State   Key   Laboratory   for   Novel   Software   Technology , Nanjing   University , Nanjing 　 210093 ) 
+ Abstract 　 INDUCE   is   a   version   of   top - down   induction   of   decision   trees .   It   has   the   merit   of   being   robust ,   efficient   and   precise ,   and   it   is   capable   of   incremental   learning ,   so   as   to   modify   concept   description   dynamically .   INDUCE   also   employs   the   idea   of   constructive   induction ,   which   improves   the   efficiency   of   searching   in   concept   description   space   by   generating   new   descriptors .   Successful   applications   of   INDUCE   indicate   that   it   has   a   bright   future . 
+ Key   words 　 decision   tree ,   incremental   learning ,   constructive   induction ,   neural   network 
+ 1 　 引 　 　 言 
+ 　 　 判定 树 归纳 是 用于 监督 学习 的 一种 常用 方法 ， 这 类 学习 用 判定 树 的 形式 表示 所 获取 的 概念 ， 比较 有 代表性 的 有 CLS ［ 1 ］ ， ID3 ［ 2 ］ 等 . 但是 ， 这些 常见 的 判定 树 算法 无法 处理 连续 属性 ， 并且 不 具备 增量 学习 能力 ， 使 其 应用 受到 了 较大 限制 . 
+ 　 　 INDUCE 是 我们 提出 的 增量 式 混合型 多 概念 获取 算法 IHMCAP ［ 3 ］ 的 符号 学习 部分 ， 是 一个 增量 式 的 判定 树 学习 算法 . 它 采用 属性 值 对 表示 方式 ， 能 学习 多个 概念 的 差别 描述 ， 并 通过 引入 神经 网络接口 ， 具备 了 处理 连续 属性 的 能力 ， 学习 效率 较 高 ， 容错性 较 好 . 此外 ， 该 算法 还 采纳 了 构造性 归纳 的 思想 ， 在 学习 中 创建 新 的 描述 子 ， 从而 弥补 了 背景 知识库 中 描述 能力 的 不足 . 该 算法 已 在 Windows95 环境 下用 Visual   C++   4.2 实现 ， 并 在 台风 预报 、 故障诊断 等 实践 领域 得到 了 成功 应用 . 
+ 2 　 INDUCE 算法 设计 
+ 2.1 　 定义 
+ 　 　 定义 1 .   集合 E = { e | e = 〈 c , a1 , … , an 〉 ， c ∈ C ， ai ∈ Ai } 
+ 　 　 我们 称 E 为 示例 集 ， 集合 C 为 概念 ， Ai 为 属性 ； n 为 示例 集 E 的 属性 个数 ， | C | 为 示例 集 E 的 概念 个数 ， | E | 为 示例 数 ； 示例 e 的 第一个 分量 c 为 其 概念 值 ， 记为 e . C ； e 的 其他 分量 ai 为 e 在 属性 Ai 上 的 取值 ， 记为 e . Ai . 
+ 　 　 满足 下面 条件 的 概念 值 称为 示例 集 E 的 MFC ( most   favorable   concept ) ： 
+ 
+ 　 　 定义 2 .   RL = { 〈 X , V 〉 | X ∈ { C , A1 , … , An } , V  X } . RL 称为 规则 集合 ， 〈 X , V 〉 称为 规则 . 
+ 　 　 定义 3 .   T = { 〈 i , r , E 〉 | i ∈ N + ， r ∈ RL ， E 为 示例 集 } 称为 二叉 判定 树 ， 如果 T 满足 下列 条件 ： 
+ 　 　 ① i 〈 i , r1 , E1 〉 ∈ T ,   〈 2i + 1 , r2 , E2 〉 ∈ T 〈 2i + 2 , r3 , E3 〉 ∈ T 
+ 　 　 ② i 〈 i , r1 , E1 〉 ∈ T ,   〈 2i + 2 , r2 , E2 〉 ∈ T 〈 2i + 1 , r3 , E3 〉 ∈ T 
+ 　 　 ③ i 〈 2i + 1 , r1 , E1 〉 ∈ T ,   〈 2i + 2 , r2 , E2 〉 ∈ T 〈 i , r3 , E3 〉 ∈ T 
+ 　 　 ④ s , t ∈ T ,  a ∈ T ， a 为 s 和 t 的 祖先 . 
+ 　 　 我们 称 三元组 〈 i , r , E 〉 为此 二叉树 的 结点 ， 其中 形 如 〈 i , 〈 C , { cx } 〉 , E 〉 的 结点 称为 树叶 结点 ， 其他 结点 则 是 测试 结点 . 
+ 2.2 　 测试 选择 
+ 　 　 ID3 选择 属性 作为 测试 标准 ， 按 属性 值 不同 对 例子 集 划分 . 这种 方法 带来 了 无关 值 、 分枝 遗失 和 数据 缩减 的 难题 . INDUCE 采用 的 测试 是 一个 逻辑 表达式 ， 表达式 的 形式 为 ： e . Ai ∈ { vi1 , vi2 , … , vim } , e . Ai 是 示例 e 在 属性 Ai 上 的 取值 ， vi1 , vi2 , … , vim 都 是 属性 Ai 可能 的 取值 . 示例 在 测试 上 只有 “ 真 ” 和 “ 假 ” 两种 取值 ， 所以 INDUCE 生成 的 是 一棵 如 定义 3 所示 的 二叉 判定 树 . 示例 集 E 中 在 测试 上 取值 为 真的 示例 被 划分 到 子集 E + ， 其他 则 归入 到 E - 中 . INDUCE 的 测试 选择 分 两个 阶段 进行 ： 首先 选择 属性 Ai ， 其次 选择 Ai 的 属性 值 vi1 , vi2 , … , vim . 在 选择 过程 中 参考 了 信息熵 的 概念 . 选定 属性 时 ， 计算 各 属性 的 取值 对 每 一 分类 的 信息量 ， 选择 其中 最小 的 作为 此次 划分 的 Ai . 对 Ai 的 各 属性 值 按 各种 可能 进行 合并 ， 选取 信息量 最小 的 那种 合并 方式 . 
+ 2.3 　 神经 网络接口 
+ 　 　 判定 树 生长 到 一定 深度 之后 ， 测试 选择 可能 会 遇到困难 . 如果 示例 集 所有 的 离散 属性 都 曾经 用来 作为 测试 ， 划分 函数 就 找 不到 新 的 划分 条件 ， 因而 无法 继续 划分 . 此时 INDUCE 寻找 精度 不合 要求 的 树叶 结点 进行 处理 ， 将 划分 到 这些 结点 的 示例 的 可用 信息 转化 为 神经网络 训练 所 需 的 输入 - 输出 模式 对 ， 以便 在 该 叶 结点 上 引入 神经网络 模型 ， 由 神经网络 来 完成 进一步 学习 的 工作 . 这种 处理 方式 不仅 在 一定 程度 上 解决 了 学习 精度 提高 的 问题 ， 还 使得 INDUCE 可以 学习 连续 属性 ， 扩大 了 判定 树 算法 的 适用范围 . 
+ 2.4 　 构造性 归纳 
+ 　 　 大多数 归纳 学习 系统 的 示例 描述 空间 是 预先 定义 好 的 ， 在 学习 过程 中 保持 固定 不变 . 因此 由 示例 归纳 得到 的 概念 描述 是从 示例 描述语言 中 选取 合适 的 属性 来 表示 的 . 这种 归纳 方式 称为 选择性 归纳 . 选择性 归纳 有 一个 根本 的 局限性 ， 即 只有 当 原始 描述 与 所 学习 的 概念 的 特征 直接 相关 时 ， 学习 任务 才 能够 顺利完成 . 构造性 归纳 ［ 4 ］ 则 通过 创建 所 需 的 新 描述符 克服 了 这 一 局限 ， 同时 构造性 归纳 还 通过 修改 、 删除 原有 描述 的 方法 使 原始 示例 空间 发生 面向 任务 的 转换 ， 其 基本 目的 是 为了 从 整体 上 提高 学习 的 效率 和 降低 概念 描述 整体 上 的 复杂度 . 归纳 学习 过程 是 一个 在 概念 空间 中 进行 搜索 的 过程 ， 构造性 归纳 转换 了 原始 描述 空间 ， 使 搜索 在 一个 较 小 的 范围 内 进行 ， 因而 提高 了 学习 效率 . 同时 ， 新 描述符 的 引入 ， 特别 是 用 原始 描述符 的 组合 形成 的 新 描述符 的 引入 ， 还 可以 简化 学习 结果 的 表示 形式 . 为了 得到 最好 的 划分 条件 ， INDUCE 采纳 了 构造性 归纳 的 思想 ， 在 归纳 过程 中 创建 新 的 描述 子 ， 以 弥补 背景 知识库 中 描述 能力 的 不足 . 
+ 　 　 INDUCE 根据 测试 e . Ai ∈ { vi1 , vi2 , … , vim } ， 创建 新 属性 A ′ i = PA ( Ai , { vi1 , vi2 , … , vim } ) = { vdefault ， vother } . 新 属性 A ′ i 的 属性 值 vdefault 是 由 属性 Ai 中 的 vi1 , vi2 , … , vim 属性 值 合并 而 来 ， vother 则 由 属性 Ai 中 的 其他 取值 合并 而来 . 由于 A ′ i 和 Ai 之间 的 这种 投影 关系 ， 我们 称 属性 A ′ i 为 属性 Ai 的 影子 属性 ( shadow   attribute ) . 
+ 2.5 　 增量 学习 
+ 　 　 常见 的 判定 树 学习 算法 不 具备 增量 学习 能力 的 原因 在于 其 划分 函数 的 处理 方式 . 划分 函数 总是 从总体上 考虑 当前 结点 所 包含 的 示例 ， 以 选择 最 有利 的 测试 将 它们 区分 开 . 所以 ， 当 获得 新 的 示例 时 ， 原有 的 测试 已经 不能 反映 示例 集 的 最新 情况 ， 划分 函数 不得不 重新 扫描 整个 示例 集以 选择 新 的 测试 ， 判定 树 也 要 从 根 开始 重新 构造 . 使 判定 树 学习 算法 具有 增量 学习 能力 ， 就要 改进 判定 树 的 生成 过程 ， 使 其 在 获得 新 的 示例 时 ， 只 需要 修剪 原有 判定 树 就 可以 使 之 反映 示例 集 的 变化 . 为 达到 这一 目的 ， 我们 可以 考虑 在 判定 树 生成 的 过程 中 在 其 结点 上 附加 一些 信息 ， 利用 这些 信息 可以 不必 重新 扫描 示例 集 就 能 计算 结点 的 最优 测试 . 
+ 　 　 根据上述 思想 ， INDUCE 采用 了 如下 的 增量 处理 方式 ［ 5 ］ ： 将 新增 示例 沿 判定 树 向下 匹配 ， 直到 到达 叶 结点 为止 . 如果 判定 树 能够 对 该 新增 示例 正确 分类 ， 则 保持 判定 树 原有 形态 ； 否则 看 示例 所在 的 树叶 结点 精度 是否 高于 用户 指定 的 精度 ， 精度高 则 判定 树 也 无需 修改 ， 精度 低则 需要 对 该 结点 进行 划分 . 此时 如果 无法 找到 合适 的 划分 属性 ， 则 有 可能 生成 新 的 神经网络 结点 . 这种 增量 学习 机制 还 使得 INDUCE 具有 一定 的 噪音 处理 能力 ［ 6 ］ ， 限于 篇幅 ， 不再 赘述 . 
+ 3 　 INDUCE 算法 描述 
+ 　 　 算法 1 .   INDUCE 
+ 　 　 输入 ： 示例 e ， 二叉 判定 树 T . 
+ 　 　 输出 ： 二叉 判定 树 T . 
+ 　 　 ①   IF   ( T = )   THEN   T ← { 〈 0 ， 〈 C ， { e . C } 〉 ， { e } 〉 }   STOP 
+ 　 　 ②   〈 i ， 〈 C ， { cx } 〉 ， CE 〉 ← deduce ( e ， T ) 
+ 　 　 ③   IF   ( cx = e . C )   THEN   STOP 
+ 　 　 ④   T ← ( T - { 〈 i ， 〈 C ， { cx } 〉 ， CE 〉 } ) ∪ generateTree ( 〈 i ， 〈 C ， { cx } 〉 ， CE 〉 ) 
+ 　 　 INDUCE 算法 中 使用 了 deduce 和 generateTree 两个 子 算法 . 其中 deduce 对 示例 和 判定 树 进行 匹配 ， deduce ∈ f : E × { T } → T ； generateTree 生成 判定 树 ， generateTree ∈ f : T → { T } . 
+ 　 　 算法 2 .   deduce 
+ 　 　 输入 ： 示例 e ， 二叉 判定 树 T . 
+ 　 　 输出 ： 树叶 结点 〈 i , r , E 〉 . 
+ 　 　 ①   选择 T 中 满足条件 的 节点 〈 i ， r ， E 〉 . 
+ 　 　 ②   WHILE   ( 〈 2i + 1 ， r ′ ， E ′ 〉 ∈ T )   DO 
+ ( i )   T ← ( T - { 〈 i ， r ， E 〉 } ) ∪ { 〈 i ， r ， E ∪ { e } 〉 } 
+ ( ii )   IF   check ( e , r )   THEN 
+ 〈 i ， r ， E 〉 ← 〈 2i + 1 ， r ′ ， E ′ 〉 
+ ELSE 
+ 〈 i ， r ， E 〉 ← 〈 2i + 2 ， r ″ ， E ″ 〉 
+ 　 　 ③   T ← ( T - { 〈 i ， r ， E 〉 } ) ∪ { 〈 i ， r ， E ∪ { e } 〉 } 
+ 　 　 ④   RETURN   〈 i ， r ， E ∪ { e } 〉 
+ 　 　 其中 check 是 判定 示例 在 测试 上 取值 的 子 算法 ， check ∈ f : E × RL → BOOLEAN . 
+ 　 　 generateTree 实际上 可以 视为 一个 没有 增量 处理 能力 的 判定 树 学习 算法 ， 它 完整 地 考虑 了 一个 判定 树 学习 算法 所 需要 的 划分 标准 、 终止 条件 和 树叶 标记 三要素 . 该 算法 在 INDUCE 中 与 处理 匹配 的 deduce 算法 结合 ， 就 具备 了 增量 学习 的 能力 . generateTree 算法 中 调用 的 formula 子 算法 目的 就是 为了 生成 划分 标准 . 
+ 　 　 当 formula 生成 的 规则 r 为 空时 ， 意味着 继续 进行 符号 处理 无法 提高 判定 树 精度 ， 应该 采用 神经网络 对 树叶 结点 上 的 示例 继续 学习 . 
+ 　 　 算法 3 .   generateTree 
+ 　 　 输入 ： 树叶 结点 〈 i ， 〈 C ， { cx } 〉 ， CE 〉 . 
+ 　 　 输出 ： 二叉 判定 树 T . 
+ 　 　 ①   T ← { 〈 i ， 〈 C ， { cx } 〉 ， CE 〉 } 
+ 　 　 ②   WHILE   ( accuracy ( T ) ≤ Pr )   DO 
+ 　 　 　 ( i )   〈 No ， 〈 C ， { cj } 〉 ， E 〉 ← select ( T ) ， r ← formula ( E ) 
+ 　 　 　 ( ii )   IF   void ( r )   THEN   resort — to — ann 
+ 　 　 　 ( iii )   E + ← { e | e ∈ E ∧ check ( e , r ) } ， E - ← { e | e ∈ E ∧ ┐ 　 check ( e , r ) } 
+ 　 　 　 ( iv )   T ← ( T - { 〈 No ， 〈 C ， { cj } 〉 ， E 〉 } ) 
+ ∪ { 〈 No ， r ， E 〉 ， 〈 2No + 1 ， 〈 C , { MFC ( E + ) } 〉 ， E + 〉 ， 
+ 〈 2No + 2 ， 〈 C , { MFC ( E - ) } 〉 ， E - 〉 } 
+ 　 　 ③   RETURN   T 
+ 　 　 在 generateTree 算法 中 ， Pr 是 归纳 精度 ； accuracy 用于 计算 判定 树 精度 ， accuracy ∈ f : { T } → [ 0 , 1 ] ； MFC ∈ f : { E } → C ， 参见 定义 1 ； select 从 判定 树中 选择 一个 树叶 结点 用于 划分 ， select ∈ f : { T } → T ； formula 用于 分析 示例 集 E 生成 最佳 测试 r ， formula ∈ f : { E } → RL . 
+ 　 　 算法 4 .   select 
+ 　 　 输入 ： 二叉 判定 树 T . 
+ 　 　 输出 ： 树叶 结点 〈 No ， 〈 C ， { ci } 〉 ， E 〉 . 
+ 　 　 ①   选择 满足条件 的 树叶 结点 
+ 　 　 
+ 　 　 ②   RETURN   〈 No ， 〈 C ， { ci } 〉 ， E 〉 
+ 4 　 运行 实例 
+ 　 　 我们 利用 INDUCE 算法 分别 为 江苏省 气象台 和 中国 船舶工业 总公司 716 研究所 开发 了 台风 路径 预报 系统 和 情报 软件 故障诊断 系统 ［ 7 ］ ， 均 已 交付 试用 ， 效果 较 好 . 本文 仅 介绍 台风 预报 问题 . 
+ 　 　 台风 是 一种 重要 天气现象 ， 目前 气象部门 主要 依靠 专家 经验 和 手工操作 来 完成 台风 预报 ， 正确率 较 低 ， 通常 仅 有 75% 左右 . 而 利用 INDUCE 开发 的 台风 路径 预报 系统 ， 在 充分 训练 之后 正确率 可 达到 80% 左右 . 
+ 　 　 台风 预报 问题 的 背景 知识 如表 1 所示 . 
+ 表 1 　 台风 预报 问题 背景 知识 
+ 
+ 概念 / 属性 　 　 　 取值 
+ 台风 类型 ( class ) ① 沿海 强 高压 型 ( c0 ) 　 ② 副 高南 落型 ( c1 ) 
+ ③ 西风 槽 发展 型 ( c2 ) 　 ④ 无槽 型 ( c3 ) 
+ 台风 中心 以南 的 副 高 面积 大于 以北 的 副 高 面积 ( A0 ) ① 否 ( v00 ) 　 ② 是 ( v01 ) 
+ 588 线西 脊点 经度 ( A1 ) ① 116E 以西 ( v10 ) 　 ② 116E ～ 120E ( v11 ) 
+ ③ 120E ～ 127E   ( v12 ) 　 ④ 127E 以东 ( v13 ) 
+ 有无 槽 底 南伸 超过 35N 的 西风 槽 ( A2 ) ① 没有 ( v20 ) 　 ② 104E ～ 120E 之间 ( v21 ) 　 ③ 104E ～ 120E 之外 ( v22 ) 
+ 大陆 上 最 接近 台风 的 一环 高压 的 中心 值 ( gpm )   ( A3 ) ① 大于 5920 ( v30 ) 　 ② 小于 等于 5920 ( v31 ) 
+ 台风 中心 与其 东侧 15 个 经度 内 588 线 最南点 纬度 之差 ( B0 ) ( 0 ～ 13 ) 
+ 台风 中心 与 副 高 中心 纬度 之 差值 24 小时 变量 ( B1 ) ( 0 ～ 40 ) 
+ 副 高 脊线 与 台风 中心 纬度 差值 ( B2 ) ( 0 ～ 15 ) 
+ 副 高 中心 纬度 ( B3 ) ( 0 ～ 50 ) 
+ 副 高 中心 经度 ( B4 ) ( 90 ～ 179 ) 
+ 台风 进入 起 报区 经度 ( B5 ) ( 113.5 ～ 123 ) 
+ 台风 进入 起 报区 纬度 ( B6 ) ( 21.5 ～ 33 ) 
+ 副 高 588 线 北界 ( B7 ) ( 22 ～ 34.1 ) 
+ 
+ 
+ 　 　 我们 选用 江苏省 气象台 提供 的 江苏省 1980 年 至 1992 年 51 个 台风 实例 作为 训练 例 ， 其中 沿海 强 高压 型 6 个 ， 副 高南 落型 21 个 ， 西风 槽 发展 型 8 个 ， 无槽 型 16 个 . INDUCE 算法 学习 后 产生 的 判定 树如图 1 所示 . 
+ 
+ 
+ 图 1 　 台风 预报 判定 树 
+ 5 　 结束语 
+ 　 　 图 1 所示 的 判定 树 中共 有 两个 神经网络 结点 ， 使用 了 我们 提出 的 自 适应 谐振 神经网络 学习 算法 FTART ［ 8 ， 9 ］ . 其中 A ′ 是 一个 新 构造 出 的 描述 子 ， “ A ′ = v1 ” 代表 了 “ ( A1 = v11 )   or   ( A1 < > v11   and   A1 < > v10 ) ” . 我们 用 江苏省 气象台 提供 的 另外 10 个 台风 实例 对图 1 所示 的 判定 树 进行 了 测试 ， 精度 为 80% . 
+ 　 　 INDUCE 算法 不仅 具有 健壮性 好 、 效率高 、 正确率 高等 优点 ， 还 具有 增量 处理 能力 ， 可以 递增 式 地 处理 示例 ， 保存 “ 目前为止 最佳 ” 的 概念 描述 ， 从而 弥补 了 常见 的 判定 树 算法 在 这方面 的 不足 . INDUCE 算法 引入 神经 网络接口 后 可以 处理 连续 属性 ， 通过 进行 构造性 归纳 ， 还 使得 概念 描述 空间 搜索 的 效率 得到 提高 . 我们 已经 使用 INDUCE 算法 在 天气预报 和 故障诊断 领域 研制 了 两个 应用 系统 ， 得到 了 用户 单位 的 好评 . 
+ 本 课题 得到 国家自然科学基金 ( 项目编号   69875006 ) 与 江苏省 自然科学 基金 ( 项目编号   BK97029 ) 资助 . 
+ 作者简介 ： 骆斌 ， 男 ， 1967 年 12 月生 ， 在职 博士 研究生 ， 讲师 ， 主要 从事 机器 学习 、 数据库 技术 等 方面 的 研究 工作 . 周志华 ， 男 ， 1973 年 11 月生 ， 博士 研究生 ， 主要 研究 领域 为 机器 学习 、 神经网络 . 陈兆乾 ， 女 ， 1940 年 2 月生 ， 教授 ， 主要 研究 领域 为 机器 学习 和 专家系统 . 陈世福 ， 男 ， 1938 年 10 月生 ， 教授 ， 博士生 导师 ， 主要 从事 知识 工程 、 机器 学习 、 图像处理 等 方面 的 研究 工作 . 
+ 作者 单位 ： 南京大学 计算机软件 新 技术 国家 重点 实验室 　 南京 　 210093 
+ 参考文献 
+ 　 1 　 Hunt   E   B ,   Marin   J ,   Stone   P .   Experiments   in   Induction .   New   York :   Academic   Press ,   1966 
+ 　 2 　 Quinlan   J   R .   Induction   of   decision   trees .   Machine   Learning ,   1986 , 62 ( 1 ) : 81 ～ 106 
+ 　 3 　 陈兆乾 ,   周志华 等 .   增量 式 IHMCAP 算法 的 研究 及其 应用 . 计算机 学报 , 1998 , 21 ( 8 ) : 759 ～ 764 
+ ( Chen   Zhaoqian ,   Zhou   Zhihua   et   al .   Research   and   application   of   the   incremental   algorithm   IHMCAP .   Chinese   Journal   of   Computers ( in   Chinese ) ,   1998 , 21 ( 8 ) : 759 ～ 764 ) 
+ 　 4 　 Michalski   R   S .   A   theory   and   methodology   of   inductive   learning .   In : Michalski   R   S ,   Carbonell   J   G ,   Mitchell   T   M   Eds . Machine   Learning :   An   Artificial   Intelligence   Approach .   New   York :   Springer - Verlag , 1984.83 ～ 134 
+ 　 5 　 陈兆乾 , 周志华 等 . 混合型 学习 模型 HLM 中 的 增量 学习 算法 . 软件 学报 , 1997 , 8 ( 11 ) : 875 ～ 880 
+ ( Chen   Zhaoqian ,   Zhou   Zhihua   et   al .   The   incremental   learning   algorithm   in   hybrid   learning   model   HLM .   Journal   of   Software ( in   Chinese ) ,   1997 , 8 ( 11 ) : 875 ～ 880 ) 
+ 　 6 　 周志华 ,   陈兆乾 等 .   IHMCAP 算法 对 噪音 数据 的 处理 .   清华大学 学报 ( 自然科学 版 ) ,   1998 , 38 ( S2 ) : 118 ～ 122 
+ ( Zhou   Zhihua ,   Chen   Zhaoqian   et   al .   The   noisy   data   disposal   by   IHMCAP   algorithm .   Journal   of   Tsinghua   University ( natural   science   version ) ( in   Chinese ) ,   1998 , 38 ( S2 ) : 118 ～ 122 ) 
+ 　 7 　 何佳洲 ,   周志华 等 .   基于 IHMCAP 算法 的 一个 故障诊断 模型 .   见 ： 1998 年 中国 智能 自动化 学术会议 论文集 .   上海 ： 中国 自动化 学会 智能 自动化 专业 委员会 ,   1998.969 ～ 974 
+ ( He   Jiazhou ,   Zhou   Zhihua   et   al .   A   fault   diagnosis   model   based   IHMCAP   algorithm .   In :   Proc   of   the   CIAC ' 98 ( in   Chinese ) .   Shanghai :   Intelligent   Automation   Committee   of   Chinese   Academy   of   Automation ,   1998.969 ～ 974 ) 
+ 　 8 　 陈兆乾 ,   周戎 等 .   一种 新 的 自 适应 谐振 算法 FTART .   软件 学报 ,   1996 , 7 ( 8 ) : 458 ～ 465 
+ ( Chen   Zhaoqian ,   Zhou   Rong   et   al .   A   new   adaptive   resonance   theory   algorithm .   Journal   of   Software ( in   Chinese ) ,   1996 , 7 ( 8 ) : 458 ～ 465 ) 
+ 　 9 　 陈兆乾 ,   李红兵 等 .   对 FTART 算法 的 研究 及 改进 .   软件 学报 ,   1997 , 8 ( 4 ) : 259 ～ 265 
+ ( Chen   Zhaoqian ,   Li   Hongbing   et   al .   Analysis   and   improvement   of   FTART   algorithm .   Journal   of   Software ( in   Chinese ) ,   1997 , 8 ( 4 ) : 259 ～ 265 ) 
+ 原稿 收到 日期 ： 1998 - 08 - 13 
+ 修改稿 收到 日期 ： 1998 - 11 - 23 

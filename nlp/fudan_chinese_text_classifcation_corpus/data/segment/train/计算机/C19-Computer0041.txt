@@ -1,0 +1,66 @@
+计算机 工程 
+ COMPUTERENGINEERING 
+ 1999 年 　 第 25 卷 　 第 7 期 　 Vol.25 　 No.5 　 1999 
+ 
+ 
+ 
+ 基于 ActiveX 部件 的 Web 计算 
+ 刘仲 　 　 王正华 
+ 摘要 　 讲座 了 基于 部件 对象 开发软件 的 优势 和 基于 Web 的 计算 模式 特点 。 结合 部件 技术 和 Web 计算 特点 ， 提出 并 实现 了 一种 基于 ActiveX 部件 的 Web 企业 计算 模式 。 
+ 关键词 　 部件 软件 ActiveX 部件 Web 计算 因特网 / 内特 网 / 外特网 
+ The   Web   Computation   Based   on   ActiveX   Component 
+ Liu   Zhong   Wang   zhenghua 
+ National   Laboratory   for   Parallel   and   Distributed   Processing   Changsha   410003 
+ Abstract ： This   paper   discusses   the   advantege   of   software   development   bassed   on   component   object   and   the   feature   of   web - based   computation   mode . As   a   result ,   we   propose   and   implement   a   Web   enterprise   computation   paradigm   based   on   ActiveX   component 
+ Key   words ： Component   software ; ActiveX   component ; web   computation ; internet / Intranet / Extranet 
+ 　 　 Internet 技术 的 飞速发展 彻底改变 了 企业 计算 的 模式 ， 从 早期 的 集中式 主机 模式 到 客户 ／ 服务器 模式 ， 如今 发展 为 基于 Internet 和 Web 技术 的 3 层 结构 计算 模式 。 未来 的 信息 基础设施 必将 发展 为 一种 新 的 应用 模式 ， 即 因特网 / 内特 网 / 外特网 ( Internet / Intranet / Extranet ) 模式 。 Internet 是 通过 TCP / IP 协议 和 其他 标准协议 将 各种 专业 网 、 公用 网 和 内部网 连接起来 的 全球 互联网 。 
+ 1 　 Web 计算 模式 
+ 　 　 Internet 、 Intranet 和 Extranet 应用 模式 的 共同 特点 是 ， 整个 网络 采用 标准 的 Internet 协议 组 TCP ／ IP 协议 进行 通信 ； 都 以 Web 服务器 为 中心 ， 利用 Web 作为 统一 的 软件开发 和 应用 平台 。 
+ 　 　 利用 Web 作为 软件开发 和 应用 平台 的 优点 有 ： ① 统一 的 客户 界面 ， ② 平台 独立性 ， ③ 高可靠性 、 高 可扩展性 ， ④ 并行性 和 分布 性 ， ⑤ 易用性 和 通用性 。 
+ 　 　 基于 Web 技术 的 3 层 结构 计算 模式 是 Internet / Intranet / Extranet 上 的 新一代 客户 ／ 服务器 企业 分布 计算 体系结构 。 它 将 企业 分布 计算 任务 分解 为 如下 3 种 逻辑 服务组 的 服务 模型 ( Service   Model ) ， 如图 1 。 
+ 
+ 图 1   基于 Web 的 3 层 结构 计算 模式 
+ 　 　 · 用户服务 ( User   Service ) 主要 集中 在 客户端 ， 用于 提供 信息 给 客户 和 验证 、 收集 从 客户端 发送 的 数据 。 
+ 　 　 · 事务 服务 ( Business   Service ) Web 服务器 响应 来自 客户 浏览器 或 其他 应用程序 的 服务 请求 而 执行 一系列 的 事务 任务 ( Business   Task ) 。 它 是 用户服务 和 数据服务 之间 联系 的 桥梁 。 
+ 　 　 · 数据服务 ( Data   Service ) 服务器端 响应 事务 服务 请求 而 提供 的 应用服务 ， 包括 各种 服务 扩展 。 它 用来 定义 、 维护 、 访问 和 更新 数据 ， 以 满足 事务 服务 对 数据 的 要求 。 
+ 　 　 从图 1 中 可以 看出 ， 通过 网络 传输 的 主要 是 服务 请求 和 任务 请求 以及 相应 的 请求 结果 。 通常 情况 下 ， 事务 服务 和 数据服务 物理 上 相邻 ， 甚至 在 同一 服务器 上 ， 网络 传输 开销 较 小 。 所以 开发 一个 高效 、 可靠 的 Web 应用 主要 考虑 服务器端 的 数据服务 扩展 ， 以及 客户端 的 用户服务 扩展 。 
+ 　 　 客户端 的 用户服务 扩展 包括 在 浏览器 将 服务 请求 通过 HTTP 协议 发出 之前 数据 的 验证 、 收集 和 处理 。 主要 的 实现 技术 有 Java   applet 、 ActiveX   Component 、 VBScript 、 JavaScript 等 。 Java   applet 和 ActiveX   Component 经 下载 后 在 客户端 执行 ， 而 VBScript 和 JavaScript 则 由 浏览器 来 解释 执行 。 
+ 　 　 服务器端 的 数据服务 通过 扩展 服务器 的 功能 ， 提供 各种 专门 的 应用服务 。 主要 的 实现 技术 有 公共 网关 接口 CGI ( Common   Gateway   Interface ) 、 Microsoft 的 Internet 服务器应用程序 接口 ISAPI ( Internet   Application   Programming   Interface ) 和 部件 ( Component ) 技术 。 
+ 　 　 CGI 是 根据 浏览器 的 HTTP 请求 激活 响应 进程 ， 每 一个 请求 对应 一个 响应 进程 ， 当 同时 有 很多 请求 时 ， 程序 挤占 系统资源 ， 造成 系统 响应 时间 长 ， 效率 低下 。 
+ 　 　 ISAPI 针对 CGI 效率 低下 ， 利用 动态链接库 ( DLL ) 技术 ， 以 线程 代替 进程 ， 提高 了 性能 和 速度 ， 但 要 考虑 线程 的 同步 问题 ， 而且 程序 的 开发 困难 ， 步骤 繁琐 。 
+ 2 　 基于 部件 对象 的 Web 计算 
+ 　 　 Microsoft 的 软 部件 技术 作为 一种 行业 技术标准 已 广泛应用 于 软件开发 ， 其中 由   OLE 扩展 而来 ActiveX 部件 技术 尤其 适合 于 以 Web 为 中心 的 系统 开发 。 ActiveX 是 Microsoft 的 OLE 技术 的 扩展 ， OLE 技术 的 基础 是 COM ， 在 本地 机器 内 ， ActiveX 同 OLE 一样 通过 COM 总线 相互作用 ， 在 网络计算机 之间 ， ActiveX 部件 之间 通过 分布式 部件 对象 模型   ( DCOM ) 相互作用 。 通过 DCOM ， 部件 之间 以及 部件 与 系统 之间 在 网络 上 的 位置 透明 ， 系统 与 部件 之间 的 调用 只 需 知道 部件 的 类 标识符 即可 ， 不用 关心 部件 的 具体 网络 位置 。 
+ 　 　 部件 对象 是 粒度 更大 的 二进制 对象 ， 它 通过 封装 将 具体 的 实现 细节 隐蔽 起来 ， 只 提供 给 外界 服务 接口 ， 对象 之间 只 通过 消息 相互作用 。 这 非常适合 以 网络 请求 ／ 服务 为 模式 的 Web 计算 。 基于 部件 对象 的 Web 计算 是 结合 面向对象 技术 和 Web 技术 来 实现 基于 Internet / Intranet / Extranet 的 分布式 企业 计算 。 从 面向对象 的 观点 看 ， 部件 、 客户端 的 浏览器 和 服务器端 的 Web 服务器 都 是 对象 ， 只是 粒度 的 大小不一 而已 ， 都 通过 消息 接口 相互作用 。 
+ 2.1 　 对象 分析 
+ ( 1 ) 浏览器 对象 
+ 　 　 客户端 的 浏览器 实现 为 一个 部件 对象 ， Microsoft 的 Internet   Explorer 应用程序 的 内核 就是 作为 一个 内 进程 COM 部件 对象 实现 的 ， 它 实现 了 一个 浏览器 OLE 控件 对象 ( 类 标识 为 CLSID - Iexplorer ) 。 浏览器 控件 完全 实现 了 OLE 超链接 对象 并 驻留 在 OLE 文档 对象 中 。 所以 ， 浏览器 一方面 作为 超链接 文档 包 容器 实现 ， 完全 支持 所 链接 的 任何 类型 文档 ， 另一方面 作为 COM 部件 对象 类 ， 它 实现 了 OLE 控件 对象 所 需 实现 的 所有 接口 。 浏览器 部件 也 实现 为 OLE 自动化 对象 ， 开发者 可以 在 程序 中 或 脚本语言 中 创建 它 的 一个 实例 ， 调用 其 方法 和 属性 。 浏览器 部件 对象 暴露 给 外界 的 接口 有 IWebBrowser 、 IWebBrowserApp 和 DWebBrowserEvents ， 其中 IWebBrowser 接口 是 开发者 在 程序 中 实现 一个 浏览器 部件 对象 所 需 实现 的 接口 ， 该 接口 的 实现 使 程序 能够 访问 Internet 上 的 任何 WWW 站点 ， IWebBrowserApp 接口 将 Internet   Explorer 应用程序 封装 成 一个 OLE 自动化 部件 对象 实例 ， IWebBrowser 接口 是 IWebBrowserApp 接口 逻辑 上 的 基类 。 DWebBrowserEvents 是 一个 事件 接受器 接口 ， 指定 需要 从 浏览器 部件 对象 或 应用程序 接受 事件 通知 的 用户 部件 对象 或 程序 必须 实现 的 接口 。 
+ ( 2 ) HTML 对象 
+ 　 　 Web 计算 的 主要 方式 是 通过 嵌入 脚本 命令 语言 将 HTML 文档 和 各种 功能 部件 粘合 起来 实现 某种 计算 。 HTML 标准 也 是 基于 对象 的 ， 它 定义 了 基本 的 对象 集合 ， 对象 之间 的 继承 和 集合 关系 如图 2 。 
+ 
+ 图 2   HTML 对象 模型 
+ ( 3 ) ActiveX 部件 对象 
+ 　 　 ActiveX 脚本 部件 包括 ActiveX 脚本 解释器 和 ActiveX 功能 部件 。 ActiveX 脚本 解释器 装载 并 解释 运行 命令 脚本 和 功能 部件 ， 如 Microsoft 的 Internet   Explorer 浏览器 、 Internet 著作 工具 和 系统 Shell 等 , 需要 实现 IActiveXScriptSite 接口 、 IActiveXScriptWindows 接口 和 其他 相关 接口 。 ActiveX 功能 部件 是 用 程序开发 语言 开发 ， 封装 有 特定 功能 和 接口 的 部件 对象 , 需要 实现 IActiveXScript 接口 、 IActiveScriptParse 接口 和 其他 功能 接口 。 
+ 　 　 ActiveX 部件 对象 在 执行 的 过程 中 经历 各种 状态 转换 如图 3 。 ① 创建 未 初始化 的 ActiveX 部件 对象 ； ② 从 存储 中为 部件 对象 载入 数据 并 初始化 ； ③ 启动 部件 对象 实例 ； ④ 建立 回调 事件 ； ⑤ 销毁 运行 状态 和 撤销 回调 事件 ； ⑥ 撤销 回调 事件 ； ⑦ 重新 建立 回调 事件 ； ⑧ 销毁 运行 状态 ； ⑨ 撤销 回调 事件 、 销毁 运行 状态 、 释放 所有 接口 指针 和 分配资源 ； ⑩ 去配 部件 对象 。 
+ 
+ 图 3   ActiveX 部件 对象 的 状态 转换 
+ ( 4 ) 服务器 对象 
+ 　 　 随着 以 分布 化 和 对象 化为 特征 的 软 部件 技术 在 软件开发 中 的 广泛应用 ， 操作系统 必须 提供 相应 的 系统 对象 技术 为 基于 部件 的 软件开发 技术 提供 系统 服务 。 系统 对象 技术 在 一个 运作 的 操作系统 环境 中 按 面向对象 的 原则 运作 ， 封装 的 、 多 语义 的 、 可 重用 的 各种 部件 存在 并 作为 二进制 实体 运作 而 非 源代码 。 新 的 部件 ， 无论 何时 何人 开发 ， 可以 加入 到 这个 运作 系统 中 ， 并 立即 把 所 提供 的 服务 扩充 给 应用 ， 即使 这些 应用 已 在 运行 。 OLE ／ COM 作为 一种 可 扩展 的 系统 对象 技术 成为 Microsoft 公司 未来 操作系统 的 基石 。 也就是说 ， 操作系统 只 提供 基本 服务 集 ， 而 OLE ／ COM 提供 了 一个 机制 ： 无须 修改 操作系统 便 可以 扩充 新 的 服务 ， 开发者 能够 创建 新 的 服务 ， 这些 新 的 服务 又 能够 用来 创建 更 新颖 的 应用软件 。 进一步 讲 ， 系统 服务 的 升级 无需 任意 一种 中心 控制 和 商家 协作 便 可 完成 ， 这种 随意 集成 的 能力 在 开发软件 及 用户 把 软件 用作 解决问题 工具 方面 引起 重大 改进 。 
+ 　 　 WWW 服务 作为 系统 提供 的 服务 ， 开发者 能够 在 任何 时候 增加 各种 服务 ， 这些 服务 都 以 部件 的 方式 提交 给 系统 ， 由 系统 将 部件 作为 系统 提供 的 服务 注册 到 系统 数据库 ， 注册 后 的 服务 能够 被 其他 开发者 利用 开发新 的 应用 。 如 Microsoft 公司 基于 WWW 服务器 IIS 的 Active   Server   Pages 。 它 提供 内置 的 5 个 ActiveX 部件 对象 给 开发者 开发 基于 服务端 而 与 客户端 无关 的 动态 主页 。 并且 5 个 部件 对象 提供 相应 的 接口 ， 开发者 可以 直接 利用 这些 接口 开发新 的 部件 对象 。 
+ 2.2 　 基于 ActiveX 部件 的 Web 计算 模式 的 总体 结构 
+ 　 　 · 服务端 以 Windows   NT   Server   4.0 为 操作系统 ， IIS 为 Web 服务器 ， 以 SQL   Server6.5 为 数据库 服务器 ， 用 数据库 连接器 、 ActiveX   Server   Pages 和 ActiveX 部件 提供 服务 扩展 。 
+ 　 　 · 客户端 以 Windows   NT   Workstation   4.0 和 Windows   95 为 操作系统 ， 以 IE4.0 为 客户 浏览器 ， 用 ActiveX 部件 在 客户端 作 数据 验证 和 收集 。 
+ 　 　 · 用 VC5.0 和 VB5.0 作为 ActiveX 部件 的 开发工具 。 部件 包括 ActiveX   EXE 、 DLL 和 OCX 。 用 VBScript 和 JScript 作为 脚本语言 。 
+ 　 　 该 系统 除 提供 通常 的 Web 信息 浏览 以外 ， 还 实现 远程 的 数据录入 、 查询 、 更新 和 修改 ， 远程 设备 状态 的 监测 ， 远程 数据 的 计算 等 各种 功能 ( 如图 4 ) 。 
+ 
+ 图 4   基于 ActiveX 部件 的 Web 计算 模型 总体 框架 
+ 3 　 结论 
+ 　 　 基于 部件 的 软件开发 技术 代表 新一代 软件开发 的 发展 方向 ， 基于 Web 的 计算 模式 是 未来 企业应用 的 主要 方式 。 基于 部件 能 简便 、 高效 地 实现 Web 计算 ， 并 具有 良好 的 可靠性 、 可扩展性 、 可维护性 和 可 重用 性 。 基于 COM / DCOM 的 ActiveX 部件 技术 是 当前 开发 基于 Web 计算 的 较为 先进 的 软件开发 技术 ， 但 也 存在 对 Windows 平台 依赖性 较强 的 缺点 。 
+ 作者简介 ： 刘仲   男 ， 26 岁 ， 助理 研究员 ， 主要 研究 面向对象 技术 、 分布 与 并行处理技术 
+ 作者 单位 ： 国防科技大学 并行 与 分布 处理 国家 重点 实验室 长沙 410003 
+ 参考文献 
+ 1 　 The   Component   Model   Object   Overview . Microsoft   Corporation , 1996 
+ 2 　 The   OLE   Technique   Overview . Microsoft   Corporation , 1996 
+ 3 　 The   ActiveX   Technique   Overview . Microsoft   Corporation ,   1996 
+ 4 　 刘仲 . 基于 OLE / COM 的 部件 软件 组合 技术 的 研究 〔 硕士论文 〕 . 长沙 ： 国防科技大学 ， 1998 
+ 5 　 李威 , 杨 乔林 . Intranet 中 基于 软件 构件 的 企业 分布 计算 , 计算机系统 应用 , 1998 - 02 
+ 收稿 日期 ： 1998 - 08 - 27 

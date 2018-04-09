@@ -1,0 +1,150 @@
+计算机 应用 
+ Computer   Applications 
+ 1999 年   第 19 卷   第 7 期     Vol.19   No.7   1999 
+ 
+ 
+ 
+ VFP5.0   与 其它 软件 的 相互 调用 
+ 赵 　 辉 
+ 
+ 　 　 摘 　 要 　 本文 介绍 了 如何 利用 Visual   FoxPro5.0 提供 的 OLE ， 自动化 及 ActiveX 控件 等 技术 来 实现 Visual   FoxPro   与 其它 应用软件 如 DELPHI ， EXCEL ， WORD ， VB 等 进行 数据 和 程序 间 的 相互 联系 。 
+ 　 　 关键词 　 VFP ， Delphi ， Excel ， Word ， VB ， OLE ， ActiveX 
+ 
+ 　 　 Visual   FoxPro5.0 ( 以下 简称 VFP ) 提供 了 OLE 对象 链接 与 嵌入 ， 自动化 ， DLL 动态链接库 及 ActiveX 控件 等 技术 ， 为 用户 直接 调用 其它 应用程序 提供 了 方便 。 VFP 用户 在 开发 自己 的 应用程序 时 ， 可 充分利用 其它 基于 Windows 的 应用软件 （ 如 VB ， Delphi ， Excel ， Word ， ActiveX 控件 等 ） 所 提供 的 强大 功能 。 同时 利用 VFP 提供 的 ODBC 驱动程序 和 自动化 技术 ， 用户 在 其它 应用软件 中 也 可 使用 VFP 中 的 数据 ， 对象 和 命令 。 
+ 　 　 了解 和 掌握 VFP 与 其它 应用程序 间 的 联系方法 ， 能够 充分 地 融和 各 软件 的 优秀 功能 ， 加快 应用程序 的 开发 速度 和 开发 质量 。 　 　 
+ 1 　 VFP 的 OLE 技术 
+ 　 　 VFP 提供 的 OLE 技术 ， 可 将 其它 应用程序 或 数据 看作 一个 对象 ， 放置 在 表单 上 或表中 的 通用字 段 中 。 VFP 可以 嵌入 方式 或 链接 方式 引用 其它 应用程序 或 数据 。 嵌入 方式 和 链接 方式 的 不同 在于 数据 的 存储 地点 。 嵌入 将 数据 直接 存储 到表 或 表单 中 ， 而 链接 则 仅 保留 了 对象 的 引用 途径 。 
+ 　 　 VFP 提供 了 两种 形式 建立 OLE ： 绑 定型 和 非 绑 定型 。 可以 用 “ 表单 控件 ” 工具栏 中 的 OLE 绑 定型 控件 创建 绑 定型 OLE 对象 ， 而用 OLE 容器 控件 创建 非绑 定型 OLE 对象 。 绑 定型 OLE 对象 一般 与 表中 的 通用字 段 相 联系 ， 如在表 的 通用字 段 中 添加 一个 Word 文档 、 一个 声音 、 图像 或 视频文件 等 。 非绑 定型 OLE 对象 则 与 表 单相 联系 ， 如 在 表单 的 OLE 容器 中 放入 ActiveX 控件 ， 甚至 一个 基于 Windows 的 . EXE 程序 。 
+ 　 　 向 表单 添加 ActiveX 控件 可 有 两种 方式 。 一种 方式 是 在 设计 表单 时 直接 设置 ， 具体步骤 为 ： （ 1 ） 从 “ 表单 控件 ” 工具栏 中 选择 “ OLE ” ， 并 将 其 放置 在 表单 上 ； （ 2 ） 在 “ 编辑 ” 栏 选择 “ Insert   Object ” , 在 对话框 中 选择 “ Insert   Control ” ； （ 3 ） 在 “ Control   Type ” 列表 中 选择 所要 的 ActiveX 控件 。 与 VFP 一起 发布 的 ActiveX 控件 包括   Windows   95 控件 和 系统 控件 等 。 另 一种 方式 是 使用 自动化 管理 对象 ， 用 程序代码 来 动态 建立 OLE 对象 。 
+ 2 　 VFP 调用 . EXE 文件 
+ 　 　 VFP 应用程序 可以 在 自己 的 表单 中 通过 OLE 容器 控件 调用 由 其它 软件开发 的 应用程序 。 比如 把 用 Delphi ， VB 等 开发 的 应用程序 结合 到 VFP 应用程序 中 。 在 VFP 应用程序 中 可以 通过 代码 方式 来 动态 调用 . EXE 文件 。 
+ 　 　   因 VFP 不 支持 带 空格 的 路径 ， 为了 在 VFP 中能 正常 地 调用 其它 的 应用程序 ， 最好 事先 将 相关 的 应用程序 文件 移至 VFP 目录 。 下面 的 例子 采用 代码 方式 调用 Delphi 开发 的 应用程序 Project1 . exe   。 
+ Pro1 . prg 
+ *   VFP 调用 DELPHI 应用程序 project1 . exe 
+ *   首先 创建 一个 表单 ， 在 其 上 添加 OLE 控件 ， 
+ *   并 链接 应用程序 Project1 
+ Set   Talk   Off 
+ Clear 
+ frmMyForm = CreateObject ( ′ form ′ ) 　 　 　 　 　 　 && 创建 一个 表单 
+ frmMyForm . Closable = . F . 
+ frmMyForm . AddObject ( ′ CmdCommand1 ′ , ′ CmdMyCmdBtn ′ ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 添加 命令 按钮 
+ frmMyForm . AddObject ( ′ OleObject ′ , ′ Myclass ′ ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 添加 OLE 对象 frmMyForm . CmdCommand1 . Visible = . T .   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 显示 QUIT 命令 按钮 frmMyForm . OleObject . Visible = . T .   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 显示 OLE 控件 
+ frmMyForm . OleObject . Height = 150   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 设置 OLE 控件 尺寸 
+ frmMyForm . OleObject . Width = 200 
+ frmMyForm . Show 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 显示 表单 
+ frmMyForm . OleObject . DoVerb ( 0 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 执行 OLE 对象 
+ Read   Events 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 开始 事件处理 
+ Define   Class   MyClass   as   OleControl 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 定义 OLE 控件 类型 
+ DocumentFile   = ′ c : \ vfp \ project1 . exe ′ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 指定 OLE 执行 文件 
+ Enddefine 
+ Define   Class   cmdMyCmdBtn   as   CommandButton 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 定义 命令 按钮 类型 
+ Caption = ′ 退   出 ′   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 命令 按钮 上 的 标题 
+ Cancel = . T .   　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 默认 QUIT 命令 按钮 
+ Left = 125   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 命令 按钮 的 尺寸 
+ Top = 210 
+ Height = 25 
+ Procedure   Click   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 && 停止 事件处理 ， 清除 表单 
+ Clear   Events 
+ Enddefine 
+ Return 
+ 
+ 　 　 利用 此 段 程序代码 可以 在 VFP 程序 中 调用 各种 . EXE 应用程序 ， 甚至 非 Windows 的 应用程序 。 
+ 　 　 
+ 3 　 VFP 调用 DLL 中 的 例程 
+ 　 　 DLL （ Dynamic - Link   Library ） 动态链接库 是 一个 以 扩展 名为 . DLL 的 可 执行 模块 ， 其中 包含 了 可以 被 其它 应用程序 或 其它 DLL 共享 的 例程 和 资源 。 DLL 的 主要 特点 是 它 的 代码 是 在 运行 期间 动态 地 链接 到 调用 它 的 程序 中 。 当 DLL 中 的 例程 执行 完后 ， 可以 随时 将 DLL 从 内存 中 清除 。 DLL 技术 可以 实现 各 应用程序 间 的 资源共享 ， 并 节省 内存空间 。 该 技术 在 Windows 及其 它 软件 中 被 广泛应用 。 VFP 可 引用 Delphi ， VB ， C++ 等 编写 的 DLL 例程 或 Windows   API 及 专用 于 VFP 的 FLL 例程 。 在 调用 一个 DLL 例程 之前 ， 必须 了解 该 例程 的 调用 协议 ， 包括 例程 的 名称 ， 参数 的 数目 和 类型 以及 返回值 的 类型 。 在 用 其它 软件 编写 DLL 例程 时 ， 应 尽量 采用 标准 调用 约定 。 比如 在 用 Delphi 编写 DLL 时 ， DLL 中供 其它 应用程序 调用 的 例程 （ 函数 或 过程 ） 要 用   Exports 申明 引出 ， 要 引出 的 例程 最好 用 Stdcall 调用 约定 ， 以便 其它 语言 编写 的 应用程序 也 能 调用 该 DLL 中 的 例程 。 
+ 　 　 在   VFP 程序 中 ， 引用 外部 的 DLL 及其 中 的 例程 前应 首先 使用 DECLARE - - DLL 命令 加载 所 要 引用 的 DLL 及其 中 的 例程 。 DECLARE - - DLL 命令 的 基本 格式 为 ： 
+ Declare ［ cFunctionType ］ FunctionName   IN   LibraryName 
+ 　 　 　 ［ As   aliasName ］ ［ cParamType1 ［ @ ］ ParamName1 ,   
+ 　 　 　 　 cParamType2 ［ @ ］ ParamName2 , ... ］ 
+ LibraryName ： 要 引用 的 动态链接库 名 。 
+ CFunctionType ： 要 引用 的 DLL 中 的 例程 的 类型 。 
+ 　 　 　 　 　 　 　 　 如果 例程 有 返回值 ， 则 包括 该项 ， 
+ 　 　 　 　 　 　 　 　 如果 例程 没有 返回值 ， 则 不用 该项 。 
+ FunctionName ： 调用 的 例程 名 。 
+ cParamType1 ［ @ ］ ParamName1 ： 例程 中形 参 的 类型 及 名称 。 
+ cParamType2 ［ @ ］ ParamName2 ： 例程 中形 参 的 类型 及 名称 。 
+ 　 　 在 使用 DLL 例程 时应 注意 ： 
+ 　 　 *   为了 能 正常 地 调用 DLL ， 最好 事先 将要 引用 的 DLL 复制到 VFP 子目录 以 保证 VFP 能 正确 地 搜索 DLL 。 
+ 　 　 *   DLL 中 的 例程 名需 区分 大小写 。 
+ 　 　 在 VFP 退出 之前 ， 所 加载 的 DLL 一直 保持 有效 ， 如果 不再 需要 调用 DLL 中 的 例程 ， 可 使用 CLEAR   ALL   DLLS 命令 ， 卸载 由 DECLARE - - DLL 命令 引入 的 外部 32bitDLL 以 节省 内存 资源 。 
+ 　 　 下面 是 VFP 程序 调用 DLL 例程 的 实例 。 
+ 3.1 　 VFP 调用 Delphi 编写 的 DLL 例程 
+ 　 　 要 调用 的 DLL 中 的 每 一个 例程 都 应 先用 DECLARE - - DLL 命令 加载 。 下例 在 VFP 中 调用 Delphi 编写 的 MyDLL . DLL 中 的 例程 Add ( x , y ) 。 
+ 　 　 Set   Talk   Off 
+ 　 　 Clear 
+ 　 　 * 用 declare 命令 加载 DLL 及其 中 的 例程 Add 
+ 　 　 Declare   integer   Add   in   MyDLL . DLL   integer   @ x , integer   @ y 
+ 　 　 a = 15 
+ 　 　 b = 10 
+ 　 　 Wait   Window " 正在 调用 例程 Add "   Timeout   2 
+ 　 　 c = Add ( a , b ) 
+ 　 　 ? c 
+ 　 　 Wait   Window " 释放 加载 的 DLL "   Timeout   2 
+ 　 　 Clear   All   Dlls 
+ 　 　 Return 
+ 3.2 　 VFP 调用 Windows   API 
+ 　 　 Win32API 提供 了 许多 基于 窗口 的 操作 函数 ， 在 应用程序 中 灵活 应用 Win32API 可 提高 应用程序 的 开发 质量 。 可用 上述 同样 方法 调用 Windows   API 。 例如 要 调用 Windows   USER 中 的 GetActiveWindow ( ) 函数 ， 该 函数 得到 当前 VFP   主 窗口 的 句柄 。 GetActiveWindow ( ) 函数 无 参数 ， 但 返回 一个 整数 。 
+ 　 　 Declare   integer   GetActiveWindow ( )   in   win32api 
+ 　 　 x =   GetActiveWindow ( ) 
+ 　 　 Messagebox ( str ( x ) ) 
+ 3.3 　 VFP 调用 FLL 中 的 函数 
+ 　 　 VFP 中 的 FLL 类似 DLL ， 但 只能 在 VFP 中 使用 ， FLL 包含 了 许多 专为 VFP 内部 调用 的 函数 ， 在 调用 这些 函数 时 ， 可用 SET   LIBRARY   TO   < . FLL 文件名 > 命令 加载 函数 所在 的 FLL 。 FLL 一经 加载 即可 调用 其中 的 每个 函数 ， 但 不必 说明 各 函数 所 需 的 参数 和 数据类型 ， 这 与 调用 DLL 中 的 函数 不同 。 
+ 　 　 例如 ， 从 VFP 的 FOXTOOLS . FLL 中 调用 Foxtoolver ( ) 和 Msgbox ( ) 函数 。 其中 Foxtoolver ( ) 函数 返回 正在 引用 的 FLL 文件 的 版本号 ， 而 Msgbox ( ) 函数 则 弹出 一个 出错 提示框 。 
+ 　 　 x = Foxtoolver ( ) 
+ 　 　 If   x < > 5.0 
+ 　 　 　 Msgbox ( " 引用 的 FLL 版本 有误 " ) 
+ 　 　 Endif 
+ 　 　 
+ 4 　 其他 应用 程序控制 VFP 
+ 4.1 　 通过 VFP 的 ODBC   驱动程序 引用 数据库 
+ 　 　 其它 应用程序 可以 通过 VFP 提供 的 ODBC 驱动程序 引用 VFP 数据库 中 的 数据 ， 或 借助 VFP 具有 的 优良 的 数据库 管理 性能 ， 进行 后台 数据管理 。 例如 在 用 Excel 进行 复杂 数据分析 时 ， 如果 所 操作 的 数据 使用 频繁 ， 则 将 其 存储 在 数据库 中 比 存储 在 工作 表中 更 安全 。 这时 ， 可 使用 Visual   Foxpro 的 ODBC 驱动程序 将 工作 表 和 数据库 连接起来 ， 然后 提取 相关 的 数据 ， 并 将 其 显示 在 工作 表中 ， 以备 进一步 处理 。 下面 的 例子 为 Word 通过 VFP 的 ODBC   驱动程序 引用 数据库 表中 数据 以 形成 邮件 标签 。 
+ a .   在 Word 主 菜单中选择 “ 工具 ” 栏下 的 “ 邮件 合并 ” ， 进入 “ 邮件 合并 帮助 器 ” ； 
+ b .   在 “ 邮件 合并 帮助 器 ” 下选 “ 1 . 创建 ”   ， 在 弹出 菜单 中选 “ 邮件 标签 ”   ， 在 对话框 中选 “ 活动 窗口 ”   ； 
+ c .   在 “ 邮件 合并 帮助 器 ” 下 ， 选 “ 2 . 获取数据 ”   ， 在 弹出 菜单 中选 “ 打开 数据源 ”   ； 
+ d .   在 磁盘 中 选择 要 引用 的 VFP 数据库 表 所在 的 子目录 ， 并 选择 文件类型 为 ： MS   Foxpro 文件 ， 再 选择 相应 的 数据库 表名 ， 如 Table1 . dbf   ； 
+ e .   在 随后 显示 的 “ 确认 数据源 ” 对话框 中 ， 选择 “ Foxpro   Files 通过 ODBC （ * . dbf ） ”   按 “ 确定 ” 按钮 ； 
+ f .   在 随后 显示 的 “ 创建 标签 ” 对话框 中 ， 选 “ 插入 合并 域 ”   ， 则 显示 出 指定 VFP 数据库 表中 的 字段名 ， 从中 选择 所 需 的 字 段 ； 
+ g .   当 选择 好 所 需 的 字 段 后 ， 屏幕 又 返回 到 “ 邮件 合并 帮助 器 ”   ， 这时 选择 “ 3 . 合并 ”   ， 在 “ 合并 ” 对话框 中 按 “ 合并 ” 按钮 。 即可 通过 VFP   ODBC   从 数据库 表中 取得 所 需 数据 ， 传送 到 Word 文档 形成 相应 的 邮件 标签 。 
+ 4.2 　 Word ， Excel 直接 控制 VFP 
+ 　 　 VFP 可以 作为 一个 客户 ， 也 可 作为 一个 服务器 ， 其他 支持 自动化 的 应用程序 可 通过 VFP 的 Application 对象 控制 VFP 。 当 VFP 启动 时 ， 通过 DDE 或 通过 自动化 自动 地 创建 一个 Application 对象 。 比如 在 Excel   或 在 Word 中 访问 VFP 中 的 Table 。 如下 例中 代码 为 Word 模块 中用 Visual   Basic   Application   宏代码 创建 VFPApplication 对象 ， 打开 VFP 中 的 数据库 表 Table1 , 将 其中 的 记录 内容 粘贴 到 Word 文档 的 实例 。 
+ Sub   Micro1 ( ) 
+ 　 　 Dim   oFox   as   Object 
+ 　 　 Set   oFox = CreateObject ( " VisualFoxpro . Application " ) 
+ 　 　 oFox . DoCmd   " use   c : \ vfp \ Table1 . dbf " 
+ 　 　 oFox . DoCmd   " Select   name , address   From   Table1   Into   temp " 
+ 　 　 oFox . DataToClip   " temp " , , 3 
+ 　 　 Word . ActiveDocument . Content . Paste 
+ End   Sub 
+ 　 　 若要 在 Excel 中 读取 VFP 数据库 表中 数据 ， 可 对 最后 一条 代码 作 修改 ： ActiveSheet . Paste   。 
+ 4.3 　 创建 OLE   自动化 服务程序 
+ 　 　 可以 用 VFP 创建 OLE 自动化 服务程序 ， 供 其他 应用程序 调用 。 自动化 通常 用类 创建 应用程序 ， 以便 外部 应用程序 创建 和 管理 该 应用程序 的 对象 。 要 实现 OLE 自动化 服务程序 ， 应 在 项目 中 包含 OLEPUBLIC 的 类 ， 并 编译成 一个 可执行文件 （ . EXE 文件 ） 或 一个 动态链接库 （ . DLL 文件 ） 。 下例 中 的 代码 创建 一个 自定义 的 OLEPUBLIC 类 。 
+ 　 　 Define   Class   Person   As   Custom   OLEPUBLIC 
+ 　 　 　 FirstName = Space ( 20 ) 
+ 　 　 　 LastName = Space ( 20 ) 
+ 　 　 　 Procedure   GetName 
+ 　 　 　 Return   This . FirstName + "   " + This . LastName 
+ 　 　 　 Endproc 
+ Enddefine 
+ 　 　 可以 在 Excel , Word 或 VB 中用 如下 代码 调用 该 自动化 服务程序 ： 
+ 　 　 Set   oTest = CreateObject ( " proj1 . person " ) 
+ 　 　 cName $   = oTest . GetName ( ) 
+ 　 　 在 标准 的 自动化 方案 中 ， 客户 和 服务器 是 在 同一个 计算机 上 运行 ， 在 VFP5.0 下 ， 也 支持 远程 自动化 。 通过 网络 客户程序 还 可以 调用 远程 服务程序 。 
+ 
+ 作者 单位 ： 赵 　 辉 （ 浙江 财经学院 信息 系 　 浙江 ． 杭州   310012 ） 
+ 参考文献 
+ ［ 1 ］ 　 Delphi   3 编程 指南 .   宇航 出版社 ,   1998 
+ ［ 2 ］ 　 Visual   FoxPro5.0 完全 学习 手册 .   科学出版社 ,   1998 
+ ［ 3 ］ 　 Visual   FoxPro5.0 高级 程序设计 指南 .   海洋 出版社 ,   1998   
+ 　 　 收稿 日期 : 1999 - 01 - 14 

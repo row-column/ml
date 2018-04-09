@@ -1,0 +1,78 @@
+土壤 与 环境 
+ SOIL   AND   ENVIRONMENTAL   SCIENCES 
+ 1999 年 　 第 4 期 　 第 8 卷 　 Vol.8 　 No.4 　 1999 
+ 
+ 
+ 
+ 丘陵区 稻田 N2O 排放 的 特点 
+ 徐华 　 邢光熹 　 蔡祖聪 　 鹤田治雄 
+ 　 　 摘要 ： 1993 ～   1994 年 在 中国科学院 红壤 生态 试验站 通过 田间试验 研究 了 丘陵区 稻田 N2O 排放 的 特点 。 结果表明 , 稻田 N2O 排放 主要 集中 在 水分 落干 期间 ， 淹水 状态 下 几乎 没有 N2O 排放 。   由于 早稻 稻草 还田 ， 晚稻 稻田 N2O 排放量 即使 在 水分 落干 期间 也 不 高 。 稻田 N2O 排放量 随 地形 降低 而 逐渐 增加 ， 1993 ～   1994 年 两年 中 坡底 、 坡 腰 和 坡顶 稻田 水稻 生长期 平均 N2O － N 排放 通量 分别 为 10.90 、 5.60 和 2.11   m   g / ( m2 ×   h ) 。 
+ 　 　 关键词 ： 稻田 ； N2O 排放 ； 地形 
+ 　 　 中 图 分类号 ： S153 ； X13   文献 标识码 ： A 
+ Characteristics   of   N2O   Emissions   from   Paddy   Fields   in   Hilly   Area 
+ XU   Hua1 ， XING   Guang - xi1 ， CAI   Zu - cong1 ， Haruo   Tsuruta2 
+ （ 1 :   Institute   of   Soil   Science ,   Chinese   Academy   of   Sciences ,   Nanjing   210008 ,   China ; 2 :   National   Institute   of   Agro - environmental   Sciences ,   Japan ） 
+ 　 　 Abstract : 　 Field   experiment   was   carried   out   in   Red   Soil   Ecological   Experimental   Station ,   Chinese   Academy   of   Sciences   to   study   characteristics   of   N2O   emissions   from   paddy   fields   in   hilly   area .   The   results   showed   that   N2O   emission   mainly   occurred   during   the   drying   period   of   soil ,   while   there   was   almost   no   N2O   emission   during   the   flooding   period .   Due   to   early   rice   straw   application ,   N2O   emission   from   late   rice   field   was   low ,   even   during   the   drying   period   of   soil .   Generally ,   N2O   flux   increased   with   the   positions   of   paddy   fields   from   the   top   to   the   bottom   in   a   slope   in   hilly   area .   Mean   N2O - N   fluxes   of   4   rice - growing   seasons   from   paddy   fields   located   in   the   bottom ,   middle   and   top   of   a   slope   land   were   10.94 ,   5.60   and   2.11   m   g / ( m2 ×   h )   respectively . 
+ 　 　 Key   words : 　 paddy   field ;   N2O   emission ;   topography   
+ 　 　 N2O 是 一种 受 人类 活动 影响 的 重要 的 温室 气体 [ 1 ] ， 它 还是 平流层 中 导致 臭氧层 破坏 的 光 化学反应 的 主要 参与者 [ 2 ] 。 土壤 ， 特别 是 热带 土壤 和 农田 土壤 ， 是 大气 中 N2O 的 最 主要 来源 ， 其 贡献 高达 70% [ 3 ] 。 对于 农田 土壤 N2O 排放 的 研究 多 集中 于 旱地 ， 因为 早期 的 稻田 N2O 排放 的 研究 都 报道 稻田 N2O 排放量 很小 ， 仅 占施 氮量 的 0.04% 左右 [ 4 ～ 5 ] 。 早期 研究 的 皆 是 长期 淹 水稻田 的 N2O 排放 ， 而 约 57% 的 中国 稻田 水稻 生长期 采取 间隙 灌溉 的 水分 管理 措施 ， 间隙 灌溉 造成 稻田 水分 状况 干湿 交替 ， 这些 稻田 应有 不同于 长期 淹 水稻田 的 N2O 排放 规律 。 因此 研究 间隙 灌溉 稻田 N2O 排放 规律 对 全面 正确 地 认识 稻田 对 大气 N2O 的 贡献 是 很 有 意义 的 。 
+ 　 　 我国 亚热带 地区 大面积 的 丘陵 山区 是 我国 主要 的 水稻 产区 之一 。 丘陵 山区 由于 地形 起伏 ， 造成 水热 分布 不均 及坡面 不同 位置 土壤肥力 的 差异 ， 从而 影响 稻田 N2O 排放量 。 此外 ， 该区 常 采用 稻草 直接 还田 的 方法 。 在 高 复种指数 下 ， 稻草 还田 还有 保持 土壤肥力 的 功效 ； 但 早稻 稻草 还田 势必 影响 晚稻 稻田 N2O 排放量 。 我国 对 稻田 N2O 排放 的 研究 还 不 多 ， 对 丘陵区 稻田 N2O 排放 更 未 见 研究 报道 。 本文 介绍 1993 ～   1994 年 在 江西省 鹰潭市 丘陵区 坡顶 、 坡 腰 和 坡底 稻田 N2O 排放量 的 观察 测定 结果 。 
+ 1   材料 与 方法 
+ 1.1   供试 土壤 
+ 　 　 试验 地点 选在 位于 江西省 鹰潭市 刘家 站 比较 典型 的 丘陵区 。 供试 土壤 为 中国科学院 红壤 生态 试验站 附近 农民 的 水田 ， 属于 红壤 性 水稻 土 ， 发育 于 第四纪 红土 。 该 试区 一年 二熟 水稻 ， 冬季 休闲 或 种植 油菜 、 冬小麦 或 绿肥 。 试验 共设 3 个 处理 ： 坡顶 、 坡 腰 和 坡底 （ 位于 同一 坡 面上 ） 。 供试 土壤 的 部分 性质 列于 表 1 。 
+ 表 1 　 供试 土壤 的 基本 性质 
+ 地形 部位 pH 有机质 全氮易 分解 有机质 
+ w / ( g ×   kg - 1 ) 
+ 坡顶 5.4920 . 91.1711 . 8 
+ 坡 中 5.7028 . 31.7616 . 4 
+ 坡底 5.7933 . 02.0018 . 0 
+ 
+ 1.2   田间管理 
+ 　 　 坡顶 、 坡 中 和 坡底 三个 观察点 采用 相同 的 施肥量 ， 其它 管理 与 农民 的 大田 完全相同 。 试验 从 1993 年 早稻 移栽 开始 ， 连续 进行 了 四季 水稻 （ 两季 早稻 和 两季 晚稻 ） 的 观察 。 水稻 品种 均 为 德 733 。 1993 年 早稻 5 月 10 日 移栽 ， 7 月 28 日 收获 ； 晚稻 7 月 30 日 移栽 ， 11 月 6 日 收获 。 1994 年 早稻 5 月 6 日 移栽 ， 7 月 15 日 收获 ； 晚稻 7 月 28 日 移栽 ， 10 月 25 日 收获 。 各季 的 施肥量 相同 ， 施用量 为 过磷酸钙 375   kg / hm2 ， 尿素 265.5   kg / hm2 和 氯化钾 150   kg / hm2 ， 其中 70% 作 基肥 ， 30% 作 追肥 ， 返青 期 一次 追肥 。 当地 农民 通常 直接 把 早稻 稻草 还田 ， 故 本项 研究 在 早稻 收获 后 ， 也 将 全部 早 稻草 还田 ， 施用量 为 7125   kg / hm2 （ 湿 质量 ） 。 1994 年坡 腰 小区 在 早稻 移栽 前 ， 农民 已施入 猪粪 约 7000   kg / hm2 。 
+ 1.3   采样 和 测定 
+ 　 　 气体 采样 采用 静态 箱 方法 。 箱高 1   m ， 底面 为 51   cm × 51   cm 。 间隔 3 ～ 6   d 采 一次 样 。 1994 年 在 同一 小 区内 固定 两个 采样 点 ， 采样 时 放置 两个 采样 箱 同时 采样 。 样品 N2O 浓度 用气 相色谱 测定 ， ECD 作 检测器 。 
+ 2   结果 与 讨论 
+ 2.1   稻田 N2O 排放 通量 随 时间 的 变化 
+ 　 　 图 1 是 N2O 排放 通量 在 水稻 生长期 随 时间 的 变化 。 可以 看出 ， 每 一季 水稻 生长期 中 ， N2O 排放 通量 随 时间 的 变化 均 不 相同 ， 不同 地形 部位 的 稻田 N2O 排放 通量 随 时间 的 变化规律 也 不尽相同 。 1993 年 早稻 坡 腰 稻田 在 水稻 生长 的 中后期 共 出现 三次 N2O 排放 峰 ， 而 坡底 和 坡顶 稻田 则 只 出现 一次 排放 峰 ； 1993 年 晚稻 坡底 稻田 在 水稻 生长 后期 出现 两个 N2O 排放 峰 ， 坡 腰 和 坡顶 稻田 则 在 水稻 生长 的 中后期 出现 三次 排放 峰 ； 1994 年 早稻 坡 腰 稻田 在 水稻 移栽 后 第 10 至 第 29 天有 大量 N2O 排放 ， 随后 至 水稻 收获 也 有 一定 数量 的 N2O 排放 ， 坡底 稻田 仅 在 水稻 生长 后期 有 较大 数量 的 N2O 排放 ， 坡顶 稻田 整个 水稻 生长期 皆 无 N2O 排放 ； 1994 年 晚稻 坡底 和 坡 腰 稻田 在 水稻 生长 的 中后期 或 后期 出现 两次 N2O 排放 峰 ， 坡顶 稻田 只是 在 水稻 生长 后期 出现 一次 排放 峰 。 各 处理 各季 N2O 排放 通量 随 时间 变化 的 不同 是 由 什么 引起 的 呢 ？ 由于 各 处理 四季 水稻 施肥 相同 ， 故 解释 N2O 排放 通量 季节 变化 的 差异 还 得 从 施肥 外 的 因素 着手 。 
+ 
+ 
+ A .   1993 年 早稻 ； B .   1993 年 晚稻 ； C .   1994 年 早稻 ； D .   1994 年 晚稻 
+ 图 1   丘陵区 稻田 水稻 生长期 N2O 排放 通量 随 时间 的 变化 
+ 　 　 图 2 表示 各 处理 四季 水稻 生长期 N2O 排放 通量 与 田面 水层 厚度 的 关系 。 从图 2 可 看出 ， 各 处理 各季 较 高 的 N2O 排放 通量 皆 出现 在 田面 无 水层 ， 即 田面 落干 的 水分 状态 下 ， 当 田面 有 水层 时 ， N2O 排放 通量 则 很小 。 水稻 生长 后期 ， 尽管 没有 肥料 施入 ， 但 由于 田面 无 水层 ， N2O 排放 通量 仍 有 较 高 的 水平 。 这 说明 水稻 生长期 N2O 排放 通量 主要 受 土壤水分 状况 的 影响 ， 只有 在 适宜 N2O 产生 和 排放 的 土壤水分 条件 下 ， 氮肥 施用 及其 它 因素 对 稻田 N2O 排放 的 影响 才 有 可能 显示 出来 。 例如 1994 年 早稻 坡 腰 稻田 水稻 移栽 后 第 22 天 出现 极高 的 N2O 排放 ， 这 除了 主要 与 田面 水分 落干 有 密切关系 外 ， 可能 还 与 较 高 的 土温 及 返青 期 追肥 有关 。 
+ 
+ 
+ 
+ 图 2   水稻 生长期 稻田 田面 水层 厚度 
+ 　 　 土壤 中 N2O 的 产生 主要 来源于 土壤 中 微生物 参与 下 的 硝化 及 反 硝化 反应 ， 硝化 及 反 硝化细菌 的 活性 需要 适度 的 水 、 气 、 热 条件 。 土壤 含水量 很 低 和 土壤 长期 持续 淹水 都 不利于 硝化 及 反 硝化细菌 的 生长 。 对 稻田 土壤 来说 ， 土壤水分 含量 始终 处于 较 高 或 很 高 的 状态 ， 这时 ， 土壤通气 性 就 有 可能 成为 微生物 活性 最 重要 的 制约 因素 。 在 田面 落干 期间 ， 土壤 含水量 适中 ， 通气 性 良好 ， 这时 土壤 硝化作用 和 反 硝化作用 都 能 以 较 快速 率 进行 且 以 N2O 为 主要 产物 。 而 稻田 淹水 时 ， 土壤 处于 缺氧 和 强 还原 状态 ， N2O 的 产生 以反 硝化作用 为主 ， 但 这时 反 硝化作用 产生 的 N2O 可 被 N2O 还原酶 还原 为 N2 ， 加上 水层 对 N2O 向 大气 扩散 的 阻隔 及 对 N2O 的 少量 溶解 ， 所以 稻田 在 淹水 状态 时向 大气 排放 的 N2O 量 很少 。 国内 其它 一些 测定 结果 也 证实 了 这 一点 [ 6 ～   7 ] 。 
+ 2.2   稻田 N2O 排放 通量 的 空间 变化 
+ 　 　 表 2 为坡面 不同 部位 稻田 1993 ～   1994 年 各季 水稻 生长期 N2O 平均 排放 通量 及 两年 的 平均值 。 除 1993 年 早稻 坡底 稻田 及 1994 年 早稻 坡 腰 稻田 出现 很 低 或 极 高 的 N2O 平均 排放 通量 外 ， 稻田 N2O 排放量 随 地形 降低 而 逐渐 增加 。 1993 ～   1994 年 两年 中 坡底 、 坡 腰 及 坡顶 稻田 水稻 生长期 平均 N2O － N 排放 通量 分别 为 10.94 、 5.60 及 2.11   m   g / （ m2 ×   h ） 。 1993 年 早稻 坡底 稻田 及 1994 年 早稻 坡 腰 稻田 N2O 排放 为何 出现异常 呢 ？ 我们 知道 水稻 生长期 N2O 排放 通量 主要 受 土壤水分 状况 的 影响 ， 稻田 N2O 排放 主要 集中 在 水分 落干 期间 ， 淹水 状态 下 ， 几乎 没有 N2O 排放 。 从图 2 可 看出 ， 1993 年 早稻 坡底 稻田 整个 水稻 生长期 皆 处于 淹水 状态 ， 故 N2O 排放 很少 ； 而 1994 年 早稻 坡 腰 稻田 水稻 生长期 水分 状况 以落 干 为主 ， 加上 水稻 移栽 前 大量 猪粪 的 施入 ， 引起 极高 的 N2O 排放 。 由于 1993 年 早稻 坡底 稻田 、 1994 年 早稻 坡顶 稻田 及 1994 年 早稻 坡 腰 稻田 很 低 或 极 高 的 N2O 平均 排放 通量 是 由 非正常 的 水肥 因素 引起 的 ， 所以 在 计算 两年 N2O 平均 排放 通量 时未 将 它们 包括 在内 。 
+ 表 2 　 坡面 不同 部位 稻田 1993 ～   1994 年 N2O － N 平均 排放 通量   m   g ×   m - 2 ×   h - 1 
+ 地形 
+ 部位 1993 
+ 早稻 1993 
+ 晚稻 1994 
+ 早稻 A1 ) 1994 
+ 早稻 B1 ) 1994 
+ 晚稻 A1994 
+ 晚稻 B 平均 
+ 坡底 0.497 . 7911.8216 . 627.7410 . 7410.94 
+ 坡 腰 5.575 . 84154.2998 . 614.956 . 035.60 
+ 坡顶 2.743 . 77001.270 . 652.11 
+ 
+ 1 ） A 、 B 为 同一 小区 的 两个 采样 点 。 
+ 　 　 已有 研究 报道 ， 土壤有机 碳 含量 与 N2O 生成量 呈 正 相关 [ 8 ～   9 ] ， 不同 地形 部位 稻田 N2O 排放量 的 差异 可能 主要 是 由 土壤有机 碳 含量 的 差异 引起 的 （ 表 1 ） 。 
+ 　 　 从图 2 可知 ， 晚稻 特别 是 1994 年 晚稻 稻田 水稻 生长期 相当 时间 土壤水分 状况 以落 干 为主 ， 但 晚稻 稻田 N2O 平均 排放 通量 并 不 高 （ 表 2 ） 。 这 可能 与 大量 早稻 稻草 还田 有关 。 稻草 C / N 比高 ， 分解 慢 ， 且 稻草 的 分解 会 固定 土壤 有效 氮 ， 减少 土壤 硝化 反应 及 反 硝化 反应 的 氮素 供应 ， 从而 减少 土壤 N2O 排放量 。 Bremner   and   Blackmer 报道 土壤 硝化 反应 速率 及 N2O 排放 速率 皆 随施入 有机肥 的 C / N 比 的 增加 而 减少 [ 9 ] 。 
+ 基金项目 ： 国家自然科学基金 项目 （ 49870039 ） 
+ 作者简介 ： 徐华 （ 1966 ～ ） ， 男 ， 博士 ， 副研究员 。 
+ 作者 单位 ： 徐华 　 邢光熹 　 蔡祖聪 　 中国科学院 南京 土壤 研究所 ， 南京   210008 ； 
+ 　 　 　 　 　   鹤田治雄 　 日本 国立 农业 环境 研究所 
+ 参考文献 
+ [ 1 ]   Yung   Y   L ,   Wang   W   C ,   Lass   A   A .   Greenhouse   effect   due   to   atmospheric   nitrous   oxide   [ J ] .   Geophys   Res   Lett ,   1976 ,   3 :   619 ～   621 
+ [ 2 ]   Crutzen   P   J ,   Enhalt   D   H .   Effects   of   nitrogen   and   combustion   on   the   stratospheric   ozone   layer   [ J ] .   Ambio ,   1974 ,   3 :   201 ～   210 
+ [ 3 ]   Prather   M ,   Dervent   R ,   Enhalt   D ,   et   al .   Other   trace   gases   and   atmospheric   chemistry   [ A ] .   In :   Houghton   J   T ,   et   al .   eds .   Climate   Change   1994   [ C ] .   Cambridge :   Cambridge   University   Press ,   1995 .   77 ～ 126 
+ [ 4 ]   Denmead   O   T ,   Freney   J   R ,   Simpson   J   R .   Nitrous   oxide   emission   during   denitrification   in   a   flooded   field   [ J ] .   Soil   Sci   Soc   Am   J ,   1979 ,   43 :   716 ～ 718 
+ [ 5 ]   Smith   C   J ,   Brandon   M ,   Patrick   Jr   W   H .   Nitrous   oxide   emission   following   urea   nitrogen   fertilization   of   wetland   rice   [ J ] .   Soil   Sci   Plant   Nutr ,   1982 ,   28 :   161 ～ 171 
+ [ 6 ]   徐华 ， 邢光熹 ， 蔡祖聪 ， 等 .   土壤水分 状况 和 氮肥 施用 及 品种 对 稻田 N2O 排放 的 影响   [ J ] .   应用 生态学 报 ， 1998 ,   10 ( 2 ) :   186 ～ 188   
+ [ 7 ]   陈冠雄 ， 黄国宏 ， 黄斌 ， 等 .   稻田 N2O   和 CH4 的 排放 及养萍 和 施肥 的 影响   [ J ] .   应用 生态学 报 ， 1995 ,   6 ( 4 ) :   378 ～ 382 
+ [ 8 ]   Iqbal   M .   Potential   rate   of   denitrification   in   2   field   soils   in   southern   England   [ J ] .   J   Agric   Sci ,   1992 ,   118 :   223 ～ 227 
+ [ 9 ]   Bremner   J   M ,   Blackmer   A   M .   Terrestrial   nitrification   as   a   source   of   atmospheric   nitrous   oxide   [ A ] .   In :   Delwiche   C   C ,   eds .   Denitrification ,   Nitrification   and   Atmospheric   N2O   [ C ] .   New   York :   John   Wiley   &   Sons   Ltd ,   1981 ,   151 ～ 170 
+ 收稿 日期 ： 1999 - 06 - 08 

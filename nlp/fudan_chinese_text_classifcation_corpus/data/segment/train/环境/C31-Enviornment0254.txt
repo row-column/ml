@@ -1,0 +1,112 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1998 年   第 18 卷   第 3 期   No.3   Vol.18   1998 
+ 科技期刊 
+ 
+ 海河 河口 水 和 新港 港湾 水中 α - 六六六 对 映体 选择性 降解 
+ 及 α 、 β 、 γ 、 δ - 六六六 浓度 
+ 张智超 1 　 戴树桂 1 　 朱昌寿 2 　 吴胜恒 1 　   （ 1 . 南开大学 环境 科学系 ， 天津   300071 ； 
+ 2 . 南开大学 元素 有机化学 国家 重点 实验室 ， 天津   300071 ） 
+ 文 　 摘 　 运用 全 甲基化 β - 环糊精 毛细管 气 相色谱 手性柱 ， 首次 测定 了 我国 天然 水体 中手性 污染物 α - 六六六 的 对 映体 浓度 比值 〔 ER ＝ （ ＋ ） α - 六六六 / （ － ） α - 六六六 〕 。 初春 和 初夏 季节 天津 新港 港湾 海水 中 α - 六六六 的 ER 值为 0.91 ～ 0.80 ， 证实 了 该 水体 微生物 对 α - 六六六 的 降解 存在 着 对 映体 选择性 ， （ ＋ ） α - 六六六 被 优先 降解 。 海河 河口 水在 以上 两 季节 中 ， α - 六六六 的 ER 值均 近似 为 1 ， 其 原因 有待于 进一步 研究 ， 可能 是 附近 有 经常 排放 外 消旋 体 α - 六六六 的 污染源 。 另外 还 测定 了 以上 两 水体 中 α 、 β 、 γ 、 δ - 六六六 的 浓度 ， 两 水体 中 的 六六六 含量 分别 符合 我国 I 类 海洋 水质标准 （ GB3097 - 82 ） 和 生活 饮用水 水质标准 （ GB5749 - 85 ） 。 
+ 关键词 　 手 性 污染物 　 六六六 　 对 映体 浓度 比值 　 对 映体 选择性 降解 
+ Enantioselective   breakdown   of   α - Hexachlorocyclohexane ( HCH )   and   concentrations   of   α 、 β 、 γ 、 δ - HCH   isomers   in   Xingang   Harbour   marine   water   and   Haihe   River   estuary   water   of   Tianjin .   Zhang   Zhichao1 , Dai   Shugui1 ,   Zhu   Changshou2   ， Wu   Shengheng1 ( 1 . Department   of   Environmental   Science ,   Nankai   University ,   Tianjin   300071 ； 2 . National   Key   Laboratory   of   Element - Organic   Chemistry ,   Nankai   University ,   Tianjin   300071 ) . China   Environmental   Science.1998 , 18 ( 3 ) : 197 ～ 201 
+ Abstract — The   enantiomeric   ratios （ ER = ( + ) α - HCH / ( - ) α - HCH ） of   the   chiral   pollutant   α - Hexachlorocyclohexane （ HCH ） were   determined   in   Xingang   Harbour   marine   water   and   Haihe   River   estuary   water   for   the   first   time   by   means   of   capillary   gas   chromatography   using   permethylated   β - cyclodextrin   as   chiral   stationary   phase .   The   ERs   of   α - HCH   in   the   marine   water   vary   from   0.91 to   0.80   in   early   spring   and   early   summer ,   indicating   that   the   marine   microbial   degradation   of   α - HCH   has   enantioselectivity   and   （ + ） α - HCH   is   degraded   preferentially .   However ,   the   ERs   of   α - HCH   in   the   estuary   water   are   almost   1 .   The   reason   remains   to   be   investigated   further .   It   is   caused   propably   by   the   constant   input   of   racemic   α - HCH   from   a   nearby   pollution   source .   The   concentrations   of   α 、 β 、 γ 、 δ - HCH   in   both   waters   were   also   determined .   The   total   HCH   concentration   of   these   two   waters   met   the   National   Marine   Water   Quality   Standard   I   （ GB3097 - 82 ） and   the   National   Drinking   Water   Quality   Standard （ GB5749 - 85 )   respectively . 
+ Key   words : chiral   pollutant 　 Hexachlorocyclohexane 　   enantiomeric   ratio 　 enantioselective   breakdown 
+ 　 　 在 研究 手 性 污染物 的 环境 行为 及 生态 效应 的 时候 ， 绝大部分 研究 工作 把 它们 当作 纯 的 单一 化合物 来 看待 。 但是 生命 过程 的 立体 选择性 是 必然 的 规律 ， 由此 可以 推知 ， 手 性 化合物 的 各个 对 映体 在 生物体 内 的 活性 、 代谢 和 毒性 ， 在 环境 中 的 持久性 通常 存在 着 差异 ； 而且 不同 生物 可能 选择性 摄取 、 代谢 同一 化合物 的 不同 对 映体 。 因此 为了 弄清 手 性 污染物 在 环境 中 的 变化 和 效应 ， 必须 运用 立体 选择性 分析方法 来 获取 准确 的 数据 。 近 10 多年 来 手性 化合物 的 色谱 直接 拆分 技术 迅速 发展 ， 为 研究 环境 中 的 手性 污染物 奠定 了 技术 基础 。 1991 年 Faller 等 人 〔 1 , 2 〕 运用 衍生 化 β - 环糊精 手 性 毛细管 气 相色谱 ， 测定 了 北海 （ North   Sea ） 海水 中 α - 六六六 的 对 映体 浓度 比值 （ Enantiomeric   Ratio ， 以下 简称 ER ） ， 从而 首次 证实 了 手性 污染物 在 环境 中 的 对 映体 选择性 降解 。 他们 还 提出 ， 测定 手 性 污染物 的 ER 值 可以 区分 微生物 降解 过程 （ 几乎 都 有 对 映体 选择性 ） 和 非 酶 促 过程 （ 几乎 都 没有 对 映体 选择性 ， 如光 化学降解 、 挥发 等 ） 。 
+ 　 　 目前 我国 在 环境 手 性 污染物 的 研究 方面 尚属 空白 。 国际 上 在 这方面 的 研究 也 尚 处在 起步 阶段 ， 绝大部分 工作 是 对 各类 环境 样品 中 α - 六六六 的 ER 值 的 测定 。 已经 证实 了 海洋 表层 水 〔 1 ～ 5 〕 ， 北极 天然 淡水 〔 6 〕 ， 海洋生物 〔 3 , 7 , 8 〕 、 陆生 哺乳动物 〔 9 〕 的 组织 器官 中 α - 六六六 的 对 映体 选择性 降解 或 吸收 。 
+ 　 　 α 、 β 、 γ 、 δ - 六六六 均 为 可疑 致癌物 ， 在 环境 中 持久性 强 ， 并 在 生物 组织 内 高度 富集 ， 被 列入 美国 环保局 确定 的 129 种 优先 污染物 名单 。 尽管 许多 工业 发达国家 从 70 年代 起 已 陆续 停止 生产 和 使用 ， 但 一些 发展中国家 依然 不得不 将 其 作为 主要 的 杀虫剂 使用 ， 全球 累计 施用量 估计 高达 1000 万 t 〔 7 〕 。 我国 从 50 年代 开始 使用 ， 1983 年 起 停止 生产 ， 短短 30 年内 累计 使用 了 490 万 t 〔 10 〕 。 α - 六六六 是 工业品 六六六 中 含量 最高 的 成分 ， 在 生态系统 食物链 各个 营养 级 中 普遍存在 〔 11 〕 。 它 既 没有 对称中心 也 没有 对称 面 （ 图 1 ） ， 是 六六六 的 8 个 可能 异构体 中 唯一 的 手性 化合物 。 
+ 　 　 本文 首次 研究 了 我国 海河 河口 水 和 天津 新港 港湾 水中 α - 六六六 的 对 映体 选择性 降解 。 天津 新港 位于 渤海 海湾 西岸 ， 海河 河口 处 ， 海河 是 华北地区 最大 的 入海 河流 ， 选择 这一 地区 的 水体 作为 研究 对象 有 典型 的 环境 意义 。 
+ 
+ 图 1 　 α - 六六六 对 映体 分子 构像 
+ Fig.1 　 The   two   enantiomers   of   α - HCH 
+ 1 　 实验 
+ 1.1 　 主要 试剂 与 仪器 
+ 　 　 石油醚 ， 沸程 60 ～ 90 ℃ ， 分析 纯 ， 经全 玻璃 系统 分馏 ， 去掉 前 5% （ V / V ） 和 最后 10% （ V / V ） 的 馏分 ； 重蒸水 ； 浓硫酸 ， 优级 纯 ； 色谱 标准 物 α 、 β 、 γ 、 δ - 六六六 ， 纯度 均 大于 99.5% 。 
+ 　 　 Hewlett   Packard   5890 型 气相色谱仪 ， 63Ni 电子 捕获 检测器 ， Hewlett   Packard   3394 型 数据处理 机 。 
+ 1.2 　 水样 采集 
+ 　 　 在 海河 河口 及 新港 港湾 布设 4 个 采样 点 （ 图 2 中 的 A 、 B 、 C 、 D 点 ） ， 初春 和 初夏 两个 季节 采样 ， 采样 深度 均 为 3m 。 河口 水 盐度 约 为 13 ‰ ， 港湾 水 盐度 约 为 31 ‰ 。 
+ 
+ 图 2 　 海河 河口 及 新港 港湾 采样 点 布设 
+ Fig.2 　 Sampling   locations   in   Haihe   River   estuary   
+ and   Xingang   Harbour 
+ 1.3 　 水样 前 处理 
+ 　 　 采样 后 返回 实验室 ， 立即 用 快速 定性 滤纸 过滤 ， 并 进行 前 处理 。 不能 及时处理 的 水样 ， 放在 4 ℃ 冰箱 中 储存 ， 但 不 超过 3 天 。 水样 的 萃取 净化 采用 国家环保局 的 标准 方法 〔 12 〕 。 港湾 水 处理量 为 2L ， 河口 水为 600mL 。 
+ 1.4 　 色谱分析 
+ 1.4 . 1 　 α 、 β 、 γ 、 δ - 六六六 浓度 的 测定 　 HP - 1 熔融 硅 毛细管 色谱 柱 （ 柱长 25m ， 内径 0.32 mm ， 液膜 厚度 0.52 μ m ） ； 载气 、 补充 气均 为 高纯 氮气 ， 载气 流量 0.37 mL / min （ 柱头 压 20kPa ） ， 补充 气 流量 47mL / min ； 进样量 3 μ L ， 分流 比 50 ∶ 1 ； 进样器 温度 230 ℃ ； 检测器 温度 300 ℃ ； 柱箱 程序 升温 ： 初温 170 ℃ ， 保持 32min ， 升温 速率 30 ℃ / min ， 终温 240 ℃ ， 保持 15min 。 
+ 　 　 根据 标准 谱 图 六六六 4 种 异构体 的 保留 时间 进行 定性 。 外标法 峰高 定量 ， 标准 使用 液 的 峰高 和 样品 的 相差 不 超过 20% 。 
+ 1.4 . 2 　 α - 六六六 的 ER 值 的 测定 　 美国 Supelco 公司 的 β - DEX120 手性 熔融 硅 毛细管 气 相色谱 柱 （ 柱长 30m ， 内径 0.25 mm ， 液膜 厚度 0.25 μ m ） ； 载气 、 补充 气均 为 高纯 氮气 ， 载气 流量 0.67 mL / min （ 柱头 压 90kPa ） ， 补充 气 流量 47mL / min ； 进样量 3 μ L ， 分流 比 25 ∶ 1 ； 进样器 温度 230 ℃ ； 检测器 温度 240 ℃ ； 柱箱 程序 升温 ： 初温 160 ℃ ， 保持 52min ， 升温 速率 20 ℃ / min ， 终温 210 ℃ ， 至少 保持 30min 。 
+ 2 　 结果 与 讨论 
+ 2.1 　 质量 控制 
+ 　 　 以 噪音 的 2 倍 作为 仪器 的 最小 检出 量 ， 对 α - 六六六 为 2.4 × 10 - 12g ， β - 六六六 为 3.2 × 10 - 12g ， γ - 六六六 为 1.7 × 10 - 12g ， δ - 六六六 为 3.4 × 10 - 12g 。 对 200mL 石油醚 进行 净化 、 洗涤 、 脱水 和 浓缩 等 全程 操作 ， α 、 β 、 γ 、 δ - 六六六 的 分析 空白 浓度 （ 以 2L 水样 计 ） 分别 为 1.9 、 3.2 、 2.2 、 1.4 ng / L ， 对 实际 水样 测定 影响 不 大 。 平行 双样 浓度 测定 值 的 相对偏差 小于 11% 。 河口 水样 在 两种 添加 水平 下 的 加标 回收率 列于 表 1 中 。 
+ 表 1 　 实际 水样 加标 回收率 
+ Table   1 　 Spiking   recovery   of   water   sample 
+ 
+ 项 　 目 α - 六六六 β - 六六六 γ - 六六六 δ - 六六六 
+ 添加 浓度 （ ng / L ） 1662199 　 268 　 153 　 
+ 回收率 （ % ） 　 　 　 　 86.285 . 690.280 . 0 
+ 添加 浓度 （ ng / L ） 2308276 　 372 　 212 　 
+ 回收率 （ % ） 　 　 　 　 96.286 . 793.779 . 3 
+ 
+ 2.2 　 α 、 β 、 γ 、 δ - 六六六 的 浓度 
+ 　 　 各 采样 点 在 初春 和 初夏 两 季节 六六六 4 种 异构体 浓度 的 测定 结果 示于 表 2 。 从 测定 结果 可 看出 ， 海河 河口 和 新港 港湾 水中 六六六 的 4 个 异构体 均 不同 程度 地 存在 ， 浓度 由高到 低 的 顺序 依次 为 α ＞ γ ＞ β ＞ δ ， 这 与 工业品 六六六 中 4 种 异构体 含量 顺序 是 一致 的 。 六六六 工业品 一般 含 67% ～ 70% α - 六六六 ， 13% ～ 15% γ - 六六六 ， 5% ～ 6% β - 六六六 ， 6% δ - 六六六 〔 13 〕 。 另外 还 可以 看出 ， 无论是 4 种 异构体 浓度 还是 六六六 总 浓度 ， 河口 水均 比 港湾 水高 几倍 ， 可见 海河 河口 依然 是 新港 港湾 水体 中 六六六 污染 的 一个 重要 潜在 来源 。 此外 ， 港湾 内 各点 六六六 的 浓度 也 不是 均匀 一致 的 ， 尤其 是 D 点 六六六 的 总 浓度 比 B 点 的 低 28% ， 这 是因为 D 点 已 接近 开阔 海域 ， 污染物 的 扩散 能力 较强 。 尽管 新港 港湾 水中 六六六 的 浓度 比 文献 〔 4 〕 中 报道 的 欧洲 北海 和 波罗的海 高 一个多 数量级 ， 但 仍 符合 我国 第一类 海水 水质标准 （ 1 μ g / L ， GB3097 - 82 ） 。 海河 河口 水 的 六六六 总量 也 未 超出 我国 饮用水 水质标准 （ 5 μ g / L ， GB5749 - 85 ） 。 
+ 表 2 　 海河 河口 和 新港 港湾 中 六六六 （ HCH ） 异构体 的 浓度 
+ Table   2 　 The   concentrations   of   HCH   isomers   in   Haihe   River   
+ estuary   water   and   Xingang   Harbour   marine   water 
+ 
+ 采样 点 初春 * 六六六 浓度 
+ ( ng / L ) 初夏 * * 六六六 浓度 
+ ( ng / L ) 
+ α β γ δ ∑ HCH α β γ δ ∑ HCH 
+ 河口 A71615321211111926261992981461269 
+ 港湾 B90406332225129609942330 
+ 　 C 　 　 　 　 　 114568641297 
+ 　 D 　 　 　 　 　 92456634237 
+ 
+ 　 注 ：   *   河口 采样 日期 为 1997 年 4 月 9 日 ， 水样 温度 13 ℃ ； 港口 点 采样 日期 为 1997 年 3 月 25 日 ， 水样 温度 7 ℃ ， 初春 季节 没有 在 港湾 C 、 D 两点 采样 
+ * *   各点 采样 日期 均 为 1997 年 5 月 30 日 ， 水温 依次 为 22 ℃ 、 21 ℃ 、 21 ℃ 、 20 ℃ 
+ 
+ 2.3 　 α - 六六六 的 对 映体 选择性 降解 
+ 　 　 α - 六六六 的 对 映体 浓度 比值 （ ER ） 定义 为 在手 性 色谱 柱上 （ ＋ ） α - 六六六 与 （ － ） α - 六六六 的 峰 面积 之 比 。 Falconer 等 〔 6 〕 已经 证实 了 在 与 本文 完全相同 的 β - DEX120 熔融 硅 毛细管柱 上 ， （ ＋ ） α - 六六六 先于 （ － ） α - 六六六 流出 。 
+ 　 　 在 实验 条件 下 ， α - 六六六 的 两个 对 映体 拆分 效果 很 好 ， α - 六六六 标准 品 和 实际 水样 的 对 映体 分离 度均 大于 1.4 ， 基本 达到 基线 分离 。 α - 六六六 标准 品 溶液 的 5 次连续 进样 的 ER 平均值 为 0.995 ， 标准偏差 为 0.0028 。 实际 水样 2 次 进样 的 ER 值 相对偏差 小于 1% ， 平行 双样 的 相对偏差 小于 0.4% 。 α - 六六六 对 映体 拆分 的 典型 色谱 图见 图 3 。 各 采样 点 不同 季节 α - 六六六 的 ER 值列 于表 3 中 。 将 初春 季节 河口 水两 平行 浓缩 样 合并 ， 进一步 浓缩 ， 在 本文 所用 的 手性 柱 上 用气 相色谱 － 质谱 － 计算机 联用 系统 （ HP5890IIGC / 5791A   MSD / MS   Chem   Station 美国 惠谱 公司 ） 确证 了 α - 六六六 的 手性 拆分 。 色谱 条件 ： 载气 为 氦气 ， 柱头 压 70kPa ， 无 分流 方式 进样 10 μ L ， 进样器 温度 230 ℃ ， 柱箱 程序 升温 ： 初温 40 ℃ ， 保持 2min ， 升温 速率 20 ℃ / min ， 终温 160 ℃ ， 保持 42min 。 气 － 质 传输线 温度 280 ℃ 。 质谱 条件 ： 电子 轰击 电离 源 ， 全 扫描 方式 （ 30 ～ 450amu ） ， 通过 美国 国家 标准局 标准 质谱 库 （ NBS75K ） 检索 。 
+ 
+ 图 3 　 α - 六六六 对 映体 拆分 色谱 示意 
+ Fig.3 　 Enantiomeric   separation   of   α - HCH 
+ ( a ) 　 α - 六六六 标准 品 　 ( b ) 　 初春 季节 河口 水样 　 
+ ( c ) 　 初夏 季节 港湾 水样 
+ 　 　 迄今为止 ， 还 没有 出现 有关 非生物 过程 具有 对 映体 选择性 的 报道 。 水 环境 中 六六六 的 去除 有 5 种 途径 ： 挥发 、 沉积 、 光解 、 水解 和 微生物 降解 。 工业 合成 的 六六六 农药 中 α 体 以外 消旋 体 混合物 形式 存在 ， ER 值为 1 ； 新港 港湾 水 初春 季节 α - 六六六 的 ER 值为 0.91 ， 初夏 季节 为 0.80 ～ 0.82 ， 均 明显 小于 1 ， 这 说明 新港 港湾 水体 中 微生物 对 α - 六六六 的 降解 有 对 映体 选择性 ， 优先 降解 （ ＋ ） α - 六六六 ， 而且 微生物 降解 在 港湾 水 α - 六六六 的 去除 中起 着 相当 的 作用 。 港湾 B 点 的 α - 六六六 的 ER 值 初春 时为 0.91 ， 初夏 时为 0.81 ， 两者 有 较大 差异 ， 这 可能 与 水温 的 变化 有关 ， 初春 时 水样 温度 为 7 ℃ ， 初夏 时为 22 ℃ 。 微生物 的 对 映体 选择性 降解 的 生理学 机制 目前 还 不 清楚 。 Falconer 等 〔 6 〕 发现 北极 某 岛上 的 一条 溪流 中 α - 六六六 的 ER 值 在 两周 内 随着 水温 的 升高 （ 0.8 ～ 14.8 ℃ ） ， ER 由 0.95 减少 到 0.62 ， 他们 认为 是 水温 升高 和 悬浮 颗粒物 增加 的 缘故 。 Faller 等 〔 1 , 2 〕 发现 欧洲 北海 东部 海域 α - 六六六 的 ER 平均值 为 0.85 （ 小于 1 ） ， 而 西部 海域 的 ER 平均值 为 1.15 （ 大于 1 ） ， 东 、 西两 海域 的 α - 六六六 降解 的 对 映体 选择性 相反 ， 造成 这种 差异 的 原因 不明 。 
+ 表 3 　 河口 水 和 新港 港湾 水中 α - 六六六 的 ER 值 
+ Table   3 　 The   ERs   of   α - HCH   in   Haihe   River   estuary   water   
+ and   Xingang   Harbour   marine   water 
+ 
+ 采样 点 ER 
+ 初春 初夏 
+ 河口 A1.021 . 03 
+ 港湾 B0.910 . 81 
+ 　 C 　 0.82 
+ 　 D 　 0.80 
+ 
+ 　 　 值得注意 的 是 ， 河口 水样 α - 六六六 在 两个 季节 中 的 ER 值 在 实验 误差 范围 内均 近似 为 1 ， 以外 消旋 体 混合物 形式 存在 ， 其 原因 可能 有 两种 ， 一是 河口 水体 中 α - 六六六 的 微生物 降解 与非 生物 去除 过程 相比 可以 忽略 ， 或 不 具有 对 映体 选择性 ； 二是 附近 有 经常 排放 α - 六六六 外 消旋 体 混合物 的 污染源 ， 认为 后者 可能性 很大 。 因为 ， 即使 在 被 认为 生物 活性 极低 的 北极 某 天然 淡水湖 及其 流域 中 的 α - 六六六 的 降解 也 具有 对 映体 选择性 〔 6 〕 ； 此外 ， 有关 资料 〔 14 〕 和 调查 发现 ， 距 河口 几公里 ， 位于 海河 边上 的 天津 大沽 化工厂 （ 见图 2 中 的 E 点 ） ， 为 用作 化工原料 和 其它 用途 一直 保留 着 六六六 和 林丹 的 生产 。 当然 ， 河口 水中 α - 六六六 以外 消旋 体 形式 存在 的 原因 还 有待于 进一步 研究 。 
+ 3 　 结束语 
+ 3.1 　 测定 新港 港湾 水 和 海河 河口 水中 α - 六六六 的 ER 值 ， 结果表明 ， 新港 港湾 水中 α - 六六六 的 微生物 降解 具有 对 映体 选择性 ， （ ＋ ） α - 六六六 被 优先 降解 ； 微生物 降解 在 α - 六六六 的 去除 中起 着 相当 的 作用 。 海河 河口 水中 α - 六六六 的 ER 值 在 实验 误差 范围 内 近似 为 1 ， 以外 消旋 体 混合物 形式 存在 。 初步 认为 是 由于 附近 有 经常 排放 外 消旋 体 α - 六六六 的 污染源 。 
+ 3.2 　 手 性 化合物 有望 成为 环境 示踪物 〔 15 〕 ， 用以 研究 污染物 在 环境 中 的 转归 途径 ； 还 可以 作为 弄清 化学品 毒理 机制 的 工具 。 光学 异构体 的 手性 色谱 直接 拆分 法 ， 不 需要 事先 用 光学 纯手性 试剂 将 分析 试样 中手性 物质 衍生 化为 非对 映体 ， 适合 于 环境 样品 中 痕量 手 性 污染物 和 手性 降解 产物 的 分析 。 在 对 映体 水平 上 开展 手 性 污染物 环境 行为 和 生态 效应 的 研究 亟待 扩展 深入 。 
+ 3.3 　 新港 港湾 水 和 海河 河口 水中 六六六 的 总 浓度 分别 符合 我国 I 类 海水 水质标准 和 生活 饮用水 水质标准 。 海河 河口 是 新港 港湾 六六六 污染 的 重要 潜在 来源 。 
+ 参考文献 
+ 1 　 Faller   J ,   Hhnerfuss   H ,   Knig   W   A ,   et   al .   Do   marine   bacteria   degrade   α - Hexachlorocyclohexane   stereoselectivity ? 　 Environ .   Sci .   Technol . ,   1991 , 25 : 676 ～ 678 
+ 2 　 Faller   J ,   Hhnerfuss   H ,   K  nig   W   A ,   et   al .   Gas   chromatography   separation   of   the   enantiomers   of   marine   organic   pollutants :   Distribution   of   α - HCH   enantiomers   in   the   North   Sea .   Mar .   Pollut .   Bull . ,   1991 , 22 : 82 ～ 86 
+ 3 　 Pfaffenberger   B ,   Hhnerfuss   H ,   Kallenborn   R ,   et   al .   Chromatographic   separation   of   the   enantiomers   of   marine   pollutants .   Part   6 :   Comparison   of   the   enantioselective   degradation   of   α - Hexachlorocyclohexane   in   marine   biota   and   water .   Chemosphere ,   1992 ,   25 （ 5 ） : 719 ～ 725 
+ 4 　 Hhnerfuss   H ,   Faller   J ,   Knig   W   A ,   et   al .   Gas   chromatographic   separation   of   the   enantimers   of   marine   pollutants .   4 . fate   of   hexachlorocyclohexane   isomers   in   the   baltic   and   North   Sea .   Environ .   Sci .   Technol . ,   1992 ,   26 （ 11 ） :   2127 ～ 2133 
+ 5 　 Falconer   R   L ,   Bidleman   T   F ,   Gregor   D   J .   Air - water   gas   exchange   and   evidence   for   metabolism   of   hexachlorocyclohexanes   in   Resolute   Bay ,   N .   W .   T .   Sci .   Total   Environ . ,   1995 ,   160 / 161 :   65 ～ 74 
+ 6 　 Falconer   R   L ,   Bidleman   T   F ,   Gregor   D   J ， et   al .   Enantioselective   breakdown   of   α - Hexachlorocyclohexane   in   a   small   Arctic   lake   and   its   watershed .   Environ . Sci .   Technol . ， 1995 ,   29 （ 5 ） : 1297 ～ 1302 
+ 7 　 Muller   M   D ,   Schlabach   M , Oehme   M . Fast   and   precise   determinaton   of   α - Hexachlorocyclohexane   enantiomers   in   environmental   samples   using   chiral   high - resolution   gas   chromatography . 　 Environ .   Sci .   Technol . ,   1992 ,   26 （ 3 ） :   566 ～ 569 
+ 8 　 Mssner   S ,   Spraker   T ， Becker   R ,   et   al .   Ratios   of   enantiomers   of   alpha - HCH   and   determination   of   alpha - ,   beta - ,   and   gamma - HCH   isomers   in   brain   and   other   tissues   of   neonatal   northern   fur   seals   ( callorhinus   ursinus ) .   Chemosphere ,   1994 ,   24 （ 9 ） :   1171 ～ 1180 
+ 9 　 Pfaffenberger   B ,   Hardt   I ,   Hhnerfuss   H ,   et   al .   Enantioselective   degradation   of   α - Hexachlorocyclohexane   and   cyclodiene   insecticides   in   roe - deer   liver   samples   from   different   regions   of   Germany .   Chemosphere ,   1994 ,   295 （ 7 ） :   1543 ～ 1554 
+ 10 　 华小梅 ， 单正军 .   我国 农药 的 生产 ， 使用 状况 及其 污染环境 因子分析 ．   环境 科学 进展 ， 1996 ,   4 （ 2 ） :   33 ～ 45 
+ 11 　 Hhnerfuss   H ,   Faller   J ,   Kallenborn   R ,   et   al .   Enantioselective   and   non - enantioselective   degradation   of   organic   pollutants   in   the   marine   ecosystem .   Chirality ,   1993 ,   5 :   393 ～ 399 
+ 12 　 国家环保局 《 水 和 废水 监测 分析方法 》 编委会 .   水 和 废水 监测 分析方法 （ 第 3 版 ） .   北京 :   中国 环境 科学出版社 ,   1989 .   397 ～ 399 
+ 13 　 白 青云 .   六六六 在 环境 中 的 异构化 作用 .   农业 环境保护 ,   1983 ,   2 :   20 ～ 22 
+ 14 　 农业部 农药 检定所 主编 .   新编 农药 手册 .   北京 :   农业 出版社 ,   1989 .   3 ～ 4 
+ 15 　 Renner   R .   Chiral   compounds   show   promise   as   environmental   tracers .   Environ .   Sci .   Technol .   1996 ,   30 （ 1 ） :   16A ～ 17A 
+ 作者简介 
+ 张智超 　 男 ， 1969 年 7 月生 。 现为 南开大学 环境 科学系 95 级 博士生 。 发表 论文 6 篇 。 
+ 收稿 日期 ： 1997 - 07 - 21 
+ *   高等学校 博士点 科研 专项基金 资助 项目 ( 96005512 ) 

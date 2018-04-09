@@ -1,0 +1,147 @@
+自动化 学报 
+ ACTA   AUTOMATICA   SINICA 
+ 1999 年   第 25 卷   第 6 期   Vol.25   No.6   1999 
+ 
+ 
+ 
+ 基于 照明 参数 与 反射系数 的 分层 SFS 算法 1 ) 
+ 杨敬安 
+ 摘 　 要 　 提出 一种 由 明暗 信息 复原 形状 的 鲁棒 算法 . 此 算法 能 有效 地 估计 照明 方向 、 漫 反射系数 、 照明 天 顶角 以及 沿 图像 轮廓 由 明暗 信息 复原 形状 ， 并且 在 考虑 自 阴影 影响 情况 下 ， 用 新 方法 从 图像 的 统计 特征 估计 照明 的 仰角 和 表面 反射系数 ， 使 重建 强度 梯度 接近 输入 图像 梯度 实现 平滑 约束 . 该 方法 为 数据 驱动 ， 稳定 可靠 ， 能 同时 更新 表面 斜率 与 高度 图 ， 大大 减小 发射 项 与 可 积分 项内 的 剩余 误差 . 最后 给出 SFS ( Shape   from   Shading ) 算法 的 分层 实现 . 
+ 关键词 　 照明 参数估计 ， 漫 反射系数 ， 分层 SFS 算法 ， 拉普拉斯 模型 ， 剩余 误差 . 
+ A   HIERARCHICAL   SFS   ALGORITHM   BASED   ON 
+ ILLUMINANT   PARAMETERS   AND   SURFACE   ALBEDO 
+ YANG   Jingan 
+ ( Institute   of   AI , Hefei   University   of   Technology ,   Hefei 　 230009 ) 
+ Abstract 　 This   paper   proposes   a   robust   algorithm   to   recover   shape   from   shading   information .   This   algorithm   can   estimate   effectively   illuminant   direction ,   surface   albedo ,   the   azimuth   of   the   illuminant   and   recover   shape   using   shading   information   along   image   contours .   The   elevation   of   the   illuminant   and   surface   albedo   are   estimated   from   image   statistics ,   taking   into   consideration   the   effect   of   self - shading .   With   the   estimated   reflectance   map   parameters ,   we   compute   the   surface   shape   using   a   new   procedure   that   implements   the   smoothness   constraint   by   making   the   gradients   of   reconstructed   intensity   close   to   the   gradients   of   the   input   image .   The   new   algorithm   is   data   driven ,   stable ,   and   updates   surface   slope   and   height   maps   simultaneously ,   and   significantly   reduces   the   residual   errors   in   irradiance   and   integral   terms .   Finaly   a   hierarchical   implementation   of   the   SFS   algorithm   is   presented . 
+ Key   words 　 Estimation   of   illuminant   parameters ,   surface   albedo ,   hierarchical   SFS   algorithm ,   Lambertian   surface   model ,   residual   errors 
+ 1 　 引言 
+ 　 　 在 计算机 视觉 中 ， 从 明暗 求 形状 ( SFS — — Shape   from   Shading ) 通常 是 把 图像 亮度 建模 成 表面 的 几何 函数 ， 再 根据 已知 成像 模型 重建 表面 ， 产生 几乎 与 输入 图像 相同 的 图像 或 与 物体 外形 相同 的 深度图 . 
+ 　 　 SFS 方法 最早 由 MIT 的 Horn 等于 1975 年 提出 ［ 1 ］ . 该 方法 成功 与否 主要 依赖 两个 因素 ： ① 建立 能 清晰 地 说明 表面 形状 与 图像 亮度 间 关系 的 成像 模型 ； ② 产生 由 已知 图像复原 形状 有效 的 数值 算法 . 
+ 　 　 关于 成像 模型 ， 应 考虑 两个 密切相关 的 问题 ： ① 怎样 建立 表面 形状 和 图像 亮度 间 的 关系 模型 ； ② 怎样 较 精确 地 估计 成像 模型 的 参数 . 在 SFS 研究 中 ， 成像 模型 用 反射 图 I =  R ( p , q ) 表示 ， 式 中 I 为 景物 发光度 ， R 是 反射 图 函数 ， 并且 是 高度 z 关于 图像 坐标 的 偏 导数 . 本文 主要 研究 图像 生成 的 拉普拉斯 模型 ［ 1 ， 2 ］ . 假定 关于 z 轴 的 正交投影 平行 于 摄像机 的 光轴 ， 并且 z 的 正 方向 指向 摄像机 ， 这样 拉普拉斯 模型 可 写作 
+ 　 　 ( 1 ) 
+ 上式 中 η 是 合成 系数 ， 包括 照明 强度 和 表面 的 反射系数 . 对 均匀 照明 ， 如果 表面光 特性 均匀 ， η 为 常数 ； θ i 是 入射角 ， 即 表面 法线 和 朝向 光源 方向 的 夹角 ； 是 位置 ( x , y , z ( x , y ) ) 处 的 表面 法线 ［ 3 ， 4 ］ ； l = ( cos τ sin γ ， sin τ sin γ ， cos γ ) 是 照明 方向 的 单位向量 ， 其中 τ 是 照明 的 仰角 ， 即 l 和 x - z 平面 间 夹角 ， 也 称 照明 的 天 顶角 ； γ 是 倾斜角 ， 即 l 和 z 轴正 方向 夹角 ； σ 0 为 偏移 亮度 ， 依赖于 背景 的 照明 、 数字 转换器 的 校准 等 . 本文 针对 现有 方法 存在 的 较 多 问题 ， 基于 严格 的 数学分析 ， 提出 新 的 算法 ， 要求 重建 强度 的 梯度 接近 输入 图像 的 梯度 来 实现 平滑 约束 . 
+ 2 　 基本 公式 的 导出 
+ 　 　 利用 估计 的 照明 参数 和 表面 漫 反射系数 能够 解 SFS 问题 . 传统 求解 SFS 问题 要求 利用 发射 等式 
+ R ( p , q ) = I ( x , y ) 　 　 ( 2 ) 
+ 重建 的 图像 应 接近 于 输入 图像 ［ 5 ， 6 ］ ， 也就是说 ， 式 ( 2 ) 使用 了 输入 图像 的 所有 信息 . 但 在 各种 迭代 的 SFS 算法 中 ， 表面 重建 应 在 每个 像素 处 分别 适时 修正 . 对 每个 像素 ， 式 ( 2 ) 的 右边 是 驱动 函数 的 值 ， 左边 的 ( p , q ) 常 看成 自由 变量 . 利用 式 
+ 　 　 ( 3 ) 
+ 中 的 二次 平滑 项 施加 重建 表面 是 平滑 连结 的 条件 ， 式 中 . 遗憾 的 是 ， 不管 强度 如何 变化 ， 表面 平滑 项 均匀 地 抑制 表面 形状 变化 ， 并且 图像 强度 的 变化 与 表面 形状 的 变化 有关 ［ 7 ， 8 ］ . 在 图像 强度 急剧 变化 的 区域 ， 相应 的 表面 片 可能 不是 平滑 的 ［ 9 ］ ， 这样 在 该 区域 上 的 平滑 就 减弱 . 克服 这种 二次 平滑 约束 缺点 的 一种 方法 是 令 λ 值 适合 于 局部 强度 的 平滑 变化 . 由于 SFS 是 强度 驱动 处理 ， 所以 这种 自 适应 平滑 可 通过 令 重建 强度 的 梯度 等于 输入 图像 的 梯度 实现 ， 这 可 表示 为 
+ Rx ( p , q ) = Ix ( x , y ) , 　 　 ( 4a ) 
+ Ry ( p , q ) = Iy ( x , y ) , 　 　 ( 4b ) 
+ 由于 R ( p , q ) 是 x 和 y 的 隐 函数 ， 因此 定义 式 ( 4 ) 左边 的 导数 ， 并 通过 合并式 ( 2 ) 和 ( 4 ) ， SFS 的 计算 可 公式化 为 使 
+ 　 　 ( 5 ) 
+ 极小 化 的 约束 最优化 问题 ， 式 中 
+ 　 　 ( 6 ) 
+ 式 ( 6 ) 中 最后 一项 来自 积分 约束 ， μ 是 加权 系数 . 值得注意 的 是 ， 这里 已 忽略 二次 平滑 项 . 由于 利用 变量 的 计算 ， 式 ( 5 ) 的 极小 化 等效于 求解 下面 的 Eular 等式 
+ 　 　 ( 7a ) 
+ 　 　 ( 7b ) 
+ 　 　 ( 7c ) . 
+ 在 式 ( 6 ) 中 ， 利用 泰勒 级数 展开式 沿 ( p , q ) 周围 的 反射 图取 近似值 ， Fp 可 写成 
+ 　 　 ( 8 ) 
+ 令 带有 撇号 ( ′ ) 的 变量 表示 修正 后 的 值 ， 无撇号 ( ′ ) 的 变量 代表 修正 前 的 值 ， 那么 
+ 　 　 ( 9 ) 
+ 修正 后 ， ( p , q , Z ) 偏 导数 中 相应 的 增量 为 
+ p ′ x = px - δ p ， 　 q ′ x = qx - δ q , 　 Z ′ x = Zx - δ Z ， 　 　 ( 10a ) 
+ p ′ y = py - δ p ， 　 q ′ y = qy - δ q , 　 Z ′ y = Zy - δ Z ， 　 　 ( 10b ) 
+ p ′ xx = pxx - 2 δ p ， 　 q ′ xx = qxx - 2 δ q , 　 Z ′ xx = Zxx - 2 δ Z ， 　 　 ( 10c ) 
+ p ′ yy = pyy - 2 δ p ， 　 q ′ yy = qyy - 2 δ q , 　 Z ′ yy = Zyy - 2 δ Z . 　 　 ( 10d ) 
+ 把 式 ( 9 ) 和 ( 10 ) 代入 ( 8 ) ， 并 扩展 反射 图 R ， 可 获得 
+ 　 　 ( 11 ) 
+ 这里 高阶 导数 Rpp , Rpq , Rqq 因 R 在 ( p , q ) 周围 的 线性 近似 而 为 0 . 类似 地 ， 式 ( 7 ) 中 的 其它 各项 可 导出 ， 结果 如下 ： 
+ 　 　 ( 12 ) 
+ 　 　 ( 13 ) 
+ 　 　 ( 14 ) 
+ 　 　 ( 15 ) 
+ 　 　 ( 16 ) 
+ Fz = 0 ， 　 　 ( 17 ) 
+ 　 　 ( 18 ) 
+ 　 　 ( 19 ) 
+ 把 式 ( 12 ) ～ ( 19 ) 代入 ( 7 ) 并 写成 矩阵 形式 ， 得到 
+ 
+ 或 等效 地 写成 
+ 　 　 ( 20 ) 
+ 上式 中 
+ 
+ 解式 ( 20 ) ， 得到 修改 方案 
+ 
+ 
+ 
+ 式 中 Δ 是 系数 矩阵 行列式 ， 并且 总为 正 ， 即 
+ 
+ 
+ 由此证明 ， 迭代法 是 稳定 的 . 
+ 　 　 
+ 3 　 算法 的 实现 
+ 　 　 本文 算法 用 分层 结构 法 和 迭代法 实现 ， 下面 分别 讨论 . 
+ 3.1 　 分层 结构 法 
+ 　 　 为 缩减 图像 的 复杂 计算 ， 分层 实现 无疑 是 有效 的 方法 . 在 我们 的 分层 SFS 算法 中 ， 分辨率 相近 层间 的 图像 分辨率 压缩系数 为 2 ， 最低 分辨率 的 图像 尺寸 是 32 × 64 . 分层 实现 的 重要 问题 是 把 产生 的 结果 在 层 间通信 ， 并且 表面 形状 的 描述 在 不同 分辨率 层间 应 一致 . 令 标有 ( ～ ) 的 变量 代表 较 高分辨率 层 的 形状 描述符 ， 而 没标 ( ～ ) 的 变量 表示 低分辨率 层 的 描述符 ， 这样 导出 的 转换规则 如下 . 
+ 　 　 规则 1 . 照明 方向 和 漫 反射系数 相同 
+ 
+ 　 　 实验 表明 ， 基于 这一 假设 估计 的 照明 方向 和 表面 反射系数 几乎 不 受 分辨率 变化 的 影响 . 
+ 　 　 规则 2 . 较 高分辨率 层 的 表面 描述 由 相邻 低分辨率 层 的 描述 内 插 . 令 是 较 高分辨率 的 图像 尺寸 ， 对于 ， 较 高分辨率 层 的 形状 描述 是 
+ 如果 i 和 j 均 为 偶数 ， 
+ 如果 i 为 奇数 、 j 为 偶数 ， 
+ 如果 i 为 偶数 、 j 为 奇数 ， 　 　 ( 21 ) 
+ 
+ 如果 i 和 j 均 为 奇数 . 
+ 
+ 　 　 规则 3 . 利用 自然 的 边界条件 插补 边界 像素 ， 例如 对于 i = 1 和 j = 1 的 边界 有 
+ 　 　 ( 22 ) 
+ 　 　 本文 仅用 图像 取样 和 插 补 的 金字塔 法 实现 ， 分层 实现 的 更 复杂 方法 将 进一步 研究 . 
+ 3.2 　 迭代法 
+ 　 　 当 我们 组合 反射 图 参数估计 、 分层 实现 和 新 的 SFS 公式 ， 便 获得 分层 SFS 鲁棒 算法 ， 其 步骤 如下 ： 
+ 　 　 Step1 . 估计 反射 图 参数 ( τ ， γ ， η ， σ 0 ) ； 
+ 　 　 Step2 . 输入 图像 的 标准化 ， ， 把 输入 图像 尺寸 缩减到 最低 分辨率 层 的 尺寸 ， 并置 p0 , q0 和 z0 的 值 为 “ 0 ” ； 
+ 　 　 Step3 . 修改 现行 的 形状 重建 ， 对 每个 像素 ， 偏 导数 用 以下 导数 近似 
+ 
+ 式 中 对于 图像 框架 外 的 值 ， 利用 类似 规则 3 的 自然 边界条件 ， 这样 可用 下 式 修改 形状 重建 
+ 
+ 式 中 
+ 
+ If ｛ ( Solution   is   stable )   OR   ( Iteration   has   reached   Nmaxof   current   layer ) ｝ continue   to   Step   4 , otherwise   repeat ; 
+ 　 　 Step   4 .   If ｛ Current   image   is   in   the   highest   resolution 　 stop ; 
+ 　 　 Otherwise ｛ 
+ 　 　 ● 增加 图像 尺寸 ， 并用 式 ( 21 ) 和 ( 22 ) 扩展 形状 重建 到 相邻 较 高分辨率 层 ； 
+ 　 　 ● 把 标准化 的 输入 图像 缩减到 当前 的 分辨率 ； 
+ 　 　 ● Go   to   Step   3 ｝ . 
+ 
+ 4 　 实验 结果 与 结论 
+ 4.1 　 估计 照明 方向 和 漫 反射系数 
+ 　 　 本文 用 多种 实 图像 测验 算法 ， 其中 包括 彩色图像 、 分辨率 不同 图像 及 立体 图像 对 .  “ . r ” ， “ . g ” 和 “ . b ” 分别 表示 红 、 绿 和 蓝 ， “ . w ” 表示 由 三种 彩色 的 加权 和 产生 的 黑 ／ 白 图像 . 值得注意 的 是 ， 对于 实 图像 ， 图像 强度 出现 偏移 ， 这 依赖于 胶片 的 曝光 和 处理 . 实验 获得 的 结果 如表 1 . 
+ 表 1 　 实 图像 的 照明 方向 和 漫 反射系数 
+ 
+ 图像 τ γ η σ 0 
+ 人面 图像 - 1 . b10.7954 . 08127.7341 . 00 
+ 人面 图像 - 1 . g7.7459 . 52192.013 . 00 
+ 人面 图像 - 1 . r9.2942 . 89190.4754 . 00 
+ 人面 图像 - 1 . w11.7352 . 46162.2737 . 00 
+ 辣椒 - 1 . b26.0952 . 77137.460 . 00 
+ 辣椒 - 1 . g32.7445 . 25221.850 . 00 
+ 辣椒 - 1 . r22.566 . 50201.310 . 00 
+ 辣椒 - 1 . w20.4024 . 06173.240 . 00 
+ 
+ 
+ 4.2 　 利用 SFS 算法 的 实验 
+ 　 　 文中 利用 多幅 图像 测验 了 SFS 算法 ， 在 所有 实验 中 ， 令 μ = 1 , 最高 分辨率 层 的 Nmax 均 为 500 ， 迭代 从 ( p , q , Z ) = ( 0 , 0 , 0 ) 开始 ， 对 反射 图 的 偏 导数 、 Rp 和 Rq 进行 数值 计算 . 实验 使用 所有 的 图像 均 为 256 × 256 ， 高度 图 的 3 - D 曲线图 减小 为 64 × 64 . 图 1 ( a ) 给出 人面 的 输入 图像 ， 估计 的 反射 图 参数 为 τ = 7.74 ° ， γ = 59.52 ° ， η = 192.01 ° 和 σ 0 = 3 ； 图 1 ( b ) 为用 SFS 算法 获得 的 高度 ( Z ) 图 ； 图 1 ( c ) 是 图 1 ( b ) 的 3 - D 曲线图 ； 图 1 ( d ) 是 用 SFS 结果 生成 的 p 和 q 图 ； 图 1 ( e ) 表示 照明 天 顶角 变化 到 τ = 73.11 ° 由 SFS 处理 得到 的 ( p , q ) 图 产生 的 图像 . 图 2 给出 利用 SFS 算法 测验 的 辣椒 图像 ， 其中 ( a ) 为 输入 图像 ， 估计 的 反射 图 参数 为 τ = 32.74 ° ， γ = 45.25 ° ， η = 221.85 ° 和 σ 0 = 0 ； ( b ) 用 SFS 算法 获得 的 高度 图 ； ( c ) 是 ( b ) 的 3 - D 曲线图 ； ( d ) 为 利用 估计 的 反射 图 参数 由 SFS 处理结果 得到 的 ( p , q ) 图 产生 的 图像 ； ( e ) 表示 照明 天 顶角 变化 到 τ = 122.74 ° 由 SFS 处理 得到 的 ( p , q ) 图 产生 的 图像 . 
+ 
+ 
+ 图 1 　 利用 SFS 算法 测验 人面 的 图像 
+ 4.3 　 结 　 论 
+ 　 　 十多年 来 ， 从 明暗 求 形状 已经 进行 了 许多 的 研究 ， 此类 问题 涉及 许多 重要 理论 、 物理 定律 . 实际上 ， 我们 应当 求解 照明 方向 、 表面 反射系数 以及 利用 估计 的 反射 图 参数 复原 形状 等 问题 . 本文 已示 出 估计 拉普拉斯 成像 模型 的 反射 图 参数 及 重建 形状 的 鲁棒 算法 ， 通过 对 各种 不同 图像 进行 测验 ， 已经 获得 十分 令人满意 的 结果 . 在 本文 算法 中 ， 要求 重建 强度 的 梯度 接近 输入 图像 梯度 来 实现 平滑 约束 ， 在 这种 条件 下 ， 由于 能 从 输入 图像 导出 更 多 的 约束 ， 并且 斜率 与 高度 图可 同时 修正 ， 使 算法 更加 稳定 . 此外 ， 从 成本 函数 消 去 二次 项 ， 不仅 大大 减小 发射 项 和 可 积分 项内 的 剩余 误差 ， 而且 又 增加 了 重建 高度 图 的 动态 范围 ， 成功 地 解决 了 SFS 算法 分层 实现 各 分辨率 层间 的 通信 效率 ， 使 处理速度 大大 加快 ， 精确度 也 有 很大 提高 ， 为 解决 SFS 问题 的 实时 应用 奠定 了 基础 . 
+ 
+ 
+ 图 2 　 利用 SFS 算法 测验 辣椒 的 图像 
+ 1 )   国家自然科学基金 ( 69585002 ， 69785003 ) 及 博士点 基金 ( 96035902 ) 资助 项目 . 
+ 作者简介 ： 杨敬安 　 1969 年 毕业 于 合肥工业大学 无线电 系 ， 现为 该校 计算机 与 信息 学院 教授 ， 博士生 导师 ， IEEE 高级 会员 ， 纽约 科学院 Fellow . 长期 从事 计算机 视觉 、 图像 理解 、 模式识别 、 人工智能 与 机器人 的 教学 和 研究 工作 . 发表 学术论文 140 多篇 ， 出版 专著 2 部 ， 完成 国家自然科学基金 、 博士点 专项基金 及 国际 合作项目 10 多项 ， 获 部省级 科技进步 二 、 三等奖 三项 ， 在 多个 国际 学术 组织 内 兼职 . 
+ 作者 单位 ： 合肥工业大学 人工智能 研究所 　 合肥 　 230009 
+ 参考文献 
+ 1 　 Horn   B   K   P .   Obtaining   shape   from   shading   information .   The   Psychology   of   Machine   Vision ( P   H   Winston   Ed . ) .   New   York : McGram - Hill , 1975 ， 115 ～ 155 . 
+ 2 　 Horn   B   K   P .   Height   and   gradient   from   shading .   International   Journal   of   Computer   Vision , 1990 , 1 ( 5 ) ： 584 ～ 595 
+ 3 　 Horn   B   K   P .   Robot   Vision .   Cambridge , MA : MIT   Press , 1986 
+ 4 　 杨敬安 . 关于 融合 多针 图 确定 三维 表面 绝对 深度 的 研究 . 自动化 学报 ， 1996 ， 22 ( 1 ) ： 58 ～ 67 
+ 5 　 Peleg   S ,   Ron   G .   Nolinear   multiresolution : A   shape   from   shading   example . IEEE   Trans .   Pattern   Anal .   &   Mach .   Intell , 1990 ， 12 ( 12 ) ： 1206 ～ 1210 
+ 6 　 Pentland   A   P .   Finding   the   illuminant   direction .   J .   Opt .   Soc .   Amer . A , 1983 ， 72 ( 4 ) ： 448 ～ 455 
+ 7 　 Frankot   R   T ,   Chellappa   R .   Estimation   of   surface   height   in   synthetic   aperture   images   using   shape   from   shading   techniques . Arti 　 ficial   Intelligence , 1990 ， 43 
+ 8 　 杨敬安 ， 张 奠成 . 基于 特征 的 立体 视觉 并行 匹配 算法 的 研究 . 电子学 报 ， 1991 ， 19 ( 1 ) ： 36 ～ 43 
+ 9 　 杨敬安 . 由 双目 图像 流无 对应 地 估计 3 - D 运动 参数 . 计算机 学报 ， 1995 ， 18 ( 11 ) ： 849 ～ 857 
+ 收稿 日期 　 1997 - 11 - 07 　 收 修改稿 日期 　 1998 - 04 - 21 

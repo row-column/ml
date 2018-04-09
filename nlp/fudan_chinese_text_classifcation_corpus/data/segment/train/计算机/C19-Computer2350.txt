@@ -1,0 +1,174 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 8 期   Vol.36   No.8   1999 
+ 
+ 
+ 
+ 系统 动态 行为 语义 模型 及其 形式 描述 
+ 钱 　 军 　 　 　 冯玉琳 
+ 摘 　 要 　 文中 综述 刻画 系统 动态 行为 的 计算 模型 和 形式化 方法 ， 包括 算法 模型 、 逻辑 模型 ， 基于 进程 代数 的 模型 和 方法 、 I / O 自动机 、 Petri 网及 Actor 模型 ， 并 有 针对性 地 从 本质 上 分析 和 比较 了 它们 在 描述 系统 动态 行为 方面 的 特点 和 优劣 . 文中 还 着重 剖析 了 基于 网络 环境 下 的 分布 对象 计算 系统 的 一些 主要 计算 特征 ， 包括 交互 、 并发 和 分布 等 . 文中 是 以 一个 全新 的 角度 去 审视 那些 主要 的 、 较为 成熟 的 模型 和 方法 ， 针对 分布 对象 计算 系统 的 动态 行为 特点 加以分析 和 比较 ， 为 系统地 建立 分布 对象 计算 系统 的 计算 模型 和 语义 理论 打下 一定 基础 . 
+ 关键词 　 动态 行为 ， 语义 模型 ， 形式 描述 ， 交互 ， 并发 ， 分布 
+ 中图法 分类号 　 TP311 ； TP311.1 ； TP311.5 
+ SEMANTIC   MODELS   AND   FORMAL   DESCRIPTIONS   OF   SYSTEM   DYNAMIC   BEHAVIORS 
+ QIAN   Jun   and   FENG   Yu - Lin 
+ ( Laboratory   of   Computer   Science ,   Institute   of   Software ,   Chinese   Academy   of   Sciences ,   Beijing   100080 ) 
+ ( Object   Technology   Center ,   Institute   of   Software ,   Chinese   Academy   of   Sciences ,   Beijing   100080 ) 
+ Abstract 　 For   the   description   of   dynamic   behaviors   of   software   systems ,   some   important   existing   models   are   analyzed   and   compared ,   including   algorithm   models ,   logic   models ,   models ,   and   formal   calculi   based   on   process   algebra ,   I / O   automata ,   Petri   nets ,   and   actor   models .   In   addition ,   some   crucial   properties   of   object   interactive   systems   such   as   interaction ,   concurrency ,   and   distribution   are   also   discussed .   As   part   of   a   larger   project   which   focuses   on   the   direction   of   component   software   theory   and   design   methodology ,   this   work   will   help   to   clear   the   concept ,   consolidate   the   understanding ,   and   lay   down   a   deep   foundation   for   the   research   on   model   and   semantics   of   distributed   object   computation   and   the   specification   and   verification   of   an   object   system . 
+ Key   words 　 dynamic   behavior ,   semantic   model ,   formal   description ,   interaction ,   concurrency ,   distribution 
+ 1 　 引 　 言 
+ 　 　 系统 的 动态 行为 是 系统 计算 特征 的 具体 体现 . 从 软件系统 的 过程 来看 ， 主要 可 分为 以下 两个 阶段 ： 算法 可 计算 的 软件系统 分析 、 设计 与 实现 和 交互式 计算 的 软件系统 分析 、 设计 与 实现 . 
+ 　 　 计算 概念 有着 非常 丰富 的 内涵 . 要 弄清 什么 是 计算 ， 就 必须 对 以下 几个 方面 有 足够 的 认识 和 理解 ： 
+ 　 　 ( 1 )   计算 的 数学模型 ； 
+ 　 　 ( 2 )   计算 的 形式 描述 ； 
+ 　 　 ( 3 )   可计算性 ； 
+ 　 　 ( 4 )   计算 复杂性 ； 
+ 　 　 很 明显 ， 可计算性 和 计算 复杂性 的 研究 和 讨论 建立 在 对 计算 模型 的 选取 和 对 计算 的 形式化 描述 之上 . 可以 说 ， 计算 是 对 过程 的 一种 高度 抽象 . 过去 是 对 算法 行为 过程 的 抽象 ， 现在 是 对 复杂 系统 的 行为 过程 的 抽象 . 小到 一条 机器指令 ， 大到 一个 复杂 系统 ， 其 运行 虽 都 可 称为 计算 ， 但 这 是 有 区别 的 . 算法 可 计算 可以 抽象 为 从 输入 到 输出 的 函数 映射 ， 是 一个 封闭 的 计算 过程 . 而 复杂 系统 的 计算 ， 由 系统 与 外部环境 的 交互 ( interaction ) 及 系统 内部 各 组件 间 的 协同工作 来 完成 ， 是 一个 开放 的 、 并发 的 、 同时 又 可能 是 分布 的 计算 过程 . Turing 机是 算法 计算 模型 的 代表 ， λ 演算 是 形式化 描述 算法 可 计算 系统 的 代表 . Turing 机用 一条 有穷 输入 带 和 一组 状态 转移 规则 描述 计算 过程 ， λ 演算 则 用 抽象 的 数学 符号 来 表示 函数 ， 两者 具有 相同 的 表达能力 . 而 复杂 系统 ( 或 称为 交互式 系统 ) 的 计算 模型 尚无 定论 ， 该 方向 的 研究 属于 计算机科学 理论 的 前沿 课题 . 总之 ， 可以 把 计算机 软件系统 的 计算 方向 概括 为 ① 从 串行 计算 向 并发 计算 转移 ； ② 从 封闭 计算 向 开放 计算 转移 . 
+ 　 　 计算机 的 发展趋势 是 计算机硬件 的 运行 速度 越来越快 、 成本 越来越低 、 体积 越来越 小 ， 而 计算机软件 的 发展 却 刚好 相反 . 软件 的 规模 越来越 大 、 运行 时间 越来越 长 ， 维护 和 测试 的 费用 越来越 高 . 我们 需要 软件 开发人员 对 软件系统 形成 的 全过程 有 一个 可靠性 保证 ， 但 仅仅 依靠 对 软件 的 测试 和 维护 是 不够 也 是 行不通 的 ， 因为 软件测试 不 可能 从 理论 上 保证 软件 永远 不会 出错 . 严格 地 讲 ， 只有 在 软件 的 分析 、 设计 和 实现 的 整个 过程 中 采用 严格 的 形式化 方法 ， 才能 保证 最后 得到 的 是 一个 可靠 的 、 正确 的 软件系统 . 当然 ， 我们 也 知道 ， 不 可能 存在 一个 能 描述 现实 世界 所有 特征 的 、 完备 的 形式系统 . 
+ 　 　 实际上 ， 计算机 软件系统 除了 具有 诸如 动态 行为 特征 之外 ， 还 具有 诸如 数据类型 、 组成 结构 等 静态 特征 ， 如 对象 系统 的 类 、 继承 、 封装 性 等 . 系统 的 静态 特征 并 不 完全 孤立 在 系统 的 动态 特征 之外 ， 如 在 研究 面向对象 的 并发程序 设计 语言 时 就 发现 有 继承 异常 的 现象 ［ 1 ］ . 有关 这方面 的 研究 虽然 也 很 重要 ， 但 不是 我们 这次 讨论 的 重点 . 我们 把 重点 放在 计算 方面 ， 即 刻画 系统 的 动态 行为 特征 之上 . 
+ 　 　 研究 系统 动态 行为 的 模型 和 方法 已有 不少 . 其中 ， 基于 逻辑 的 形式化 方法 主要 有 一阶 线性 / 分支 时序 逻辑 ［ 2 ］ 、 模态 μ 演算 ［ 3 ］ 、 分布 时序 逻辑 、 TLA ［ 4 ］ 以及 线性 逻辑 ［ 5 ］ 等等 . 它们 可以 用来 描述 系统 的 生命期 约束 性质 ， 如 系统 的 安全性 、 活性 、 公平性 及 不变性 等 . 在 逻辑 的 形式 公理 系统 上 ， 还 可以 进行 系统 的 特性 推理 . 而 基于 刻画 系统 行为 关系 的 模型 和 方法 又 主要 分为 并发 ( interleaving ) 模型 和 真 并发 模型 两种 . Interleaving 模型 把 系统 的 并发 特性 降低 为 某种 抽象层次 上 的 非 确定性 ， 强调 系统 动作 的 原子 性 . 真 并发 模型 强调 在 系统 内部 不 存在 统一 时钟 ， 并发 事件 之间 不 存在 因果关系 . Interleaving 在 一定 程度 上 简化 了 系统 的 并发 特征 ， 因此 采用 这种 模型 来 描述 系统 的 并 发行 为 的 方法 很多 ， 较为 典型 的 有 CCS ， CSP ， ACP 等 基于 进程 代数 的 模型 和 方法 ［ 6 ～ 8 ］ ， 以及 I / O 自动机 、 Bchi 自动机 等 自动机 模型 ［ 9 ， 10 ］ . 相对 于 逻辑 方法 ， 基于 进程 代数 的 模型 和 形式化 描述 方法 能够 刻画 更为 细致 的 系统 行为 关系 . CCS 和 CSP 都 具有 很 好 的 代数 性质 ， 它们 不仅 具有 刻画 系统 行为 的 模型 ， 还 具有 进行 推理 的 形式演算 系统 . 此外 ， CCS 还 用互 模拟 关系 刻画 进程 间 的 等价关系 ， 实际上 保证 了 系统 规范 和 实现 的 语义 一致性 . I / O 自动机 则 是 一种 简单 而 有力 的 分布式系统 的 计算 模型 ， 它 的 特点 是 区分 动作 类型 ， 强调 分布 系统 的 事件驱动 特征 ， 即 在 系统 运行 ( 计算 ) 的 任意 时候 ， 系统 都 可 接受 外部 输入 动作 . 描述 系统 行为 的 真 并发 模型 有 Petri 网 、 Pomest 、 事件 结构 等 ［ 11 ～ 13 ］ . 其中 ， Petri 网 有着 广泛 的 应用 ， 它 可以 揭示 系统 的 许多 并发 特性 ， 但 缺点 是 只有 模型 而 没有 演算 . Actor 模型 是 专为 面向对象 的 并发程序 语言 而 设计 的 ， 支持 并发 、 异步 通信 和 简单 内部 状态 的 对象 计算 模型 ［ 14 ］ . 最后 本文 还 讨论 了 基于 对象 组件 的 交互 计算 模型 . 交互 、 并发 和 分布 是 网络 环境 下 分布 对象 计算 系统 的 主要 特征 . 作为 本文 的 总结 ， 我们 针对 分布 对象 计算 系统 的 主要 特征 ， 对 几种 不同 的 计算 模型 和 方法 进行 了 综合性 的 分析 和 比较 . 
+ 2 　 基于 逻辑 的 模型 和 方法 
+ 　 　 从 逻辑 的 角度 出发 研究 系统 的 行为 特征 ， 侧重于 描述 系统 的 生命期 约束 和 协作 约束 . 传统 的 算法 可 计算 系统 ， 由于 其 计算 的 封闭性 ， 可以 看作 是 一个 由 有 穷 输入 到 有 穷 输出 的 函数 映射 . 采用 Hoare 逻辑 或 Dijkstra 的 最弱 前 谓词 理论 ， 就 可以 通过 程序模块 的 前后 谓词 断言 来 有效 地 描述 程序 语义 ， 即 刻画 算法 可 计算 系统 的 动态 行为 约束 . Hoare 逻辑 和 最弱 前 谓词 理论 都 属 一阶 线性 逻辑 范畴 . 
+ 　 　 Lamport 在 70 年代 末 提出 把 并发 和 反应 ( reactive ) 系统 的 性质 分为 两类 ， 即 安全性 和 活性 . 非 形式 地 讲 ， 安全性 描述 的 是 “ 系统 不 期望 发生 的 事件 永远 不会 发生 ” ， 而 活性 描述 的 是 “ 系统 预期 行为 终究会 发生 ” . 由于 系统 计算 可能 不会 终止 ， 系统 不能 再 看作 是 由 输入 到 输出 的 映射 ， 因此 Hoare 逻辑 和 最弱 前 谓词 理论 不再 适用 于 描述 这 类 具有 非 函数 特征 的 系统 的 动态 行为 . 时序 逻辑 将 一阶 逻辑 加以 扩充 ， 增加 了 表示 时序 的 模态 算子 ， 可以 方便 地 描述 并发 和 反应 系统 的 这 两类 约束 性质 ： 
+ 
+ 其中 ， G ， F 分别 为 always 算子 和 eventually 算子 . 
+ 　 　 自从 Pnuli 于 70 年代 末 首先 使用 时序 逻辑 来 推理 并发 系统 以来 ， 这种 形式化 方法 得到 了 很快 发展 . 比较 典型 的 有 Kozen 的 模态 μ 演算 ［ 3 ］ ； Clarke 等 人 的 CTL  ［ 2 ］ ， Fisher 和 Ladner 的 动态 逻辑 ［ 15 ］ ； Chandy 和 Misra 的 Unity 逻辑 ［ 16 ］ 以及 Manna 和 Pnuli 的 并发 与 反应 程序逻辑 ［ 17 ］ ;   Lamport 的 TLA ( temporal   logic   of   actions ) ［ 4 ］ 和 Ehrich 的 分布 时序 逻辑 . 其中 ， 模态 μ 演算 在 时序 逻辑 的 基础 上 又 增加 了 “ 任意 动作 ” ( ［ act ］ ) 和 “ 存在 动作 ” ( 〈 act 〉 ) 两个 模态 算子 ， 以及 描述 递归 的 最小 不动点 和 最大 不动点 ， 为 进一步 细致 描述 系统 的 行为 约束 提供 了 有利 工具 . 
+ 　 　 时序 逻辑 的 语义 是 基于 行为 的 . 所谓 行为 ， 即 指 系统 状态 的 一个 无限 序列 ， 或 称为 踪迹 ( trace ) . 所有 可能 的 踪迹 构成 系统 的 生命周期 . 动作 一般 解释 为 新旧 状态 间 的 关系 ， 代表 并发程序 的 一个 原子 操作 . 结合 代数 规范 ［ 18 ］ ， 还 可以 加入 对系统 的 静态 结构 描述 ， 较为 典型 的 有 Ehrich 的 对象 规范 . 我们 采用 时序 逻辑 结合 代数 规范 的 方法 ， 给出 一个 刻画 对象 封装 性 的 对象 演算 ［ 19 ～ 21 ］ . 遗憾 的 是 ， 在 分支 时序 逻辑 上 建立 可靠 而 完备 的 形式 公理 系统 是 一件 艰巨 的 任务 . 直到 1995 年 ， Walukiewiez 才 给出 了 一个 命题 μ 演算 的 公理 系统 ［ 22 ］ . 一阶 线性 分支 时序 逻辑 或 一阶 模态 μ 演算 的 完备 形式系统 至今 不得而知 . 
+ 3 　 基于 进程 代数 的 模型 和 方法 
+ 　 　 CCS 和 CSP 是 进程 代数 方法 的 代表 ， 是 描述 通信 和 并发 的 演算 系统 . 它们 均 以 进程 为 计算 单位 ， 进程 的 基本 组成 是 原子 性 动作 . 所谓 原子 性 ， 是 指 动作 不可 再 分 ， 且 动作 执行 是 瞬时 的 . 在 两个 演算 系统 中 ， 进程 间 交互 以 双方 握手 ( handshake ) 来 完成 ， 是 一种 同步 通信 方式 . 同时 ， CCS 和 CSP 都 是 既有 模型 又 有 演算 . 当然 ， CCS 和 CSP 之间 也 有 不同 . CCS 用 同步 树 ( synchronization   tree ) 表示 进程 ， 或 称为 状态 转移 图 ； 而 CSP 用 失败 集 ( failure   set ) 表示 进程 . 在 CCS 中 ， 使用 操作 语义 ( 互 模拟 语义 ) 解释 进程 ( 的 等价 性 ) ； 而 在 CSP 中 ， 则 使用 指称 语义 ( 失败 语义 ) 解释 进程 ( 的 等价 性 ) . 
+ 3.1 　 CSP 的 失败 集 
+ 　 　 在 CSP 中 ， 进程 运行 的 环境 能够 否决 进程 的 某些 动作 的 执行 . 在 进程 执行 到 其 准备 做 的 任何 可能 的 动作 均 被 环境 拒绝 时 ， 就 发生 死锁 ( deadlock ) . 因此 ， 一个 进程 的 历史 ( 行为 ) 要么 是 一条 踪迹 ( trace ) ， 要么 就是 踪迹 后 跟 一个 死锁 进程 . 
+ 　 　 令 A 表示 动作 集合 ， ω ∈ A 为 踪迹 ， 表示 进程 迄今为止 已 执行 的 动作 序列 . XA 称为 一个 拒绝 集 ， 表示 进程 可能 做不了 的 动作 . ( ω , X ) 组成 一个 失败 对 ， 所有 失败 对 的 集合 称为 失败 集 . CSP 的 进程 就 用 失败 集 表示 . 因此 ， 在 CSP 中 ， 进程 完全 由 所有 可能 的 有限 经历 观察 得到 . 两个 进程 称为 失败 等价 ( failure   equivalent ) ， 当且 仅 当 它们 拥有 相同 的 失败 集 . CSP 的 进程 表达 如下 ： 
+ 
+ 　 　 则 F 表示 一个 CSP 进程 . 
+ 3.2 　 CCS 的 状态 转移 图 
+ 　 　 令 L 为 一个 名字 的 集合 ， 为 L 的 共轭 名字 集合 ， . 令为 内部 动作 ( 外部 不可 观察 的 动作 ) ， 记 . 函数 为 换名 函数 ， 满足 ： . 令 V 为 ( 进程 ) 变量 集合 ， 则 CCS 的 进程 表达式 定义 如下 ： 
+ 
+ 　 　 在 CCS 中 ， 进程 被 认为 是 状态 的 转移 ， 但 和 自动机 有 本质 的 不同 . 一部 自动机 虽然 也 是 一张 状态 转移 图 ， 但 它 是 按照 其 接受 的 语言 来 刻画 的 . 自动机 接受 的 语言 满足 分配律 ， 而 CCS 进程 却 不 满足 ， 即 a . ( b + c ) 与 a . b + a . c 并 不 代表 同一个 进程 . 这 也 是 为什么 不 把 CCS 进程 看作 自动机 的 一个 缘故 . 
+ 　 　 一个 CCS 进程 对应 着 一张 带有 动作 标记 的 状态 转移 图 ， 这里 的 状态 由 进程 未 执行 的 动作 决定 . 不同 的 状态 转移 图 可能 表示 的 是 同一个 进程 . CCS 用 进程 间 的 互 模拟 关系 ( bisimulation   relation ) 来 刻画 两个 进程 的 等价 性 . 我们 称 进程 g 和 h 之间 存在 互 模拟 关系 R ， 记为 gRh , 或 ( g , h ) ∈ R . 如果 ： 
+ 　 　 ( 1 )   若 ( s , t ) ∈ R ， 且 g 中有 边 sas ′ ， 则 h 中 一定 存在 边 tat ′ ， 且 ( s ′ , t ′ ) ∈ R ； 
+ 　 　 ( 2 )   若 ( s , t ) ∈ R ， 且 h 中有 边 tat ′ ， 则 g 中 一定 存在 边 sas ′ ， 且 ( s ′ , t ′ ) ∈ R . 
+ 　 　 其中 s , s ′ 和 t , t ′ 分别 为 进程 g 和 进程 h 的 状态 . 
+ 3.3 　 并发 模型 
+ 　 　 CCS 和 CSP 等 进程 代数 的 演算 系统 均 采用 Interleaving 模型 描述 并发 ， 实质 上 是 用 非 确定性 特性 代替 系统 的 并发 特征 . 能够 这样 做 的 理由 一是 保持 动作 的 原子 性 ， 二是 在 一定 程度 上 对 问题 进行 简化 ， 这样 才能 为 系统 带来 良好 的 代数 性质 . 如 CCS 可以 用 刻画 非 确定性 的 选择 算子 “ + ” 和 内部 动作 τ 来 表示 进程 的 复合 算子 “ | ” 及 进程 间 的 同步 通信 ， 因此 由 前缀 算子 “ . ” 、 选择 算子 “ + ” 及 包含 内部 动作 τ 的 动作 集 A τ ＝ A ∪ ｛ τ ｝ 就 构成 一个 所有 进程 都 满足 的 代数 系统 ( 等值 公理 系统 ) . 
+ 　 　 进程 代数 系统 采用 Interleaving 模型 描述 并发 的 缺点 是 很多 并发 现象 不能 描述 ， 如 组件 对象 内部 多线程 的 并发 执行 . 毫无疑问 ， 非 确定性 并 不能 代替 并发 . 
+ 3.4 　 同步 通信 及 异步 通信 
+ 　 　 标准 的 CCS 和 CSP 均 以 同步 通信 的 方式 描述 进程 间 的 交互 ， 即 消息 的 发送 方 必须 是 在 接受方 处于 能够 接受 消息 的 状态 下 ， 才能 向 接受方 发送 消息 ， 否则 发送 消息 的 一方 就 得 等待 . 在 进程 双方 进行 通信 的 时刻 ， 不 允许 外部环境 的 介入 ， CCS 中 由 限制 算子 “ \ ” 刻画 . 
+ 　 　 但是 ， 基于 网络 环境 下 的 分布 计算 系统 通常 采取 异步 通信 的 方式 进行 交互 ， 即 消息 的 发送 方 可以 随时 发出 消息 ， 不必 与 接受方 保持 同步 . 同时 ， 发送 方在 发出 消息 后 可以 立即 执行 其它 的 动作 . 在 CCS 的 基础 上 进行 一定 的 改进 ( 从 语法 上 ， 或 从 语义上 ) ， 可以 得到 描述 异步 通信 的 演算 系统 ［ 23 ～ 25 ］ . 另外 ， 消息 的 接受 方式 又 可 分为 无 同步 约束 的 消息 接受 方式 和 有 同步 约束 的 消息 接受 方式 . 
+ 4 　 自动机 模型 
+ 　 　 用 自动机 研究 系统 的 动态 行为 也 是 一种 常见 的 方法 . I / O 自动机 ( input - output   automaton ) 就是 其中 的 一种 . 其 特点 主要 有 ： 
+ 　 　 ( 1 )   区分 动作 类型 
+ 　 　 I / O 自动机 的 一个 基本概念 就是 动作 基调 ( action   signature ) ， 即 三元组 Sig ( A ) = ( in ,   out ,   int ) , 其中 in , out , int 分别 是 3 个 互不 相交 的 动作 集合 ， in 是 输入 动作 集 , out 是 输出 动作 集 ， int 是 内部 动作 集合 . ext = in ∪ out 为 外部 动作 集合 ， local = out ∪ int 为 系统 ( 自动机 ) 局部 控制 的 动作 集合 ， Act = in ∪ out ∪ int 为 所有 动作 的 集合 . 
+ 　 　 ( 2 )   自动机 在 任意 时刻 都 能 接受 外部 输入 动作 
+ 　 　 输入 动作 的 这种 特殊性 ， 反映 了 分布 系统 的 事件驱动 特征 . 若 把 一部 I / O 自动机 记 为 一个 五元 组 A = ( Q , Q0 , S , T , P ) ， 其中 ： 
+ 　 　 
+ 则 A 具有 性质 ： 对 任意 输入 动作 a ∈ in 和 状态 q ∈ Q ， 存在 q ′ ∈ Q ， 使得 ( q , a , q ′ ) ∈ T . 
+ 　 　 ( 3 )   自动机 可以 复合 ( composition ) 
+ 　 　 根据 以上 分析 ， 我们 可以 对 I / O 自动机 就 描述 系统 动态 行为 做 如下 简要 评述 ： 
+ 　 　 ［ 并发 ］   I / O 自动机 与 CCS 一样 ， 采用 Interleaving 模型 描述 并发 ， 动作 保持 原子 性 . 这点 在 分析 CCS 模型 时 已 做 过 评述 ， 这里 不再 重复 . 
+ 　 　 ［ 分布 ］   I / O 自动机 区分 动作 类型 ， 主要 反映 在 区分 系统 内部 可 控制 动作 和 系统 不可 控制 的 外部 输入 动作 . 自动机 在 任意 时刻 都 能 接受 外部 输入 动作 ， 反映 了 分布 系统 的 事件驱动 特征 . I / O 自动机 的 这 一 特点 很 适合 描述 分布式 软件系统 的 动态 行为 特征 . 
+ 5 　 Petri 网 
+ 　 　 一些 并发 理论 既 给出 并发 模型 又 给出 演算 系统 ， 如 CCS 和 CSP 等 . 而 Petri 网只 给出 模型 ， 而 没有 演算 . 但是 Petri 网是 一种 真 并发 模型 ， 它 虽 不能 像 程序 那样 执行 ， 不能 像 CCS 那样 有 漂亮 的 演算 系统 ， 但 它 可以 刻画 更 多 的 并发 现象 ， 如 并发 、 矛盾 及 接触 等等 . 
+ 　 　 Petri 网有 两个 基本要素 ： 条件 和 事件 . 每当 一定 的 条件 满足 时 ， 相应 的 事件 便 可 发生 ， 然后 原来 的 条件 发生变化 ， 一些 条件 从 成立 变为 不 成立 ， 另 一些 条件 又 从不 成立 变为 成立 ， 于是 ， 又 有 一些 新 事件 可以 发生 . 
+ 　 　 Petri 网用 点火 和 转移 规则 描述 系统 从 一个 状态 到 另 一个 状态 的 迁移 . 一组 事件 之间 如果 没有 因果关系 ， 则 可以 并发 点火 . Petri 网 描述 的 系统 中 不 存在 一个 统一 的 时钟 ， 这是 网论 的 本质 . 
+ 　 　 主要 的 Petri 网有 两种 ： C / E 系统 和 P / T 系统 . C / E 系统 是 条件 / 事件 系统 的 简称 ， 具有 良好 的 选择 ， 如网 的 格局 ( case ) 间 相通 ， 且 对 每个 事件 都 存在 格局 ， 使 之 能够 在 此 状态 下 点火 . P / T 系统 是 位置 / 变迁 系统 的 简称 ， 与 C / E 系统 相比 ， P / T 系统 有 许多 特异 现象 ， 如 ： 
+ 　 　 ( 1 )   一个 位置 中 可以 有 多个 标码 ， 一次 变迁 可以 使 多个 标码 沿弧 流动 ； 
+ 　 　 ( 2 )   同一 变迁 可以 反复 连续 发生 ； 
+ 　 　 ( 3 )   同一 变迁 可以 “ 自我 并发 ” 地 多重 发生 ； 
+ 　 　 ( 4 )   同一 网 结构 可以 既 呈现 矛盾 又 呈现 并发 . 
+ 　 　 限于 篇幅 ， 我们 不再 深入 讨论 Petri 网 的 定义 和 细节 . 我们 只 对 用 Petri 网来 描述 软件系统 的 动态 行为 做 一些 分析 和 比较 . 
+ 　 　 ［ 并发 ］   Petri 网是 一种 真 并发 模型 ， 用 它 可以 描述 更 多 的 并发 现象 . 针对 分布 对象 系统 中 交互 引起 的 多 输入 流 并发 现象 ， 可 考虑 采用 Petri 网 描述 . 
+ 　 　 ［ 交互 ］   Petri 网 只有 模型 ， 而 没有 演算 . 为 给出 Petri 网 更 多 的 代数 性质 ， 有人 最近 用 Pomset 解释 Petri 网 的 语义 ［ 26 ］ . 总的来说 ， 利用 Petri 网来 验证 系统 的 计算 和 语义 特性 较为 困难 . 不过 ， 我们 可以 把 Petri 网 描述 并发 的 思想 应用 到 刻画 系统 组件 的 交互 之中 . 
+ 6 　 Actor 模型 
+ 　 　 这是 我们 将要 分析 的 最后 一个 重要 模型 . 把 Actor 模型 放在 最后 ， 是因为 它 是 专为 面向对象 并发程序 设计 语言 COOP 而 设计 的 一个 对象 计算 模型 ， 具有 强烈 的 针对性 . 
+ 　 　 在 Actor 模型 中 ， 计算 单位 称为 actor , 它 是 一个 自 包含 的 ( self - contained ) 、 交互 的 、 独立 的 对象 ， actor 包含 3 个 基本操作 ： 
+ 　 　 ( 1 )   create ： 负责 创建 新 的 actor , 把 由 函数 抽象 提供 的 动态 资源 的 创建 能力 扩展 到 并发 计算 ； 
+ 　 　 ( 2 )   send   to ： 负责 向 actor 发送 消息 . 每个 actor 都 有 一个 消息 列 和 一个 固定 的 mail 地址 ， 在 创建 该 actor 时 就 已 确定 下来 ； 
+ 　 　 ( 3 )   become ： 用 新 行为 替换 旧 行为 ， 给定 actor 一个 历史 相关 的 行为 ( 状态 ) . 
+ 
+ 
+ 图 1 　 Actor 模型 
+ 　 　 Actor 模型 主要 有 以下 特点 ： 
+ 　 　 ［ 模型 ］   刻画 面向对象 的 软件系统 ， 如 一个 actor 可以 在 计算 过程 中 创建 新 的 actor . 
+ 　 　 ［ 交互 ］   每个 actor 都 有 一个 消息 buffer ， 因此 actor 之间 采用 异步 通信 方式 . 
+ 　 　 ［ 并发 ］   Actor 的 动作 保持 原子 性 . 描述 系统 的 并发 模型 仍 是 interleaving 模型 . 
+ 　 　 ［ 状态 ］   在 Actor 计算 过程 中 ， 状态 改变 是 由 行为 替换 操作 become 来 完成 的 . 注意 ， 这里 的 状态 并 不是 一般 意义 下 的 对象 属性 状态 ， 它 仅仅 记载 actor 行为 的 改变 ， 即 从 执行 一条 消息 转变 为 执行 消息 列上 的 下 一条 消息 . 
+ 　 　 ［ 演算 ］   讨论 actor 计算 的 语义 模型 ， 以及 定义 在 其 上 的 代数 演算 ［ 27 ］ ， 包括 actor 的 并行 复合 、 内部 actor 的 隐藏 及 重命名 等 . 
+ 7 　 对象 交互 计算 模型 的 讨论 
+ 　 　 随着 对象 技术 的 发展 和 成熟 ， 各大 计算机 公司 陆续 推出 的 新一代 软件 标准 和 产品 ， 如 CORBA / DSOM / OPENDOC ， COM / OLE / ActiveX , Java / JavaBeans 等 ， 它们 改变 了 传统 的 软件系统 的 过程 结构 和 瀑布 型 软件工程 开发方法 ， 使得 软件系统 可以 由 一些 预制 的 或 重新 定义 的 软件 模块 经 组合 装配 而成 ， 具有 良好 的 可 互操作性 、 维护性 和 软件资源 的 可 复用 性 ［ 29 ， 30 ］ . 基于 网络 环境 下 的 分布 对象 计算 系统 是 目前 最为 主要 的 一种 交互式 计算 软件系统 . 其 特点 主要 有 ： ( 1 )   交互 ( interactive ) ； 
+ 　 　 ( 2 )   并发 ( concurrent ) ； 
+ 　 　 ( 3 )   分布 ( distributed ) ； 
+ 　 　 ( 4 )   主动 对象 ( active   objects ) ； 
+ 　 　 ( 5 )   移动 对象 ( mobile   objects ) ； 
+ 　 　 ( 6 )   具有 内部 属性 状态 ； 
+ 　 　 ( 7 )   具有 生命期 ( 从 创建 到 消亡 ) ； 
+ 　 　 ( 8 )   一些 非 函数 特征 ： 安全性 ( security ) 、 实时 、 概率 等 . 
+ 其中 ， 交互 、 并发 和 分布 是 对象 交互 计算 系统 的 三维 主要 特征 ［ 31 ， 32 ］ . 
+ 
+ 
+ 图 2 　 对象 交互 计算 系统 的 三维 计算 特征 模型 
+ 　 　 交互 是 系统 的 本质特征 ， 系统 行为 复杂 的 主要 根源 就是 由 交互 引发 的 . 具有 与 不可 控制 的 外部环境 的 交互 行为 ， 系统 才 称得上 是 开放 的 计算 系统 ， 才 是 复杂 系统 . 处于 网络 分布 环境 下 的 对象 系统 交互 通常 采用 消息传递 的 异步 通信 式 . 异步 方式 使得 消息 发送 方 不必 与 消息 接受方 保持 同步 ， 在 发出 消息 后 可以 立即 执行 其他 动作 . 消息 的 接受方 又 可 按 无 同步 约束 的 消息 接受 方式 在 接收 到 消息 后 立即 给予 执行 ， 或 按 有 同步 约束 的 消息 接受 方式 接收 消息 . 同步 约束条件 主要 与 对象 的 属性 状态 相关 . 
+ 　 　 并发 是 主动 对象 的 固有特征 . 主动 对象 的 含义 是 内部 存在 一个 独立 控制流 . 并发 允许 对象 同时 接受 多个 输入 流 ， 允许 在 对象 内部 有 多线程 同时 存在 . 因此 ， 为 使 系统 完成 预期 的 任务 ， 就 必须 对 并发 采取 控制 . 
+ 　 　 分布 是 指 对象 系统 的 子 对象 在 物理 上 可以 位于 网络 的 不同 主机 之上 . 分布 使得 对象 通信 具有 异步 和 延迟 的 特征 . 
+ 　 　 对象 交互 计算 的 模型 尚无 定论 ， 对象 交互 计算 系统 的 演算 也 有待 研究 . 已有 的 一些 工作 包括 ： Honda , Tokoro 等 人 建立 在 异步 通信 基础 上 的 对象 演算 ［ 23 ， 24 ］ ， Nierstrasz 等 人 对 开放系统 的 复合 语言 的 研究 ［ 33 ］ ， Ehrich 等 利用 分布 时序 逻辑 对 对象 系统 的 生命期 进行 规范 ， 等等 . 但 对 分布 对象 计算 系统 的 动态 行为 的 语义 模型 和 形式化 演算 的 系统 研究 还 需 进一步 讨论 . 
+ 8 　 综合 分析 与 比较 
+ 　 　 现在 ， 我们 针对 对象 交互 计算 系统 的 动态 行为 特征 ， 对 以上 各节 所 讨论 的 模型 和 形式 方法 的 作用 进行 综合 比较 . 
+ 对象 交互 计算 系统 计算 的 动态 特征 
+ 
+ 　 交互 并发 分布 移动 计算 内部 属性 状态 生命期 约束 性质 
+ 同步 通信 异步 通信 真 并发 交错 并发 
+ 算法 模型 　 　 　 　 　 
+ 逻辑 模型 　 　 　 　 　 结合 代数 规范 
+ 进程 代数 扩充 　 　 高阶 　 　 
+ I / O 自动机 　 　 　 　 　 
+ Petri 网 　 　 　 　 　 
+ Actor 模型 　 　 　 　 　 
+ 
+ 　 　 主要 计算 模型   
+ 图 3 　 对 描述 系统 动态 行为 的 一些 主要 模型 的 一个 综合 分析 
+ 　 　 从中 我们 可以 看到 ， 算法 模型 是 不 考虑 与 外部环境 交互 的 计算 模型 . 
+ 9 　 总 　 结 
+ 　 　 从 算法 模型 、 逻辑 模型 、 CCS 、 I / O 自动机 、 Petri 网到 Actor 模型 ， 我们 逐步 分析 和 比较 了 它们 在 描述 系统 动态 行为 方面 的 特点 和 优劣 . 分布 对象 计算 系统 是 不同于 算法 可 计算 系统 的 复杂 系统 ， 要 想 找到 一个 大而全 的 计算 模型 和 形式演算 来 刻画出 系统 的 所有 特征 是 不 可能 的 . 在 保证 形式 系统可靠性 的 同时 ， 我们 放宽 对 完备 性 的 要求 ， 在 有 限制 的 前提 下 ， 寻找 适当 的 计算 模型 和 形式 方法 来 规范 和 验证 我们 的 系统 ， 不失为 一种 好 策略 . 
+ 基金项目 ： 本 课题 得到 国家自然科学基金 重点项目 资助 ( 项目编号 69833030 ) . 
+ 作者简介 ： 钱军 ， 男 ， 1966 年 10 月生 ， 博士 研究生 ， 研究 方向 为 分布 对象 计算 、 形式化 方法 . 冯玉琳 ， 男 ， 1942 年 7 月生 ， 研究员 ， 博士生 导师 ， 研究 方向 为 软件工程 、 形式化 方法 及 分布 对象 技术 . 
+ 作者 单位 ： 钱 　 军 　 冯玉琳 　 中国科学院 软件 研究所 计算机科学 开放 研究 实验室 　 北京 　 100080 　 中国科学院 软件 研究所 对象 技术 中心 　 北京 　 100080 ) 
+ 参考文献 
+ 1 　 　 Matsuoka   S ,   Yonezawa   A .   Analysis   of   inheritance   anomaly   in   object - oriented   concurrent   programming   language .   In :   Agha   G ,   Wegner   P ,   Yonezawa   A   eds .   Research   Directions   in   Concurrent   Object - Oriented   Programming .   Cambridge ,   MA :   MIT   Press ,   1993 
+ 2 　 　 Emerson   E   A .   Temporal   and   modal   logic .   In :   Leeuwen   J   V   ed .   Handbook   of   Theoretical   Computer   Science ,   Vol2 .   North - Holland :   Elsevier   Science   Publisher ,   1990 
+ 3 　 　 Kozen   D .   Results   on   the   propositional   mu - calculus .   Theoretical   Computer   Science ,   1985 ,   27 ( 3 ) :   333 ～ 354 
+ 4 　 　 Lamport   L .   The   temporal   logic   of   actions .   ACM   Transactions   on   Programming   Languages   and   Systems ,   1994 ,   16 ( 3 ) :   872 ～ 923 
+ 5 　 　 Girard   J   Y .   Linear   logic .   Theoretical   Computer   Science ,   1987 , 50 ( 1 ) :   1 ～ 102 
+ 6 　 　 Milner   R .   Concurrency   and   Communication .   London :   Prentice - Hall ,   1989 
+ 7 　 　 Hoare   C   A   R .   Communicating   Sequential   Processes .   New   Jersey :   Prentice - Hall ,   1985 
+ 8 　 　 Bergstra   J   A ,   Klop   J   W .   Algebra   of   communicating   processes   with   abstraction .   Theoretical   Computer   Science ,   1985 ,   37 ( 1 ) :   77 ～ 121 
+ 9 　 　 Lynch   N   A ,   Tuttle   M   R .   Hierarchical   correctness   proofs   for   distributed   algorithms .   Laboratory   for   Computer   Science ,   Massachusetts   Institute   of   Technology ,   Techical   Report :   MIT / LCS / TR - 387 ,   1987 
+ 10 　 　 Thomas   W .   Automata   on   infinite   objects .   In :   Leeuwen   J   V   ed .   Handbook   of   Theoretical   Computer   Science ,   Vol   1 .   North - Holland :   Elsevier   Science   Publisher ,   1990 
+ 11 　 　 Reisig   W .   Petri   Nets :   An   Introduction ,   EATCS   Monographs   on   Theoretical   Computer   Science ,   Vol   4 .   New   York :   Springer - Verlag ,   1985 
+ 12 　 　 Pratt   V   R .   Modeling   concurrency   with   partial   orders .   Int   J   Parallel   Program ,   1986 ,   15 ( 1 ) :   33 ～ 71 
+ 13 　 　 Winskel   G .   An   introduction   to   event   structures .   In :   LNCS   354 .   New   York :   Springer - Verlag ,   1989 .   364 ～ 397 
+ 14 　 　 Agha   G .   Concurrent   object - oriented   programming .   CACM ,   1990 ,   33 ( 9 ) 
+ 15 　 　 Kozen   D ,   Tiuryn   J .   Logics   of   programs .   In :   Leeuwen   J   V   ed .   Handbook   of   Theoretical   Computer   Science ,   Vol   2 .   North - Holland :   Elsevier   Science   Publisher ,   1990 
+ 16 　 　 Chandy   K   M ,   Misra   I .   Parallel   Program   Design .   Reading ,   MA :   Addison - Wesley ,   1988 
+ 17 　 　 Manna   Z ,   Pnuli   A .   The   Temporal   Logic   of   Reactive   and   Concurrent   Systems   ( Specification ) .   New   York :   Springer - Verlag ,   1992 
+ 18 　 　 Ehrig   H .   Fundamentals   of   Algebraic   Specification .   Berlin :   Springer - Verlag ,   1985 
+ 19 　 　 黄涛 ， 钱军 ， 倪彬 .   Trace 演算 . 软件 学报 ，   1999 ,   已 录用 
+ 　 　 　 ( Huang   Tao ,   Qian   Jun ,   Ni   Bin .   Trace   calculus .   Journal   of   Software   ( in   Chinese ) ,   1999 ,   to   appear ) 
+ 20 　 　 黄涛 ， 钱军 ， 周桓 . 对象 演算 ( Ⅰ ) .   软件 学报 ，   1999 ,   已 录用 
+ 　 　 　 ( Huang   Tao ,   Qian   Jun ,   Zhou   Huan .   Object   calculus   Ⅰ .   Journal   of   Software   ( in   Chinese ) ,   1999 ,   to   appear ) 
+ 21 　 　 黄涛 ， 钱军 ， 王栩 . 对象 演算 ( Ⅱ ) .   软件 学报 ，   1999 ,   已 录用 
+ 　 　 　 ( Huang   Tao ,   Qian   Jun ,   Wang   Xu .   Object   calculus   Ⅱ .   Journal   of   Software   ( in   Chinese ) ,   1999 ,   to   appear ) 
+ 22 　 　 Walukiewicz .   A   complete   deductive   system   for   the   u - calculus .   BRICS ,   Rs - 95 - 6 ,   1995 
+ 23 　 　 Honda   K ,   Tokoro   M .   An   object   calculus   for   asynchronous   communication .   In :   Proceedings   of   ECOOP ′ 91 ,   LNCS   512 .   New   York :   Springer - Verlag ,   1991 .   133 ～ 147 
+ 24 　 　 Satoh   M   Tokoro .   Time   and   asynchrony   in   interactions   among   distributed   real - time   objects .   In :   LNCS   952 .   New   York :   Springer - Verlag ,   1995 
+ 25 　 　 Amadio   R   M ,   Castellani   H ,   Sangiorgi   D .   On   Bisimimulations   for   the   asynchronous   π - calculus .   In :   Proc   of   CONCUR ′ 96 ,   LNCS   1119 .   New   York :   Springer - Verlag ,   New   York :   Springer - Verlag ,   1996 .   147 ～ 162 
+ 26 　 　 Wimmel   H ,   Priese   L .   Algebraic   characterization   of   net   pomset   semantics .   In :   Proceedings   of   CONCUR ' 97 ,   LNCS   1243 .   New   York :   Springer - Verlag ,   1997 .   406 ～ 420 
+ 27 　 　 Talcott   C   L .   Composable   semantic   models   for   actor   theories .   In :   LNCS   1281 ，   New   York :   Springer - Verlag ，   1997 .   321 ～ 364 
+ 28 　 　 冯玉琳 ， 黄涛 ， 倪彬 . 对象 技术 导论 .   北京 :   科学出版社 ， 1998 
+ 　 　 　 ( Feng   Yulin ,   Huang   Tao ,   Ni   Bin .   An   Introduction   to   Object   Technology   ( in   Chinese ) .   Beijing :   Science   Press ,   1998 ) 
+ 29 　 　 Meyer   B .   Ojbect - Oriented   Software   Construction .   New   Jersey :   Prentice - Hall ,   1997 
+ 30 　 　 Guerraoui   R   et   al .   Directions   in   object - oriented   programming .   ACM   Computing   Survey ,   1996 ,   28 ( 4 ) :   691 ～ 700 
+ 31 　 　 Nicol   J   R   et   al .   Object - orientation   in   heterogeneous   distributed   computing   systems .   Computer ,   IEEE ,   1993 ,   57 ～ 67 
+ 32 　 　 Wegner   P .   Why   interaction   is   more   powerful   than   algorithms .   CACM ,   1997 ,   40 ( 5 ) 
+ 33 　 　 Wegner   P .   Interactive   foundations   of   computing .   Brown   Univ ,   Tech   Report :   1997 
+ 34 　 　 Nierstrasz .   Requirements   for   a   composition   language .   In :   LNCS   924 ,   New   York :   Springer - Verlag ,   1995 .   147 ～ 161 
+ 收到 日期 ： 1998 - 09 - 14 
+ 改稿 日期 ： 1998 - 12 - 10 

@@ -1,0 +1,100 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1998 年   第 18 卷   第 1 期   No.1   Vol.18   1998 
+ 科技期刊 
+ 
+ 腐殖酸 与 稀土元素 的 作用 及 体系 稳定性 * 
+ 耿安朝 　 （ 苏州 城建 环保 学院 环境保护 系 ， 苏州   215011 ） 
+ 章 　 申 　 （ 中国科学院 地理 研究所 ， 北京   100101 ） 
+ Harald   H  iland ( Department   of   Chemistry , University   of   Bergen , 41 - N - 5007   Bergen , Norway ) 
+ 文 　 摘 　 用 稀土元素 ( La3 + ,   Ce3 + ,   Ho3 + ,   Yb3 + ) 标准溶液 对 湖泊 沉积物 腐殖酸 进行 非 连续 滴定 ， 研究 二者之间 的 络合 反应 能力 及其 结合 产物 在 水溶液 体系 的 稳定性 。 结果表明 ， 腐殖酸 结构 中 的 活性 点位 在 与 三价 稀土 离子 作用 时 表现 出 两种 不同 类型 ， 在 机制 上 采取 两级 络合 反应 。 体系 中 沉淀 生成 与否 主要 取决于 腐殖酸 对 稀土 离子 的 容纳 能力 。 
+ 关键词 　 腐殖酸 　 稀土元素 　 结合 能力 　 稳定性 
+ Binding   capacity   and   stability   of   humic   acid   with   rare   earth   elements   in   solution . Geng   Anchao ( Department   of   Environmental   Protection ,   Suzhou   Institute   of   Urban   Construction   and   Environmental   Protection , Suzhou   215011 ) ；   Zhang   Shen ( Institute   of   Geography ,   Chinese   Academy   of   Sciences ,   Beijing   100101 ) ； Harald   H  iland ( Department   of   Chemistry , University   of   Bergen , 41 - N - 5007   Bergen , Norway ) . China   Environmental   Science.1998 , 18 ( 1 ) : 52 ～ 56 
+ Abstract — Dissolved   humic   acid   extracted   from   lake   sediment   was   titrated   discontineously   with   the   standard   solutions   of   rare   earth   elements   ( La3 + ,   Ce3 + ,   Ho3 + ,   Yb3 + )   to   investigate   the   complexation   capacity   and   the   stability   of   humic   acid   and   REE - humate   in   solution .   Apparently   there   are   two   types   of   binding   sites   in   the   functional   groups   of   humic   acid ,   which   take   two   steps   of   complexation   reations   in   mechanism .   The   occuring   of   precipitation   is   mainly   dependent   on   the   holding   capacity   to   rare   earth   element   by   humic   acid . 
+ Key   words :   humic   acid 　 rare   earth   element 　 binding   capacity 　 stability 
+ 　 　 随着 稀土元素 及其 化合物 在 工业部门 ， 特别 是 近 20 年 我国 在 农业 中 的 广泛 使用 ， 使 稀土 化合物 大量 进入 环境 ， 由此 而 引起 的 环境 问题 亦 日益 受到 人们 的 关注 〔 1 〕 。 另外 ， 稀土元素 因 其 特有 的 地球化学 示踪剂 功能 ， 又 成为 与此有关 的 地学 研究 领域 中 的 活跃 点 〔 2 ～ 3 〕 。 稀土元素 的 环境 地球化学 行为 和 生物 效应 在 很大 程度 上 取决于 其 在 环境 中 的 赋存 形态 和 状态 ， 研究 表明 〔 1 , 4 ～ 6 〕 ， 稀土元素 的 有机 结合态 是 稀土 总量 中 重要 的 活跃 部分 之一 。 
+ 　 　 腐殖酸 是 地表 环境 中 的 主要 有机 组成 ， 作为 具有 较 多 羧基 、 酚 羟基 以及 N - 和 S - 结合点 位 的 有机 高分子 聚合物 ， 能够 与 金属 离子 发生 很强 的 络合 或 结合 作用 ， 从而 影响 元素 及其 化合物 在 环境 中 的 迁移 转化 和 生物 活性 。 其 与 重金属 离 子络合 反应 的 研究 报道 较 多 〔 7 ～ 9 〕 ， 但 很少 涉及 稀土元素 。 本 研究 采用 从 挪威 卑尔根 市郊 淡水 湖泊 沉积物 中 提取 的 腐殖酸 ， 考察 其 与 稀土元素 ( La3 + ,   Ce3 + ,   Ho3 + ,   Yb3 + ) 进行 络合 反应 的 能力 、 机制 以及 在 水溶液 体系 中 的 稳定性 ， 旨在 探索 稀土元素 在 天然水 环境 中 发生 沉积 、 富集 和 分异 过程 中 有机质 的 作用 机理 。 
+ 1 　 实验 部分 
+ 1.1 　 理论依据 
+ 　 　 腐殖酸 作为 有机 络 合剂 ( L ) 与 稀土 离子 RE3 + 的 络合 反应 ， 依据 各 结合点 位 的 PK 值 理论 上 可以 分为 两类 ： 
+ 
+ ( I ) - COOH 和 ( II ) - COOH 为 具有 较 小 PK 值 的 羧基 ， 与 稀土 离 子络合 的 表观 稳定 常数 为 K1 。 
+ 
+ 　 　 WAH 为 质子化 的 弱酸 ， 包括 PK 值 较大 的 羧基 和 酚 羟基 等 ， 其 与 稀土 离子 的 表观 稳定 常数 为 K2 。 
+ 　 　 当 pH 和 离子 强度 等 反应 条件 一定 时 ， 上述 络合 反应 的 机制 可用 ( 4 ) 式 表示 ： 
+ ｛ 〔 RE * bound 〕 1   +   〔 RE * bound 〕 2 ｝ / 〔 RE * free 〕 
+ = K1 〔 Lt 〕 1   -   K1 〔 RE * bound 〕 1 + K2 〔 Lt 〕 ２   
+ 　 -   K2 〔 RE * bound 〕 2 ( 4 ) 
+ 式 中 ： RE * bound 为 RE3 + 与 腐殖酸 的 络合 态 摩尔 浓度 ； RE * free 为 游离态 的 RE3 + 摩尔 浓度 ； 〔 Lt 〕 为 腐殖酸 所 具有 的 总 络合 点位 摩尔 浓度 。 当 加入 的 稀土 离子 浓度 较 低时 ， 因 第一类 络合 点位 具有 较强 的 结合 能力 ， 从而 优先 与 稀土 离子 发生 络合 ， 此时 第二类 点位 保持 空闲 ， 即 〔 RE * bound 〕 2 = 0 。 将 〔 RE * free 〕 对 〔 RE * bound 〕 作图 ， 所得 直线 的 斜率 为 一级 络合 反应 的 条件 稳定 常数 K1 。 当 继续 加入 RE3 + 时 ， 一级 络合 反应 达到 平衡 ， 第二类 络合 点位 开始 与 RE3 + 反应 ， 因此 通过 求取 第二条 直线 的 斜率 ， 可 得到 二级 络合 反应 的 条件 稳定 常数 。 同时 ， 用 在 横轴 上 的 截距 可 计算 两级 络合 反应 的 容量 。 
+ 1.2 　 腐殖酸 样品 
+ 　 　 将 取自 挪威 卑尔根 市郊 一个 淡水湖 的 沉积物 样品 ， 按照 国际 腐殖质 协会 ( IHSS ) 推荐 的 方法 ， 用 0.1 M   NaOH 提取 腐殖酸 ， 粗 腐殖酸 样品 用 1 : 1 的 0.1 M   HCl   /   0.3 M   HF 洗涤 以 降低 残余 无机物 的 含量 〔 10 〕 。 用 傅立叶 红外 光谱 和 核磁共振 波谱 检验 其 结构 和 纯度 。 
+ 1.3 　 试剂 和 仪器 
+ 　 　 稀土 离子 标准溶液 ： 在 浓 HCl 中 分别 加热 溶解 La ， Ce ， Ho ， Yb 的 三价 氧化物 ( Aldrich   Chemical   Co . ) ， 蒸发 至 干后 用 蒸馏水 稀释 定容 ， 然后 用 容量 法 标定 。 
+ 　 　 阳离子 交换 柱 ： 将 Dowex50 × 4 ， 100 ～ 200 目 阳离子 交换 树脂 分别 用 浓 HCl 、 0.1 M   EDTA 和 0.1 M   NaOH 处理 后 ， 填充 在 长 6.0 cm 直径 1.2 cm 的 玻璃管 中 ， 经 检验 无可 检测 量 稀土 离子 存在 〔 11 〕 。 使用 前用 NaAc - HAc 缓冲液 淋洗 ， 以 平衡 调节 柱内 的 pH 值 与 反应 体系 相同 。 
+ 　 　 稀土 浓度 测定 ： 采用 Arsonazo   III   ( 2 , 2 ' - 〔 1 , 8 - dihydroxy - 3 , 6 - disulpho - 2 , 7 - naphthylenebis ( azo ) 〕 dibenzenearsonic   acid )   分光 光度法 测定 稀土 离子 浓度 〔 12 〕 ， 分析 波长 660nm ， 以 试剂 空白 为 参比 。 
+ 　 　 腐殖酸 浓度 测定 ： 腐殖酸 浓度 与 吸 光度 之间 有 很 好 的 相关性 ， 因此 采用 分光 光度法 监测 腐殖酸 在 络合 反应 中 的 浓度 变化 。 
+ 　 　 分析仪器 ： Perkin   Elmer   Lambda   6   UV / VIS   分光 光度计 。 
+ 1.4 　 实验 方法 
+ 　 　 在 控制 pH 值 6.30 和 离子 强度 0.066 M   KCl 条件 下 ， 往 33.33 mg / L 腐殖酸 溶液 体系 中 加入 0.3 ～ 20.0 × 10 - 5M 浓度 系列 的 稀土 离子 ， 放置 反应 12h 。 然后 对 未 发生 沉淀 的 体系 ， 将 其 反应 液 全部 通过 离子交换 柱 ， 使 游离态 稀土 离子 从 溶液 体系 分离 ， 取 1 份 流出 液 分析 测定 络合 态 稀土 离子 的 浓度 ； 如 有 沉淀 发生 ， 则 将 反应 体系 在 4000r / min 下 离心分离 ， 取上 清液 直接 测定 稀土 离子 及 腐殖酸 的 剩余 浓度 。 
+ 2 　 结果 与 讨论 
+ 2.1 　 稀土 离子 与 腐殖酸 的 络合 反应 
+ 　 　 La3 + ,   Ce3 + ,   Ho3 + ,   Yb3 +   4 种 稀土 离子 与 腐殖酸 在 水溶液 中 的 络合 行为 ， 通过 非 连续 滴定 与 离子交换 技术 联合 测定 。 图 1 为 pH 值 6.30 和 离子 强度 0.066 M   KCl 条件 下 ， 稀土 离子 与 腐殖酸 络合 量 ( mg / g ) 随 稀土 离子 加入 浓度 的 变化 关系 。 
+ 　 　 由图 1 可以 看出 ， 随着 稀土 离子 加入 浓度 的 增加 ， 4 种元素 被 腐殖酸 络合 的 量 逐渐 增加 。 从轻 稀土 到 重 稀土 ， 4 条 曲线 形状 十分相似 ， 表明 稀土 离子 与 腐殖酸 发生 络合 时 性质 相近 。 在 4 条 曲线 的 中间 部位 都 存在 一个 变平 阶段 ， 这 正是 由 一级 络合 反应 向 二级 过渡 的 体现 。 另外 ， 在 所 调查 的 浓度 范围 内 ， Ce3 + 与 腐殖酸 的 络合 量 与 其它 同类 相比 出现异常 ， 它 的 滴定 曲线 跳出 了 应该 介于 La3 + 和 Ho3 + 之间 的 位置 ， 表明 Ce3 + 与 腐殖酸 具有 较强 的 络合 能力 。 
+ 
+ 图 1 　 稀土 离子 与 腐殖酸 络合 量 随 加入 浓度 的 变化 
+ Fig.1 　 Change   of   complexation   amount   with   the   added   REE 
+ 2.2 　 络合 稳定 常数 与 络合 容量 
+ 　 　 为 求取 络合 反应 的 条件 稳定 常数 和 络合 容量 ， 以 〔 RE * bound 〕 / 〔 RE * free 〕 对 〔 RE * bound 〕 作图 ， 直线 的 斜率 即 为 络合 稳定 常数 K ， 在 横坐标 上 的 截距 为 理论 上 的 络合 容量 。 在 此 ， 选择 Ce3 + 为 代表 在 图 2 中 给出 其 示意 结果 ， La3 + 、 Ho3 + 和 Yb3 + 的 情况 与 Ce3 + 相似 。 
+ 　 　 由图 2 可知 ， 其 络合 行为 与 理论 假设 相吻合 ， 两个 斜率 值 K1 和 K2 分别 代表 两级 络合 反应 的 条件 稳定 常数 ， 直线 交叉点 在 横轴 上 的 对应 值 可 用于 计算 其 一级 络合 容量 ； 二级 络合 的 条件 稳定 常数 较 小 ， 表明 其 结合力 较弱 ， 理论 上 直线 在 X 轴 的 截距 可 用于 计算 其 二级 络合 容量 ， 但 由于 发生 沉淀 ， 使 实际 二级 络合 容量 小于 理论值 。 
+ 
+ 图 2 　 腐殖酸 与 Ce 的 条件 络合 稳定 常数 
+ Fig.2 　 Conditional   formation   constant   of   Ce   with   HA 
+ 　 　 将 作图 法 求得 的 稀土 离子 与 腐殖酸 的 络合 容量 列入 表 1 ， 其中 Cp 为 在 沉淀 临界点 实验 测定 的 实际 络合 总量 。 除 Ce3 + 外 ， 其它 3 种 稀土 的 Cp 值均 小于 C1 与 C2 之 和 ， 原因 是 二级 络合 达到 平衡 前 体系 已经 脱稳 了 。 另外 ， 在 表 2 中 给出 其 条件 稳定 常数 。 结果表明 ， 该 湖泊 沉积物 腐殖酸 的 第一类 络合 点位 具有 较强 的 络合 能力 ， 条件 稳定 常数 较大 ； 而 二级 络合 能力 较弱 ， 但 却 有着 较大 的 理论 络合 容量 ， 这 一点 与 腐殖酸 的 原生 物质 及 腐殖 化 程度 有关 。 
+ 表 1 　 腐殖酸 与 稀土元素 的 络合 容量 ( mg / g ) 
+ Table   1 　 Complexation   capacities   of   REE   with   HA 
+ 
+ 元素   C1C2Cp 
+ La21.946 . 9   51.2 
+ Ce34.5   66.4   102.2 
+ Ho28.280 . 7   89.5 
+ Yb27.573 . 878.4 
+ 
+ 表 2 　 腐殖酸 与 稀土元素 的 条件 络合 稳定 常数 
+ Table   2 　 Conditional   formation   constants   of   REE   with   HA 
+ 
+ 元素 logK1   logK2   反应 条件 
+ La   5.394 . 5pH = 6.30 
+ Ce5.57   4.7 离子 强度 : 
+ Ho   5.014 . 40.066 M   KCl 
+ Yb5.33   4.5 温度 : 24 ℃ 
+ 
+ 　 　 在 4 种 稀土元素 中 ， Ce3 + 无论 在 稳定 常数 还是 络合 容量 上 都 突出 大于 其它 3 种 ， 这种 反常现象 具有 特殊 的 地球化学 意义 。 许多 研究 指出 ， Ce 在 天然 环境 中 表现 出比 其它 稀土 易于 沉积 而 从 水体 去除 的 特性 。 从本 研究 结果 看 ， 腐殖酸 对 稀土元素 络合 行为 的 差异 ， 无疑 与其 在 天然 水体 中 发生 分异 有关 ， 而且 腐殖酸 在 水体 中 的 沉积 与 再 悬浮 ， 也 势必会 对 其它 金属 离子 的 迁移 和 归宿 产生 重要 影响 。 
+ 2.3 　 稀土 离子 与 腐殖酸 的 沉淀 反应 
+ 　 　 研究 中 发现 ， 当往 一定 浓度 腐殖酸 中 加入 足够 量 的 稀土 离子 时 ， 整个 溶液 体系 将 失去 稳定性 ， 此时 大量 腐殖酸 和 稀土 离子 通过 沉淀 与 吸附 作用 从 溶液 中 去除 。 在 天然水 环境 中 ， 由于 存在 大量 的 金属 离子 ， 它们 与 腐殖酸 结合 的 结果 ， 必然 造成 二者 的 共同 去除 。 因此 ， 腐殖酸 与 金属 离子 的 沉淀 反应 可能 成为 天然水 环境 发生 的 重要 地球化学 过程 之一 。 为 探讨 这一 现象 ， 本文 用 稀土 离子 为 滴定剂 ， 考察 了 沉淀 发生 的 机制 与 影响 因素 。 图 3 给出 以 Ce 为 代表 的 实验 结果 ， La 、 Ho 和 Yb 的 情况 与其 相似 。 
+ 
+ 图 3 　 稀土 离子 与 腐殖酸 的 作用 及 稳定性 
+ Fig.3 　 Interaction   and   system   stability   of   REE   with   HA 
+ 　 　 在 pH 值 6.30 和 离子 强度 0.066 M   KCl 条件 下 ， 随着 稀土 离子 加入 浓度 的 增加 ， 在 低浓度 范围 表现 为 腐殖酸 与 稀土 的 络合 反应 ， 同时 在 450   nm 处 监测 腐殖酸 的 吸 光度 ， 结果 未 出现 明显 变化 。 但 当 加入 浓度 增加 到 一定 值时 ， 水中 的 腐殖酸 开始 出现 大量 沉淀 ， 同时 稀土 离子 也 从 溶液 中 大量 去除 。 沉淀 点因 稀土元素 不同 略有 差异 ， 分别 为 La   1.03 × 10 - 4M ， Ce   1.25 × 10 - 4M ， Ho   1.06 × 10 - 4M 和 Yb   1.09 × 10 - 4M 。 Ce 出现 沉淀 较晚 ， 因此 其 与 腐殖酸 在 溶液 中 有着 较大 的 络合 容量 。 从 腐殖酸 的 吸 光度 变化 看 ， 在 沉淀 发生 的 同时 ， 将 伴随 有 90% 以上 的 腐殖酸 同步 从 溶液 中 析出 。 
+ 2.4 　 影响 沉淀 反应 的 因素 
+ 　 　 在 水溶液 中 的 溶解 态 腐殖酸 具有 胶体 性质 ， 因此 腐殖酸 表面 的 电负性 对 体系 稳定性 有着 重要 影响 ； 另外 ， 作为 一种 弱酸 ， 与 金属 阳离子 形成 的 腐殖酸 盐 也 可能 是 沉淀 产物 。 本文 系统 考察 了 pH 、 离子 强度 、 腐殖酸 浓度 等 因素 对 沉淀 反应 的 影响 ， 结果 发现 ： ( 1 )   pH 值 对 腐殖酸 与 稀土 离子 共存 体系 的 稳定性 有 一定 影响 ， 提高 溶液 酸度 因 降低 腐殖酸 的 溶解度 使 沉淀 易于 发生 。 无 稀土 离子 存在 时 ， 在 pH 值为 3.5 ～ 6.5 的 范围 内 ， pH 值 变化 对 腐殖酸 的 影响 不 大 ； ( 2 ) 增加 离子 强度 有利于 沉淀 生成 ， 这是 由于 离子 强度 增加 压缩 了 胶体 的 双电层 所致 。 但 对于 腐殖酸 单独 存在 情况 ， 离子 强度 高达 0.3 M   KCl 时 仍 无沉淀 发生 ， 说明 难 溶性 腐殖酸 盐 是 沉淀 发生 的 主要 原因 ； ( 3 )   当 稀土 离子 浓度 一定 时 ， 随着 腐殖酸 浓度 的 增加 ， 沉淀 现象 开始 消失 ， 表明 沉淀 发生 与否 与 腐殖酸 对 稀土 离子 的 容纳 能力 有关 ， 图 4 给出 其 实验 结果 。 同样 稀土 离子 浓度 下 ， 对于 La3 + 、 Ho3 + 和 Yb3 + ， 体系 保持稳定 所 需 的 腐殖酸 浓度 应 超过 45mg / L ， 而 对于 Ce3 + 仅 需 30mg / L ， 说明 在 溶液 中 腐殖酸 对 Ce3 + 有 较大 的 容纳 能力 。 
+ 
+ 图 4 　 腐殖酸 浓度 变化 对 体系 稳定性 的 影响 
+ Fig.4 　 Effect   of   HA   concentration   on   the   system   stability   
+ 3 　 结论 
+ 　 　 腐殖酸 与 稀土 离子 的 作用 在 机制 上 表现 为 两级 络合 ， 就 该 腐殖酸 样品 而言 ， 一级 络合 反应 具有 较大 的 条件 稳定 常数 ， 但 络合 容量 较 二级 络合 反应 为 小 。 Ce 的 络合 行为 出现异常 ， 拥有 较大 的 稳定 常数 和 络合 容量 。 腐殖酸 与 稀土 离子 共存 体系 的 稳定性 受到 pH 值 和 离子 强度 的 影响 ， 而 腐殖酸 盐 是 沉淀 产生 的 主要 原因 。 因此 ， 腐殖酸 与 金属 离子 在 天然 水体 的 共沉淀 作用 成为 金属 离子 去除 的 重要 机制 。 
+ 参考文献 
+ 1 　 章 　 申 ,   王立军 等 .   现代 核 分析 技术 及其 在 环境 科学 中 的 应用 . 北京 :   原子能 出版社 ,   1994.199 ～ 242 
+ 2 　 Koeppenkastrop   D , De   Carlo   E   H . Geochim .   Cosmochim .   Acta ,   1992 ,   95 : 251 ～ 263 
+ 3 　 Lee   J   H , Byene   R   H . Geochim .   Cosmochim .   Acta ,   1993 ,   57 : 159 ～ 186 
+ 4 　 Wang   Lijun , Zhang   Shen , et   al . J .   of   Environmental   Sciences ,   1995 ,   7 ( 1 ) : 44 ～ 51 
+ 5 　 王立军 ， 曹小江 ， 章 　 申 . 应用 基础 与 工程 科学 学报 ,   1995 ,   3 ( 4 ) : 366 ～ 375 
+ 6 　 王立军 ,   王玉琦 ,   章 　 申等 .   中国 稀土 学报 ,   1997 ,   15 ( 1 ) : 64 ～ 70 
+ 7 　 Frimmel   F   H ， Christman   R   F . Humic   substances   and   their   role   in   the   environment .   New   York ： Interscience ,   1988 
+ 8 　 Kinniburg   D   G ,   Milne   C   J ， et   al . Environ .   Sci .   Technol . ,   1996 ,   30 : 1687 ～ 1698 
+ 9 　 Pinheiro   J   P ,   Mota   A   M ， et   al . Analytical   Chimica   Acta ,   1994 ， 248 : 525 ～ 537 
+ 10 　 Jokic   A ,   Srejic   R ， et   al . Water ,   Air   and   Soil   Pollution ,   1995 ,   84 : 159 ～ 173 
+ 11 　 Clark   S   B ， Choppin   G   R . ACS   Symposium   Series ,   1990 ,   416 : 519 ～ 525 
+ 12 　 Onishi   H ， Sekine   K . Talanta ,   1970 ,   19 : 473 ～ 478 
+ 作者简介 
+ 耿安朝 　 男 ， 1962 年 6 月生 。 副教授 。 1988 年 获 中国科学院 生态环境 研究 中心 环境 化学 专业 硕士学位 ， 一直 从事 环境工程 方面 的 教学 与 科研工作 。 发表 论文 16 篇 。 
+ 收稿 日期 ： 1997 - 04 - 08 

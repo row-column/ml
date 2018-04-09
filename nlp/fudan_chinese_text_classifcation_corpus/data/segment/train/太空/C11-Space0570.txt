@@ -1,0 +1,25 @@
+上海 航天 
+ AEROSPACE   SHANGHAI 
+ 2001   Vol.18   No.1   P.12 - 15 
+ 
+ 
+ 
+ 
+ 天基 综合信息 网络 构想 
+ 袁孝康 　   
+ 摘 　 要 ： 论述 了 天基 综合信息 网络 的 定义 、 分类 、 特点 和 总体 构想 。 着重 对 天基 遥感信息 网络 的 网络结构 、 传输方式 、 多址 方式 、 传输 链路 的 建立 和 保持 、 信息处理 方式 、 传输 协议 、 系统 容量 等 问题 进行 了 分析 ， 提出 了 明确 的 见解 和 需要 解决 的 关键技术 课题 。 
+ 关键词 ： 天基 综合信息 网络 ； 信息 传输 ； 信息处理 ； 组网 技术 ； 星间 传输 链路 ； 发展 战略 研究 
+ 分类号 ： V443 +. 1 　 文献 标识码 ： A 
+ 文章 编号 ： 1006 － 1630 （ 2001 ） 01 － 0012 － 04 
+ Architecture   of   Space   Base   Synthetic   Information   Networks 
+ YUAN   Xiao - kang （ No .   509   Institute   of   SAST ,   Shanghai   200240 ,   China ） 　 
+ Abstract ： The   definition ,   classification ,   feature ,   and   architecture   of   space   base   synthetic   information   networks   are   explained   in   this   paper .   The   network   architecture ,   transmitting   fashion ,   multiple   access   fashion ,   the   setup   and   maintenance   of   the   transmission   link ,   the   information   handling   fashion ,   transmission   protocol ,   and   system   capacity   of   the   space   base   remote   sensing   information   networks   are   emphatically   described .   The   reviews   and   the   key   technologies   are   also   presented . 
+ Keywords ： Space   base   synthetic   information   network ;   Information   transmission ;   Information   handling ;   Network   technology ;   Intersatellite   transmission   links ;   Study   of   developing   strategy 
+ 作者简介 ： 袁孝康 （ 1939 - ） ， 男 ， 研究员 ， 上海市 宇航 学会 会员 ， 研究 领域 ： 空间 电子学 与 卫星 总体 技术 。   
+ 作者 单位 ： 袁孝康 （ 上海 航天技术 研究院 509 所 ， 上海   200240 ） 　 
+ 参考文献 ： 
+ ［ 1 ］ 国外 应用卫星 资料汇编 [ Z ] . 上海 航天局 第八  七 研究所 , 1992 , 12 . 
+ ［ 2 ］ 天基 综合信息 网络 论文集 [ C ] · 组网 技术 . 1999 年 全国 天基 综合信息 网络 研讨会 , 北京 . 
+ ［ 3 ］ 天基 综合信息 网络 论文集 [ C ] · 星间 链路 . 1999 年 全国 天基 综合信息 网络 研讨会 , 北京 . 
+ 收稿 日期 ： 2000 年 5 月 24 日 
+ 出版日期 ： 2001 年 2 月 25 日 

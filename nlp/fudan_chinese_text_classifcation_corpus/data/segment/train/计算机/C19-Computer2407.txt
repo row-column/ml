@@ -1,0 +1,150 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年 　 第 36 卷 　 第 11 期 　 Vol.36 　 No.11 　 1999 
+ 
+ 
+ 
+ 椭圆 曲线 密码 体制 
+ 徐秋亮 　 李 大兴 
+ 摘 　 要 ： 椭圆 曲线 密码 体制 目前 已 引起 了 信息安全 及 密码学 各界 的 广泛 关注 , 从 安全性 及 有效性 来看 , 这种 密码 体制 有着 广阔 的 应用 前景 , 是 一种 可能 近期 在 某些 领域 取代 RSA ， DSS 等 现存 体嘶 的 密码 ( 签名 ) 体制 , 现已 鐐渐 形成 了 研究 与 开发 热点 . 文中 首先 对 椭圆 曲线 及其 相关 知识 作 了 简单 介绍 , 而后 给出 了 一些 典型 的 椭圆 曲线 密码 体制 并 较为 详细 地 讨论 了 这种 密码 体制 的 安全性 . 文中 还 以 相当 的 篇幅 对 适用 于 密码 体制 的 椭圆 曲线 的 构造方法 作 了 重点 介绍 , 这是 实现 椭圆 曲线 密码 体制 的 关键性 问题 . 作为 一篇 综述 , 文中 反映 了 椭圆 曲线 密码 体制 的 历史 进展 和 现状 以及 当前 所 面临 的 理论 问题 , 体现 了 该 领域 目前 的 最新 成就 , 并 对 该 密码 体制 的 发展 提出 了 看法 . 
+ 关键词 ： 椭圆 曲线 , 离散 对数 , 密码 体制 , 时间 复杂度 , 安全性 
+ 中图法 分类号 ： TP309 
+ ELLIPTIC   CURVE   CRYPTOSYSTEMSXU 
+ Qiu - Liang 
+ ( Department   of   Computer   Science ,   Shandong   University ,   Jinan   250100 ) 
+ LI   Da - Xing 
+ ( Institute   of   Network   Security ,   Shandong   University ,   Jinan   250100 ) 
+ Abstract 　 Recently ,   elliptic   curve   cryptosystems   have   become   as   a   promising   new   area   in   public - key   cryptography .   The   main   advantage   of   elliptic   curve   cryptosystems   over   other   public - key   cryptosystems   is   the   fact   that   they   are   base   on   adifferent   intractable   problemb   and   that   their   keys   have   smaller   sizes   for   he   same   level   of   security .   These   roperties   lead   to   some   better   performance   in   application .   Because   of   their   security   and   efficincy ,   this   kind   of   cryptosystems   can   be   used   widely   in   the   future .   In   fact ,   they   have   come   into   strong   consideration   not   only   by   theory   researchers   but   also   by   standards   de   velopers . The   paper   here   covers   the   main   various   aspects   of   elliptic   curve   crypt   osystems .   The   concepts   of   elliptic   curves   and   their   related   knowledge   are   introd   uce   briefly ,   and   a   few   typical   schemes   are   given .   The   seurity   of   elliptic   curve   cryptosystems   is   given   a   properly   detailed   descriptin .   Builing   of   an   elipic   curve   suitable   for   cryptosystems ,   which   is   essential   to   the   setup   of   an   elliptic   curve   cryptosystem ,   is   discussed   in   detail . 
+ 　 　 As   a   summary ， the   advance   and   the   status   quo   of   the   elliptic   curve   cryptosystems   are   reflected ,   and   so   do   the   prblems   the   cryptosystems   face   now .   The   newest   achievements   in   this   area   are   covered   and   views   on   the   development   of   the   cryptosy   stems   are   proposed . 
+ Key   words 　 elliptic   curve ,   discrete   logarithm ,   cryptosystem ,   time   complexity ,   security 
+ 1 　 引 　 言 
+ 　 　 椭圆 曲线 理论 是 代数 几何 、 数论 等 多个 数学 分支 的 一个 交叉点 , 一直 被 认为 是 纯理 学科 . 近年来 , 由于 公钥 密码学 的 产生 与 发展 , 该 学科 也 找到 了 它 的 应用领域 . 在 RSA 密码 体制 的 基础性 问题 — 大 整数 分解 和 素性 检测 的 研究 方面 , 椭圆 曲线 是 一个 强有力 的 工具 ［ 1 ～ 6 ］ . 特别 地 , 以 椭圆 曲线 上 的 ( 有理 ) 点 构成 的 Abel 群为 背景 结构 , 实现 各种 密码 体制 已 是 公钥 密码学 领域 的 一个 重要 课题 自 80 年代 中期 被 引入 ［ 7 , 8 ］ 以来 , 椭圆 曲线 密码 体制 逐步 成为 一个 十分 令人 感兴趣 的 密码学 分支 , 1997 年 以来 形成 了 一个 研究 热点 . 这种 密码 体制 的 诱人 之 处 在于 在 安全性 相当 的 前提 下 , 可 使用 较 短 的 密钥 . 一般 认为 , q 元域 上 的 椭圆 曲线 密码 体制 , 当 q 的 长度 为 160bit 时 , 其 安全性 相当于 RSA 使用 1024bit 模数 ［ 9 ］ , 密钥 短 意味着 小 的 带宽 和 存储 要求 , 这 在 某些 应用 中 可能 是 决定性 的 因素 . 椭圆 曲线 密码 体制 的 诱人 之 礄 还 在于 它 建立 在 一个 不同于 大 整数 分解 及素域 乘法 群 离散 对数 问题 的 数学 难题 之上 . 自公钥 密码 产生 以来 , 人们 基于 各种 数学 难题 提出 了 大量 的 密码 方案 , 但 能够 经受 住 时间 考验 而 广泛 为 人们 所 接受 的 只有 基于 大 整数 分解 及 离散 对数 问题 的 方案 , 且不说 这 两种 问题 受到 亚 指数 算法 的 严重威胁 , 就 如此 狭窄 的 数学 背景 来说 也 不能不 引起 人们 的 担忧 , 寻找 新 的 数学 难题 作为 密码 资源 早就 是 人们 努力 的 一个 方向 . 同时 , 椭圆 曲线 资源 丰富 , 同一个 有限 域 上 存在 着 大量 不同 的 椭圆 曲线 , 这为 安全性 增加 了 额外 的 保证 , 这 也 为 软 、 硬件 实现 带来 方便 . 
+ 　 　 由于 椭圆 曲线 上 的 一次 群 运算 最终 化为 其 背景 域 上 不 超过 15 次 乘法 运算 , 因而 便于 实现 , 在 执行 速度 方面 , 目前 难以 对 椭圆 曲线 密码 体制 与 现存 密码 体制 , 比如 RSA , DSA 等 作出 准确 的 定量 比较 , 粗略地 说 , 椭圆 曲线 密码 体制 较 对应 的 离散 对数 体制 要 快 , 且 在 签名 和 解密 方面 较 RSA 快 , 但 在 签名 验证 和 加密 方面 较 RSA 慢 ［ 9 ］ . 
+ 　 　 安全性 显然 是 任何 密码 体制 的 必 礇 条件 , 椭圆 曲线 密码 体制 的 安全性 分析 因而 也 引起 了 各国 密码 学家 珊 有关 部门 的 关注 渎 重视 , 但 成果 却 并 不 丰硕 . 也许 这 可 视为 椭圆 曲线 密码 体制 具有 高强度 的 一种 证据 , 因此 , 大多数 密码 学家 对 这种 密码 体制 的 前景 持 乐观 态度 . 
+ 2 　 椭圆 曲线 的 基本概念 及 相关 问题 
+ 　 　 在 本文 中 , K 总 表示 一个 有限 域 . 事实上 , 在 密码学 中 我们 只 对 两种 情形 感兴趣 : K 是 大素域 Zp 或 特征 为 2 的 有限 域 GF ( 2n ) ( 为了 符号 上 的 方便 , 本文 中 q 元 有限 域 GF ( q ) 有时 也 用 Fq 表示 ) . 我们 还 约定 p 总 表示 一个 大于 3 的 素数 , 表示 K 的 代数 闭包 , K 上 的 射影 平面 P2 ( K ) 是 K3 \ { ( 0 , 0 , 0 ) } 上 的 等价关系 “ ～ ” 的 等价 类 集合 , 其中 “ ～ ” 定义 为 ( X1 , Y1 , Z1 ) ～ ( X2 , Y2 , Z2 ) 当且 仅 当 存在 u ∈ K * 使得 ( X1 , Y1 , Z1 ) = ( uX2 , uY2 , uZ2 ) . 包含 ( X , Y , Z ) 的 等价 类记 为 ( X : Y : Z ) . 形 如下 式 的 3 次 齐次 议程 称为 K 上 的 Weierstrass 方程 ： 
+ Y3Z + a1XYZ + a3YZ3 = X3 + a23 - 2Z + a4XZ2 + a6Z3 　 　 ( 1 ) 
+ 其中 , a1 , a2 , … , a6 ∈ K . 令 F ( X , Y , Z ) = Y2Z + a1XYZ + a3YZ2 - X3 - a2X2Z - a4XZ2 - a6Z3 如果 对 所有 满足 F ( X , Y , Z ) = 0 的 射影 点 P = ( X ∶ Y ∶ Z ) ∈ P2 ( ) , F 在 P 点 的 3 个 偏 导数 必不全 为 0 , 则 称 Weierstrass 方程 ( 1 ) 是 平滑 的 或非 奇异 的 . 
+ 　 　 设域 K 上 的 Weierstrass 方程 ( 1 ) 是 平滑 的 , 该 方程 在 P2 （ ） 中 的 所有 解 组成 的 集合 E ： 
+ 
+ 称为 域 K 上 的 一条 椭圆 曲线 . 在 任 一条 椭圆 曲线 中 , 存在 唯一 一点 其 Z 坐标 为 0 , 该点 即 是 O = ( 0 ∶ 1 ∶ 0 ) , 我们 称其为 “ 无穷远 点 ” . 椭圆 曲线 E 的 判别式 Δ ( E ) 与 j - 不 变量 j ( E ) 是 椭圆 曲线 理论 中 两个 重要 的 量 , 其 定义 见 文献 ［ 10 ］ . 
+ 　 　 为了 方便 , 常将 Weierstrass 方程 ( 1 ) 以 仿射坐标 x = X / Z , y = Y / Z 的 形式 书写 为 
+ y2 + a1xy + a3y = x3 + a2x2 + a4x + a6 　 　 　 ( 1 ′ ) 
+ 这时 , 相应 的 椭圆 曲线 E 即 是 方程 ( 1 ′ ) 在 仿射 平面 A2 ( ) 中 的 所有 解及 一个 特殊 点 — 无穷远 点 0 组成 的 集合 . 即 
+ 
+ 　 　 为 明确 , 以后 常用 E / K 表示 K 上 的 椭圆 曲线 E . E / K 中 两个 仿射坐标 均 属于 K 的 点 及 无穷远 点 O 均 称为 E / K 的 K - 有理 点 , E / K 的 所有 K - 有理 点 组成 的 集合 记为 E ( K ) , 即 
+ 
+ 　 　 为了 叙述 的 方便 , 我们 将 不 区别 椭圆 曲线 与其 定义 方程 , 并 约定 E 或 E / K 将 总 表示 有限 域 K 上 的 椭圆 曲线 , 不再 另作 说明 . 
+ 　 　 K 上 的 两条 椭圆 曲线 
+ 
+ 称作 是 同构 的 , 并 记为 如果 存在 u , r , s , t ∈ K , u ≠ 0 使得 变量 替换 ( x , y ) → ( u2x + r , u3y + u2sx + t ) 将 E1 变为 E2 . 当 K 的 特征 Char ( K ) ≠ 2 , 3 时 , E / K 可 在 同构 意义 下 化成 如下 简单 形状 
+ E ′ ： y2 = x3 + ax + b 　 a , b ∈ K 
+ 这时 , Δ ( E ′ ) = - 16 ( 4a3 + 27b2 ) ≠ 0 , j ( E ′ ) = - 1728 ( 4a ) 3 / Δ ( E ′ ) . 当 K 的 特征 Char ( K ) = 2 时 , 根据 j ( E ) 是否 为 0 , 可 分别 化为 两种 基本 形状 , 参见 文献 ［ 11 ］ . 
+ 　 　 在 椭圆 曲线 E / K 中 可 按 “ 弦 切法 ” 定义 加法 运算 “ + ” 使 〈 E , + 〉 成为 一个 Abel 群 , 〈 EK ) , + 〉 构成 其子 群 , 称之为 E / K 的 有理 点子 群 . 可以 证明 , 当时 E1 ( K ) 与 E2 ( K ) 作为 Abel 群必 是 同构 的 ［ 11 ］ . 所谓 椭圆 曲线 密码 体制 , 即 是 建立 在 Abel 群 E ( K ) 上 的 密码 体制 , 下面 将 以 # E ( K ) 表示 群 E ( K ) 的 阶 . 许多 密码学 论文 中 直接 称 E ( K ) 为 “ 椭圆 曲线 群 ” , 并 将 # E ( K ) 称为 椭圆 曲线 的 阶 , 本文 有时 也 采用 这种 说法 . 
+ 3 　 典型 的 椭圆 曲线 密码 体制 
+ 　 　 现有 的 椭圆 曲线 密码 体制 均 是从 其他 群中 平移 而 来 , 并未 针对 E ( K ) 产生 新型 密码 体制 , 而 这种 平移 主要 是 对 基于 离散 对数 问题 的 密码 体制 , 虽然 也 有 RSA 体制 的 平移 ［ 12 , 13 ］ , 但 并 无 实用 及 理论 价值 , 本文 仅 就 基于 离散 对数 的 体制 进行 讨论 . 
+ 　 　 设 G 是 一个 有限 群 , a , b ∈ G , 若 存在 正整数 n 使得 an = b , 则 n 称为 群 G 中 b 的 以 a 为底 的 离散 对数 , 记为 n = logab . 给定 a , b ∈ G , 求 n = logab 称为 G 中 的 离散 对数 问题 , 特别 地 , 若 P , Q ∈ E ( K ) , 求 n 使得 nP = Q , 称为 椭圆 曲线 离散 对数 问题 . 
+ 　 　 将 ElGamal 加密 体制 直接 平移 到 椭圆 曲线 群上 , 得到 的 密码 体制 将 需要 首先 把 待 加密 的 明文 转化 为 椭圆 曲线 上 的 点 , 而后 才能 进行 加密 , 这 在 实用 上 较为 麻烦 , 为 避免 这个 麻烦 , Meneze 和 Vanstone 对 该 体制 作 了 一点 轻微 的 修改 ［ 11 ］ . 下面 介绍 的 EC _ ElGamal 体制 采用 了 这种 改进 形式 . 
+ 　 　 ECElGamal 加密 体制 ： 
+ 　 　 ( 1 ) 选取 有限 域 K 、 椭圆 曲线 E / K 及 基点 P ∈ E ( K ) ( 这些 参数 可 由 一组 用户 公用 ) . 
+ 　 　 ( 2 ) 选取 随机数 a , 计算 Q = aP . 
+ 　 　 ( 3 ) 公开 K , Р E , P , Q 作为 公钥 , 密藏 a 作为 私钥 . 
+ 　 　 假设 Alice 已 建立 了 上述 体制 , 给 Alice 发送 秘密 消息 M = ( M1 , M2 ) ∈ K × K , 需 完成 如下 步骤 : 
+ 　 　 ① 随机 选取 正整数 k . 
+ 　 　 ② 计算 kP , kQ = ( , ) , 若 = 0 或 = 0 返回 第 ① 步 , 直到 ≠ 0 , ≠ 0 . 
+ 　 　 ③ 发送 C = ( kP , M1 , M2 ) 给 Alice . 
+ 　 　 收到 密文 C 后 , Alice 计算 a ( kP ) = ( , ) , 进而 得到 明文 M = ( M1 , M2 ) . 
+ 　 　 EC _ DSS 签名 体制 ： 
+ 　 　 ( 1 ) 选取 有限 域 K 、 椭圆 曲线 E / K 及 基点 P ∈ E ( K ) , 设 〈 P 〉 是 由 P 生成 的 q 阶 循环 子群 , q 是 一个 大 素数 . 
+ 　 　 ( 2 ) 选取 随机数 x , 0 < x < q , 计算 Q = xP . 
+ 　 　 ( 3 ) 选取 单向 Hash 函数 H : M → Z , 其中 , M 是 消息 空间 , Z 是 整数 集 , 并 选取 双射 g ： 〈 P 〉 → 0 , 1 , … , q - 1 } . 
+ 　 　 ( 4 ) K , E , P , Q , q , g 均 为 公开 信息 , 作为 签名 验证 公开 钥 , x 保持 秘密 作为 签名 密钥 . 
+ 　 　 设有 消息 m ∈ M , 对 的 签名 过程 为 
+ 　 　 ① 随机 选取 整数 k , 0 < k < q ； 
+ 　 　 ② 计算 R = kP ； 
+ 　 　 ③ 解 关于 s 的 同余 方程 H ( m ) ≡ - xg ( R ) + ksmodq 
+ 　 　 对 m 的 签名 为 ( R , s ) . 签名 验证 方程 为 
+ ( Hm ) s － 1modq ) P + ( g ( R ) s － 1modq ) Q = R 
+ 　 　 EC _ Diffie - Hellman 密钥 交换 协议 ： 
+ 　 　 选取 有限 域 K 、 椭圆 曲线 E / K 及 基点 P ∈ E ( K ) . K , E , P 为 公开 信息 . 若 Alice 与 Bob 想 进行 密钥 交换 , 执行 如下 步骤 ： 
+ 　 　 ① Alice 随机 选取 正整数 m , 计算 KA = mP , 并 将 KA 传送 给 Bob ； 
+ 　 　 ② Bob 随机 选取 正整数 n , 计算 KB = nP , 并 将 KB 传送 给 Alice ； 
+ 　 　 ③ Aice 计算 ： KC = mKB ； Bob 计算 ： KC = nKA . KC 即为 Alice 和 Bob 所 商定 的 密钥 . 
+ 4 　 椭圆 曲线 忆码 体制 的 安全性 
+ 　 　 椭圆 曲线 密码 体制 的 安全性 取决于 椭圆 曲线 离散 对数 问题 的 难解 性 . 一般而言 , 群 G 上 的 离散 对数 算法 可 分成 两类 ： 指数 计算 法 与 碰撞 搜索 法 . 指数 计算 法 具有 亚 指数 时间 复杂度 , 但 要求 在 G 中 “ 平滑 性 ” 概念 有 意义 , 且 G 中 包含 足够 多 的 平滑 元素 . 类群 、 GF ( 2n ) 的 乘法 群及 Z  p 均 满足 该 性质 . 目前 最好 的 指数 计算 法是 线性 筛法 ［ 14 ］ 与 数域 筛法 ［ 15 ］ . 碰撞 搜索 法可 用于 一般 群 , 该类 算法 具有 纯 指数 时间 复杂度 . 目前 最 有效 的 碰撞 法是 Pllard ρ - 方法 ［ 16 ］ 和 Pohlig - Hellman 方法 ［ 17 ］ , 这 也 是 目前 对 椭圆 曲线 密码 体制 最有 影响 的 方法 . 下面 就 一般 群 形式 简述 这 两个 方法 . 以下 假设 G 是 一个 n 阶 Abel 群 , H = 〈 h 〉 是 由 h ∈ G 生成 的 nh 阶 循环 子群 . 
+ 4.1 　 Pollard ρ - 方法 
+ 　 　 Pollard ρ - 方法 是 一个 随机 算法 , 无法 给出 运算 时间 上 界 , 而 只能 给出 其 期望 运算 次数 . 
+ 　 　 设 nh 是 已知 的 , 随机 将 G 分成 大约 等势 的 3 份 G1 , G2 , G3 , 使得 x ∈ Gi ( i = 1 , 2 , 3 ) 的 判断 是 容易 的 ( 大约 相当于 一次 或 几次 G 的 运算 ) , 对 y ∈ H = 〈 h 〉 , 随机 选取 a0 , b0 使 1 < a0 , b0 < nh , 令 y0 ＝ ha0yb0 ， 定义 如下 序列 ： 
+ 　 　 　 ( 2 ) 
+ 其中 , ai , bi 可用 模 nh 约化 , 故 不会 过大而 不可 控制 . 该 序列 的 构造 保证 了 下列 等式 成立 : 
+ 
+ 若 将 序列 { y } 视为 从 H 到 H 的 一个 ( 部分 ) 随机 映射 , 其 期望 循环 长度 为 O , 因此 , 通过 比较 yi 与 y2i 我们 可 期望 在 O 时间 内求 到 正整数 k 使得 yk = y2k , k = O , 即 hakybk = ha2kyb2k 或 ybk - b2k = ha2k - ak , 当 gcd ( bk - b2k , nh ) = 1 时 便 求得 
+ 
+ 在 密码 体制 中 , gcd ( bk - b2k , nh ) ＝ 1 以 很 高 的 概率 成立 ( 比如 , 在 DSS 中 , nh 是 一个 素数 ) . 该 算法 的 期望 运算 次数 为 O . 
+ 4.2 　 Pohlig - Hellman 方法 
+ 　 　 在 Silver 之后 , Pohlig 和 Hellan 发现 , Abel 群 G 的 阶 的 平滑 性 对于 在 G 中 求解 离散 对数 问题 是 有 帮助 的 . 现设 对于 y ∈ H , 由 中国 剩余 定理 , 要 计算 m = loghy , 只须 求出 所有 mmodpep 即可 . 为 计算 mmodpe , 其中 , pe ‖ nh , e ≥ 1 ， 滤 这里 , mi ∈ { 0 , 1 , … , p - 1 } . 由 hm = y 可知 
+ 
+ 于是 , 问题 转化 为求 对于 的 对数 , 因为 的 阶为 p , 当 p 较 小时 是 易求 的 . 该 算法 的 时间 复杂度 为 
+ 　 　 由于 上 两 算法 关于 nh 或 其 最大 素 因子 的 长度 是 纯 指数 复杂度 的 , 当 nh 含 较大 素 因子 ( 比如 , 含 长度 ≥ 160bit 的 素 因子 ) 时 崱 效 , 这 对 椭圆 曲线 密码 体制 构 不成 真正 的 威胁 , 针对 洭 圆 曲线 离散 对数 问题 进行 的 密码 分析 才 是 该 体制 面临 的 真正 考验 . 为了 能 方便 计算 椭圆 曲线 的 阶 , 一类 被 称为 “ 超 奇异 椭圆 曲线 ” 的 特殊 椭圆 曲线 E / Fq ( 其中 , q = pm 是 素数 幂 ) 曾 被 建议 用于 建立 密码 体制 , 但是 , Menezes 等于 1993 年 证明 ［ 18 ］ , 对于 超 奇异 椭圆 曲线 E / Fq , E ( Fq ) 上 的 离散 对数 问题 可 在 概率 多项式 时间 内 归约 为 Fq 的 扩域 Fqk 上 的 离散 对数 问题 , 其中 k ≤ 6 , 当 p ≠ 3 时 , k ≤ 4 , 这 从根本上 否定 了 超 奇异 椭圆 曲线 用于 密码 系统 的 可能性 ． 所幸 的 是 , 这 类 椭圆 曲线 极易 识别 和 避免 . Semaev 于 最近 也 找到 一类 不宜 用于 密码 体制 的 椭圆 曲线 , 他 在 文献 ［ 19 ］ 中 指出 , 对 特征 为 p 的 域 K 上 的 椭圆 曲线 E / K , E ( K ) 的 p 阶 子群 中 的 离散 对数 问题 可 在 线性 时间 内 归约 为 K 的 加法 群上 的 离散 对数 问题 , 这就是说 , 对大素域 Zp 上 的 椭圆 曲线 E / Zp , 若 # E ( Zp ) = p 则 E ( Zp ) 中 的 离散 对数 问题 珯 在 线性 时间 内 归约 为 Zp 的 加法 群上 的 离散 对数 问题 , 从而 可 在 线性 时间 内 求解 ( 这 类 椭圆 曲线 称为 异常 ( anomalous ) 曲线 ) . 这个 结果 多少 有些 令人 惊异 , 更 令人 惊异 的 也许 是 这个 结果 早就 被 几个 数论 学家 ( 比如 Ed   Schaefer Щ 假定 是 众所周知 的 事实 而 未 发表 , 密码 学界 则 对此 一无所知 , 1997 年前 制定 的 各种 密码 标准 从未 考虑 到 这种 情况 . 对 椭圆 曲线 密码 体制 的 攻击 , 还应 提到 文献 ［ 20 ］ , 该 文献 利用 椭圆 曲线 的 结构 特性 改进 Pllard ρ - 方法 , 从而 产生 一 加速 因子 . 现令 K = GF ( 2m ) 为 2m 元域 , 并设 K 上 的 椭圆 曲线 E / K 的 系数 均 在 子域 GF ( 2e ) 之中 ( 这 类 曲线 称为 子域 曲线 ) ． 文献 ［ 20 ］ 中 给出 的 求解 E ( K ) 上 离散 对数 问题 的 改进 Pllard ρ - 方法 较 原始 Pllard ρ - 方法 期望 运行 时间 降低 倍 , 尽管 这一 结果 并未 改进 算法 时间 复杂度 的 阶 , 但 当 e 较 小时 , 其 篹 安全性 的 影响 也 不可 忽视 . 
+ 　 　 综上所述 , 椭圆 曲线 密码 体制 的 安全性 依赖于 椭圆 曲线 离散 对数 问题 的 难解 性 , 为 保证 体制 的 安全性 , 所 使用 的 基点 的 阶应 含 长度 不 小于 160bit 的 素 因子 , 超 奇异 椭圆 曲线 及 异常 椭圆 曲线 是 目前 仅知 的 不宜 用于 密码 体嘶 的 椭圆 曲线 ［ 21 ］ . 使用 子域 曲线 则 应 谨慎 . 
+ 　 　 从 上面 的 讨论 可以 看到 , 椭圆 曲线 密码 体制 的 分析 结果 并 不 丰硕 , 上面 所述 的 结果 便是 到 目前为止 仅 有 的 有 影响 的 结果 , 这 可 从 正反两方 面来 理解 ： 这种 密码 体制 确实 是 强 的 , 或者 , 这种 密码 体制 尚未 被 很 好 地 认识 , 不管 从 哪个 方面 看 , 椭圆 曲线 密码 体制 还 需 进一步 地 深入研究 . 事实上 , 1997 年 以来 , 椭圆 曲线 密码 体制 及其 安全性 分析 引起 了 密码 学家 及 各界 的 极大 关注 与 重视 , 现已 形成 了 研究 热点 , 有关 各界 , 包括 学校 ( 如 RoyalHollowayColleg ) 、 商业 组织 ( 如 Certicom ) 及 政府 ( 如 美国国家安全局 ) 已 在 从 各个方面 探索 椭圆 曲线 密码 技术 , 这种 密码 体制 也 引起 了 “ 密码 体制 标准 ” 研制者 的 极大 兴趣 . IEEE 标准 P136 ″ / D8 ( 1998 年 10 月 版 ) 及 P1363 / D9 ( 1999 年 2 月 版 ) 对 椭圆 曲线 密码 体制 作 了 较 以前 更为 详尽 的 讨论 , 成为 重点 内容 之一 . ANSI ( 美国 国家 标准局 ) 授权 的 金融业 标准 委员会 X9 正在 制定 椭圆 曲线 数字签名 标准 X9.62 和 密钥 协商 及 传递 标准 X9.63 , RSA 实验室 也 不甘落后 , 也 已 开始 着手 制定 编号 为 PKCS # 13 的 椭圆 曲线 密码 标准 , 该 标准 将 融合 、 平衡 其他 标准 , 并 与 其他 PKCS 标准 有机 结合 , 对 椭圆 曲线 密码 体制 实现 的 细节 作出 更 具体 的 规定 . 在 学术界 , 1997 年 11 月 Waerloo 大学 组织 了 一个 专门 的彦术 会议 , 研究 椭圆 曲线 离散 对数 问题 , 众多 著名 密码 学家 及 数学家 应 钀 参加 . 但 直到 目前 , 在 密码 分析 方面 仍 未 取得 实质性 进展 , 这种 情况 持续时间 越长 , 越使 人们 相信 椭圆 曲线 密码 体制 的 强度 . 大多数 密码 学家 对 这种 密码 体制 的 强度 及 应用 前景 越来越 抱 乐观 态度 . 像 RSA 一样 , 只有 经过 了 长时间 的 分析 , 椭圆 曲线 密码 体制 才 会 真正 为 人们 所 接受 . 
+ 5 　 椭圆 曲线 的 选取 
+ 　 　 要 建立 椭圆 曲线 密码 体制 , 首要 的 问题 是 选取 一个 合适 的 背景 有限 域 K 及 在 K 上 选取 一条 合适 的 椭圆 曲线 E / K . 从 实用 观点 看 , K 有 两种 选择 : 大素域 Zp 或 特征 为 2 的 有限 域 GF ( 2n ) . 从 近年来 的 实践 结果 看 , 大素域 更为 有效 一些 ( 这 与 人们 的 预想 不同 ) . 椭圆 曲线 的 选取 则 要 考虑 安全性 、 实用性 等 诸多 因素 , 有些 密码 体制 ( 如 , ElGamal 签名 体制 、 DSS 签名 体制 ) 需要 知道 E 的 阶 # E ( K ) 或 # E ( K ) 的 一个 大素 因子 , 另 一些 体嘶 ( 如 , Diffie - Hellman 密钥 交换 协议 、 ElGamal 加密 体制 ) 虽 不 需要 知道 E ( K ) 的 阶 , 但 为 避免 Pohlig - Hellman 攻击 , 需 保证 # E ( K ) 中有 大素 因子 . 椭圆 曲线 的 选取 现有 两种 可以 考虑 的 方法 . 
+ 　 　 ( 1 ) 随机 选取 
+ 　 　 随机 选取 一条 椭圆 曲线 E / K , 计算 其阶 # E ( K ) 直到 获得 满意 的 曲线 为止 . 由于 这种 方法 的 随机性 , 从 安全性 角度 来看 是 一种 理想 的 方法 . 
+ 　 　 Hasse 定理 告诉 我们 一个 关于 # E ( Fq ) 嚄 估计 : 令 # E ( Fq ) = q + 1 - t , 则 但 要 具体 求出 # E ( Fq ) 却 并非易事 , Schoof 在 这方面 做出 了 开创性 的 成果 ［ 22 ］ . 令 φ 是 上 的 Frobenius 自同态 ： 
+ 
+ 其 特征方程 为 φ 2 - t φ + q = 0 , 其中 , 设 l 是 一个 小 素数 , E ［ l ］ 为 的 l - 扭点 构成 的 子群 , 通过 将 φ 限制 在 E ［ l ］ 中 , 利用 搜索 可求 出 t ′ 满足 t ′ ≡ t   modl ， 即 篹 于 小 素数 l 可求 燺 t 工 modl ． Schoof 算法 的 基本 想法 就是 对 一系列 小 素数 l = 3 , 5 , 7 ， … , L , 其中 , L 满足 , 求出 t   mol , 从而 由 中国 剩余 定理 得到 t , 进而 得到 # E ( Fq ) . 
+ 　 　 Schoof 的 这个 算法 具有 时间 复杂度 O （ log92q ） , 理论 上 是 个 有效 算法 在 实际 中 却 不 实用 , 但 这个 方法 指出 了 求 # E ( Fq ) 的 一个 努力 方向 , 引起 了 极大 关注 ． 自此以后 , 围绕 计算 tmodl 已有 大量 成果 发表 出来 ［ 23 , 24 ］ , 并且 在 方法 的 实现 上 有 了 较大 进展 ． Lercier 和 Morain 曾 在 DEC   Alpha3000 / 500 上 计算 出 GF （ 2300 ＋ 157 ) 上 椭圆 曲线 的 阶 , 也 曾 在 DEC   Alpha   Workstation250 ( 266MHz ) 上 计算 出 F2300 上 椭圆 曲线 的 阶 , 用时 都 是 大约 40 分钟 ． 目前 记录 则 是 DEC   Alpha   Workstaion   250 上用 103 天 5 小时 计算 出 了 F21301 上 一条 椭圆 曲线 的 阶 . 由于 阶中 含大素 因子 的 椭圆 曲线 相对 较 少 ( 在 F2196 上约 2 ‰ ) , 利用 该 方法 建立 椭圆 曲线 密码 体制 仍 存在 困难 , 特别 地 , 对求 阶中 含 2 个大素 因子 以上 的 椭圆 曲线 , 上述 方法 完全 不 可行 . 
+ 　 　 ( 2 ) 构造 给定 阶 的 椭圆 曲线 
+ 　 　 Atkin 和 Morain 的 论文 “ Elliptic   Curves   and   Primality   Proving ” ［ 4 ］ 使 人们 看到 了 获得 密码 体制 所 需要 的 椭圆 曲线 的 另 一条 途径 , 该文 提出 的 利用 复乘 构造 素域 Zp 上 具有 特定 阶 椭圆 曲线 的 思想 及 方法 已 引起 了 广泛 关注 , 并 被 多篇 论文 讨论 、 改进 ［ 25 ～ 28 ］ ． 密码 标准 IEEEP1363 (       草稿 , 1999.2 ) 也 采用 了 该 策略 作为 生成 椭圆 曲线 的 方法 之一 . 利用 这种 思想 , 本文 作者 在 文献 ［ 28 ］ 中 提出 并 实现 了 素数 阶及 阶中 含 多个 大素 因子 的 椭圆 曲线 的 构造方法 . 
+ 　 　 设 - D 是 一个 负奇 基本 判别式 , HD ( X ) 表示 － D 的 Hilbert 类 多项式 , 又 设 p 是 一个 素数 , 若 整数 x , y 满足 4p = x2 + Dy2 , 则 对 HD ( X ) 的 任意 关于 模 p 的 根 j0 , 必 存在 j - 不 变量 为 j0 的 椭圆 曲线 E / Zp 满足 
+ 4 # E ( Zp ) = ( x - 2 ) 2 + Dy2 　 　 ( 3 ) 
+ 　 　 虽然 椭圆 曲线 不能 由 j - 不 变量 唯一 确定 , 通过 j - 不 变量 j0 找出 满足 式 ( 3 ) 的 椭圆 曲线 是 容易 的 . 事实上 , j - 不 变量 为 j0 的 椭圆 曲线 恰 构成 2 个 等 势 的 同构 类 . 
+ 　 　 下面 是 文献 ［ 28 ］ 中 提出 的 构造 素域 Zp ( p > 3 ) 上 的 素数 阶 椭圆 曲线 的 方法 的 简化 描述 . 
+ 　 　 ( 1 ) 取定 负奇 基本 判别式 - D , 使 其 具有 小 的 类数 ( 比嶂 , D = 19 ) ； 
+ 　 　 ( 2 ) 在 适当 范围 内 , 随机 选取 整数 x , y , 令 4q = ( x2 + Dy2 ) , 检测 q 的 素性 , 直到 q 是 素数 为止 ； 
+ 　 　 ( 3 ) 令 4p = ( x + 2 ) 2 + Dy2 , 检测 p 的 素性 , 若 p 不是 素数 ， 返回 第 2 步 , 直到 p 为 素数 ； 
+ 　 　 ( 4 ) 计算 HD ( X ) ≡ 0modp 的 根 j0 ( 由于 - D 具有 小 的 类数 , 该 方程 易解 ) ； 
+ 　 　 ( 5 ) 构造 j - 不 变量 为 j0 的 椭圆 曲线 E ： y2 = x3 + ax + b , 取 随机数 c ∈ Z * p , 在 E ′ ： y2 = x3 + c2ax + c3b 上任 取 一点 P ≠ 0 , 判断 qP = 0 直到 成立 . 
+ 　 　 可以 证明 , 算法 结束 时 E ′ 即为 Zp 上 q 阶 椭圆 曲线 ［ 28 ］ . 
+ 　 　 该 算法 具有 较 高 的 效率 , 可 轻易 在 大素域 Zp 上 构造 出 素数 阶 椭圆 曲线 . 
+ 　 　 受到 MOV 归约 的 启示 , 人们 对 利用 复乘 构造 椭圆 曲线 的 方法 存在 着 某些 疑虑 , 对 p 的 形状 的 限制 、 对 - D 的 限制 是否 漚 影响 体制 的 安全性 国内外 密码 筦 家 对此 有着 广泛 煳 注 , 但 到 目前为止 , 没有 任何 线索 说明 这种 曲线 存 眨 弱点 . 
+ 6 　 结 　 论 
+ 　 　 从 上述 讨论 可以 看出 , 椭圆 曲线 密码 体制 正 受到 学术界 、 开发商 、 政府部门 、 密码 标准 研制 组织 等 有 煳 各界 的 重视 , 已 罢成 研究 、 开发 热点 并 开始 从 理论 走向 实用 ． 虽然 对 这种 密码 体制 人们 的 认识 尚嫌 不足 , 但 最近 几年 内 , 它 极 有 可能 在 某些 领域 成为 现存 密码 体制 的 替代者 , 椭圆 曲线 密码 产品 会 逐渐 为 人们 所 了解 , 与 安全性 相关 的 椭圆 曲线 离散 对数 问题 相应 会 受到 更 多 的 关注 ． 可以 鲄 计 , 在 最近 几年 内 , 椭圆 曲线 阶 的 计算方法 及 实现 技术 会 有 较大 进展 , 对 具有 小 的 复 乘 的 椭圆 曲线 的 密码 分析 也许 会 得到 更为 确定性 的 结论 . 
+ * 本 课题 得到 国家 “ 八 六三 ” 计划 （ 项目编号 863 - 306 - ZT06 - 01 - 4 ） 及 山东省 自然科学 基金 （ 项目编号 Z94G0108 ） 资助 . 
+ 作者简介 ： 徐秋亮 , 男 , 1960 年 4 月生 , 博士 , 主要 研究 方向 为 数据安全 、 密码学 . 
+ 　 　 　 　 　 李 大兴 , 男 , 1963 年 2 月生 , 教授 , 博士生 导师 , 主要 研究 方向 为 网络安全 、 密码学 . 
+ 作者 单位 ： 徐秋亮 　 山东大学 计算机科学 系 　 济南 　 250100 
+ 　 　 　 　 　 李 大兴 　 山东大学 网络 信息安全 研究所 　 济南 　 250100 
+ 参考文献 
+ 1 　 Lenstra   H   W .   Factoring   integers   with   elliptic   curves .   Annals   o   f   Mathematics ,   1987 ,   126 :   649 ～ 673 
+ 2 　 Montgomery   P .   Speeding   the   pollard   and   elliptic   curve   methods   of   facto   rization .   Mathematics   of   Computation ,   1987 ,   48 :   243 ～ 264 
+ 3 　 Montgomery   P .   A   FFT   extension   of   the   elliptic   curve   method   of   factoriz   ation .   ［ Ph   D   dissertation ］ ,   UCLA , Los   Angeles ,   1992 
+ 4 　 Atkin   A ,   Morain   F .   Ellipic   curvs   and   primality   proving   Mathemtics   of   Computtion ,   1993 ,   61 ( 203 ) :   29 ～ 68 
+ 5 　 Goldwasser   S ,   Kilian   J .   Almost   all   primes   can   be   quickly   certified .   In   :   Proc   of   the   18th   Annual   ACM   Symposium   on   Theory   of   Computing ,   1986 .   316 ～ 329 
+ 6 　 Pomerance   C .   Very   short   primality   proofs .   Mathematics   of   Computation ,   1987 ,   48 :   315 ～ 322 
+ 7 　 Miller   V .   Uses   of   elliptic   curves   in   cryptography .   In :   Williams   H   C   ed   s .   Advances   in   Cry   ptology — CRYPTO ' 85   Proceedings ,   LNCS   218 .   Berlin :   Springer - Verlag ,   1986 .   417 ～   426 
+ 8 　 Koblitz   N .   Elliptic   curve   ryptosytems .   Mthematics   o   Computatio ,   1987 ,   48 :   203 ～ 209 
+ 9 　 Robshaw   M ,   Yin   Y .   Elliptic   Curve   Cryptosystems .   Mathematics   of   Computation ,   1987 ,   48 :   203 ～ 209 
+ 10 　 Silverman   J .   The   Arithmeic   f   Elipic   Curvs . New   York   Springer - Verlag ,   1986 
+ 11 　 Menees   A .   Elipic   urv   Public   Key   Cryptosystems .   Boston :   Kluwr   Acad   emicPubishers ,   1993 
+ 12 　 Demytko   N . A   new   elloptic   curve   based   analogue   of   RSA .   IN :   Helleseth   ed .   Advances   in   Cryptology — Eurcocrpt ' 93   Proceedings ,   LNCS   765 .   Berlin :   Springs - Verlag ,   1994 .   40 ～ 49 
+ 13 　 Koyama   K ,   Maurer   U   M   Okmoto   T ,   Vantone   S   A .   New   publi - key   scheme   based   on   ellitic   curves   over   the   rin   Zn .   In :   Feigenbaum   J   eds .   Advances   in   Cry   ptology — CRYPTO ' 91   Proceedings ,   LNCS   576 .   Berlin :   Springer - Verlag ,   1992 .   40 ～ 49 
+ 14 　 Coppersmith   D ,   Odlyzko   A   M ,   Schroeppel   R .   Disret ⑥   loarithmsin   GF ( p ) .   Algorithmica ,   1986 .   1 :   1 ～ 15 
+ 15 　 Lenstra   A   K ,   Lenstra   H   W .   The   Develpment   of   the   Number   Field   Sieve .   Be   rlin :   Springer - Verlag ,   1993 
+ 16 　 Pollard   J   M .   Monte   Carlo   methods   for   index   computation ( mod   p ) .   Mathemat   ics   of   Computation ,   1978 ,   32   918 ～ 924 
+ 17 　 Pohlig   S   C ,   Hllman   M   E .   An   imprved   algorithm   for   computing   logarithms   over   GF ( p )   and   its   cryptographic   signifcance .   IEEE   Trans   Inform   Theory ,   1978 ,   2   4 :   106 ～ 110 
+ 18 　 Menezes   A ,   Okamoto   T ,   Vanstone   S   A .   Reducing   elliptic   curves   logarithms   to   logarithms   in   a   finite   field .   IEEETIT ,   1993 ,   39 ( 5 ) :   1639 ～ 1646 
+ 19 　 Semaev   I   A .   Evaluation   of   discrete   logarithms   in   a   group   of   p - torsion   points   of   an   elliptic   curve   in   characteristic   p .   Mathematics   of   Computation ,   199   8 ,   67 ( 221 ) :   353 ～ 356 
+ 20 　 Wiener   M   J ,   Zuccherato   R   J .   Faster   attacks   on   elliptic   curve   cryptosyst   ems .   In :   Tavares   S ,   Meijer   H   eds .   Selected   Areas   in   Cryptography — SAC ' 98 .   Berl   in :   Springer - Verlag ,   1998 
+ 21 　 IEEE   P1363 / D9   ( Draft   Version   9 ) .   Standard   specification   for   public   key   cryptography .   1999 .   http : / / grouper . ieee . org / groups / 1363 
+ 22 　 Schoof   R .   Elliptic   curves   over   finite   field   and   the   computation   of   squa   re   roots   mod   p .   Mathematics   of   Computation ,   1985 ,   44 :   483 ～ 494 
+ 23 　 Lercier   R ,   Morain   F .   Counting   the   number   of   points   on   elliptic   curves   o   ver   finite   fields :   strategies   and   performances .   In :   Guillou   L   C ,   Quisquater   J   J   eds .   Advances   in   Cryptology — EUROCRYPT ' 95   Proceedings ,   LNCS   921 ,   1995 .   79 ～ 94 
+ 24 　 Lercier   R .   Finding   good   random   elliptic   curves   for   cryptosystems   define   d   over .   In :   Fumy   W   ed .   Advances   in   Cryptology — EUROCRYPT ’ 97   Proceedings ,   LNCS   1233 .   Berlin :   Springer - Verlag ,   1997 .   379 ～ 392 
+ 25 　 Morain   F .   Building   cyclic   elliptic   curves   modulo   large   primes .   In :   Davi   es   D   W   ed .   Advances   in   Cryptology — EUROCRYPT ' 91   Proceedings ,   LNCS   547 .   Berlin :   Springer - Verlag ,   1991.328 ～ 336 
+ 26 　 Miyaji   A .   Elliptic   curves   over   Fp   suitable   for   cryptosystems .   In :   Seber   ry   J , Zheng   Y   eds .   Advances   in   Cryptology  — AUSCRYPT ' 92   Proceedings ,   LNCS   718 .   B   erlin :   Springer - Verlag ,   1993.479 ～ 491 
+ 27 　 Lay   G   J ,   Zimmer   H   G .   Constructing   elliptic   curves   with   given   group   orde   r   overlarge   finite   fields .   In :   Adleman   L   M ,   Huang   M   D   eds .   Algorithmic   Number   T   heory   Proceedings ,   LNCS   877 .   Berlin :   Springer - Verlag ,   1994 .   250 ～ 263 
+ 28 　 徐秋亮 , 李 大兴 . 适用 于 建立 密码 机制 的 椭圆 曲线 的 建造 方法 及 实现 . 计算机 学报 ，   1998 ， 21 （ 12 ） ： 1059 - 1065 
+ 　 　 （ Xu   Qiuliang , Li   Daxing .   Constructing   elliptic   curves   suitable   for   cryp   tosystems — Methods   and   implementation .   Chinese   Journal   of   Computers ( in   Chinese ) ,   1998 ,   21 ( 12 ) :   1059 ～ 1065 ） 
+ 原稿 收到 日期 ： 1998 - 12 - 29 ； 修改稿 收到 日期 ： 1999 - 08 - 08 . 

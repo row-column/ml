@@ -1,0 +1,132 @@
+微型机 与 应用 
+ WEIXINGJI   YU   YINGYONG 
+ 1999 年 3 月   第 18 卷   第 3 期   vol.18   No.3 
+ 
+ 
+ 
+ 用 ASP 技术 将 Web 网页 连接 到 数据库 
+ 严威 　 温治宇   
+ 　 　 摘 　 要 ： ASP 技术 的 特点 、 编程 语法 以及 如何 利用 ASP 编制 BROWSER   / SERVER 方式 的 动态 网页 ， 并 在 结尾 例举 了 作者 编制 的 1 个 程序 片段 。 
+ 　 　 关键词 ： ASP 技术 　 Web 服务器 　 浏览器 　 VBScript 　 Intranet 
+ 1 　 ASP 简介 
+ 　 　 ASP ( Active   Server   Pages ) 是 Microsoft 公司 的 IIS   Web 服务器 的 1 个 部件 ， 可以 产生 动态 的   、 交互 的 页面 。 ASP 属于 ActiveX 技术 中 的 Server 端 技术 ， 不像 Java   applet 、 VB   Script 、 Ja   vaScript 那样 ， Client 端的 Script 命令 是 由 浏览器 来 解释 执行 的 ， 而 在 ASP 中 ， 语句 是 由服   务器 解释 执行 ， 动态 生成 Web 页面 送到 浏览器 。 所以 ， 开发者 无需 考虑 浏览器 是否 支持 ASP 。   
+ 　 　 ASP 的 执行 过程 是 ： 
+ 　 　 1 . 浏览器 向 服务器发送 1 个 HTTP 请求 页 ； 
+ 　 　 2 . 如 请求 页 有 1 个 . asp 的 后缀 ， 则 服务器 认出 是 1 个 ASP 页 ， 把 这个 文件 送给 ASP . DLL 处理   。 如果 请求 页 不是 . asp 文件 ， 则 这 一步 不会 发生 ； 
+ 　 　 3 . 服务器发送 HTML 结果 给 客户端 的 浏览器 ； 
+ 　 　 4 . 一旦 浏览器 接收 了 ， 它 就 依照 HTML 的 规定 显示 网页 。 但是 ， 服务器 和 客户端 并 没有 真正   的 连接 。 
+ 　 　 目前 ASP 只 适用 于 下列 Web   Server : IIS   3.0   on   Windows   NT , Microsoft   Peer   Web   Server   V3   . 0   on   NT   Workstation , Microsoft   Personal   Web   Server   on   Win95 。 
+ 　 　 Microsoft 的 另 一个 产品 是 Microsoft   Visual   InterDev ， 与 ASP 一起 作为 实现 动态 Web 应用 的   工具 。 
+ 　 　 . asp 文件 可以 使用 多种 脚本语言 。 这样 ， 你 可以 拥有 不同 的 脚本语言 的 优点 。 ASP 自身 提供   了 VBScript 和 JScript 驱动 。 它 缺省 的 Script 语言 是 VBScript ， 开发者 也 可以 改变 这一 设置   ，   如 要 改为 JScript , 只 需 在 文件 开头 注明 < % @ Language = JScript   % > 即可 。 如想 将 某 一种 脚本 语   言设 为 Web 服务器 上 所有 页 的 主 脚本语言 ， 则 需要 修改 Register   Editor 的 注册 路径 ： 
+ HKEYLOCALMACHINE ＼ SYSTEM ＼ CurrentControlSet ＼ Services ＼ W3SVC ＼   ASP ＼ Parameters 
+ 　 　 DefaultScriptLanguage 的 缺省值 是 “ VBScript ” ， 将 其 改为 欲 设置 的 脚本语言 即可 。 
+ 　 　 ASP 的 命令 定界符 是 “ < % ” 和 “ % > ” 。 用户 可以 在 它们 中间 写入 VBScript 等 语句 ， 嵌套 在 HTM   L 中 。 ASP 提供 了 5 个 内建 对象 ： 
+ 　 　 Request : 　 从 使用者 获取信息 ； 
+ 　 　 Response : 　 将 信息 送给 使用者 ； 
+ 　 　 Server : 　 提供 Web   Server 工具 ； 
+ 　 　 Session : 　 存储 在 1 个 Session 内 的 使用者 的 信息 ； 
+ 　 　 Application : 　 在 1 个 ASP 应用 内 让 不同 使用者 共享 的 信息 。 
+ 　 　 前 3 个 很 常用 ， Request 和 Response 是 用来 实现 Web   Server 与 浏览器 交互 。 Request 的 1 个 重要   方法 是 Form ( ) ， 其 作用 是 提取 浏览器 的 用户 输入 信息 。 如 语句 Request . Form ( “ name ” ) 可以   取得   用户 填 在 文本框 里面 的 内容 ， 显然 ， 这比 CGI 等 方法 所 需要 的 复杂 编程 简单 多 了 。 而 输出 要   用到 Response 的 1 个 重要 方法 Write , 如 ： Response . Write “ our   message ” ， 该 语句 向 浏览器   输出 了 1 条 消息 。 Server 对象 有 2 个 重要 方法 ： MapPath 和 CreateObject 。 MapPath 用来 将 WebS   erver 的 虚拟 路径 还原成 实际 路径 。 CreateObject 是 最 重要 的 1 个 方法 ， 它 用来 产生 服务器 组   件 的 对象 实例 。 所谓 服务器 组件 ， 即 是 对 Web 可 共享 的 COM ( Component   Object   Model ) 组件 。   服务器 组件 可以 连接 服务器 数据库 、 使用 网络 功能 或 访问 服务器 文件系统 。   要 调用 服务器 组件 ， 必须 先 利用 Server 对象 中 的 方法 CreateObject 产生 服务器 组件 对象 实例   ， 即 Server . CreateObject ( ObjectID ) , 其中 ObjectID 指定 了 构件 标识 ， 它 可以 是 各种 形式 的   可执行程序 。 用 VB 或 VC 可以 很 方便 地 开发 出 一些 构件 ， 然后 登记 这些 构件 ， 就 可以 用 Server   . CreateObject 来 调用 。 构件 产生 后 ， 就 可以 使用 它 的 方法 和 属性 进行 工作 。 
+ 　 　 通常 使用 Server 构件 的 程序 语句 是 ： 
+ 　 　 Setobj = Server . CreateObject ( client ) 
+ 　 　 ASP 提供 了 5 个 服务器 组件 ， 其中 最 重要 的 2 个 是 数据库 访问 构件 ADODB 和 文件 访问 构件 FileSy   stemObject 。 
+ 2 　 ASP 编程 技巧 
+ 　 　 笔者 在 实际 编程 中 总结 出 一些 技巧 ， 在 此 说明 如下 。 
+ 　 　 1 .. asp 文件 不能 通过 打开 的 方式 来 执行 ， 而 必须 链接 。 例如 ： 
+ 　 　 http : / / server / asp / client . asp 
+ 　 　 2 . 如果 某些 程序 只 在 某 一页 内 调用 ， 那么 把 它们 放在 这 一页 内 即可 ， 如果 在 多页 中 都 要 调   用 ， 则 可以 把 这些 程序 放在 1 个 单独 的 . asp 文件 中 ， 然后 在 每个 要 调用 这些 程序 的 . asp 页 中   将 那个 .   asp 文件 嵌套 进来 。 如要 在 . asp 页 中 包含 其他 文件 ， 可 使用 如下 的 语句 ： 　 　 
+ 　 应用 奇葩 ( WWW   应用 开发 专题 )   < ! - - # INCLUDE   VIRTUAL ｜ FILE = “ filename ” - - > 
+ 　 　 关键字 VIRTUAL 和 FILE 任选 其一 ， VIRTUAL 表示 要 包含 的 文件 在 1 个 虚拟目录 内 。 
+ 　 　 3 . 调用 程序 用 关键字 Call 加上 程序 名 ， 如果 要 调用 的 程序 有 参数 ， 要 把 参数 用 括号 括 起来   。 如果 省略 关键字 Call ， 括号 也 要 省略 。 
+ 　 　 4 . 因为 脚本 在 服务器端 执行 ， 所以 在 服务器 使用 VBScript 时 ， 有 2 个 VBScript 的 特性 不能 使   用 ： InputBox 和 MsgBox 。 另外 ， VBScript 的 函数 CreateObject 和 GetObject 也 不 支持 。   
+ 3 　 应用 举例 
+ 　 　 笔者 参与 了 某 化工厂 的 电子网络 工程 ， 程序 是 在 InterDev1.0 界面 下 嵌套 VBScript 语句 实现   的 ， Web 服务器 是 IIS3.0 。 下面 是 其中 1 个 查询 ASP 页 的 片段 ： 
+ < % @ LANGUAGE = “ VBSCRIPT ” % > 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / VBScript 语言 为 缺省 语言 
+ < ! - - # INCLUDE   FILE = “ … / … / medical . asp ” … > 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 嵌套 medical . asp 
+ < HTML > 
+ < HEAD > 
+ < META   NAME = “ GENERATOR ” Content = “ Microsoft   Visual   InterDev   1.0 ” >   
+ < META   HTTP - EQUIV = “ Content - Type ” content = “ text / html ; charset = gb2   312 - 80 ” > 
+ < TITLE > 按 原材料 名称 查询 主要 原材料 供应 计划 < / TITLE > 
+ 
+ / / 以上 3 行 InterDev 自动 生成 
+ < / HEAD > 
+ < BODY   background = “ … / … / images / sandl . jpg ” bgproperties = fixed > 　 / / 设置 背   景 
+ < %   VarName = Convert ( Request ( “ MatName ” ) ) 
+ 
+ / / 自编 的 显示 汉字 的 程序 
+ 　 Dim   PrintHeading 
+ 　 PrintHeading = True 
+ % > 
+ < ! - - METADATA   TYPE = “ DesignerControl ” startspan > - - > 
+ < % 
+ Set   cims = Server . CreateObject ( “ ADODB . Connection ” ) 
+ cims . Open 　 Session ( “ cimsConnectionString ” ) , 　 Session ( “ cimsRuntimeUserName ” ) , Session ( “ cimsRuntimePassword ” ) 
+ Set   MatQry2 = Server . CreateObject ( “ ADODB . Recordset ” ) 
+ cmdTemp . CommandText = “ SELECT   ntlcims . dbo . Material . * , ntlcims .   dbo . VtMateriaValue . * , AS   InWare   FROM   ntlcims . dbo . Mater   ial , ntlcims . dbo . VtMateriaValue   WHERE   ntlcims   . dbo . Material . CodeMaterial = ntlcims . dbo . VtMateriaValue . CodeMaterial   AND ( ntlcims . dbo . Material . NameM   aterial = “ ‘ &   VarName   & ' " ) " 　 / / 查询 语句 
+ cmdTemp . CommandType = 1 
+ Set   cmdTemp . ActiveConnection = cims 
+ MatQry2 . Open   cmdTemp , , 0 , 1 
+ % > 
+ < ! - - METADATA   TYPE = “ DesignerControl ” endspan - - > 
+ < br > < br > 
+ < b > < font   size = 4   color = blue > 主要 原材料 供应 计划 < / font > < / b > 
+ < br > < br > < a   href = “ Materialplan . asp ” > < font   size = 2 > 返回 浏览 窗口 < /   font > < / a > 
+ < br > < hr > 
+ < form   name = “ MatNameForm ” action = “ MatPlanQry2 . asp ” met   hod = “ post ” > 
+ 　 / / 调用 MatPlanQry2 . asp 程序   执行 方法 为 post 
+ 查看 主要 原材料 < select   name = MatName   size = 1 > 的 供应 计划 
+ 　 　 　 < option   value = “ ” > 　 / / 建立 下拉列 
+ 　 　 　 < option   value = “ 丙烯酸甲酯 ” > 丙烯酸甲酯 
+ 　 　 　 < option   value = “ 依康酸 ” > 依康酸 
+ 　 　 　 < option   value = “ 硫酸 ” > 硫酸 
+ 　 　 　 < option   value = “ 异丙醇 ” > 异丙醇 
+ 　 　 < / select > 
+ < br > < br > < input   type = “ button ” name = submit2   value = “ 查询 ” > 
+ 
+ / / 进行 查询 
+ < / form > 
+ < hr > < br > 
+ < %   If   PrintHeading   And   Not   MatQry2 . EOF   Then 
+ 　 PrintHeading = False 
+ % > 
+ < b > < font   color = navy > < % = VarName   % > ( < % = MatQry2 ( “ UnitMaterial ” ) % > ) < / font   > 的 供应 计划 < / b > < br > 
+ < table   border = 3 > 　 　 / / 生成 表头 
+ < tr > 
+ < th   align = center   bgcolor = aaaaff   nowrap > 日期 < / th > 
+ < th   align = center   bgcolor = aaaaff   nowrap > 月初 库存 < / th > 
+ < th   align = center   bgcolor = aaaaff   nowrap > 本月 订货 < / th > 
+ < th   align = center   bgcolor = aaaaff   nowrap > 计划 耗用 < / th > 
+ < th   align = center   bgcolor = aaaaff   nowrap > 月末 预计 库存 < / th > 
+ < / tr > 
+ < %   Else   % > 
+ < b > < font   color = navy > < % = VarName   % > < / font > 的 供应 计划 < / b > < br > 
+ < font   size = 2   color = red > 没有 找到 相应 的 记录 ! < / font > 
+ < % End   If   % > 
+ < % While   Not   MatQry2 . EOF   % > 
+ < tr > 　 　 　 / / 输出表 项 
+ < td   align = right   bgcolor = ffffff   nowrap > < % = MatQry2 ( “ YearMonthMate   riavalue ” ) % > < / td > 
+ < td   align = right   bgcolor = ffffff   nowrap > < % = MatQry2 ( “ StorageMonthB   egin ” ) % > < / td > 
+ < td   align = right   bgcolor = ffffff   nowrap > < % = MatQry2 ( “ OrderThisMonth ” ) % > < / td > 
+ < td   align = right   bgcolor = ffffff   nowrap > < % = MatQry2 ( “ PlanConsume ”   ) % > < / td > 
+ < td   align = right   bgcolor = ffffff   nowrap > < % = MatQry2 ( “ In   　 Ware ” ) % > <   / td > 
+ < td   align = right   bgcolor = ffffff   nowrap > < % = MatQry2 ( “ NoteMaterial   Value ” ) % > < / td > 
+ < / tr > 
+ < / table > 
+ < script   language = vbscript > 
+ < ! - - 
+ Sub   submit2Onclick ( ) 　 / / 执行 事件 
+ Dim   frm 
+ set   frm = document . MatNameForm 
+ frm . submit 
+ End   Sub 
+ - - > 
+ < / script > 
+ < / BODY > 
+ < / HTML > 
+ 4 　 总结 
+ 　 　 ASP 技术 是 编制 BROWSER / SERVER 网页 的 一个 有力 工具 。 这种 Web 与 数据库 连接 的 方法 再 加上 通   过   电话线 拨号 ， 就 可以 将 总部 与 若干 分公司 连接起来 ， 分公司 的 职员 只要 通过 浏览器 就 能 查看   设在 总部 的 服务器 中 的 信息 ， 而 这 正是 目前 一些 公司 所 急需 的 。   
+ 作者 单位 ： 天津大学 电子信息 学院 97 研 ( 300072 ) 
+ ( 收稿 日期 ： 1998 - 09 - 17 ) 

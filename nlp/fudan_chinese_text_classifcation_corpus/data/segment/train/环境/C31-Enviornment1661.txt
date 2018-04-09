@@ -1,0 +1,103 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1999 年 　 第 19 卷 　 第 4 期 　 Vol.19 　 No.4 　 1999 
+ 
+ 
+ 
+ 镧 氧化 膜 硅胶 吸附 除 氟 性能 研究 
+ 马刚平 　 刘振儒 　 赵春禄 
+ 摘要 ： 采用 多次 浸渍 — 干燥 — 高温 焙烧 法 制备 了 表面 包裹 镧 氧化 膜 的 硅胶 吸附剂 , 对 模拟 含氟 水样 进行 了 静态 及 动态 吸附 实验 . 结果表明 , 镧 氧化 膜 硅胶 具有 吸附 容量 大 ( 2.650 mg / g ) 、 稳定性 好 、 适用 于 处理 偏 酸性 含氟 水体 等 特点 ,   除 氟 效率 可达 90% 以上 . 其除 氟 机理 是 以 离子交换 为主 , 兼有 表面 络合作用 . 对 吸附 达到 饱和 的 镧 氧化 膜 硅胶 用 0.01 mol / L 稀 硝酸 镧 溶液 再生 后 可 重复 利用 . 并 通过 扫描电镜 对 其 表面 结构 和 氧化 镧 活性 组分 的 形态 进行 了 观察 . 
+ 关键词 ： 镧 氧化 膜 硅胶 ； 吸附 ； 除 氟 
+ 中 图 分类号 ： X13   文献 标识码 ： A   文章 编号 ： 1000 -   6923 ( 1999 ) 04 -   0345 -   04 
+ Study   on   the   removal   of   fluoride   by   using   lanthanum   oxide — coated   silica   gel . 
+ MA   Gang - ping   ,   LIU   Zhen - ru   ,   ZHAO   Chun - lu   ( Department   of   Environmental   Science , Shanxi   University , Taiyuan   030006 , China ) .   China   Environmental   Science .   1999 , 19 ( 4 ) ： 345 ～   348 
+ Abstract ： In   this   paper ,   a   lanthanum   oxide — coated   silica   gel   was   prepared   by   using   impregnating — evaporating — baking   method ,   which   was   used   to   remove   fluoride   through   static   adsorption   test   and   column   test .   The   result   shows   that   this   adsorbent   has   many   characteristics   such   as   considerable   capacity   ( 2.650 mg / g ) ,   stability   of   oxide   membrane   and   so   on .   The   removal   rate   of   fluoride   was   more   than   90%   at   moderate   acidic   solution .   The   mechanism   of   fluoride   removal   was   mainly   ion   exchange   with   surface   complexcation ,   0.01 mol / L   La ( NO3 ) 3   solution   was   used   to   regenerate   the   adsorbent   as   adsorption   saturated .   Surface   structure   and   oxide   membrane ’ s   form   of   adsorbent   were   observed   through   SEM   .   
+ Key   words ： lanthanum   oxide — coated   silica   gel ； adsorption ； fluoride   removal   
+ 　 　 氟及 氟化物 在 环境 中 分布 很广 , 长期 饮用 高氟水会 导致 氟斑牙 、 氟骨症 , 严重者 可 引起 氟 中毒 . 自 50 年代 以来 , 人们 研究 了 多种 除 氟 方法 [ 1 ,   2 ] , 并 取得 了 一定 进展 . 目前 主要 的 除 氟 方法 有 混凝 沉淀法 和 吸附 过滤法 . 混凝 沉淀法 主要 缺点 是 处理 后 产生 大量 的 沉淀 污泥 ; 吸附 过滤法 主要 是 以 活性 氧化铝 的 研究 与 应用 最 多 , 但 其 成本 较 高 . 
+ 　 　 本文 用 经过 在 稀 硝酸 镧 溶液 中 浸渍 的 粗孔 层析 硅胶 , 经 红外 干燥 、 高温 焙烧 制成 镧 氧化 膜 硅胶 , 对 模拟 含氟 水样 进行 除 氟 性能 研究 , 并 探讨 了 其 除 氟 机理 . 
+ 1   材料 、 仪器 及 实验 方法 
+ 1.1   材料 与 仪器 
+ 　 　 60 ～   100 目粗孔 层析 硅胶 ( 青岛 海洋 化工厂 产 ) ; La ( NO3 ) 3.6 H2O 和 NaF 均 为 AR 级 ; TISAB 缓冲溶液 等 . ORION   420A   pH 计 ; 美国 Leeman   10 - 9021 型 电感 耦合 等离子体 发射 光谱仪 ;   DHZB - 500 型 电热 恒温 振荡 培养箱 ; S - 570 电子显微镜 ; 内径 为 10   mm , 长为 300   mm 的 玻璃 吸附 柱 等 . 
+ 1.2   实验 方法 
+ 1.2 . 1   吸附剂 的 制备   首先 用 1.0   mol / L 的 氨水 调节 0.05   mol / L 的 La ( NO3 ) 3 。 6H2O 溶液 体系 的 pH 值为 10 ～   11 , 然后 将 硅胶 在 室温 下 浸渍 12h 以上 , 于 红外灯 下 ( 50 ～   60 ℃ ) 干燥 , 并经 400 ℃ 高温 焙烧 4   h 后 冷却 备用 . 
+ 1.2 . 2   静态 除 氟 性能 及 影响 因素   以 NaF 和 自来水 配制 浓度 为 4 ～   5mg / L 的 含氟 水样 , 用 0.1 mol / L 的 HCl 和 NaOH 溶液 调节 溶液 体系 的 pH 值 . 静态 吸附 试验 选用 恒温 振荡 法 , F - 的 测定 用 离子 选择 电极 法 . 在 静态 吸附 实验 条件 下 , 考察 溶液 体系 pH 值 、 浸渍 次数 、 振荡 时间 及 温度 对 除 氟 性能 的 影响 . 
+ 1.2 . 3   氧化 膜 在 水溶液 中 的 溶出 率 ( % )   取 一定量 制备 好 的 镧 氧化 膜 硅胶 , 加入 到 一定 体积 的 水溶液 中 , 调节 溶液 体系 的 pH 值为 5 ～   6 , 恒温 振荡 60min 后 , 用 等离子体 发射光谱 法测定 水溶液 中 镧 离子 浓度 , 考察 吸附剂 表面 镧 氧化 膜 的 稳定性 能 . 
+ 1.2 . 4   动态 吸附 和 再生 试验   于 吸附 柱内 填装 吸附剂 , 高度 为 100mm , 堆密度 为 0.52   g / cm3 . 将 浓度 为 3.0   mg / L 的 含氟 水样 , 调节 pH 值为 5 ～   6 之间 , 以 1.0   mL / min 的 流速 过柱 , 定期 测定 出 水中 的 F - 浓度 , 并作 穿透 曲线 . 将 吸附 达到 饱和 的 镧 氧化 膜 硅胶 于 稀 氨 水溶液 和 稀 硝酸 镧 溶液 中 浸泡 并 恒温 振荡 一定 时间 , 然后 用 去离子水 洗涤 至 出水 为 中性 并经 110 ℃ 干燥 后 , 再 进行 动态 吸附 试验 , 考察 再生 液 的 再生 能力 及 再生 过程 中 镧 氧化 膜 的 稳定性 . 
+ 2   结果 与 讨论 
+ 2.1   浸渍 次数 及 pH 值 对 除 氟 性能 的 影响 
+ 　 　 不同 浸渍 次数 的 镧 氧化 膜 硅胶 吸附 容量 随 pH 值 的 变化 曲线 如图 1 所示 . 
+ 
+ 图 1   不同 浸渍 次数 的 镧 氧化 膜 硅胶 吸附 容量 
+ 随 pH 值 的 变化 
+ Fig.1   Variation   of   lanthanum   oxide - coated   silica   gel ’ s   adsorption   capacity   with   pH   in   different   
+ impregnating   times 
+ 　 　 图 1 中 1 # ～   4 # 分别 表示 硅胶 在 La ( NO3 ) 3 溶液 中 经过 1 ～   4 次 浸渍 后 制备 的 镧 氧化 膜 硅胶 . 结果表明 , 随着 浸渍 次数 的 增加 , 其 吸附 容量 呈现 明显 的 上升 趋势 , 这 主要 是 由于 硅胶 在 浸渍 — 干燥 — 高温 焙烧 过程 中 , 溶液 中 的 La3 + 以 La2O3 的 形态 沉积 附着 到 硅胶 的 外 表面 及 一定 孔径 微孔 的 内 表面 上 , 形成 镧 的 活性 氧化 膜 . 因为 镧 的 水合 氧化物 与 F - 可 发生 强烈 的 络合作用 [ 3 , 4 ] , 所以 随着 浸渍 次数 的 增加 , 硅胶 表面 上 氧化 镧 分布 更 趋于 均匀 , 吸附 位点 增多 , 络合 F - 的 能力 随之 增强 , 吸附 容量 可 从 0.2 mg / g 上升 到 0.8 mg / g 以上   . 对于 3 #   吸附剂 , 在 保证 镧 氧化 膜 硅胶 表面 镧 浓度 相近 的 前提 下 , 分别 采用 经 1 次 浸渍 和 经 3 次 浸渍 的 方式 制备 吸附剂 , 然后 进行 相同 的 静态 吸附 试验 . 结果表明 , 经 多次 浸渍 后 制备 的 吸附剂 , 其 吸附 能力 略高于 经 1 次 浸渍 制备 的 吸附剂 . 
+ 　 　 从图 1 中 还 可以 看出 , 溶液 体系 的 pH 值 是 影响 吸附剂 除 氟 性能 的 重要 因素 . 当 吸附剂 表面 镧 的 沉积 量 较 低时 , 除 氟 适宜 的 pH 值 范围 相对 较窄 , 随着 表面 镧 沉积 量 的 升高 , 适宜 的 pH 值 范围 逐渐 增宽 . 经过 多次 浸渍 后 所 制备 的 吸附剂 在 pH 值为 3 ～   6 的 范围 内均 有 较 好 的 除 氟 能力 . 由此可见 , 镧 氧化 膜 硅胶 吸附剂 适于 处理 偏 酸性 的 含氟 水体 . 
+ 2.2   振荡 时间 对 除 氟 性能 的 影响 
+ 　 　 图 2 为 吸附 容量 与 振荡 时间 的 关系 曲线 . 从图 2 可以 看出 , 最初 3h 内 吸附 容量 随着 时间 的 增长 迅速 上升 , 3h 后 吸附 容量 上升 的 趋势 比较 平缓 . 可以 认为 镧 氧化 膜 硅胶 吸附剂 对 F - 的 吸附 主要 发生 在 3h 以内 , 以后 的 吸附 逐渐 趋于 饱和 . 为了 既保证 吸附剂 对 F - 的 充分 吸附 , 又 考虑 到 时间 因素 , 本 实验 的 振荡 时间 选择 为 5h . 
+ 　 
+ 
+ 图 2   不同 浸渍 次数 的 镧 氧化 膜 硅胶 吸附 容量 
+ 随 振荡 时间 的 变化 
+ Fig.2   Variation   of   lanthanum   oxide - coated   silica   gel ’ s   adsorption   capacity   with   oscillatin   time   in   different   
+ impregnating   times 
+ 2.3   振荡 温度 对 除 氟 性能 的 影响 
+ 　 　 图 3 为 在 15 、 30 和 45 ℃ 条件 下 , 3 #   吸附剂 吸附 容量 随 pH 值 的 变化 曲线 . 从图 3 可 看出 , 3 条 曲线 虽 略有 差别 , 但 基本 吻合 , 可 认为 温度 对 吸附剂 的 除 氟 性能 影响 不大 . 本 实验 选择 室温 . 
+ 
+ 图 3   不同 振荡 温度 下 的 镧 氧化 膜 硅胶 吸附 容量 
+ 随 pH 值 的 变化 
+ Fig.3   Variation   of   lanthanum   oxide - coated   silica   gel ’ s   adsorption   capacity   with   pH   in   different   temperature 
+ 2.4   吸附 过程 中 溶液 体系 pH 值 的 变化 
+ 　 　 分别 测定 在 静态 吸附 试验 的 开始 和 结束 时 溶液 体系 的 pH 值 , 结果表明 , 在 静态 吸附 过程 中 , 溶液 体系 的 pH 值 都 发生 了 较大 的 变化 , 尤其 在 pH 值为 3 ～   6.5 上升幅度 更大 , 这 与 上述 中 最佳 除 氟 效果 的 pH 值 范围 基本一致 . 当 pH 值 大于 9 以后 , 在 碱性 介质 中 , 溶液 体系 的 pH 值 反而 有所 降低 . 溶液 体系 pH 值 的 变化 间接 地 反映 了 吸附剂 表面 羟基 数 和 电荷 数 的 改变 , 也 反映 了 对 F - 吸附 能力 的 改变 . 
+ 2.5   镧 氧化 膜 在 水溶液 中 的 稳定性 
+ 　 　 镧 氧化 膜 在 水溶液 中 镧 离子 的 溶出 率 结果 如表 1 . 由表 1 可知 , 在 水溶液 中 吸附剂 表面 镧 的 溶出 率 非常低 , 表明 镧 氧化 膜 的 稳定性 能 很 好 , 这 可能 是 由于 镧 氧化 膜 经 高温 处理 后 以 较 强 的 键 合作 用 吸附 在 硅胶 表面 上 , 从而 可以 保证 在 除 氟 过程 中 氧化 膜 不会 溶解 与 脱落 . 
+ 2.6   静态 吸附 等温线 的 测定 
+ 　 　 以 2 # 和 3 #   吸附剂 进行 静态 恒温 吸附 试验 , 当 吸附 达到 饱和 后 , 分别 绘制 logq -   logC 双 对数 曲线 及 1 / q -   1 / C 曲线 . 结果表明 , 两种 吸附剂 的 1 / q -   1 / C 曲线 的 线性 都 比 logq -   logC 双 对数 曲线 要 好 , 可见 镧 氧化 膜 硅胶 吸附剂 的 吸附 等温线 更 拟合 Langmuir 吸附 模型 , 说明 镧 的 氧化 层 与 F - 之间 是 以 单分子层 吸附 为主 . 
+ 表 1   镧 氧化 膜 在 水溶液 中 镧 离子 的 溶出 率 
+ Table1   Detachmen   of   lanthanum   ion   of   lanthanum   
+ oxide   membrane   in   deionized   water 
+ 吸附剂 表面 La 含量 ( mg / g ) 溶液 中 La3 + 浓度 
+ ( m   g / L ) 溶出 率 
+ ( % ) 
+ 1 # 17.3630 . 30830.0089 
+ 2 # 34.7260 . 46290.0067 
+ 3 # 52.0900 . 98210.0098 
+ 4 # 69.4531 . 02130.0074 
+ 
+ 2.7   动态 吸附 及 再生 试验 
+ 　 　 根据 动态 吸附 试验 绘制 穿透 曲线 , 如图 4 所示 . 结果表明 , 出水 的 含氟 浓度 最低 可 达到 0.28   mg / L 以下 , F - 去除率 达 90% 以上 , 穿透 体积 大于 600 柱 体积 ; 饱和 体积 大于 1180 柱 体积 , 累计 吸附 容量 达到 2.650   mg / g , 优于 活性 氧化铝 的 吸附 容量 [ 1 ] , 而 测定 出 水中 镧 离子 的 平均 浓度 小于 0.2748 m   g / L . 表明 该 吸附剂 对 F - 吸附 选择性 好 , 去除率 高 , 并且 镧 氧化 膜 稳定性 好 . 当 吸附 达到 饱和 后 , 用 不同 浓度 的 稀 氨 水溶液 或稀 硝酸 镧 溶液 浸泡 再生 后 进行 动态 吸附 试验 , 结果表明 , 用 0.01 mol / L 的 稀 硝酸 镧 溶液 再生 效果 最好 , 再生 效率 可达 78% 以上 . 用 很 稀 的 硝酸 镧 溶液 进行 再生 ,   一方面 可使 NO3 - 与 F - 进行 离子交换 , 将 吸附剂 表面 的 F - 解吸 下来 ; 另一方面 也 可 对 吸附剂 表面 的 镧 氧化 膜 进行 补充 . 
+ 
+ 图 4   动态 吸附 试验 穿透 曲线 
+ Fig.4   Breakthrough   curve   of   column   test 
+ 2.8   镧 氧化 膜 硅胶 SEM 形貌 观察 
+ 　 　 镧 氧化 膜 硅胶 的 SEM 像 如图 5 . 从 SEM 像 可 看出 , 硅胶 表面 的 微孔 及 凹陷 结构 , 经 高温 焙烧 后 镧 以 氧化 膜 的 形态 紧密 地 包裹 在 硅胶 特定 微孔 的 表面 , 随着 表面 镧 沉积 量 的 增加 , SEM 像 显示 出 无定形 物质 增多 的 趋势 . 
+ 
+ ( a )   3 次 浸渍   ( b )   4 次 浸渍 
+ 图 5   镧 氧化 膜 硅胶 的 SEM 形貌 
+ Fig.5   SEM   photomicrograph   of   the   adsorbent 
+ 3   除 氟 机理 探讨 
+ 　 　 镧 氧化 膜 硅胶 除 氟 机理 属于 典型 的 离子交换 吸附 , 兼有 表面 络 和 作用 . 
+ 　 　 附着 于 硅胶 表面 的 氧化 镧 活性 组分 在 水溶液 中 与 羟基 络合 , 从而 形成 羟基 化 表面 , 可以 用 如下 反应式 来 表示 : 
+ R -   ( La2O3 ) nLa2O3   + 3H2O ＝ R -   ( La2O3 ) n2La ( OH ) 3   
+ 　 　 在 偏 酸性 介质 中 镧 的 多 核 羟基 化合物 与 水中 的 F - 发生 络合 反应 , 形成 稳定 的 氟 镧 络合物 ; 并且 F - 与 OH - 的 水合 离子半径 相近 , 故 在 硅胶 晶格 中 可 相互交换 取代 , 从而 表面 络合 和 离子交换 作用 得以 协同 发生 . 系列 反应式 可 表示 如下 : 
+ R -   ( La2O3 ) n2La ( OH ) 3 + 2F - ＝ R -   ( La2O3 ) n2La ( OH ) 2F + 2OH - 
+ R -   ( La2O3 ) n2La ( OH ) 2F   +   2F - ＝ R -   ( La2O3 ) n2La   ( OH ) F2 + 2OH - 
+ R -   ( La2O3 ) n   2La ( OH ) F2   + 2F - ＝ R -   ( La2O3 ) n2LaF3 +   2OH - 
+ R -   硅胶 固相 载体 . 
+ 　 　 可见 羟基 化 表面 的 形成 和 离子交换 作用 的 发生 均 可 导致 溶液 体系 的 pH 值 升高 . 在 碱性 介质 中 , 由于 OH - 的 大量 增多 , La2O3 与 OH - 优势 络合 部分 取代 了 与 F - 的 络合 , 不但 使 其 对 F - 的 吸附 能力 下降 , 而且 使 溶液 体系 的 pH 值 有所 降低 . 吸附 达到 饱和 的 镧 氧化 膜 硅胶 需用 稀 硝酸 镧 溶液 进行 再生 , 再生 过程 可 简单 表示 为 : 
+ R -   ( La2O3 ) n2LaF3   +   6NO3 - ＝ R -   ( La2O3 ) n2La ( NO3 ) 3   +   6F - 
+ 4   结论 
+ 4.1   采用 多次 浸渍 — 干燥 — 高温 焙烧 法 制备 镧 氧化 膜 硅胶 , 可 使 硅胶 的 除 氟 能力 大幅度提高 , 除氟率 可达 90% 以上 , 并且 镧 氧化 膜 的 稳定性 良好 . 其 适宜 的 处理 条件 为 偏 酸性 介质 , 饱和 吸附 容量 达 2.650   mg / g   . 对 吸附 达到 饱和 的 镧 氧化 膜 硅胶 , 用 0.01 mol / L 的 稀 硝酸 镧 溶液 再生 后 , 仍然 具有 较 高 的 吸附 能力 , 可 重复使用 . 
+ 4.2   镧 氧化 膜 硅胶 的 除 氟 机理 主要 表现 为 OH - 与 F -   的 离子交换 , 同时 兼有 表面 络合作用 . 
+ 4.3   镧 氧化 膜 硅胶 仍 存在 阻力 较大 、 滤速 较慢 等 缺点 , 除 氟 机理 尚需 作 进一步 研究 . 
+ 基金项目 ： 山西省 自然科学 基金 资助 项目 ( 96015 ) 
+ *   现在 冶金部 建筑 研究 总院 环保 所 工作 
+ 作者简介 ： 马刚平 ( 1973 - ) , 男 , 山西 临汾 人 . 山西大学 环境 科学系 工学 硕士 , 助理 工程师 , 主要 从事 环境 水质 转化 及 絮凝剂 絮凝 机理 方面 的 研究 工作 . 曾 参加 过 “ 山西大学 中段 水回用 采暖系统 的 研究 测试 ” , “ 聚合 氯化铝 铁 絮凝剂 的 研究 开发 ” 等 研究 工作 . 发表 论文 2 篇 . 
+ 作者 单位 ： 山西大学 环境 科学系 , 山西   太原   030006 
+ 参考文献 ： 
+ [ 1 ] Wu   Yeun   C , Asce   M .   Activated   alumina   removes   fluoride   ions   from   water   [ J ] .   Water   and   Sewage   Works , 1978 , 125 ( 6 ) : 76 -   81 . 
+ [ 2 ] 王 榕树 , 李海明 , 冯   为 等 .   活性 氧化铝 / 硅胶 吸附剂 对 环境 水体 的 脱 氟 行为 研究 及 应用 初探   [ J ] . 环境 科学 学报 , 1992 , 12 ( 3 ) :   333 -   339 . 
+ [ 3 ] Nomura   J , Imai   H , Miyake   T .   Removal   of   fluoride   ion   from   wastewater   by   a   hydrous   cerium   oxide   adsorbent   [ J ] . Am .   Chem . Soc . Symp . Ser . ,   1990 ,   422 : 157 -   162 . 
+ [ 4 ] Wasay   S   A , Haron   Md   J , Tokunaga   S .   Adsorption   of   fluoride ,   phosphate , and   arsenate   ions   on   lanthanum — impregnated   silica   gel   [ J ] .   Water   Environ .   Res . ,   1996 ,   68 ( 3 ) : 295 -   300 . 
+ 
+ 收稿 日期 ： 1998 - 12 - 25 

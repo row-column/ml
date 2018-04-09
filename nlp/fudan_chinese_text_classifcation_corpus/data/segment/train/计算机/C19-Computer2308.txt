@@ -1,0 +1,140 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 5 期   Vol.36   No.5   1999 
+ 
+ 
+ 
+ 用 语义 联想 支撑 基于 内容 的 视频 检索 
+ 庄越 挺 　 潘云鹤 　 芮勇 　 Thomas   S . Huang 
+ 摘 　 要 　 视频 检索 的 传统 方法 之一 是 首先 从 视频 中 摘取 出 文本 信息 ( 如 标题 、 关键字 等等 ) ， 然后 基于 这一 关键字 集上 回答 用户 的 查询 . 由于 自动 摘取 文本 信息 的 过程 至今 尚未 自动化 ， 因而 从 视频 中 摘取 信息 主要 由 人工 来 完成 ， 这 在 实际 应用 上 证明 是 不 现实 的 . 另 一种 方法 则 是 上 一 情形 的 极端 ， 即 它 是 利用 低层 的 视频 内容 ， 诸如 颜色 、 纹理 、 形状 、 运动 特征 等等 ， 目的 在于 克服 人工 摘取 关键字 所 涉及 的 困难 . 文中 提出 了 基于 ToC 视频 结构 的 语义 表达 ， 从 视频 的 字幕 中 提取 出 语义 信息 ， 然后 用 WordNet ， 一个 电子 词汇 系统 来 提供 语义 联想 . 该 方法 已 应用 于 WebMARS 的 视频 信息检索 系统 中 ， 运行 结果表明 系统 的 检索 性能 大大 得以 改善 . 
+ 关键词 　 视频 检索 ， 字幕 ， 镜头 ， 景像 
+ 中图法 分类号 　 TP391 ； TP18 
+ USING   SEMANTIC   ASSOCIATION   TO   SUPPORT   
+ CONTENT - BASED   VIDEO   QUERIES 
+ ZHUANG   Yue - Ting ,   PAN   Yun - He , 
+ ( Department   of   Computer   Science , Zhejiang   University ， Hangzhou 　 310027 ) 
+  Rui   Yong ,   and   Thomas   S . Huang 
+ ( University   of   Illinois   at   Urbana - Champaign ) 
+ Abstract 　 The   traditional   way   of   video   retrieval   is   to   annotate   the   video ,   get   textual   information   such   as   caption ,   keyword ,   and   so   on ,   and   then   answer   users '   query   based   on   this   information .   Since   automatic   annotation   is   still   impossible ,   this   approach   is   rather   limited .   Another   approach   is   to   utilize   the   low - level   video   content ,   such   as   color ,   texture ,   shape ,   and   motion   feature ,   the   purpose   of   which   is   to   overcome   the   difficulties   encountered   in   human   annotation .   It   is   understood   that   user ' s   query   should   be   based   on   both   the   textual   information   and   its   visual   contents .   The   ToC - based   semantic   representation   is   put   forward .   The   basic   keyword   set   is   obtained   from   closed - caption .   Combined   with   WordNet ， an   electronic   lexical   dictionary ,   a   prototype   system - WebMARS   VIR   is   implemented . 
+ Key   words 　 video   retrieval ,   closed - caption ,   shot ,   scene 
+ 1 　 引 　 　 言 
+ 　 　 目前 ， 越来越 多 的 视频 出现 在 各 Web 站点 之中 ， Internet 正在 成为 一个 巨大 的 视频 仓库 . 如何 有效 地 检索 视频 则 成为 数据库 领域 以及 信息检索 领域 中 研究 的 关键问题 . 
+ 　 　 传统 的 视频 检索 方法 是 首先 人工 地 从 视频 中 摘取 出 文本 信息 ( 如 通过 逐帧 地 播放 ) ， 然后 基于 文本 型 的 关键字 进行 查询 . 更进一步 ， 有些 系统 中 甚至 摘取 出 视频 中 包含 的 对象 以及 对象 之间 的 关系 ［ 1 ， 2 ］ . 比如 在 文献 ［ 2 ］ 中 ， 系统 首先 手工 地 从 视频 中 摘取 出 详细 的 文本 信息 ， 然后 系统 便 能够 处理 非常复杂 的 查询 . 比如 “ 找出 所有 出现 在 Gene   Kelly 和 Giner   Rogers 婚礼 上 的 人物 ” ， 很 显然 ， 由于 Web 上 存在 的 视频 的 量 之 巨大 ， 手工 摘取 信息 是 不 现实 之举 . 
+ 　 　 另 一 途径 则 是 完全 忽略 语义 内容 ， 使得 查询 完全 基于 图像 / 视频 的 特征 内容 ， 比如 颜色 、 纹理 、 布局 等等 ， 其 目的 是 摆脱 手工 方法 既 费时 ， 而 又 带 主观性 的 限制 . 至今 ， 这方面 的 研究 正 方兴未艾 ［ 3 ］ . 
+ 　 　 文中 认为 ， 用户 最 适合 使用 的 查询 应是 既 涉及 关键字 又 涉及 视频 低层 内容 的 . 一种 方法 是 通过 与 视频 相随 的 字幕 ( closed - caption ) ， 从中 摘取 出 关键字 . 文中 将 着重 提出 如何 用 语义 联想 提高 基于 内容 的 视频 数据库 检索 的 性能 . 
+ 2 　 总体 系统结构 
+ 　 　 由于 视频 信息量 之 巨大 ， 完全 手工 建立 索引 无法 做到 . 文中 的 研究 宗旨 便是 使 能够 由 计算机 自动 完成 的 部分 最大化 . 图 1 所示 为 Web - MARS ① 视频 信息系统 ( VIR ) 中 对于 视频 内容 的 提取 结构 . 
+ 
+ 
+ 图 1 　 WebMARS   VIR 中 集成 的 视频 提取 模型 
+ 　 　 ①   MARS 即 “ multimedia   analysis   and   retrieval   system ” ， 是 UIUC 开发 的 系统 ［ 4 ］ ， 并 正在 扩展 到 面向 Web 的 使用 ， 文中 介绍 的 是 作者 完成 的 视频 检索系统 这 一部分 . 
+ 　 　 视频 的 内容 ， 如 镜头 边界 、 关键帧 等 被 提取 出来 之后 ， 自动 地 加入 到 数据库 之中 . 对于 那些 有 字幕 相随 的 视频 ， 语义 内容 ( 文本 、 关键字 ) 也 同时 被 提取 并 自动 地 建立 在 数据库 之中 .   
+ 　 　 视频 对象 的 表达 是 关键问题 . 下节 中将 提出 一个 称为 视频 内容 表 ( ToC ) ［ 5 ］ 的 层次化 表达 结构 ， 并 提出 如何 在 该 结构 中 包含 语义 内容 . 图 2 所示 为 视频 低层 特征 内容 与 语义 相结合 的 查询处理 模型 . 
+ 
+ 
+ 图 2 　 WebMARS   VIR 中 的 查询处理 模型 
+ 　 　 考察 下列 情形 ， 假设 有 一个 用户 给出 的 查询 为 ： 
+ 　 　 找出 含有 与 此图 同样 多 动作 ( action ) 的 镜头 ? ( 同时 给出 例子 图像 ) . 
+ 　 　 系统 将 在 数据库 中 匹配 单词 “ action ” ， 若 它 包含 在 VDB 之中 ， 则 相应 的 视频 镜头 就 返回 ， 否则 ， 触发 WordNet 以 找出 同义词 类 ( 称 Synset ) ， 然后 进一步 在 VDB 中 查询 . 在 该例 之中 ， “ action ” 既 可 指 “ military   action ” ， 也 可 指 “ human   activity ” ， 由于 WordNet 具有 这样 的 特性 ： 每 一个 名词 都 属于 同一 树上 的 某 一个 结点 ， 因而 总是 可以 通过 追溯 “ action ” 到达 根 结点 ， 沿途 的 各 节点 的 语义 与 数据库 相 比较 ， 其 结果 是 收敛 的 . 
+ 3 　 视频 对象 的 表达 — — 视频 内容 表 ( ToC ) 法 
+ 　 　 为了 能 对 视频 进行 索引 以至 浏览 ， 首要 的 任务 是 找到 一个 有效 的 方法 来 表达 视频 . 已有 方法 中 最为 通常 的 一种 方法 是 结构化 的 模型 方法 ［ 6 ］ .   
+ 　 　 试想 这样 一个 问题 ： 一个 读者 是 如何 浏览 一本 1000 页 的 书 的 内容 的 . 在 阅读 整本书 之前 ， 他 可能 先翻 到 书 的 内容 表 ( table   of   content , ToC ) ， 找到 哪 一章 或者 哪 一节 迎合 他 的 需要 . 假如 他 在 头脑 中有 一 特定 的 问题 ( 即 询问 ) ， 比如 找到 一个 术语 或者 一个 关键字 ， 他 将 翻到 书 的 索引 页 ， 从而 找到 包含 该 问题 的 相应 的 书 中 章节 . 简言之 ， 书 的 ToC 帮助 读者 浏览 全书 ， 而书 的 索引 则 帮助 读者 进行 检索 ( 即 搜索 ) . 前者 在 读者 头脑 中 尚无 特定 的 问题 时 非常 有用 ， 通过 浏览 ToC ， 使得 其 信息 的 需要 更加 特定 和 具体 . 而 后者 在 读者 已有 特定 的 信息 需求 时 ， 则 特别 有用 . 在 帮助 读者 了解 全书 内容 时 ， 两者 所起 的 作用 同样 重要 ， 然而 ， 就 目前 的 视频 表达 而言 ， 我们 缺少 的 却 正是 ToC 以及 索引 . 这 就 需要 研究 构造 ToC 和 索引 来 支撑 对 视频 的 访问 . 
+ 　 　 视频流 可 层次 地 表达 为 5 层 结构 ， 分别 为 视频 ( video ) 、 场景 ( scene ) 、 组 ( group ) 、 镜头 ( shot ) 以及 关键帧 ， 从上到下 粒度 增大 . 图 3 所示 为 层次化 的 视频 表达 . 其中 场景 定义 为 一组 语义上 相关联 及 在 时间 上 相邻 接 的 镜头 的 集合 ， 组则 被 视为 在 物理层 镜头 和 语义 层 场景 之间 的 中间层 ， 用来 在 两者之间 建立 起 桥梁 . 组 的 例子 有 时间 上 邻近 的 镜头 ， 或者 在 视觉 上 相似 的 镜头 ， 由 不同 的 组组 成为 有 语义 联系 的 场景 . 
+ 
+ 
+ 图 3 　 层次化 的 视频 表达 
+ 　 　 为了 支撑 不仅仅 是 基于 内容 的 浏览 ， 而且 是 基于 内容 的 检索 ， 我们 需要 将 语义 结合 到 ToC 结构 中 . 图 4 所示 为 视频 ToC 与 语义 的 对应 关系 . 
+ 
+ 
+ 图 4 　 支持 浏览 以及 检索 双重 功能 的 视频 表达 
+ 　 　 为了 能 处理 多种类型 的 基于 视频 的 表达 ， 我们 就 必须 事先 建立 起 多种类型 的 索引 ， 因为 ToC 结构 主要 支撑 浏览 . 为 支撑 检索 ， 我们 从 视频 中 提取 出 下列 实体 内容 ： 
+ 　 　 — — 事件 ( event ) 
+ 　 　 — — 对象 ( object ) 
+ 　 　 — — 地点 ( site ) 
+ 　 　 — — 关键字 ( keyword ) 
+ 　 　 不同 的 实体 ， 所 对应 的 ToC 的 层次 不 一样 ( 图 4 ) . 对于 关键字 而言 ， 它 与 ToC 中 所有 的 部件 相对 应 ， 关键字 可以 是 某种 抽象 的 ； 对象 是 指 在 镜头 或 关键帧 中 被 识别 出 的 物体 ,   事件 是 所 发生 的 事情 ， 地点 是 事件 发生 的 地方 . 比如 “ 人 在 公园 里 散步 ” 是 一个 事件 ， “ 公园 ” 是 “ 地点 ” ，   “ 人 ” 是 对象 ， 该 公园 是 “ × × 人 在 × × 年 建造 的 ” 等等 作为 关键字 被 提取 . 
+ 　 　 不同 的 实体 ， 可以 有 多种 语义 联系 ， 用 “ 链接 加权 值 ” ( link   weight ) ( ［ 0 ， 1 ］ 之间 ) 来 刻画 某一 ToC 中 的 实体 与 语义 实体 之间 的 连接 的 强弱 程度 . 比如 某 一段 视频 A 的 第一个 镜头 与 “ 狗 ” 的 LW 为 0.9 ， 它 表明 “ 狗 ” 是 该 镜头 之中 的 一个 重要 语义 内容 ， 这种 链接 权值 起到 ToC 和 语义 索引 之间 进行 “ 前后 ” ( back   and   forth ) 转换 的 连接 作用 . 
+ 4 　 视频 的 语义 内容 提取 
+ 　 　 如何 自动 并且 有效 地 获取 视频 中 包括 的 语义 内容 ? 主要 的 一种 方法 是从 与 视频 相 依附 的 字幕 中 获取 文本 信息 . 
+ 4.1 　 视频 字幕 ( closed - caption ) 
+ 　 　 在 视频 中 附带 字幕 信息 的 最初 出发点 是 为了 让 失去 听力 的 人 也 同样 能够 观看电视 . 为了 支撑 基于 视频 内容 的 检索 ， 文中 采用 的 方法 是 将 字幕 信息提取 出来 并 建立 起 语义 索引 . 
+ 　 　 视频 中 的 字幕 是 在 标准 NTSC 视频 信息 的 第一个 场 的 第 21 行中 加上 一个 编码 后 的 复合 数据 结合 到 电视节目 中去 . 这些 字幕 文本 包含 了 与 节目 有关 的 一些 东西 . 在 许多 情况 下 ， 则 对 视频 节目 中 的 声音 部分 中 讲话 内容 的 直接 表达 . 当 被 解码 时 ， 每 一帧 中 或者 包含 控制字符 ， 或者 是 至多 两个 的 字母 数字型 字符 . 把 若干 帧 中 的 这样 一些 字符 连在一起 将会 产生 一个 单词 或者 是 一句 子 . 控制字符 用于 决定 文本 的 属性 ， 比如 颜色 、 字型 、 缩进 以及 在 屏幕 中 的 位置 ， 它 将 用于 字幕 的 解码 . 
+ 　 　 在 我们 的 系统 中 ， 首先 使用 Broadway ( 一种 基于 PC 的 影像 制作 卡 ) 来 对 视频 进行 数字化 ， 并且 使用 SunBelt 公司 的 字幕 捕捉 卡 TextGrabber ， 在 获取 字幕 的 同时 ， 对 视频 中 有关 帧 的 物理 位置 同 字幕 关键字 或 关键 句子 建立 起 对应 关系 ， 如图 5 所示 . 
+ 
+ 
+ 图 5 　 视频 字幕 获取 流程图 
+ 　 　 分析 字幕 文本 同 视频 节目 的 内容 ， 大致 可 归纳 出 下面 几类 ： 
+ 　 　 ( 1 )   描述 型 的 字幕 . 即 字幕 完全 是 对 节目 中 发生 的 情景 的 描述 . 如 在 美国 Discovery 频道 播放 的 动物 世界 节目 ， 字幕 上 的 则 是 画面 上 正在 发生 的 ， 二者 具有 良好 的 对应 关系 . 
+ 　 　 ( 2 )   对话 型 的 字幕 ： 即 字幕 是 画面 上 人物 之间 的 对话 ， 字幕 的 内容 与 画面 的 情景 毫无 联系 . 如 室内 二人 的 对话 ， 涉及 的 内容 却是 某 一次 战争 . 从 用户 查询 的 角度看 ， 用户 可以 根据 事件 ( 如 “ A 和 B 正在 交谈 ” ) 也 可以 根据 对话 的 内容 分别 进行 查询 ， 例如 ： 一部 电影 中 某些 精彩 的 对话会 使人 难以忘怀 ， 用户 可以 藉 所 记忆 的 片言只语 ， 查询 出所 需要 的 视频 片断 . 
+ 　 　 图 6 所示 为 单词 与 物理 帧 之间 的 对应 表 . 
+ 
+ 
+ 图 6 　 单词 与 物理 帧 的 对应 表 
+ 如下 是从 美国 电影 “ 独立 日 ” ( Independence   Day ) 中 摘取 的 一段 字幕 ： 
+ 　 　 … … 
+ 　 　 It   is   so   fuzzy . 
+ 　 　 
+ 　 　 oh ,   no . 
+ 　 　 　 　 Good   morning ,   Lucas 
+ 　 　 You   see   these ?   I   got   a   whole   god   damn   crop   full   of   these 
+ 　 　 If   your   father ' s   not   in   the   air   in   20   minutes   … … 
+ 　 　 ［ whispers ］ 
+ 　 　 all   right ,   go   ahead .   Put   it   on . 
+ 　 　 General ,   You   might   want   to   watch   this . 
+ 　 　 TV :   Ladies   and   gentlemen ， … … 
+ 　 　 … … 
+ 　 　 从 上 看出 ， 处于 中括号 ‘ ［   ］ ’ 之中 的 字幕 对应 的 是 声音 ( sound ) 的 语义 ， 也 可 看成 是 一种 事件 的 语义 . 构造 的 对应 表之 例如 表 1 . 
+ 表 1 　 例表 
+ 
+ 文本 内容   开始 帧   结束 帧 
+ fuzzy   10   17 
+ horn   honks   18   33 
+ lucas   50   57 
+ whisper   420   430 
+ 
+ 
+ 4.2 　 字幕 文本 的 解析 
+ 　 　 针对 某 一个 镜头 ， 需 把 它 所 对应 的 字幕 文本 提取 出来 ， 通过 一个 关键字 提取 器 AZ   Tagger ① 对 文本 信息 进行 解析 . 镜头 和 关键字 之间 的 链接 权值 是 按 lw = tf × idf 计算 的 ， tf 和 idf 分别 代表 单词 频率 ( term   frequency ) 以及 逆 文档 频率 ( inverse   document   frequency ) ， 即 一个 单词 在 一个 文档 中 出现 的 频率 越高 ， 对 lw 的 贡献 越大 ， 若 一个 单词 在 多个 文档 中 出现 ， 则 其 倒数 ( 即 idf ) 反映 了 对 lw 的 贡献 . 
+ 　 　 ①   AZTagger 是 美国亚利桑那大学 和 伊利诺斯 大学 合作开发 的 概念 提取 器 . 4.3 　 WordNet 
+ 　 　 WordNet 是 普林斯顿大学 的 George   Miller 等 人 开发 的 电子词典 系统 . WordNet 的 名词 部分 是 按照 相 接近 含义 的 概念 ( 称为 Synset ) 组织 的 . WordNet 中 的 每 一个 名词 都 具有 一个 或 若干个 含义 ( sense ) ， 而 每 一个 含义 都 有 与 其它 不同 的 同义词 集 . 由 不同 的 连接 关系 组成 不同 的 名词 集合 . IS - A 组成 的 名词 集 称为 hypernyms / hyponyms , MEMBER - OF 关系 组成 holonyms , PART - OF 组成 meronyms ， 见表 2 .   
+ 表 2 　 WordNet 关系 
+ 
+ 关系 名   名词 集合 
+ IS - A   hypernyms / hyponyms 
+ MEMBER - OF   holonyms 
+ PART - OF   meronyms 
+ 
+ 　 　 WordNet 提供 了 概念 之间 的 IS - A 关系 ( 图 7 ) ， 它 是 用来 衡量 概念 之间 距离 的 重要 特征 . 
+ 
+ 
+ 图 7 　 WordNet 的 IS - A 层次 树例 
+ 　 　 比如 ： 在 字幕 中 出现 的 某 一 关键字 是 “ vehicle ” 而 在 用户 的 询问 中 采用 的 术语 则 是 “ car ” ， 通过 这棵 IS - A 树 ， 可以 计算 出 与 “ car ” 距离 最为 接近 的 概念 是 “ vehicle ” . 
+ 　 　 在 AI 的 研究 中 ， 语义 网络 是 表达 语义 之间 关系 的 有效 工具 ， 但 所 存在 的 问题 是 ： 构造 语义 网络 非常 费时费力 ， 而 WordNet 则 是 一个 现成 的 大型 的 语义 网络 . 
+ 　 　 两个 概念 节点 之间 的 距离 可以 由下式 进行 计算 ， 设 tqr , tdb 分别 为 用户 询问 以及 数据库 中 的 单词 结点 ， 则 其 距离 定义 为 ： 
+ 　 　 
+ 　 　 T 是 为 正规化 目的 而 预设 的 阈值 ， 因而 距离 的 范围 为 ［ 0 ， 1 ］ ， 如果 T 很 低 ， 那么 两个 可能 相似 的 概念 将 被 标识 为 远距离 ( 不 很 相似 ) ， 但是 若 T 很 高 ， 计算 的 时间 就要 长 一些 . 
+ 5 　 实验 结果 
+ 　 　 本 实验 把 上述 原理 ： ToC 组织 结构 、 WordNet 字幕 文本 的 提取 应用 于 WebMARS 的 视频 信息检索 系统 ( VIR ) 之中 . Informix   Universal   Server   for   Unix ( V9.12 ) 被 用作 视频 存储 和 索引 的 DBMS . 此 视频 数据库 的 数据 来源于 由 Web 爬虫 ( crawler ) 获得 的 URL 的 所 指出 的 Web 站点 . 目前 ， 为了 测试 VIR ， 我们 已经 预载 了 20 个 视频 片断 . 
+ 　 　 视频 数据库 中 的 视频 根据 ToC 的 结构 存储 ， 处于 客户端 的 Web 应用程序 将 用户 的 查询 送到 httpd   服务器端 ， 激发 CGI 程序 进行 处理 . CGI 程序 与 WordNet 以及 Informix 数据库 相通 .   图 8 中 用户 给定 的 查询 为 “ 找到 所有 出现 Lady 和 Gentleman 的 视频 镜头 ” . 在 视频 数据库 中 ， 根据 字幕 而 存储 的 文本 信息 是 “ woman ” 和 “ man ” ， 由 WordNet 查到 “ man ” 和 “ gentleman ” ， “ Woman ” 和 “ Lady ” 的 语义 联想 关系 如下 ：   
+ 　 　 Gentleman → man → male → person , … … 
+ 　 　 Lady → woman → female → person ， … … 
+ 　 　 返回 的 结果 如图 8 所示 . 
+ 
+ 
+ 图 8 　 运行 一例 
+ 6 　 结 　 　 论 
+ 　 　 本文 中 ， 研究 了 基于 ToC 的 视频 结构 ， 从 视频 字幕 中 提取 出 基本 的 关键字 集 . 用 WordNet 进行 语义 联想 以 提高 检索 性能 ， 最后 实验 结果显示 了 这 一用 语义 联想 来 支撑 基于 内容 的 视频 检索 的 有效性 . 
+ 本 课题 得到 国家自然科学基金 资助 ( 项目编号   69803009 ) . 
+ 作者简介 ： 庄越 挺 ， 男 ， 1965 年 6 月生 ， 博士 ， 副教授 ， 研究 方向 为 智能 CAD 、 多媒体 信息检索 、 人工智能 . 潘云鹤 ， 男 ， 1946 年 11 月生 ， 教授 ， 中国工程院 院士 ， 主要 研究 方向 为 计算机 图形学 、 智能 CAD 、 形象思维 . 芮勇 ， 男 ， 1970 年 3 月生 ， 博士 研究生 ， 主要 研究 方向 为 多媒体 信息检索 . Thomas   S . Huang ， 男 ， 1935 年 6 月生 ， 博士 ， 教授 ， 主要 研究 方向 为 计算机 视觉 . 
+ 作者 单位 ： 庄越 挺 　 潘云鹤 　 浙江大学 计算机科学 系 　 杭州 　 310027 
+ 　 　 　 　 　 芮 　 勇  Thomas   S . Huang 　 美国 伊利诺斯 大学 
+ 参考文献 
+ 　 1 　 Chang   S , Jungert   E . Pictorial   data   management   based   upon   the   theory   of   symbolic   projections . Journal   of   Visual   Languages   and   Computations , 1991 , 10 ( 3 ) : 195 ～ 215 
+ 　 2 　 Adali   S , Candan   K   S , Chen   S   - S   et   al . Advanced   video   information   system :   Data   structures   and   query   processing . Multimedia   Systems , 1996 , 4 ( 4 ) : 172 ～ 186 
+ 　 3 　 Gupta   A , Jain   R . Visual   information   retrieval . Communications   of   the   ACM , 1997 , 40 ( 5 ) : 30 ～ 42 
+ 　 4 　 Huang   T   S , Mehrotra   S , Ramchandran   K . Multimedia   analysis   and   retrieval   system   ( MARS ) project . In : Proc   of   33rd   Annual   Clinic   on   Library   Application   of   Data   Processing — — Digital   Image   Access   and   Retrieval . San   Jose , CA , 1996.260 ～ 265 
+ 　 5 　 Rui   Y , Huang   T   S , Mehrotra   S . Exploring   video   structures   beyond   the   shots . In : Proc   of   IEEE   Conf   Multimedia   Computing   and   Systems . Austin , Texas , 1998.237 ～ 240 
+ 　 6 　 Rubin   B , Davenport   G . Structured   content   modeling   for   cinematic   information . ACM   SIGCHI   Bulletin , 1989 , 21 ( 2 ) : 78 ～ 79 
+ 　 7 　 Salton   G , McGill   M   J . Introduction   to   Modern   Information   Retrieval . New   York : McGraw - Hill   Book   Company , 1983 
+ 原稿 收到 日期 ： 1998 - 07 - 03 
+ 修改稿 收到 日期 ： 1998 - 11 - 30 

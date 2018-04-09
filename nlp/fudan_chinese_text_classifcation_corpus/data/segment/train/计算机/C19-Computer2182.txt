@@ -1,0 +1,109 @@
+计算机 应用 研究 
+ APPLICATION   RESEARCH   OF   COMPUTERS 
+ 2000 　 Vol.17 　 No.2 　 P.28 - 30 
+ 
+ 
+ 
+ 最长 公共 子 序列 问题 的 改进 快速 算法 
+ 李欣 　 舒 风笛 
+ 摘   要   现在 几个 最 常用 的 解决 最长 公共 子 序列 ( LCS ) 问题 的 算法 的 时间 复杂度 分别 是 O ( pn ) ， O ( n ( m - p ) ) 。 这里 m 、 n 为 两个 待 比较 字符串 的 长度 ， p 是 最长 公共 子串 的 长度 。 给出 一种 时间 复杂度 为 O ( p ( m - p ) ) ， 空间 复杂度 为 O ( m + n ) 的 算法 。 与 以前 的 算法 相比 ， 不管 在 p < < m 的 情况 下 ， 还是 在 p 接近 m 时 ， 这种 算法 都 有 更 快 的 速度 。 
+ 关键词   最长 公共 子 序列   LCS 
+ 1   问题 介绍 与 基本 定义 
+ 　 　 最长 公共 子 序列 ( Longest   Common   Subsequence ， LCS ) 是 将 两个 给定 字符串 分别 删去 零个 或 多个 字符 后 得到 的 长度 最长 的 相同 字符 序列 。 例如 ， 字符串 abcabcabb 与 bcacacbb 的 最长 公共 子 序列 为 bcacabb 。 LCS 问题 就是 要求 两个 给定 字符串 的 最长 公共 子 序列 。 本文 给出 了 一种 比较 有效 的 求解 LCS 问题 的 算法 ， 它 是 对 Nakatsu 的 时间 复杂度 为 O ( n ( m - p ) ) 算法 的 改进 。 它 的 时间 复杂度 是 O ( p ( m - p ) ) ， 空间 复杂度 为 O ( m + n ) 。 
+ 　 　 LCS 问题 的 算法 有着 广泛 的 应用 。 最初 对 LCS 问题 的 研究 是 将 它 作为 一种 差分 压缩算法 来 研究 的 。 例如 ， 在 版本 管理系统 中 ， 一个 文件 经过 不断 地 修改 产生 不同 的 版本 ， 新 产生 的 版本 相对 老 版本 变化 并不大 。 为了 节省 存储空间 ， 我们 可以 将 老 文件 版本 与 修改 后 新 版本 进行 比较 ， 找出 它们 的 相同 部分 和 不同 部分 。 这样 就 不必 将 原始 文件 和 修改 文件 都 独立 存储 ， 而 只 需 存储 老 文件 版本 以及 新老 版本 的 不同 部分 即可 。 这种 增量 式 存储 方法 在 文件 版本 较 多 的 情况 下 能够 大大提高 存储 效率 。 两个 文件 版本 的 比较 就 类似 于 LCS 问题 。 LCS 算法 的 时间 复杂度 与 其它 差分 压缩算法 ( 如 Vdelta 算法 [ 4 ] ) 比较 相对 较 高 ， 它 也 不是 压缩 比例 最高 的 差分 压缩算法 ， 所以 现在 它 已经 基本 退出 了 这方面 的 应用 。 但 在 版本 管理系统 中 ， 对 同一 文件 的 不同 版本 进行 比较 与 合并 时 ， LCS 算法 还是 有 重要 作用 的 。 
+ 　 　 LCS 算法 还 可用 在 基因工程 领域 。 如 确定 一种 致病 基因 的 基本 方法 就是 将 该 疾病 患者 的 DNA 链 与 健康 者 的 DNA 链相 比较 ， 找出 其中 的 相同 部分 与 不同 部分 ， 再 进行 分析 。 这种 基因 链 的 比较 也 可以 用 LCS 算法 来 解决 。 
+ 　 　 80 年代 初期 ， 国外 对 LCS 算法 的 研究 比较 多 。 现在 ， LCS 算法 在 一些 领域 有 新 的 应用 ， 所以 对 它 研究 又 有 增长 的 趋势 。 
+ 　 　 下面 先 给出 一些 基本 定义 ： 
+ 　 　 定义 1   子 序列 ( Subsequence ) 。 给定 字符串 A =   A [ 1 ] A [ 2 ] ... A [ m ] ， ( A [ i ] 是 A 的 第 i 个 字母 ， A [ i ] ∈ 字符集 ∑ ， 1 < = i < m = | A | ， | A | 表示 字符串 A 的 长度 ) ， 字符串 B 是 A 的 子 序列 是 指 B = A [ i1 ] A [ i2 ] ... A [ ik ] ， 其中 i1 < i2 < ... < ik 且 k < = m 。 
+ 　 　 也就是说 任意 删去 给定 字符串 中 的 零个 或 多个 字符 ， 但 不 改变 剩余 字符 的 顺序 就 得到 了 该 字符串 的 一个 子 序列 。 例如 ： bec 是 abdeace 的 一个 子 序列 。 子 序列 与 子串 的 区别 在于 子 序列 不必 是 原 字符串 中 的 连续 字符 。 
+ 　 　 定义 2   公共 子 序列 ( Common   Subsequence ) 。 给定 字符串 A 、 B 、 C ， C 称为 A 和 B 的 公共 子 序列 是 指 C 既 是 A 的 子 序列 ， 又 是 B 的 子 序列 。 例如 、 abd 是 abcd 和 bacbd 的 公共 子 序列 。 
+ 　 　 定义 3   最长 公共 子 序列 ( Longest   Common   Subsequence ， 简称 LCS ) 。 给定 字符串 A 、 B 、 C ， C 称为 A 和 B 的 最长 公共 子 序列 是 指 C 是 A 和 B 的 公共 子 序列 ， 且 对于 A 和 B 的 任意 公共 子 序列 D ， 都 有 | D | < = | C | 。 
+ 　 　 两个 字符串 的 LCS 不是 唯一 的 。 例如 A =   cbacbaaba ， B = abcdbb ， C = bcbb 和 D = acbb ， C 和 D 都 是 A 和 B 的 最长 公共 子 序列 。 
+ 　 　 给定 字符串 A 和 B ， | A | = m ， | B | = n ， 不妨 设 m < = n ， LCS 问题 就是 要求 出 A 和 B 的 LCS 。 
+ 2   几种 目前 常用 的 算法 
+ 　 　 已经 证明 ， LCS 问题 算法 的 时间 复杂度 不 可能 小于 O ( m   log   n ) [ 1 ] 。 目前 几种 比较 有效 的 算法 有 Hirschberg [ 2 ] 提出 的 算法 ， 时间 复杂度 分别 为 O ( pn ) ， 以及 nakatsu [ 3 ] 提出 的 算法 ， 时间 复杂度 为 O ( n ( m - p ) ) 。 
+ 　 　 这 两种 算法 以及 我们 要 介绍 的 改进 快速 算法 都 是 基于 下面 几个 基本 定理 ： 
+ 　 　 定义 4   给定 字符串 A = A [ 1 ] A [ 2 ] ... A [ m ] 和 字符串 B = B [ 1 ] B [ 2 ] ... B [ n ] ， A ( 1 :   i ) 表示 A 的 连续 子 序列 A [ 1 ] A [ 2 ] ... A [ i ] ， 同样 B ( 1 :   j ) 表示 B 的 连续 子 序列 B [ 1 ] B [ 2 ] ... B [ j ] 。 Li ( k ) 表示 所有 与 字符串 A ( 1 ： i ) 有 长度 为 k 的 LCS 的 字符串 B ( 1 ： j ) 中 j 的 最小值 。 用 公式 表示 就是 Li ( k ) = Minj ( LCS ( A ( 1 ： i ) ， B ( 1 ： j ) ) = k ) 。 
+ 　 　 定理 1   i ∈ [ 1 ， m ] ， 有 Li ( 1 ) < Li ( 2 ) < Li ( 3 ) < ... 
+ 　 　 定理 2   i ∈ [ 1 ， m - 1 ] ， ( k ∈ [ 1 ， m ] ， 有 Li + 1 ( k )   < = Li ( k ) 
+ 　 　 定理 3   i ∈ [ 1 ， m - 1 ] ， ( k ∈ [ 1 ， m - 1 ] ， 有 Li ( k ) < Li + 1 ( k + 1 ) 
+ 　 　 以上 三个 定理 都 不 考虑 Li ( k ) 无 定义 的 情况 。 
+ 　 　 定理 4   Li + 1 ( k ) 如果 存在 ， 那么 它 的 取值 必为 ： 
+ 　 　 Li + 1 ( k ) = Min ( j ， Li ( k ) ) 。 
+ 　 　 这里 j 是 满足 以下 条件 的 最小 整数 ： A [ i + l ] = B [ j ] 且 j > Li ( k - 1 ) 。 
+ 　 　 定理 1 、 2 、 3 、 4 的 证明 请 分别 参阅 文献 [ 2 ] 和 [ 3 ] 。 定理 4 得到 计算 Li ( k ) 的 递推 公式 。 将 此 递推 关系 表示 为 矩阵 形式 如图 1 。 
+ 
+ 图 1 　 求解 LCA 的 矩阵 L ( p . m ) 
+ 　 　 矩阵 中 的 元素 L ( k ， i ) = Li ( k ) ， 这里 ( 1 < i < = m ， 1 < k < = m ) ， null 表示 L ( k ， i ) 不 存在 。 当 i < k 时 ， 显然 L ( k ， i ) 不 存在 。 
+ 　 　 设 p = Maxk ( L ( k ， m ) ≠ null ) ， 可以 证明 L 矩阵 中 L ( p ， m ) 所在 的 对角线 L ( 1 ， m - p + l ) L ( 2 ， m - p + 2 ) … L ( p - 1 ， m - 1 )   L ( p ， m ) 所 对应 的 子 序列 B [ L ( 1 ， m - p + l ) ] B [ L ( 2 ， m - p + 2 ) ] … B [ L ( p ， m ) ] 即为 A 和 B 的 LCS ， p 为 该 LCS 的 长度 。 这样 ， LCS 问题 的 求解 就 转化 为 对 Lm ( m 矩阵 的 求解 。 
+ 　 　 下面 给出 一个 例子 来 说明 上面 的 性质 ： 给定 字符串 A 和 B ， A = bcdabab ， B = cbacbaaba ， ( m = | a | = 7 ， n = | B | = 9 ) 。 按照 定理 4 给出 的 递推 公式 ， 求出 A 和 B 的 L 矩阵 如图 2 。 
+ 
+ 图 2 　 例子 
+ 　 　 则 A 和 B 的 LCS 为 B [ 1 ] B [ 3 ] B [ 5 ] B [ 6 ] B [ 8 ] = cabab ， LCS 的 长度 为 5 。 
+ 　 　 将 复杂度 为 O ( pn ) 和 O ( n ( m - p ) ) 算法 分别 称为 算法 1 ， 2 。 算法 1 、 2 都 是 通过 求解 Lm ( m 矩阵 来求 LCS 的 ， 它们 的 区别 只是 求解 Lm ( m 矩阵 元素 的 顺序 不同 。 对于 矩阵 第一行 元素 L ( 1 ， i ) 的 计算 ， 可以 用 公式 L ( 1 ， i ) = Minj ( A [ i ] = B [ j ] ) ， 其余 行 元素 L ( k ， i ) 用 定理 4 给出 的 递推 公式 计算 。 下面 简要 介绍 一下 这 两个 算法 ： 
+ 　 　 算法 1   是 按行 顺序 来 计算 L 矩阵 。 先求 第一行 元素 L ( 1 ， 1 ) L ( 1 ， 2 ) … L ( 1 ， m ) ， 再求 第二行 ， 一直 求到 第 p + 1 行 。 直到 发现 第 p + 1 行都 为 null 为止 。 在 计算 第 k 行 元素 时 ， 根据 定理 2 ， 有 L ( k ， 1 ) > = L ( k ， 2 ) > = … > = L ( k ， m ) ， 所以 对 B 字符串 从后 向前 扫描 一遍 就 可求 出 所有 L ( k ， 1 ) ( 1 < = i < = m ) 。 扫描 一遍 的 时间 复杂度 为 O ( n ) ， 因此 算法 1 整个 的 时间 复杂度 ( 计算 p + 1 行 ) 为 O ( pn ) 。 在 求 L 矩阵 的 过程 中 ， 不用 存储 整个 矩阵 ， 只 需 存储 当前 行和上 一行 即可 ， 空间 复杂度 为 O ( m + n ) 。 算法 1 适合 于 p < < m 的 情况 。 
+ 　 　 算法 2   是 按 对角线 顺序 计算 L 矩阵 。 先求 第一条 对角线 上 的 元素 L ( 1 ， 1 ) L ( 2 ， 2 ) ... ， 直到 L ( 1 ， 1 ) = null ， 1 < = m 为止 ； 再求 第二条 对角线 L ( 1 ， 2 ) L ( 2 ， 3 ) ... ； 一直 求到 对角线 L ( 1 ， s ) L ( 2 ， s + 1 ) ... L ( t ， m ) ， 且 L ( t ， m ) < > null 为止 。 这时 ， 可以 证明 t = p ， s = m - p + l 。 总共 对 ( m - p + 1 ) 条 对角线 进行 了 计算 。 在 计算 第 i 条 对角线 时 ， 根据 定理 3 ， 有 L ( k ， i ) < L ( k + 1 ， i + 1 ) < ... ， 所以 对 B 字符串 从前 向 后 扫描 一遍 就 可求 出 所有 L ( k ， i ) ( 1 < = i < = m ) 。 因此 算法 2 的 时间 复杂度 为 O ( n × ( m - p ) ) 。 只 需 存储 当前 对角线 和 前 一条 对角线 上 的 元素 即可 ， 空间 复杂度 为 O ( m + n ) 。 算法 2 适合 于 p 与 m 非常 接近 的 情况 。 
+ 3   改进 的 快速 算法 
+ 　 　 本文 提出 的 新 算法 对 算法 2 进行 了 改进 ， 使 计算 每条 对角线 时 不必 对 B 字符串 整个 扫描 一次 ， 而是 利用 字符集 ， 使 对角线 上 每个 元素 的 值 可以 直接 得到 。 因为 每条 对角线 最多要 计算 ( p + 1 ) 个 元素 ， 计算 ( m - p + 1 ) 条 对角线 的 时间 复杂度 为 O ( p ( m - p ) ) 。 下面 详细 介绍 一下 为什么 可以 直接 得到 每个 元素 的 值 。 
+ 　 　 假设 字符串 A 与 B 是 定义 在 字符集 ∑ 上 的 字符串 。 ∑ 可以 是 Ascii 或 其它 标准 字符集 。 在 实际 计算 L 矩阵 之前 ， 我们 先 为 ∑ 中 的 每个 字符 ai 建立 一个 列表 CharList [ ai ] ， 表中 按 升序 记录 了 字符串 B 中 ai 出现 的 位置 。 这样 对 字符串 B 的 扫描 就 转化 为 对 字符 列表 的 扫描 。 实际上 计算 L ( k ,   i ) 时 ， 由 定理 4 给出 的 公式 L ( k + 1 ， i + 1 ) = Min ( j ,   L ( k + l ,   i ) ) ， 这里 j = Min1 ( A [ i + 1 ] = B [ 1 ] ∧ 1 > L ( k ,   i ) ) 。 如果 在 字符 A [ i + 1 ] 的 列表 CharList [ A [ i + 1 ] ] 中用 一 指针 记录 了 上次 扫描 到 的 字符 A [ i + 1 ] 在 CharList [ A [ i + 1 ] ] 中 的 位置 1 ， 则 CharList [ A [ i + 1 ] ] [ l + 1 ] 就是 j 的 值 。 这样 L ( k + 1 ,   i + 1 ) 可以 立即 得到 ， 不用 扫描 整个 字符串 B 。 
+ 　 　 在 计算 一条 对角线 之前 ， 先 将 所有 字符 列表 的 指针 的 初始值 置 为 表中 第一个 元素 。 下面 用 C语言 给出 了 整个 算法 。 字符 数组 A ， B 为 待 比较 的 两个 字符串 ， m 、 n 分别 为 字符串 A 、 B 的 长度 ， 数组 L 为 L 矩阵 的 当前 对角线 的 各 元素 的 值 。 
+ int   lcs ( char * A ,   char * B ,   int   m ,   int   n ,   int * L ) 
+ { 
+ int   CharList [ CHAR _ SET _ SIZE ] [ LIST _ MAXLENGTH ] ; / / 字符集 列表 
+ int   ListLength [ CHAR _ SET _ SIZE ] ; / / 每个 列表 的 长度 
+ int   ListIndex [ CHAR _ SET _ SIZE ] ; / / 每个 列表 扫描 位置 指针 
+ int   nPosA ,   nPosB ,   nPosL = 0 ; 
+ char   ch ; 
+ / / 建立 字符集 列表 ， 将 字符 在 B 中 出现 位置 按 升序 排列 。 
+ for   ( ch = a0 ;   ch < amax ; ch ++ ) 
+ ListLength [ ch ] = 0 ; 
+ for ( nPosB = 1 ; nPosB < = n ; nPosB ++ ) 
+ { 
+ 　 　 ch = B [ nPosB ] ; 
+ 　 　 CharList [ ch ] [ ListLength [ ch ] + 1 ] = nPosB ; 
+ 　 　 ListLength [ ch ] ++ ; 
+ } 
+ / / 初始化 L ， 用 n + 1 表示 null 。 
+ L [ 0 ] = 0 ; 
+ for ( nPosL = 1 ; nPosL < m + l ; nPosL ++ ) 
+ 　 　 L [ nPosL ] = n + l ; 
+ / / 循环 计算 每条 对角线 
+ int   nDiagonal = 1 ; 
+ while ( true ) 
+ { 
+ 　 　 nPosL = 0 ; 
+ 　 　 nPosA = nDiagonal ; 
+ 　 　 / / 将 指针 初始化 
+ 　 　 for   ( ch = a0 ;   ch < amax ;   ch ++ ) 
+ 　 　 　 　 ListIndex [ ch ] = 0 ; 
+ 　 　 / / 计算 对角线 上 的 每个 元素 
+ 　 　 while ( L [ nPosL ] ! = n + l && nPosA < = m ) 
+ 　 　 { 
+ 　 　 　 　 nPosB = L [ nPosL ] + 1 ; 
+ 　 　 　 　 ch = A [ nPosA ] ; 
+ 　 　 　 　 i = ListIndex [ ch ] + l ; 
+ 　 　 　 　 if ( i < = ListLength [ ch ] && CharList [ ch ] [ i ] < L [ nPosL + 1 ] ) 
+ 　 　 　 　 { 
+ 　 　 　 　 　 　 L [ nPosL + 1 ] = nPosB ; 
+ 　 　 　 　 　 　 ListIndex [ ch ] ++ ; 
+ 　 　 　 　 } 
+ 　 　 　 　 nPosL ++ ; 
+ 　 　 　 　 nPosA ++ ; 
+ } 
+ 　 　 if ( nPosA > m ) break ; 
+ 　 　 nDiagonal ++ ; 
+ } 
+ return   nPosL ;   / / 返回 LCS 的 长度 
+ } 
+ 4   几种 算法 的 比较 
+ 　 　 图 3 给出 了 以上 介绍 的 三种 算法 的 时间 复杂度 的 示意图 。 从图 中 可以 看出 ， 在 这 几种 算法 中 ， 不管 p < < m 时 还是 p 非常 接近 m 时 ， 算法 3 都 具有 最高 的 效率 。 因此 如果 在 比较 两个 文件 时 是 以 字符 为 单位 进行 比较 ， 最好 选用 算法 3 。 因为 算法 3 是 针对 特定 字符集 进行 比较 的 ， 所以 它 扫描 的 单位 都 是 单个 字符 ， 这 对于 二进制 文件 的 比较 是 适用 的 。 但 在 比较 两个 文本文件 时 ， 算法 l 和 2 都 可以 把 一行 文本 作为 一个 比较 单位 从而 大大 加快 计算速度 ， 算法 3 却 不能 有 这种 效率 提高 。 
+ 
+ 图 3 　 几种 算法 的 比较 
+ 李欣 （ 北京大学 软件工程 实验室   北京   100871 ） 
+ 舒 风笛 （ 武汉大学 计 科系   武汉   430072 ） 
+ 参考文献 
+ 1 ， Aho   A . V . ,   Hirschberg   D . S . ,   Ullman   J . D . :   Bounds   on   the   Complexity   of   the   Longest   Common   Subsequence   Problem .   J . ACM   23 ,   1 ,   1 ～ 12 ( 1976 ) 
+ 2 ， Hirschberg ,   D . S . : Algorithms   for   the   Longest   Common   Subsequence   Problem .   J . ACM ,   Vol .   24 ,   No.4 ,   October   1977 ,   pp.664 ～ 675 
+ 3 ， Nakatsu   N . ,   Kambayashi   Y . ,   Yajima   S :   A   Longest   Common   Subsequence   Algorithm   Suitable   for   Similar   Text   Strings .   Acta   Informatica   18 ,   171 ～ 179 ( 1982 ) 
+ 4 ， Randal   C . Burns   and   Darrell   D . E . Long :   A   LINEAR   TIME , CONSTANT   SPACE   DIFFERENCING   ALGORITHM 
+ 收稿 日期 ： 1999 年 7 月 16 日 

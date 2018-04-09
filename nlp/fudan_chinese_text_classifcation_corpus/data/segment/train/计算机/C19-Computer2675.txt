@@ -1,0 +1,117 @@
+软件 学报 
+ JOURN   AL   OF   SOFTWARE 
+ 1999 年 　 第 10 卷 　 第 10 期 　 Vol.10 　 No.10 　 1999 
+ 
+ 
+ 
+ 运行 时 消除 指针 别名 歧义 方法 的 加速 比 分析 
+ 乔   林   汤志忠   张 赤红   苏伯珙 
+ 摘要   采用 软硬件 结合 的 运行 时 消除 指针 别名 歧义 方法 SHRTD ( software / hardware   run - time   disambiguation ) 适用 于 不 可逆 代码 , 同时 , 它 的 代码 空间 受到限制 , 不 存在 严重 的 代码 可重 入性 问题 . 文章 详细分析 了 SHRTD 方法 的 指令 级 并行 加速 比 , 给出 了 发生 地址 冲突 后 的 并行 加速 比 与 平均 并行 加速 比 以及 发生 地址 冲突 的 依 概率 并行 加速 比 . 文章 引入 的 三类 理论 加速 比 对 指令 级 并行 编译 技术 的 研究 和 评测 有 重要 的 实际意义 . 
+ 关键词   指令 级 并行性 , 超长 指令 字 , 指针 别名 , 歧义 相关性 , 加速 比 . 
+ 中图法 分类号   TP302 
+ Analyzing   Speedups   of   a   Run - Time   Pointer   Aliasing   Disambiguation   Method 
+ QIAO   Lin1   TANG   Zhi - zhong1   ZHANG   Chi - hong1   SU   Bo - gong2 
+ 1 ( Department   of   Computer   Science   and   Technology   Tsinghua   University   Beijing   100084 ) 
+ 2 ( Department   of   Computer   Science   William   Paterson   University   USA ) 
+ Abstract   A   new   run - time   pointer   aliasing   disambiguation   method ,   SHRTD ,   combined   with   software   and   hardware   techniques ,   can   be   used   for   irreversible   code   and   has   very   limited   compensation   code   space   and   no   serious   rerollability   problem .   In   this   paper ,   instruction - level   parallel   speedups   of   the   SHRTD   method   are   analyzed   in   detail .   Speedups   and   mean   speedups   where   address   conflicts   occurred   and   speedups   where   address   conflicts   will   occur   according   to   their   probabilities   are   given .   Three   theoretical   speedups   introduced   in   this   paper   are   very   useful   for   studying   and   evaluating   instruction - level   parallel   compiling   techniques . 
+ Key   words   Instruction - level   parallelism ,   very - long   instruction   word ,   pointer   aliasing ,   ambiguous   dependence ,   speedup . 
+ 　 　 当前 的 超长 指令 字 ( very - long   instruction   word , 简称 VLIW ) 编译器 都 采用 静态 代码 调度 和 软件 流水 的 方法 开发 程序 的 指令 级 并行性 ( instruction - level   parallelism , 简称 ILP ) [ 1 ] . 这 两种 方法 最大 的 局限 是 存在 内存 访问 的 歧义 相关性 ( ambiguous   dependence ) 问题 . 编译器 即使 能够 处理 数组 静态 别名 分析 , 也 不 能够 很 好 地 处理 指针 别名 ( pointer   aliasing ) 分析 . 为 解决 指针 别名 问题 以 获得 更 高 的 隐含 指令 级 并行处理 加速 比 , 文献 [ 2 ] 提出 了 两种 运行 时 消除 歧义 性 ( run - time   disambiguation , 简称 RTD ) 的 方法 , 即 运行 时 检查 ( run - time   check ) 方法 和 运行 时 补偿 ( run - time   compensation ) 方法 . 将 这 两种 方法 应用 于 软件 流水 时 , 运行 时 补偿 方法 虽然 允许 不 确定 的 内存 访问 , 但 它 只 适合 那些 可逆 代码 [ 2 ] ; 运行 时 检查 方法 虽然 适用 于 任何 代码 , 但 存在 代码 可重 入性 ( rerollability ) 问题 . 这 两种 方法 共同 的 缺陷 是 存在 严重 的 代码 空间 问题 , 尤其 是 在 全局 软件 流水 中 可能 导致 巨大 的 补偿 代码 空间 开销 . 
+ 　 　 因此 , 文献 [ 3 ] 提出 了 一种 基于 软硬件 结合 的 运行 时 检查 方法 SHRTD ( software / hardware   run - time   disambiguation ) . SHRTD 的 基本 思想 是 : ( 1 )   在 检测 到 内存地址 冲突 时 , 为 延迟 不 正确 的 LOAD 操作 及其 后继 操作 , 功能 单元 在 歧义 的 LOAD 操作 之前 插入 NOP 操作 ; ( 2 )   为 保证 所有 延迟 操作 执行 顺序 的 一致性 , 编译 时 就 确定 执行 NOP 操作 的 所有 功能 单元 的 顺序 和 NOP 操作 的 数目 . 
+ 　 　 SHRTD 方法 具有 下述 3 个 优势 : ( 1 )   因为 运行 时 检查 方法 没有 代码 重做 问题 , 所以 它 特别 适合 任何 不 可逆 代码 ; ( 2 )   因为 任何 SHRTD 只 需要 一个 SHRTD 控制指令 , 补偿 代码 的 代码 空间 并不大 ; ( 3 )   不 存在 代码 可重 入性 问题 . 然而 , 该文 对 SHRTD 方法 的 分析 不够 完善 , 只 针对 具体 两个 例子 给出 了 分析 结果 , 没有 产生 完整 的 理论 分析 结论 . 本文 在 文献 [ 3 ] 的 基础 上 对 SHRTD 方法 展开 更 深入 的 研究 , 给出 了 SHRTD 方法 较完整 的 理论 分析 结果 , 得出 了 发生 地址 冲突 的 依 概率 并行 加速 比 和 发生 地址 冲突 后 的 并行 加速 比 与 平均 并行 加速 比 的 理论值 . 本文 的 结果 对 指令 级 并行 编译 技术 的 研究 和 评测 具有 重要 的 实际意义 . 
+ 1 　 SHRTD 方法 
+ 　 　 SHRTD 方法 假设 : ( 1 )   所有 的 操作 都 只 占用 一个 时钟 周期 ; ( 2 )   所有 的 PE 共享 一个 单一 的 内存 片 , 且 每个 PE 只有 1 个 内存 读 单元 、 1 个 内存 写 单元 和 4 个 循环 控制 单元 . 
+ 1.1   硬件 基本 结构 
+ 　 　 一个 完整 的 指令 级 并行 计算机 加速 系统 主要 由 主机 、 采用 超标 量 体系结构 的 单 处理机 和 采用 VLIW 体系结构 的 8 个 处理单元 ( PE ) 串联 的 多处理机 三 大部分 组成 . 每个 PE 包含 11 个 功能 单元 , 即 2 个 ALU 、 2 个 乘法器 和 2 个 内存 访问 端口 和 4 个 循环 控制 单元 . 该 VLIW 处理器 能够 在 一个 时钟 周期 中 处理 4 个 整数 操作 、 2 个 内存 访问 操作 和 4 个 分支 操作 . SHRTD 的 硬件 支持 环境 包括 : ( 1 )   在 指令 存储器 上 添加 了 一个 大小 为 D × W 的 存储 延迟 操作 的 指令 缓冲区 , W 是 VLIW 指令 的 宽度 , D = dmax + 1 , 这里 , dmax 是 大多数 流行 程序 中 的 最大值 ; ( 2 )   一个 从 指令 缓冲区 或 正常 的 指令 存储器 选择 操作 的 多路 选择器 MUX , MUX 的 数目 等于 VLIW 指令 字 的 操作 域 数目 ; ( 3 ) SHRTD 控制指令 缓冲区 和 SHRTD   WORD 只读 寄存器 . 
+ 1.2   相关 定义 和 定理 
+ 　 　 本 节 引入 相关 定义 和 定理 , 有关 定理 的 证明 请参阅 文献 [ 3 ] . 
+ 　 　 定义 1 ( 安放 距离 ) .   设 op1 和 op2 是 程序 中 已 安放 的 两个 操作 , 且 在 原始 串行 代码 中 操作 op1 在 操作 op2 之前 . 若 安放 后 它们 之间 间隔 的 VLIW 操作 数目 为 N , 则 这 两个 操作 的 安放 距离 
+   　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 　 　 定义 2 ( 代码 补偿 量 ) .   设 op1 和 op2 分别 是 程序 中 两个 已 安放 的 歧义 STORE 和 LOAD 操作 , 且 它们 的 安放 距离 d ( op1 , op2 ) < 0 . 当 检测 到 地址 冲突 时 必须 补偿 一些 空 操作 以 延迟 不 正确 的 LOAD 及其 后继 操作 , 我们 称 这些 补偿 的 空 操作 数目 为 代码 补偿 量 ( code   compensation   measure ) . 
+ 　 　 定理 1 .   若 op1 和 op2 安放 在 不同 的 内存 端口 , 则 相应 的 代码 补偿 量 Ω = | d ( op1 , op2 ) | + 1 . 
+ 给定 一个 循环 程序 , 其中 的 每 一个 操作 在 不同 的 迭代 上 都 有 一个 安放 位置 , 同一个 操作 在 不同 迭代 上 的 安放 位置 是 不同 的 . 因此 , 下面 我们 定义 体内 安放 距离 和 体间 安放 距离 的 概念 , 用来 描述 操作 在 不同 迭代 上 的 具体 安放 信息 . 
+ 　 　 定义 3 ( 体内 安放 距离 和 体间 安放 距离 ) .   对 任意 一个 迭代 次数 为 n 的 循环 中 的 操作 op1 和 op2 , 设 op1 ( k ) 和 op2 ( j ) 分别 表示 op1 和 op2 的 第 k 次 和 第 j 次 迭代 , 1j   n , 1   k   n . 如果 j ≠   k , 称 安放 距离 d ( op1 ( k ) , op2 ( j ) ) 为 体间 安放 距离 ; 如果 j =   k , 称 安放 距离 d ( op1 ( k ) , op2 ( j ) ) 为 体内 安放 距离 . 考虑 到 操作 op1 和 op2 在 循环体 不同 迭代 的 体内 安放 距离 是 相同 的 , 故可 将 体内 安放 距离 简记 为 dinn ( op1 , op2 ) . 
+ 　 　 循环 程序 的 软件 流水 算法 必须 在 循环 调度 前 确定 循环 的 体间 启动 间距 I , 即 相邻 两次 循环 迭代 的 第 1 个 操作 之间 的 体间 安放 距离 . 一旦 确定 了 循环体 间 启动 间距 I , 则 有 以下 定理 . 
+ 　 　 定理 2 .   给定 循环 的 体间 启动 间距 I . 设 op1 ( k ) 和 op2 ( j ) 分别 是 循环 程序 中 两个 已 安放 的 歧义 LOAD 和 STORE 操作 , 且 它们 的 体内 安放 距离 为 dinn ( op1 , op2 ) , 体间 安放 距离 d ( op1 ( k ) , op2 ( j ) ) <   0 , j <   k . 若 op1 ( k ) 和 op2 ( j ) 安放 在 不同 的 内存 端口 , 则 一次 迭代 需要 插入 的 SHRTD 操作 个数 . 
+ 　 　 定理 3 .   给定 循环 的 体间 启动 间距 I . 设 op1 ( k ) 和 op2 ( j ) 分别 是 循环 程序 中 两个 已 安放 的 歧义 LOAD 和 STORE 操作 , 当 SHRTD 检测 到 地址 冲突 时 , 相应 的 代码 补偿 量 
+ Ω ＝ | d ( op1 ( k ) , op2 ( j ) ) | + 1 = dinn ( op1 , op2 ) - ( k - j ) × I + 1 .   　 　 　 　 　 　 　 ( 2 ) 
+ 2 　 SHRTD 方法 的 并行 加速 比 分析 
+ 　 　 本节 从 理论 上 讨论 SHRTD 方法 的 并行 加速 比 . 因为 代码 并行执行 时 具有 不确定性 , 要 精确 地 分析 最终 代码 的 复杂度 和 代码 空间 大小 是 非常 困难 的 , 这里 , 我们 使用 概率论 来 分析 SHRTD 的 并行 加速 比 . 
+ 　 　 定理 4 .   设 循环 程序 的 体间 启动 间距 为 I = 1 , 循环 的 串行 代码 总长度 为 l , 循环 次数 为 n . 设 op1 和 op2 分别 是 循环 程序 中 两个 已 安放 的 歧义 LOAD 和 STORE 操作 , 且 体间 安放 距离 dinn ( op1 , op2 ) ＝ d , 则 某次 发生 jd 次体 差为 d ,   jd -   1 次体 差为 d -   1 , … ,   j1 次体 差为 1 的 地址 冲突 后 的 并行程序 加速 比 
+ .   　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 3 ) 
+ 在 一次 迭代 的 过程 中 , 发生 一次 地址 冲突 后 的 算术平均 代码 补偿 量 
+ , 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　   ( 4 ) 
+ 发生 m 次 地址 冲突 后 的 算术平均 并行 加速 比 
+ . 　 　 　 　 　 　 　 　 　 　 　 　 　 　   ( 5 ) 
+ 证明 : 由 定理 3 可知 , 发生 体差 为 x 的 地址 冲突 时 的 代码 补偿 量 Ω x = d - x + 1 , 1xd , 则 在 某次 发生 jd 次体 差为 d ,   jd -   1 次体 差为 d -   1 , … ,   j1 次体 差为 1 的 地址 冲突 后 , 总 的 代码 补偿 量 . 当 串行 执行 该 程序 时 , 总 的 时钟 周期 为 l × n , 并行执行 时 装入 和 排空 阶段 分别 需要 l - 1 个 时钟 周期 , 在 没有 检测 到 地址 冲突 时 , 流水 阶段 需要 n - 2 个 时钟 周期 . 由于 在 运行 时 检测 到 地址 冲突 , 则 总 的 并行执行 周期 为   
+ , 
+ 因而 此时 程序 的 并行程序 加速 比 
+ . 
+ 　 　 在 一次 迭代 的 过程 中 , 发生 一次 地址 冲突 后 的 算术平均 代码 补偿 量 
+ , 
+ 因而 发生 m 次 地址 冲突 后 的 算术平均 并行 加速 比 
+ .   
+ 　 　 例 1 : 设 某个 循环 程序 的 长度 l = 6 , 两个 歧义 LOAD 操作 和 STORE 操作 的 安放 距离 d = 3 . 产生 一次 地址 冲突 后 的 算术平均 代码 补偿 量 , 产生 m 次 地址 冲突 后 的 算术平均 代码 补偿 量 . 
+ 　 　 当 j1 ＝ 0 , j2 = 0 , j3 = 0 时 , 不 存在 任何 地址 冲突 , 该 循环 程序 的 并行 加速 比当 n → ∞ 时 的 极限 ; 当 j1 ＝ n , j2 = 0 , j3 = 0 时 , 全部 地址 冲突 的 体差 都 为 1 , 加速 比当 n → ∞ 时 的 极限 ; 当 j1 ＝ 0 , j2 = n , j3 = 0 时 , 全部 地址 冲突 的 体差 都 为 2 , 加速 比当 n → ∞ 时 的 极限 ; 当 j1 ＝ 0 , j2 = 0 , j3 = n 时 , 全部 地址 冲突 的 体差 都 为 3 , 加速 比当 n → ∞ 时 的 极限 . 这些 结果 与 文献 [ 3 ] 的 分析 一致 . 
+ 　 　 定理 5 .   假设 在 不同 迭代 发生 地址 冲突 的 概率 事件 相互 独立 , 且 同 一次 迭代 上 不同 体差 的 地址 冲突 的 概率 事件 互斥 , 并 设在 一次 循环 迭代 过程 中 发生 体差 为 d 的 地址 冲突 的 先验概率 为 pd , 发生 体差 为 d -   1 的 地址 冲突 的 先验概率 为 pd -   1 , … , 发生 体差 为 1 的 地址 冲突 的 先验概率 为 p1 , 定理 的 其他 条件 同 定理 4 , 则 发生 m 次 地址 冲突 的 代码 补偿 量 ｍ 是 m 的 概率 的 函数 , 且 
+ 　 　 　 　 　   ( 6 ) 
+ 其中   
+ 　 　 　 　 　 　 　 　   ( 7 ) 
+ 此时 的 并行 加速 比依 概率 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　   ( 8 ) 
+ 　 　 证明 : 注意 到 发生 某次 jd 次体 差为 d ,   jd -   1 次体 差为 d -   1 , … ,   j1 次体 差为 1 的 地址 冲突 的 概率 为 
+ 　 　 　 　 　 　 　   ( 9 ) 
+ 则 发生 m 次 地址 冲突 的 概率 
+ 　 　 　   ( 10 ) 
+ 因而 发生 m 次 地址 冲突 的 代码 补偿 量 
+ 
+ Ω p ( m ) 显然 是 m 的 概率 的 函数 . 因此 , 发生 m 次 地址 冲突 的 并行 加速 比依 概率 为 
+ . 　 　 　 　 　 　 　 　 　 　 　 　 　 　   □ 
+ 　 　 当 发生 不同 的 地址 冲突 时 , 程序 的 并行 加速 比 并不相同 . 作为 在 程序执行 前 估计 并行 加速 比 的 一种 手段 , 依 概率 的 并行 加速 比 Sp ( m ) 意味着 可以 期望 获得 的 并行 加速 比 , 它 是 衡量 SHRTD 方法 有效性 的 重要 参数 . 下面 的 例 2 显示 了 定理 4 和 定理 5 之间 的 关系 . 
+ 　 　 例 2 : 仍 使用 例 1 的 参数 . 根据 定理 5 , 发生 m 次 地址 冲突 时 的 平均 代码 补偿 量 
+ 
+ 假设 在 一次 迭代 过程 中 不同 体差 的 地址 冲突 为 等 概率 事件 , 即 p = q = r , 则 
+ , 
+ 故   
+ 
+ 这个 结果 同样 与 使用 定理 4 得到 的 结果 以及 文献 [ 3 ] 的 分析 一致 . 
+ 引理 1 . 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　   ( 11 ) 
+ 证明 : 由 , 有 
+ 　 　 　 □ 
+ 　 　 定理 6 .   定理 的 条件 同 定理 5 , 则 发生 地址 冲突 后 的 平均 代码 补偿 量 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　   ( 12 ) 
+ 发生 地址 冲突 后 的 平均 并行 加速 比 
+ . 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　   ( 13 ) 
+ 发生 地址 冲突 后 的 平均 并行 加速 比当 n → ∞ 时依 概率 收敛 于 
+ 　 　 　 　 　 　 　 　 　 　   ( 14 ) 
+ 　 　 证明 : 考虑 到 Pm 事实上 是 可能 发生 或 可能 不 发生 地址 冲突 的 一次 n 重 Bernoulli 实验 , 则 有 , 即 
+ . 
+ 从而 发生 地址 冲突 的 总 代码 补偿 量 依 概率 
+ 
+ 故由 引理 1 , 发生 地址 冲突 后 的 平均 代码 补偿 量 
+ 
+ 发生 地址 冲突 后 的 平均 并行 加速 比则 为 . 发生 地址 冲突 后 的 平均 并行 加速 比当 n → ∞ 时依 概率 收敛 于 .   □ 
+ 　 　 此 结果 与 概率 有关 , 它 是 衡量 SHRTD 方法 平均 性能 的 重要 参数 . 当 地址 冲突 为 0 概率 时 , 极限值 显然 为 l . 
+ 3 　 结   论 
+ 　 　 文献 [ 3 ] 提出 的 SHRTD 方法 采用 软硬件 结合 的 运行 时 消除 指针 别名 歧义 方法 SHRTD , 适用 于 不 可逆 代码 , 同时 , 它 的 代码 空间 受限 , 不 存在 严重 的 代码 可重 入性 问题 . 
+ 　 　 本文 在 此基础 上 对 SHRTD 方法 展开 更 深入 的 研究 , 详细分析 了 SHRTD 方法 的 指令 级 并行 加速 比 , 并 给出 了 完整 的 理论 分析 结果 . 本文 得到 的 发生 地址 冲突 的 依 概率 并行 加速 比 和 发生 地址 冲突 后 的 并行 加速 比 与 平均 并行 加速 比 的 理论值 对 指令 级 并行 编译 技术 的 研究 和 评测 具有 重要 的 实际意义 . 
+ 注释 ： 本文 研究 得到 国家自然科学基金 资助 。 
+ 作者简介 ： 乔林 ： 1972 年生 ， 博士生 ， 主要 研究 领域 为 计算机 并行 编译 技术 ， Petri ， 并行程序 
+ 　 　 　 　 　 的 形式 语义 
+ 　 　 　 　 　 汤志忠 ： 1946 年生 ， 教授 ， 主要 研究 领域 为 计算机 并行 体系结构 ， 并行算法 ， 并行 编 
+ 　 　 　 　 　 译 技术 。 
+ 　 　 　 　 　 张 赤红 ： 1964 年生 ， 副教授 ， 主要 研究 领域 为 计算机 并行算法 ， 并行 编译 技术 
+ 　 　 　 　 　 苏伯珙 ： 1938 年生 ， 教授 ， 博士生 导师 ， 主要 研究 领域 为 软件 流水 算法 ， 并行 编译 技 
+ 　 　 　 　 　 术 
+ 作者 单位 ： 乔林 、 汤志忠 、 张 赤红 : 清华大学 计算机科学 与 技术 系   北京   100084 
+ 　 　 　 　 　 苏伯珙 ： William   Paterson 大学 计算机科学 系   美国 
+ 参考文献 
+ 1 　 Rau   B   R ,   Fisher   A .   Instruction - level   parallel   processing :   history ,   overview ,   and   
+ 　 　 perspective .   Journal   of   Supercomputing ,   1993 ,   7 ( 1 ) : 9 ～ 50 
+ 2 　 Nicolau   A .   Run - time   disambiguation :   coping   with   statically   unpredictable   
+ 　 　 dependencies .   IEEE   Transactions   on   Computers ,   1989 ,   38 ( 5 ) : 663 ～ 678 
+ 3 　 汤志忠 , 乔林 , 张 赤红 等 . 一种 运行 时 消除 指针 别名 歧义 的 新 方法 . 软件 学报 , 1999 , 10 
+ 　 　 ( 7 ) : 685 ~ 689 
+ 　 　 ( Tang   Zhi - zhong ,   Qiao   Lin ,   Zhang   Chi - hong   et   al .   A   new   run - time   pointer   aliasing 
+ 　 　 disambiguation   method .   Journal   of   Software ,   1999 , 10 ( 7 ) : 685 ～ 689 ) 
+ 收稿 日期 ； 1998 - 06 - 22 修稿 日期 ： 1998 - 11 - 06 

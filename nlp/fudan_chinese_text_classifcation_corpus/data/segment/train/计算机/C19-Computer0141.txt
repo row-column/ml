@@ -1,0 +1,148 @@
+计算机 应用 
+ COMPUTER   APPLICATIONS 
+ 1999 年   第 19 卷   第 10 期   Vol.19   No.10   1999 
+ 
+ 
+ 
+ 基于 ASP 的 Web 应用 中 数据库 图像 数据 的 处理 
+ 王 新房 　 邓亚玲 
+ 　 　 我们 以 图像 数据 为例 ， 以 Microsoft   SQL   Server6.5 作为 数据库系统 ， 开发技术 采用 微软 的 ASP 。 本文 首先 介绍 方案 的 设计 思想 ， 然后 给出 数据库 表 结构 ； 其次 ， 说明 利用 Visual   Basic   4.0 和 ADO1.5 构造 ActiveX   服务器 部件 ； 最后 ， 讨论 在 开发 ASP   Web 基 应用 的 过程 中 ， 怎样 使用 我们 构造 的 用于 进行 数据库 图像 数据处理 的 ActiveX   服务器 部件 。 
+ 1 　 方案 介绍 
+ 　 　 我们 可以 采用 自己 最 熟悉 的 一种 编程语言 ( 如 Visual   Basic ， Visual   C++ 或 Visual   J ++ ) ， 开发 一些 完成 特定 任务 的 ActiveX   服务器 部件 ， 以便 在 用 ASP 开发 Web 基 应用 时 使用 。 为了 完成 对 数据库 图像 数据 的 有效 处理 ， 我们 开发 了 一个 ActiveX   服务器 部件 LoadImage 。 该 部件 负责 完成 从   SQL   Server 的 有关 表中 提取 二进制 图像 数据 ， 将 提取 的 二进制 图像 数据 存放 在 一个 临时 图像文件 中 。 当 Web 基 应用 需要 将 数据库 中 存储 的 二进制 图像 数据 发送到 浏览器 客户 并 在 客户 浏览器 中 对 其 显示 时 ， ASP 通过 调用 该 部件 的 有关 方法 获取 这个 临时 图像文件 的 位置 。 这样 ， 利用 HTML 的 < IMG > 标记 ， 数据库系统 中 存储 的 二进制 图像 数据 可 容易 的 被 下载 到 客户 浏览器 并 将 其 在 浏览器 上 显示 。 
+ 2 　 数据库 设置 
+ 　 　 Microsoft   SQL   Server   具有 存储 二进制 图像 数据 的 能力 ， 数据库 中 对应 的 数据类型 为 image ， 我们 利用 微软 的 SQL 企业 管理器 ( SQL   Enterprise   Manager ) 可以 很 容易 地 创建 所 需 的 数据库 。 本文 中 我们 将 创建 一个 4M 大小 名为 testdb 的 数据库 。 为了 便于 说明 问题 和 突出重点 ， 在 testdb 数据库 中 只 创建 一个 表 Test — Img   。 创建 Test — Img 表 的 SQL 脚本 如下 ： 
+ create   table   Test — Img (   img — id   numeric   identity , 
+ img — type   char ( 3 )   null , 
+ img — data   image   null , 
+ img — des   text   null , 
+ constraint   PK — TEST — IMG   primary   key 
+ ( img — id ) 
+ ) 
+ 　 　 其中 img — id 为 该表 的 主键 。 img — type 代表 图像 的 类型 ， 如 gif 或 jpg 这 两种 Web 基 应用 使用 最多 的 图像 类型 。 img — data 列 存储 二进制 图像 数据 。 img — des 列 存放 图像 的 描述性 文本 。 
+ 3 　 创建 ActiveX   服务器 部件 
+ 　 　 用 Visual   Basic   4.0 开发 ActiveX   服务器 部件 的 过程 如下 ： 
+ 　 　 1 )   开始 Visual   Basic   4.0 ， 命名 Project 为 LoadImage 。 
+ 　 　 2 )   选择 Tools 菜单 中 的 Options 菜单项 ， 然后 用 鼠标 单击 Project   tab ， 在 Project   Name 文本 编辑框 中 键入 LoadImage 。 
+ 　 　 3 )   移去 Visual   Basic   4.0 自动 创建 的 缺省 窗体 ( DefaultForm ) 。 
+ 　 　 4 )   利用 Insert 菜单 的 Class   Module 菜单项 在 Project 中加 一个 Image 类 。 在 该类 的 属性 ( property ) 中 ， 设置 Instancing 属性 为 2   -   Creatable   MultiUse ， Name 属性 为 Image ， Public 属性 为 True 。 
+ 　 　 5 )   为 ActiveX   服务器 部件 加入 口点 ( Entry   Point ) 。 所有 的 ActiveX   服务器 部件 都 需要 一个 入口 点 。 在 ASP 文件 中 创建 该 部件 的 对象 实例 时 ， 代码 将 从 入口 点 开始 执行 。 对于 ActiveX   服务器 部件 ， 其 入口 点为 Module 的 Sub   Main 过程 。 为此 ， 利用 Insert 菜单 的 Module 菜单项 加入 一个 模块 ( Module ) ， 在 出现 模块 的 窗口 中键 如 ： 
+ 　 　 Sub   Main ( ) 
+ End   Sub 
+ 　 　 6 )   在 Image 类中 加入 如下 代码 ： 
+ Private   mDbConn   As   Object 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 定义 数据库 连接 对象 。 
+ Private   mDbRec   As   Object 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 定义 数据库 记录 对象 。 
+ Private   fld   As   Object 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 定义 数据库 字 段 对象 。 
+ Private   mFileName ( )   As   String 　 　 　 　 　 　 　 　 　 　 ′ 数组 ， 用于 存放 临时 文件名 和 路经 。 
+ Private   mlngImageId ( )   As   Long 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 用于 存放 图像 ID 的 数组 。 
+ Private   mlngNumberOfFiles   As   Long 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 临时文件 的 数目 
+ Const   bSize   =   1024 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 一次 从库 中 读取 的 最大 byte 数 。 
+ ′ ImageFile 属性 用于 返回 临时 文件名 。 
+ Public   Property   Get   ImageFile 
+ ( ByVal   img — id   As   Integer )   As   String 
+ Dim   intPos   As   Integer 
+ Dim   i   As   Integer 
+ For   i   =   0   To   mlngNumberOfFiles   -   1 
+ If   mlngImageId ( i )   =   img — id   Then 
+ intPos   =   5   +   Len ( Trim ( Str ( img — id ) ) )   +   4 
+ ImageFile   =   Right ( mFileName ( i ) ,   intPos ) 
+ End   If 
+ Next   i 
+ End   Property 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′   CreateImageFile 过程 根据 图像 ID 创建 相应 的 临时文件 。 
+ Public   Sub   CreateImageFile 
+ ( ByVal   img — id   As   Integer ) 
+ Dim   SqlCmd   As   String   ,   OutputFile   As   String , 
+ ImageType   AsString 
+ Dim   OutputFileNum   As   Integer ,   
+ LeftOver   As   Long ,   i   As   Integer , byteData ( )   As   Byte 
+ For   i   =   0   To   mlngNumberOfFiles   -   1 
+ If   mlngImageId ( i )   =   img — id   Then   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 检查 临时 图像文件 是否 已 存在 。 
+ Exit   Sub 
+ End   If 
+ Next   i 
+ mDbConn . ConnectionString   =   " DRIVER = { SQL 
+ Server } ; SERVER = ( local ) ; UID = sa ;   "   & — 
+ " PWD = sapassword ; WSID = CONTROL ; DATABASE = testdb " 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 数据库 连接 字符串 。 
+ mDbConn . ConnectionTimeout   =   15 
+ mDbConn . Open   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 打开 数据库 连接 。 
+ SqlCmd   =   " SELECT   *   from   Test — Img   
+ where   img — id = "   & img — id   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ SQL 语句 
+ Set   mDbRec . ActiveConnection   =   mDbConn 
+ mDbRec . Open   SqlCmd ,   ,   0 ,   1 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 打开 数据库 记录集 。 
+ Set   fld   =   mDbRec . Fields ( " img — data " ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 设置 对应 的 字 段 对象 。 
+ mlngNumberOfFiles   =   mlngNumberOfFiles   +   1 
+ ReDim   Preserve   mFileName ( mlngNumberOfFiles ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 重新 设置 数组 的 大小 。 
+ ReDim   Preserve   mlngImageId ( mlngNumberOfFiles ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 重新 设置 数组 的 大小 。 
+ mlngImageId ( mlngNumberOfFiles   -   1 )   =   img — id 
+ ImageType   =   mDbRec . Fields ( " img — type " ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 获取 图像 类型信息 。 
+ mFileName ( mlngNumberOfFiles   -   1 )   = 
+ App . Path   &   " \ images "   & — " \ image "   &   Trim ( Str ( img — id ) )   &   " . "   &   ImageType   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 构造 临时文件 的 全 路经 名 
+ OutputFile   =   mFileName ( mlngNumberOfFiles   -   1 ) 
+ OutputFileNum   =   FreeFile 
+ Open   OutputFile   For   Binary   As   # OutputFileNum   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 创建 并 以 二进制 方式 打开 临时文件 。 
+ FileLength   =   fld . ActualSize   -   1 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 获胜 图象 数据 的 大小 ( byte 数 ) 。 
+ NumBlocks   =   FileLength   bSize 
+ LeftOver   =   FileLength   Mod   bSize 
+ byteData ( )   =   fld . GetChunk ( LeftOver ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 读取 图像 数据 。 
+ Put   # OutputFileNum ,   ,   byteData ( )   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 追加 图像 数据 到 临时文件 。 
+ For   i   =   1   To   NumBlocks 
+ byteData ( )   =   fld . GetChunk ( bSize ) 
+ Put   OutputFileNum ,   LeftOver   +   ( i   -   1 )   
+ *   bSize ,   byteData ( ) 
+ Next   i 
+ mDbRec . Close   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 关闭 记录集 。 
+ mDbConn . Close   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 关闭 数据库 连接 。 
+ Close   # OutputFileNum   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 关闭 临时文件 。 
+ End   Sub 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 类 初始化 过程 创建 数据库 连接 对象 和 记录集 对象 。 
+ Private   Sub   Class — Initialize ( ) 
+ mlngNumberOfFiles   =   0 
+ Set   mDbConn   =   CreateObject ( " ADODB . Connection " ) 
+ Set   mDbRec   =   CreateObject ( " ADODB . Recordset " ) 
+ End   Sub 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ 类析构 过程 释放 所 占 系统资源 。 
+ Private   Sub   Class — Terminate ( ) 
+ If   mDbRec . State   =   adStateOpen   Then   mAdoRst . Close 
+ If   mDbConn . State   =   adStateOpen   Then   mAdoConn . Close 
+ Set   mDbRec   =   Nothing 
+ Set   mDbConn   =   Nothing 
+ End   Sub 
+ 　 　 7 )   完成 编译 。 完成 编译 后 ， 利用 Windows   NT 或 Windows   95 的 regsver32 . exe 工具 ， 对 所 产生 的 ActiveX 服务器 部件 进行 登记注册 。 
+ 4 　 使用 ActiveX   服务器 部件 
+ 　 　 我们 利用 微软 的 Visual   InterDev   1.0   创建 一个 Web 项目 ( Web   Project ) ， 在 该 项目 中 建立 一个 ASP 文件 ShowImage . asp 。 在 使用 我们 的 ActiveX   服务器 部件 时 ， 应 首先 利用 ASP 内置 Server 对象 的 CreateObject 方法 创建 一个 ActiveX   服务器 部件 对象 实例 ， 然后 调用 CreateImageFile 过程 用于 建立 临时 图像文件 ， 其次 调用 ImageFile 获取 临时 图像文件 的 文件名 ， 最后 通过 HTML 的 < IMG > 标记 将 图像 在 客户 浏览器 上 进行 显示 。 我们 假设 要 显示 img — id = 20 的 图像 数据 ， 则 相应 的 ASP 文件 ShowImage . asp 的 内容 如下 ： 
+ < % @   LANGUAGE = " VBSCRIPT "   % > 
+ < HTML > 
+ < HEAD >   < TITLE > Show   Database   Image < / TITLE >   
+ < / HEAD > 
+ < BODY > 
+ < %   Set   MyObj = Server . CreateObject ( " LoadImage . Image " ) 
+ MyObj . CreateImageFile ( 20 ) 
+ FileName   =   " . / images / "   &   MyObj . ImageFile ( 20 )   % > 
+ < font   size = 6 >   Here   is   the   Image   retrieved :   < / font > 
+ < IMG   ALIGN = BOTTOM   SRC =   " < %   = FileName   % > " > 
+ < / BODY >   < / HTML > 
+ 5 　 结论 
+ 　 　 通过 设计 一个 ActiveX   服务器 部件 并 结合 ASP 技术 可以 实现 在 Web 基 应用 中将 数据库系统 中 存储 的 二进制 图像 在 客户 浏览器 上 进行 显示 。 该 方法 具有 开发 周期短 ， 使用 容易 ， 灵活 等 优点 。 Web 基 应用 开发人员 可 利用 该 方法 设计 出 商业化 的 具有 完备 功能 的 ActiveX   服务器 部件 ， 完成 对 数据库系统 中 存储 的 二进制 图像 数据 的 有效 处理 。 
+ 作者简介 ： 王 新房 　 博士 。 主要 研究 方向 ： 自 适应控制 与 计算机网络 。 
+ 邓亚玲 　 讲师 。 主要 研究 方向 ： 网络 计算 与 信息管理 。 
+ 作者 单位 ： 西安 理工大学 自动化 与 信息 工程学院 　 陕西 . 西安 ( 710048 ) 
+ 参考文献 
+ ［ 1 ］ 　 Piroz   Mohseni ， 著 .   Web 数据库 开发人员 指南 .   机械 工业 出版社 ， 1997 
+ 收稿 日期 : 1999 - 05 - 06 ( 修改稿 ) 

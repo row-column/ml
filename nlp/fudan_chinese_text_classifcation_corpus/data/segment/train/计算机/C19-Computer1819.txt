@@ -1,0 +1,13 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000 　 No.19 　 No.1 　 P.54 
+ 
+ 
+ 
+ 
+ 关于 Office   2000   
+ 　 　 Office   2000   Office   2000 在 支持 编程 开发 方面 有 哪些 新 特点 ？ 
+ 　 　 1 ． 支持 对 病毒 的 防护 。 通过 编程 界面 ， 开发人员 可以 轻而易举 地 将 病毒 检查 工具 添加 到 Office   2000 。 同时 Office 中 也 有 内置 的 病毒 检查 工具 。 
+ 　 　 2 ． 为宏 添加 数字签名 以 提高 安全性 和 用户 的 安全感 。 开发人员 可以 为 其 Visual   Basic   for   Applications   （ VBA ） 宏 签名 ， 这样 用户 便 可以 知道 宏 的 来源 以及 它们 是否 被 改动 过 。 用户 可以 指定 对于 有 特定 开发人员 签名 的 未经 改动 的 宏 不 显示 警告 信息 。 
+ 　 　 3 ． VBA   6 在 Office   2000 中 包含 有 最新 版本 的 VBA ， 这个 版本 的 VBA 具有 与 Visual   Basic 相同 的 语言 功能 。 VBA   6 为 Office 提供 了 非 模态 用户 窗体 以及 对 附加 ActiveX 控件 的 支持 等 功能 。 
+ 　 　 4 ． 可编程 性 。 （ 1 ） 共享 Add － In 结构 。 在 统一 的 插入 模式 下 ， 利用 Microsoft   Office   COM 加载 项 ， 开发人员 可 建立 Office 集成 的 解决方案 。 （ 2 ） Microsoft   Office 反病毒 API 。 Office   2000 的 “ 打开 文件 ” 命令 中有 病毒 扫描 API 。 这些 新 的 API 能 让 第三方 供应商 在 加载 Office 文档 前 对 其 进行 扫描 。 （ 3 ） 基于 应用程序 的 Visual   Basic （ VBA ） 宏 数字签名 。 为了 提高 安全性 和 用户 满意度 ， 开发人员 可以 通过 宏 签名 来 保证 他们 不 受 病毒 影响 。 （ 4 ） Office   2000 包含 最新版 的 VBA ， 保证 了 VBA 与 Visual   Basic 语言 特性 的 一致性 。 （ 5 ） 应用程序 级 事件 。 为了 改进 自定义 解决方案 ， 添加 了 新型 事件 。 （ 6 ） Microsoft 脚本 编辑器 。 Office   2000 可 用于 开发 HTML 脚本 和 基于 HTML 的 客户 解决方案 。 

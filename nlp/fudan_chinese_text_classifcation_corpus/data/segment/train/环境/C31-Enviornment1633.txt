@@ -1,0 +1,84 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1999 年 　 第 19 卷 　 第 3 期 　 Vol.19   No.3   1999 
+ 
+ 
+ 
+ 高效 无机 混凝剂 聚 硅酸 铁铝 的 研究 
+ 胡 　 翔 　 周 　 定 
+ 摘要 ： 高效 混凝剂 是 目前 水 处理 研究 的 热点 . 用水 玻璃 、 硫酸铁 和 硫酸铝 制取 聚 硅酸 铁铝 混凝剂 ( PSFA ) , 确定 了 制备 PSFA 混凝剂 的 优化 条件 :   硅酸 聚合度 η 为 0.5 , Fe3 + 及 Al3 + 与 SiO2 的 摩尔 比为 1 :   1 ,   Fe3 + 与 Al3 + 的 摩尔 比为 1 :   1 ,   水解 度 B * 为 0.5 ,   而 熟化 时间 对 PSFA 混凝剂 的 混凝 性能 影响 不 明显 . 用 PSFA 混凝剂 处理 实际 水样 , 并 与 单独 投加 混凝剂 硫酸铁 及 硫酸铁 加 助凝剂 聚 硅酸 效果 进行 了 比较 , 结果表明 , PSFA 混凝剂 的 效果 最好 , 而且 用药量 少 ; 同时 还 对 PSFA 混凝剂 的 混凝 机理 进行 了 讨论 . 
+ 关键词 ： 聚 硅酸 ； 极限 粘度 ； 聚 硅酸 铁铝 ； 无机 高分子 混凝剂 
+ 中 图 分类号 ： X13   文献 标识码 ： A   文章 编号 ： 1000 -   6923 ( 1999 ) 03 -   0266 -   04 
+ Study   on   the   high   effective   inorganic   polymer   coagulant   polysilicate   ferric   aluminum .   
+ HU   Xiang ,   ZHOU   Ding 
+ ( Department   of   Applied   Chemistry , Harbin   Institute   of   Technology , Harbin   150001 , China ) .   China   Environmental   Science.1999 , 19 ( 3 ) ： 266 ～ 269 
+ Abstract ： High   effective   coagulants   are   the   research   focus   of   water   treatment   at   present .   A   new   polysilicate   ferric   aluminum ( PSFA )   was   prepared   by   using   water   glass , ferric   sulfate   and   aluminum   sulfate   as   raw   materials . The   conditions   of   preparing   PSFA   were   optimized :   the   polymerization   degree   of   silicic   acid   ( h   )   is   0.5 ;   the   molar   ratio   of   Fe3 +   and   Al3 +   to   SiO2   is   1 :   1 ;   the   molar   ratio   of   Fe3 +   to   Al3 +   is   1 :   1 ； and   the   degree   of   hydrolysis   ( B * )   is   0.5 ; while   the   influence   of   the   aging   time   on   the   coagulation   property   of   PSFA   is   not   obvious .   Self - made   PSFA   under   the   optimum   conditions   was   used   in   the   treatment   of   single   practical   water   sample .   Experimental   results   show   that   PSFA   has   better   coagulation   property   than   that   of   traditional   coagulants   Fe2 ( SO4 ) 3   and   Fe2 ( SO4 ) 3   together   with   coagulant   aid   polysilicic   acid ( PS ) ; and   the   dosage   of   PSFA   is   less .   The   coagulation   mechanism   of   PSFA   was   also   discussed   in   this   paper . 
+ Key   words ： polysilicic   acid ( PS ) ； limiting   viscosity ； polysilicate   ferric   aluminum ( PSFA ) ； inorganic   polymer   coagulant 
+ 　 　 聚 硅酸 ( PS ) 作为 一种 传统 的 助凝剂 , 与 铝 盐 、 铁盐 等 相配合 处理 低温 、 低 浊水 有 良好 的 效果 , 但 它 极易 胶凝 , 不易 贮存 , 需现 用 现配 , 影响 它 的 使用 与 推广 . 据 国内外 有关 文献 报道 [ 1 , 2 ] , 某些 金属 离子 有 抑制 硅酸 聚合 延缓 其胶 凝 的 作用 , 同时 有 可能 形成 一类 新型 的 聚 硅酸 系列 混凝剂 , 近年来 引起 了 国内外 研究者 的 关注 [ 3 , 4 ] . 本文 重点 考察 了 硅酸 聚合度 ( 以 极限 粘度 表征 ) , Fe3 + 、 Al3 + 与 SiO2 的 摩尔 比 , Fe3 + 与 Al3 + 的 摩尔 比 , 水解 度 , 熟化 时间 以及 pH 值 等 对 聚 硅酸 铁铝 ( PSFA ) 混凝 性能 的 影响 , 进而 优化 了 制备 高效 PSFA 的 条件 , 并 将 自制 的 PSFA 应用 于 处理 实际 水样 . 
+ 1   实验 部分 
+ 1.1   主要 仪器 
+ 　 　 J6 - 1A 六联 搅拌机 ; GDS - 3 B型 浊度计 ; PHS - 2 型 酸度计 . 
+ 1.2   药剂 
+ 　 　 水玻璃 ( 模数 为 3.2 ～ 3.5 ) ; 其它 试剂 为 分析 纯 . 
+ 1.3   PSFA 的 制备 
+ 　 　 取 一定量 自制 的 高 分子量 PS , 加入 一定量 的 硫酸铁 和 硫酸铝 , 熟化 一定 时间 后 得 PSFA . 用 乌氏 粘度计 测其 粘度 ,   然后 用 文献 1 中 的 公式 : η = 0.8 ′   10 - 4 ′   M0.65 计算 其 分子量 ( η 为 试样 的 极限 粘度 ; M 为 试样 的 分子量 ) . 计算 结果表明 , 所 制备 的 PSFA 的 分子量 均 高于 20 万 道尔顿 . 
+ 1.4   混凝 性能 评定 方法 
+ 　 　 评定 方法 采用 实验室 烧杯 混凝 沉降 方法 , 取 500mL 水样 , 用 搅拌器 搅拌 均匀 , 然后 加 一定量 的 混凝剂 , 在 转速 为 150r / min 下 搅拌 2min , 再 在 50r / min 下 搅拌 10min ,   搅拌 后 静止 沉降 10min ,   观察 絮体 的 形状 及 沉降速度 , 在 距 上 清液 表面 2 ～ 3cm 处 吸取 上 清夜 , 用 浊度计 测 浊度 . 标准 浊度 采用 “ 标准 肼 ” 浊度 单位 . 实验 水样 是 通过 400 目 筛孔 的 硅藻土 在 105 ℃ 下 干燥 1h , 置于 干燥器 内 备用 ; 定量 称取 上述 硅藻土 加水 配成 浊度 为 100 度 的 浑浊 液 . 
+ 　 　 实际 水样 取自 哈尔滨 自来水 三厂 原水 . 
+ 1.5   硅酸 聚合度 的 表征 
+ 　 　 根据 文献 报道 [ 1 ] 硅酸 聚合度 和 它 的 极限 粘度 h   有 密切关系 , 硅酸 聚合度 增加 , 其 h   增大 . η 定义 可 从 下列 关系式 看出 :   η ＝ ( η sp / C ) C → 0 ( 增比 粘度 η sp = ( η 1 - η 0 ) / η 0 , η 1 为 溶液 的 粘度 ; η 0 为 纯 溶剂 的 粘度 ; C 为 溶液 的 浓度 ; η sp / C 为 溶液 的 比浓粘度 , 比浓粘度 即 单位 浓度 时 溶液 的 增比 粘度 ) , 即 在 溶液 浓度 无限 稀释 时 的 比浓粘度 ( 100mL / g ) , 其 数值 不随 浓度 而变 . 在 规定 的 浓度 及 溶剂 中 , 此值 决定 于 高分子 的 结构 及 分子量 ; 因而 可以 表示 同类 高分子 分子量 的 大小 , 也 可 认为 是 聚合度 的 大小 . 本 实验 采用 η 表征 硅酸 的 聚合度 . 
+ 2 　 结果 与 讨论 
+ 2.1   硅酸 聚合度 对 PSFA 混凝 性能 的 影响 
+ 　 　 PS 制备 时 的 pH 值 对 PSFA 混凝剂 的 混凝 性能 有 很 明显 的 影响 , 重复 多次 试验 的 结果表明 , 在 酸性 条件 下 制备 的 PS 制取 PSFA , 其 混凝 性能比 在 碱性 条件 下 制备 的 PS 制取 PSFA 好 , 而且 稳定性 也 较 好 . 
+ 　 　 取 相同 量 的 硫酸铁 和 硫酸铝 分别 加入 到 不同 聚合度 的 聚 硅酸 溶液 中 , 配制 成 不同 的 PSFA , 考察 硅酸 聚合度 对 所 制备 的 PSFA 混凝 性能 的 影响 , 混凝剂 投加量 均 以 Fe2 ( SO4 ) 3 计 ( 下同 ) . 
+ 　 　 实验 结果表明 , 硅酸 聚合度 对 PSFA 的 混凝 性能 有 较大 的 影响 . 一般来说 , 硅酸 聚合度 高 , 则 所 制备 出 PSFA 的 聚合度 也 高 , 它 有利于 PSFA 在 混凝 过程 中 吸附 架桥 及 网捕 作用 的 增强 . 因而 , 聚 硅酸 的 聚合度 是 制备 高效 PSFA 混凝剂 的 重要 影响 因素 . 但 硅酸 聚合 度过 高时 ,   PSFA 极易 胶凝 , 因此 硅酸 聚合度 应适当 . 根据 实验 结果 , h   适宜 值为 0.5 . 经 计算 可知 , 此时 PSFA 的 分子量 大于 40 万 道尔顿 . 
+ 2.2   Fe3 + 及 Al3 + 与 SiO2 的 摩尔 比 对 PSFA 混凝 效果 的 影响 
+ 　 　 固定 Fe3 + 与 Al3 + 的 摩尔 比为 1 :   1 , 按 Fe3 + 和 Al3 + 与 SiO2 不同 的 摩尔 比 分别 制备 PSFA , 并 考察 它们 对 混凝 性能 的 影响 , 试验 结果 见图 1 . 
+ 
+ 图 1 　 Fe3 + 及 Al3 + 与 SiO2 的 摩尔 比 对 所 制备 的 PSFA 混凝 性能 的 影响 
+ Fig.1   The   effect   of   molar   ratio   of   Fe3 + and   Al3 +   to   SiO2   on   the   coagulation   property   of   preparing   PSFA 
+ 　 　 从图 1 可 看出 , 随着 Fe3 + 及 Al3 + 与 SiO2 的 摩尔 比 的 增大 , PSFA 去 浊 效果 逐渐 变 好 , 同时 试验 中絮体 出现 速度 加快 , 而且 有 明显 变大 的 趋势 ; 但 当 Fe3 + 及 Al3 + 与 SiO2 的 摩尔 比 超过 2 : 1 时 ,   PSFA 除浊 效果 却 变差 . 图 1 中 还 可 看出 Fe3 + 及 Al3 + 与 SiO2 的 摩尔 比为 1 : 1 及 2 : 1 时 ,   PSFA 的 除 浊 效果 相当 , 但 Fe3 + 及 Al3 + 与 SiO2 的 摩尔 比为 1 : 1 时 , 絮体 明显 变 大 , 在 几分钟 内 就 几乎 全部 沉降 ; 而 Fe3 + 及 Al3 + 与 SiO2 的 摩尔 比为 2 : 1 时 ,   PSFA 的 贮存 时间 明显 变短 , 因此 最佳 的 Fe3 + 及 Al3 + 与 SiO2 的 摩尔 比是 1 : 1 . 
+ 2.3   Fe3 + 与 Al3 + 的 摩尔 比 对 PSFA 混凝 性能 的 影响 
+ 　 　 保持 Fe3 + 及 Al3 + 与 SiO2 的 摩尔 比为 1 : 1 , 按 不同 的 Fe3 + 与 Al3 + 摩尔 比 分别 制备 PSFA , 考察 它们 对 PSFA 混凝 性能 的 影响 , 试验 结果 如图 2 所示 . 
+ 　 　 从图 2 可 看出 , 随着 Fe3 + 与 Al3 + 摩尔 比 逐渐 增大 , PSFA 的 混凝 效果 逐渐 降低 . 但 Fe3 + 与 Al3 + 摩尔 比为 1 :   1 时 , PSFA 的 混凝 效果 只是 在 混凝剂 投加量 小于 10mg / L 时比 Fe3 + 与 Al3 + 摩尔 比为 1 :   2 、 1 :   3 时 的 除 浊 效果 略 差 或 相当 ; 而 在 投加量 大于 10mg / L 时则 较 好 , 并且 其 贮存 时间 较长 , 为此 , 较 适宜 Fe3 + 与 Al3 + 摩尔 比为 1 :   1 . 
+ 
+ 图 2 　 Fe3 + 与 Al3 + 的 摩尔 比 对 所 制备 的 PSFA 混凝 性能 的 影响 
+ Fig.2   The   effect   of   molar   ratio   of   Fe3 +   to   Al3 +   on   the   coagulation   property   of   preparing   PSFA 
+ 2.4   水解 度 对 PSFA 混凝 性能 的 影响 
+ 　 　 水解 度 B * 是 影响 无机 高分子 混凝剂 混凝 性能 的 重要 参数 , 文献 [ 5 ] 给出 了 其 计算 式 为 :   B * = [ 10 - pH + CB - CA ] / [ AlT , FeT ] , 式 中 : pH 为 溶液 的 pH 值 ; CB 为 加碱 后 溶液 中碱 浓度 ( mol / L ) ; CA 为 加酸 后 溶液 中酸 浓度 ( mol / L ) ; AlT 为 溶液 中 铝 的 总 浓度 ( mol / L ) ; FeT 为 溶液 中铁 的 总 浓度 ( mol / L ) . 文中 B * 值均 按 上式 计算 . 不同 水解 度 B * 对 PSFA 的 混凝 效果 如图 3 所示 . 
+ 
+ 图 3 　 水解 度 对 所 制备 的 PSFA 混凝 性能 的 影响 
+ Fig.3   The   effect   of   hydrolysis   degree   on   the   coagulation   property   of   preparing   PSFA 
+ 　 　 从图 3 可 看出 , 水解 度 B * 对 PSFA 的 混凝 性能 影响 不 大 , 但 它 对 PSFA 的 贮存 稳定性 有 较大 的 影响 , B * 较 高 或 较 低时 , PSFA 易胶 凝 . 由 实验 结果 可知 , 较 适宜 的 水解 度值 为 0.5 . 
+ 2.5   熟化 时间 对 PSFA 混凝 性能 的 影响 
+ 　 　 熟化 时间 的 长短 , 往往 会 影响 到 无机 高分子 混凝剂 的 混凝 性能 . 图 4 表明 了 熟化 时间 对 PSFA 混凝 性能 的 影响 . 
+ 
+ 图 4 　 熟化 时间 对 所 制备 的 PSFA 混凝 性能 的 影响 
+ Fig.4   The   effect   of   aging   time   on   the   coagulation   property   of   preparing   PSFA 
+ 　 　 由图 4 可 看出 , 熟化 时间 对 PSFA 混凝 性能 影响 不 明显 . 但 试验 中 发现 , 絮体 的 沉降 性能 随 熟化 时间 的 延长 有所改善 , 但 过长 的 熟化 时间 会 出现 PSFA 的 “ 挂壁 ” 现象 . 熟化 90 天后 , PSFA 即 开始 凝胶 , 考察 此时 PSFA 的 混凝 性能 , 如图 4 所示 , 此时 PSFA 的 混凝 能力 虽 有所 下降 , 但 仍 具有 较 好 的 除 浊 效果 . 
+ 2.6   PSFA 适用 的 pH 值 范围 
+ 　 　 当 PSFA 混凝剂 的 投加量 为 10mg / L 时 , 考察 混凝除 浊 效果 随 水样 pH 值 的 变化 关系 . 结果表明 , PSFA 适用 的 pH 值 范围 较 宽 , 在 5 ～ 14 之间 均 有 很 好 的 混凝 效果 . 
+ 3 　 PSFA 应用 于 饮用水 的 处理 
+ 　 　 用 PSFA 处理 实际 水样 , 并 与 单独 投加 Fe2 ( SO4 ) 3 及 Fe2 ( SO4 ) 3 ＋ 助凝剂 PS 的 混凝 效果 相 比较 , 试验 条件 : 原水 水样 , 浊度 为 40NTU , 水温 20 ℃ , pH 值为 7.1 . 试验 结果 见图 5 . 
+ 　 　 图 5 表明 , PSFA 的 混凝 效果 明显 优于 单独 投加 Fe2 ( SO4 ) 3 与 Fe2 ( SO4 ) 3 ＋ 助凝剂 PS 的 效果 . 与 单独 投加 Fe2 ( SO4 ) 3 相比 , PSFA 去 浊 效果 好 ; 与 投加 Fe2 ( SO4 ) 3 ＋ 助凝剂 PS 相比 , PSFA 去 浊 效果 略优 , 且 PSFA 易于 操作 ; 在 处理 相同 浊度 的 情况 下 , PSFA 用药量 最少 , 故 处理 成本 也 较 低 ; 适宜 的 投 药量 范围 宽 , 应用 范围广 . 试验 过程 中 还 发现 PSFA 形成 的 絮体 沉降 性能 好 , 原水 处理 后 的 剩余 浊度 降到 3 度 以下 时 ,   PSFA 的 静止 沉降 时间 仅为 投加 Fe2 ( SO4 ) 3 ＋ 助凝剂 PS 时 的 1 / 2 , 为 投加 Fe2 ( SO4 ) 3 时 的 1 / 3 , 有利于 缩短 水样 在 处理 系统 内 的 停留时间 , 从而 提高 系统 处理 能力 . 
+ 
+ 图 5 　 混凝剂 除浊 效果 的 比较 
+ Fig.5   The   comparison   of   different   coagulants   in   removing   turbidity 
+ 4 　 PSFA 混凝 机理 的 讨论 
+ 　 　 PSFA 混凝剂 是 酸性 条件 下 制备 的 , 其 主要 成分 为 铁 离子 、 铝 离子 和 聚 硅酸 . 试验 结果表明 , PSFA 是 一种 高效 的 无机 高分子 混凝剂 , 其 所以 具有 混凝 性能 上 的 “ 高效 ” 与 它 的 组成 、 结构 及 混凝 机理 有关 . 
+ 　 　 从 其 结构 、 组成 上 看 ,   PSFA 的 聚合度 高 , 是 具有 大 分子量 的 线型 无机 高分子 混凝剂 , 其 分子量 达到 105 道尔顿 数量级 , 所以 PSFA 能 加强 粒子 间 的 吸附 架桥 能力 及 混凝 过程 中 的 网捕 作用 , 可 使 水中 的 微小 颗粒 形成 较大 的 矾 花 而 易于 沉降 ; 此外 , 由于 Fe3 + 、 Al3 + 的 引入 使 PSFA 具有 阳离子 型 无机 高分子 混凝剂 的 性质 , 在 混凝 过程 中 还 具有 电中 和 的 能力 . 
+ 　 　 因而 , PSFA 混凝剂 的 混凝 机理 是 铁 离子 、 铝 离子 的 水解 产物 使 水中 杂质 脱稳 并 相互 结合 形成 一定 大小 的 粒子 , 这种 粒子 能 有效 地 进入 聚 硅酸 母体 , 而 高分子 聚 硅酸 具有 吸附 架桥 及 沉淀 网捕 作用 , 可 使 微小 粒子 形成 较大 的 颗粒 容易 沉降 而 被 除去 . 即 PSFA 混凝剂 具有 凝聚 和 絮凝 两个 过程 , 其 处理 水时 脱稳 过程 和 吸附 架桥 、 沉淀 网捕 作用 同时 进行 , 所以 PSFA 混凝剂 具有 高效 的 混凝 性能 . 
+ 5 　 结 　 论 
+ 5.1   制备 PSFA 的 优化 条件 为 : 硅酸 聚合度 h   为 0.5 ,   Fe3 + 、 Al3 + 与 SiO2 的 摩尔 比为 1 :   1 , Fe3 + 与 Al3 + 的 摩尔 比为 1 :   1 ,   水解 度 B * 的 值 为 0.5 . 
+ 5.2   制备 的 大 分子量 的 PSFA ( 分子量 40 万 道尔顿 左右 ) , 混凝 效果 好 , 体现 了 混凝 过程 中电中 和 、 吸附 架桥 、 沉淀 网捕 作用 等 的 综合 效应 , 适用 pH 值 范围 宽 , 贮存期 长 ( 超过 1 个 月 ) , 是 一种 新型 高效 的 无机 高分子 混凝剂 . 
+ 5.3   PSFA 应用 于 处理 实际 水样 , 其除 浊 效果 明显 优于 单独 投加 Fe2 ( SO4 ) 3 和 Fe2 ( SO4 ) 3 + 助凝剂 PS , 易于 操作 , 而且 还 具有 用药量 少 , 絮体 沉降 性能 好 , 用药量 范围 宽 等 优越性 , 是 一种 有 前途 的 高效 无机 混凝剂 . 
+ 基金项目 ： 黑龙江省 自然科学 基金 资助 项目 ( 950731 - 028 ) 
+ 作者简介 ： 胡   翔 ( 1966 - ) , 男 , 湖北 麻城 人 , 哈尔滨工业大学 应用 化学系 环境工程 专业 博士 研究生 , 工程师 , 主要 从事 水 处理 方面 的 研究 工作 . 曾 参加 “ 新型 酯化 催化剂 的 研制 ” 、 “ 饲料 添加剂 碘酸 钙 的 开发 与 应用 ” 等 研究 工作 . 发表 论文 10 余篇 . 
+ 作者 单位 ： （ 哈尔滨工业大学 应用 化学系 , 黑龙江   哈尔滨   150001 ） 
+ 参考文献 ： 
+ [ 1 ] Iler   R   K .   The   chemistry   of   silica   [ M ] .   New   York :   John   Wiley   and   Sonc .   Inc . , 1979 . 
+ [ 2 ] 秦   蓁 . 金属 离子 对聚 硅酸 絮凝 效果 的 影响   [ J ] . 工业 水 处理 , 1996 , 16 ( 3 ) : 8 -   9 . 
+ [ 3 ] 高 宝玉 , 岳钦艳 , 王吉顺 等 . 含铝 离子 的 聚 硅酸 絮凝剂 的 性能 与 应用   [ J ] . 工业 水 处理 . 1993 , 13 ( 1 ) : 17 -   19 . 
+ [ 4 ] Hasegawa   T , Hashimoto   K , Onitsuka   T , et   al .   Characteristics   of   metal - polysilicate   coagulants   [ J ] .   Water   Science   and   Technology.1991 , 23 :   1713 -   1722 . 
+ [ 5 ] Tang   H   X ,   Stumm   W .   The   coagulation   behaviors   of   Fe ( Ⅲ )   polymeric   species - Ⅰ . Preformed   polymers   by   base   addition   [ J ] .   Water   Research ,   1987 , 21 ( 1 ) : 115 -   121 . 
+ 收稿 日期 ： 1998 - 10 - 12 

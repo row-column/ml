@@ -1,0 +1,163 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH 
+ AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 12 期   Vol.36   No.12   1999 
+ 
+ 
+ 
+ 手写体 数字 有效 鉴别 特征 的 抽取 与 识别 
+ 金忠 　 胡 钟山 　 杨静宇 　 刘克 　 孙靖 夷 
+ 摘 　 要 　 文中 提出 了 基于 后验 概率 估计 的 多 特征 多 分类器 组合 识别 的 估计 法 ， 并 提出 了 基于 具有 统计 不 相关性 的 最佳 鉴别 变换 与 KL 变换 抽取 手写体 数字 的 有效 鉴别 特征 的 方法 . 实验 采用 Concordia   University   CENPARMI 手写体 数字 数据库 . 用 最近 邻 距离 分类器 与 最近 邻 相关 分类器 这 两个 分类器 ， 对 手写体 数字 的 12 个 特征 做 多 特征 多 分类器 组合 识别 实验 . 实验 结果表明 ： 估计 法 优于 常用 的 投票 法 与 计分 法 ， 估计 法 的 识别率 高达 97% . 本文 最后 基于 一个 严格 的 结构 分类器 与 估计 法 提出 了 一个 集成 分类器 ， 该 集成 分类器 获得 了 更好 的 实验 结果 ： 识别率 、 拒识率 与 可靠性 分别 可 达到 97.15% 、 2.05% 、 99.18% ， 这是 目前 在 该 手写体 数字 数据库 上 所 得到 的 最好 的 实验 结果 . 
+ 关键词 　 模式识别 ， 特征 抽取 ， 鉴别 分析 ， 手写体 数字 识别 ， 多 分类器 组合 
+ 中图法 分类号 　 TP391 
+ EXTRACTION   AND   RECOGNITION   OF   EFFECTIVE 
+ DISCRIMINANT   FEATURES   FOR   HANDWRITTEN   DIGITS 
+ JIN   Zhong ,   HU   Zhong - Shan ,   YANG   Jing - Yu ,   LIU   Ke * ,   and   SUN   C .   Y . * 
+ ( Department   of   Computer   Science ,   Nanjing   University   of   Science 
+ &   Technology ,   Nanjing   210014 ) 
+  ( Center   of   Pattern   Recognition   and   Machine   Intelligence , 
+ Concordia   University ,   Montreal ) 
+ Abstract 　 Presented   in   this   paper   is   an   estimating   method   of   multi - feature   and   multi - classifier   combination   based   on   the   posterior   probability   estimators .   Also   presented   is   a   method   to   extract   effective   discriminant   features   of   handwritten   digits   based   on   a   set   of   uncorrelated   optimal   discriminant   features   and   KL   transform .   Experiments   have   been   performed   with   Concordia   University   CENPARMI ' s   handwritten   digit   database   based   on   the   nearest - neighbor   distance   classifier   and   the   nearest - neighbor   correlation   classifier ,   and   12   features   of   handwritten   digits .   Experimental   results   show   that   the   estimating   method   is   better   than   the   polling   method   or   the   counting   method   respectively   and   the   recognition   rate   of   the   estimating   method   is   as   high   as   97% .   A   new   combination   classifier   is   finally   brought   forward ,   which   is   based   on   the   strict   structure   classifier   and   the   estimating   method .   Better   experimental   results   have   been   obtained   by   means   of   this   new   combination   classifier :   the   recognition   rate ,   the   reject   rate ,   and   the   reliability   are   as   high   as   97.15% ,   2.05% ,   and   99.18%   respectively ,   which   are   the   best   results   up   to   now   on   the   handwritten   digit   database . 
+ Key   words 　 pattern   recognition ,   feature   extraction ,   discriminant   analysis ,   handwritten   digit   recognition ,   multi - classifier   combination 
+ 1 　 引 　 　 言 
+ 　 　 手写体 数字 识别 是 计算机 模式识别 领域 的 一个 前沿 课题 . 在 手写体 数字 识别 的 研究 中 ， 对于 已二值化 的 图像 抽取 特征 的 方法 有 许多种 ［ 1 , 2 ］ ， 常用 的 统计 特征 有 Gabor 变换 特征 ［ 3 ］ 、 Legendre 矩 特征 ［ 4 ］ 、 Pseudo - Zernike 矩 特征 ［ 5 ］ 与 Zernike 矩 特征 ［ 6 ］ . 统计 特征 通常 反映 图像 点阵 总体 分布 情况 ， 这些 特征 的 图像 预处理 简单 ， 对 噪声 不 敏感 ， 但 对 字 的 一些 精细结构 部分 反应 不灵敏 . 由 数字图像 的 骨架 和 轮廓 可 抽取 出 手写体 数字 的 结构特征 ， 它 往往 对字 结构 精细 部分 反映 灵敏 ， 但 图像 预处理 复杂 ， 对 噪声 较 敏感 ， 一个 完善 的 基于 结构特征 的 分类器 往往 十分 庞杂 . 在 手写体 数字 识别 的 研究 中 ， 常用 的 分类器 有 最近 邻 分类器 、 神经网络 分类器 ［ 7 ］ 以及 多 分类器 组合 方法 ［ 8 , 9 ］ . 一般 认为 ， 不同 性质 的 特征 往往 反映 物体 的 不同 方面 ， 在 一种 特征 空间 很难 区分 的 两种 模式 可能 在 另 一种 特征 空间 上 很 容易 分开 ； 而 对应 于 同一 特征 的 不同 分类器 又 从 不同 的 角度 将 该 特征 映射 到 决策空间 上 ， 因此 利用 不同 性质 特征 和 不同 分类器 的 组合 就 可能 全面 反映 出 一个 物体 ， 从而 得到 一个 较 好 的 分类 结果 . 本文 提出 了 一个 基于 后验 概率 估计 的 多 特征 多 分类器 组合 的 估计 法 ， 并 提出 了 基于 最佳 鉴别 变换 与 KL 变换 由 常用 的 统计 特征 抽取 出 手写体 数字 的 有效 鉴别 特征 的 方法 ， 本文 最后 基于 一个 严格 的 结构 分类器 ［ 9 ］ 与 估计 法 提出 了 一个 集成 分类器 . 
+ 2 　 多 特征 多 分类器 组合 决策 的 估计 法 
+ 2.1 　 Bayes 判决 规则 
+ 　 　 设有 c 个 模式 类别 ： ω 1 ， ω 2 ， … ， ω c ， 第 i 类 模式 的 训练样本 有 ni 个 ， 记为 Xis ( s = 1 , 2 , … , ni ) . 设 X 为 一样 本 ， Bayes 判决 规则 根据 后验 概率 P ( ω i | X ) 最大 原则 将 样本 X 分类 ： 
+ 
+ ( 1 ) 
+ 2.2 　 后验 概率 的 估计 
+ 　 　 设有 K 个 分类器 . 根据 每个 分类器 的 分类 决策函数 值 ， 可 给出 后验 概率 P ( ω i | X ) 的 估计 后验 概率 估计 应 满足 非 负性 与 归 一性 . 下面 给出 常用 的 最近 邻 距离 分类器 与 最近 邻 相关 分类器 的 后验 概率 估计 方法 ， 其它 分类器 的 后验 概率 估计 方法 可 参考 给出 . 
+ 　 　 最近 邻 距离 分类器 是 按 欧氏 距离 最小 分类 . 计算 样本 X 到 每个 训练样本 的 欧氏 距离 dis ： 
+ 
+ ( 2 ) 
+ 现 引入 后验 概率 的 一个 估计 公式 ： 
+ 
+ ( 3 ) 
+ 最近 邻 相关 分类器 是 按 相关系数 最大 分类 . 计算 样本 X 到 每个 训练样本 的 相关系数 ρ is ： 
+ 
+ ( 4 ) 
+ 现 引入 后验 概率 的 一个 估计 公式 ： 
+ 
+ ( 5 ) 
+ 2.3 　 多 特征 多 分类器 组合 决策 的 估计 法 
+ 　 　 设 模式 特征 X 由 多个 特征 X1 , X2 , … , XQ 所 组成 ， 可 分别 使用 K 个 分类器 作 分类 识别 ， 给出 后验 概率 的 估计 现在 作 算术 平均值 ： 
+ 
+ ( 6 ) 
+ 　 　 如果 是 后验 概率 P ( ω i | X ) 的 无偏 估计 ， 则 由 概率 理论 中 的 辛钦 大数 定律 知 ， 在 模式 特征 数目 很大 或 分类器 数目 很多 时 ， 算术 平均值 会 依 概率 收敛 于 后验 概率 P ( ω i | X ) . 本文 对 最近 邻 距离 分类器 与 最近 邻 相关 分类器 所 提出 的 后验 概率 估计 公式 还 不能 被 证明 为 后验 概率 P ( ω i | X ) 的 无偏 估计 . 
+ 　 　 现 提出 多 特征 多 分类器 组合 决策 的 估计 法 ： 基于 后验 概率 估计 ， 按 ( 6 ) 式 算术 平均值 最大 原则 分类 . 
+ 　 　 常用 的 多 分类器 组合 方法 有 投票 法 、 计分 法 两种 . 投票 法 采用 的 是 少数 服从 多数 的 原则 ， 即 支持 某一 决策 的 分类器 个数 为 最大 ， 则 这 一 决策 就是 最终 的 结果 . 计分 法是 将 每 一种 类别 在 各个 分类 结果 中 的 排名 相加 ， 例如 第 1 名得 1 分 ， 第 k 名则 得 k 分 ， 从而 得到 该 类别 融合 后 的 得分 总和 ， 取 总分 最小 的 类别 作为 计分 法 的 选择 结果 . 
+ 　 　 显然 ， 投票 法 与 计分 法 都 可 说明 为 将 后验 概率 的 估计 取为 两个 特殊 形式 的 估计 法 . 基于 后验 概率 估计 的 估计 法 一般 能 更好 地 利用 各个 分类器 的 决策函数 值 所 提供 的 信息 . 
+ 3 　 具有 统计 不 相关性 的 最佳 鉴别 变换 
+ 　 　 设 模式 特征 X 为 N 维 矢量 ， 模式 类别 有 c 个 ， 模式 类内 散布 矩阵 为 Sw ， 类间 散布 矩阵 为 Sb ， 总体 散布 矩阵 为 St . Fisher 鉴别 准则 函数 定义 如下 ： 
+ 
+ ( 7 ) 
+ 其中 φ 为 N 维列 向量 . 
+ 　 　 使 Fisher 鉴别 准则 函数 ( 7 ) 式 取到 最大值 的 向量 φ 1 是 Fisher 最佳 鉴别 方向 ， 其 物理 意义 是 模式 样本 集在 φ 1 方向 上 的 投影 使得 模式 具有 最小 的 类 内 散布 和 最大 的 类间 散布 . φ 1 是 下列 广义 特征方程 中 最大 的 特征值 对应 的 特征向量 ： 
+ 
+ ( 8 ) 
+ 　 　 具有 统计 不 相关性 的 最佳 鉴别 变换 ［ 10 ］ 就是 在 求出 r （ r ≥ 1 ） 个 最佳 鉴别 方向 φ 1 , φ 2 , … , φ r 后 ， 第 r + 1 个 最佳 鉴别 方向 是 在 满足 共轭 正交 条件 ( 9 ) 式 下 的 使 Fisher 鉴别 准则 函数 ( 7 ) 式 取到 最大值 的 向量 φ r + 1 ： 
+ 
+ ( 9 ) 
+ 　 　 定理 1 . 具有 统计 不 相关性 的 最佳 鉴别 变换 的 第 r + 1 个 最佳 鉴别 方向 φ r + 1 是 下列 广义 特征方程 中 最大 的 特征值 对应 的 特征向量 ： 
+ 
+ ( 10 ) 
+ 式 中 ： 
+ 
+ ( 11 ) 
+ 这里 ： I 为 单位矩阵 ， 而且 
+ 
+ ( 12 ) 
+ 证明 见 文献 ［ 10 ］ . 
+ 4 　 手写体 数字 的 特征 抽取 
+ 　 　 本文 采用 的 数据库 是 国际 上 广泛 使用 的 Concordia   University   CENPARMI 手写体 数字 数据库 ， 采用 4000 个 训练样本 与 2000 个 测试 样本 . 
+ 4.1 　 图像 特征 
+ 　 　 文献 ［ 9 ］ 通过 对 手写体 数字图像 作 预处理 ， 已 提取 出 如下 4 个 图像 特征 （ 这 4 个 图像 特征 的 数据 大小 为 20.2 MB ） ： 
+ 　 　 XG ： 256 维 的 Gabor 变换 特征 ［ 3 ］ ； 
+ 　 　 XL ： 121 维 的 Legendre 矩 特征 ［ 4 ］ ； 
+ 　 　 XP ： 36 维 的 Pseudo - Zernike 矩 特征 ［ 5 ］ ； 
+ 　 　 XZ ： 30 维 的 Zernike 矩 特征 ［ 6 ］ . 
+ 4.2 　 有效 鉴别 特征 抽取 
+ 　 　 Fukunaga 维数 定理 ［ 11 ］ 认为 ： 对 含有 c 个 模式 类别 的 分类 问题 ， 其 有效 的 最佳 鉴别 矢量 个数 不 超过 c - 1 个 . 手写体 数字 的 类别 数为 10 ， 有效 的 鉴别 特征 数为 9 . 对 手写体 数字 的 4 个 图像 特征 XG ， XL ， XP 与 XZ 分别 作 具有 统计 不 相关性 的 最佳 鉴别 变换 ， 得到 4 个 有效 的 鉴别 特征 ， 分别 记为 XG1 ， XL1 ， XP1 与 XZ1 ， 即 得到 手写体 数字 的 4 个 新 特征 ： 
+ 　 　 XG1 ： 对 XG 作 最佳 鉴别 变换 所 抽取 到 的 9 维 鉴别 特征 ； 
+ 　 　 XL1 ： 对 XL 作 最佳 鉴别 变换 所 抽取 到 的 9 维 鉴别 特征 ； 
+ 　 　 XP1 ： 对 XP 作 最佳 鉴别 变换 所 抽取 到 的 9 维 鉴别 特征 ； 
+ 　 　 XZ1 ： 对 XZ 作 最佳 鉴别 变换 所 抽取 到 的 9 维 鉴别 特征 . 
+ 4.3 　 基于 KL 变换 的 有效 鉴别 特征 抽取 
+ 　 　 显然 ， 在 模式 特征 数目 较多时 ， 后验 概率 估计 ( 6 ) 式 一般 能 对 后验 概率 估计 得 较 好 ， 因此 希望 对 手写体 数字 抽取 出 更 多 的 特征 . 现在 本文 提出 对 手写体 数字 的 4 个 图像 特征 XG ， XL ， XP 与 XZ 先 分别 以 各自 的 类间 相关矩阵 Rb 为 产生 矩阵 ［ 12 ］ 作 KL 变换 . 类间 相关矩阵 Rb 的 秩为 10 ， 从而 可 分别 得到 4 个 10 维 的 手写体 数字图像 特征 的 压缩 特征 ， 然后 再 对 4 个 10 维 的 压缩 特征 作 具有 统计 不 相关性 的 最佳 鉴别 变换 ， 得到 4 个 新 的 9 维 鉴别 特征 ， 分别 记为 XG2 ， XL2 ， XP2 与 XZ2 ， 即 又 得到 手写体 数字 的 4 个 新 特征 ： 
+ 　 　 XG2 ： 对 XG 先作 KL 变换 ， 再作 最佳 鉴别 变换 所 抽取 到 的 9 维 鉴别 特征 ； 
+ 　 　 XL2 ： 对 XL 先作 KL 变换 ， 再作 最佳 鉴别 变换 所 抽取 到 的 9 维 鉴别 特征 ； 
+ 　 　 XP2 ： 对 XP 先作 KL 变换 ， 再作 最佳 鉴别 变换 所 抽取 到 的 9 维 鉴别 特征 ； 
+ 　 　 XZ2 ： 对 XZ 先作 KL 变换 ， 再作 最佳 鉴别 变换 所 抽取 到 的 9 维 鉴别 特征 . 
+ 5 　 手写体 数字 识别 实验 与 分析 
+ 5.1 　 多 特征 多 分类器 组合 识别 
+ 　 　 用 Matlab 编程 计算 出 手写体 数字 的 8 个 有效 的 鉴别 特征 ， 用 最近 邻 距离 分类器 与 最近 邻 相关 分类器 分别 对 手写体 数字 的 12 个 特征 作 识别 实验 ， 单 特征 单 分类器 的 识别 错误率 的 实验 结果 见表 1 的 上半 部分 . 用 投票 法 、 计分 法 与 估计 法 分别 对 12 个 特征 与 2 个 最近 邻 分类器 作多 特征 多 分类器 组合 ， 识别 错误率 的 实验 结果 见表 1 的 下 半 部分 . 对 投票 法 与 计分 法 ， 在 最高 得分 相同 时 拒识 . 对 估计 法 ， 在 后验 概率 的 最大 估计值 相同 时 拒识 . 
+ 表 1 　 手写体 数字 组合 识别 实验 结果 表 
+ 单 特征 单 分类器 最近 邻 距离 分类器 最近 邻 相关 分类器 
+ Gabor 变换 XG0.17850 . 1440 
+ XG10.17500 . 2120 
+ XG20.21300 . 2585 
+ Legender 矩 XL0.08750 . 0665 
+ XL10.10750 . 1405 
+ XL20.12900 . 1385 
+ Pseudo - Zernike 矩 XP0.23650 . 2410 
+ XP10.29850 . 3870 
+ XP20.35400 . 4360 
+ Zernike 矩 XZ0.24450 . 2540 
+ XZ10.30750 . 3840 
+ XZ20.37750 . 4550 
+ 多 特征 多 分类器 组合 识别 错误率 投票 法 　 　 　 　 　 　 　 ( 拒识 ) 
+ 记分法 　 　 　 　 　 　 　 ( 拒识 ) 
+ 估计 法 　 　 　 　 　 　 　 　 　 　 　 　 
+ 
+ 　 　 从表 1 可以 看出 ， 尽管 单 特征 单 分类器 的 识别 错误率 较大 ， 组合 识别方法 会 降低 识别 错误率 ， 而且 基于 后验 概率 估计 的 估计 法比 投票 法 与 计分 法好 ， 在 实验 中 ， 估计 法未 发生 拒识 ， 即使 不 考虑 投票 法 与 计分 法 的 拒识率 ， 估计 法 的 识别 错误率 只有 3% ， 也 分别 低于 投票 法 的 识别 错误率 与 计分 法 的 识别 错误率 . 尽管 这一 实验 结果 比 已有 的 在 该 手写体 数字 数据库 上 所 得到 最好 实验 结果 稍微 差 一些 ， 也 是 一个 很 好 的 实验 结果 . 
+ 5.2 　 集成 分类器 的 识别 实验 
+ 　 　 文献 ［ 9 ］ 提出 了 一个 严格 的 结构 分类器 ， 它 是 利用 由字 的 骨架 获得 的 结构特征 使 一些 非常简单 的 字 在 这 一级 就 很 可靠 地被 识别 出来 ， 由于 分类 准则 较为 烦琐 ， 只 将 其中 部分 准则 列出 如下 ： 当 输入 图像 的 骨架 是 没有 端点 、 没有 连接点 的 简单 闭合 圈时 ， 输入 图像 是 0 ； 当 输入 图像 的 骨架 是 有 两个 端点 的 简单 直线 时 ， 输入 图像 是 1 ； 当 输入 图像 的 骨架 是 有 两个 端点 、 一个 在 上方 的 折点 ， 而且 折点 与 端点 的 连线 是 有 一定 长度 的 直线 时 ， 输入 图像 是 7 等等 . 该 结构 分类器 的 识别率 为 54.95% ， 其余 拒识 ， 虽然 拒识率 很 高 ， 但是 其 可靠性 也 很 高 ， 达到 100% . 图 1 是 识别 出 的 例子 ， 图 2 是 拒识 的 例子 .   
+ 
+ 图 1 　 识别 出 的 例子 
+ 
+ 图 2 　 拒 识别 的 例子 
+ 　 　 为了 进一步提高 手写体 数字 的 识别 实验 结果 ， 现在 基于 上述 结构 分类器 与 多 特征 多 分类器 组合 识别 的 估计 法 ， 本文 提出 一个 集成 分类器 ： 先 利用 结构 分类器 识别 分类 ， 对 被 结构 分类器 拒识 的 样本 按 估计 法作 12 个 特征 与 2 个 分类器 的 组合 识别 ， 而且 当后验 概率 估计 的 次 大值 与 后验 概率 估计 的 最大值 之 比值 大于 阈值 θ 时 拒识 ， 即当 
+ 
+ ( 13 ) 
+ 时 拒识 . 集成 分类器 的 识别 实验 结果 见表 2 . 
+ 表 2 　 集成 分类器 的 识别 实验 结果 表 
+ 阈值 θ 0.9940 . 9951 文献 ［ 7 ］ 文献 ［ 8 ］ 文献 ［ 9 ］ 
+ 拒识率 0.02050 . 0155000.010 . 0205 
+ （ 拒 识数 ） ( 41 ) ( 31 ) 
+ 错误率 0.0080 . 01050.01850 . 0290.0160 . 009 
+ （ 错误 数 ） ( 16 ) ( 21 ) ( 37 ) 
+ 识别率 0.97150 . 9740.98150 . 9710.9740 . 9705 
+ 可靠性 0.99180 . 98930.98150 . 9710.98360 . 9908 
+ 
+ 　 　 从表 2 可以 看到 ， 如果 不 考虑 拒识 ， 在 θ = 1 时 ， 本文 所 提出 的 集成 分类器 的 识别 实验 结果 好于 文献 ［ 7 ］ 的 识别 实验 结果 ； 如果 要求 较 高 的 可靠性 与 较 高 的 识别率 ， 在 θ = 0.995 时 ， 本文 所 提出 的 集成 分类器 的 识别 实验 结果 不 低于 文献 ［ 8 ］ 的 识别 实验 结果 ； 如果 要求 识别 可靠性 达到 99% 以上 ， 在 θ = 0.994 时 ， 本文 所 提出 的 集成 分类器 的 识别 实验 结果 好于 文献 ［ 9 ］ 的 最新 识别 实验 结果 .   
+ 6 　 结 　 　 论 
+ 　 　 本文 提出 了 基于 后验 概率 估计 的 多 特征 多 分类器 组合 识别 的 估计 法 ， 并 提出 了 基于 具有 统计 不 相关性 的 最佳 鉴别 变换 与 KL 变换 抽取 手写体 数字 有效 鉴别 特征 的 方法 . 实验 结果表明 ： 本文 提出 的 估计 法 优于 多 分类器 组合 识别 常用 的 投票 法 与 计分 法 ， 用 估计 法对 12 个 特征 与 2 个 最近 邻 分类器 的 组合 识别率 可 达到 97% . 本文 最后 基于 一个 严格 的 结构 分类器 ［ 9 ］ 与 估计 法 提出 了 一个 集成 分类器 ， 该 集成 分类器 的 识别率 、 拒识率 与 可靠性 分别 可 达到 97.15% 、 2.05% 、 99.18% ， 这一 结果 优于 目前 在 该 手写体 数字 数据库 上 所 得到 的 实验 结果 . 
+ 本 课题 得到 国家自然科学基金 ( 项目编号 69672013 ) 和 国际 合作 研究 项目 经费 资助 . 
+ 作者简介 ： 金忠 ， 男 ， 1961 年 12 月生 ， 副教授 ， 博士 研究生 ， 主要 研究 方向 为 模式识别 、 手写体 
+ 　 　 　 　 　 数字 识别 、 人脸识别 . 
+ 　 　 　 　 　 胡 钟山 ， 男 ， 1973 年 2 月生 ， 博士 研究生 ， 主要 研究 方向 为 模式识别 、 手写体 数字 识 
+ 　 　 　 　 　 别 . 
+ 　 　 　 　 　 杨静宇 ， 男 ， 1941 年 12 月生 ， 博士生 导师 ， 教授 ， 主要 研究 领域 为 计算机 视觉 、 信息 
+ 　 　 　 　 　 融合 、 模式识别 、 智能 机器人 . 
+ 　 　 　 　 　 刘克 , 男 , 1960 年生 , 教授 , 现在 Concordia 大学 从事 字符 分割 与 识别 方面 的 研究 . 
+ 　 　 　 　 　 孙靖 夷 , Concordia 大学教授 , CENPARMI 研究 中心 主任 , 字符识别 领域 的 学者 . 
+ 作者 单位 ： 金忠 　 胡 钟山 　 杨静宇 ( 南京 理工大学 计算机科学 系 　 南京 　 210014 ) 
+ 　 　 　 　 　 刘克  　 孙靖 夷 ( Concordia 大学 模式识别 与 机器 智能 中心 　 蒙特利尔 ) 
+ 参考文献 
+ 　 1 　 Shunji   M ,   Suen   C   Y ,   Kazuhiko   K .   Historical   review   of   OCR   research .   Proc   of   IEEE ,   1992 ,   80 ( 7 ) :   1029 ～ 1058 
+ 　 2 　 Oivind   T ,   Anil   J   K ,   Torfinn   T .   Feature   extraction   methods   for   character   recognition — — A   Survey .   Pattern   Recognition ,   1996 ,   29 ( 4 ) :   641 ～ 662 
+ 　 3 　 Yoshihiko   H   et   al .   Recognition   of   handwritten   numerals   using   Gabor   features .   In :   Proc   of   the   13th   ICPR ,   Austria ,   1996 .   250 ～ 253 
+ 　 4 　 Liao   S   X ,   Pawlak   M .   On   image   analysis   by   moments .   IEEE   Trans   Pattern   Anal   Machine   Int '   l ,   1996 ,   18 ( 3 ) :   254 ～ 266 
+ 　 5 　 Bailey   R   R ,   Mandyam   S .   Orthogonal   moment   feature   for   use   with   parametric   and   non - parametric   classifiers .   IEEE   Trans   Pattern   Anal   Machine   Intell ,   1996 ,   18 ( 4 ) :   389 ～ 398 
+ 　 6 　 Alireza   K ,   Yawhua   H ,   Invariant   image   recognition   by   Zernike   moments .   IEEE   Trans   Pattern   Anal   Machine   Int '   l ,   1990 ,   12 ( 5 ) :   489 ～ 497 
+ 　 7 　 Lee   S   W .   Off - line   recognition   of   totally   unconstrained   handwritten   numerals   using   multilayer   cluster   neural   network .   IEEE   Trans   Pattern   Anal   Machine   Intell ,   1996 ,   18 ( 6 ) :   648 ～ 652 
+ 　 8 　 Gader   P   D .   Automatic   feature   generation   for   handwritten   digit   recognition .   IEEE   Trans   Pattern   Anal   Machine   Int '   l ,   1996 ,   18 ( 12 ) :   1256 ～ 1261 
+ 　 9 　 胡 钟山 , 娄震 , 杨静宇 , 刘克 , 孙靖 夷 .   基于 多 分类器 组合 的 手写体 数字 识别 . 计算机 学报 , 1999 ,   22 ( 4 ) :   369 ～ 374 
+ 　 ( Hu   Zhongshan ,   Lou   Zhen ,   Yang   Jingyu ,   Liu   Ke ,   Suen   C   Y .   Handwritten   digit   recognition   based   on   multi - classifier   combination .   Chinese   Journal   of   Computers ( in   Chinese ) ,   1999 ,   22 ( 4 ) :   369 ～ 374 ) 
+ 　 10 　 金忠 , 杨静宇 , 陆建峰 .   一种 具有 统计 不 相关性 的 最佳 鉴别 矢量 集 .   计算机 学报 , 1999 ,   22 ( 10 ) :   1105 ～ 1108 
+ 　 ( Jin   Zhong ,   Yang   Jingyu ,   Lu   Jianfeng .   An   optimal   set   of   uncorrelated   discriminant   features .   Chinese   Journal   of   Computers ( in   Chinese ) ,   1999 ,   22 ( 10 ) :   1105 ～ 1108 ) 
+ 　 11 　 Fukunaga   K .   Introduction   to   Statistical   Pattern   Recognition .   New   York :   Academic   Press ,   1990 
+ 12 　 金忠 ， 胡 钟山 ， 杨静宇 .   基于 BP 神经网络 的 人脸识别 方法 .   计算机 研究 与 发展 ,   1999 ,   36 ( 3 ) :   274 ～ 277 
+ 　 　 ( Jin   Zhong ,   Hu   Zhongshan ,   Yang   Jingyu .   A   face   recognition   method   based   on   the   BP   neural   network ,   Journal   of   Computer   Research   and   Development ( in   Chinese ) ,   1999 ,   36 ( 3 ) :   274 ～ 277 ) 
+ 原稿 收到 日期 ： 1999 - 01 - 22 ； 修改稿 收到 日期 ： 1999 - 05 - 10 . 

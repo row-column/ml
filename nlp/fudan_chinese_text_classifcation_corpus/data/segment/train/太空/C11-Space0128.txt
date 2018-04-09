@@ -1,0 +1,120 @@
+宇航学 报   
+ JOURNAL   OF   ASTRONAUTICS 
+ 1998 年   第 19 卷   第 1 期   No1   Vol.9   1998 科技期刊 
+ 
+ 耦合 多体 系统 动力 响应 计算 * 
+ 陆毓琪 　 芮筱亭 　 刘正福 　 黄葆华 
+ ( 南京 理工大学 应用 数学系 * 南京 * 210094 ) 
+ 　 　 摘 　 要 　 由于 弹性体 与 刚体 之间 的 动力 耦合 , 使得 耦合 多体 系统 的 特征值 问题 非自 共轭 , 难以 用 经典 的 模态 分析方法 解决 含有 刚 、 弹 耦合 多体 系统 的 动力 响应 问题 。 本文 以 某多体 系统 为例 , 建立 了 耦合 多体 系统 的 特征值 和 边值问题 的 增广 公式 , 进而 求得 了 用 正交 的 增广 特征 矢量 级数 表示 的 系统对 任意 激励 的 响应 。 
+ 　 　 主题词 　 耦合 多体 系统 　 算子 　 自 共轭 　 正交 
+ DYNAMIC   RESPONSE   OF   
+ THE   COUPLED   MULTIBODY   SYSTEM 
+ Lu   Yuqi 　 Rui   Xiaoting 　 Liu   Zhengfu 　 Huang   Baohua 
+ ( Nanjing   University   of   Science   and   Technology * Naijing * 210094 ) 
+ 　 　 Abstract 　 The   eigenvalue   problem   of   coupled   multibody   system   is   not   self - adjiont   and   the   study   of   dynamic   response   of   the   system   by   classical   modal   analysis   method   is   difficult   because   of   the   dynamic   coupled   action   between   tlastic   bodies   and   rigid   bodies . In   this   paper , we   take   a   multibody   system   as   example , the   augmented   formulas   of   eigenvalue   and   boundary   value   problem   of   the   multibody   system   are   developed . The   general   response   of   the   system   to   arbitrary   excitations   is   accurately   represented   by   the   orthogonal   augmented   eigenfunction   series . 
+ 　 　 Key   words 　 Coupled   multibody   system 　 Operator 　 Selfadjoint 　 Orthogonal 
+ 1 　 引言 
+ 　 　 多体 系统对 任意 激励 的 动力 响应 计算 问题 具有 重要 的 理论意义 和 实用价值 。 近 三十年 来 迅速 发展 的 多体 系统 动力学 的 各种 方法 ［ 7 , 8 ］ , 为 多体 系统 动力 响应 的 数值 计算 提供 了 强有力 的 工具 , 随着 科学技术 的 发展 , 许多 工程 问题 在 机械系统 设计 中 需要 做到 : 1 . 解决 含有 刚体 和 弹性体 耦合 系统 的 固有 振动 特性 的 计算 问题 ; 2 . 希望 能 进行 多体 系统对 任意 激励 动力 响应 的 精确 分析 。 
+ 　 　 近几年 出现 的 多体 系统 传递 矩阵 法 ［ 1 - 5 ］ , 为 解决 上述 第 1 个 问题 提供 了 一个 简捷 的 方法 。 由于 弹性体 与 刚体 之间 的 动力 耦合 作用 , 使得 多体 系统 的 特征值 问题 非自 共轭 。 特征 矢量 在 通常 意义 下 不 正交 , 从而 不能 直接 用 模态 分析方法 求解 刚 、 弹 耦合 多体 系统 的 动力 响应 , 难以 对系统 的 动力 响应 进行 精确 分析 。 
+ 　 　 本文 以 某多体 系统 为例 , 建立 满足 自 共轭 条件 的 耦合 多体 系统 特征值 和 边值问题 的 增广 公式 , 进而 求得 了 正交 的 增广 特征 矢量 , 并用 增广 特征 矢量 级数 表示 多体 系统对 任意 激励 的 响应 , 为 解决 上述 第 2 个 问题 提供 了 一种 方法 。 
+ 2 　 力学 模型 
+ 
+ 
+ 图 2.1 　 耦合 多体 系统 
+ 　 　 系统 由 平面 运动 的 刚体 A 和 与其 固结 的 匀 质梁 B 组成 , 以 固结 点 O 为 坐标 原点 , 建立 静止 直角坐标 系 , X 轴 沿未 变形 的 梁 的 中心 轴线 指向 梁 的 另一端 。 设 作用 在 刚体 上 的 主矢 和 主矩 分别 为 F0 ( t ) j  和 τ 0 ( t ) k  , 作用 在 梁上 的 分布力 为 f ( x , t ) j  , ( i  , j  , k  ) 为 直角坐标 系 的 单位 矢量 。 设梁 的 抗弯 刚度 和 单位 长度 的 质量 分别 为 EI 和 , 刚体 的 质量 和 绕 质心 的 转动惯量 分别 为 m 和 J * 。 求 系统 的 动力 响应 。 见图 2.1 
+ 3 　 系统 的 固有 振动 特性 
+ 　 　 根据 多体 系统 传递 矩阵 法 ［ 1 - 5 ］ , 系统 任 一点 的 状态 矢量 表示 为 Z = ［ y , θ , M , Q ］ T , 式 中 y , θ , M 和 Q 分别 表示 位移 、 转角 、 力矩 、 力 。 则 有 : 
+ Z ( x ) = UZ ( - l ) ( 3.1 ) 
+ 式 中 , 系统 的 传递 矩阵 
+ U = U1U2 ( 3.2 ) 
+ U1 和 U2 分别 为梁 和 刚体 的 传递 矩阵 ［ 5 ］ , Z ( - l ) 为 刚体 端点 的 状态 矢量 , l = a + b 。 
+ 　 　 系统 的 边界条件 为 
+ Z ( L ) = ［ y ( L ) , θ ( L ) , 0 , 0 ］ T ( 3.3 ) 
+ Z ( - l ) = ［ y ( - l ) , θ ( - l ) , 0 , 0 ］ T ( 3.4 ) 
+ 　 　 将式 ( 3.3 ) 、 ( 3.4 ) 代入 式 ( 3.1 ) 得 频率 方程 
+ U31U42 - U32U41 = 0 ( 3.5 ) 
+ 解式 ( 3.5 ) , 即可 求得 耦合 系统 的 各阶 固有频率 。 设 所得 频率 均 为 单根 , 即 
+ O = ω 21 ＜ ω 22 ＜ ω 23 ＜ … … 
+ 　 　 由式 ( 3.1 ) 得 振型 函数 
+ y ( x ) = C1U11 + C2U12 ( 3.6 ) 
+ 式 中 , C1 、 C2 为 任意 常数 , 并且 
+ C2 / C1 = - U31 / U32 = - U41 / U42 ( 3.7 ) 
+ 上述 各式 中 
+ U11 = S ( λ x ) + mb ω 2U ( λ x ) / ( λ 2EI ) + m ω 2V ( λ x ) / ( λ 3EI ) 
+ U12 = lS ( λ x ) + T ( λ x ) / λ + ( mab - J * ) ω 2U ( λ x ) / ( λ 2EI ) + ma ω 2V ( λ x ) / ( λ 3EI ) 
+ U31 = λ 2EIU ( λ L ) + mb ω 2S ( λ L ) + m ω 2T ( λ L ) / λ 
+ U32 = λ 2EIlU ( λ L ) + λ EIV ( λ L ) + ( mab - J * ) ω 2S ( λ L ) + ma ω 2T ( λ L ) / λ 
+ U41 = λ 3EIT ( λ L ) + mb ω 2 λ V ( λ L ) + m ω 2S ( λ L ) 
+ U42 = λ 3EIlT ( λ L ) + λ 2EIU ( λ L ) + λ ( mab - J * ) ω 2V ( λ L ) + ma ω 2S ( λ L ) ( 3.8 ) 
+ S ( λ x ) 、 V ( λ x ) 、 U ( λ x ) 、 T ( λ x ) 为 К р ы д о в 函数 ［ 9 ］ 。 
+ 为 系统 固有 振动 频率 。 
+ 4 　 增广 特征 矢量 及其 正交 性关系 
+ 　 　 设 空间 ｜ α ｜ = H ( Ω )  R2 , 其中 H ( Ω ) 为 Hilbert 空间 , Ω 为梁 的 定义域 ( 0 , L ］ , ｜ α ｜ 中 的 任意 元素 U = ［ U ( x ) , U1 , U2 ］ T , U ( x ) ∈ H ( Ω ) , U1 , U2 为 两个 标量 , 在 ｜ α ｜ 上 定义 内积 
+ 〈 U , V 〉 = ∫ L0U ( x ) V ( x ) dx + U1V1 + U2V2 ( 4.1 ) 
+ 　 　 定义 增广 算子 
+ ( 4.2 ) 
+ ( 4.3 ) 
+ 其中 , 算子 的 定义域 为 空间 ｜ α ｜ 的 子 空间 
+ D = { V ｜ V = ［ U ( x ) , U ( 0 ) , U ′ ( 0 ) ］ T , U ″ ( L ) = 0 , U  ( L ) = 0 , U ( x ) ∈ H ( Ω ) , 
+ 且 U ( x ) 在 Ω 上 有 四阶 导数 } ( 4.4 ) 
+ 则 原来 的 特征值 问题 等价 于 
+ ω 2MV = KV , 　 V ∈ D ( 4.5 ) 
+ 其中 
+ VK ( x ) = ［ yK ( x ) , yK ( x ) ｜ x = 0 , y ′ K ( x ) ｜ x = 0 ］ T , ( K = 1 , 2 , … ) ( 4.6 ) 
+ 我们 称其为 增广 特征 矢量 。 
+ 　 　 式 ( 4.5 ) 的 解 构成 空间 ｜ α ｜ 的 一个 子 空间 , 设 Vj , VK 为式 ( 4.5 ) 的 对应 于 不同 特征值 ω 2j , ω 2K 的 特征 矢量 , 则 
+ 
+ ( 4.7 ) 
+ 〈 KVj , VK 〉 = ∫ L0EIy ( 4 ) j ( x ) yK ( x ) dX + EI ( y ( 3 ) j ( 0 ) yK ( 0 ) - y ( 2 ) j ( 0 ) y ′ K ( 0 ) ) 
+ = ∫ L0EIy ( 4 ) K ( x ) yj ( x ) dX + EI ( y ( 3 ) K ( 0 ) yj ( 0 ) - y ( 2 ) K ( 0 ) y ′ j ( 0 ) ) = 〈 Vj , KVK 〉 ( 4.8 ) 
+ 算子 M 和 K 在 ( 4.5 ) 的 解 空间 上 是 自 共轭 的 , ( 4.5 ) 的 增广 特征 矢量 是 正交 的 
+ 〈 MVj , VK 〉 = δ jKdK 　 ( j , K = 1 , 2 , … ) ( 4.9 ) 
+ 〈 KVj , VK 〉 = δ jK ω 2KdK 　 ( j , K = 1 , 2 , … ) ( 4.10 ) 
+ ( 4.11 ) 
+ 5 　 系统 的 响应 
+ 　 　 使用 增广 表述 后 , 原 边值问题 可 表述 为 
+ MWtt ( x , t ) + KW ( x , t ) = F ( x , t ) 
+ ( 5.1 ) 
+ W ( x , 0 ) = ［ U0 ( x ) , U0 ( 0 ) , U ′ 0 ( 0 ) ］ T ( 5.2 ) 
+ Wt ( x , 0 ) = ［ V0 ( x ) , V0 ( 0 ) , V ′ 0 ( 0 ) T ( 5.3 ) 
+ 式 中 
+ W ( x , t ) = ［ y ( x , t ) , y ( 0 , t ) , yx ( 0 , t ) ］ T ( 5.4 ) 
+ Wt ( x , t ) = ［ yt ( x , t ) , yt ( 0 , t ) , yxt ( 0 , t ) ］ T ( 5.5 ) 
+ F ( x , t ) = ［ f ( x , t ) , F0 ( t ) , - τ 0 ( t ) + bF0 ( t ) ］ T ( 5.6 ) 
+ U0 ( x ) = y ( x , 0 ) , U0 ( 0 ) = y ( 0 , 0 ) , U ′ 0 ( 0 ) = yx ( 0 , 0 ) ( 5.7 ) 
+ V0 ( x ) = yt ( x , 0 ) , V0 ( 0 ) = yt ( 0 , 0 ) , V ′ 0 ( 0 ) = yxt ( 0 , 0 ) ( 5.8 ) 
+ 　 　 式 ( 5.1 ～ 5.3 ) 就是 用 增广 表述 法 表示 的 多体 系统 的 动力学 方程 , 设其解 为 
+ W ( x , t ) = ∑ ∞ K = 1VK ( x ) qK ( t ) ( 5.9 ) 
+ 代入 ( 5.1 ) , 并 与 Vj ( x ) 作 内积 得 
+ 
+ 利用 正交 性可得 
+ ( 5.10 ) 
+ 解方程 ( 5.10 ) 得 
+ ( 5.11 ) 
+ ( 5.12 ) 
+ 把 它们 代入 ( 5.9 ) 就 可 得 所 需要 的 解 。 
+ 　 　 式 中 
+ 7 ( 5.13 ) 
+ 7 ( 5.14 ) 
+ ( 5.15 ) 
+ 系统 中 刚体 的 响应 为 
+ y ( t ) = y ( 0 , t ) - yx ( 0 , t ) b ( 5.16 ) θ ( t ) = yx ( 0 , t ) ( 5.17 ) 
+ 式 中 y ( t ) 表示 刚体 质心 的 位移 , θ ( t ) 表示 为 刚体 的 转角 。 
+ 　 　 显然 上述 耦合 多体 系统 动态 特性 的 精确 分析方法 , 还 可以 进一步 推广 。 
+ 6 　 算例 
+ 
+ 
+ 图 6.1 　 梁中点 的 响应 
+ 用 上述 方法 求解 某多体 系统 的 响应 , 由 电算 得到 梁中点 前 8 秒 时间 的 响应 历程 , 如图 6.1 。 
+ 7 　 结论 
+ 　 　 由 上述 可见 : 多体 系统 传递 矩阵 法为 解决 诸如 航天 、 兵器 等 工程 问题 中 的 多体 系统 固有 振动 特性 问题 提供 了 方法 ; 通过 构造 增广 算子 和 增广 特征 矢量 , 建立 其 正交 条件 , 使多体 系统 传递 矩阵 法 可以 解决 多体 系统 动力 响应 的 精确 分析 问题 。 
+ 参考文献 
+     1 　 芮筱亭 , 隋 文海 , 邵允中 . 刚体 的 场 传递 矩阵 及其 在 多体 动力学 中 的 应用 . 宇航学 报 , 1993 , 4 : 82 - 87 
+     2 　 芮筱亭 , 陆毓琪 . 多体 系统 振动 的 传递 矩阵 法 . 宇航学 报 , 1995 , 3 : 41 - 47 
+     3 　 Stein   E , Hang   Y   J , 芮筱亭 , 陆毓琪 , 曾仕伦 , 刘正福 . TraNSFER   Matrix   method   of   damping   multibody   systems   vibration . 宇航学 报 , 1996 , 2 : 28 - 35 
+     4 　 芮筱亭 等 . 多体 系统 发射 动力学 . 国防工业 出版社 , 1995 
+     5 　 芮筱亭 , 陆毓琪 , 付效山 , 俞占 鸿 . 多体 系统 传递 矩阵 法 . 南京大学 出版社 , 已 付印 
+     6 　 Yang   B . Linear   vibration   of   a   compled   spring - rigrdbar   system , Proceedings   of   the   International   Conference   on   Vibration   Engineering , International   Acadlmic   Publishers , 1994 
+     7 　 刘延柱 等 . 多 刚体 系统 动力学 . 高等教育出版社 , 1989 
+     8 　 Witlenburg   J . Dynamics   of   Systems   of   Rigid   Bodies , B . G . Teubner , Stuttgart , 1977 ( 中译本 : 谢传锋 译 , 多 刚体 动力学 , 北京 航空学院 出版社 , 1986 ) 
+     9 　 И ． М ． Б а б а к о в ， Т е о р и я 　 к о п е б а н и й ， Г о с т е х и з д а т , ( 中译本 : 振动 理论 , 蔡承文 等 译 , 人民教育出版社 , 1963 ) 

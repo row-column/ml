@@ -1,0 +1,26 @@
+上海 航天 
+ AEROSPACE   SHANGHAI 
+ 2001   Vol.18   No.2   P.8 - 14 
+ 
+ 
+ 
+ 
+ “ 风云 ” 系列 气象卫星 的 发展 现状 及其 展望 
+ 张文建 　   
+ 摘 　 要 ： 介绍 了 我国 第一代 极地 气象卫星 “ 风云 一号 ” （ FY - 1 ） 系列 和 静止 气象卫星 “ 风云二号 ” （ FY - 2 ） 系列 的 发展 历程 、 主要 性能 。 FY - 1 系列 包括 4 颗卫星 及其 相应 的 地面 数据 接收 、 处理 和 应用 系统 。 介绍 了 FY - 2 后续 卫星 及 FY - 3 的 发展 计划 。 最后 还 介绍 了 遥感 卫星 遥感 器 辐射 校正 场 计划 。 
+ 关键词 ： 气象卫星 ； 卫星 遥感 ； 太阳 同步 轨道 卫星 
+ 分类号 ： P414 +. 2 　 文献 标识码 ： A 
+ 文章 编号 ： 1006 － 1630 ( 2001 ) 02 － 0008 － 07 
+ Status   and   Development   of   FY   Series   of   Meteorological   Satellites 
+ ZHANG   Wen - jian （ National   Satellite   Meteorological   Center   CMA ， Beijing   100081 ， China ） 　 
+ 
+ Abstract ： The   developmental   course   and   main   performances   of   first   generation   of   FY - 1   series   of   polar   orbiting   meteorological   satellites   and   FY - 2   series   of   sta   tionary   meteolorogical   satellites   of   our   country   and   the   developmental   plan   of   FY - 2 ' s   s   u   ccessors   and   FY - 3   satellite   are   introduced .   The   plan   of   radiation - correcting   f   ield   of   sensors   is   also   introduced . 
+ Keywords ： Meteorological   satellite ;   Satellite   remote   sensing ;   Sun - synchronous   satellite 
+ 作者简介 ： 张文建 ( 1954 - ) ， 男 ， 理学博士 ， 研究员 ， 中国 气象学 会 卫星 气象学 委员会 主任 ， 中国 地理学 会 遥感 分会 常务 副理事长 。   
+ 作者 单位 ： 张文建 （ 中国气象局 国家 卫星 气象 中心 ， 北京   100081 ） 　 
+ 
+ 参考文献 ： 
+ ［ 1 ］ 温克刚 主编 . 辉煌 的 二十世纪 新 中国 大 记录 ： 气象 卷   1949 - 1999 [ M ] . 北京 ： 红旗 出版社 , 1999 . 
+ 
+ 收稿 日期 ： 2001 年 3 月 7 日 
+ 出版日期 ： 2001 年 4 月 25 日 

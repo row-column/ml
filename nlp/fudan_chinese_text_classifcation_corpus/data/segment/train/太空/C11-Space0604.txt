@@ -1,0 +1,31 @@
+上海 航天 
+ AEROSPACE   SHANGHAI 
+ 2001   Vol.18   No.3   P.19 - 21 
+ 
+ 
+ 
+ 
+ 一种 检测 SAR 图像 边缘 的 方法 
+ 刘 先锋 　   郑 明洁 　   
+ 摘 　 要 ： 传统 算法 不能 很 好地解决 合成孔径雷达 （ SAR ） 图像 边缘 检测 问题 。 为此 提出 了 一种 改进 方法 ： 将 Haralick 曲面 拟 合法 和 改进 的 广义 模糊 算子 （ GFO ） 两种 算法 相结合 ， 分别独立 求出 SAR 图像 边缘 ， 然后 将 分别 求出 的 图像 边缘 合并 ， 得出 最终 边缘 。 用 实际 SAR 图像 对 该 算法 进行 检验 ， 验证 了 该 算法 的 有效性 。 
+ 关键词 ： 星载 合成孔径雷达 ； 图像处理 ； 边缘 检测 
+ 分类号 ： TN958.2 ； TN957.52 　 文献 标识码 ： A 
+ 文章 编号 ： 1006 - 1630 ( 2001 ) 03 - 0019 - 03 
+ A   Algorithm   of   SAR   Image   Edge   Detection   
+ LIU   Xian - feng （ Dept .   of   Electronics   Engineer ,   Beijing   Institute   of   Technology ,   Beijing   100081 ， China ） 　 
+ ZHENG   Ming - jie （ Institute   of   Electronics ,   Chinese   Academy   of   sciences ,   Beijing   100080 ， China ） 　 
+ 
+ Abstract ： At   present ,   classic   image   edge   detection   algorithm   is   not   very   suitable   for   SAR   image .   This   paper   gives   a   new   effective   algorithm   to   solve   the   problem .   We   use   Haralick   method   and   GFO   method   to   independently   detect   the   SAR   image   edge   and   then   merge   the   two   results   to   obtain   a   final   edge .   An   example   was   given   at   end   of   this   paper . 
+ Keywords ： Spaceborne   SAR ； Radar   image ;   Image   processing ;   Edge   detection 
+ 
+ 作者简介 ： 刘 先锋 （ 1974 － ） ， 男 ， 博士生 ， 研究 领域 ： 星载 合成 雷达 信号处理 。   
+ 作者 单位 ： 刘 先锋 （ 北京理工大学 电子 工程系 , 北京   100081 ） 　 
+ 　 　 　 　 　 郑 明洁 （ 中科院 电子 所 ， 北京   100080 ） 　 
+ 
+ 参考文献 ： 
+ ［ 1 ］ SHI   Zheng - huo , Fung   K   B . A   comparison   of   digital   speckle   filters [ C ] . Processing   of   IGARSS ' 94 . 
+ ［ 2 ］ Haralick   R . Edge   and   region   analysis   for   digital   image   data [ M ] . New   York , Academic   Press , 1983 . 
+ ［ 3 ］ 陈武凡 , 鲁贤庆 , 陈建军 , 等 . 彩色图像 边缘 检测 的 新 方法 — — 广义 模糊 算子 法 [ J ] . 中国 科学 （ A 辑 ） , 1995 , 25 ( 2 ) . 
+ 
+ 收稿 日期 ： 2000 年 3 月 22 日 
+ 出版日期 ： 2001 年 3 月 1 日 

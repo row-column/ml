@@ -1,0 +1,34 @@
+信息 与 控制 
+ INFORMATION   AND   CONTROL 
+ 1999 年   第 28 卷   第 6 期   Vol.28   No.6   1999 
+ 
+ 
+ 
+ 小型 无人机 飞行 变 结构 控制 
+ 
+ 袁冬莉 　 席庆彪 　 解万成 
+ 　 　 摘 　 要 ： 针对 传统 飞行 控制系统 的 局限性 ， 提出 小型 无人机 飞行 修正 变 结构 控制策略 ． 在 纵向 轨迹 控制系统 中 引入 一 饱和 型 变 结构 控制器 ， 实现 姿态 角 与 高度 的 自主 复合控制 ， 解决 了 小型 无人机 超低空 飞行 触地 问题 ， 同时 提高 了 系统 的 可靠性 ． 
+ 　 　 关键词 ： 无人机 ， 飞行 控制 ， 变 结构 控制 
+ 　 　 中 图 分类号 ： TP29 　 　 　 　 　 　 文献 标识码 ： B 
+ FLIGHT   VARIABLE   STRUCTURE   CONTROL   OF 
+ UNMANNED   AIR   VEHICLES 
+ YUAN   Dong - li1   XI   Qing - biao2   XIE   Wan - cheng2 
+ ( 1 .   Department   of   Automatic   Control ,   Northwestern   Polytechnical   University ,   Xi ' an   710072 ;   2 .   Center   of   research   and   development   of   UAV ,   Northwestern   Polythchnical   University ,   Xi ' an   710072 ) 
+ Abstract : In   view   of   limit   situation   of   traditional   flight   control   system ,   an   tactics   of   flight   correctional   variable   structure   control   is   given .   A   saturated   variable   structure   controller   is   adopted   in   the   vertical   trace   control   system ,   the   UAV ' s   hedgehopping   is   solved   and   reliability   of   the   system   is   improved . 
+ 　 　 Key   words : unmanned   air   vehicle （ UAV ） ,   flight   control ,   variable   structure   control 
+ 1 　 引言 
+ 　 　 小型 无人机 超低空 飞行 任务 要求 无人机 在 有限 的 靶 廊 长度 范围 内 ， 能够 由 巡航 高度 迅速 平滑 俯冲 、 准确 进入 超低空 高度 （ 如掠海 飞行高度 H ＜ 5m ） 平 稳定 高 飞行 ． 传统 的 控制策略 是 ： 地面 操纵 人员 借助于 测控 信息 给 无人机 提供 指令 ， 无人机 俯冲 采用 给定 姿态 角 θ g 控制 飞行 ， 在 到达 超低空 高度 后 改为 定高 Hg 控制 飞行 ． 但 大量 的 实际 飞行 表明 ： 采用 上述 控制策略 ， 在 俯冲 改 平时 将会 出现 较大 的 超调 ， 增大 了 超低空 飞行 超调 触地 的 风险 ； 另外 系统 的 摄动 — — 如 测控 信道 开环 将会 导致 飞行 任务 的 失败 ． 显然 如何 进行 小型 无人机 纵向 飞行 控制 — — 保证 超低空 飞行 任务 的 可靠 完成 ， 是 一个 亟待解决 的 实际 工程 问题 ． 
+ 2 　 系统 设计 
+ 　 　 变 结构 控制 VSC （ Variable   Structure   Control ） 是 在 系统 相空间 的 不同 区域 ， 采用 不同 的 控制 规律 ， 从而 使 轨迹 到达 滑动 面 ． 结构 的 改变 是 根据 预先 设定 的 切换 逻辑 ， 在 轨线 参数 瞬时值 的 基础 上 实现 的 ． 针对 小型 无人机 超低空 飞行 所 存在 的 实际 工程 问题 ， 在 此 提出 了 纵向 飞行 变 结构 控制 方案 ． 其 基本 思想 是 运用 飞行高度 稳定 系统 所 采用 的 增稳 控制 原理 ， 在 飞行 控制 计算机 中 引入 一个 非线性 “ 饱和 型 变 结构 控制器 ” ， 实现 无人机 俯冲 、 超低空 飞行 的 轨迹 自主 控制 ． 
+ 　 　 对于 飞行 控制系统 
+ 　 　 　 　 　 　 　 　 ( 1 ) 
+ 若 采用 传统 变 结构 控制策略 执行 超低空 飞行 任务 ， 则 不难 确定 了 如下 切换 函数 
+ s ( x ) = Δ ( x ) = Hg - H 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 2 ) 
+ 则 系统 变 结构 控制 
+ 　 　 　 　 　 　 　 　 　 　 ( 3 ) 
+ 其中 ， Hg 为 给定 超低空 飞行高度 ， H 为 实际 飞行高度 ， U ( x ) 为变 结构 控制器 输出 控制 量 ． 为 增加 俯仰 通道 阻尼 ， 引入 俯仰角 速率 反馈 信号 ， 则 系统控制 规律 
+ 　 　 　 　 　 ( 4 ) 
+ 对于 切换 面 s ( x ) = 0 ， 系统 有 
+ 　 　 　 　 　 　 　 ( 5 ) 
+ 　 　 显然 ， 不难 证明 在 任意 s ( x ) = 0 以外 的 系统 相 轨迹 将 于 有限 时间 内 到达 切换 面 ， 由于 系统 存在 止点 ， 控制 规律 中 Bang - Bang 控制 项 K θ Sgn ( s ( x ) ) 的 存在 将会 引起 系统 的 抖振 ， 系统 将 很 难 保证 在 切换 面处 飞行 控制 的 平滑 行 ． 因此 为了 克服 系统 采用 传统 变 结构 控制策略 对 飞行 控制 所 造成 的 负面影响 ， 则 有 必要 对系统 变 结构 控制 进行 修正 ． 
+ 　 　 修正 的 变 结构 控制器 工作 原理 如图 1 所示 ． 显然 ， 修正 的 变 结构 控制器 为 一 典型 非线性 饱和 型 控制器 ． 

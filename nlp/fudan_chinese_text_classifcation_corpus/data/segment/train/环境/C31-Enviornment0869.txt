@@ -1,0 +1,96 @@
+环境 科学 学报 
+ ACTA   SCIENTIAE   CIRCUMASTANTIAE 
+ 1999 年   第 19 卷   第 3 期   Vol.19     No.3   1999 
+ 
+ 
+ 
+ 荧光 光谱法 研究 稀土元素 铕 在 小麦 细胞 内 的 分布 *   
+ 曾 福礼 　 安 　 宜 　 邓汝温 　 
+ 摘要 　   用 荧光 光谱法 研究 了 小麦 根施 稀土元素 铕 数天 后 ， Eu3 + 在 根 和 叶片 细胞膜 和 细胞 内 的 分布 定位 . 测试 结果 与 对照 相比 ， 小麦 细胞膜 和 线粒体 的 相对 荧光 强度 较强 ， 细胞质 中 没有 铕 的 荧光 ； 根 和 叶片 细胞 的 细胞膜 和 线粒体 单位 蛋白 所 结合 的 稀土元素 铕 的 含量 不同 . 表明 稀土元素 铕 在 细胞 内 与 蛋白质 的 结合 不 具有 随机性 ， 而是 在 细胞膜 和 线粒体 内有 富集 和 积累 . 
+ 关键词 　 稀土元素 ； 铕 ； 小麦 ； 荧光 光度法 . 
+ Distribution   of   rare   earth   element   Eu   in   wheat   ( Triticum   aestivum   L . )   cell   measured   using   fluorescence   methods 
+ ZHENG   Fuli , AN   Yi   
+ Biology   Department   of   Lanzhou   University , Lanzhou   730000 
+ DENG   Ruwen   
+ Chemistry   Department   of   Lanzhou   University , Lanzhou   730000 
+ Abstract 　 Distribution   of   rare   earth   element   Eu   uptaken   by   root   cell   and   leaf   cell   of   whea   t ( Triticum   aestivum   L . ) was   determined   based   on   Eu   fluorescence   property . The   resu   lts   showed   that   the   fluorescence   intensities   of   plasmalemma   and   mitochondria   wer   e   obviously   stronger   in   the   sample   than   that   in   the   control . The   contents   of   Eu3 +   binding   to   protein   of   plasmalemma   and   mitochondria   of   both   root   and   lead   were   not   the   same . In   addition , the   relative   permeability   of   plasma   membrane   was   a   lmost   identical   to   the   control . It   was   concluded   that   Eu   could   be   taken   up   into   p   lant   cells   without   breaking   the   plasmalemma . Eu3 +   absorbed   into   cell   was   en   riched   in   mitochondria   of   wheat . 
+ Keywords 　 rare   earth   element , Eu , wheat , fluorescence .   
+ 　 　 随着 稀土 资源 的 开发利用 ， 稀土元素 不可避免 地 越来越 多地 进入 生态环境 ， 造成 一定 程度 的   污染 和 对 动植物 的 危害 ， 如 影响 肌质网 和 红 细胞膜 的 膜 脂 与 膜蛋白 ［ 1 , 2 ］ ， 引起 核 DNA 的 降解 ［ 3 ］ 等 ， 已 引起 相关 专家 的 重视 . 但 对 植物 而言 ， 低浓度 的 稀土 却 有 促进作用 ， 如能 使 农作物 增产 ［ 4 ］ ， 促进 光合 能量 转化 ［ 5 ］ ， 增强 激素 的 作用 ［ 6 ］ . 稀土元素 进入 生物链 的 一个 重要途径 是 作物 直接 由 土壤 中 吸收 ， 但 由于 其 作用 的 复杂性 ， 目前 涉及 植物体 对 稀土元素 吸收 积累 的 分布 研究 较 少 ， 本文 通过 利用 稀土元素 铕 与 配位 基 生成 三元 络合物 后 ， 中心 离子 被 激发 ， 产生 荧光 的 特性 ［ 7 ］ ， 研究 分离 后   的 植物 细胞 各 主要 部分 Eu3 + 的 含量 ， 以此 确定 稀土元素 铕 在 细胞 内 的 分布 . 
+ 1 　 材料 与 方法 
+ 1.1 　 酶 与 试剂 
+ 　 　 纤维素酶 ‘ ONOZUK ’ R - 10 ( 日本 Yakult 公司 产品 ) ； 果胶酶 ( SERVA 公司 产品 ) ； Eu2O3 试剂 ( 99.99% ) ， 以 少量 HCl 溶解 ， 配制 成 5mmol / L 的 EuCl3 溶液 ， EDTA 标定 ； O - 噻吩 甲酰 丙酮 ( TTA ) 、 邻菲  NFDA7  啉 及其 它 试剂 均 为 国产 分析 纯 . 
+ 1.2 　 材料 
+ 　 　 小麦 ( Triticum . aestivum . L ) 用 缺钙 的 完全 培养液 进行 饥饿 培养 ， 4   d 后 换成 EuCl3 溶液 ， 对照 除不含 Eu3 + 外 其余 条件 与 处理 相同 . 培养 温度 25 ± 2 ℃ ， 湿度 70% - 80% . 
+ 1.3 　 实验 方法 
+ 1.3 . 1 　 原生质 体制 备 　 酶 液 组成 ： 2%   cellulose   R - 10 , 5%   Pectinase . 原生质 体 悬浮液 分为 两组 ， 一组 用以 测定 相对 荧光 强度 ， 一组 用来 提取 分离 细胞质 膜 、 线粒体 与 细胞质 . 
+ 1.3 . 2 　 质膜 、 线粒体 和胞质 可溶性 部分 分离 　 按张  ［ 8 ］ 方法 进行 . 所有 操作 均 需 在 0 - 4 ℃ 下 进行 . 取 原生质 体 悬浮液 ， 破碎 细胞 ， 10000 × g   20   min 沉降 线粒体 粗制品 并 纯化 ［ 9 ］ . 80000 × g   1   h 沉淀 细胞质 膜 ， 不 连续 密度梯度 离心 纯化 ， 悬浮 ； 上 清液 为胞质 可溶性 部分 ， 含 细胞 内 大部分 蛋白 . 
+ 1.3 . 3 　 荧光 强度 的 测定 　 按 周继兴 ［ 10 ］ 方法 进行 . 分离 所得 的 原生质 体 、 质膜 、 线粒体 与胞质 部分 ， 80 ℃ 强酸 消化 ( 体积 比 HClO4 ∶ HNO3 = 1 ∶ 3 ) ， 所得 白色 粉末 用 去离子水 溶解 ， 置于 10   mL 比色 管中 ， 加 一滴 0.1% 甲基 红 指示剂 ， 用 NH4OH ( 5% ) 和 HCl ( 3% ) 调节 溶液 刚刚 变 红 ， 依 此 加入 0.01% 的 TTA ， 1% 的 邻菲  NFDA7  啉 ， 丙酮 及 pH5.0 的 HAc - NaAc 缓冲溶液 ， 充分 络合 . 用 RF - 540 型 荧光 分光 光度 仪 进行 光谱 测定 ( 日本 Shimadzu 公司 产品 ) . 激发 波长 374   nm ， 发射 波长 613   nm . 
+ 1.3 . 4 　 蛋白质 含量 测定 　 按 Bradford ［ 11 ］ 方法 进行 ， 以牛 血清 白蛋白 做 标准 曲线 . 
+ 2 　 结果 与 讨论 
+ 2.1 　 原生质 体 和 质膜 Eu3 + 的 荧光 光谱 
+ 　 　 图 1 为 小麦 根 和 叶片 原生质 体 ， 经 强酸 消化 为 完全 无机物 后 ， 在 TTA - 邻菲  NFDA7  啉 - 丙酮 体 
+ 
+ 
+ 图 1 　 小麦 根 和 叶片 原生质 体 荧光 光谱 图 
+ - - - - - - 对照 的 荧光 图谱 ， - - EuCl3 处理 . 激发 波长 374   nm ， 发射 波长 613   nm , Eu 的 荧光 谱峰 在 613   nm   处 
+ Fig.1   Fluorescence   spectra   of   protoplast   of   roots   and   leaves   
+ 系中测 得 的 Eu3 + 荧光 谱 图 . 处理 的 小麦 根 和 叶片 原生质 体在 613   nm 有 特征 荧光 发射 峰 ， 相对 荧光 强度 分别 是 对照 的 3 倍 和 8 倍 . 说明 经 Eu3 + 处理 后 被 细 吸收 或 富集 在 原生质 体外 膜 . 根 原生质 体 相对 荧光 强度 比 叶片 高 ， 所含 Eu3 + 的 量 高于 叶片 . 　 　 
+ 　 　 图 2 中 细胞质 膜 的 荧光 光谱 表明 ， 处理 后 的 根 、 叶片 细胞质 膜 荧光 发射 峰 都 很 明显 ， 说明 细胞   质膜 上 分布 有 相当 量 的 Eu3 + ， 但 不同 部分 质膜 所 结合 的 Eu3 + 含量 不同 ， 因此 荧光 强度 不同 . 这 可能 是 由于 Eu3 + 由下向上 运输量 较 少 所致 . 
+ 
+ 
+ 图 2 　 根 和 叶片 原生质 膜 荧光 光谱 图 
+ - - - - - - 　 对照 ， - - EuCl3 处理 .   激发 波 波长 374   nm ， 发射 波长 613   nm , Eu 的 荧光 谱峰 在 613   nm 处 
+ Fig.2   Fluorescence   spectra   of   plasmalemma   of   roots   and   leaves 
+ 2.2 　 线粒体 Eu3 + 的 荧光 光谱 
+ 　 　 线粒体 是 细胞 组分 中 极为重要 的 细胞器 ， 具有 将 细胞 内 的 Ca2 + 以 结合态 积累 在 线粒体 内 ， 达到 排除 胞 内 高 Ca2 + 的 目的 ［ 12 ］ . 图 3 显示 线粒体 相对 荧光 强度 较大 ， 尤其 根 线粒体 . 说明 其 结合 有 大量 的 Eu3 + 离子 . 已有 学者 证明 ， 稀土 离子 与 Ca2 + 起 作用 方式 、 作用 位点 是 相同 的 ， 同 线粒体 也 有 较大 的 亲合力 ［ 13 ］ . 因此 ， 线粒体 能 结合 较 多 的 Eu3 + 可能 是 线粒体 以 积累 Ca2 + 的 形式 积累 Eu3 + ， 以 保证 细胞 不受 较 高 含量 Eu3 + 的 伤害 而 采取 的 自我 保护 . 当给 动物 喂饲 一定量 的 稀土元素 后 ， 在 动物 肝细胞 中 也 常常 检测 到 稀土元素 的 存在 ［ 14 ］ . 
+ 2.3 　 细胞质 部分 Eu3 + 的 荧光 光谱 
+ 　 　 把 细胞质 可溶性 部分 强酸 消化 后 得到 的 Eu3 + 荧光 光谱 表明 ， 无论 对照 或 处理 ， 根 和 叶片 胞质 可溶性 部分 在 613   nm 都 没有 Eu3 + 的 特征 荧光 谱峰 ( 图 4 ) . 
+ 
+ 
+ 图 3 　 根 和 叶片 线粒体 荧光 光谱 图 
+ - - - - - - 对照 ， - - EuCl3 处理 . 激发 波 波长 374   nm ， 发射 波长 613   nm , Eu 的 荧光   谱峰 在 613   nm 
+ Fig.1   Fluorescence   spectra   of   mitochondria   of   roots   and   leaves 
+ 
+ 
+ 图 4 　 根 和 叶片 细胞质 可   溶性 部分 荧光 光谱 图 
+ - - - - - - 　 对照 ， - - EuCl3 处理 . 激发 波 波长 374   nm ， 发射 波长 613   nm , Eu 的 荧光   谱峰 在 613   nm 
+ Fig.4   Fluorescence   spectra   of   cytoplasm   of   roots   and   leaves [   TS ) ] 
+ 2.4 　 细胞 组分 蛋白 及 所 含 Eu3 + 的 含量 
+ 　 　 比较 各 细胞 组分 蛋白 含量 和 单位 蛋白 所 结合 的 Eu3 + 含量 变化 可见 ( 表 1 、 2 ) ， 细胞质 部分 蛋白 含量 极高 ， 但 几乎 没有 Eu3 + 的 结合 . 由于 稀土 离子 与 Ca2 + 离子 的 相似性 ， 稀土 离子 常 被 认为 具有 替换 Ca2 + 与 蛋白 结合 的 特性 ［ 15 ］ ， 但胞质 中 虽 含有 较 多 的 可溶性 CaM 及其 它 Ca2 + 结合 蛋白 ， Eu3 + 含量 并 不 高 ， 因此 ， Eu3 + 离子 与 蛋白 ， 尤其 是 与 含 Ca 蛋白 的 结合 ， 并 不是 随机 的 ， Eu3 + 与 不同 部位 的 蛋白 有 不同 的 结合 能力 和 特性 . 有 实验 证明 ， 稀土 离子 往往 定位 在 质膜 表面 Ca2 + 结合 位点 ［ 16 ］ ， 与 线粒体 亲合性 也 较大 . 细胞质 膜 和 线粒体 单位 蛋白 所 结合 的 Eu3 + 含量 较 高 ， 也 说明 Eu3 + 与 膜蛋白 和 线粒体 蛋白 有 较 好 的 亲合 能力 . 
+ 表 1 　 EuCl3 处理 后根 和 叶片 细胞 不同 部分 蛋白 含量 的 变化 ( mg / g ( FW ) ) 
+ Table   1   Changes   of   protein   content   of   different   parts   of   root   and   leaf   cel   ls   after   treatment   with   EuCl3 
+ 
+ 原生质 体质 膜 线粒体 胞质 可溶性 部分 
+ 根 0.833 ± 0.2010 . 156 ± 0.0190 . 224 ± 0.0760 . 352 ± 0.100 
+ 叶片 0.490 ± 0.1370 . 133 ± 0.0850 . 454 ± 0.1050 . 744 ± 0.271 
+ 
+ 表 2 　 EuCl3 处理 后根 和 叶片 细胞 不同 部分 Eu 含量 的 变化 ( 10 - 4   μ g / mg ( Pr ) ) 
+ Table   2   Changes   of   Eu   content   of   different   parts   of   root   and   leaf   cells   af   ter   treatment 
+ 
+ 　 原生质 体质 膜 线粒体 胞质 可溶性 部分 
+ 根 32.227 ± 1.17248 . 340 ± 1.584103 . 911 ± 1.0120 
+ 叶片 38.989 ± 1.51122 . 564 ± 2.331 　 19.425 ± 0.2970 
+ 
+ 3 　 结论 
+ 　 　 植物 吸收 稀土元素 Eu3 + 、 Tb3 + 后 ， 与 β - 二酮 及其 它 配位 基 生成 三元 络合物 产生 的 荧光 强弱 可 定位 在 细胞 组份 中 的 分布 、 含量 ； 与胞 内 蛋白质 的 结合 并 不是 随机 的 ， 与 不同 部位 的 蛋白质 有 不同 的 结合力 ， 线粒体 比 质膜 有 更 高 的 亲合性 ， 积累 的 Eu3 + 多 ； 植物 一旦 受到 稀土元素 毒害 时 ， 首先 受伤害 的 部位 可能 是 线粒体 ， 因此 ， 以测 其 积累 稀土 离子 的 量 可以 作为 检测 土壤 中 稀土元素 程度 量 的 生物 指标 之一 . 
+ *   国家自然科学基金 ( 39770183 ) 资助 项目   
+ 作者 单位 : ( 曾 福礼 　 安 　 宜 ) 　 兰州大学 生物系 ， 兰州 　 730000 
+ 　 　 　 　 　 ( 邓汝温 ) 　 兰州大学 化学系 
+ 参考文献 
+ [ 1 ] 　 李 新民 ， 倪嘉缵 . 钆 对 兔 肌质网 膜 脂 与 膜蛋白 的 影响 . 生物 物理学 报 ， 1996 ， 12 ( 1 ) ： 51 
+ [ 2 ] 　 李 新民 ， 倪嘉缵 . 钇 和 镱 对 人 红 细胞膜 脂 与 膜蛋白 的 影响 . 生物 物理学 报 ， 1994 ， 10 ( 3 ) ： 393 
+ [ 3 ]   Komiyama   Makoto , Teruyuki   Kodama , Naoyo   Takeda   et   al . Catalytically   active   s   pecies   for   CeCl3 - induced   DNA   hydrolysis . J   Biochem , 1994 , 115 ( 5 ) : 809 
+ [ 4 ]   施 岗陵 ， 魏元秀 ， 聂俊华 等 . 稀土 在 农业 上 的 应用 . 植物 杂志 ， 1994 ， ( 1 ) ： 33 
+ [ 5 ]   邓兆活 ， 徐生杰 ， 邝炎华 . 稀土 处理 对 甘蔗 离体 叶绿体 光 化学反应 的 影响 . 华南农业大学   学报 ， 1988 ， 9 ( 4 ) ： 49 
+ [ 6 ]   沈博礼 ， 张丽静 . 稀土元素 对 小麦 幼苗 体内 内源 激素 含量 的 影响 . 植物 生理学 通讯 ， 1994   ， 30 ( 5 ) ： 351 
+ [ 7 ]   陈国珍 . 荧光 分析法 . 北京 ： 科学出版社 . 1975.33 
+ [ 8 ]   张 　  . 不 连续 密度梯度 离心 和 两相 分配 法 纯化 的 小麦 根 细胞质 膜 的 特性 . 科学 通报 ， 198   8 ， ( 14 ) ： 10 
+ [ 9 ]   Serlin   B   S , Sopory   S   K , Roux   S   L . Modulation   of   oat   mitochondrial   ATPase   activit   y   by   Ca2 +   and   phytochrome . Plant   Physiol , 1984 , 74 : 827 
+ [ 10 ]   周继兴 ， 平锡康 . TTA - 邻菲  NFDA7  啉 体系 荧光 光谱法   测定 岩矿 中 微量 铕 . 岩矿 测试 ， 1988 ， 7 ( 4 ) ： 295 
+ [ 11 ]   Broaford   M   M . A   rapid   and   sensitive   method   for   quantitation   of   protein   assay   by   dye   binding . Anal   Biochem , 1976 , 72 : 248 
+ [ 12 ]   孙 大业 . 细胞信号 系统 . 北京 : 科学出版社 . 1993.145 
+ [ 13 ] 　 石 　 凤 ， 朱天培 . 稀土 生物 无机化学 ( Ⅱ ) . 稀土 ， 1986 ， ( 4 ) ： 44 
+ [ 14 ] 　 邹仲 之 ， 倪嘉缵 ， 粟振宝 等 .   钐 在 小鼠 肝细胞 中 的 分布 、 沉积 和 影响 的 电镜 与 X射线 微   区 分析 研究 . 科学 通报 ， 1991 ， 36 ( 2 ) ： 140 
+ [ 15 ] 　 倪嘉缵 . 稀土 生物 无机化学 . 北京 ： 科学出版社 . 1995.174 
+ [ 16 ] 　 Nagahashi   G , Thomson   W   W . The   caspairian   strip   as   a   barrier   to   the   movement   of   lanthanum   in   corn   roots . Science , 1974 , 183 : 670 
+ 1997 - 07 - 15 收到 原稿 　 1998 - 03 - 19 收到 修改稿 

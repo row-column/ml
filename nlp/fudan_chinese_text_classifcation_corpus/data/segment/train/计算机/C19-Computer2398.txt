@@ -1,0 +1,113 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年 　 第 36 卷 　 第 10 期 　 Vol.36 　 No.10 　 1999 
+ 
+ 
+ 
+ 虚拟 声音 会议 环境 中 的 应用 共享 
+ 寿黎 但 　 薛强 　 潘志庚 　 石教英 
+ 　 　 摘 　 要 　 应用 共享 系统 是 一种 CSCW 系统 工具 ， 它 可以 将 单用户 应用程序 在 多 人 的 网络 环境 中 协同 地 使用 .   在 应用 共享 系统 中 需要 提供 各 用户 间 方便 、 直接 的 交互方式 .   文中 首先 提出 了 一个 应用 共享 系统 的 模型 ， 介绍 了 公有 区 管理 与 发言权 控制 等 关键技术 .   其次 讨论 了 基于 Agent 的 系统 的 软件结构 ， 包括 应用 共享 管理器 的 概念 和 应用 协作 Agent 的 结构 ， 进而 给出 了 采用 简化 的 HRTF 模型 的 虚拟 声音 会议 环境 的 设计方案 .   最后 描述 了 在 虚拟 声音 会议 环境 中 应用 共享 系统 的 实现 方法 .   通过 虚拟 声音 会议 ， 应用 共享 系统 中 各 用户 之间 的 交互 变得 更加 方便 .   
+ 　 　 关键词 　 网络 ， CSCW ,   应用 共享 ， 虚拟 会议 环境 
+ 　 　 中图法 分类号 　 TP303 
+ APPLICATION   SHARING   IN   A   VIRTUAL   AUDIO 
+ CONFERENCE   ENVIRONMENT 
+ SHOU   Li - Dan ,   XUE   Qiang ,   PAN   Zhi - Geng ,   and   SHI   Jiao - Ying 
+ ( State   Key   Laboratory   of   CAD   &   CG ,   Zhejiang   University ,   Hangzhou   310027 ) 
+ ( Department   of   Computer   Science   and   Engineering ,   Zhejiang   University ,   Hangzhou   310027 ) 
+ 　 　 Abstract 　 Application - sharing   system   is   one   kind   of   CSCW   system   utilities ,   which   can   make   collaborative   use   of   single   user   applications   in   a   multi - user   network   environment .   In   an   application   sharing   system ,   convenient   and   direct   ways   for   interaction   are   required .   First   presented   in   the   paper   here   is   an   application - sharing   model ,   and   key   techniques   in   the   system   such   as   shared - area   management   and   floor - control   policy   etc ..   And   then   the   agent - based   system   software   architecture   is   discussed ,   including   the   concept   of   application   sharing   manager   and   application   collaboration   agent   etc ..   A   simplified   HRTF   model   is   applied   to   construct   a   virtual   audio   conference   environment   in   the   system .   Finally ,   implementation   of   the   application   sharing   system   in   the   virtual   audio   conferencing   environment   is   also   illustrated .   Through   virtual   audio   conference ,   users   in   the   application   sharing   system   are   able   to   interact   conveniently . 
+ 　 　 Key   words 　 network ,   CSCW ,   application   sharing ,   virtual   conference   environment 
+ 1 　 引言 
+ 　 　 随着 计算机 和 网络 技术 的 不断 发展 ， 计算机 支持 的 协同工作 ( CSCW ) 已经 成为 研究 领域 的 热点 之一 .   各种 CSCW 的 应用 系统 纷纷 出现 ， 其中 包括 会议 系统 ［ 1 ］ 、 协同 编著 系统 ［ 2 ］ 、 共享 白板 、 合作 创作 平台 ［ 3 ］ 以及 协作 CAD 系统 ［ 4 , 5 ］ 等 .   
+ 　 　 CSCW 系统 可 支持 各种 专业 和 特长 的 群体 成员 共同完成 协作 任务 ［ 6 ］ .   它 与 普通 多用户 系统 的 区别 在于 ： 普通 多用户 系统 企图 对 每位 用户 提供 只有 他 本人 在 使用 系统 的 假象 ； 而 CSCW 系统 则 力图 让 用户 感觉 到 其他 用户 的 行为 .   所以 ， CSCW 系统 支持 并 鼓励 用户 活动 的 交流 .   
+ 1.1 　 应用 共享 的 基本 思想 
+ 　 　 应用 共享 系统 是 CSCW 系统 的 一种 工具 ， 任何 已有 的 应用程序 都 可以 通过 应用 共享 系统 成为 共享 型 应用 ( shared   application ) .   简单 地说 ， 应用 共享 系统 为 多用户 提供 一致 的 应用 界面 ， 协调 多用户 的 发言权 ， 从 多个 用户 取得 输入 ， 使得 应用程序 在 多个 用户 之间 协同 运行 ， 对 各个 用户 产生 相同 的 输出 .   应用 共享 系统 中 的 一个 重要 原则 是 What - You - See - Is - What - I - See   ( WYSIWIS ) ， 这是 目前 许多 协同工作 系统 所 采用 的 方法 .   它 指 的 是 界面 上 共享 窗口 内 的 内容 一致 地 出现 在 所有 共享 用户 的 对应 窗口 中 .   这 与 共享 白板 有 类似之处 ， 但是 并 不 完全相同 ， 应用 共享 系统 与 共享 白板 的 本质区别 是 ： 应用 共享 系统 使 任何 应用程序 可 被 共享 ； 而 白板 本身 只是 一个 满足 WYSIWIS 条件 的 多用户 协同 参与 的 应用程序 . 
+ 　 　 在 应用 共享 系统 中 ， 用户 之间 的 交流 是 必需 的 ， 因此 必须 提供 一种 机制 以 实现 多个 协同工作 的 用户 间 的 直观 、 迅速 的 交互 .   我们 所 讨论 的 基本 协作 环境 是 虚拟 声音 会议 环境 . 
+ 1.2 　 虚拟 会议 环境 
+ 　 　 虚拟现实 是 指 利用计算机 产生 逼真 的 三维 视觉 、 听觉 和 触觉 等 感觉 ， 使得 用户 可以 通过 使用 专用设备 自然 地 对 虚拟环境 中 的 各 虚拟 实体 进行 交互式 的 考察 和 控制 .   虚拟 的 会议 环境 是 在 多个 用户 之间 利用计算机 和 网络 产生 一个 虚拟 的 多 人 之间 交互 的 环境 .   在 这个 环境 中 ， 多个 用户 可以 借助 某些 专用设备 进行 交互式 的 实时 通信 ， 从而 对 问题 进行 协商 .   因此 虚拟 会议 环境 实际上 是 一个 考虑 多人 协同工作 的 虚拟环境 .   
+ 　 　 虚拟 会议 环境 可以 采用 多种形式 ， 如 简单 的 字符 形式 的 chat ， 或是 通过 头盔 播放 真实感 的 3D 声音 ， 也 可以 采用 视频会议 的 形式 .   
+ 　 　 文献 ［ 7 ］ 指出 ， 对 某些 类型 的 协同工作 而言 ， 使用 视频 技术 产生 面对面 的 效果 并 不能 很 好 地 提高 协作 的 工作效率 .   事实上 ， 这 还 将 给 网络带宽 带来 沉重 的 负担 .   在 我们 的 协作 环境 中 ， 我们 采用 了 虚拟 的 声音 会议 ， 从而 使得 与会者 能 产生 在 同一 房间 中 面对面 交谈 的 听觉 效果 .   
+ 　 　 本文 重点 讨论 在 虚拟 声音 会议 环境 中 的 应用 共享 技术 .   文章 结构 如下 ： 第 2 节 讨论 应用 共享 系统 的 软件结构 ； 第 3 节 介绍 虚拟 声音 会议 子系统 ； 第 4 节是 实现 技术 ； 最后 为 结论 .   
+ 2 　 应用 共享 系统 的 软件结构 
+ 2.1 　 应用 共享 的 类型 
+ 　 　 应用 共享 系统对 所有 的 用户 同时 提供 相同 的 输出 ， 而 在 任何时刻 将 输入 的 权力 限制 到 一个 用户 .   它 的 基本 思想 是 当 应用 系统 向 负责 终端 显示 的 服务器 发出 窗口 协议 时 截获 窗口 协议 流 .   应用 共享 可以 有 两种 类型 ［ 3 ］ ： 
+ 　 　 ( 1 )   应用程序 可以 在 一台 机器 上 运行 ， 而 它 的 用户界面 可以 在 数台 机器 上 显示 .   ( 例如 ， 从 应用 发 往 窗口 服务器 的 请求 可以 被 截获 ， 并发 送到 远程 的 窗口 服务器 上去 ， 于是 远程 窗口 服务器 就 可以 在 它 的 终端 上 产生 相同 的 图形 输出 .   ) 输入 则 来自 仅 有 的 拥有 输入 权 的 用户 ， 其它 用户 的 输入 均 被 过滤 出去 .   
+ 　 　 ( 2 )   在 所有 的 机器 上 运行 各自 的 应用程序 的 拷贝 ， 来自 拥有 输入 权 的 用户 的 输入 被 同步 地 发送到 所有 机器 上 的 应用程序 备份 上 .   在 这种 类型 的 应用 共享 中 ， 所有 机器 上 的 应用程序 都 将 得到 相同 的 输入 ， 并 对 用户 给出 相同 的 输出 .   
+ 　 　 这 两种 类型 的 共同点 都 是 必须 实现 发言权 控制 的 机制 .   在 第 1 种 方案 中 ， 应用程序 和 它 的 数据 都 不 被 复制 ， 只有 被 共享 的 应用 系统 的 用户界面 被 复制 出去 .   在 采用 该 方案 时 ， 传输 一个 应用 系统 的 输出 要 占用 相当 大 的 网络带宽 .   在 第 2 种 方案 中 ， 由于 用户 输入 的 数据量 比 一个 图形用户界面 ( GUI ) 应用程序 产生 的 输出 要少 得 多 ， 因此 只 需较 少 的 网络带宽 ， 但是 它 不仅 要求 每 一个 用户 拥有 一份 程序 的 拷贝 ， 而且 还 要求 所有 参与 共享 的 工作站 环境 完全一致 .   因此 我们 选择 了 第 1 种 方案 . 
+ 2.2 　 公有 区 管理 
+ 　 　 公有 区 是 指 协同工作 中 被 所有 用户 共享 的 输出 空间 ， 包括 被 共享 的 屏幕 空间 . 任何 一个 用户 对 公有 的 屏幕 空间 所 进行 的 改变 都 应 反映 在 其他 用户 的 屏幕 上 ， 当然 对 多媒体 的 协同工作 系统 而言 ， 公有 区 还 可 包括 声效 卡所 输出 的 某 一段 声音 等 .   
+ 　 　 在 像 应用 共享 这样 的 同步 协作 系统 中 ， 公有 区 的 管理 应该 满足 WYSIWIS .   因此 ， 为了 方便 起 见 ， 在 任一 时刻 都 应当 存在 一个 系统 的 服务设施 ， 以便 用来 管理 整个 系统 中 公有 区 的 创建 、 增加 、 改变 、 删除 和 移动 等 操作 .   
+ 　 　 在 整个 协作 系统 中 ， 所有 用户 还有 必要 了解 当前 发言人 对 公有 区 感兴趣 的 东西 ， 或者说 该 发言人 正 企图 做 什么 .   因此 公有 区 应当 提供 一定 的 机制 ， 例如 ， 在 我们 的 系统 中 实现 了 远程 指针 ( telepointer ) 和 远程 键 提示 ( telekey - prompt ) ， 其 用途 就是 让 其他 用户 均 可 看到 当前 发言人 用 指针 所指 的 对象 或是 所 按 下 的 热键 等 . 
+ 2.3 　 发言权 控制 
+ 　 　 在 协同工作 中 ， 每个 用户 都 可以 通过 某 一种 方式 获得 发言权 ， 也 可以 主动 地 放弃 发言权 .   另外 还 应有 一种 机制 防止 某个 用户 过于 积极 发言 而 拒绝 放弃 发言权 .   我们 提供 3 种 模式 的 发言权 控制 ： 
+ 　 　 ( 1 )   主席 控制 模式 ， 即 由 协同工作 系统 的 管理者 控制 当前 哪个 用户 拥有 发言权 ； 
+ 　 　 ( 2 )   主动 抢占 模式 ， 在 这种 模式 下 ， 所有 无 发言权 的 用户 可以 对 发言权 控制 设施 发出 申请 ， 要求 得到 发言权 .   发言权 控制 设施 剥夺 当前 发言人 的 发言权 ， 再 根据 某种 约定 的 仲裁 策略 ， 例如 根据 请求 到达 的 时间 等 ， 将 发言权 赋给 某个 用户 ； 
+ 　 　 ( 3 )   主动 放弃 模式 ， 在 这种 模式 下 ， 拥有 发言权 的 用户 可 主动 让出 发言权 ， 然后 所有 用户 可 竞争 发言权 . 
+ 　 　 3 种 发言权 模式 可以 交替 进行 控制 ， 为了 整个 系统 能 统一 管理 发言 ， 所以 有 必要 设置 一个 专用 的 系统 服务设施 ， 用来 控制 发言权 .   
+ 2.4 　 系统 的 软件结构 
+ 　 　 应用 共享 系统 的 软件结构 如图 1 所示 .   整个 系统 采用 分布式 人工智能 中 常用 的 Agent ( 代理 ) 方法 实现 .   正如 2.2 节 和 2.3 节中 所述 ， 系统 中 需要 一个 服务设施 来 对 应用 共享 系统 进行 统一 的 注册 和 管理 ， 我们 称 它 为 应用 共享 管理器 ( 简称 ASM ) .   ASM 运行 在 一台 独立 的 服务器 上 ， 它 使得 基于 GUI 的 单用户 应用程序 可 在 多用户 之间 同步 地 共享 .   我们 把 拥有 被 共享 的 应用 的 那个 用户 称为 所有者 ( owner ) ， 其他 共享 用户 称为 共享 者 ( sharer ) .   从 实现 的 角度 讲 ， 应用 共享 系统 的 每个 用户端 部分 由 应用 协作 Agent 和 界面 Agent 组成 .   应用 协作 Agent 的 任务 是 管理 所有 用户 之间 的 公有 区 ， 并 实时 地 从 所有者 那里 得到 被 共享 应用 的 当前 状态 ， 再 实时 地 把 该 应用 的 状态 传输 到 共享 者 那里 ， 绘制 或 播放 出来 .   在 图 1 中 ， 每个 用户 的 工作站 上 运行 一个 应用 协作 Agent .   应用 协作 Agent 的 结构 如图 2 所示 ， 它 包括 以下 几个 部分 ： 
+ 
+ 
+ 图 1 　 应用 共享 系统 的 软件结构 
+ 
+ 
+ 图 2 　 应用 协作 Agent 的 结构 
+ 　 　 ( 1 )   协作 控制 .   它 起到 了 应用 协作 Agent 的 枢纽 作用 ， 它 处理 本机 或 远程 的 共享 应用 所 发送 来 的 各类 事件 ， 对 其它 几个 部分 有 控制 作用 .   
+ 　 　 ( 2 )   协作 引擎 .   它 管理 本 机上 被 共享 的 单用户 应用程序 的 输入 、 输出 ， 使 其能 被 多个 用户 共享 .   
+ 　 　 ( 3 )   播放 绘制 器 .   它 用来 播放 、 绘制 远程 机上 的 共享 应用 的 输出 . 
+ 　 　 ( 4 )   网络接口 .   它 提供 了 协作 系统 中多机 的 应用 协作 Agent 之间 可靠 的 网络 传输 机制 . 
+ 3 　 虚拟 声音 会议 子系统 
+ 　 　 声音 会议 的 目的 是 让 远距离 的 参加者 可以 实时 地 交谈 ， 好像 在 同一 房间 中 一样 .   为了 达到 这种 很 自然 的 交互方式 ， 需要 将 声音 信号 作 一定 的 处理 ， 并 在 接受 端 合成 为 相应 的 3D 空间 声音 ［ 8 ］ .   声音 场 的 重建 可以 采用 两种 方式 ： 一种 是 用 扬声器 合成 整个 环境 的 声场 ； 另 一种 方式 是 用 耳机 对 人 的 双耳 分别 重建 所 需 的 声场 .   由于 前 一种 方式 在 桌面环境 下 很 难 实现 ， 所以 在 虚拟 声音 会议 中 ， 我们 采用 对 双耳 分别 重建 声场 的 方式 . 
+ 　 　 目前 ， 耳机 模拟 空间 声 的 技术 已 研究 得 较 多 ， 其 方法 一般 是 在 耳道 中 安装 探测 麦克风 ， 记录 下 许多 典型 位置 声音 脉冲 的 响应函数 （ head - related   transfer   function ,   HRTF ） .   在 模拟 空间 声时 ， 根据 其 方位角 选择 对应 的 双耳 脉冲响应 函数 ， 进行 卷积 运算 ， 产生 双耳 声音 ， 从而 达到 空间 声 效果 .   在 虚拟 会议 环境 中 ， 为了 让 多个 用户 产生 在 桌面上 进行 会议 的 感觉 ， 我们 假定 各 用户 处于 虚拟空间 的 同一 水平面 内 .   因而 高度 信息 可以 不加考虑 ， 而 只 需 考虑 水平 的 方向 角及 距离 ， 由此 可 对 HRTF 模型 进行 简化 .   
+ 　 　 为了 在 用户 之间 提供 远程 的 声音 会议 机制 ， 我们 设计 并 实现 了 会议 Agent .   它 运行 在 每个 用户 的 工作站 上 .   当 一个 用户 通过 话筒 输入 声音 时 ， 声音 信号 被 界面 Agent 感知 ， 从而 进入 到 会议 Agent .   会议 Agent 将 声音 通过 系统 设施 广播 到 其它 的 工作站 .   其它 工作站 上 的 会议 Agent 感知 该 声音 数据 后 再 从 系统 的 数据库 中 得到 当前 虚拟环境 中 本地用户 与 正在 发言 的 用户 的 相对 位置 ， 并 根据 简化 的 HRTF 模型 计算 出 双通道 的 3D 声音 ［ 9 ］ ， 然后 在 本机 通过 界面 Agent 播放 出来 .   虚拟 会议 环境 中 的 数据流 如图 3 所示 . 
+ 
+ 
+ 图 3 　 虚拟 声音 会议 中 的 数据流 结构 
+ 4 　 系统 的 实现 
+ 4.1 　 系统 硬件 结构 
+ 　 　 系统 硬件 结构 采用 多台 Pentium   PC机 .   它们 用 10Mbps 带宽 的 以太网 互连 ， 每台 机器 配备 声效 卡 、 耳机 、 话筒 等 多媒体 设备 .   它 的 结构 如图 4 所示 . 
+ 
+ 
+ 图 4 　 应用 共享 系统 的 硬件 结构 
+ 4.2 　 系统软件 实现 
+ 　 　 虚拟 声音 会议 环境 中 的 应用 共享 系统 可以 分为 虚拟 会议 子系统 和 应用 共享 子系统 两 大部分 ， 其 结构 如图 5 所示 ， 其 底层 的 操作系统 采用 Windows .   系统 实现 的 关键 有 以下 3 点 ： 
+ 
+ 声 　 音 
+ ( Audio ) GUI 
+ 应用程序 
+ 虚拟 会议 
+ 子系统 应用 共享 
+ 子系统 
+ 操作系统 
+ 
+ 图 5 　 系统 整体 软件 层次结构 
+ 　 　 ( 1 )   应用 协作 Agent 的 实现 
+ 　 　 为了 达到 应用 共享 的 目的 ， 我们 采用 截获 系统 中 的 输入 设备 事件 协议 流 和 窗口 事件 协议 流 的 方法 ， 对 来自 网络 的 其他 用户 在 应用 共享 过程 中 的 发言 ， 采用 插入 原始 输入 设备 事件队列 的 方法 ； 对 来自 网络 的 其他 用户 的 窗口 事件 协议 流 ， 则 由 协作 控制 交给 绘制 器去 完成 .   
+ 　 　 ( 2 )   应用 共享 管理器 的 实现 
+ 　 　 应用 共享 管理器 可以 感知 到 整个 协作 系统 中 各个 用户 的 协作 Agent 的 活动 .   当有 新 的 用户 加入 应用 共享 系统 时 ， 共享 管理器 将 为 该 用户注册 ； 当有 用户 退出 时 ， 它 负责 注销 等 收尾 工作 .   当 系统 中有 一个 用户 发言 时 ， 它 从 当前 发言人 得到 输入 的 原语 ， 并 负责 将 输入 多点 播送到 其他 的 用户 .   对 各个 用户 的 窗口 协议 流 ， 管理器 负责 将 它们 分别 多点 播送到 其它 用户 的 应用 协作 Agent . 
+ 　 　 ( 3 )   会议 Agent 的 实现 
+ 　 　 会议 Agent 实现 的 关键 是 利用 简化 的 HRTF 模型 ， 由 来自 网络 的 声音 数据 计算 出 双通道 的 3D 真实感 声音 .   其 方法 是 使用 虚拟 会议 环境 中 用户 间 的 相对 方向 角 和 距离 ， 计算 出 模型 的 声音 强度 、 相位差 和 距离 等 特征 . 
+ 5 　 结束语 
+ 　 　 应用 共享 系统 是 一类 典型 的 CSCW 工具 .   普通 的 单用户 应用程序 可 在 该 系统 平台 上 多用户 协同 地 运行 .   通过 增加 虚拟 声音 会议 的 功能 ， 协同 工作组 内 用户 间 的 交互方式 变得 更加 直接 .   根据 试用 的 结果 ， 虚拟 声音 会议 环境 中 的 应用 共享 效率 明显 高于 无 声音 会议 的 协作 .   可以 设想 ， 今后 的 协作 系统 将会 建立 在 更加 方便 直接 的 多 人 交互 环境 ( 如多人 交互 的 虚拟现实 ) 中 .   
+ 本 课题 得到 中国 - 巴西 国际 合作项目 和 浙江省 自然科学 基金 资助 . 
+ 作者简介 ： 寿黎 但 ， 男 ， 1974 年 7 月生 ， 硕士 研究生 ， 主要 研究 领域 为 CSCW 、 多媒体通信 . 
+ 　 　 　 　 　 薛强 ， 男 ， 1974 年 8 月生 ， 硕士 ， 主要 研究 领域 为 CSCW 和 科学 可视化 . 
+ 　 　 　 　 　 潘志庚 ， 男 ， 1965 年 9 月生 ， 研究员 ， 博士生 导师 ， 主要 研究 领域 为 多媒体 、 分布式 图形 、 虚拟环境 . 
+ 　 　 　 　 　 石教英 ， 男 ， 1937 年 4 月生 ， 教授 ， 博士生 导师 ， 主要 研究 领域 为 多媒体 计算 、 计算机 图形 和 CAD 、 可视化 、 虚拟环境 . 
+ 作者 单位 ： 浙江大学 CAD   &   CG 国家 重点 实验室 　 杭州 　 310027 
+ 　 　 　 　 　 浙江大学 计算机科学 与 工程学系 　 杭州 　 310027 
+ 参考文献 
+ 　 1 　 　 Jing   Wanjun ,   Wan   Jing .   CSCW   desktop   conference   system .   In :   Proc   1st   CSCW   in   Design ,   Beijing ,   1996 .   483 ～ 490 
+ 　 2 　 　 鲍钟俊 . 多媒体 协同 编著 系统 ： M3Edit ［ 硕士论文 ］ .   浙江大学 ,   杭州 ， 1996 
+ 　 　 　 ( Bao   Zhongjun .   M3Edit :   A   multimedia   collaborative   authorization   system ［ MD   dissertation ］ .   Zhejiang   University ,   Hangzhou ,   1996 ) 
+ 　 3 　 　 王恺 ， 王朴 ， 朱 海滨 .   单用户 多媒体 创作 平台 扩充 到 合作 创作 平台 中 的 问题 .   计算机 学报 ， 1996 ,   19 ( 12 ) :   887 ～ 894 
+ 　 　 　 ( Wang   Kai ,   Wang   Pu ,   Zhu   Haibin .   The   problems   in   extending   individual   multimedia   authoring   to   cooperative   multimedia   authoring .   Chinese   Journal   of   Computers ( in   Chinese ) ,   1996 ,   19 ( 12 ) :   887 ～ 894 
+ 　 4 　 　 Gisi , Mark   A   et   al .   Co - CAD :   A   collaborative   mechanical   CAD   system .   Presence ,   1994 ,   3 ( 4 ) : 341 ～ 350 
+ 　 5 　 　 Pan   Zhigeng ,   Zhang   Mingmin ,   Zhang   Haohan   et   al .   Cooperation   management   for   collaborative   CAD   systems .   In :   Proc   5th   Int   CAD   &   CG .   Shenzhen ,   1997 .   622 ～ 627 
+ 　 6 　 　 王国 意 ， 徐光佑 .   CSCW 支撑 平台 的 结构 模型 .   计算机 学报 ,   1997 , 20 ( 8 ) :   718 ～ 724 
+ 　 　 　 ( Wang   Guoyi ,   Xu   Guangyou .   The   architecture   model   of   CSCW   support   platform .   Chinese   Journal   of   Computers ( in   Chinese ) ,   1997 ,   20 ( 8 ) :   718 ～ 724 ) 
+ 　 7 　 　 Nardi   B   A ,   Schwarz   H ,   Kuchinsky   A   et   al .   Turning   away   from   talking   heads : The   use   of   video - as - data   in   neurosurgery .   Hewlett - Packard   Laboratories ,   Tech   Rep :   HPL ,   1992 
+ 　 8 　 　 张爱东 ， 石教英 ， 潘志庚 . 虚拟环境 中 真实感 空间 声音 合成 .   软件 学报 ,   1996 ,   7 ( 增刊 ) ： 120 ～ 126 
+ 　 　 　 ( Zhang   Aidong ,   Shi   Jiaoying ,   Pan   Zhigeng .   Realistic   spatial   sound   rendering   in   virtual   environment .   Journal   of   Software ( in   Chinese ) ,   1996 ,   7 ( Supplement ) :   120 ～ 126 ) 
+ 　 9 　 　 Zhang   Aidong ,   Zhang   Qiong   et   al .   Audio   telecommunication   using   simplified   HRTF   model   for   computer   supported   cooperative   work .   In :   Proc   1st   Int   Workshop   on   CSCW   in   Design ,   Beijing ,   1996 .   44 ～ 51   
+ 原稿 收到 日期 ： 1997 - 12 - 17 ； 
+ 修改稿 收到 日期 ： 1998 - 04 - 20 . 

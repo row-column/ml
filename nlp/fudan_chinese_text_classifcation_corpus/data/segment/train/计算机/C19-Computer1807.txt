@@ -1,0 +1,280 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000 　 No.19 　 No.1 　 P.25 - 28 
+ 
+ 
+ 
+ 
+ 在 Windows95 下 PC机 和 单片机 的 串行 通信 
+ 王亭 　 李瑞涛 　 宋召清 
+ 摘   要 ：   基于 32 位 操作系统 Windows95 的 工业 控制 PC机 和 单片机 间 的 串行 通信 ， 给出 了 用 VC ＋ ＋ 5 ． 0 和 PL ／ M － 96 语言 编写 的 串行 通信 程序 。   
+ 关键词 ： 串行 通信   单片机   Windows   API 接口 
+ 　 　 串行口 是 计算机 与 外部设备 进行 数据交换 的 重要 介质 ， 所以 串行 通信 在 工程 实现 中 有着 广泛 的 应用 。 而 Microsoft 公司 的 VC ＋ ＋ 5 ． 0 功能强大 ， 其 基础 类库 ( MFC ) 封装 了 Win32   API 中 的 标准 通信 函数 ， 可 方便 地 支持 串口 通信 。 本文 结合 笔者 在 开发 转台 控制程序 中 对 串行 通信 编程 的 一些 收获 ， 介绍 了 在 Win95 下用 VC ＋ ＋ 5 ． 0 和 PL ／ M － 96 语言 开发 PC机 和 单片机 通信 程序 的 一些 经验 。 
+ 1   系统 组成 
+ 　 　 系统 中 采用 N80C196KB 单片机 作为 下位 机 ， 工业 控制 PC机 为 上位 机 ， 二者 通过 RS － 232 串行口 接收 或 上传 数据 和 指令 。 传输 介质 为二芯 屏蔽 电缆 ， 接线图 如图 1 所示 。 
+ 
+ 图 1   RS － 232 电缆 连接 图 
+ 　 　 RS － 232 信号 的 电平 和 单片机 串口 信号 的 电平 不 一致 ， 必须 进行 二者之间 的 电平 转换 。 在 此 使用 的 集成 电平 转换 芯片 MAX232 为 RS － 232C ／ TTL 电平 转换 芯片 。 它 只 使用 单 ＋ 5V 为 其 工作 ， 配接 4 个 1 μ F 电解电容 即可 完成 RS － 232 电平 与 TTL 电平 之间 的 转换 。 其 原理图 如图 2 所示 。 转换 完毕 的 串口 信号 TXD 、 RXD 直接 和 N80C196KB 的 串行口 连接 。 
+ 
+ 图 2   电平 匹配 原理图 
+ 2   通信协议 
+ 　 　 项目 中 工业 控制 PC机 承担 主控 任务 ， 负责 转台 运动 参数 的 设定 ， 程序 由 VC ＋ ＋ 5 ． 0 编写 。 单片机 接受 PC机 指令 ， 并 根据 指令 信息 驱动 转台 运动 或 上传 数据 。 通信协议 如下 ： 
+ 　 　 采用 RS － 232 串口 异步 通信 ， 1 位 起始 位 ， 8 位 数据位 ， 1 位 停止 位 ， 无 奇偶校验 ， 波特率 2400b ／ s 。 传输数据 采用 ASCII 模式 。 指令 形式 采用 7 个 ASCII 串 ， 格式 为 “ $ × × × × * ” ， 其中 ‘ $ ’ 和 ‘ * ’ 分别 标明 该 指令 的 起始 和 结束 ， ‘ × × × × ’ 为 指令 内容 。 如 ： “ $ REMOT * ” 为 远控 、 “ $ H ± × × × * ” 为 转台 航向 给定 命令 ， “ $ ASKQ ? * ” 为 主机 查询 倾斜角 命令 等 。 下位 机 按 接收 到 的 指令 工作 。 如果 主控 机 发出 错误 的 指令 或 现在 正 执行 上 一条 角度 给定 命令 的 过程 中 又 收到 新 的 角度 给定 命令 ， 将 不 做 任何 控制 ， 并 显示 Error 提示 ， 1 秒钟 后 自动 返回 。 
+ 3   编程 机制 
+ 3.1   主控 机 的 VC ＋ ＋ 5 ． 0 串行 通信 程序 
+ 　 　 在 Win95 环境 下 提供 了 完备 的 API 应用程序 接口函数 ， 程序员 通过 这些 函数 与 通信 硬件 接口 。 通信 函数 是 中断 驱动 的 ： 发送数据 时 ， 先 将 其 放入 缓存 区 ， 串口 准备 好后 ， 就 将 其 发送 出去 ； 传来 的 数据 迅速 申请 中断 ， 使 Windows 接收 它 并 将 其 存入 缓冲区 ， 以供 读取 。 
+ 　 　 发送 过程 较易 实现 ， 接收 处理 方式 主要 有 查询 和 中断 方式 。 采用 查询 方式 时 ， CPU 要 不断 测试 串口 是否 有 数据 ， 以 防止 接收 串口 数据 出现 错误 、 遗漏 、 效率 低 ； 而 采用 中断 方式 则 无需 测试 串口 ， 一旦 有 数据 传至 ， CPU 终止 当前任务 ， 由 中断 服务程序 完成 操作 。 所以 ， 中断 方式 具有 效率高 、 接收 准确 、 编程 简单 等 优点 。 因此 本文 采用 的 是 中断 接收 方式 。 
+ 　 　 在 Windows95 中 ， 把 串口 当作 文件 来 操作 ， 取消 了 原 Windows3 ． X 下 的 WM _ COMMNOTIFY 消息 ， 因此 在 中断 机制 下 ， 程序员 必须 像 下面 这样 自定义 消息 ： 
+ 　 　 ＃ define   WM _ COMM _ READ   WM _ USER + 100O 
+ 　 　 N _ MESSAGE ( WM _ COMM _ READ ， OnCommRead )   / / 消息 映射 入口 
+ 　 　 LONG   OnCommRead ( UINT   wParam ， LONG   lParam ) ； / / 消息 响应函数 说明 
+ 　 　 为了 实时 响应 串口 事件 ， 必须 在 主线 程 之外 创建 1 个 辅助 监视 线程 。 为 防止 各 线程 的 共享资源 访问 出错 ， 在 程序 中 的 各 线程 的 动作 应 同步化 。 这 可 利用 MFC 提供 的 同步化 事件 对象 。 
+ 　 　 所以 在 开始 通信 前 ， 首先 要 初始化 串口 （ 包含 选 串口 、 设置 串口 掩码 、 设置 缓冲区 大小 、 设置 波特率 等 串行 参数 ） 、 创建 同步 事件 、 创建 线程 并 让 辅助线 程 处于 发信号 状态 ， 在 主线 程 执行 其它 操作 时 ， 通信 监视 线程 监视 串口 ， 一旦 输入 缓冲区 内有 数据 立即 向 主线 程 发送 WM _ COMM _ READ 消息 ， 然后 由 消息 响应函数 做 进一步 处理 ， 一次 通信 即 完成 。 用户 编写 串口 通信 程序 只 需 实现 如图 3 所示 步骤 。 
+ 
+ 图 3   串行 通信 编程 步骤 
+ 　 　 相应 函数 主要 有 ： CreateFile ( ) ： 用于 打开 通信 资源 ； 
+ 　 　 SetupComm ( ) ： 用于 设置 输入输出 队列 的 大小 ； 
+ 　 　 GetCommState ( ) ： 获得 端口 参数 当前 配置 ； 
+ 　 　 SetCommState ( ) ： 设置 端口 ； 
+ 　 　 ReadFile ( ) 和 WriteFile ( ) ： 读 、 写 指定 端口 数据 ； 
+ 　 　 CloseFile ( ) ： 关闭 指定 端口 。 
+ 　 　 以上 函数 的 详细 用法 可 参见 VC ＋ ＋ 5 ． 0 的 在线 帮助 及 本文 给出 的 例程 和 参考文献 。 
+ 3.2   下位 机 的 PL ／ M － 96 串行 通信 程序 
+ 　 　 N80C196KB 单片机 程序 采用 PL ／ M － 96 语言 编写 。 PL ／ M － 96 语言 是 一种 模块化 的 高级 单片机 编程语言 ， 适用 于 MCS － 96 系列 单片机 。 首先 N80C196KB 将 串口 初始化 为 1 位 起始 位 、 8 位 数据位 、 1 位 停止 位 ， 波特率 为 2400b ／ s 。 串行口 信号 输入 采用 中断 方式 ， 输出 采用 查询 方式 。 其 通信 程序 见 4.2 节 。 
+ 4   程序 实例 
+ 4.1   VC ＋ ＋ 5 ． 0 程序 
+ 　 　 以下 是 串口 通信 的 程序 部分 代码 。 
+ / / 首先 在 ComView ． h 中 定义 如下 变量 
+ HANDLE   hCom ， hEvent ； 
+ HWND   hwComwnd ； 
+ BOOL   Error ， Result ， Success ， threadFlag ； 
+ DCB   dcb ； DWORD   dwEvtMask ， dwLength ； 
+ OVERLAPPED   ComRead ， ComWrite ； 
+ COMSTAT   comState ； 
+ char   ReadBuf [ 14 ] ＝ ″ ″ ； 
+ char   * send ； 
+ char   * receive ； 
+ / / 在 头文件 中 加入 ： 
+ ＃ define   WM _ COMM _ READ   WM _ USER ＋ 101 
+ / / Generated   message   map   functions 
+ / / { { { AFX _ MSG ( CComView ) 
+ / / 消息 处理函数 声明 ： 
+ 　 　 afx _ msg   LONG   OnCommRead ( UINT   wParam ， LONG   lParam ) ； 
+ 　 　 　 　 / / }   } AFX _ MSG 
+ 　 　 　 　 DECLARE _ MESSAGE _ MAP ( ) 
+ 　 　 } ； 
+ / / 消息 映射 ： 
+ BEGIN _ MESSAGE _ MAP ( CComView ， CFormView )   
+ 　 　 / / {   { AFX _ MSG _ MAP ( CComView ) 
+ 　 　 　 　 ON _ MESSAGE ( WM _ CCOM _ READ ， 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 OnCommRead ) 
+ 　 　 / / } } AFX _ MSG _ MAP 
+ 　 　 END _ MESSAGE _ MAP ( ) 
+ ＃ include   ″ stdafx ． h ″ 
+ ＃ include   ″ gd ． h ″ 
+ ＃ include   ″ ComView ． h ″ 
+ ＃ include   ″ math ． h ″ 
+ ＃ include   ＜ stdlib ． h ＞ 
+ ＃ ifdef _ DEBUG 
+ ＃ define   new   DEBUG _ NEW 
+ ＃ undef   THIS _ FILE 
+ static   char   THIS _ FILE [ ] ＝ _ FILE _ ； 
+ ＃ endif 
+ IMPLEMENT _ DYNCREATE ( CComView ， CFormView ) 
+ CComView ： ： CComView ( ) 
+ 　 　 ： CFormView ( CComView ： ： IDD ) 
+ { 
+ 　 　 / / {   { AFX _ DATA _ INIT ( CComView ) 
+ 　 　 　 　 / / }   } AFX _ DATA _ INIT 
+ } 
+ CComView ： ： ～ CComView ( ) 
+ { 
+ } 
+ void   CComView ： ： OnInitialUpdate ( ) 
+ { 　 　 CFormView ： ： OnInitialUpdate ( ) ； 
+ 　 　 / / TODO ： Add   your   specialized   code   here   and ／ or 
+ 　 　 / / call   the   base   class 
+ hCom ＝ CreateFile ( ″ COM2 ″ ， / / 指定 串口 
+ 　 　 　 　 GENERIC _ READ ｜ GENERIC _ WRITE ， / / 设置 读写 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 模式 
+ 　 　 　 　 0 ， / / 共享 模式 ， 此项 必须 为 零 
+ 　 　 　 　 NULL ， / / 安全 属性 
+ 　 　 　 　 OPEN _ EXISTING ， 
+ 　 　 　 　 / / 产生 方式 ， 必须 设为 OPEN _ EXISTING 
+ 　 　 　 　 FILE _ ATTRIBUTE _ NORMAL ｜ FILE _ FLAG _ 0 
+ 　 　 　 　 VERLAPPED ， / / 文件类型 为 异步 通信 
+ 　 　 　 　 NULL ) ； 通信 中 此项 必须 设置 为 NULL 
+ 　 　 if ( hCom ＝ ＝ INVALID _ HANDLE _ VALUE ) 
+ 　 　 { 　 　 MessageBox ( ″ CreateCommFile 
+ 　 　 　 　   Error ， / / 设置 错误 ， 检查 串口 是否 正 使用 ″ 
+ 　 　 　 　   ″ 警告 ″ ， MB _ OK ) ； 
+ 　 　   } 
+ BOOL   Success ＝ SetCommMask ( hCom ， EV _ RXFLAG ) ； 
+ 　 　 if ( ! Success ) 
+ 　 　 { 　 　 MessageBox ( ″ SetCommMask   Error ! ″ ， 
+ 　 　 　 　 ″ 警告 ″ ， MB _ OK ) ； 
+ 　 　 } 
+ BOOL   Error ＝ SetupComm ( hCom ， 1024 ， 1024 ) ； 
+ 　 　 if ( ! Error ) 
+ 　 　 { 　 　 MessageBox ( ″ SetupComm   Error ! ″ ， 
+ 　 　 　 　 ″ 警告 ″ ， MB _ OK ) ； 
+ 　 　 } 
+ BOOL   Error ＝ GetCommState ( hCom ， ＆ dcb ) ； 
+ 　 　 if ( ! Error ) 
+ 　 　 { 　 　 MessageBox ( ″ GetupComm   Error ! ″ ， 
+ 　 　 　 　 ″ 警告 ″ ， MB _ OK ) ； 
+ 　 　 } 
+ 　 　 dcb ． BaudRate ＝ 2400 ； 
+ 　 　 dcb ． ByteSize ＝ 8 ； 
+ 　 　 dcb ． Parity ＝ NOPARITY ； 
+ 　 　 dcb ． StopBits ＝ ONESTOPBIT ； 
+ 　 　 Error ＝ SetCommState ( hCom ， ＆ dcb ) ； 
+ 　 　 if ( ! Error ) 
+ 　 　 { 　 　 MessageBox ( ″ SetupCommState   Error ! ″ ， 
+ 　 　 　 　 ″ 警告 ″ ， MB _ OK ) ； 
+ 　 　 } 
+ hEvent ＝ CreateEvent ( NULL ， / / 无 安全 属性 
+ 　 　 　 　 　 　 　 　 　 　 TRUE ， / / 手工 重置 事件 
+ 　 　 　 　 　 　 　 　 　 　 TRUE ， / / 初始状态 ； 无 信号 
+ 　 　 　 　 　 　 　 　 　 　 NULL / / 初始状态 ： 无 名字 ） ； 
+ 　 　 if ( m _ Com ) 
+ 　 　 { 
+ 　 　 threadFlag ＝ TRUE ； 
+ 　 　 m _ Com － ＞ ResumeThread ( ) ； 
+ 　 　 ： ： WaitForSingleObject ( 
+ 　 　 m _ Com － ＞ m _ hThread ， INFINITE ) ； 
+ 　 　 delete   m _ Com ； 
+ 　 　 } 
+ m _ Com ＝ AfxBeginThread ( ComReceive ， ＆ m _ hWnd ， 
+ 　 　 　 　 THREAD _ PRIORITY _ NORMAL ， 0 ， 
+ 　 　 　 　 　 　 　 　 　 　 　 　 CREATE _ SU   SPENDED ， NULL ) 
+ m _ Com － ＞ m _ bAutoDelete ＝ FALSE ； 
+ threadFlag ＝ FALSE ； 
+ m _ Com － ＞ ResumeThread ( ) ； 
+ hwComWnd ＝ m _ hWnd ； } 
+ UINT   ComReceive ( LPVOID   m _ View ) 
+ { 
+ 　 　 DWORD   dwRead ； 
+ memset ( ＆ ComRead ， 0 ， sizeof ( OVERLAPPED ) ) ； 
+ 　 　 if ( ! SetCommMask ( hCom ， EV _ RXCHAR ) ) 
+ 　 　 { 
+ 　 　 DWORD   err ＝ GetLastError ( ) ； 
+ 　 　 Return ( FALSE ) ； 
+ 　 　 } 
+ while ( 1 ) 
+ { 
+ dwRead ＝ 0 ； 
+ WaitCommEvent ( hCom ， ＆ dwRead ， ＆ CoRead ) ； 
+ 　 If ( ( dwRead ＆ EV _ RXCHAR ) ＝ ＝ EV _ EVENT ) 
+ 　 WaitForSingleObject ( hEvent ， 0xFFFFFFFF ) ； 
+ ResetEvent ( hEvent ) ； / / 重启动 事件 
+ PostMessage ( hEvent ， WM _ COMM _ READ ， NULL ， NULL ) ； / / 发送 消息 
+ } 
+ 　 　 　 　 return   0 ； 
+ } 
+ LONG   CComView ： ： OnCommEvent ( UINT   wParam ， LONG   lParam ) 
+ { 
+ ClearCommError ( hCom ， ＆ dwEvtMask ， ＆ comState ) ； 
+ DwLength ＝ comState ． cbInQue ； 
+ if ( dwLength ＞ ＝ 7 ) 
+ Error ＝ ReadFile ( hCom ， ReadBuf ， dwLength ， 
+ ＆ dwLength ， ＆ ComRead ) ； 
+ 　 　 if ( ! Error ) 
+ 　 　 { 　 　 MessageBox ( ″ 读 串口 不 正常 Error ! ″ ， 
+ 　 　 　 　   ″ 警告 ″ ， MB _ OK ) ； 
+ 　 　 } 
+ 　 　 SetEvent ( hEvent ) ； 
+ 　 　 Return   0 ； 
+ } 
+ 　 　 void   CComView ： ： sent ( ) 
+ { / / 例如 ： 
+ char   SendBuf ＝ ″ $ ASKQ ?   * ″ ； 
+ send ＝ SendBuf ； 
+ Error ＝ WriteFile ( hCom ， send ， 7 ， ＆ dwLength ， ＆ ComWrite ) ； 
+ if ( ! Error ) 
+ 　 　 { 　 　 MessageBox ( ″ 写 串口 不 正常 Error ! ″ ， 
+ 　 　 　 　 ″ 警告 ″ ， MB _ OK ) ； 
+ 　 　 } 
+ } 
+ void   CComView ： ： OnDestroy ( ) 
+ { 　 　 CFormView ： ： OnDestroy ( ) ； 
+ 　 　   CloseHandle ( hCom ) ； / / 关 串口 资源 
+ } 
+ 4.2   PL ／ M － 96 程序 
+ START ：   D0 ； 
+ $ NOLIST 
+ $ INCLUDE ( N80C196 ． PLM ) 
+ $ LIST 
+ DECLARE   RCMD ( 16 )   BYTE ； ／ * 接收缓冲区 * ／ 
+ DECLARE   INFO ( 16 )   BYTE ； ／ * 发送缓冲区 * ／ 
+ DECLARE   RI 　 　 　   BYTE ； 
+ DECLARE   CHA 　 　 　 BYTE ； 
+ COMSET ： PROCEDURE ； 
+ 　 　 　 　 DISABLE ； ／ * 关 中断 * ／ 
+ 　 　 　 　 INT _ MASK ＝ 01000000B ； ／ * 开放 串口 中断 * ／ 
+ 　 　 　 　 INT _ MASK1 ＝ 00000000B ； 
+ 　 　 　 　 I0C1 ＝ IOC1   OR   20H ； 
+ 　 　 　 　 SP _ CON ＝ 00001001B ； 
+ 　 　 　 　 BAUD _ RATE ＝ 9BH ； * ／ 波特率 为 2400 * ／ 
+ 　 　 　 　 BAUD _ RATE ＝ 80H ； ／ * 1 个 起始 位 ， 8 个 有效 位 ， 1   个 停止 位   * ／ 
+ END 　 　   COMSET ； 
+ INT6 ：     PROCEDURE   INTERRUPT   6 ； 
+ 　 　 　 　 ／ * 串口 中断 服务程序 * ／ 
+ 　 　 　 　 DH ＝ SP _ STAT ； 
+ 　 　 　 　 CHA ＝ SBUF ； 
+ 　 　 　 　 IF   CHA ＝ ′ $ ′   THEN   RI ＝ 0 ； 
+ 　 　 　 　 IF   CHA ＝ ′ * ′   THEN 
+ 　 　 　 　 DO ； 
+ 　 　 　 　 　 CALL   RUNCMD ； ／ * 执行命令 * ／ 
+ 　 　 　 　 　 CALL   CLRRCMD ； ／ * 清 接收缓冲区 * ／ 
+ 　 　 　 　 END ； 
+ 　 　 　 　 RCMD ( RI ) ＝ CHA ； 
+ 　 　 　 　 RI ＝ RI ＋ 1 ； 
+ 　 　 　 　 INT _ PENDING1 ＝ 0 ； 
+ 　 　 　 　 INT _ PENDING ＝ 0 ； 
+ END 　 　   INT6 ； 
+ COMOCHA ：   PROCEDURE   ( CHA ) ； 
+ 　 　 　 　 　 DECLARE   ( CHA ， CHA1 )   BYTE ； ／ * 查询 方 
+ 　 　 　 　 　 式 发送 字符 子程序 * ／ 
+ 　 　 　 　 　 SBUF ＝ CHA ； 
+ LOOP ： 　 　 CHA1 ＝ SP _ STAT ； 
+ 　 　 　 　 　 IF   ( BITTST ( CHA1 ， 5 ) ＜ ＞ 0FFH )   THEN 
+ 　 　 　 　 　 　 GOTO   LOOP ； 
+ END 　 　 　   COMOCHA ； 
+ COMOSTR ：   PROCEDURE   ( ADDR ， LENTH ) ； ／ * 发送 字符串 子程序 * ／ 
+ 　 　 　 　 　 DECLARE   ADDR   ADDRESS ； 
+ 　 　 　 　 　 DECLARE   LENTH   BYTE ； 
+ 　 　 　 　 　 DECLARE   I   BYTE ； 
+ 　 　 　 　 　 DECLARE   CHA   BASED   ADDR   BYTE ； ／ * 字符串 以 ADDR 地址 为首 地址 * ／ 
+ 　 　 　 　 　 D0   I ＝ 0   TO   LENTH － 1 ； ／ * 字符串 以 LENTH   为 长度 ( 量长 255 个 ) * ／ 
+ 　 　 　 　 　 　 CALL   COMOCHA ( CHA ) ； 
+ 　 　 　 　 　 　 ADDR ＝ ADDR ＋ 1 ； 
+ 　 　 　 　 　 END ； 
+ END 　 　 　   COMOSTR ； 
+ MAIN ： 　 　 WSR ＝ 0 ； 
+ 　 　 　 　 　 INT _ PENDING ＝ 0 ； 
+ 　 　 　 　 　 INT _ PENDING1 ＝ 0 ； 
+ 　 　 　 　 　 SP ＝ 6A00H ； 
+ 　 　 　 　 　 DISABLE ； ／ * 关 中断 * ／ 
+ 　 　 　 　 　 IOC0 ＝ 00000000B ； 
+ 　 　 　 　 　 IOC1 ＝ 00000000B ； 
+ 　 　 　 　 　 IOC2 ＝ 00000000B ； 
+ 　 　 　 　 　 CALL   COMSET ； ／ * 串口 设置 * ／ 
+ 　 　 　 　 　 ENABLE ； ／ * 关 中断 * ／ 
+ LOOP ： 　 　 ； 
+ 　 　 　 　 　 ： ： ： ： ： ： ： ： ： 
+ 　 　 　 　 　 CALL   COMOSTR ( ． INFO ( 0 ) ， 16 ) ； ／ * 将 发送缓冲区 的 信息 发送给 主机 * ／ 
+ 　 　 　 　 　 ： ： ： ： ： ： ： ： 
+ 　 　 　 　 　 GOTO   LOOP ； 
+ END   START ； 
+ EOF ； 
+ 5   结束语 
+ 　 　 虽然 目前 讨论 串行 通信 的 技术 文献 很多 ， 但 基于 DOS 和 WIN16 的 占多数 ， 基于 WIN32 的 文献 介绍 较 少 ， 并且 对外 设 的 硬件 组合 较 少 涉及 。 我们 在 对 教学设备 进行 改装 的 过程 中 对 Windows 环境 下 的 串行 通信 及 Windows   API 函数 的 用法 有 了 一定 认识 ， 并且 通过 对外 设 的 改装 积累 了 PC机 和 一般 智能 设备 之间 通过 串口 进行 通信 的 软 、 硬件 设计 方法 。 在 此 一并 总结 出来 ， 希望 能 和 大家 交流 。 
+ 王亭 （ 烟台 海军航空工程学院 301 教研室  264001 ） 
+ 李瑞涛 （ 烟台 海军航空工程学院 301 教研室  264001 ） 
+ 宋召清 （ 烟台 海军航空工程学院 301 教研室  264001 ） 
+ 参考文献 
+ 1 ， 吴华 ， 岳晋生 ． Windows   NT   Win32 软件开发 使用 详解 ．   北京 ： 电子 工业 出版社 ， 1995 
+ 2 ， Norton   P ， McGregor   R 著 ， 孙凤英 ， 魏军 ， 徐京 等 译 ． MFC   开发 Windows   95 ／ NT4 应用程序 ． 北京 ： 清华大学 出版   社 ， 1998 
+ 3 ， 袁涛 ， 孙腾湛 ． PL ／ M － 96 程序设计 语言 及其 应用 ． 北京 ： 清   华 大学 出版社 ， 1992 
+ 收稿 日期 ： 1999 － 08 － 26 

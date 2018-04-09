@@ -1,0 +1,113 @@
+计算机 应用 研究 
+ APPLICATION   RESERCH   OF   COMPUTERS 
+ 2000     Vol.17 　 No.1 　 P.55 - 57 
+ 
+ 
+ 
+ 
+ SNMP 协议 的 分析 与 应用 
+ 张 春晖 
+ 摘   要   介绍 了 基于 TCP / IP 的 简单 网络管理 协议 桽 NMP ， 以及 其 在 客户机 和 服务器 中 的 程序实现 。 然后 分析 了 SNMP 在 实际 中 的 具体 应用 。 
+ 关键词   SNMP   SNMP   Manager   SNMP   Agent   Proxy   Agent   网络 自动 发现 
+ 1 　 前言 
+ 　 　 随着 计算机 通信 技术 的 发展 ， 计算机网络 作为 信息 社会 的 基础设施 已 渗透到 社会 的 各个方面 。 现代 的 网络 ， 地理 上 分散 、 网络体系结构 复杂 、 通信量 庞大 、 变动性 增加 、 而且 网络设备 种类 繁多 、 自制 性强 ， 这 就 导致 对 整个 网络 的 管理 十分复杂 。 国际 上 许多 机构 和 团体 也 建立 了 一些 网络管理 标准 框架 ， 其中 使用 最为 广泛 的 是 基于 TCP / IP 的 Internet 网络管理 方案 桽 NMP ( the   Simple   Network   Manage   Protocol ) ， 对 它 进行 分析 具有 重要 意义 。 
+ 2 　 SNMP 协议 简介 
+ 　 　 SNMP 的 工作 始于 1988 年 ， 是 由 最初 的 简单 网关 监控 协议 SGMP 发展 而来 的 ， 现已 成为事实 的 标准 网络管理 协议 。 SNMP 的 设计 本着 简单 性 ( Simplicity ) 和 扩展性 ( Extensibility ) 的 原则 ， 扩展性 主要 是 通过 将 管理 信息 模型 与 协议 、 被 管理 对象 的 详细 规定 ( MIB ) 分离 而 实现 ； 简单 性则 是 通过 信息 类型 的 限制 、 请求 / 响应 机制 而 取得 。 
+ 2.1 　 SNMP 的 体系结构 
+ 　 　 SNMP 体系结构 模型 ( 见图 1 ) 分为 SNMP 管理者 ( SNMP   Manager ) 、 SNMP 代理 者 ( SNMP   Agent ) 和 管理 信息库 ( MIB ) 。 每 一个 支持 SNMP 的 网络设备 中 都 包含 一个 代理 ， 此 代理 随时 将 网络设备 的 各种 情况 记录 到 管理 信息库 中 ( MIB ) ， 网络管理 程序 再 通过 SNMP 通信协议 查询 或 修改 代理 所 记录 的 信息 。 
+ 
+ 图 1 　 SNMP 管理 模型 
+ 2.2 　 SNMP 信息 模型 
+ 　 　 SNMP 管理 信息 模型 由 两 部分 来 描述 ， 即 对象 类型 的 识别 和 定义 以及 对象 实例 的 识别 。 由于 篇幅 有限 ， 在 此 不作 描述 ， 详细 定义 见 RFC1155 、 RFC1157 。 
+ 　 　 所有 对象 类型 都 用 下列 模板 定义 ： 
+ Descriptor :   a   unique   textual ( printable   string ) name 
+ Object   Id :   an   ISO   object   identifier 
+ Syntax :   basic   ones 
+ Definition :   a   textual   strong   defining   the   semantics 
+ Access :   one   of   read - only , read - write , write - only   or   not   accessible 
+ Status :   either   mandatory , optional , or   obsolete 
+ 　 　 上面 的 信息 集合 通过 对 对象 定义 宏 捆扎 ， 用 ASN.1 定义 如下 ： 
+ OBJECT - TYPE   MACRO : : = 
+ BEGIN 
+ 　 TYPE   NOTATION : : = 
+ 　 　 " SYNTAX "   type ( Type   ObjectSyntax ) 
+ 　 　 " ACCESS "   Access 
+ 　 　 " STATUS "   Status 
+ 　 VALUE   NOTATION : : = value ( VALUE   ObjectName ) 
+ 　 Access : : = " read - only " | " read - write " | " write - only " | " not - accessible " 
+ 　 Status : : = " mandatory " | " optional " | " obsolete " 
+ END 
+ 2.3 　 SNMP 网络管理 信息 的 范围 及 表示 方法 
+ 　 　 SNMP 所 支持 的 网络管理 信息 包括 Internet 标准 MIB 或 其它 符合 Internet   SMI 规范 的 MIB 中所 定义 的 非 集合 对象 类 。 SNMP 所 使用 的 信息 编码方式 为 ISO 定义 的 ASN.1 语言 的 子集 。 Internet 标准 的 MIB 发展 到 现在 ， 有 两个 版本 MIB - I 和 MIB - II ， 它 规定 了 网络 代理 设备 必须 保存 的 数据 项目 、 数据类型 以及 允许 在 每个 数据 项目 中 的 操作 。 通过 对 这些 数据 项目 的 存取 访问 ， 就 可以 得到 该 网关 的 所有 统计 内容 ， 再 通过 对 多个 网关 统计 内容 的 综合 分析 即可 实现 基本 的 网络管理 。 
+ 2.4 　 SNMP   MIB 对象 实例 标识 
+ 　 　 每个 SNMP 对象 实例 都 有 一个 独一无二 的 对象 实例 标识符 。 该 标识符 是 用 对象 实例 所属 对象 类 的 对象 标识符 加上 实例 标识符 构成 的 。 例如 ： 设备 的 系统 描述 ( SysDescr ) 对象 标识符 为 1.3 . 6.1 . 2.1 . 1.1 ， 设备 的 系统 描述 只能 有 一个 ， 因此 ， 其实 例 标识符 为 0 ， 所以 ， 网络设备 的 系统 描述 对象 实例 标识符 为 1.3 . 6.1 . 2.1 . 1.1 . 0 。 
+ 2.5 　 SNMP 鉴别 机制 ( Authentication   Scheme ) 与 访问 策略 ( Access   Policy ) 
+ 　 　 使用 SNMP 进行 通信 的 实体 被称作 SNMP 应用 实体 。 SNMP 代理 与 一系列 SNMP 应用 实体 的 集合 被称作 SNMP 共同体 ( SNMP   Community ) 。 标识 每 一个 SNMP 共同体 的 字符串 被 称 作为 SNMP 共同体 名 。 如果 SNMP 应用 实体 接收 到 的 SNMP 报文 源自 与 之 同处 一个 SNMP 共同体 的 SNMP 应用 实体 ， 则 该报 文 被称作 可靠 SNMP 报文 ( Authentic   SNMP   Message ) 。 鉴别 报文 在 SNMP 共同体 中 是否 可靠 的 规则 集合 被 称为 鉴别 机制 。 利用 一种 或 几种 鉴别 机制 鉴别 一个 SNMP 报文 是否 可靠 的 访问 被 称为 鉴别 访问 ( Authentication   Service ) 。 
+ 　 　 与 特定 网络 元素 相关 的 MIB 对象 子集 被称作 该 网络 元素 的 SNMP   MIB 视图 。 集合 ( Read - Only ， Read - Write ) 中 的 一个 元素 叫做 SNMP 访问 方式 ， SNMP 访问 方式 与 SNMP   MIB 视图 配对 构成 SNMP 共同体 描述 表 ( SNMP   Community   Profile ) 。 它 描述 了 应用 实体 对 网络 元素 SNMP 视图 中 对象 的 访问 权限 。 
+ 　 　 SNMP 共同体 与 SNMP 共同体 描述 表相 结合 构成 SNMP 访问 策略 ( Access   Policy ) 。 
+ 2.6 　 SNMP 委托 代理 ( Proxy   Agent ) 
+ 　 　 在 一种 SNMP 访问 策略 中 ， SNMP 代理 所在 的 网络 元素 上 并 不 包含 共同体 描述 表所 指定 的 MIB 视图 ， 则 该 访问 策略 被 称为 SNMP 委托 访问 策略 。 委托 访问 策略 中 的 SNMP 代理 被 称为 SNMP 委托 代理 。 
+ 　 　 SNMP 委托 代理 使 网络管理 站点 ( NMS ) 能够 监控 SNMP 所 不可 寻址 的 网络 元素 ( NE ) 。 如果 SNMP   NMS 需要 管理 不 支持 SNMP 协议 的 网络 ， 而 该 网络 又 具有 自身 的 网络管理 机制 ， 就 可以 在 被 管理网络 的 NMS 上 安装 SNMP 委托 代理 ( 如图 2 ) 。 由该 代理 执行 协议 转换 ， 将 SNMP   NMS 的 管理 请求 转换 为 不 支持 SNMP 协议 网络 的 管理 技术 ， 使得 该 网络 能 纳入 开放式 SNMP 环境 中来 。 因此 ， SNMP 委托 代理 对 集成化 网络管理 的 实现 有 很大 的 作用 。 
+ 
+ 图 2 　 SNMP 委托 代理 的 应用 
+ 2.7 　 SNMP 通信 过程 
+ 　 　 SNMP 不 直接 支持 命令 型 操作 ， 而是 通过 对 MIB 中 的 对象 进行 修改 来 实现 相应 的 功能 。 例如 ， SNMP 并非 通过 “ reboot ” 命令 来 实现 对 网络设备 的 重启动 ， 而是 通过 将 设备 MIB 中 的 变量 设定 为 x 秒 后 ， 由 SNMP 代理 实现 对 设备 的 重启动 。 
+ 　 　 SNMP 中 NMS 与 NE 之间 的 通信 通过 报文交换 来 实现 。 SNMP 还 提供 一套 陷阱 ( Trap ) 机制 。 SNMP 实体 间 交换 的 报文 称作 SNMP 报文 ， 它 由 版本号 、 标识符 、 SNMP 共同体 名 和 SNMP 协议 数据 单元 ( PDU ， Protocol   Data   Unit ) 组成 ， 是 通过 ISO 的 ASN . l 相关 的 BER ( Basic   Encoding   Rules ) 规则 形成 的 。 
+ 　 　 协议 实体 之间 的 通信 过程 如下 ： 
+ 　 　 。 发出请求 的 协议 实体 按 包含 管理 请求 的 PDU 构造 一个 ASN . l 对象 。 
+ 　 　 。 把 该 对象 连同 SNMP 共同体 名 、 源 UDP 传送 地址 ( IP地址 加 UDP 端口号 ) 、 目的 UDP 转送 地址 一起 发送给 鉴别 服务 实体 ， 该 实体 将 加密 后 的 对象 返回 。 
+ 　 　 。 发出请求 的 协议 实体 按 上述 ASN . l 对象 和 SNMP 共同体 名 构造 一个 ASN.1 报文 对象 ， 将 这 一 对象 按 ASN.1 基本 编码 规则 编码 后 发送给 传输层 。 
+ 　 　 。 接收 方 协议 实体 从 其 传输层 接收 到 请求 数据 报后 ， 对 其作 基本 语法分析 ， 按照 ASN.1 对象 格式 ， 构造 出 相应 的 ASN.1 对象 。 若 分析 失败 ， 则 丢弃 该 数据 报 ， 不 作 进一步 的 处理 。 
+ 　 　 。 接收 方 协议 实体 核对 SNMP 报文 的 版本号 ， 若 不 对 ， 则 丢弃 报文 。 
+ 　 　 。 将 ASN . l 报文 对象 中 的 用户 数据 和 SNMP 共同体 名 以及 数据 报 的 源 、 目的 UDP 传送 地址 发给 鉴别 服务 实体 。 若 成功 ， 则 服务 实体 返回 解密 后 ASN.1 对象 ， 否则 返问 一 鉴别 失败 信号 ， 产生 一个 Authentication   Failure   Trap ， 然后 再 丢弃 数据 报 。 
+ 　 　 。 协议 实体 对 鉴别 服务 实体 返回 的 ASN.1   PDU 对象 作 进一步 的 分析 ， 产生 新 的 ASN.1 对象 ， 若 分析 失败 ， 则 丢弃 数据 报 ， 放弃 处理 。 若 成功 ， 则 根据 数据 报中 的 SNMP 共同体 名 选择 相应 的 SNMP 共同体 描述 表 ， 按照 其所 规定 的 MIB 视图 访问 方式 处理 PDU ， 对 MIB 进行 相应 的 存取 操作 。 
+ 2.8 　 SNMP 所 支持 的 操作 
+ 　 　 SNMP 支持 轮询 ( 为主 ) 和 事件驱动 两种 访问 方法 。 SNMP 使用 五种 通信 原语 ( 如表 1 ) ， 以 实现 SNMP 的 GET 、 GETNEXT 、 SET 、 TRAP 等 操作 ， 从而 得到 管理 信息 。 
+ 表 1   SNMP 使用 五种 通信 原语 
+ 通信 原语 说明 
+ GetRequest 由 NMS 发给 Agent 的 请求 命令 ， 请求 一个 MIB 变量值 。 
+ GetNextRequest 由 NMS 发给 Agent 的 请求 命令 ， 要求 将 被 说明 目标 的 下 一个 目标 的 MIB 值 送回 NMS 。 
+ GetResponse 是 Agent 对于 收到 的 请求 的 一个 应答 ， 此 请求 是 要求 将 制定 数据 送到 NMS 。 
+ SetRequest 由 NMS 发出 ， 命令 Agent 去 改变 一个 MIB 变量值 。 
+ TrapAgent 检测 到 某种 预先 说明 了 的 状态 时 ， 向 NMS 发送 的 一个 非 请求 消息 。 
+ 
+ 　 　 GetRequest 和 GetResponse 实现 了 请求 - 响应 机制 ， SNMP 使用 轮询 ( polling ) 方法 实现 这一 机制 。 Trap 消息 的 使用 基于 事件驱动 ( event   driven ) 机制 的 方法 实现 的 。 
+ 3 　 SNMP 在 实际 中 的 应用 
+ 　 　 在 我们 摲 植际 街富 又 行募 际 鯏 的 课题 中 ， 基于 分布式 网络 环境 ， 我们 需要 了解 网络资源 的 状况 ， 对 它 进行 监视 和 控制 。 考虑 到 应用 的 实时性 以及 系统 的 开销 ， 需要 直接 通过 底层 网络协议 来 实现 。 而 SNMP 正是 采用 面向 无 连接 的 用户 数据 报 UDP / IP 来 实现 其 功能 ， 实体 间 的 通信 无需 先 建立 连接 ， 降低 了 系统 开销 。 SNMP 在 实际 系统 中 主要 应用 如下 ： 
+ 　 　 。 网络拓扑 结构 的 自动 发现 
+ 　 　 路由表 ( Routing   Table ) 是 网络管理 的 重要 信息 ， 通过 对 路由表 的 访问 及 分析 可以 找到 网络 中 存在 的 子网 和 路由器 ， 并 能 精确 地 确定 它们 的 互联 情况 、 确定 各个 网络设备 的 存活 状态 、 确定 各个 网络设备 的 网络 接口类型 ； 再 结合 ICMP 的 Ping 和 Tracerout ， 对 给定 的 子网 进行 搜索 ， 确定 子网 中 运行 的 网络设备 ， 从而 完成 网络 的 自动 发现 。 
+ 　 　 在 这里 需 提出 ， 以前 的 自动 发现 工作 都 是 基于 ICMP 协议 的 ， 此 协议 实现 较 简单 ， 但 不能 得到 网络接口 的 有关 信息 。 基于 SNMP 协议 ， 需要 网络设备 必须 支持 SNMP ， 具有 SNMP 的 代理 。 
+ 　 　 。 访问 MIB 库 的 变量 ， 并 给出 相应 变量 的 描述 。 
+ 　 　 。 性能 和 吞吐量 分析 
+ 　 　 通过 访问 SNMP   MIB   I 、 MIB   II ， 可以 获得 网络 性能 的 有关 部门 数据 ， 对 网络 性能 进行 动态分析 ， 包括 网络 传输 差错率 、 流量 特性 等 。 
+ 　 　 。 设备 监控 
+ 　 　 通过 轮询 来 获得 有关 网络 状态 的 信息 ， 用于 以后 的 评估 和 分析 ， 如 可以 监控 网络接口 故障 。 
+ 　 　 。 故障 警告 
+ 　 　 在 SNMP 服务器上进行 警告 配置 ， 网络 中 任何 支持 SNMP - TRAP 协议 的 SNMP 设备 都 能 收到 警告 。 
+ 4 　 SNMP 的 实现 
+ 　 　 SNMP 也 是 通过 客户 / 服务器 的 方式 来 实现 的 。 网络管理员 在 本地 计算机 上 调用 SNMP 客户机 ( SNMP   Manager ) ， 利用 客户机 与 一个 或 多个 运行 在 远程 计算机 上 的 SNMP 服务器 ( SNMP   Agent ) 取得联系 ， 从而 实现 管理 功能 。 下面 ， 我们 从 客户机 和 服务器 两 方面 讨论 。 
+ 4.1 　 服务器 的 实现 
+ 　 　 从 原理 上 讲 ， SNMP 的 服务器 比较简单 ， 它 由 单一 的 进程 组成 ， 该 进程 不断 地 接受 输入 的 请求 报文 ， 执行 指定 的 操作 ， 并 返回 一个 响应 。 目前 比较 流行 的 操作系统 中 都 提供 SNMP 代理服务 ， 其 过程 snmpd 就是 实现 SNMP 服务器 的 主要 算法 。 其 工作 流程 如下 ： 
+ 　 　 。 Snmpd 首先 打开 一个 SNMP 使用 的 UDP 端口 ， 然后 进入 一个 无限 循环 ， 调用 read 等待 下 一个 输入 报文 ； 
+ 　 　 。 当 一个 SNMP 报文 到达 时 ， snmpd 调用 snparse 分析 该报 文 ， 将 其 转换 为 内部 格式 ， 并 保存 到 请求 描述 块 中 ； 
+ 　 　 。 然后 提取 首部 中 的 字 段 ， 通过 调用 sna2b ， snmpd 从 报文 中 提取 对象 标识符 序列 ， 并 把 它们 转换 到 一个 链表 中 ； 链表 中 的 每个 结点 对应 于 一个 绑定 ， 这些 结点 被 定义 为 文件 snmp . h 中 的 snbentry 结构 。 在 转换 时 ， sna2b 把 每个 ASN.1 对象 标识符 转换成 内部 表示 形式 ； 
+ 　 　 。 如果 报文 和 变量名 序列 都 已 成功 转换 为 内部 格式 ， snmpd 调用 snrslv 解决 报文 提出 的 请求 ， 包括 为 链表 中 每个 对象 标识符 执行 指定 的 get ， set 或 get - next 等 操作 ； 
+ 　 　 。 然后 ， snmpd 调用 mksnmp 生成 响应 报文 ， 并用 write 操作 向 客户机 发送 回答 报文 ； 
+ 　 　 。 服务器发送 一个 响应 报文 后 ， 调用 snfreeb1 释放 变量名 链表 ， 并 返 问到 主 循环 的 头部 ， 继续 等待 下 一个 输入 报文 。 
+ 　 　 如果 因 出现 差错 而 无法 完成 上述 工作 ， 则 服务器 生成 一个 差错 回答 报文 ， 该报 文中 含有 差错 类型 码 ( Error   Type   Code ) 和 差错 索引 ( Error   Index ) 。 差错 类型 码 给出 差错 发生 的 原因 ， 而 差错 索引 指出 在 请求 中 导致 差错 的 变量名 。 
+ 　 　 这 其中 所 涉及 到 的 SNMP 报文 分析 、 链表 中 ASN.1 名字 的 转换 、 请求 的 解析 、 SNMP 操作 的 解释 和 执行 以及 表格 的 间接 寻址 等 ， 在 此 就 不 详细描述 。 
+ 4.2 　 SNMP 客户机 的 实现 
+ 　 　 SNMP 客户机 必须 生成 和 向 服务器发送 请求 报文 ， 等待 服务器 的 响应 ， 并 验证 响应 是否 与 请求 相对 应 。 在 这里 描述 一个 执行 客户机 功能 的 过程 snclient ， 它 以 一个 请求 描述 块 的 地址 为 入口 参数 ， 在 请求 描述 块 中 包含 了 报文 的 内容 ， 其中 包括 需要 完成 的 操作 和 一张 操作 执行 对象 的 绑定 表 。 流程 如下 ： 
+ 　 　 。 首先 snclient 调用 mksnmp 生成 以 ASN.1 格式 表示 的 报文 ； 
+ 　 　 。 调用 open 打开 一个 用于 发送数据 报 的 描述 块 ， 并 调用 write 发送 上面 所 生成 的 报文 ； 
+ 　 　 。 在 定时 模式 下 ， 进行 read 操作 ， 接收 响应 ； 
+ 　 　 。 如果 snclient 接收 到 响应 ， 它 调用 snparse 将 响应 转换 为 内部 格式 ； 
+ 　 　 。 然后 将 响应 中 的 标识 字段 与 请求 中 的 标识符 字段 相 比较 ， 以 验证 该报 文是 对 客户机 刚才 发送 的 请求 的 响应 ； 
+ 　 　 。 若 一切正常 ， snclient 调用 sna2b 将 每个 对象 标识符 从 ASN.1 表示 形式 转换 为 内部 格式 。 由于 UDP 是 不 可靠 的 ， 因而 SNMP 客户机 必须 实现 自己 的 超时 和 重传 策略 。 
+ 5 　 结束语 
+ 　 　 SNMP 发展 到 现在 已 成为 事实上 的 网络管理 标准 ， 目前 使用 较 多 的 网络 管理系统 ， 如 HP   OpenView 、 Cabletron   Spectrum 、 SunNet   Manager 、 IBM   NetView 、 Micorsoft   Systems   Manager   Server 、 Cisco   Works 等 也 都 支持 它 。 SNMP 技术 也 在 不断 地 发展 ， SNMPv1 网络 解决方案 ， 采用 的 是 平面 式 管理者 - 代理 结构 ， 对 较大 的 网络 ， 功能 越来越 受到限制 。 SNMPv2 是 采用 的 管理者 - 子 管理者 - 代理 分层 模式 ， 对于 大型 网络 的 分布式 管理 成为 可能 。 
+ 张 春晖 （ 电子 工业部 第二十八 研究所   南京   210014 ） 
+ 参考文献 
+ 1 ， RFC1155 ,   RFC1157 ,   RFC1212 ,   RFC1213 ,   RFC1158 ,   RFC1442 
+ 2 ， Douglas   E . Comer   &   David   L . Stevens .   Internet   working   with   TCP / IP 
+ 收稿 日期 ： 1999 年 9 月 1 日 

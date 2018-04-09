@@ -1,0 +1,120 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1998 年   第 18 卷   第 3 期   No.3   Vol.18   1998 
+ 科技期刊 
+ 
+ 邻 单胞菌 L1 对 氯代苯 的 降解 特性 的 研究 
+ 罗如新 * 　 李顺鹏 　 ( 南京农业大学 微生物 系 ， 南京   210095 ) 
+ 张素琴 　   ( 中国科学院 武汉 病毒 研究所 ， 武汉   430071 ) 
+ 文 　 摘 　 从 某 化工厂 废水处理 厂 活性污泥 中 分离 得到 一株 能以 氯苯 为 唯一 碳源 的 细菌 ， 革兰氏 阴性 杆菌 ， 兼性 厌氧 ， 初步 鉴定 为 邻 单胞菌 属 ( Plesiomonas ) 。 该菌 在 有氧 情况 下 18 天内 对 氯苯 的 降解 率为 50% ， 在 厌氧 条件 下 18 天内 对 氯苯 的 降解 率为 37.2% 。 不同 底物 试验 结果表明 ， 该菌 还 能 利用 间 氯酚 、 TCP 、 2 ， 4 - D 等 二氯 、 三氯 化合物 ， 此外 不 经 诱导 抗汞 能力 达 15mg / L 。 细胞 抽提 物 开环 酶 分析 ， L1 菌株 在 好 氧 条件 下 拥有 一条 被 氯苯 诱导 的 邻位 裂解 途径 。 
+ 关键词 　 邻 单胞菌 　 氯苯 降解 率 　 抗汞 　 邻苯二酚 双 加氧酶 
+ Degradation   characteristics   of   chlorobenzene   by   Plesiomonas   sp . L1   . Luo   Ruxin , Li   Shunpeng ( Department   of   Microbiology , Nanjing   Agricultrual   University , Nanjing   210095 ) ； Zhang   Suqin ( Wuhan   Institute   of   Virology , Academia   Sinica , Wuhan   430071 ) . China   Environmental   Science.1998 , 18 ( 3 ) : 272 ～ 275 
+ Abstract — A   bacterium   which   can   degrade   chlorobenzene   as   the   sole   source   of   carbon   and   energy   was   isolated   by   selective   anaerobic   enrichment   from   activated   sludge . The   bacterium   was   preliminarily   identified   as   a   Plesiomonas   sp .. The   anaerobic   and   aerobic   biodegradation   rates   of   chlorobenzene   determined   by   GC   were   37.2%   and   50% ， respectively .   The   organism   also   grew   on   metachlorophenol ,   1 ， 2 ， 4 - trichlorobenzene ,   2 ， 4 - dichlorophenoxyacetic   acid .   It   had   resistance   to   mercuric   chloride   with   a   concentration   of   15mg / L   without   induction .   Dioxygenase   assays   of   cell   extracts   suggested   that   the   strain   L1   possessed   an   ortho   pathway   which   was   induced   by   chlorobenzene .   
+ Key   words : Plesiomonas 　 degradation   rate   of   chlorobenzene 　 mercury   resistance 　 catechol   dioxygenase   
+ 　 　 氯代苯类 有机物 作为 重要 的 化工原料 ， 广泛 用于 农药 、 医药 和 材料 合成 等 行业 ， 但 随着 废水 和 废物 进入 环境 造成 环境污染 。 这 类化合物 化学性质 稳定 ， 与非 氯代 化合物 相比 ， 由于 其 更 高 的 持久性 和 更 强 的 毒性 ， 对 环境危害 特别 严重 。 
+ 　 　 利用 微生物 来 降解 氯代苯类 有机物 在 国内外 已有 很多 报道 ， 筛选 出 了 许多 能 利用 这些 难 降解 物质 的 微生物 〔 1 ～ 3 〕 。 并 对 氯代苯 类化合物 的 降解 途径 、 遗传 背景 等 也 有 深入 的 研究 〔 4 〕 ， 但 这些 研究 大多 集中 于 好氧菌 或 厌氧菌 的 特性 ， 而 在 污染环境 中 往往 是 好 氧 和 厌氧 条件 并列 或 交替 存在 ， 更 需要 在 两种 情况 下 都 能 发挥 一定 功效 的 微生物 类群 。 
+ 　 　 本文 应用 亨 盖特 厌氧 技术 分离 得到 一株 氯苯 降解 兼性 厌氧菌 ， 测定 了 其 在 厌 氧 和 好 氧 条件 下 代谢 氯代苯 的 能力 ， 以期 能 更好 地 应用 于 复杂多变 的 污染环境 中氯代苯 类化合物 污染 的 治理 和 生态 恢复 。 
+ 1 　 实验 方法 
+ 1.1 　 样品 来源 
+ 　 　 活性污泥 样品 采自 苏州 化工厂 废水处理 厂 。 
+ 1.2 　 试剂 
+ 　 　 氯代苯 ( 氯苯 ) 、 间 氯酚 、 2 ， 4 - 二氯苯 氧 乙酸 ( 2 ， 4 - D ) 、 三氯 酚 ( TCP ) 、 四氯 酚 、 五氯酚 ( PCP ) 均 为 化学纯 。 
+ 1.3 　 氯苯 降解 菌 的 富集 、 分离 ( 厌氧 分离 ) 、 鉴定 
+ 　 　 富集 培养基 成分 （ 每升 ) ： 蛋白 胨 10g ， KH2PO4   0.10 g ， 葡萄糖 0.10 g ， NaCl   0.10 g ， pH 值为 7.0 ～ 7.2 ， 383Pa ， 115 ℃ ， 30min ， 高压 灭菌 。 
+ 　 　 无机盐 培养基 成分 （ 每升 ) ： NH4NO3   1.0 g ， ( NH4 ) SO4   0.5 g ， MgCl2   0.5 g ， KH2PO4   0.5 g ， NaCl   0.5 g ， pH 值为 7.0 ～ 7.2 ， 121 ℃ ， 30min ， 高压 灭菌 。 
+ 　 　 LB 培养基 （ 每升 ) ： 蛋白 胨 10g ， 酵母粉 5g ， NaCl   10g ， pH 值为   7.0 ～ 7.2 ， 121 ℃ ， 30min ， 高压 灭菌 。   
+ 　 　 厌氧 富集 驯化 ： 采用 亨 盖特 厌氧 技术 ， 在 厌氧 条件 下 ， 30 ℃ ， 150mL 富集 培养基 ， 加 活性污泥 5mL ， 氯苯 浓度 为 50mg / L ， 以后 每隔 1 周 移种 1 次 ， 以 接种 量 为 10% 接入 新鲜 培养基 中 ， 5 周后 氯苯 浓度 提高 至 300mg / L ， 然后 用 无机盐 培养基 代替 富集 培养基 驯化 1 周 。   以含 氯苯 浓度 为 300mg / L 的 无机盐 培养基 进行 滚管 分离 ， 约 1 周后 出现 菌落 ， 厌氧 条件 下 挑单 菌落 移入 无机盐 液体 培养基 中 ， 再 滚管 2 次 ， 选择 生长 最快 的 菌落 移至 无机盐 液体 培养基 中 。 暂定名 为 L1 。 
+ 　 　 对 分离 得到 的 细菌 进行 形态 结构 、 生长 特性 、 生理 生化 等 方面 的 试验 。 具体方法 参考 《 一般 细菌 常用 鉴定 方法 》 ， 最后 根据 《 伯杰 氏 细菌 鉴定 手册 》 鉴定 到 属 。 
+ 1.4 　 氯苯 的 微生物 厌氧 降解 和 好 氧 降解 
+ 　 　 用 气相 色谱法 测定 氯苯 的 含量 。 
+ 　 　 厌氧 降解 ： 装 50mL 无氧 无机盐 培养 基于 80mL 血清 瓶 中 ， 加 氯苯 ， 30 ℃ 静止 培养 。 设 2 个 对照 ( ck1 为加 氯苯 ， 不接菌 ； ck2 为 不加 氯苯 ， 接菌 ) ， 3 个 重复 。 
+ 　 　 好 氧 降解 ： 装 50mL 无机盐 培养 基于 250mL 三角瓶 中 ， 加 氯苯 ， 30 ℃ 摇床 培养 。 同样 设 2 个 对照 ， 3 个 重复 。 
+ 　 　 每隔 5 天 取样 测定 。 样品 处理 方法 ： 取 样品 1mL ， 加 1mL 苯 ， 充分 振荡 ， 静止 2h 分层 ， 吸取 上层 有机 相 ， 加 少量 无水 硫酸钠 ， 片刻 即 澄清 ， 可 用于 进样 测定 。 
+ 1.5 　 L1 菌株 的 底物 利用 试验 及 抗性 试验 
+ 　 　 试验 底物 有间 氯酚 、 TCP 、 2 ， 4 - D 、 四氯 酚 、 PCP 。 待试 菌株 经 活化 后 ， 在 以 上述 底物 为 唯一 碳源 的 无机盐 培养基 平板 上 划线 。 底物 浓度 为 100mg / L ， 同时 以不含 底物 的 无机盐 培养基 作 细菌 的 阴性 对照 ， 30 ℃ 培养 数日 后 观察 其 生长 情况 。 
+ 　 　 抗性 试验 ： Ap ( 25mg / L ) 、 Cm ( 30mg / L ) 、 Km ( 25mg / L ) 、 Tc ( 20mg / L ) 、 Sm ( 10mg / L ) 、 Gm ( 10mg / L ) 、 HgCl2 ( 1 ～ 20mg / L ) ， L1 菌株 划线 在 含 上述 物质 的 LB 固体 平皿 上 ， 30 ℃ 培养 48h ， 观察 其 生长 情况 。 
+ 1.6 　 双 加氧酶 分析 
+ 1.6 . 1 　 细菌 生长 　 将 L1 菌株 接种 于 20mL   LB 液体 培养基 中 ， 30 ℃ 摇床 培养 16h ， 常温下 于   4000rpm 离心 5min 。 一部分 于 4 ℃ 冰箱 保存 以作 对照 ， 另 一部分 在 以 苯 或 氯苯 为 唯一 碳源   的 无机盐 培养基 中 30 ℃ 驯化 16h 。 
+ 1.6 . 2 　 细胞 抽提 物 的 制备 　 室温 下于 4000rpm 离心 5min 收集 菌体 ， 于 2 ℃ 下 ， 用 0.02 mol / L   磷酸盐 缓冲液 ( pH7.0 ) 洗涤 2 次 ， 细胞 悬浮液 在 0.02 mol / L 磷酸盐 缓冲液 ( pH7.0 ) 中 ， 用超   声波 破碎 细胞 ( 相对 输出 0.67 ) ， 每次 破碎 30s ， 间隔 2min ， 共 4 次 。 4 ℃ 下 ， 15000rpm 离   心 30min ， 取上 清液 ， 可 用于 酶 分析 。 
+ 1.6 . 3 　 Folin - Ciocalteu 试剂 法测定 抽提 物中 蛋白 含量 。 
+ 1.6 . 4 　 邻苯二酚 1 ， 2 - 双 加氧酶 ( Catechol1 ， 2 - dioxygenase ， 简称 C12O ) 测定 　 反应 混合物   含 1 μ mol   EDTA ， 0.1 μ mol 邻苯二酚 ( Catechol ) 或氯代 邻苯二酚 ( Chlorocatechol ) ， 8.7 μ mol   磷酸盐 缓冲液 ( pH7.0 ) ， 细胞 抽提 物 ( 含 0.02 ～ 0.06 mg 蛋白质 ) ， 最终 体积 为 1mL 。 30 ℃ 水浴   10min ， 测定 A260 处 的 增值 ， 表示 产物 顺 * 顺 - 己二烯 二酸 的 积累 。 
+ 1.6 . 5 　 邻苯二酚 2 ， 3 - 双 加氧酶 ( Catechol 　 2 ， 3 - dioxygenase ， 简称 C23O ) 测定 　 反应 混合物 含   0.1 μ mol 邻苯二酚 ( Catechol )   ， 48 μ mol 磷酸盐 缓冲液 ( pH7.5 ) ， 细胞 抽提 物 ( 含 0.02 ～ 0.06 mg 蛋白质 ) ， 最终 体积 为 1mL 。 细胞 抽提 物在 加入 前先经 55 ℃ 加热 10min 处理 。 然后 30 ℃ 水浴   10min ， 测量 A375 的 增值 ， 表示 产物 2 - HMS 的 积累 。 
+ 　 　 酶 活性 以 每 毫克 蛋白 每分钟 内 转化 基质 的 毫 摩尔 数来 表示 。 
+ 2 　 结果 与 讨论 
+ 2.1 　 细菌 的 分离 与 鉴定 
+ 　 　 L1 菌 为 革兰氏 阴性 无 芽孢 杆菌 ， 极生单 鞭毛 ， 兼性 厌氧 ， 接触 酶 、 氧化酶 阳性 ， 硝酸盐 还原 试验 阳性 ， 葡萄糖 发酵 产酸产气 ， 肌醇 发酵 产酸产气 ， 不 液化 明胶 、 水解 淀粉 、 不 利用 柠檬酸 ， 最适 温度 为 30 ～ 37 ℃ ， 最高 温度 为 44 ～ 45 ℃ ， 初步 鉴定 为 邻 单胞菌 属 ( Plesiomonas   sp . ) 〔 5 〕 。 
+ 2.2 　 L1 菌 对 氯苯 的 降解 
+ 　 　 气 相色谱 测定 条件 ： 柱 DC   QF - 1 ,   1.5% ,   2.1 m ;   INJT   230 ℃ ,   柱温 190 ℃ ,   N2   70mL 。 
+ 
+ 图 1 　 厌氧 降解 曲线 
+ Fig.1 　 Anaerobic   degradation   of   CB 
+ 　 　 厌氧 测定 结果 见图 1 ， 对照 在 18 天内 的 降解 率为 5.3% ， 3 个 处理 的 平均 降解 率为 42.5% ， 扣除 对照 ， L1 菌 在 厌氧 条件 下 18 天内 对 氯苯 的 降解 率为 37.2% 。 
+ 　 　 好 氧 测定 结果 见图 2 ， 对照 在 18 天内 降解 率为 8.7% ， 3 个 处理 平均 降解 率为 58.7% ， 扣除 对照 ， L1 菌 在 好 氧 条件 下 18 天内 对 氯苯 的 降解 率为 50% 。 
+ 
+ 图 2 　 好 氧 降解 曲线 
+ Fig.2 　 Aerobic   degradation   of   CB 
+ 　 　 由此可见 L1 菌 能 在 好 氧 和 厌氧 两种 条件 下 对 氯苯 都 有 降解 ， 好 氧 降解 率比厌 氧 降解 率高 12.8% 。 
+ 2.3 　 底物 试验 和 抗性 试验 
+ 表 1 　 L1 菌 在 不同 底物 上 的 生长 情况 
+ Table   1 　 The   growth   of   strain   L1   in   some   substrate 
+ 
+ 底物 生长 情况 底物 生长 情况 
+ M - M ＋ 2 ， 4 - D + 
+ M ＋ 间 氯酚 + M + 四氯 酚   - 
+ M ＋ TCP + M ＋ PCP - 
+ 
+ 　 　 注 ： M 为 无机盐 培养基 ， “ － ” 为 不 生长 ， “ ＋ ” 为 生长 良好 ， 下表 类同   
+ 表 2 　 L1 菌 对 各种 抗生素 抗性 试验 
+ Table   2 　 Antibiotic   resistance   of   strain   L1 
+ 
+ 抗生素 生长 情况 抗生素 生长 情况 
+ Ap   + Tc   - 
+ Cm   - Sm   + 
+ Km - Gm - 
+ 
+ 表 3 　 L1 菌 对 不同 浓度 HgCl2 的 抗性 
+ Table   3 　 Mercury   resistance   of   strain   L1 
+ 
+ HgCl2 ( mg / L ) 生长 情况 HgCl2 ( mg / L ) 生长 情况 
+ 3 +   15 + 
+ 6   + 16 - 
+ 9   + 17 + 
+ 12 + 18 - 
+ 13 + 19 - 
+ 14 + 20 - 
+ 
+ 　 　 L1 菌 的 底物 利用 试验 结果 见表 1 ， 表明 L1 菌 有 较 宽 的 底物 利用 范围 。 能 利用 一氯 、 二氯 、 三氯 化合物 ， 而 不能 利用 四氯 以上 的 氯代 化合物 。 从表 2 ， 表 3 可见 ， L1 菌 还 具有 Apr 、 Smr 、 Hgr ， 自然 抗汞 能力 达 15mg / L 。 由于 汞 化合物 一般 都 是 有毒 的 ， 其 毒性 主要 表现 在 对 肝 、 肾 和 脑组织 的 损伤 和 破坏 ， 另外 汞 离子 与 巯基 具有 很强 的 亲和性 ， 能 与 含 巯基 的 蛋白质 及 酶 牢固 结合 ， 使 它们 失去 活性 ， 危害 人体 健康 ， 甚至 会 引起 死亡 〔 6 〕 。 所以 微生物 的 抗汞性 已 被 用来 对 含汞 三废 进行 净化 处理 ， 通过 驯化 、 诱变 处理 还 可 进一步提高 L1 菌株 的 抗汞性 ， 更好 地 用于 环境保护 中 。   
+ 2.4 　 双 加氧酶 酶 活性 测定 
+ 　 　 酶 活性 测定 结果 见表 4 ， 可见 L1 菌 拥有 被 氯苯 诱导 的 邻位 裂解 途径 。 
+ 　 　 对 芳香 化合物 主要 代谢 途径 的 研究 揭示 了 由 不同 酶 完成 起始 的 转化 步骤 ， 但 都 转变 为 有限 的 中心 中间 代谢 产物 ， 如 原儿茶酸 和 ( 取代 的 ) 儿茶酚 。 这些 双 羟 中间 代谢 产物 进一步 代谢 都 是 通过 两种 途径 之一 即间 位 裂解 途径 和 邻位 裂解 途径 ， 这 两种 途径 最终 都 进入 三 羧酸 循环 。 
+ 表 4 　 细胞 抽提 物 邻苯二酚 双 加氧酶 活性 分析 
+ Table   4 　 Catechol   dioxygenase   activities   in   cell   extracts 
+ 
+ 被 分析 的 酶 和 分析 基质   酶 活性 
+ 氯苯   苯   酵母 抽提 物 
+ 邻苯二酚 1.2 - 双 加氧酶 
+ 邻苯二酚 0.304   0.3260 . 004   
+ 3 - 氯 邻苯二酚   0.301   0.015   0.005   
+ 4 - 氯 邻苯二酚 0.287   0.014   0.004 
+ 邻苯二酚 2.3 - 双 加氧酶 
+ 邻苯二酚   0.012   0.004   0.005   
+ 3 - 氯 邻苯二酚   0.001   0.0030 . 001   
+ 4 - 氯 邻苯二酚   0.0020 . 0040.001   
+ 
+ 　 　 C12O 活性 通过 cis - cis - muconate 生成 率来 测定 。 0.1 μ mol   Catechol 转化 生成 cis - cis - muconate 在 260nm 处 吸收 值 增加 0.56 。 C23O 活性 通过 测定 2 - HMS 的 生成 率来 分析 。 在 375nm 处 吸收 值 增加 0.98 表示 0.1 μ mol   Catechol 被 氧化 为 2 - HMS 。 无 细胞 抽提 液 在 55 ℃ 处理 10min   ， 以使 2 - HMS   Hydrolyase 失活 ， 防止 2 - HMS 的 进一步 氧化 ， 在 55 ℃ 不至于 使 C23O 失活 〔 7 〕 。 
+ 　 　 卤代 芳烃 的 代谢 往往 是 通过 氯代 儿茶酚 再进一步 分解 。 大量 研究 已 证实 氯代 儿茶酚 通常 靠氯代 儿茶酚 1 , 2 - 双 加氧酶 邻位 裂解 。 这些 矿化 氯代 儿茶酚 的 酶 比 普通 邻位 裂解 途径 的 酶 有 更 宽 的 底物 专一性 。 因此 氯代 儿茶酚 降解 途径 也 被称作 修饰 的 邻位 裂解 途径 ( the   modified   ortho   cleavage   pathway ) 〔 8 〕 。 L1 菌株 也 是 通过 邻位 裂解 途径 来 代谢 氯代苯 ， 并且 通过 底物 利用 试验 也 证实 了 L1 菌株 的 邻位 裂解 酶 也 具有 较 宽 的 底物 专一性 。 在 厌氧 条件 下 ， L1 菌 如何 代谢 氯苯 还有 待 进一步 确定 。 
+ 3 　 小结 
+ 　 　 兼性 厌氧菌 L1 能以 氯苯 为 唯一 碳源 生长 ， 初步 鉴定 为 邻 单胞菌 属 ( Plesiomonas ) 。 在 好 氧 和 厌氧 条件 下 ， L1 菌 对 氯苯 都 有 降解 ， 在 18 天内 好 氧 降解 率比厌 氧 降解 率高 12.8% 。 L1 菌 还 能 利用 间 氯酚 、 TCP 、 2 , 4 - D 等 二氯 、 三氯 化合物 ， 具有 Ap 和 Sm 抗性 ， 抗汞 能力 达 15mg / L 。 在 好 氧 条件 下 ， L1 菌株 拥有 一条 被 氯苯 诱导 的 邻位 裂解 途径 。 
+ 参考文献 
+ 1 　 Reinke   W , Knackmuss   H   J .   Microbiol   metabolism   of   haloaromatic :   Isolation   and   properties   of   a   chlorobenzene - degrading .   Appl .   Environ .   Microbiol .   , 1984 ,   47 ( 2 ) : 395 ～ 402 
+ 2 　 Berry   D   F , Francis   A   J , Bollag   J   M .   Microbial   metabolism   of   homocyclic   and   heterocyclic   aromatic   compounds   under   anaerobic   conditions .   Microbiol .   Rev . , 1987   ,   51 ( 1 ) : 43 ～ 59 
+ 3 　 Nishino   S   F , Spain   J   C , Belcher   L   A ，   et   al .   Chlorobenzene   degradation   by   bacteria   isolated   from   contaminated   groundwater .   Appl .   Environ .   Microbiol . , 1992   ,   58 ( 5 ) : 1719 ～ 1726 
+ 4 　 Rasul   Chaudhry   G , Chapalamadugu   S .   Biodegradation   of   halogenated   organic   compounds .   Microbiol .   Rev . , 1991 ,   55 ( 1 ) : 59 ～ 79 
+ 5 　 中国科学院 微生物 研究所 菌种 分类 组 . 一般 细菌 鉴定 手册 . 北京 ： 科学出版社 ， 1978.65 ～ 66 
+ 6 　 中国 大百科全书 编写组 . 中国 大百科全书 － 环境 科学 . 北京 ： 中国大百科全书出版社 ， 1983.130 ～ 131 
+ 7 　 Chakrabarty   A   M .   Genetic   basis   of   the   biodegradation   of   saliaylate   in   Pseudomonas .   J .   Bacteriol . , 1974   ,   112 ( 2 ) : 815 ～ 823 
+ 8 　 van   der   Meer   J   R , de   Vos   W   M , Harayama   S ， et   al .   Molecular   mechanisms   of   genetic   adaptation   to   xenobiotic   compounds .   Microbiol .   Res . ,   1992 ,   56 ( 2 ) : 677 ～ 694 
+ 作者简介 
+ 罗如新 　 女 ， 1970 年 1 月生 。 1996 年 7 月 南京农业大学 微生物 专业 博士 毕业 。 现为 复旦大学 环境 科学 与 工程系 讲师 。 主要 从事 环境 微生物学 的 教学 与 科研工作 。 先后 参加 “ 有机磷 农药 残留 的 微生物 降解 及其 应用 ” ( 获 江苏省 教委 科学技术 进步 三等奖 ) ； “ 细菌 质粒 在 环境 化学 污染物 转移 中 的 生态学 效应 ” ； “ 降解 和 清除 污染物 基因 在 高羊 茅草 中 的 表达 机理 研究 ” 等 国家自然科学基金 项目 。 发表 论文 5 篇 。 
+ 收稿 日期 ： 1997 - 07 - 07 
+ *   现在 复旦大学 环境 科学 与 工程系 工作 

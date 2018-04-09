@@ -1,0 +1,79 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1998 年   第 18 卷   第 5 期   No.5   Vol.18   1998 
+ 科技期刊 
+ 
+ BP 及 RBF 人工 神经元网络 对 臭氧 生物 
+ 活性炭 水 处理 系统 建模 的 比较 *   
+ 田 　 禹 1 　 王宝贞 2 　 周 　 定 1 　 （ 1 . 哈尔滨工业大学 应用 化学系 ， 哈尔滨   150001 ； 
+ 2 . 哈尔滨 建筑 大学 市政 与 环境 工程学院 ， 哈尔滨   150001 ） 
+ 文 　 摘 　 运用 BP 和 RBF 人工 神经元网络 建立 臭氧 生物 活性炭 系统 模型 ， 考察 了 两个 网络 对水 处理 系统 建模 的 适应性 。 研究 表明 ， BP 和 RBF 人工 神经元网络 的 臭氧 生物 活性炭 系统 模型 准确 地 描述 了 系统 影响 因素 的 关系 , 可以 求 出 系统 中 臭氧 的 经济 投量 ； 用 BP 人工 神经元网络 建立 水 处理 系统 模型 , 泛化 能力 好 , 但 逼近 速度 较慢 ； 运用 RBF 人工 神经元网络 建模 , 泛化 能力 较差 , 但 逼近 速度 快 。 该项 研究 克服 了 运用 传统 方法 建模 的 不足 ， 为 实现 水 处理 系统 的 优化 设计 提供 了 可行 的 途径   。 
+ 关键词 　 BP 人工 神经元网络 　 RBF 人工 神经元网络 　 臭氧 生物 活性炭 系统 　 模型 
+ Comparative   of   BP   and   RBF   artificial   neural   network ' s   function   on   model - building   of   ozonation   and   biological   activated   carbon   water   purification   system . Tian   Yu1 ， Wang   Baozhen2 ， Zhou   Ding1   （ 1 . Department   of   Applied   Chemistry ,   Harbin   Institute   of   Technology , Harbin   150001 ； 2 . School   of   Municipal   and   Environmental   Engineering ,   Harbin   University   of   Civil   Engineering   and   Architecture ,   Harbin   150001 ） . China   Environmental   Science.1998 , 18 ( 5 ) : 394 ～ 397 
+ Abstract — Through   setting   up   ozonation   and   biological   activated   carbon   system   model   by   BP   and   RBF   artificial   neural   networks , the   applicability   of   the   two   neural   networks   are   investigated   to   the   water   purification   system . The   study   shows   that   these   models   accurately   describe   the   relationships   among   the   influence   factors   of   the   system   and   economical   ozone ' s   dosage   can   be   obtained   comparatively   though   the   model ; the   model   established   by   BP   network   has   a   good   general   ability   and   a   slow   impending   speed , on   the   other   hand , the   model   established   by   RBF   neural   network   has   a   bad   general   ability   and   a   fast   impending   speed . The   limitations   of   the   traditional   model - identification   methods   were   get   rid   of . A   means   to   realize   the   water   purification   system   in   line   control   is   provided . 
+ Key   words : BP   artificial   neural   networks 　 RBF   artificial   neural   networks 　 ozonation   and   biological   activated   carbon   system   model 
+ 　 　 在 臭氧 生物 活性炭 系统 中 ， 进水 水质 、 臭氧 投量 、 臭氧 氧化 时间 、 活性炭 吸附 时间 、 微生物 量 等 影响 因素 相互作用 、 相互影响 ， 确定 它们 在 设计阶段 作为 参数 所 要 选定 的 数值 和 在 运行 时要 控制 的 范围 ， 直接 关系 到 系统 出水 水质 的 好坏 和 效能 的 发挥 。 但 由于 受到 它们 之间 非线性 关系 、 系统 不 确定 因素 以及 微生物 再生 机理 不清 等 因素 影响 ， 描述 臭氧 生物 活性炭 系统 的 数学模型 迄今 还是 空白 , 对 其 建模 是 一个 非线性 系统 的 求解 问题 , 传统 的 方法 难以 适应 该 系统 在 精度 和 实时性 上 的 要求 。 而 作为 一个 广义 函数 逼近 器 的 神经元网络 在 系统 辨识 和 优化 上 却 体现 出其 优越性 〔 1 〕 。 创新 地 将 人工 神经元网络 的 原理 和 方法 引入 到 水 处理 系统 的 分析 中 , 通过 实现 对 BP 、 RBF 人工 神经元网络 臭氧 生物 活性炭 建模 系统 的 设计 、 建立 、 仿真 、 运行 , 考察 BP 、 RBF 人工 神经元网络 对水 处理 系统 建模 的 适应性 。 为 实现 复杂 水 处理 系统 的 优化 设计 , 提高 其 运行 控制 水平 , 促进 其 工程 实践 应用 提供 了 一条 可行 途径 。 
+ 1 　 BP 神经元网络 和 RBF 神经元网络 的 结构 、 基本原理 及 主要 区别 
+ 　 　 把 BP 和 RBF 网络 作为 研究 对象 , 是 由于 这 两种 网络 既 是 神经元网络 中 发展 比较 成熟 的 技术 , 又 彼此 有 许多 不同之处 〔 2 〕 。 主要 差别 是 : 从 原理 上 讲 , BP 是 全局 逼近 的 网络 , RBF 是 局部 逼近 的 网络 ； 从 结构 上 讲 , BP 网络 一般 是 三层 网络 , 但 也 可以 由 四层 至 更 多层 组成 , 采用 的 节点 函数 通常 为 Sigmoid 型   。 RBF 网络 只有 三层 形式 , 隐含 层 的 节点 函数 大都 选用 Gauss 型 ； 从 训练方法 上 讲 , BP 是 多层 前馈 式 输出 , 一般 采用 误差 逐层 回馈 的 训练方法 , 基本原理 是 最速 梯度 下降 原理 。 RBF 网络 的 训练方法 大都 采用 最小 二 乘法 或者 递推 最小 二 乘法 〔 3 〕 ； 从 逼近 能力 上 讲 ， RBF 网络 逼近 速度 要 快 于 BP 网络 , 而 BP 网络 的 泛化 能力 即 对 未知 样本 的 预测 能力 要 好 于 RBF 网络 。 在 首次 把 神经元网络 引入 水 处理 和 实际 系统 建模 过程 中 , 具体 地 考察 两者 对水 处理 系统 的 实用性 和 范围 , 对 今后 的 研究 工作 很 有 意义 。 
+ 2 　 臭氧 生物 活性炭 系统 实验 样本 数据 
+ 　 　 本 研究 以 CODMn 值为 衡量 水质 好坏 的 指标 ， 实验 数据 如表 1 所示 。 
+ 表 1 　 臭氧 生物 活性炭 系统 中 不同 臭氧 投量 下 的 CODMn 的 去除率 
+ Table   1 　 Disposing   rate   of   CODMn   with   different   ozone   amounts   in   ozonation   biological   activated   carbon   system 
+ 
+ 臭氧 投量 
+ ( mg / L ) 原水 CODMn 
+ ( mg / L ) 臭氧 水   CODMn 
+ ( mg / L ) 出水   CODMn 
+ ( mg / L ) 臭氧 水   CODMn 
+ 去除率 ( % ) 出水   CODMn 
+ 去除率 ( % ) 
+ 1.004 . 494.221 . 936.0157 . 02 
+ 2.024 . 063.941 . 782.9656 . 16 
+ 3.034 . 844.211 . 6113.0266 . 74 
+ 3.724 . 274.151 . 652.8161 . 35 
+ 4.064 . 964.842 . 022.4259 . 27 
+ 5.014 . 564.521 . 980.8756 . 58 
+ 5.694 . 163.681 . 8414.8155 . 77 
+ 7.284 . 323.681 . 8414.8157 . 41 
+ 9.294 . 213.011 . 5428.5063 . 42 
+ 10.28 　 4.563 . 801.9616 . 6757.02 
+ 15.62 　 4.363 . 921.4410 . 0966.97 
+ 
+ 3 　 基于 BP 和 RBF 人工 神经元网络 的 臭氧 生物 活性炭 系统 的 仿真 实验 
+ 　 　 根据 作为 训练样本 的 实验 数据 , 选择 适宜 的 BP 、 RBF 人工 神经元网络 的 结构 和 参数 。 首先 确定 具有 一个 输入 层 结点 、 一个 输出 层 结点 的 三层 BP 神经元网络 用于 臭氧 生物 活性炭 系统 的 建模 研究 , 输入 层 结点 数 与 系统 的 输入 数据量 和 输出 数据量 相等 。 由于 网络 的 训练样本 数 并 不是 很多 , 过 大规模 的 网络 模型 又 会 使 收敛 速度 减慢 , 因此 ， 中间层 结点 数 定为 10 ～ 20 个 , BP 网络 的 学习 算法 , 可以 采用 标准 的 BP 学习 算法 或者 其它 的 快速 学习 算法 , 为了 提高 收敛 速度 , 在 本 研究 中 采用 了 自 适应 变 步长 快速 学习 算法 , 并 将 网络 的 预期 逼近 误差 预先 定为 0.01 。 在 确定 RBF 网络结构 时 , 考虑 到 其隐 结点 的 多少 决定 了 网络 逼近 能力 的 强弱 , 由于 所 给 的 训练样本 较 少 , 可以 选取 几个 隐 结点 就 能 完成 函数 逼近 任务 , 在 本次 仿真 实验 研究 中 , 选择 的 结点 数 范围 在 6 ～ 10 之间 。 由于 同样 的 原因 , 采用 最小 二乘 拟合 算法 求取 权值 。 
+ 
+ 图 1 　 初始化 BP 神经元网络 模块 
+ Fig.1 　 Iniff . m   initiated   BP   neural   network   pattern 
+ 　 　   在 确定 了 BP 和 RBF 网络 的 结构 后 对 两个 网络 进行 训练 。 在 BP 网络 的 训练 实验 中 ， 将 实验 数据 归一化 处理 后以 贯序 输入 方式 输入 到 Matlab 软件包 , 调用 其中 Neural   Network   Toolbox 里 的 函数 模块 Initff . m , Trainbp . m , Simuff . m 等 , 实现 网络 的 训练 过程 。 Initff . m , Trainbp . m 模块 参见 图 1 ， 图 2 。 在 对 RBF 网络 训练 时 , 顺序调用 各个 模块 , RBF 网络 训练 流程 如图 3 所示 。 
+ 
+ 图 2 　 Trainbp . m   BP   神经元网络 训练 模块 
+ Fig.2 　 Training   pattern   of   Trainbp . m   BP   neural   network   
+ 　 　 经过 上述 模块 的 顺序调用 实现 了 基于 BP 、 RBF 人工 神经元网络 的 臭氧 生物 活性炭 系统 的 仿真 ， 如图 4 ， 图 5 所示 ， 其中 每组 图中 又 包括 图 （ a ） 、 （ b ） 、 （ c ） 。 从 （ a ） 中 可以 看到 在 网络 仿真 过程 中 逼近 误差 SSE （ Sum   Squared   Error ） 是 随着 训练 迭代 次数 Epoch 的 增加 而 减少 的 , 最终 经过 若干 步 迭代 以后 SSE 小于 0.01 , 网络 收敛 ； （ b ） 表明 网络 学习 步长 同 迭代 次数 之间 的 关系 , 可以 看到 学习 步长 LR （ Learning   Rate ） 的 变化 呈 周期性 摆动 , 这种 根据 不同 误差 曲面 的 斜率 而 取值 的 方法 , 对 网络 的 收敛 起到 了 加速 的 作用 ； （ c ） 是 训练 结束 后 的 神经元网络 在 样本 点 的 实际 输出 , 它 是 以 原水 的 CODMn 值为 X 轴 ， 以 臭氧 投量 为 Y 轴 ， 以 臭氧 生物 活性炭 系统 出水 的 CODMn   值为 Z 轴 
+ 
+ 图 3 　 RBF 神经元网络 训练 流程 
+ Fig.3 　 Training   circulation   of   RBF   neural   network   
+ 的 人工 神经元网络 的 三维图 ， 表明 了 臭氧 生物 活性炭 系统 中 臭氧 投量 与 进水 、 出水 CODMn 之间 的 关系 。 RBF 神经元网络 曲线图 的 意义 与 BP 神经元网络 的 （ c ) 相同 , 它 反映 了 臭氧 生物 活性炭 系统 中 臭氧 投量 对系统 CODMn 去除率 的 影响 。 
+ 
+ 图 4 　 基于 BP 神经元网络 的 臭氧 生物 活性炭 系统 进水 CODMn 、 出水 CODMn 、 臭氧 投量 
+ Fig.4 　 The   three - dimensional   diagram   of   influent   and   effluent   , ozone   amount   in   
+ ozonation   biological   activiated   carbon   system   on   BP   neural   network 
+ 　 　 由 仿真 曲线 可以 看到 ， 基于 BP 和 RBF 人工 神经元网络 的 臭氧 生物 活性炭 模型 , 可以 实现 在 计算机 上 对 设计 参数 的 选取 过程 , 节省 了 人力 、 物力 提高 了 效率 ； 可以 根据 基于 人工 神经元网络 的 臭氧 生物 活性炭 系统 模型 求出 在 给定 入水 CODMn 和 臭氧 投量 的 条件 下 , 出水 CODMn 值 ； 也 可以 求出 在 给定 入水 CODMn 的 条件 下 , 使出 水 CODMn 达到 最小 的 臭氧 投量 。 运用 基于 人工 神经元网络 的 水 处理 系统 模型 , 可以 使 上述 两个 数据 预测 及 分析 过程 在 计算机 上 准确 、 快速 、 方便 地 进行 ； 可以 根据上述 模型 求 出 表示 三维图 “ 曲率 ” 的 曲线 , 该 曲线 有 很 重要 的 实际意义 , 即 反映 在 入水 条件 一定 时 , 臭氧 投量 对 处理 效果 的 影响 程度 , 这样 可以 得到 比较 经济 的 臭氧 投量 , 并 对 明确 臭氧 生物 活性炭 系统 的 除 污染 机理 有 很大 帮助 ； 比较 BP 网络 和 RBF 网络 的 仿真 曲线 , 可以 看到 两者 在 反映 系统 影响 因素 关系 上 , 其 趋势 是 一致 的 , 但 BP 网络 的 仿真 图形 清晰 直观 , RBF 网络 的 图形 震荡 复杂 , 这 说明 对于 本次 仿真 实验 采用 的 数据结构 和 数量 , BP 网络 更 适合 其 仿真 要求 , 而 RBF 网络 没有 局部 极小 及 逼近 速度 快 的 优势 并 没有 完全 体现 出来 。 
+ 
+ 图 5 　 基于 RBF 神经网络 的 臭氧 生物 活性炭 系统 
+ 进水 CODMn 、 出水 CODMn 、 臭氧 投量 
+ Fig.5 　 The   three - dimensional   diagram   of   influent   and   
+ effluent , ozone   amount   in   ozonation   biological   activiated 
+ carbon   system   on   RBF   neural   network 
+ 4 　 结论 
+ 4.1 　 根据 人工 神经元网络 具有 的 分布式 信息 存储 、 并行处理 及 自 组织 、 自 学习 的 特点 , 建立 了 基于 BP 和 RBF 人工 神经元网络 的 水 处理 系统 模型 , 克服 了 运用 传统 方法 建模 的 不足 ， 运用 该 方法 通过 系统 输入 与 输出 数据 即可 建立 较为 准确 的 模型 , 模型 的 通用性 及 时效性 只 取决于 实验 数据 的 广泛 及 准确 ; 运用 该 方法 建立 的 模型 对于 不同 的 水质 条件 可 做出 准确 的 预测 , 能够 为 工程设计 人员 提供 设计 参数 , 为 实现 水 处理 的 在线 控制 提供 了 一条 可行 的 途径   。   
+ 4.2 　 运用 BP 人工 神经元网络 建立 的 水 处理 系统 的 模型 , 具有 良好 的 泛化 能力 , 但 逼近 速度 较慢 , 存在 局部 极小 问题 , 适用 于 在线 要求 较 低 、 数据量 较少 的 水 处理 系统 模型 辩识   。 
+ 4.3 　 运用 RBF 人工 神经元网络 建立 的 水 处理 系统 模型 , 泛化 能力 较差 , 但 逼近 速度 快 , 不 存在 局部 极小 问题 , 适用 于 在线 要求 较 高 、 数据量 较 多 的 水 处理 系统 模型 辩识 。 
+ 4.4 　 基于 BP 和 RBF 人工 神经元网络 的 臭氧 生物 活性炭 系统 模型 准确 地 描述 了 系统 中 各 影响 因素 间 的 关系 , 可以 根据 建立 的 模型 求 出 臭氧 的 经济 投量 。 
+ 参考文献 
+ 1 　 Hush   D   R ,   Horne   B   G .   Progress   in   supervised   neural   networks :   what ' s   new   since   Lippmann .   IEEE   Signal   Processing   Magazine ,   1993 ,   10 ( 1 )   :   8 ～ 39   
+ 2 　 Widrow   B   D . Learning   in   artificial   neural   networks   a   statistical   perspeetive . Neural   Computation , 1989 , 1 ( 4 ) : 425 ～ 464 
+ 3 　 Hornik   K . Apporoximation   capabilities   of   multilayer   feedforward   networks . Neural   Networks , 1991 , ( 4 ) : 251 ～ 257 
+ 作者简介 
+ 田 　 禹 　 1968 年 4 月生 。 博士 。 1997 年进 哈尔滨工业大学 博士后 流动站 作 博士后 工作 。 近年来 主要 从事 臭氧 生物 活性炭 系统 除 污染 效能 与 机理 的 研究 。 已 完成 黑龙江省 科学基金 重点项目 “ 基于 人工 神经元网络 的 臭氧 生物 活性炭 系统 智能 建模 研究 ” 和 大庆 等 地 的 饮用水 深度 处理 工程项目 4 项 。 发表 论文 7 篇 。 
+ 收稿 日期 ： 1997 - 11 - 24 
+ *   黑龙江省 自然科学 基金 资助 项目 

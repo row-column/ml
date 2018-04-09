@@ -1,0 +1,67 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 12 期   vol.25   No.12   1999 
+ 
+ 
+ 
+ 分布式 数据库 设计 中 数据 和 操作 的 分配 
+ 李石君 　 王汉飞 　 周洞 汝 
+ 　 　 分布式 数据库 的 开发 是 为 有效 管理 组织 中 分布 在 不同 站点 的 数据 ， 在 分布式 数据库 中 全局 概念 关系 模式 被 分区 成 几个 片段 ， 每个 片段 在 系统 中 可能 具有 几个 副本 ， 每个 副本 储存 在 不同 的 节点 ， 分布式 数据库 中 关键 的 问题 是 数据 和 操作 的 分配 ， 数据 的 分配 定义 什么 数据 储存 在 什么 节点 ， 操作 分配 定义 操作 处理 在 哪里 被 执行 ， 数据 分配 和 操作 分配 不是 独立 的 问题 ， 必须 同时 解决 。 目前 ， 已 提出 了 一些 分布式 数据库 设计 模型 ， 这些 模型 中有 的 假设 是 完全 连接 的 网络 环境 ， 有 的 假设 星型 网络 环境 且 所有 文件 在 中心 节点 都 有 一个 副本 ， 文献 [ 1 ] 采用 静态 和 动态 的 启发式 算法 讨论 了 分布式 数据库 中 数据 的 分配 ， 但 没有 考虑 更新 操作 和 并行 控制 ， 文献 [ 2 ] 提出 的 模型 首先 分解 查询 成 查询 步 ， 然后 分配 文件 和 查询 步到 节点 ， 但 其 系统 费用 模型 过于 简单 ， 文献 [ 3 ] 扩展 了 文献 [ 2 ] 的 工作 ， 讨论 了 文件 的 副本 ， 其 系统 费用 模型 较 文献 [ 2 ] 完善 ， 本文 主要 扩展 了 文献 [ 3 ] 的 工作 ， 提出 了 一个 实用 的 分布式 数据库 设计 模型 。 
+ 1   数据 分配 和 操作 分配 
+ 　 　 在 分布式 数据库 设计 模型 中 已知 域 为 全局 关系 概念模式 ， 和 查询 指定 ( 用户 查询 和 更新 要求 ) ， 分布式 数据库 设计 模型 的 解决方案 为 ： 网络 设计 、 数据 分配 、 操作 分配 和 局部 数据库 设计 ， 网络 设计 构成 解决方案 的 环境 ， 通常 假设 已知 ， 此处 不 讨论 局部 数据库 设计 ， 因此 分布式 数据库 设计 模型 中 已知 全局 关系 概念模式 、 查询 指定 和 网络 设计 ， 解决方案 为 ： 数据 分配 ， 操作 分配 。 
+ 　 　 查询 指定 描述 ： 
+ 　 　 class   CQuery { CString   m _ query _ id ； 查询号   
+ 　 　 CString   m _ type ； 查询 类型 ( 检索 或 更新 ) 
+ 　 　 CString   m _ originates _ note _ id ； 发出 查询 请求 的 节点 
+ 　 　 int   m _ frequence ； 发出 该 查询 请求 的 频率 } ; 
+ 　 　 网络 描述 ( 节点 和 连接 ) ： 
+ 　 　 class   CNode { CString   m _ node _ id ； 网络 节点 号 
+ 　 　 int   m _ CPU _ capacity ； CPU 处理 能力 
+ 　 　 int   m _ unit _ CPU _ cost ； 单位 CPU 费用 
+ 　 　 int   m _ I / O _ capacity ； I / O 能力 
+ 　 　 int   m _ unit _ I / O _ cost ； 单位 I / O 费用 
+ 　 　 int   m _ storage _ capacity ； 储存 能力 
+ 　 　 int   m _ unit _ storage _ cost ； 单位 储存 费用 } ; 
+ 　 　 class   CLink { CString   m _ node _ id1 ； 相连 网络 节点 1 号 
+ 　 　 CString   m _ node _ id2 ； 相连 网络 节点 2 号 
+ 　 　 int   m _ speed ； 网络 速度   int   m _ capacity ； 网络带宽 
+ 　 　 int   m _ unit _ cost ；   单位 传输 费用   } ； 
+ 　 　 该 全局 关系 概念模式 为 R1 ， R2 ， ... Rt ， 查询 指定 为 CQuery   Q1 ， Q2 ， ... Qs ， 网络 节点 CNode   N1 ， N2 ， ... Nn 分布式 数据库 设计 方法 为 首先 分析 查询 指定 对 全局 概念模式 分段 ， 然后 每 一个 查询 被 分解 成分 段 上 的 简单 查询 步 ， 最后 使用 最优 模型 得到 系统 费用 最低 的 数据 分配 和 操作 分配 。 
+ 1.1   全局 关系 分段 及 复制 
+ 　 　 一个 关系 r 分段 为 r1 ， r2 ， ... rn ， 即 这些 分段 包含 足够 的 信息 能 重构 关系 r ， 关系 分段 包括 水平 分段 和 垂直 分段 ， 水平 分段 被 定义 为 全局 关系 模式 上 的 一个 选择 操作 ， 设 P 为 谓词 ， 分段 ri 可 表示 为 ri = σ p ( r ) ， 我们 可以 利用 关系 r 的 所有 分段 的 并 来 重构 关系 r ， 垂直 分段 涉及 关系 模式 的 属性 的 子集   R1 ， R2 ， ... Rn ， R = R1 ∪ R2 ∪ ... ∪ Rn   每一分 段 可 表示 为 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 ri = π Ri ( r ) 
+ 　 　 我们 可以 利用 关系 r 的 所有 分段 的 自然 连接 来 重构 关系 r ， 在 分布式 数据库 设计 模型 中 可以 利用 查询 指定 来 对 全局 关系 进行 分段 ， 分段 的 原则 是 尽量 使 操作 局部 化 ， 以 减少 通信 开销 。 
+ 　 　 例如 ： 银行 系统 中有 全局 概念模式 ： Account ( branch - name , account - number , customer _ id , balance )   customer ( customer _ id , customer _ name 
+ , customer _ address , city ) 
+ 　 　 假设 银行 系统 有 3 个 站点 ： 总部 HQ 和 地区 A ， 地区 B 
+ 　 　 查询 指定 中有 ： Q1 ， SELECT   branch - name , account - number , balance 
+ 　 　 　 　 　 　 FROM   Account 
+ 　 　 　 　 　 　 WHERE   branch - name = Q2 , SELECT   customer _ id , customer _ name , account - number , balance 
+ 　 　 　 　 　 　 FROM   Account , customer 
+ 　 　 　 　 　 　 WHERE   Account . customer _ id = customer . customer _ id 
+ 　 　 　 　 　 　 AND   account - number = [ specified ] 
+ 　 　 利用 查询 指定 Q1 ， 按 地区 A 和 地区 B 可以 将 全局 关系 Account 分段 为 A1 = σ branch - name = ” A ” ( Account ) 
+ 　 　 A2 = σ branch - name = ” B ” ( Account ) 
+ 　 　 同 上 可以 利用 查询 指定 Q2 ， 按 地区 A 和 地区 B 将 全局 关系 customer 分段 为 C1 和 C2 。 
+ 　 　 分段 的 复制 ： 分段 复制 即 数据 分配 是 指 关系 的 一个 副本 被 储存 在 两个 或 两个 以上 的 站点 ， 复制 能 提高 可 获得性 、 可靠性 和 并行性 ， 但 增加 了 更新 操作 的 复杂性 ， 对 给定 的 分段 和 网络 站点 存在 不同 的 复制 策略 ， 分段 复制 表示 为 X = ( xij ) ， xij 表示 分段 的 分配情况 ， 若 第 i 个 分段 存储 在 第 j 个 节点 则 xij = 1 ， 否则 xij = 0 ， 上例 中 分段 复制 的 例子 ： A1 储存 在 HQ 、 A 、 B ， A2 储存 在 B ， C1 储存 在 HQ 、 A 、 B ， C2 储存 在 B ， 我们 的 目的 之一 是 寻求 最优 的 分段 复制 策略 ， 即 数据 分配 。 
+ 1.2   查询 分解 和 操作 分解 
+ 　 　 当 分段 复制 策略 确定 后 ， 查询 指定 首先 从 副本 中 选择 执行 查询 的 副本 ， 然后 分解 查询 指定 为 所 选择 副本 上 的 简单 查询 步 。 对于 涉及 两个 分段 的 类型 为 检索 的 查询 操作 可分解 为 以下 步 ： 
+ 　 　 1 ) 给 储存 第一个 分段 的 节点 发消息 以 获得 读 允许 ， 2 ) 在 第一个 分段 执行 查询 要求 的 选择 和 投影 操作 ， 3 ) 给 储存 第二个 分段 的 节点 发消息 以 获得 读 允许 ， 4 ) 在 第二个 分段 执行 查询 要求 的 选择 和 投影 操作 ， 5 ) 使用 连接 或 并 组合 在 2 ) 和 4 ) 中 产生 的 数据 结果 ， 6 ) 送 结果 到 查询 请求 节点 。 
+ 　 　 基于 2PL 一个 更新 操作 可分解 为 以下 步 ： 
+ 　 　 1 ) 给 储存 该 分段 的 副本 的 所有 节点 发 更新 锁 请求 消息 ， 2 ) 接受 更新 锁 确认 消息 ， 3 ) 送 更新 内容 到 所有 节点 ， 4 ) 执行 局部 更新 操作 ， 5 ) 从 每 一 节点 接受 更新 确认 消息 ， 6 ) 给 每 一 节点 发 释放 锁 消息 。 
+ 　 　 查询 分解 的 查询 步 描述 ： 
+ 　 　 class   CQuery _ Step { CString   m _ query _ id ; 查询号 
+ 　 　 CString   m _ step _ no ; 查询 步号 
+ 　 　 CString   m _ opration ; 操作 } ; 
+ 　 　 例如 ： 对于 查询 指定 Q2 ， 在 节点 1 发出 的 检索 节点 2 上 的 顾客 的 查询 ， 其 副本 选择 和 查询 分解 以及 操作 所在 节点 的 选择 可以 采用 以下 策略 ， C2 从 节点 2 ， A2 从 节点 2 ， Select 或 Project 在 节点 2 ， Select 或 Project 和 Combine 在 节点 2 ， 传输 结果 到 节点 1 ， Final   step 在 节点 1 ， 查询 所 选择 的 副本 可以 表示 为 ： Z = ( zkij ) ， zkij 表示 查询 所 使用 的 副本 情况 ， 若 第 k 查询 使用 储存 在 第 j 个 节点 的 第 i 个 分段 ， 则 zkij = 1 ， 否则 zkij = 0 ， 操作 分配 可以 表示 为 Y = ( ykmj ) ， ykmj 表示 查询 步 在 哪 一 节点 执行 ， 若 第 k 查询 的 第 m 步 在 第 j 个 节点 上 执行 ， 则 ykmj = 1 ， 否则 ykmj = 0 。 
+ 2   最优 模型 
+ 　 　 对 给定 的 分段 复制 策略 ， 即 给定 的 X ， 以及 给定 的 副本 选择 和 操作 选择 ， 即 给定 的 Z 和 Y ， 可以 确定 系统 费用 的 计算公式 [ 3 ] 。 我们 选择 的 目标 是 使 系统 操作 费用 包括 通信 费用 、 磁盘 I / O 、 CPU 处理 、 储存 费用 最低 ， 系统 操作 费用 为 ： 
+ 　 　 Cost = Σ k Σ jf ( k , j ) Σ m ( COM ( k , j , m ) + IO ( k , j , m ) + CPU ( k , j , m ) ) + Σ tSTO ( t ) 
+ 　 　 此处 f ( k ， j ) 表示 每一 单位 时间 在 节点 j 发出 的 第 k 查询 的 频率 ， COM ( k , j , m ) , IO ( k , j , m ) , CPU ( k , j , m ) 分别 表示 在 节点 j 发出 的 第 k 查询 的 第 m 步 的 通信 费用 ， 磁盘 I / O 和 CPU 处理 时间 ， STO ( t ) 表示 每一 单位 时间 在 节点 t 的 储存 费用 ， 其 计算 详情 见 文献 [ 3 ] ， 对 每 一 确定 的 数据 分配 和 操作 分配 ， 即 给定 X 、 Y 、 Z ， 可以 计算 出 系统 费用 Cost ， Cost 是 X 、 Y 、 Z 的 函数 ， 因此 在 网络 节点 的 磁盘 I / O 、 CPU 处理 和 储存 能力 以及 通信 能力 限制 条件 下 ， 可以 求出 X 、 Y 、 Z ， 使得 系统 费用 最小 ， 计算方法 可以 采用 启发式 算法 [ 1 ] 和 演化 算法 [ 3 ] 。 
+ 3   结束语 
+ 　 　 本文 讨论 了 分布式 数据库 设计 中 全局 概念模式 的 分段 和 分段 副本 的 分配 以及 查询 操作 对 副本 的 选择 和 操作 节点 的 选择 ， 目的 是 得到 最优 的 数据 分配 和 操作 分配 模型 ， 使得 系统 操作 费用 包括 通信 费用 、 磁盘 I / O 、 CPU 处理 、 储存 费用 最低 ， 本 模型 对 实际 的 分布式 数据库 设计 具有 指导意义 ， 本 模型 可以 进一步 扩展 ， 以 包括 通信 队列 延迟 和 局部 数据库 操作 。 
+ 作者 单位 ： 武汉 水利电力 大学 计算机科学 系 ， 武汉 430072 
+ 参考文献 
+ 1   Apers   P   M   G . Data   Allocation   in   Distributed   Database   System .   ACM   Trans .   on   Database   Systems , 1988 , 13 ( 3 ) : 263 - 304 
+ 2   Cornell   D   W .   Yu   P   S .   On   Optimal   Site   Assignment   for   Relations   in   the   Distributed   Database   Environment .   IEEE   Trans .   on   Soft -   ware   Engineering , 1989 , 15 ( 8 ) : 1004 - 1009 
+ 3   March   S   T , Rho   S . Allocating   Data   and   Operations   to   Nodes   in   Distributed   Database   Design . IEEE   Trans . Knowl   Data   Eng . , 1995 ,   7 ( 2 ) : 305 - 316 

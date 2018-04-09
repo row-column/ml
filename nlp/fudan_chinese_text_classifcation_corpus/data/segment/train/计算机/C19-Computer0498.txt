@@ -1,0 +1,91 @@
+自动化 学报 
+ ACTA   AUTOMATICA   SINICA 
+ 1997 年   第 23 卷   第 1 期   Vol.23   No.1   1997 
+ 
+ 
+ 
+ 同等 并行处理 机上 独立 任务 的 调度 
+ 康一梅 　 郑应平 
+ 摘 　 要 　 n 个 独立 任务 在 m 个 同等 并行处理 机上 处理 ， 使 总 完成 时间 最小 的 非 抢先 调度 是 确定性 调度 理论 的 一个 基本 问题 .   文中 提出 一种 算法 — — Bound   Fit 算法 ， 它 的 最坏 情况 性能 至少 和 MULTIFIT 算法 一样 甚至 更好 ， 而 所 需 的 时间 却 比 MULTIFIT 算法 少 .   
+ 关键词 　 同等 并行处理 机 ，   非 抢先 调度 ， 启发式 算法 . 
+ INDEPENDENT   TASKS   SCHEDULING   ON   IDENTICAL 
+ PARALLEL   PROCESSORS 
+ KANG   YIMEI 
+ ( Beijing   Institute   of   Computer   &   Electronics   Application   Beijing   100080 ) 
+ ZHENG   YINGPING 
+ ( Institute   of   Automation ,   The   Chinese   Acadamy   of   Seiences   Beijing   100080 ) 
+ Abstract 　 The   problem   of   nonpreemtively   scheduling   n   independent   tasks   on   m   identical   parallel   processors   in   order   to   minimize   the   makespan   is   one   of   the   fundamental   problems   of   deterministic   scheduling   theory .   In   this   paper ,   an   algorithm   called   Bound   Fit   is   presented .   This   algorithm   has   the   same   or   better   worst   case   performance   with   shorter   running   time . 
+ Key   words 　 Identical   parallel   processor ,   nonpreemptive   scheduling ,   heuristic . 
+ 1 　 引言 
+ 　 　 n 个 独立 任务 在 m 个 同等 并行处理 机上 处理 ， 使 总 完成 时间 最小 的 非 抢先 调度 是 确定性 调度 理论 的 一个 基本 问题 .   已知 n 个 独立 任务 ， T = { T1 , T2 , … , Tn } 表示 任务 集 ， m 个 处理机 ， M = { M1 , M2 , … , Mm } 表示 处理机 集 ， 任务 的 处理 时间 为 pi ， 且 pi 为 整数 ， i = 1 , 2 , … , n .   假设 任务 按 处理 时间 非增 顺序排列 ， 即 p1 ≥ p2 ≥ … ≥ pn .   Ci ( i = 1 , 2 , … , m ) 表示 第 i 个 处理机 的 完成 时间 ， Cmax 表示 总 完成 时间 ， 即 表示 最优 调度 的 总 完成 时间 .   
+ 　 　 这是 一个 NP 难题 ［ 1 ］ ， 不 可能 找到 一个 多项式 时间 最优 算法 .   因此 ， 只能 退而求其次 ， 去 寻找 有效 的 次优 算法 .   在 这方面 有 许多 启发式 算法 ， 其中 最 著名 的 是 LPT 算法 ［ 2 ］ 和 MULTIFIT 算法 ［ 3 ］ .   而 MULTIFIT 算法 的 最坏 情况 性能比 LPT 算法 好 许多 .   
+ 　 　 MULTIFIT 算法 是 Coffman 等 人 在 文献 ［ 3 ］ 中 提出 的 ， 它 是 一种 基于 bin - packing 的 FFD ( First   Fit   Decreasing ) 方法 的 迭代 算法 .   以 时间 代替 容量 ， 寻找 使 所有 任务 都 排 在 m 个 处理机 上 的 最小 容量 ， 即 最 短 总 完成 时间 .   FFD 方法 是 对 每 一个 固定 的 库容量 ， 顺序 将 按 处理 时间 非增 顺序排列 的 任务 安排 在 满足 容量 约束 、 序号 最小 的 处理机 上 .   
+ 　 　 Donald   K .   Freisen   在 文献 ［ 4 ］ 中 证明 了 MULTIFIT 算法 的 最坏 情况 性能 为 ( 1.20 + ( 1 / 2 ) k ) C * max ， 其中 k 是 迭代 次数 .   MULTIFIT 算法 的 时间 复杂性 为 O ( n   log   n + kn   log   m ) , 包括 任务 的 处理 时间 排序 所花 的 时间 .   
+ 　 　 C . Y . Lee 等 在 文献 ［ 5 ］ 中 提出 一种 将 LPT 算法 与 MULTIFIT 算法 结合 起来 的 方法 ， 以 达到 减少 运算 时间 的 目的 ， 但 在 有些 情况 下 本文 提出 的 Bound   Fit 迭代 算法 更 节省时间 ， 并且 能 达到 很 好 的 性能 . 
+ 2 　 预备 算法 
+ 　 　 定义 　 处理机 Mi 上 已 安排 的 任务 的 完成 时间 称为 处理机 Mi 的 调度 长度 ， 记为 Li . 
+ 　 　 很 显然 ， 最优 调度 满足 
+ 　 　 　 ( 2.1 ) 
+ 当上 式 等 号 成立 时 ， 下面 的 预备 算法 就 可 找到 最优 调度 .   
+ 　 　 预备 算法 ： 
+ 　 　 1 .   令 B = 
+ 　 　 2 .   令 Lj = 0 ( j = 1 , 2 , … , m ) , i = 1 . 
+ 　 　 3 .   若 至少 存在 一个 j ( 1 ≤ j ≤ m ) 使 Lj + pi ≤ B ， 将 Ti 安排 在 使 Lj + pi ≤ B 且 序号 最小 的 处理机 上 .   否则 ， 将 Ti 安排 在 使 Lj + pi ( j = 1 , 2 , … , m ) 最小 的 处理机 上 .   
+ 　 　 4 .   若 i ＜ n , 令 i = i + 1 ， 转向 3 . 否则 ， 停机 . 
+ 　 　 只要 最优 调度 的 总 完成 时间 为 max , 上述 预备 算法 就 可 得到 最优 调度 ， 否则 ， 预备 算法 不 一定 能 得到 最优 调度 .   
+ 　 　 定理 1 . 　 当 第 k - 1 次用 预备 算法 所得 调度 的 总 完成 时间 C ( k - 1 ) max ＞ max ( ， 若令 B ( k ) = C ( k - 1 ) max , 则 第 k 次用 预备 算法 所得 调度 的 总 完成 时间 C ( k ) max = C ( k - 1 ) max , 其中 k ≥ 3 .   
+ 　 　 证明 　 设 A = max , 当 C ( k - 1 ) max = A 时则 找到 了 最优 调度 .   
+ 　 　 当 k = 2 时 ， k - 1 = 1 ， 第 1 次用 预备 算法 时 B ( 1 ) = A , 只要 C ( 1 ) max ≠ A ， 一定 会 有 任务 在 调度 时使 所有 处理机 的 长度 都 超过 B ( 1 ) .   第 k 次 ， 即 第 2 次用 预备 算法 求 调度 时 B ( 2 ) = C ( 1 ) max ， 用 预备 算法 安排 任务 最坏 可 得到 与 上次 完全相同 的 调度 ， 所得 C ( 2 ) max ≤ C ( 1 ) max . 
+ 　 　 因此 ， 当 k ≥ 3 时 ， 令 B ( k ) = C ( k - 1 ) max ， 用 预备 算法 安排 任务 与 第 k - 1 次 完全相同 ， 即 C ( k ) max = C ( k - 1 ) max .   
+ 证毕 .   
+ 3 　 Bound   Fit   算法 
+ 　 　 定理 2 . 　 当 k ≥ 3 时 ， 用 预备 算法 求 任务调度 若 存在 总 完成 时间 C ( k ) max ≤ C ( k - 1 ) max - 1 的 调度 ， 则 令 B ( k ) = C ( k - 1 ) max - 1 一定 可 得到 C ( k ) max ≤ C ( k - 1 ) max - 1 的 调度 .   
+ 　 　 证明 　 由 定理 1 知 ， 当 k ≥ 3 时令 B ( k ) = C ( k - 1 ) max 所得 调度 满足 C ( k ) max = C ( k - 1 ) max .   由于 假定 任务 处理 时间 是 整数 ， 因此 为了 得到 更好 的 结果 ， 令 B ( k ) = C ( k - 1 ) max - 1 ， 这样 若用 预备 算法 求 任务调度 存在 C ( k ) max ≤ C ( k - 1 ) max - 1 的 调度 时 就 可 得到 此 调度 .   反之 ， 若 B ( k ) 不论 为何 值 都 无法 得到 C ( k ) max ≥ C ( k - 1 ) max - 1 的 调度 ， 则 所得 调度 的 总 完成 时间 C ( k ) max ≥ C ( k - 1 ) max - 1 . 
+ 证毕 .   
+ 　 　 由 以上 分析 得到 下面 算法 .   
+ 　 　 Bound   Fit 算法 
+ 　 　 1 .   令 B ( 1 ) = max , k = 1 . 
+ 　 　 2 .   令 Lj = 0 ( j = 1 , 2 , … , m ) , i = 1 . 
+ 　 　 3 .   若 至少 存在 一个 j ( 1 ≤ j ≤ m ) 使 Lj + pi ≤ B ( k ) ,   将 Ti 安排 在 使 Lj + pi ≤ B ( k ) 且 序号 最小 的 处理机 上 .   否则 ， 将 Ti 安排 在 使 Lj + pi ( j = 1 , 2 , … , m ) 最小 的 处理机 上 .   改变 相应 的 Lj . 
+ 　 　 4 .   若 i ＜ n , i = i + 1 ， 转向 3 .   
+ 　 　 5 .   若 或 k ≥ 3 且 , 停机 .   否则 ， 令 k = k + 1 ， 若 k ＜ 3 ， 令 B ( k ) = , 转向 2 ； 若 k ≥ 3 ， 令 B ( k ) = , 转向 2 .   
+ 　 　 最后 ， 若 k ≥ 3 ， 以 B ( k - 1 ) 再用 预备 算法 求 调度 ， 所得 调度 即为 Bound   Fit   算法 的 结果 .   
+ 　 　 用 Bound   Fit 算法 可 得到 与 MULTIFIT 算法 同样 或 更好 的 结果 .   
+ 　 　 例 . 　 假设 调度 问题 的 数据 如下 ： m = 3 ,   n = 8 ,   p1 = 100 , p2 = p3 = 90 , p4 = 42 ,   p5 = 41 ,   p6 = 30 ,   p7 = 20 ,   p8 = 7 . 
+ 表 1 　 用 Bound   Fit 算法 与 MULTIFIT 算法 求解 比较 
+ 
+ kCmax 
+ Bound   FitMULTIFIT 
+ 1150210 
+ 2142172 
+ 3141151 
+ 4 　 142 
+ 5 　 141 
+ 
+ 　 　 最优 调度 的 总 完成 时间 是 141 .   Bound   Fit   算法 和 MULTIFIT 算法 都 得到 了 最优 调度 ， 但是 MULTIFIT 算法 需 5 次 迭代 得到 最优 调度 ， 而 Bound   Fit 算法 只 需 3 次 迭代 ， 如表 1 所示 .   
+ 　 　 我们 对 100 个 随机 产生 的 例子 进行 仿真 ， 结果表明 Bound   Fit 算法 所 需 的 迭代 次数 总比 MULTIFIT 算法 所 需 的 迭代 次数 少 .   
+ 4 　 最坏 情况 性能 分析 
+ 　 　 用 CBFmax 表示 用 Bound   Fit 算法 所得 调度 的 总 完成 时间 ， 我们 可以 证明 下面 的 定理 .   
+ 　 　 定理 3 . 　 若 Cmax 是 用 FFD 方法 在 m 个 处理机 上 安排 任务 所得 任一 调度 的 总 完成 时间 ， 则 
+ CBFmax ≤ Cmax 
+ 　 　 证明 　 用 反证法 证明 .   
+ 　 　 设有 一用 FFD 方法 在 m 个 处理机 上 安排 任务 所得 调度 的 总 完成 时间 C ′ max ＜ CBFmax .   由于 C ′ max 是 用 FFD 方法 在 m 个 处理机 上将 全部 任务 安排 完 所得 的 调度 的 总 完成 时间 ， FFD 方法 在 C = B 且 能 将 n 个 任务 全部 安排 在 m 个 处理机 上时 的 任务 安排 方法 完全相同 ， 那么 令 B = C ′ max ， 用 Bound   Fit 算法 一定 可 得到 与 FFD 方法 所得 相同 的 调度 .   则 由 定理 2 可知 ， 令 B = C ′ max - 1 ， 可得 CBF ' max ≤ C ′ max - 1 ； 当 不 存在 总 完成 时间 小于 或 等于 C ′ max - 1 的 调度 时 ， Bound   Fit 算法 至少 可得 CBFmax = C ′ max .   故 与 假设 矛盾 ， 定理 得证 .   
+ 　 　 由 定理 3 ，   可 得 下面 的 推论 .   
+ 　 　 推论 1 . 　 用 Bound   Fit 算法 所得 的 调度 与 MULTIFIT 算法 在 k = ∞ 时 所得 结果 相同 .   
+ 　 　 用 Rm ( BF ) 表示 Bound   Fit 算法 的 绝对 性能 ， 定理 4 给出 Bound   Fit 算法 的 最坏 情况 性能 .   
+ 　 　 定理 4 . 　 对 任意 T ， Rm ( BF ) ≤ 1.20 . 
+ 　 　 证明 　 文献 ［ 4 ］ 中 证明 了 MULTIFIT 算法 的 绝对 性能 Rm ( MUL ) ≤ 1.20 + ( ) k , 由 推论 1 可知 
+ 
+ 则 
+ 
+ 资金 项目 ： 本文 得到 国家自然科学基金 资助 . 
+ 作者 单位 ： 康一梅 　 北京 计算机 与 电子 应用 技术 研究所 　 北京 　 100081 ； 郑应平 　 中国科学院自动化研究所 　 北京 　 100080 
+ 参考文献 
+ 　 [ 1 ] 　 J . D   Ullman .   Complexity   of   sequencing   problems .   Computer   and   Job / shop   scheduling   Theory .   New   York ,   1976 .   
+ 　 [ 2 ] 　 Graham   R   L .   Bounds   on   multiprocessing   timing   anomalies .   SIAM   J .   Appl .   Math . ,   1969 ,   ( 17 ) ∶ 416 - 429 .   
+ 　 [ 3 ] 　 F   G   Coffman   Jr . ,   Garey   M   R ,   Johnson   D   S .   An   application   of   bin - packing   to   multiprocessor   scheduling .   SIAM   J .   Compt . ,   1978 ,   ( 7 ) ∶ 1 - 17 . 
+ 　 [ 4 ] 　 Freisen   D   K .   Tighter   bounds   for   the   MULTIFIT   processor   scheduling   algorithm .   SIAM   J .   compt . ,   1984 ,   ( 13 ) ∶ 170 - 181 .   
+ 　 [ 5 ] 　 C   Y   Lee ,   David   Massey   J .   Multiprocessor   scheduling :   combining   LPT   and   MULTIFIT .   Discrete   Appl .   Math . ,   1988 ,   ( 20 ) ∶ 233 - 242 . 
+ 收稿 日期 　 1994 - 04 - 20 
+ 
+  

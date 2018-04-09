@@ -1,0 +1,118 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 9 期   Vol.36   No.9   1999 
+ 
+ 
+ 
+ 概念 指导 的 关联 规则 的 挖掘 
+ 程继华 　 施 鹏飞 
+ 摘 　 要 　 关联 规则 是 数据 依赖 关系 的 有效 描述 方法 ， 是 知识 发现 研究 的 重要 内容 . 传统 的 关联 规则 挖掘 算法 缺少 挖掘 的 针对性 ， 挖掘 速度慢 ， 挖掘 结果 难于 理解 ， 挖掘 结果 的 数量 巨大 ， 需要 进行 大量 的 筛选 以便 抽取 出 有用 规则 . 文中 提出 了 将 概念 融入 挖掘 过程 中 ， 提高 挖掘 的 效率 和 挖掘 的 针对性 的 方法 ， 给出 了 概念 指导 的 关联 规则 挖掘 算法 CGARM 和 大 数据库 中 概念 的 交互式 生成 方法 . 算法 CGARM 是 对 基于 分类 的 挖掘 算法 的 拓展 . 实验 结果表明 ， 算法 CGARM 提高 了 挖掘 结果 的 有趣 性 ， 挖掘 速率 比 传统 的 多层次 关联 规则 挖掘 算法 Cumulate 快 一倍 . 
+ 关键词 　 知识 发现 ， 数据挖掘 ， 关联 规则 ， 概念 
+ 中图法 分类号 　 TP18 ；   TP311.13 
+ CONCEPT - GUIDED   ASSOCIATION   RULES   MINING 
+ CHENG   Ji － Hua   and   SHI   Peng － Fei 
+ ( Institute   of   Image   Processing   &   Pattern   Recognition ,   Shanghai   Jiaotong   University ,   Shanghai   200030 ) 
+ Abstract 　 Association   rules   is   an   effective   method   for   describing   the   dependency   relations   in   data ,   and   it   is   one   of   the   important   aspects   of   knowledge   discovery .   Traditional   association   rule   mining   methods   lack   of   focus   on   the   results ,   and   the   procedure   is   slow .   Those   algorithms   express   the   regularities   with   low   level   primitive   data ,   and   the   mining   association   results   are   difficult   to   understand .   Furthermore ,   the   desirable   knowledge   must   be   filtered   out   from   huge   results   in   a   post － processing   step .   A   method   for   integrating   concepts   into   the   mining   procedures   to   improve   the   interestingness   of   results   and   speeding   up   mining   procedures   is   proposed ,   and   the   method   for   deriving   concepts   interactively   in   large   database   is   proposed ,   a   concept － guided   association   rules   mining   algorithm   CGARM   is   given   in   the   paper   here .   CGARM   extends   taxonomies － based   mining   methods .   Experiments   show   the   execution   speed   of   CGARM   is   about   twice   as   faster   as   the   traditional   mining   algorithm   Cumulate ,   and   the   interestingness   of   results   are   also   improved . 
+ Key   words 　 knowledge   discovery ,   data   mining ,   association   rules ,   concept 
+ 1 　 引言 
+ 　 　 关联 规则 是 数据 间 依赖 关系 的 描述 ， 是 知识 发现 研究 的 重要 内容 ［ 1 ， 2 ］ . 信息系统 S 定义 为 四元组 ： ( U ， A ， V ， f ) ， U 是 对象 集合 ， A = { a1 , a2 … , ap } 是 属性 集合 ， V = V1 ∪ V2 … ∪ Vp 是 属性 的 值域 集合 ， f : U × A → V 定义 对象 的 属性 值 ［ 3 ］ . 通常 ， 属性 是 可 分类 的 ， 数据 的 分类 层次 ( hierarchies ) 表示 了 自 底向上 的 概括 ( generalization ) 和 自顶向下 的 特殊化 ( specification ) ［ 2 ， 4 ］ . 
+ 　 　 基于 分类 层次 的 关联 规则 挖掘 算法 主要 包括 ： 算法 Cumulate 和 Stratify ［ 4 ］ ， 算法 MLT2L1 ［ 2 ］ ， 以及 Srikant ［ 5 ］ 提出 的 利用 布尔 表达 限定 规则 中 项目 的 出现 ( 指定 关联 规则 的 形式 ) 提高 挖掘 针对性 的 算法 . 基于 分类 的 方法 仅 适用 于 单个 属性 有 清晰 分类 层次 的 应用 . 
+ 　 　 许多 应用 中 ， 需要 根据 在 多个 对象 属性 上 的 逻辑 表达式 所 表示 的 概念 ， 进行 数据 的 概括 ［ 6 ］ . 例如 老年 高级 知识分子 ， 是 年龄 、 职称 两个 属性 上 的 逻辑 表达式 ( 年龄 > 60   AND 职称 = 高级职称 ) 构成 的 概念 . 用 概念 表达 数据 间 的 关系 ， 符合 人 的 思维 方式 ， 更 易于 理解 . 
+ 　 　 本文 研究 了 利用 概念 对 挖掘 的 结果 进行 限定 、 提高 挖掘 针对性 的 方法 . 提出 了 概念 指导 的 关联 规则 的 挖掘 算法 CGARM ( concept   guided   association   rules   mining ) . 算法 CGARM 是 基于 分类 方法 的 拓展 ， 提高 了 挖掘 的 效率 和 结果 的 有趣 性 ( interestingness ) . 本文 还 提出 了 大 数据库 中 概念 的 交互式 生成 方法 . 
+ 2 　 关联 规则 的 挖掘 问题 
+ 　 　 记录 表示 为 { id , 〈 ( a1 ， v1 ) , ( a2 ， v2 ) , … , ( ap ， vp ) 〉 } ， 其中 id 为 记录 标识号 ， 全局 唯一 ， ai ∈ A 是 属性 ， vi 是 属性 ai 的 值 ( i = 1 , 2 … , p ) . 全体 记录 的 集合 记为 D . 
+ 　 　 定义 1 .   条件 表达式 递归 定义 为 
+ 　 　 ①   ai ∈ A , wi ∈ Vi , θ ∈ { = , ≠ , ＞ , ≥ , ＜ , ≤ } 是 二元 操作符 ， ai θ wi 称为 条件 式 . 
+ 　 　 ②   c  1 ， c  2 是 条件 表达式 ， c  1ANDc  2 ， c  1ORc  2 , NOTc  1 为 条件 表达式 . 
+ 　 　 定义 2 .   概念 递归 定义 为 
+ 　 　 ①   若 ai ∈ A 是 属性 ， ci 为 条件 表达式 ， 则 ( ai , ci ) 为 概念 . 
+ 　 　 ②   若 T1 ， T2 为 概念 ， 则 T1 ∧ T2 为 概念 ， 其中 ∧ 表示 逻辑 “ 与 ” . 
+ 　 　 定义 3 .   模式 P 定义 为 T1 ∧ T2 … ∧ Tk ， Ti ( i = 1 , 2 , … , k ) 是 概念 . 称 模式 P 包含 概念 Ti ， 记为 Ti ∈ P . 称 模式 P 的 长度 为 i , 记 为 | P | = i . 
+ 　 　 定义 4 .   模式 P = T1 ∧ T2 … ∧ Tk ， 模式 Q = Tl1 ∧ Tl2 … ∧ Tlm ， 若 Tln ∈ Q ， 有 Tln ∈ P ， 则 称 模式 Q 为 模式 P 的 子模式 ， 记为 Q ◇ P . 模式 P 中 ， 不 包含 在 模式 Q 中 的 概念 组成 的 模式 记为 P － Q . 
+ 　 　 定义 5 .   给定 模式 P ， Q 和 P 的 子模式 S ， 若 S 是 Q 的 子模式 ， 称 模式 ( P － S ) ∧ Q 为 模式 P 可 概括 的 . 模式 P 可 概括 的 模式 的 集合 称为 P 的 可 概括 集合 ， 记为 . 
+ 　 　 定义 6 .   模式 P = T1 ∧ T2 … ∧ Tk ， 记录 t = { id , 〈 ( a1 ， v1 ) , ( a2 ， v2 ) , … , ( ap ， vp ) 〉 } , 若  ( ai , ci ) ∈ P ， 将 条件 表达式 ci 中 ai 用 vi 替换 后 ， 条件 表达式 c  i 为 “ 真 ” ， 称 t 支持 P . 
+ 　 　 模式 P 在 数据库 D 中 的 支持率 ， 关联 规则 AB 的 可信度 为 挖掘 有效 关联 规则 ， 定义 最小 支持率 σ min 和 上 可信度 ψ min . 若 σ ( P / D ) > σ min , 称 模式 P 是 频繁 的 ［ 2 ］ ， 长度 为 i 的 频繁 模式 集合 记为 Li ， 记 L = ∪ kLk . 
+ 　 　 挖掘 关联 规则 即 是 找出 满足 ： σ ( A ∩ B / D ) > σ min , Ψ ( AB / D ) > ψ min 的 规则 AB . 
+ 　 　 对于 不同 的 应用环境 和 挖掘 任务 ， 对 挖掘 的 知识 有 不同 的 针对性 . 期望 出现 在 挖掘 结果 中 的 概念 ， 称为 有 价值 的 . 
+ 　 　 定义 7 .   若 规则 T1 ∧ T2 … ∧ TiTi + 1 … ∧ Tk 为 有趣 的 ( interestingess ) ［ 7 ］ ， 模式 T1 ∧ T2 … ∧ Tk 称为 可用 的 ， 即可 用 的 模式 能够 导出 有趣 的 规则 . 称为 集合 L 中 模式 的 可用 率 . 
+ 　 　 Agrawal 给出 了 由 频繁 模式 求解 关联 规则 的 方法 ［ 1 ］ . 本文 着重 讨论 概念 指导 的 频繁 模式 的 求解 . 
+ 3 　 概念 指导 的 关联 规则 的 挖掘 
+ 3.1   概念 的 生成 
+ 　 　 数据挖掘 的 研究 对象 是 巨大 的 数据 . 由于 数据量 巨大 、 噪声 的 存在 和 数据 的 不 完整 等 原因 ， 传统 的 概念 产生 方法 不能 适应 数据挖掘 的 要求 . 我们 提出 了 一种 交互式 的 概念 产生 方法 . 
+ 　 　 在 D 上 随机 抽取 出 子集合 Δ D ， 给定 门限 T ， 在 Δ D 上 挖掘 满足 最小 支持率 T 的 频繁 模式 集合 L Δ = ∪ kLk ， 从 L Δ 中 抽取 出 有 价值 的 模式 ， 构造 概念 集合 . 概念 的 产生 过程 为 ： 首先 将 L1 中有 价值 的 模式定义 为 概念 ， 形成 概念 集合 S1 ； 对 L Δ 中 的 模式 进行 概念 抽象 ： 若 L Δ 中 的 模式 P 的 子模式 是 S1 中 的 概念 ， 将 P 中 的 子模式 用 S1 中 的 概念 替换 ， 并 将 替换 后 的 模式 包含 在 L Δ 中 ； 再 将 L2 中有 价值 的 模式定义 为 概念 ， 形成 概念 集合 S2 ， … ； 最后 形成 概念 集合 ConceptSet = ∪ kSk . 
+ 　 　 算法 1 . Concep _ Dterive ( 概念 生成 算法 ) 
+ Input : 　 数据库 D ， 门限 T 
+ Output ： 　 概念 集合 ConceptSet 
+ 　 　 从 数据库 D 中 随机 抽取 子集合 Δ D 
+ 　 　 在 Δ D 上 挖掘 满足 最小 支持率 T 的 频繁 模式 集合 L Δ = ∪ kLk 
+ j = 1 
+ While 　 j < = k 　 Do ｛ 
+ 　 　 　 将 Lj 中有 价值 的 模式定义 为 概念 ， 生成 Sj 
+ 　 　 　 n = j 
+ 　 　 　 While 　 n < = k 　 DO ｛ 
+ 　 　 　 　 For   every 　 P ∈ L Δ 　 Do 
+ 　 　 　 　 　 If 　 P 的 子模式 是 Sj 中 的 概念 Q 　 Then 
+ 　 　 　 　 　 将 P 中 的 子模式 用 概念 Q 替换 ， 并 放入 L Δ 中 
+ 　 　 　 　 n = n + 1 
+ 　 　 　 ｝ 
+ 　 　 　 j = j + 1 
+ ｝ 
+ ConceptSet = ∪ kSk 
+ 3.2   挖掘 算法 CGARM 
+ 　 　 首先 ， 我们 给出 模式 P 的 可 概括 模式 集合 的 求解 算法 ： 
+ 　 　 算法 2 .   ALLG ( 模式 P 的 可 概括 集合 的 求解 算法 ) ： 
+ Input : 　 模式 P ， 概念 集合 ConceptSet 
+ Output ： 　 P 的 可 概括 模式 集合 
+ = { } 
+ For   every 概念 Q ∈ ConceptSet 　 Do 
+ 　 　 If 　 P 的 子模式 S 是 Q 的 子模式 　 Then 
+ 　 　 = + { ( P - S ) ∧ Q } 
+ 　 　 为 提高 模式 P 的 可 概括 集合 的 求解 速度 ， 根据 属性 和 条件 表达式 对 ( aj , cj ) 中 的 属性 aj 的 字典 序 ， 对 概念 集合 ConceptSet 中 的 概念 进行 排序 . 
+ 　 　 算法 3 .   CGARM ( 概念 指导 的 关联 规则 挖掘 算法 ) ： 
+ Input : 　 概念 集合 ConceptSet ， 数据库 D ， 最小 支持率 σ min ， 最小 可信度 ψ min . 
+ Output ： 　 关联 规则 集合 AR 
+ 　 C1 ＝ ｛ （ Aj , Cj ） |  概念 Q ∈ ConceptSet , ( Aj , Cj ) ∈ Q ｝ 
+ k = 1 
+ While 　 Ck < > NIL 　 Do ｛ 
+ 　 　 = { } 
+ 　 　 For   every   P ∈ Ck 　 Do 
+ 　 　 　 　 = + ALLG ( P ， ConceptSet ) 
+ 　 　 Gk = { X | X ∈ Ck , | X | = k } 
+ 　 　 访问 D ， 计算 Ck ∪ Gk 中 模式 的 支持率 
+ 　 　 Lk = { X | X ∈ Ck ∪ Gk , σ ( X / D ) > σ min } 
+ 　 　 Ck = { X ∧ Y | ∈ Lk - 1 , Y ∈ Lk - 1 , | X ∧ Y = k | ， 
+ 　 　 　 　 并且  Q ◇ ( X ∧ Y ) ， 若 | Q | = k - 1 , Q ∈ Lk - 1 } 
+ 　 　 k = k + 1 
+ 　 ｝ 
+ L = ∪ kLk 
+ L _ C = { P ∈ L | Q ◇ R , Q ∈ ConceptSet } 
+ 　 　 关联 规则 集合 
+ 　 　 算法 3 先 计算 与 概念 集合 ConceptSet 中 概念 有关 的 、 长度 为 1 的 候选 频繁 模式 集合 C1 和 C1 的 可 概括 集合 G1 ， 然后 访问 数据库 D ， 求 出 长度 为 1 的 频繁 模式 集合 L1 ； 由 L1 构造 长度 为 2 的 候选 频繁 模式 集合 C2 ， 求 C2 的 可 概括 集合 G2 ， 访问 D ， 求 长度 2 的 频繁 模式 L2 ； … … ； 最后 求 出 频繁 模式 集合 L = ∪ kLk ， 去掉 L 中 不 包含 ConceptSet 中 概念 的 模式 ， 得到 与 概念 相关 的 频繁 模式 集合 LC ， 最后 求 出 关联 规则 集合 AR . 
+ 4 　 算法 CGARM 性能 分析 
+ 　 　 算法 CGARM 对 概念 集合 ConceptSet 限定 的 模式 集合 进行 挖掘 ， 减少 了 冗余 运算 和 无用 模式 的 数量 ， 提高 了 效率 ， 节省 了 存储空间 . 挖掘 结果 用 概念 的 形式 表示 ， 易于 理解 . 
+ 　 　 在 Pentium   133 / 8M ， Windows   3.11 的 环境 下 ， 利用 算法 CGARM 对 计算机 等级 考试 数据库 进行 了 分析 ， 并 与 算法 Cumulate 进行 了 比较 . 实验 结果 如下 ： 
+ 　 　 数据库 中 ， 记录 包含 32 个 属性 ， 考生 各 题目 的 成绩 按照 A ， B ， C ， D 划分 ， 年龄 划分 为 14 岁 以下 ， 14 ～ 18 岁 ， 19 ～ 35 岁 ， 36 ～ 45 岁 ， 45 岁 以上 . 对 考生 的 成绩 、 年龄 、 所在城市 和 职业 进行 分类 ， 分类 层次 = 4 . 
+ 　 　 从 考生 成绩 数据库 中 抽取 出 4K 个 记录 ， 门限 T = 3% ， 利用 算法 Concept _ Derive 进行 交互式 的 概念 的 生成 ， 获得 概念 集合 ConceptSet .   ConceptSet 中 包含 22 个 概念 ， 人工 补充 3 个 概念 到 ConceptSet 中 ， 共 获得 25 个 概念 ， 涉及 考生 所在 的 省份 ， 职业 、 学历 、 性别 、 年龄 等 属性 . 例如 ， 概念 ( kq , kq = " 上海 " ) AND ( dj , dj = 3 ) 表示 上海 的 3 级 考生 ， 概念 ( dj , dj = 2 ) AND   ( dj , dj = 3 ) 表示 上海 的 3 级 考生 ， 概念 ( dj , dj = 2 )   AND   ( xl , xl = " 中专 以上 " ) AND ( nl , nl = 36 ～ 45 ) 表示 中专 学历 、 35 ～ 45 岁 的 2 级 考生 . 
+ 　 　 图 1 给出 了 在 分类 层次 为 4 ， 概念 个数 为 25 ， σ min = 15% 的 条件 下 ， 算法 CGARM 和 算法 Cumulate 挖掘 的 结果 的 可用 率 与 记录 个数 的 关系 . 算法 CGARM 挖掘 结果 的 可用 率 大大 高于 算法 Cumulate . 
+ 
+ 图 1 　 算法 CGARM 和 算法 Cumulate 的 挖掘 结果 的 可用 率 和 记录 数 的 关系 
+ 　 　 图 2 给出 了 记录 个数 = 60K ， 概念 个数 = 25 的 条件 下 ， 算法 CGARM 的 执行 时间 与 最小 支持率 的 关系 ； 图 3 给出 了 在 分类 层次 = 4 ， 概念 个数 = 25 , σ min = 5% 的 条件 下 ， 算法 CGARM 和 算法 Cumulate 的 执行 时间 与 记录 个数 的 关系 . 算法 CGARM 挖掘 速率 大约 比 算法 Cumulate 快 一倍 . 此外 ， 算法 CGARM 的 执行 时间 的 上升 大大 小于 记录 个数 的 增加 . 
+ 
+ 图 2 　 算法 CGARM 的 执行 时间 与 最小 支持率 的 关系 
+ 
+ 图 3 　 算法 CGARM 和 算法 Cumulate 的 执行 时间 与 记录 数目 的 关系 
+ 5 　 结论 
+ 　 　 本文 提出 了 概念 指导 的 关联 规则 挖掘 算法 CGARM ， 将 表示 背景 知识 的 概念 融入 挖掘 过程 中 ， 提高 挖掘 的 针对性 和 挖掘 结果 的 有趣 性 . 实验 表明 ， 概念 指导 的 挖掘 方法 与 基于 分类 的 方法 相比 ， 提高 了 挖掘 的 速度 ， 挖掘 结果 的 可用 率 ， 算法 CGARM 挖掘 速度 比 传统 的 多层次 关联 规则 挖掘 算法 Cumulate 快 一倍 . 
+ 注 ： 本 课题 得到 国家自然科学基金 资助 ( 项目编号 69575012 ) . 
+ 作者简介 ： 程继华 ， 男 ， 1964 年生 ， 博士 ， 主要 研究 方向 为 数据挖掘 与 知识 发现 、 数据库 和 数据 可视化 技术 . 
+ 施 鹏飞 ， 男 ， 1939 年生 ， 教授 ， 博士生 导师 ， 主要 研究 方向 为 数字图像处理 、 模式识别 、 计算机 视觉 、 智能 技术 与 系统 等 . 
+ 作者 单位 ： 上海交通大学 图像处理 与 模式识别 研究所 　 上海 　 200030 
+ 参考文献 
+ 1 　 　 Agrawal   R ,   Srikant   R .   Fast   algorithms   for   mining   association   rules .   IBM   Almaden   Research   Center ,   Tech   Rep :   RJ9839 ,   1994 
+ 2 　 　 Han   J ,   Fu   Y .   Discovery   of   multiple － level   association   rules   from   large   databases .   In :   Proc   of   1995   Very   Large   Databases ,   Zurich ,   1995 .   420 ～ 431 
+ 3 　 　 Pawlak   Z ,   Orlowska   E .   Expressive   power   of   knowledge   representation .   Journal   of   Man － Machine   Studies ,   1989 ,   30 :   273 ～ 285 
+ 4 　 　 Srikant   R ,   Agrawal   R .   Mining   generalized   association   rules .   In :   Proc   of   1995   Very   Large   Databases ,   Zurich ,   1995 .   3 ～ 14 
+ 5 　 　 Srikant   R ,   Vu   Q ,   Agrawal   R .   Mining   association   rules   with   item   constraints .   In :   Proc   of   the   3th   Knowledge   Discovery   and   Data   Mining ,   California ,   1997 .   67 ～ 73 
+ 6 　 　 Dhar   V ,   Tuzhilin   A .   Abstract － driven   pattern   discovery   in   databases .   IEEE   Trans   on   Knowledge   and   Data   Engineering ,   1993 ,   5 ( 6 ) :   926 ～ 938 
+ 7 　 　 Fayyad   U ,   Piatesky － shapiro   G ,   Smyth   P .   From   data   mining   to   knowledge   discovery :   An   overviews .   In :   Fayyad   M ,   Piatetsky － Shapiro   G ,   Smyth   P   eds .   Advances   in   Knowledge   Discovery   and   Data   Mining .   MA :   The   MIT   Press ,   1996 .   1 ～ 34 
+ 原稿 收到 日期 ： 1997 - 11 - 25 ； 修改稿 收到 日期 ： 1998 - 04 - 28 . 

@@ -1,0 +1,90 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1998 年   第 18 卷   第 5 期   No.5   Vol.18   1998 
+ 科技期刊 
+ 
+ 人工 复合 生态系统 对 太湖 局部 水域 水质 的 净化 作用 * 
+ 王国 祥 　 濮 培民 　 张圣照 　 李 万春 　 胡维平 　 胡春华 
+ ( 中国科学院 南京 地理 与 湖泊 研究所 ， 南京   210008 ) 
+ 文 　 摘 　 根据 不同 生态 类型 水生 高等植物 的 净化 能力 及其 微 生境 特点 ， 设计 建造 了 由 漂浮 、 浮叶 、 沉水植物 及其 根际 微生物 等 组成 的 人工 复合 生态系统 ( artificial   complex   ecosystem ； ACE ) ， 并 在 太湖 五里湖 中 桥 湖湾 内以 动态 模拟 试验 ， 从 群落 水平 研究 了 多种 水生植物 镶嵌 组合 的 人工 复合 生态系统 对 富营养化 湖水 的 净化 能力 。 结果表明 ， 富营养化 湖水 经该 系统 净化 后 ， 藻类 生物量 （ 以 Chla 计 ） 下降 58% ， 氨氮 下降 66% ， 总氮 下降 60% ， 总磷 下降 72% ， 可溶性 磷酸盐 下降 80% ， 水质 得到 明显改善 。 与 以 该 湖湾 湖水 为 水源 的 水厂 出水 相比 ， 人工 复合 生态系统 出水 的 氨氮 比 水厂 出水 的 氨氮 平均 低 45% ， 总氮 低 37% ， 可见 经 人工 复合 生态系统 处理 的 湖水 部分 指标 优于 同源 的 自来水 。 
+ 关键词 　 水生 高等植物 　 人工 复合 生态系统 ( ACE ) 　 水质 净化 　 动态 试验 　 太湖 
+ The   purification   of   artificial   complex   ecosystem   for   local   water   in   Taihu   Lake .   Wang   Guoxiang ,   Pu   Peimin ,   Zhang   Shengzhao ,   Li   Wanchun ,   Hu   Weiping ,   Hu   Chunhua   ( Nanjing   Institute   of   Geography   and   Limnology , Chinese   Academy   of   Sciences ， Nanjing   210008 ) . China   Environmental   Science.1998 , 18 ( 5 ) : 410 ～ 414 
+ Abstract — An   artificial   complex   ecosystem   ( ACE )   is   built   with   aquatic   macrophytes   of   various   ecological   group ,   rhizosphere   bacteria   and   other   organism   in   a   bay   of   Taihu   Lake .   Its   area   is   about   200   m2 .   The   purification   efficiency   of   the   ACE   is   evaluated   by   dynamic   simulation   test .   The   result   shows   that   the   eutrophic   water   of   Taihu   Lake   can   be   purified   effectively   as   it   pass   through   ACE .   The   purified   water   is   drawn   out   from   ACE   by   a   pump   at   the   pumping   capacity   of   42.67 m3 / d .   The   removal   efficiencies   of   ACE   for   algal   biomass ,   NH + ４ - N ,   TN ,   TP   and   PO3 - 4 - P   are   58% ,   66% ,   60% ,   72%   and   80% ,   respectively .   Comparing   with   the   tap   water   of   the   local   water   plant ,   the   mean   values   of   NH + ４ - N   and   TN   of   the   ACE   effluent   are   low   by   45%   and   37% ,   respectively .   For   the   effluent   of   ACE ,   the   water   quality   is   significantly   better   than   that   for   the   raw   water   ( inflow )   and   for   the   tap   water   of   the   local   water   plant . Results   demonstrate   that   the   eutrophic   lake   water   can   indeed   purify   by   ACE . 
+ Key   words : aquatic   macrophyte 　 artificial   complex   ecosystem   ( ACE ) 　 purifying   water   quality 　 dynamic   test 　 Taihu   Lake 
+ 
+ 　 　 70 年代 以来 ， 国内外 对 利用 高等 水生植物 净化 污水 进行 了 广泛 的 研究 〔 1 ～ 5 〕 ， 但 多数 研究 局限于 单一 物种 在 静态 条件 下 对 污染物 浓度 较 高 的 污水 的 净化 作用 ， 尹 澄清 等 〔 6 〕 用 动态 方法 研究 了 水陆 交错带 （ 芦苇 ） 对 营养物 浓度 较 高 的 陆源 污水 的 净化 作用 。 刘文祥 〔 7 〕 在 滇池 附近 的 低洼 弃 耕地 设计 改造 的 人工 湿地 正常 运行 时 ， 对 农业 面源 污染物 总氮 、 总磷 的 去除率 分别 为 60% 和 50% ； 但 由于 人工 湿地 需 占用 较 多 的 土地 ， 因而 该 技术 的 应用 受到 很大 限制 。 直接 在 富营养化 严重 的 湖泊 中 ， 组建 由 不同 生态 类型 水生 高等植物 为 优势 种 的 人工 复合 生态系统 ( artificial   complex   ecosystem ,   以下 简称 ACE ) ， 以 控制 藻类 暴发 、 净化 污染物 及 营养物 浓度 比 污水 低 的 湖水 ， 并 从 群落 水平 研究 了 水生 高等植物 对 太湖 湖水 的 净化 效果 。 本 试验 结果 对 防治 湖泊 富营养化 及 恢复 其 生态系统 具有 一定 的 指导意义 。 
+ 1 　 实验 部分   
+ 1.1 　 实验 系统 
+ 　 　 在 太湖 五里湖 中 桥 湖湾 ， 用 防水 工业 滤布 围隔 出 10 个 5m × 40m 围区 ， 围区 平均 水深 1.5 m 。 选取 其中 一个 围区 相间 栽培 漂浮 、 浮叶及 沉水植物 ， 待 系统 稳定 后 （ 约 2 周 ） ， 将 围区 一端 开口 使 围区 与 湖区 相通 ， 同时 在 另一端 用 水泵 抽水 ， 抽 水量 为 42.67   m3 / d ， 换水 周期 约 为 7d 。 ACE 结构 及 采样 点如图 1 所示 。 
+ 
+ 图 1 　 人工 复合 生态系统 中 主要 种群 分布 及 采样 点 
+ Fig.1 　 Spatial   pattern   of   main   populations   in   artificial 
+ complex   ecosystem   ( ACE )   and   the   sites   of   sampling   points 
+ 1.2 　 试验 植物 
+ 　 　 选取 已能 在 太湖 生长 的 喜旱 莲子 草 （ Alternanthera   philoxeroides ） 、 菱 （ Trapa   natans   var .   bispinosa ) 、 水 鳖 （ Hydrocharis   sp . ） 、 凤眼莲 （ Eichhornis   crassipes ） 、 伊乐藻 ( Elodea   Nuttallii ) 、 金鱼藻 ( Ceratophyllum   demersum ) 、 轮叶 黑藻 （ Hydrilla   varticilata ） 、 紫背 浮萍 ( Spirodela   polyrhiza ) 等 高等 水生植物 ， 1997 年 9 月 下旬 将 喜旱 莲子 草 、 水 鳖 及 凤眼莲 移入 试验区 ， 其余 为 上年 种植 。 喜旱 莲子 草原 为 水陆 两栖 挺水 植物 ， 经 驯化 已经 能 很 好 地 生长 在 太湖 的 开阔 湖面 ， 故 这里 的 喜旱 莲子 草 实际上 是 漂浮 植物 。 
+ 1.3 　 测定 项目 
+ 　 　 水中 总氮 ( TN ） 、 硝酸盐 氮 ( NO - ３ - N ) 、 亚硝酸盐 氮 ( NO - ２ - N ) 、 氨氮 ( NH + ４ - N ) 、 总磷 ( TP ) 、 溶解性 磷酸盐 ( PO3 - ４ - P ) 、 溶解氧 ( DO ) 、 透明度 ( SD ) 等 水质 理化 指标 ， 藻类 、 水生 高等植物 根际 微生物 。 
+ 1.4 　 测定方法 
+ 　 　 采用 过 硫酸盐 氧化 法 同时 测定 水中 的 总 氮 和 总 磷 〔 8 〕 ， 其它 理化 指标 及 藻类 测定 采用 中国 环境监测 标准 方法 〔 9 〕 ， 水生 高等植物 根际 微生物 测定方法 另文 报道 。 
+ 2 　 试验 结果 
+ 2.1 　 试验区 的 基本 情况 
+ 　 　 太湖 五里湖 中 桥 湖湾 是 临近 无锡市 区 的 一个 小 湖湾 ， 是 无锡市 中 桥 水厂 （ 老 厂 ） 的 取水 区 ， 水质 较差 ， 藻类 数量 平均 达 4 万个 / mL 以上 ， 有时 还 出现 “ 藻华 ” ， 氨氮 浓度 平均 达 4mg / L 以上 ， 较 多 的 藻类 和 较 高 的 氨氮 浓度 一直 困扰 水厂 的 生产 和 出水 质量 。 
+ 2.2 　 人工 复合 生态系统   ( ACE )   的 结构 
+ 　 　 组建 的 ACE 在 稳定 后 ， 水生 高等 植物群落 的 水平 分布 格局 如图 1 所示 。 位于 进水口 的 喜旱 莲子 草 群丛 水上 部分 高约 50cm ， 水下 茎 盘根错节 形成 约 30cm 厚 的 群丛 基座 ， 使 整个 群丛 紧密 交织 在 一起 ， 构成 坚强 的 防护 带 。 该 群丛 盖度 为 100% ， 其下 水中 反 硝化 和 氨化 细菌 的 最大 可能 数 分别 为 1.2 × 108 和 1.6 × 107MPN / L ， 溶解氧 仅为 0.19 ～ 0.90 mg / L 。 
+ 　 　 喜旱 莲子 草后 的 菱 群丛 ， 生长 旺盛 ， 浮水 叶 完全 覆盖 水面 ， 水下 茎 叶 发达 ， 并 伴生 少量 金鱼藻 和 轮叶 黑藻 。 
+ 　 　 水 鳖 群丛 盖度 为 50% ， 处于 衰亡 期 ， 伴生 种有 金鱼藻 和 紫 背 浮萍 。 
+ 　 　 凤眼莲 群丛 盖度 约 为 90% ， 另有 少量 喜旱 莲子 草 、 金鱼藻 及 伊乐藻 伴生 ， 水中 反 硝化 和 氨化 细菌 分别 达 3.5 × 107 和 1.8 × 107MPN / L 。 
+ 　 　 ACE 后部 的 菱 群丛 盖度 达 100% ， 生长 旺盛 ， 其下 亦 伴生 有 金鱼藻 、 水 鳖 及 轮叶 黑藻 ， 水中 硝化 、 亚 硝化 及 氨化 细菌 分别 为 1.6 × 104 、 1.6 × 107 和 1.6 × 107MPN / L ， 水体 溶解氧 为 7.50 ～ 8.69 mg / L 。 在 ACE 的 末段 ， 又 设 一道 凤眼莲 植被 带 ， 凤眼莲 生长 较 好 ， 完全 覆盖 水面 。 
+ 2.3 　 围区 动态 试验 结果 
+ 　 　 湖水 经过 ACE 各 植被 带后 ， 由 抽水泵 抽出 。 ACE 的 进 、 出水 及 各 植被 带 之间 的 主要 水质 指标 及 藻类 生物量 的 变化 见图 2 ～ 图 7 。 
+ 　 　 由图 2 可见 ， 湖水 经 ACE 后 ， 其 藻类 生物量 （ 以 Chla 计 ） 急剧下降 ， 第 14d ， 出水 藻类 生物量 比 进水 下降 58% 。 特别 是 在 试验 期间 ， 围 区外 曾一度 （ 10 月 16 ～ 22 日 ） 出现 “ 藻华 ” ， 加之 风浪 作用 ， “ 藻华 ” 聚集 到 ACE 的 进水口 ， 导致 ACE 内及 出水 的 藻类 生物量 略有 上升 ， 但 在 “ 藻华 ” 消失 的 次日 （ 10 月 23 日 ） 出水 的 藻类 生物量 比 10 月 22 日 下降 51% 。 该 系统 出水 藻类 数量 比 进水 平均 降低 了 2 ～ 3 个 数量级 ， 可见 ACE 能够 有效 地 除去 湖水 中 高浓度 的 藻类 。 
+ 
+ 图 2 　 动态 试验 Chla 浓度 变化 
+ Fig.2 　 Changes   in   concentration   of   Chla   
+ in   ACE   dynamic   test 
+ 
+ 图 3 　 动态 试验 TN 浓度 变化 
+ Fig.3 　 Changes   in   concentration   of   TN 
+ in   ACE   dynamic   test 
+ 
+ 图 4 　 动态 试验 NH + 4 - N 浓度 变化 
+ Fig.4 　 Changes   in   concentration   of   NH + ４ - Nin   ACE   dynamic   test 
+ 　 　 由图 3 ～ 图 5 可见 ， 湖水 经过 ACE 后 TN 、 NH + ４ - N 、 TP 、 PO3 - ４ - P 浓度 均 有 不同 程度 的 下降 。 试验 开始 后 的 第 5d ， 出水 的 TN 、 NH + ４ - N 、 TP 、 PO3 - ４ - P 浓度 分别 比 进水 下降 53% 、 70% 、 56% 、 70% ； 第 14d ， 分别 下降 60% 、 66% 、 72% 、 80% 。 因此 ， ACE 能够 有效 地 去除 湖水 中 的 氮 、 磷 。 连续 数日 的 同步 监测 结果 还 表明 ， 该 ACE 出水 的 氨氮 比 当地 水厂 出水 （ 自来水 ） 平均 低 45% ， TN 平均 低 37% 。 
+ 
+ 图 5 　 动态 试验 TP 和 PO3 - 4 - P 浓度 变化 
+ Fig.5 　 Changes   in   concentration   of   TP   and   PO3 - ４ - P   in   ACE   dynamic   test 
+ 
+ 图 6 　 动态 试验 NO - 3 - N 浓度 变化 
+ Fig.6 　 Changes   in   concentration   of   NO - ３ - N   in   ACE   dynamic   test 
+ 　 　 由图 6 可见 ， 湖水 经过 以 菱为 优势种群 的 植被 带后 ， NO - ３ - N 浓度 大幅度 上升 ， 第 11d ， 第 1 菱带 比 其前 一 植被 带 的 NO - ３ - N 浓度 上升 24% ， 第 2 菱带 是 其前 一 植被 带 的 3.74 倍 ； 第 14d ， 第 2 菱带 的 NO - ３ - N 浓度 是 前 一 植被 带 的 7.58 倍 ， 而 此时 的 TN 、 NH + ４ - N 浓度 均 有 明显 下降 ， 这 表明 在 以 菱为 优势种群 的 植被 带 硝化作用 强烈 。 
+ 
+ 图 7 　 动态 试验 NO - 2 - N 浓度 变化 
+ Fig.7 　 Changes   in   concentration   of   NO - ２ - N   in   ACE   dynamic   test 
+ 　 　 由图 7 可见 ， 湖水 进入 ACE ， 经过 喜旱 莲子 草 植被 带后 ， NO - ２ - N 浓度 急剧下降 ， 但 在 随后 依次 经过 凤眼莲 - 菱 - 凤眼莲 各 植被 带后 ， NO - ２ - N 浓度 又 呈现出 不同 程度 的 上升 趋势 ， 这 表明 在 ACE 的 各 植被 带均 有 不同 程度 的 硝化 - 反 硝化作用 。 
+ 3 　 讨论 
+ 3.1 　 人工 复合 生态系统 除藻 机理 的 探讨 
+ 　 　 在 太湖 一些 湖湾 经常 可见 “ 藻华 ” 覆盖 在 浮叶及 沉水植物 上 ， 导致 水生 高等植物 死亡 ， 因此 ， 用 浮叶 或 沉水植物 净化 太湖 湖水 ， 往往 难以 抵御 来势凶猛 的 “ 藻华 ” 。 而 喜旱 莲子 草 群丛 ， 其 水上 直立 部分 粗壮 繁茂 、 水下 部分 盘根错节 使 整个 群丛 交织 在 一起 ， 再 辅以 物理 措施 ， 在 ACE 的 先端 构筑 坚强 的 防护 带 ， 能 将 “ 藻华 ” 挡 在 ACE 外 ， 群丛 自身 保持 旺盛 生长 。 处于 ACE 前端 的 喜旱 莲子 草 、 菱 植被 带 的 水下 交错 发达 的 根 、 茎 、 叶象 层层 滤网 能够 滤掉 湖水 中 的 大量 藻类 。 试验 发现 ， 在 ACE 前端 的 菱其 水下 茎 叶上 附着 很多 絮状物 ， 尤其 是 在 迎水 方向 ； 而 在 ACE 后 端的 菱 及其 它 植物 的 水下 根茎叶 上 几乎 没有 肉眼 可见 的 附着物 ， 这 表明 菱对 藻类 及 水中 的 悬浮物 有 良好 的 过滤 作用 。 由于 系统 前端 喜旱 莲子 草和菱 的 作用 ， ACE 内部 水体 透明度 得到 明显改善 ， 试验 期间 ， ACE 内部 的 透明度 平均 为 110cm ， 约 为 湖水 透明度 的 3 倍 。 透明度 的 改善 为 ACE 内部 沉水及 浮叶 植物 生长 提供 了 保障 ， 而 沉水及 浮叶 植物 的 生长 一方面 能 抑制 藻类 的 生长 ， 另一方面 又 不断 地 吸收 、 分解 水中 的 营养盐 和 污染物 ， 使得 整个 系统 处于 良性循环 状态 。 此外 ， 喜旱 莲子 草 属于 多年生 植物 ， 采取 一些 极 简易 的 防寒 措施 ， 已经 连续 两年 在 试验 区内 安全 越冬 ， 并 继续 发挥 其 净化 作用 （ 另文 报道 ） 。 
+ 3.2 　 人工 复合 生态系统 除 氮 机理 探讨 
+ 　 　 从 试验 结果 看 ， 各 植被 带 对 TN 和 NH + ４ - N 均 有 去除 作用 ， 但是 ， 湖水 经 两个 菱 群丛 后 NO - ３ - N 均 有 大幅度 上升 ， 而经 ACE 后部 的 凤眼莲 、 菱 群丛 后 ， NO - ２ - N 亦 呈上升 趋势 。 各 植被 带 根际 氮 循环 细菌 及 水体 溶解氧 ( DO ) 测定 结果表明 ， DO 及 氮 循环 细菌 分布 存在 明显 差异 ， 这种 差异 营造 了 利于 氮素 氨化 、 硝化 - 反 硝化 的 氧化 还原 微 环境 。 湖水 进入 ACE ， 首先 经过 溶解氧 较 低 的 、 反 硝化细菌 和 氨化 细菌 较 多 的 喜旱 莲子 草 植被 带 ， 有机 氮 在 此 条件 下经 反 硝化 和 氨化 作用 转化 为 NH + ４ - N 、 NO - ２ - N 、 N2O 及 N2 。 同时 ， 由于 在 水生 高等植物 根际 存在 富氧 与 缺氧 区 〔 10 〕 ， 氨氮 在 富氧区 被 氧化 为 硝态 氮 ， 而 部分 硝态 氮 在 水流 作用 下 进入 缺氧 区 ， 被 反 硝化细菌 还原 为 分子 态氮 进入 大气 〔 10 〕 。 此后 ， 湖水 经浮叶 、 沉水植物 的 植被 带 ， 水体 溶解氧 较 高 ， 硝化细菌 较 多 ， 氨氮 被 氧化 ， 使得 水体 中 硝酸盐 和 亚硝酸盐 浓度 呈现 上升 趋势 。 当 被 初步 净化 的 湖水 再次 经过 由 凤眼莲 构成 的 缺氧 区时 ， 反 硝化作用 使 硝酸盐 浓度 又 有所 下降 ， 而 亚硝酸盐 则 有 明显 上升 。 湖水 中 的 氮 正是 在 这种 硝化 - 反 硝化 交替 进行 的 过程 中 不断 被 除去 。 当然 ， 高等 水生植物 的 吸收 以及 根际 絮状物 的 吸附 沉降 亦 是 水体 氮 降低 的 重要 因素 。 
+ 3.3 　 ACE 结构 模式 对 净化 效果 的 影响 
+ 　 　 试验 设计 了 由 6 个 水生 植物群落 镶嵌 组合 构成 的 ACE ， 从 试验 结果 看 ， 该 ACE 的 最后 两个 群落 带 对 上 一级 来 水中 的 TN 、 NH + 4 - N 、 TP 的 净化 作用 已经 很 弱 ， 相反 ， NO - 2 - N 和 NO - 3 - N 却 呈上升 趋势 ， 尽管 其 浓度 值均 优于 地面水 Ⅱ 级 甚至 Ⅰ 级 标准 ， 但 这种 回升 在 某种意义 上 说明 最后 两个 群落 带 是 多余 的 。 戴 全裕 等 〔 5 〕 认为 用 水生植物 净化 污水 并 不是 串联 级数 越多越好 ， 串联 级数 多 了 ， 往往 在 后面 的 植物 因 水体 营养盐 不足 而 生长 不良 ， 甚至 萎缩 死亡 ， 容易 引起 二次污染 。 因此 ， 合理 设计 镶嵌 组合 的 水生 植物群落 的 种类 组成 及 空间 分布 ， 对于 有效 净化水 环境 、 减少 投入 具有 重要 意义 。 根据 水生植物 生长 的 特点 ， 在 ACE 的 后部 宜 种植 沉水植物 ， 因为 沉水植物 能 在 水体 营养盐 很 低 的 情况 下 ， 利用 底泥 中 的 营养盐 生长 ， 并 有效 地 抑制 藻类 生长 繁殖 〔 11 〕 。 
+ 4 　 结论 
+ 4.1 　 在 太湖 局部 湖面 上 ， 设计 建造 的 由 不同 生态 类型 水生 高等植物 及其 根际 微生物 等 组成 的 人工 复合 生态系统 ， 能够 有效 地 控制 局部 藻类 暴发 ， 去除 湖水 中 NH + ４ - N 、 TN 、 TP 及 PO3 - ４ - P 。 动态 试验 结果表明 ， 人工 复合 生态系统 出 水中 的 NH + ４ - N 、 TN 比 同源 的 自来水 水厂 出水 的 NH + ４ - N 、 TN 平均 分别 低 45% 、 37% ； 该 系统 出水 的 藻类 生物量 和 数量 分别 比 进水 下降 58% 和 2 ～ 3 个 数量级 。 
+ 4.2 　 在 该 人工 复合 生态系统 最 前端 选择 多年生 喜旱 莲子 草 群丛 并 辅以 物理 措施 ， 能够 抵御 “ 藻华 ” 的 冲击 ， 并 有效 地 滤去 湖水 中 大量 的 藻类 ， 维持 系统 内部 水体 具有 较 高 的 透明度 ， 使得 系统 内部 沉水植物 能够 获得 充足 的 光照 而 正常 生长 ， 从而 解决 了 在 藻型 富营养化 湖泊 中 恢复 沉水 植被 的 难题 。 
+ 参考文献 
+ 1 　 吴 玉树 ， 余国莹 .   根生 沉水植物 菹 草   ( Potamogeton   crispus )   对 滇池 水体 的 净化 作用 .   环境 科学 学报 ， 1991 ,   11 ( 4 ) : 411 ～ 416 
+ 2 　 曹萃 禾 .   四种 生态 类型 的 水生 维管束 植物 净化 能力 的 研究 . 水产 科学 ， 1990 ,   9 ( 3 ) : 8 ～ 11 
+ 3 　 高吉喜 ,   叶 　 春 ,   杜 　 娟 等 .   水生植物 对面 源 污水 的 净化 效率 研究 .   中国 环境 科学 ， 1997 , 17 ( 3 ) : 247 ～ 251 
+ 4 　 Muscutt   A   D ,   Harris   G   L ,   Baily   S   W   ， et   al .   Buffer   zones   to   improve   water   quality :   a   review   of   their   potential   use   in   UK   agriculture .   Agriculture ,   Ecosystem   and   Environment ,   1993 ， 45 ( 1 ) : 59 
+ ～ 77 
+ 5 　 戴 全裕 ， 蒋兴昌 ， 汪耀斌 等 .   太湖 入湖 河道 污染物 控制 生态 工程 模拟 研究 .   应用 生态学 报 ， 1995 ， 6 （ 2 ） ： 201 ～ 205 
+ 6 　 尹 澄清 ， 兰智文 ， 晏维金 .   白洋淀 水陆 交错带 对 陆源 营养物 的 截留 作用 初步 研究 . 应用 生态学 报 ， 1995 ， 6 （ 1 ） ： 76 ～ 80 
+ 7 　 刘文祥 .   人工 湿地 在 农业 面源 污染 控制 中 的 应用 研究 .   环境 科学研究 ， 1997 ， 10 （ 4 ） ： 15 ～ 19 
+ 8 　 金相灿 ， 屠清瑛 主编 .   湖泊 富营养化 调查 规范 . 第 2 版 .   北京 : 中国 环境 科学出版社 ,   1990 
+ 9 　 国家 环境保护局 《 水 和 废水 监测 分析方法 》 编委会 .   水 和 废水 监测 分析方法 . 第 3 版 .   北京 :   中国 环境 科学出版社 ,   1989 
+ 10 　 Reddy   K   R ,   Patrick   Jr   W   H ,   Lindau   C   W .   Nitrification - denitrification   at   the   plant   root - sediment   interfaces   in   wetlands .   Limnololgy   and   Oceanography ,   1989 ,   34 ( 6 ) : 1004 ～ 1013 
+ 11 　 王国 祥 ， 张子 凡 .   固城 湖 富营养化 防治 和 利用 的 生态 工程 模型 .   见 ： 走向 二十一 世纪 — 中国 青年 环境 论坛 首届 学术年会 论文集 ， 北京 ： 中国 环境 科学出版社 ， 1993 
+ 作者简介 
+ 王国 祥 　 男 ， 1963 年 2 月生 。 高级 工程师 、 博士 。 主要 从事 湖泊 生态学 和 水 环境 生态 工程 。 参加 和 主持 了 “ 浅水 型 湖泊 生产 模型 和 资源 利用 模式 研究 ” 、 “ 南京 玄武湖 大面积 死鱼 原因 剖析 及 防治 对策 研究 ” 等 多项 课题 ， 获 省市 科技 进步奖 3 项 。 发表 论文 20 余篇 。 
+ 收稿 日期 ： 1997 - 12 - 22 
+ *   国家科委 、 欧洲联盟 科技部 资助 项目 

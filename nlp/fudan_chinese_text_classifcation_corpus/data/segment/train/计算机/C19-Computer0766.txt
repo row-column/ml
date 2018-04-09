@@ -1,0 +1,120 @@
+自动化 学报 
+ ACTA   AUTOMATICA   SINICA 
+ 1999 年 　 第 25 卷 　 第 5 期 　 Vol.25   No.5   1999 
+ 
+ 
+ 
+ 参数 不 确定 线性系统 混合 H2 / H ∞ 状态 反馈 控制 
+ 吴淮宁 
+ 摘 　 要 　 对 一类 含有 范数 有 界 参数 不 确定 线性系统 的 混合 H2 / H ∞ 状态 反馈 控制 问题 进行 了 研究 .   给出 了 系统 一个 输出 在 满足 给定 的 H ∞ 干扰 衰减 约束条件 下 ， 其 另 一个 输出 的 H2 性能指标 所 满足 的 上界 ， 并 利用 Lagrange 乘子法 导出 了 使得 该界 达到 最小 的 “ 最优 的 ” 状态 反馈 控制器 . 结果 仅 需求 解 一个 含有 两个 尺度 参数 的 修正 代数 Riccati 方程 .   而且 数值 结果表明 该 方法 是 非常 有效 的 . 
+ 关键词 　 不 确定 线性系统 ,   混合 H2 / H ∞ 控制 ,   状态 反馈 ,   代数 Riccati 方程 ,   鲁棒性 . 
+ 收稿 日期 　 1998 - 02 - 24 　 收 修改稿 日期 　 1998 - 12 - 18 
+ MIXED   H2 / H ∞   STATE - FEEDBACK   CONTROL   FOR 
+ PARAMETER   UNCERTAIN   LINEAR   SYSTEMS 
+ WU   Huaining 
+ ( Department   of   Automatic   Control , Beijing   University   of   Aeronautics   and   Astronautics ,   Beijing 　 100083 ) 
+ Abstract 　 The   paper   studies   the   mixed   H2 / H ∞   state - feedback   control   problem   for   uncertain   linear   systems   with   norm - bounded   parameter   uncertainty . An   upper   bound   for   the   H2   performance   index   of   one   output   is   obtained   under   the   condition   of   satisfying   a   given   H ∞   disturbance   attenuation   constraint   on   the   other   output , and   the   “ optimal ”   state - feedback   controller   is   derived   by   Lagrange   multiplier   technique   to   minimize   the   bound . The   obtained   result   only   needs   to   solve   a   modified   Riccati   equation   with   two   scale   parameters . Numerical   results   also   demonstrate   that   the   proposed   method   is   very   effective . 
+ Key   words 　 Uncertain   linear   systems ,   mixed   H2 / H ∞   control ,   state - feedback ,   algebraic   Riccati   equation ,   robustness . 
+ 1 　 引 　 言 
+ 　 　 H2 保价 控制 方法 为 不 确定 线性系统 的 控制器 设计 提供 了 一个 非常 有用 的 方法 ［ 1 ,   2 ］ , 该 方法 不仅 能 保证系统 鲁棒 稳定 ,   而且 还 能 为 H2 性能指标 提供 一个 最优 的 上界 .   然而 这种 方法 不能 处理 系统 还 含有 功率 有界 的 外部 干扰 的 情形 .   近年来 所 提出 的 混合 H2 / H ∞ 鲁棒控制 方法 则 很 好地解决 了 这个 问题 ,   如 文献 ［ 3 ］ 用 Riccati 方程 法 解决 了 一类 含有 凸有界 的 不 确定 离散系统 在 未 建模 动态 作用 下 的 混合 H2 / H ∞ 状态 反馈 控制 问题 ； 文献 ［ 4 ］ 利用 凸 优化 方法 解决 了 这类 问题 ； 而 文献 ［ 5 ］ 则 对 一类 含有 范数 有 界 参数 不 确定 连续 系统 的 混合 H2 / H ∞ 鲁棒 状态 反馈 控制 问题 进行 了 研究 .   然而 这些 结果 考虑 的 H2 , H ∞ 性能指标 都 对应 于 同一个 输出 . 但 在 实际 中 所 要求 的 H2 , H ∞ 性能指标 可能 对应 不同 的 输出 ,   因此 ， 本文 对 含有 范数 有 界 参数 不 确定 线性系统 的 混合 H2 / H ∞ 状态 反馈 控制 问题 重新 进行 了 研究 ， 考虑 了 H2 , H ∞ 性能指标 对应 于 不同 输出 的 情形 .   得到 的 控制器 对于 所有 可 容许 的 参数 不 确定 都 能 保证系统 输出 一个 满足 给定 的 H ∞ 干扰 衰减 约束 ， 且 为 另 一个 输出 的 H2 性能指标 提供 了 一个 最优 上界 .   本文 的 结果 仅 需求 解 一个 含有 两个 尺度 参数 的 修正 代数 Riccati 方程 . 
+ 2 　 问题 描述 
+ 　 　 考虑 如下 不 确定 线性系统 
+ 　 ( 1 ) 
+ z0 ( t ) = Cox ( t ) + D0u ( t ) , 　 ( 2 ) 
+ z1 ( t ) = C1x ( t ) + D1u ( t ) , 　 ( 3 ) 
+ 这里 x ( t ) ∈ Rn 为 状态 ; u ( t ) ∈ Rm 为 控制 输入 ; w ( t ) ∈ Rp 为 功率 有界 的 外部 干扰 ; z0 ( t ) ∈ Rq , z1 ( t ) ∈ Rr 为 系统 输出 ； A , B1 , B2 , C0 , D0 , C1 , D1 为 具有 适当 维数 的 已知 名义 系统 矩阵 ， 而 F ( t ) ∈ Ri × j 为 时变 的 参数 不 确定 矩阵 ， 满足 
+   ( 4 ) 
+ H , E1 , E2 为 具有 适当 维数 的 已知 矩阵 .   假定 ( A , B2 ) 是 能控 的 ， 且 DT0D0 ＞ 0 . 
+ 　 　 考虑 状态 反馈 控制 律 u ( t ) = Kx ( t ) ,   则 闭环 系统 可写 为 
+   ( 5 ) 
+ z0 = C0cx ,   ( 6 ) 
+ z1 = C1cx ,   ( 7 ) 
+ 这里 Ac = A + B1K , Ec = E1 + E2K , C0c = C0 + D0K , C1c = C1 + D1K . 定义 H2 性能指标 
+ 　 ( 8 ) 
+ 作者 的 目的 是 ： 确定 状态 反馈 增益 K ,   满足 以下 设计 要求 : 
+ 　 　 1 ) 闭环 系统 是 渐近 稳定 的 ； 
+ 　 　 2 ) 由 w 至 z1 的 闭环 传递函数 Gz1w ( s ) 满足 ‖ Gz1w ( s ) ‖ ∞ ＜ γ , 这里 γ ＞ 0 为 干扰 衰减 水平 ; 
+ 　 　 3 ) H2 性能指标 ( 8 ) 式 达到 最小 . 
+ 　 　 若 Ac + HFEc 是 渐近 稳定 的 ， 则 ( 8 ) 式 可 写 为 
+   ( 9 ) 
+ 其中 满足 如下 Lyapunov 方程 
+   ( 10 ) 
+ 考虑 Lyapunov 方程 
+   ( 11 ) 
+ 其中 则 ( 9 ) 式 又 可 改写 为 
+ 　 ( 12 ) 
+ 　 　 由于 H2 性能指标 与 不 确定 参数 有关 ,   要 想 直接 求得 其 最小值 非常 困难 ,   因此 作者 考虑 使得 H2 性能指标 的 一个 上 界 达到 最小 ,   该界 可 由 定理 1 给出 ,   其 证明 需要 用到 如下 严格 有界实 引理 ［ 6 ］ ： 
+ 　 　 引理 1 . 下列 的 陈述 是 等价 的 ： 
+ 　 　 1 ) A 是 渐近 稳定 的 ,   且 ‖ C ( sI - A ) - 1B ‖ ∞ ＜ 1 ; 
+ 　 　 2 ) 存在 一个 矩阵 使得 
+ 　 　 3 ) 代数 Riccati 方程 ATP + PA + PBBTP + CTC = 0 存在 一个 稳定 解 P = PT ≥ 0 ,   也 即 A + BBTP 是 渐近 稳定 的 . 而且 ,   如果 这些 陈述 成立 ,   则 
+ 　 　 定理 1 . 考虑 闭环 系统 ( 5 ) — ( 7 ) 式 ， 给定 γ ＞ 0 以及 状态 反馈 增益 K ,   则 存在 标量 ε 1 ＞ 0 ， ε 2 ＞ 0 ， 使得 方程 
+ 　 ATcP + PAc + P ( ε 1HHT + ε 2 γ - 2B2BT2 ) P + ε - 11ETcEc + ε - 12CT1cC1c + CT0cC0c = 0 　 ( 13 ) 
+ 有 一个 稳定 解 P = PT ≥ 0 ； 当且 仅 当 Ac + HFEc 渐近 稳定 ， 且 ‖ Gz1w ( s ) ‖ ∞ ＜ γ . 此时 ， 对于 所有 可 容许 的 参数 不 确定 都 有 
+ J0 ≤ J ( P ) = tr ｛ PB2BT2 ｝ .   ( 14 ) 
+ 　 　 证明 .   如果 Ac + HFEc 渐近 稳定 ， 且 ‖ Gz1w ( s ) ‖ ∞ ＜ γ .   显然 存在 一个 充分 小 的 ε 2 ＞ 0 ,   使得 
+ 
+ 由 引理 1 可知 :   总 存在 一个 使得 
+ 从 文献 ［ 7 ］ 的 引理 A.2 ， A.3 容易 证明 :   存在 一个 标量 ε 1 ＞ 0 ， 使得 
+ 由 上式 及 引理 1 可知 ： 方程 ( 13 ) 存在 一个 稳定 解 P = PT ≥ 0 . 
+ 　 　 由 文献 ［ 7 ］ 的 事实 A.1 可知 ： 利用 该 不等式 及 引理 1 很 容易 证明 定理 反过来 也 是 成立 的 . 
+ 　 　 令 M = ε 1PHHTP + ε - 11ETcEc - PHFEc - ETcFTHTP ， 显然 M ≥ 0 ， 则 ( 13 ) 式 可 化为 ( Ac + HFEc ) TP + P ( Ac + HFEc ) + ε 2 γ - 2PB2BT2P + ε - 12CT1cC1c + CT0cC0c + M = 0 . 用 上式 减去 ( 11 ) 式 可得 
+ 
+ 因 Ac + HFEc 是 渐近 稳定 的 ， 所以 
+ 
+ 因而 ( 14 ) 式 成立 . 证毕 . 
+ 　 　 由 定理 1 可以 看出 ， 若 方程 ( 13 ) 有 一个 正半定 稳定 解 P ， 则 对于 所有 可 容许 的 参数 不 确定 ， 闭环 系统 都 是 渐近 稳定 的 ， 且 满足 一个 给定 的 H ∞ 干扰 衰减 约束 ， 同时 该解 还 为 H2 性能指标 提供 了 一个 上界 J ( P ) ,   本文 称 J ( P ) 为 H2 性能 界 . 
+ 3 　 最优 状态 反馈 控制器 设计 
+ 　 　 这 一节 将 推导 使得 H2 性能 界 J ( P ) 达到 最小 的 增益 K ， 也 即 考虑 如下 约束 最小化 问题 : 
+ 　 　 确定 K ∈ Rm × n ， 使得 J ( P ) 在 方程 ( 13 ) 有 一个 稳定 解 P = PT ≥ 0 的 条件 下 达到 最小 . 
+ 　 　 为了 方便 表达 ， 令 
+ V = 
+ 
+ 　 　 定理 2 .   存在 一个 K ∈ Rm × n 解决 了 上述 约束 最小化 问题 ； 当且 仅 当 存在 标量 ε 1 ＞ 0 与 ε 2 ＞ 0 ， 使得 代数 Riccati 方程 
+ 　 ( 15 ) 
+ 有 一个 稳定 解 P = PT ≥ 0 ， 且 状态 反馈 增益 为 
+   ( 16 ) 
+ 此时 ,   H2 性能 界为 
+ J ( P ) = tr ｛ PB2BT2 ｝ .   ( 17 ) 
+ 　 　 证明 . “ 必要性 ” . 采用 Lagrange 乘子 法来 推导 上述 问题 的 必要条件 . 定义 Lagrange 函数 . 
+ L = tr ｛ λ PB2BT2 + ［ ATcP + PAc + P ( ε 1HHT + ε 2 γ - 2B2BT2 ) P + ε - 11ETcEc + ε - 12CT1cC1c + CT0cC0c ］ X ｝ . 
+ 这里 Lagrange 乘子 λ ≥ 0 , X = XT 不全 为 零 . 首先 证明 λ ≠ 0 ， 令可得 
+   ( 18 ) 
+ 上式 中 = Ac + ( ε 2 γ - 2B2BT2 + ε 1HHT ) P .   如果 λ = 0 ， 的 稳定性 意味着 X = 0 , 这 与 要求 λ , X 不 全为 零相 矛盾 .   因此 不失 一般性 ， 令 λ = 1 ,   因 ( A , B2 ) 是 能控 的 ， 显然 ( , B2 ) 也 是 能控 的 ， 所以 由 ( 18 ) 式 可知 X ＞ 0 .   由 可得 ( 16 ) 式 ， 将 ( 16 ) 式 代入 ( 13 ) 式 整理 可 得 ( 15 ) 式 .   显然 由 ( 14 ) 式 直接 可 得 ( 17 ) 式 .   
+ 　 　 “ 充分性 ” . 假定 方程 ( 13 ) 式 有 一个 稳定 解 P = PT ≥ 0 ， 且 状态 反馈 增益 由 ( 16 ) 式 给出 ， 很 容易 验证 该 增益 满足 优化 的 必要条件 .   证毕 . 
+ 　 　 由 定理 1 ， 2 ， 很 容易 得到 本文 的 主要 结果 ： 
+ 　 　 定理 3 .   考虑 闭环 系统 ( 5 ) — ( 7 ) ， 给定 γ ＞ 0 ， 存在 标量 ε 1 ＞ 0 , ε 2 ＞ 0 ， 使得 方程 ( 15 ) 有 一个 稳定 解 P = PT ≥ 0 ， 且 状态 反馈 增益 K 由 ( 16 ) 式 给出 ； 当且 仅 当 闭环 系统 渐近 稳定 ,   Gz1w ( s ) ∞ ＜ γ 以及 H2 性能 界 达到 最小 .   此时 ， H2 性能指标 满足 
+   ( 19 ) 
+ 　 　 该 定理 的 证明 很 容易 从 定理 1 — 2 的 证明 中 得出 .   定理 3 说明 ， 对于 给定 的 γ ＞ 0 ， 如果 方程 ( 15 ) 有 一个 正半定 稳定 解 ， 且 K 由 ( 16 ) 式 给出 ， 则 闭环 系统 是 渐近 稳定 的 ， 且 满足 一个 H ∞ 干扰 衰减 约束 ， 同时 为 H2 性能指标 提供 了 一个 最优 上界 .   显然 ， 为了 得到 最优 解 ， 需要 搜索 参数 ε 1 , ε 2 . 
+ 4 　 例   子 
+ 　 　 考虑 如下 不 确定 线性系统 
+ 
+ z0 = ［ 1 　 1 ］ x + u , 　 z1 = ［ - 1 　 0 ］ x + 0.5 u . 
+ 给定 干扰 衰减 水平 γ = 0.9 , 取 H = ［ 1 　 0 ］ T , E1 = ［ 0 　 0.3 ］ ， E2 = 0 . 
+ 　 　 按照 定理 3 ， 需要 选取 不同 的 ε 1 , ε 2 来 求解 方程 ( 15 ) . 不同 ε 1 , ε 2 值 所 对应 的 H2 性能 界 J ( P ) 如图 1 所示 . 由图 1 可以 看出 :   当 ε 1 = 0.23 ， ε 2 = 0.009   3   时 ,   H2 性能 界 达到 最小 ， 为 23.487   2 ,   此时 将 ( 15 ) 式 的 解 代入 ( 16 ) 式 可得 增益 K = ［ - 17.745   4 - 10.166   6 ］ .   相应 Gz1w ( s ) 的 频响 曲线 如图 2 所示 ， 其中 曲线 1 , 2 , 3 分别 为 δ = - 0.3 , δ = 0 , δ = 0.3 的 情形 . 
+ 
+ 
+ 图 1 　 不同 ε 1 , ε 2 值 所 对应 的 H2 性能 界 J ( P ) 
+ 
+ 
+ 图 2 　 γ = 0.9 时 ， Gz1w ( s ) 的 频响 曲线 
+ 　 　 另外 ， 在 给定 不同 γ 值 的 条件 下 ， 重复 以上 过程 可 得到 不同 γ 值 所 对应 的 最优 H2 性能 界 J ( P ) 如表 1 所示 .   从表 1 可以 看出 :   随着 γ 值 的 减小 ,   相应 的 最优 H2 性能 界 J ( P ) 变大 .   这 说明 提高 干扰 衰减 水平 需要 牺牲 最优 H2 性能 界 J ( P ) 作为 代价 . 
+ 表 1 　 不同 γ 值 所 对应 的 最优 H2 性能 界 J ( P ) 
+ 
+ γ 值 10010531.80 . 90.6 
+ 最优 J ( P ) 2.971   23.433   74.039   75.020   87.340   823.487   2195.257 
+ 
+ 5 　 结   论 
+ 　 　 本文 解决 了 一类 含有 范数 有界 不 确定 的 线性系统 的 混合 H2 / H ∞ 状态 反馈 控制 问题 ,   考虑 了 H2 ， H ∞ 性能指标 对应 于 不同 输出 的 情形 .   提供 了 一种 既 能克服 范数 有界 不 确定 又 能 抑制 功率 有 界 外部 干扰信号 的 鲁棒 状态 反馈 控制器 设计 方法 .   给出 了 系统 一个 输出 在 满足 给定 的 H ∞ 干扰 衰减 约束 下 ,   其 另 一个 输出 的 H2 性能指标 所 满足 的 上界 ,   并 导出 了 一个 “ 最优 的 ” 状态 反馈 控制器 优化 了 该界 .   本文 的 结果 与 一个 含有 两个 尺度 参数 的 修正 代数 Riccati 方程 有关 ,   且 数值 结果表明 :   提高 干扰 衰减 水平 需要 牺牲 最优 H2 性能 界 作为 代价 . 
+ 作者简介 ： 吴淮宁 　 1972 年生 ， 1992 年于 山东 建材 学院 自动化系 获 学士学位 .   1997 年 6 月 获 西安交通大学 自动控制 理论 及 应用 专业 博士学位 . 1997 年 8 月 至 1999 年 7 月 在 北京理工大学 电子 工程系 做 博士后 ， 现为 北京航空航天大学 自动控制 系 副教授 电子 工程系 博士后 .   主要 研究 方向 为 H ∞ 控制 与 估计 ， 鲁棒控制 与 滤波 ， 自 适应 信号处理 . 
+ 作者 单位 ： 北京航空航天大学 自动控制 系 　 北京 　 100083 
+ 参考文献 
+ 1 　 Petersen   I   R ,   McFarlane   D   C .   Optimal   guaranteed   cost   control   and   filtering   for   uncertain   linear   systems .   IEEE   Trans .   Automat .   Contr . ,   1994 ,   AC - 39 ( 9 ) :   1971 — 1977 
+ 2 　 Geromel   J   C ,   Peres   P   L   D ,   Souza   S   R .   H2   guaranteed   cost   control   for   uncertain   continuous - time   linear   systems .   Syst .   Contr .   Lett . ,   1992 ,   19 ( 1 ) :   23 — 27 
+ 3 　 Bambang   R   T ,   Shimemura   E ,   Uchida   K .   Discrete - time   H2 / H ∞   robust   control   with   state   feedback .   In :   Proc .   Amer .   Contr .   Conf . ,   Boston :   MA ,   1991 .   1172a － 1173 
+ 4 　 Geromel   J   C ,   Peres   P   L   D ,   Souza   S   R .   A   convex   approach   to   the   mixed   H2 / H ∞   control   problem   for   discrete - time   uncertain   systems .   SIAM   J .   Contr .   Optimiz . ,   1995 , 33 ( 6 ) :   1816 － 1833 
+ 5 　 吴淮宁 ,   尤昌德 .   具有 H ∞ 性能 界 的 鲁棒 LQG 控制 .   西安交通大学 学报 ,   1997 ,   31 ( 12 ) :   26 — 32 
+ 6 　 Petersen   I   R ,   Anderson   B   D   O ,   Jonckheere   E   A .   A   first   principles   solution   to   the   non - singular   H ∞   control   problem .   Int .   J .   Robust   Nonlinear   Contr . ,   1991 ,   1 ( 3 ) :   171 — 185 
+ 7 　 Khargonekar   P   P ,   Petersen   I   R ,   Zhou   K .   Robust   stabilization   of   uncertain   linear   systems :   quadratic   stabilizability   and   H ∞   control   theory .   IEEE   Trans .   Automat .   Contr . ,   1990 ,   AC - 35 ( 3 ) :   356 — 361 
+ 收稿 日期 ： 1998 - 02 - 24 
+ 修稿 日期 ： 1998 - 12 - 18 

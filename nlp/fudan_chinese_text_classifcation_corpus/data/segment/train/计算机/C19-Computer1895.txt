@@ -1,0 +1,120 @@
+微型机 与 应用 
+ WEIXINGJI   YU   YINGYONG 
+ 2000 　 Vol.19 　 No.5 　 P.7 - 8 , 27 
+ 
+ 
+ 
+ 
+ 用 VRML 实现 网上 动画 的 方法 
+ 林冬梅 　 王东 　 朱丽清 
+ 摘   要 ： 用 VRML 生成 网上 动画 的 几种 常用 方法 ， 说明 了 每种 方法 的 工作 原理 及 主要 部分 编码 实现 ， 并 对 这 几种 方法 进行 了 比较 。 
+ 关键词 ： VRML 工具   Internet   3D 图形 
+ 　 　 Internet 技术 发展 到 今天 ， 网页 设计 和 制作 得到 了 极大 的 丰富 和 发展 。 为了 提高 网页 质量 、 增强 浏览 效果 ， 许多 网页 设计 人员 采用 了 动画 技术 。 在 VRML 规范 确立 以前 ， 人们 主要 采用 GIF 、 Java 等 制作 动画 ， 采用 这些 技术 的 前提 是 ： 首先 制作 预 播放 的 各幅 静态 图像 ， 然后 按 指定 的 顺序 逐次 播放 。 其 弊端 是 设计 工作量 大 、 直观 效果 不好 、 交互性 较差 。 VRML 的 出现 解决 了 上述 问题 。 
+ 　 　 VRML 是 在 WWW 上 创建 3D 图形 的 工具 ， 其 主要 特点 是 描述 动态 运动 的 实体 ， 即 动画 。 VRML 中 引入 了 视点 、 绑定 、 插值 器 等 概念 ， 在 动画 实现 机制 上 与 前面 提到 的 方法 有 很大 不同 。 ISO 和 IEC 组织 于 1997 年 对 VRML   1 ． 0 进行 了 修改 和 扩充 ， 形成 了 ISO ／ IEC   14772 － 1 ： 1997 规范 ， 即 VRML97 标准 。 
+ 1   相关 术语 
+ 　 　 （ 1 ） 插值 器 ： 插值 器 节点 由 4 个域 组成 ， 即 ： 关键码 、 关键码 值 、 eventIn （ 扇入 ） 事件 、 eventOut  扇出  事件 。 关键码 就是 一系列 值 ， 关键码 值 是 一系列 用于 插值 的 值 ， 当 插值 器 收到 eventIn 事件 时 ， 就 依次 将 关键码 对应 的 关键码 值 通过 eventOut 发送 出去 。 
+ 　 　 （ 2 ） 化身 ： 当 采用 步行 界面 在 三维 世界 漫步 时 ， 事实上 已 将 自己 嵌入 到 三维 世界 中 ， 这 称为 化身 。 
+ 　 　 （ 3 ） 绑定 ： VRML 提供 了 能够 控制 用户 的 化身 并 带领 用户 在 世界 中 漫游 的 机制 ， 此 机制 称为 绑定 。 
+ 　 　 （ 4 ） 路由 ： 使 动画 和 用户 交互 成为 可能 的 路线 ， 在 VRML 中用 ROUTE 实现 。 使用 ROUTE 时 ， 必须 具备 1 个 EventIn （ 结点 接收 的 事件 ） 和 EventOut （ 结点 发送 的 事件 ） 。 
+ 2   实现 动画 的 方法 
+ 2 ． 1   视点 移动 
+ 　 　 景物 不变 视点 是 人们 在 三维 世界 中 观察 场景 时 眼睛 所在 的 位置 和 所 看 的 方向 、 视角 等 。 ViewPoint 节点 为 所有 这些 变量 提供 初始值 。 当 进入 一个 世界 后 ， 把 化身 放在 文件 中 遇到 的 第 1 个 ViewPoint 节点 中 。 由于 绑定 的 存在 ， 可以 通过 将 能够 控制 用户 视点 的 事件 发送给 ViewPoint 。 随着 视点 的 变化 ， 化身 的 位置 也 发生变化 ， 因此 观察 到 的 场景 也 不断 变化 ， 从而 实现 了 动画 。 
+ 　 　 用此 方法 实现 动画 ， 需 定义 1 个 ViewPoint （ VP ） 节点 ， 用于 移动 对象 的 插值 器 PositionInterPolator （ P ） 节点 ， 用于 旋转 对象 的 插值 器 OrientationInterPolator （ O ） 节点 ， 以及 作为 set ＿ fraction   eventIn 资源 的 TimeSensor （ Time ） 节点 。 建立 的 主要 路由 如下 ： 
+ 　 　 ROUTE   Time ． fraction ＿ changed   TO   P ． set ＿ fraction 
+ 　 　 ROUTE   Time ． fraction ＿ changed   TO   O ． set ＿ fraction 
+ 　 　 ROUTE   P ． value ＿ changed   TO   VP ． set ＿ position 
+ 　 　 ROUTE   O ． value ＿ changed   TO   VP ． set ＿ orientation 
+ 　 　 这里 用 OrientationInterPolator 和 PositionInterPolator 共同 工作 ， 使得 当 化身 绕 对象 转身 时 ， 保证 化身 始终 面对 它们 。 这种 实现 动画 的 方法 ， 比较 适合 动画 中 包含 的 立体 景物 较 多 的 情况 。 
+ 2 ． 2   视点 不变 
+ 　 　 景物 移动 这是 一种 与 视点 有关 的 实现 动画 的 方法 ， 它 将 用户 绑定 到 固定 的 视点 ， 通过 物理 对象 位置 的 移动 或 旋转 实现 动画 。 位置 移动 的 对象 定义 在 Transform （ T ） 节点 中 。 为 实现 对象 的 移动 或 旋转 ， 也 需 定义 OrientationInterPolator （ O ） 或 PositionInterPolator 以及 TimeSensor （ Time ） 节点 。 建立 的 主要 路由 如下 ： 
+ 　 　 ROUTE   Time ． fraction ＿ changed   TO   O ． set ＿ fraction 
+ 　 　 ROUTE   O ． value ＿ changed   TO   T ． set ＿ rotation 
+ 　 　 这种 实现 动画 的 方法 ， 比较 适合 动画 中 包含 的 立体 景物 较少 的 情况 ， 如 球体 的 转动 等 。 
+ 2 ． 3   使用 纹理 坐标 的 动画 
+ 　 　 在 VRML 中 可以 用 ImageTexture 节点 为 对象 添加 纹理 。 一般 是 采用 缺省 设置 添加 纹理 ， 但 也 可以 对 纹理 进行 缩放 、 平移 、 旋转 ， 这些 操作 通过 TextureTransform 节点 实现 ， 即 通过 这个 节点 控制 纹理 到 对象 映射 的 s 和 t 坐标 ( 纹理 坐标 ) 。 
+ 　 　 另外 一种 方法 是 ： 通过 TextureCoordinate 节点 在 1 个 形状 的 每 一个 顶点 控制 s 和 t 坐标 。 只有 IndexedFaceSet 和 ElevationGrid 节点 允许 使用 该 节点 。 这些 形状 中 的 每 一个 顶点 都 有 1 个 texCoord 域 ， 其中 可 放入 TextureCoordinate 节点 。 TextureCoordinate 节点 定义 如下 ： 
+ 　 　 TextureCoordinate ｛ 
+ 　 　 　   ExposedField   MFVec2f   Point ［ ］ 
+ 　 　 　 　 ｝ 
+ 　 　 point 域 中 的 值 是 在 每 一个 坐标 处 使用 的 s 和 t 值 。 如果 使用 1 个 路由 到 set ＿ point   eventIn 的 插值 器 ， 便 可以 选择 纹理 坐标 。 这个 EventIn 是 1 个 MFVec2f 。 VRML 并 没有 1 个 内部 节点 用于 执行 这种 插值 ， 因此 ， 只能 用 Script 节点 完成 。 下面 是 实现 水上 波纹 动画 的 程序清单 ： 
+ 　 　 Group ｛ 
+ 　 　 　 children   Shape ｛ 
+ 　 　 　 　 appearance   Appearance ｛ 
+ 　 　 　 　 　 texture   ImageTexture ｛ ur1 ″ Water ． gif ″ ｝ 
+ 　 　 　 ｝ 
+ 　 　 　 geometry   IndexedFaceSet ｛ 
+ 　 　 　 　 coord   DEF   C   Coordinate ｛ 
+ 　 　 　 　 　 point ［ － 5   － 9   1 ， 5   － 9   1 ， 5   3   1 ， － 5   3   1 ］ 
+ 　 　 　 ｝ 
+ 　 　 　 coordIndex ［ 0 ， 1 ， 2 ， 3 ］ 
+ 　 　 　 texCoord   DEF   TT   TextureCoordinate ｛ ｝ 
+ 　 　 ｝ 
+ 　 ｝ 
+ ｝ 
+ DEF   TS   TimeSensor ｛ 
+ 　 　 cycleInterval   15 
+ 　 　 stopTime   － 1 
+ 　 　 loop   TRUE 
+ ｝ 
+ DEF   S   Script ｛ 
+ 　 eventIn   SFFloat   fraction 
+ 　 eventOut   MFVec2f   translation 
+ 　 field   SFVec2f   tt1   0   0 
+ 　 field   SFVec2f   tt2   0   0 
+ 　 field   SFVec2f   tt3   0   0 
+ 　 field   SFVec2f   tt4   0   0 
+ 　 url ″ vrmlscript ： 
+ 　 　 function   fraction （ value ） ｛ 
+ 　 　 　 tt1 ［ 1 ］ ＝ 9 * value ； 
+ 　 　 　 tt2 ［ 1 ］ ＝ 6 * value ； 
+ 　 　 　 tt3 ［ 1 ］ ＝ 3 * value ； 
+ 　 　 　 tt4 ［ 1 ］ ＝ 1 * value ； 
+ 　 　 　 translation ［ 0 ］ ＝ tt1 ； 
+ 　 　 　 translation ［ 1 ］ ＝ tt2 ； 
+ 　 　 　 translation ［ 2 ］ ＝ tt3 ； 
+ 　 　 　 translation ［ 3 ］ ＝ tt4 ； 
+ 　 　 ｝ ″ 
+ 　 ｝ 
+ 　 ROUTE   TS ． fraction ＿ changed   TO   S ． fraction 
+ 　 ROUTE   S ． translation   TO   TT ． set ＿ point 
+ 　 　 可以 用 类似 的 方法 使用 TextureTransform 节点 ， 模拟 具有 纹理 的 瀑布 。 
+ 2 ． 4   使用 BackGround 节点 创建 动画 
+ 　 　 VRML 中 的 Background （ B ） 节点 为 虚拟世界 提供 背景 颜色 或 图像 。 通过 颜色 插值 器 ColorInterpolator （ CI ） 在 1 组 颜色 关键码 值 之间 进行 插值 ， 产生 value ＿ changed 事件 ， 将 变化 后 的 颜色 路由 到 BackGround 节点 的 skyColor 或 groundColor 域 ， 形成 动画 效果 。 
+ 　 　 为了 接收 颜色 插值 器 value ＿ changed 事件 产生 的 颜色 值 ， 定义 1 个 Script 节点 如下 ： 
+ 　 　 DEF   S   Script ｛ 
+ 　 　 EventIn   SFFloat   fraction 
+ 　 　 EventOut   MFColor   color 
+ 　 　 Field   SFNode   CI   USE   CI 
+ 　 　 url   ″ vrmlscript ： 
+ 　 　 　 function   fraction （ ） ｛ 
+ 　 　 　 　 color ［ 0 ］ ＝ CI ． value ＿ changed ； 
+ 　 　 　 　 color ［ 1 ］ ＝ CI ． value ＿ changed ；   
+ 　 　 ｝ ″ ｝ 
+ 　 　 ROUTE   TS ． fraction ＿ changed   TO   CI ． set ＿ fraction 
+ 　 　 ROUTE   TS ． fraction ＿ changed   TO   S ． fraction 
+ 　 　 ROUTE   S ． color   TO   B ． set ＿ skyColor 
+ 2 ． 5   帧 动画 
+ 　 　 利用 VRML 中 的 角色 （ 1 个 平坦 的 始终 面向用户 的 图像 ） 和 Switch 节点 便 可 在 VRML 中 实现 帧 动画 。 具体做法 为 首先 创建 一系列 图像 ； 用 它们 制作 一些 角色 ， 使 这些 角色 成为 Switch 的 子 节点 ； 当 在 这些 子 节点 之间 快速 切换 时 ， 便 形成 动画 。 这种 切换 完全 由 创作者 控制 ， 这 就 必须 用 Script 节点 对 它 进行 编程 来 完成 某一 特定 的 任务 。 例如 ： 要 播放 由 10 个 角色 组成 的 动画 ， 所 需 定义 的 Script 节点 如下 ： 
+ 　 　 DEF   Myscript   Script ｛ 
+ 　 　 　 eventIn   SFFloat   fraction 
+ 　 　 　 eventOut   SFInt32   whichChoice 
+ 　 　 　 url ″ vrmlscript ： 
+ 　 　 　 function   fraction  value （ ） ｛ 
+ 　 　 　 whichChoice ＝ value   ＊ 9 ；   
+ 　 　 　 ｝ ″ 
+ 　 　 ｝ 
+ 　 　 然后 通过 如下 路由 实现 动画 ：   
+ 　 　 ROUTE   TS ． touchTime   TO   Time ． startTime 
+ 　 　 ROUTE   Time ． fraction ＿ changed   TO   MyScript ． fraction 
+ 　 　 ROUTE   MyScript ． whichChoice   TO   MySwitch ． whichChoice 
+ 　 　 其中 的 MySwitch 定义 了 包括 各个 角色 的 Switch 节点 。 
+ 3   几种 方法 的 比较 
+ 　 　 上面 介绍 了 用 VRML 生成 动画 的 几种 方法 ， 由于 它们 的 工作 机理 不同 ， 因而 应用环境 也 略有不同 。 
+ 　 　 视点 移动 、 景物 不变 这种 实现 动画 的 方法 ， 实质 上 是 通过 化身 位置 的 改变 ， 从而 使 周围 世界 景物 的 位置 相对 的 发生 了 变化 ， 所以 对 动画 中 包含 的 立体 景物 较多时 适用 。 
+ 　 　 视点 不变 、 景物 移动 这种 实现 动画 的 方法 是 化身 不 动 ， 物理 对象 的 位置 发生 改变 ， 因而 对 动画 中 包含 的 立体 景物 较 少时 适用 。 
+ 　 　 帧 动画 是 将 一幅幅 图像 逐次 播放 ， 当 用于 形成 动画 的 对象 方便 创建 成 图像 时 ， 可以 用此 方法 。 
+ 　 　 以上 3 种 方法 应用 范围 较广 ， 而 使用 纹理 坐标 的 动画 和 使用 BackGround 节点 创建 动画 相对 来讲 适用 的 场合 较 少 ， 只有 当 动画 与 纹理 或 背景 有关 时 ， 才能 分别 用到 它们 。 
+ 林冬梅 （ 黑龙江省 安达市 大庆 石油学院 计算机科学 系  151400 ） 
+ 王东 （ 黑龙江省 安达市 大庆 石油学院 计算机科学 系  151400 ） 
+ 朱丽清 （ 黑龙江省 大庆石油管理局 采油 三厂 地质 大队 ） 
+ 收稿 日期 ： 1999 － 12 － 10 

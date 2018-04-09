@@ -1,0 +1,158 @@
+航空 材料 学报 
+ JOURNAL   OF   AERONAUTICAL   MATERIALS 
+ 1999 年 　 第 19 卷 　 第 1 期 　 Vol.19 　 No.1 　 1999 
+ 
+ 
+ 
+ 铸造 K4169 合金 晶粒 细化 的 研究 
+ 郑 建邦 　 　 庞述 先 　 　 刘 　 林 
+ 摘要 ：   选用 K4169 铁 - 镍 基 高温 合金 研究 了 向 熔体 中 加入 NixAlyTiz 金属 间 化合物 对 合金 冷凝 后 的 晶粒 尺寸 、 枝晶 组织 等 凝固 组织 特征 的 影响 。 结果 发现 ， 加入 微量 NixAlyTiz 细化 剂 并 控制 合金 液 的 均匀 化 处理过程 可 显著 细化 晶粒 ， 将 K4169 铸件 整体 晶粒 细化 至 0.1 ～ 0.2 mm ， 达到 ASTM   1 ～ 3 级 ， 同时 ， 枝晶 组织 和 MC 型 碳化物 也 有 明显 变化 。 而且 ， 本 研究 选用 的 NixAlyTiz 细化 剂 由于 其 成分 特点 对 合金 的 结晶 特性 及 凝固 组织 无 不良影响 。 因此 可 认为 ， 加入 微量 的 NixAlyTiz 细化 剂 是 获得 K4169 高温 合金 细晶 铸件 的 有效 方法 。 
+ 关键词 ：   高温 合金 ；   晶粒 细化 ；   细化 剂 ；   枝晶 组织 ；   碳化物 
+ 中 图 分类号 ：   V252.1 　 　 文献 标识码 ：   A 　 　 文章 编号 ：   1005 - 5053 ( 1999 ) 01 - 0022 - 07 
+ 
+ A   study   of   grain   refinement   with   addition   of   refiner   in   superalloy   K4169 
+ ZHENG   Jian - bang 　 　 PANG   Shu - xian 　 　 LIU   Lin 
+ ( Department   of   Applied   Physics   of   Northwestern   Polytechnical   University ,   Xi ′ an   710072 ,   China ) 
+ Abstract :   Grain   size   and   dendrite   morphologies   of   Fe - Ni   based   superalloy   K4169   are   investigated   with   the   melt   addition   of   NixAlyTiz   refiner . It   is   found   that   the   grain   size   of   K4169   cast   bar   can   be   refined   obviously   to   0.1 ～ 0.2 mm , close   to   the   order   of   ASTM   1 ～ 3 , due   to   adding   refiner   and   lowering   the   melt   homogeneous   temperature   during   the   melting   and   casting   process . In   addition , the   microstructure   and   MC   carbide   morphology   vary   obviously . With   refinement   of   grains , the   additive   NixAlyTiz   has   the   advantage   of   little   influence   on   the   freezing   characters , alloy   composition   as   well   as   on   phase   constitutions   because   of   its   composition   feature . It   is   considered   therefore   that   the   addition   of   NixAlyTiz   refiner   is   one   of   effective   and   practical   method   to   obtain   fine   grained   castings   of   K4169   superalloy . 
+ Key   words :   superalloy ;   grain   refinement ;   nucleant ;   dendrite   morphologies ;   carbides 
+ 
+ 　 　 用于 航空 发动机 涡轮 盘 、 低压 涡轮 叶片 及 地面 燃机 的 高温 合金 均 在 760 ℃ 的 中 低 温度 下 使用 ， 由此 要求 均匀 的 细晶 组织 以 改善 低周 疲劳 性能 及 使用 的 可靠性 。 传统 上 ， 铸造 高温 合金 的 晶粒 细化 均 采用 将 氧化钴 涂于 精 铸模 壳 的 内壁 上 ［ 1 ］ 。 由于 晶粒 细化 只 发生 在 铸件 的 表面层 ， 对于 尺寸 较大 铸件 的 内部 组织 效果 较差 ， 因此 有 必要 研究 和 开发 使 铸件 整体 细化 的 新型 添加剂 。 本文 研究 了 使用 NixAlyTiz 型 金属 间 化合物 作为 添加剂 对 K4169 高温 合金 的 晶粒大小 及其 凝固 组织 的 影响 。 
+ 1 　 试验 材料 和 方法 
+ 　 　 作为 一个 好 的 高温 合金 细化 剂 必须 具有 熔点 高 、 稳定性 好 、 与 熔体 晶格 结构 相近 、 扩散性 好 、 与 母 合金 润湿性 好 、 与 熔体 密度 相近 、 纯净度 高且 有 粗糙 表面 、 对 合金 的 特性 无害 等 特点 。 依据 以上 原则 ， 根据 晶粒 细化 的 原理 及 高温 合金 的 熔铸 特点 ， 经 初步 试验 ， 选用 NixAlyTiz 型 金属 间 化合物 作为 晶粒 细化 剂 。 
+ 　 　 试验 用母 合金 为 K4169 铁 - 镍 基 高温 合金 ， 其 化学成分 ( wt% ) : 0.08 C ， 21.0 Cr ， 55.0 Ni , 3.30 Mo , 5.40 Nb + Ta , 1.15 Ti , 0.70 Al , 1.0 Co , 0.006 B , 0.30 Cu , 余量 Fe 。 采用 MDSC290 调幅 式 差示 扫描 量 热计 测定 K4169 合金 的 差热分析 曲线 ， 可知 其固 相线 和 液相 线 温度 分别 为 1256 ℃ 和 1339 ℃ 。 
+ 　 　 合金 的 重熔 及 浇注 采用 VSG10 型 中频 真空 感应炉 ， 装入 母 合金 重量 约 为 1kg 。 母 合金 熔化 并 经 均匀 化 处理 后 ， 将 预置 于 炉 内 的 细化 剂 粉末 用 特制 的 加料 装置 加入 熔体 ， 然后 浇入 经 预热 的 陶瓷 模内 浇成 φ 36mm × 80mm 的 圆柱形 试棒 。 采用 金 相 检验 方法 测定 铸件 中 晶粒大小 。 由 JSM - 840 型 扫描电镜 分析 样品 的 显微 组织 和 微区 成分 。 由于 篇幅 有限 ， 表 1 仅 列出 了 部分 有关 样品 熔铸 工艺 参数 。 
+ 表 1 　 熔铸 工艺 参数 
+ Table   1 　 Melting   and   casting   procedure 
+ 
+ ProcessingWithout   additionAddition   and   normal 
+ homogenizationAddition   and   lowering 
+ homogeneous   temp . 
+ Sample   No.1 ＃ 2 ＃ 3 ＃ 4 ＃ 5 ＃ 6 ＃ 7 ＃ 
+ Melt   homogeneous   temp . / ℃ 1550145013701550155014501370 
+ Alloy   pouring   temp . / ℃ 1450145013701450137014501370 
+ 
+ 　 
+ 
+ 2 　 实验 结果 
+ 2.1 　 晶粒 组织 
+ 　 　 合金 熔化 后 过热 至 1550 ℃ 经 均匀 化 处理 ， 或 合金 熔化 至 浇注 温度 不 经 均匀 化 处理 ， 保持 时间 6 ～ 10min ， 陶瓷 模 预热 温度 900 ℃ ， 浇注 温度 1450 ～ 1370 ℃ 。 NixAlyTiz 细化 剂 加入 量 ( wt% ) 为 0.2 ～ 0.6 。 在 不同 处理 条件 下 晶粒 组织 如表 2 和 图 1 所示 。 
+ 表 2 　 不同 处理 条件 下 的 晶粒 组织 
+ Table   2 　 Grain   structure   under   different   conditions 
+ 
+ Sample   No.1 ＃ 2 ＃ 3 ＃ 4 ＃ 5 ＃ 6 ＃ 7 ＃ 
+ Average   grain   size / mm5.02 . 61.52 . 81.61 . 00.1 
+ Proportion   of   equiaxed   grains / % 40556056607395 
+ 
+ 　 
+ 
+ 　 　 从图 1a , d 可以 看出 ， 在 相同 的 铸造 工艺 参数 下 ， 加入 NixAlyTiz 细化 剂后 ， 等轴晶 平均 尺寸 明显 减小 ( 减小 约 1 / 3 ) ， 且 铸件 断面 等轴晶 比例 也 随之 提高 ( 42% → 56% ) ； 而且 随 浇注 温度 的 降低 ， 等轴晶 平均 尺寸 也 随之 显 减小 ( 图 1e ) ， 当 浇注 温度 降低 到 高于 液相 线 温度 30 ℃ 时 ， 等轴晶 平均 尺寸 则 又 显著 减小 约 1 / 2 ， 铸件 断面 等轴晶 比例 也 提高 到 60% 。 
+ 　 　 值得注意 的 是 ， NixAlyTiz 细化 剂 的 细化 作用 效果 与 K4169 合金 的 熔铸 工艺 有 密切关系 。 采用 正常 的 浇注 温度 和 模温 ， 且 细化 剂 加入 工艺 相同 ， 但 降低 了 合金 液 的 均匀 化 处理 温度 ， 得到 了 不同 的 晶粒 组织 ( 图 1f , g ) 。 等轴晶 平均 晶粒 尺寸 显著 减小 ， 同时 大大 抑制 了 柱状晶 生长 ， 等轴晶 比例 显著 增加 ； 而且 随着 浇注 温度 的 降低 ， 铸件 等轴晶 尺寸 可以 细化 至 0.1 mm ， 铸件 断面 等轴晶 比例 达到 95% 以上 ， 且 等 轴 晶粒 均匀分布 ， 达到 ASTM   1 ～ 3 级 ， 与 Microcatst - x 技术 ［ 2 ］ 相当 。 
+ 　 　 考虑 到 影响 晶粒 细化 主要 因素 的 交互 影响 ， 更进一步 验证 NixAlyTiz 细化 剂 对 K4169 合金 的 细化 作用 效果 ， 本 研究 做 了 大量 的 对比 正交 实验 ， 包括 浇注 温度 、 均匀 化 处理 温度 、 陶瓷 模 温度 、 NixAlyTiz 细化 剂 加入 量 等 因素 对 K4169 合金 晶粒 组织 细化 的 影响 。 表 2 中 样品 2 ＃ 和 样品 3 ＃ 即 为 在 K4169 合金 中未 加入 NixAlyTiz 细化 剂时 ， 采用 正常 的 浇注 温度 和 模温 ， 但 降低 了 合金 液 的 均匀 化 处理 温度 后 K4169 合金 的 细化 结果 ( 图 1b , c ) 。 可以 看出 ， 未 加入 细化 剂 但 降低 了 K4169 合金 液 的 均匀 化 处理 温度 后 ， 铸件 也 得到 了 细晶 组织 ， 且 柱状晶 的 生长 也 被 抑制 ， 但 其 细化 效果 只 与 图 1d , e 相当 ， 而 与 图 1f , g 的 细化 程度 相差 较 多 。 
+ 　 　 这一 现象 说明 ， 加入 NixAlyTiz 金属 间 化合物 并 采用 较 低 的 均匀 化 处理 温度 ， 是 细化 K4169 高温 合金 晶粒 组织 的 有效 方法 。 
+ 2.2 　 显微 组织 
+ 　 　 加入 细化 剂后 ， 在 铸件 晶粒 组织 细化 的 同时 ， 显微 组织 也 得到 了 细化 。 枝晶 组织 由 常规 工艺 条件 下 得到 的 尺寸 粗大 的 树枝 晶 细化 为 细小 的 树枝 晶 ， 同时 随着 铸件 晶粒 的 细化 ， 出现 了 细小 的 树枝 晶 → 大量 胞 状晶 结构 与 少量 无规则 状态 的 细小 树枝 晶 混合 的 组织 → 组织 形态 呈 均匀分布 的 胞 状 结构 组织 的 转变 ( 图 2 ) 。 
+ 　 　 同时 ， 合金 中 MC 型 碳化物 得到 相应 的 细化 ， MC 型 碳化物 的 形貌 也 发生 了 变化 。 未 加 细化 剂时 ， MC 型 碳化物 常呈枝 杆状 或 大块 的 汉字 体状 ， 且 尺寸 较大 ( 平均 碳化物 尺寸 为 15 ～ 20 μ m ) ， 分布 不 均匀 ( 图 3a ) 。 而 加入 NixAlyTiz 细化 剂后 ， 碳化物 则 呈 不 连续 的 离散 的 细小 粒状 ( 碳化物 尺寸 为 5 ～ 8 μ m ) , 且 分布 均匀 ( 图 3b ) 。 
+ 　 　 细晶 铸件 非枝晶 的 胞 状晶 结构 与 细小 的 MC 型 碳化物 的 形成 ， 将 大大 地 提高 材料 的 拉伸 性能 、 疲劳 性能 和 焊接 性能 ， 使 铸件 具有 更好 的 冶金 均匀 性 ［ 2 ， 3 ］ 。 
+ 
+ 
+ 图 1 　 不同 处理 条件 下 的 晶粒 组织 
+ Fig.1 　 Grain   structure   under   different   melting   and   casting   conditions 
+ ( a ) sample   1 ＃ ；   ( b ) sample   2 ＃ ;   ( c ) sample   3 ＃ ;   ( d ) sample   4 ＃ ; 
+ ( e ) sample   5 ＃ ;   ( f ) sample   6 ＃ ;   ( g ) sample   7 ＃ 
+ 
+ 图 2 　 加入 细化 剂后 的 显微 组织 
+ ( a ) 6 ＃ 试样 的 细小 树枝 晶 组织 ； ( b ) 7 ＃ 试样 的 胞 状晶 组织 
+ Fig.2 　 Microstructure   with   NixAlyTiz   addition 
+ ( a ) fine   dendrites   of   sample   6 ＃ ; ( b ) cellular   grains   of   sample   7 ＃ 
+ 
+ 图 3 　 MC 型 碳化物 形貌 与 大小 
+ ( a ) 未 加 细化 剂 的 传统 铸造 ； ( b ) 加入 NixAlyTiz 细化 剂 的 细晶 铸造 
+ Fig.3 　 Morphology   and   size   of   MC   carbides 　 　 
+ ( a ) conventional   casting ; ( b ) fine   grained 
+ casting   process   with   addition   NixAlyTiz 
+ 3 　 讨 　 论 
+ 　 　 细晶 铸造 的 工艺 方法 就是 在 合金 熔体 凝固 过程 中 产生 大量 的 结晶 核心 ， 同时 限制 晶核 的 快速 生长 ， 从而 获得 细 的 结晶 组织 。 而 大量 结晶 核心 的 产生 来源于 熔体 中 的 现成 固态 基面 ， 即 熔体 中未 熔 颗粒 ( 如 碳化物 等 ) 或 有意 加入 的 细化 剂 颗粒 。 在 本 实验 中 采取 的 降低 均匀 化 处理 温度 就是 要 在 熔体 中 留下 大量 未 熔解 的 碳化物 ， 而 NixAlyTiz 细化 剂 是 作为 非均 质形 核剂 加入 的 ， 本 实验 得到 的 细化 晶粒 是 这 2 种 非均质 形核 共同 产生 的 结果 。 
+ 　 　 由于 微量 的 NixAlyTiz 金属 间 化合物 成分 是 K4169 高温 合金 本身 含有 的 元素 ， 故 它 的 加入 对母 合金 的 特性 无害 ， 而且 NixAlyTiz 与 母 合金 的 浸润性 好 ， 在 熔体 中有 好 的 扩散性 ， 并 有着 粗糙 表面 ， 熔点 也 比母 合金 高 。 更 重要 的 是 ， NixAlyTiz 与 γ 基体 晶格 结构 相近 ， 而 在 异质 形核 过程 中 ， 异质 核心 与 结晶 新 相间 的 界面 能 对 异质 形核 起 主要 的 控制 作用 ， 而 影响 界面 能 的 诸 因素 中 ， 以 点阵 错配 度 δ 为 主要 因素 ， δ 值 可 作为 评价 某种 细化 剂 能否 成为 异质 形核 的 核心 及其 有效 程度 的 评价 指标 。 因此 ， 利用 Bramfitt 的 二维 点阵 错配 度 的 数学模型 ［ 4 ］ 计算 了 NixAlyTiz 与 K4169 高温 合金 之间 的 错配 度 ， 即 
+ 　 　 　 　 　 　 　 　 
+ 式 中 ， ( hkl ) s 为 基体 相 的 一个 低 指数 面 ， ［ uvw ］ s 为   ( hkl ) s 上 的 一个 低 指数 晶向 ； ( hkl ) n 为 新 结晶 相 的 一个 低 指数 面 ， ［ uvw ］ n 为 ( hkl ) n 上 的 一个 低 指数 晶向 ； d ［ uvw ］ s ， d ［ uvw ］ n 分别 为 沿 ［ uvw ］ s ， ［ uvw ］ n 方向 上 的 原子 间距 ； θ 为 ［ uvw ］ s 和 ［ uvw ］ n 之间 的 夹角 ( 小于 90 ° ) 。 
+ 　 　 计算结果 ( 表 3 ) 表明 ， γ 基体 在 NixAlyTiz2 组 晶面 上 形核 的 二维 点阵 错配 度 δ 均 小于 12% 。 而 Bramfitt ［ 4 ］ 认为 ， 当 δ 小于 12% 时形 核 潜力 巨大 ， 当 大于 12% 时形 核 潜力 则 变得 很小 。 本 实验 选用 的 细化 剂 在 2 组 晶面 上 均 有 良好 的 匹配 ， 因此 ， NixAlyTiz 作为 K4169 母 合金 结晶 时 的 异质 核心 是 有效 的 。 
+ 　 　 一些 研究者 ［ 5 ， 6 ］ 认为 ， 降低 合金 液 的 均匀 化 温度 使 晶粒 细化 的 机制 在于 母 合金 中 的 初生 碳化物 质点 在 较 低 的 均匀 化 温度 下 并未 完全 熔解 ， 这 类 碳化物 可能 成为 冷凝 时 基体 相 的 结晶 核心 。 刘林 使用 一种 旋翼 式 快速 凝固 装置 将 合金 液 从 不同 的 均匀 化 处理 温度 下激 冷 的 方法 ［ 7 ， 8 ］ ， 证实 了 MC 型 碳化物 确实 不易 溶于 液相 ， 其 含量 及 尺寸 取决于 液态 均匀 化 处理 的 温度 和 时间 。 如果 合金 液 只 在 较 低 的 温度 下 保留 较 短时间 ， 则 液相 中 必定 存在 大量 的 未 溶解 MC 型 碳化物 ， 这些 碳化物 可能 成为 γ 基体 的 结晶 核心 。 
+ 表 3 　 点阵 错配 度 δ 的 计算结果 
+ Table   3 　 Two   dimensional   mismatch   δ   between   γ   matrix   and   nucleant 
+ 
+ NucleantMatching 
+ interface ［ hkl ］ s 
+ ［ hkl ］ ndsnm 
+ dnnm θ ° 
+ Mismatch 
+ % 
+ NixAlyTiz 
+ ( CP2   a  0 = 0.2881 nm ) ( 001 ) NixAlyTiz ∥ ( 001 ) γ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ( 110 ) NixAlyTiz ∥ ( 111 ) γ 
+ 
+ 
+ 
+ 
+ 
+ ［ 100 ］ NixAlyTiz 
+ ［ 110 ］ γ 0.2881 
+ 0.2536011 . 98 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 6.99 
+ ［ 10 ］ NixAlyTiz 
+ ［ 010 ］ γ 0.4074 
+ 0.35860 
+ ［ 010 ］ NixAlyTiz 
+ ［ 10 ］ γ 0.2881 
+ 0.25360 
+ ［ 01 ］ NixAlyTiz 
+ ［ 2 ］ γ 0.4074 
+ 0.43920 
+ ［ 11 ］ NixAlyTiz 
+ ［ 01 ］ γ 0.2495 
+ 0.25365 . 268 
+ ［ 010 ］ NixAlyTiz 
+ ［ 10 ］ γ 0.2881 
+ 0.25360 
+ 
+ 　 
+ 4 　 结 　 论 
+ 　 　 ( 1 ) 加入 NixAlyTiz 细化 剂 并 降低 均匀 化 处理 温度 是 细化 K4169 高温 合金 晶粒 组织 的 优良 处理工艺 。 
+ 　 　 ( 2 ) 铸件 晶粒 细化 的 同时 ， 枝晶 组织 出现 了 由 粗大 树枝 晶 → 细小 树枝 晶 → 胞 状晶 结构 与 无规则 状态 的 细小 树枝 晶 混合 组织 → 胞 状晶 结构 组织 的 转变 ； 同时 合金 中 MC 型 碳化物 由 尺寸 较大 的 枝 杆状 或 大块 的 汉字 体状 细化 为 离散 的 细小 的 粒状 。 
+ 　 　 ( 3 ) 二维 点阵 错配 度 的 计算 结果表明 ， γ 基体 在 NixAlyTiz2 组 晶面 上 形核 的 二维 点阵 错配 度 小于 12% 。 因此 ， NixAlyTiz 作为 K4169 高温 合金 结晶 时 的 异质 核心 是 有效 的 ， 是 1 种 优良 的 高温 合金 晶粒 细化 剂 。 
+ 作者简介 ：   郑 建邦 ( 1965 - ) ，   男 ，   讲师 ，   博士 研究生 　 
+ 作者 单位 ： 西北工业大学 应用 物理系 141 ＃ ，   西安 　 710072 
+ 参考文献 ： 
+ ［ 1 ］ 赵惠田 ， 师昌绪 . CoO 孕育 剂 促进 铸造 镍 基 高温 合金 晶粒 细化 的 研究 . 金属 学报 ， 1981 ， 17 
+ 　 　 　 ( 2 ) ： 118 ～ 123 
+ ［ 2 ］ Ewing   B   A , Green   K   A . Polycrystalline   grain   controlled   casting   for   rotating   
+ 　 　 　 compressor   and   turbine   components . In : Gell   M , Kortovich   C   S , Bricknell   R   H , et   al ，   
+ 　 　 　 ed . Superalloys   1984 . Champion : The   Metallurgical   Society   of   AIME , 1984.33 ～ 42 
+ ［ 3 ］ Nazmy   M , Weiss   B , Sticbler   R . The   effect   of   advanced   fine   grain   casting   technology   
+ 　 　 　 on   the   static   and   cyclic   properties   of   IN713LC .   In : High   Temperature   Materials   
+ 　 　 　 for   Power   Engineering   1990 Ⅱ . Liege : Kluwer   Academic   Publishers , 1990.1397 
+ ［ 4 ］ Bramfitt   B   L . The   effect   of   carbide   and   nitride   additions   on   the   heterogeneous   
+ 　 　 　 nucleation   behavior   of   liquid   iron . Met   Trans , 1970 , 1 ( 7 ) : 1987 ～ 1995 
+ ［ 5 ］ Woulds   M , Benson   H . Development   of   a   conventional   fine   grain   casting   
+ 　 　 　 process . In : Gell   M , Kortovich   C   S , Bricknell   R   H , et   al ,   ed . Superalloys   
+ 　 　 　 1984 . Champion : The   Metallurgical   Society   of   AIME , 1984.3 ～ 12 
+ ［ 6 ］ Tien   J   K , Borofka   J   C , Casey   M   E . Precision   cast   vs   wrought   superalloys . J   of   
+ 　 　 　 Metals , 1986 , 38 ( 12 ) : 13 ～ 17 
+ ［ 7 ］ 刘林 . 镍 基 高温 合金 铸件 的 晶粒 组织 控制 铸造 工艺 参数 的 影响 . 航空 学报 ， 1994 ， 15 ( 11 ) ： 
+ 　 　 　 1357 ～ 1361 
+ ［ 8 ］ Liu   L , Zhen   B   L , Banerji   A , et   al . Effect   of   melt   homogenization   temperature   on   the   
+ 　 　 　 cast   structures   of   IN738LC   superalloy . Scripta   Metall   Mater , 1994 , 30 ( 5 ) : 593 ～ 598 
+ 收稿 日期 ：   1998 - 06 - 18 ；   修订 时间 ： 1998 - 11 - 20 

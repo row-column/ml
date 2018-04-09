@@ -1,0 +1,77 @@
+宇   航   学   报 
+ JOURNAL   OF   ASTRONAUTICS 
+ 1998 年     第 3 期       No.3   May       1998 
+ 科技期刊 
+ 弹道式 再 入 飞行器 高度 惯性 
+ 控制 方法 
+ 
+ 杨 辉耀 　 王仕成 　 邓方林 
+ ( 第二炮兵 工程学院 303 教研室 * 西安 * 710025 ) 
+ 　 　 摘 　 要 　 弹道式 飞行器 再 入时 , 常常 要求 在 规定 高度 上 发出 开伞 信号 , 过载 延时 控制 方法 误差 太 大 , 不能 满足 精度 要求 。 本文 以 飞行器 轴向 视 加速度 及其 积分 为 控制 信号 , 用 共 扼 方程 法 设计 了 一种 惯性 高度 控制 方法 。 计算 结果表明 , 该 控制 方法 的 控制 误差 小于 100m 。 
+ 　 　 主题词 　 再 入 飞行器 　 惯性 控制 　 方法 
+ THE   INERTIAL   CONTROLLING   METHOD   
+ TO   HEIGHT   OF   BALLISTIC   REENTRY   VEHICLE 
+ 
+ Yang   Huiyao 　 Wang   Shicheng 　 Deng   Fanglin 
+ ( The   Second   Artillery   Engineering   College * Xi ' an * 710025 ) 
+ 　 　 Abstract 　 The   opening   parachute   signal   is   required   to   sent   on   the   fixed   height   when   the   vehicle   reentry . The   height   controlled   error   through   axis   apparent   acceleration   can   not   meet   the   required   precision . This   thesis   designs   an   inertial   controlling   method   to   the   height   with   the   signal   of   the   axis   apparent   acceleration   and   its   integral   by   the   method   of   conjugate   equation . The   computation   results   show   that   the   controlled   error   is   less   than   100m . 
+ 　 　 Key   words 　 Reentry   vehicle 　 Inertial   controlling 　 Method 
+ 1 　 引 　 言 
+ 　 　 当 飞行器 再入 至 回收 区 上空 时 , 要求 在 规定 高度 上 打开 降落伞 , 无线电 控制 容易 受 干扰 , 所以 , 一般 都 用 惯性 控制 。 常用 的 惯性 控高 方法 是 过载 延时 方法 , 控高 方程 为 : 
+ 
+ ( 1 ) 
+ nx1 , x1 分别 为 实际 弹道 和 标准 弹道 的 过载 , Ty , y 分别 为 实际 弹道 和 标准 弹道 从 x1 至 高度 处 的 延时 。 该 方法 对 再入 干扰 不能 完全 补偿 , 最大 控高 误差 达 1300m , 如此 大 的 误差 不能 满足 精度 要求 。 本文 在 选择 标准 过载 x1 的 同时 , 用 延时 Ty 、 轴向 视 速度 Wx1 及其 积分 W * x1 的 线性组合 代替 原 延时 方程 , 以 达到 提高 控制精度 的 目的 。 
+ 2 　 高度 控制 方程 设计 
+ 　 　 
+ 　 　 高度 控制 就是 H = , 但 由于 飞行器 无法 测量 自身 的 速度 和 弹道 倾角 θ , 所以 , 必须 将 V 和 θ 变为 轴向 视 速度 Wx1 和 W * x1 。 
+ 再 入 飞行器 的 运动 方程 : 
+ 
+ ( 4 ) 
+ 将 上式 作 泰勒 展开 : 
+ 
+ ( 5 ) 
+ 初始条件 : 　 V ( 0 ) = Vn , 　 θ ( 0 ) = θ n 
+ 忽略 ( 5 ) 式 的 高阶 项 , 则 其 共轭 方程 为 : 
+ 
+ ( 6 ) 
+ 设 共轭 方程 的 终端 条件 为 : 
+ 
+ ( 7 ) 
+ 则 由 布利斯 公式 ［ 1 ］ 得 : 
+ 
+ 
+ ( 8 ) 
+ 　 　 实际 计算 表明 , G1 ( t ) , G2 ( t ) 在 定 高处 接近 直线 , 所以 , 可以 将 G1 ( t ) , G2 ( t ) 作 泰勒 展开 : 
+ 
+ ( 9 ) 
+ ( 6 ) 式 代入 ( 9 ) 式 得 : 
+ 
+ ( 10 ) 
+ ( 6 ) 式 、 ( 10 ) 式 同时代 入 ( 8 ) 式 得 : 
+ 
+ 对 ( 11 ) 式 连续 作降 阶 积分 并 代入 ( 3 ) , 写成 偏差 形式 : 
+ 
+ 令 : 
+ 
+ 　 　 由于 Δ Ht , Δ Hgv , Δ HG , Δ Hv 为 高阶 小量 , 所以 , 通过 解 弹道 可以 将 f ( Δ th ) 逼近 成 Δ th 的 线性 函数 : 
+ f ( Δ th ) = a0 + a1 Δ th 
+ ( 13 ) 
+ 　 　 ( 13 ) 式 代入 ( 12 ) 式 , 忽略 高阶 项 并 写成 标准 形式 : 
+ 
+ ( 14 ) 
+ 　 　 上式 即 为 本文 设计 的 高度 控制 方程 , 方程 中 各 系数 由 标准 弹道 确定 , 在 地面 上 计算 出 各 系数 后 , 装订 到 飞行器 计算机 中 , 当 过载 nx1 = x1 时 , 开始 计量 并 计算 视 加速度 及其 积分 , 当 H = 时 发出 开伞 信号 。 显然 , 这种 控制 方法 要求 飞行器 上 装载 有视 加速度 积分 装置 ( 例如 陀螺 积分 仪 ) 、 计时 装置 和 线性 运算 装置 。 
+ 3 　 控高 方程 误差 分析 
+ 　 　 为了 简化 飞行器 上 的 计算 装置 , 本文 忽略 了 高阶 项而 设计 了 线性 控高 方法 , 这 必然 会 造成 控制 误差 , 控制 误差 与 外 干扰 有关 , 干扰 越大 , 控制 误差 越大 。 Δ Ht 为 二次 时间 补偿 项 , 如果 飞行器 有 平方 计算能力 , 也 可 参加 方程 运算 ; Δ Hgv 为 运动 方程 线性化 误差 , 由于 飞行器 在 开伞点 附近 的 运动 轨迹 比较 接近 直线 , 所以 , 该项 可以 忽略 ; Δ HG 为 共轭 方程 线性化 误差 , 由于 已经 是 二阶 项 , 与 δ ( 2 ) G1 , δ ( 2 ) G2 的 耦合 更是 高阶 项 ; Δ HV 是 由 再 入点 参数 误差 和 再 入点 nx1 = x1 处 的 干扰 造成 的 。 对 高阶 项 补偿 后 精度 较 高 。 
+ 算例 : 　 再 入 参数 Ve = 6722m / s , He = 80816m , θ e = - 20.4 ° , m = 3000kg , S = 3.0 m2 
+ 控制 高度 = 2273m 
+ 再 入 干扰 : 10% 标准大气 密度 偏差 
+ 采用 原控 高 方程 : x1 = 22 , y = 10.60 S 
+ 控高 偏差 : Δ H = 853m 
+ 　 　 采用 本文 设计 的 控高 方程 , 控制 误差 如下 表 所示 : 
+ 误差 项 Δ Ht Δ Hgv Δ HG Δ HV Δ ( 2 ) H 
+ 数 　 值 25.713 . 3 - 6.20 . 019.3 
+ 总 误差 52.1 m 
+ 　 　 两种 计算结果 比较 可以 看出 , 本文 设计 的 控高 方程 的 精度 比原 方程 的 精度 提高 了 8 倍 。 
+ 参考文献 
+ 1 　 钱学森 , 宋健 . 工程 控制论 ( 下 ) . 科学出版社 , 1980 
+ 2 　 张毅 . 地地导弹 弹道学 . 第二炮兵 工程学院 . 1986 

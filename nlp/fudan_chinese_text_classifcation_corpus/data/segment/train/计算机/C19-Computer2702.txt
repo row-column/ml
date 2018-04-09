@@ -1,0 +1,141 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年 　 第 10 卷 　 第 11 期 　 Vol.10 　 No.11 　 1999 
+ 
+ 
+ 
+ 一种 鲁棒性 的 结构 未知 表格 分析方法 
+ 李星原 　 高文 
+ 　 　 摘要 　 模型 未知 表格 的 分析 是 表格 识别 中 文本 分析阶段 的 一个 重要 且 具有 挑战性 的 问题 . 目前 的 一般 方法 仅能 容忍 表格 线 的 微小 断线 . 文章 提出 一种 基于 抽取 表格 线 的 分析 结构 未知 表格 的 策略 . 利用 抽取 的 表格 线 的 特征 知识 和 局部 约束 可以 选择 一些 有效 边 . 在 扫描 水平 和 垂直 表格 线时 , 如果 环绕 边 都 有效 , 则 产生 一个 矩形 块 , 引入 迭代 可以 更好 地 利用 全局 信息 并 使 抽取 结果 满足 约束 关系 . 这种 矩形 块 的 抽取 可以 容忍 表格 线大 的 断线 或 不 合适 的 分割 , 可以 处理 诸如 嵌入 矩形 块 的 复杂 结构 . 矩形 块 被 抽取 后 , 表格 的 其他 部件 可以 通过 搜索 剩余 的 部分 来 抽取 . 表格 测试 实验 证明 , 该 方法 在 表格 质量 很 差时 仍 可以 很 好 地 工作 . 
+ 　 　 关键词 　 图像 分析 , 文本 分析 , 图像 分割 , 表格 分析 , 矩形 提取 , 递归 算法 . 
+ 　 　 中图法 分类号 　 TP391 
+ A   Robust   Method   for   Unknown   Structure   Form   Analysis 
+ LI   Xing - yuan1   GAO   Wen1 , 2 
+ 1   ( Department   of   Computer   Science   and   Engineering   Harbin   Institute   of   Technology   Harbin   150001 ) 
+ 2 ( Institute   of   Computing   Technology   The   Chinese   Academy   of   Sciences   Beijing   100080 ) 
+ 　 　 Abstract 　   The   analysis   of   unknown   forms   is   a   challenging   and   important   problem   in   document   processing .   Current   methods   can   only   tolerate   small   breaks   in   form   lines .   In   this   paper ,   a   strategy   is   proposed   for   analyzing   unknown   structure   and   filled   forms   based   on   extracted   lines .   Individual   edges   are   validated   using   knowledge   of   features   of   the   extracted   lines   and   their   local   proximity .   In   a   process   of   scanning   the   horizontal   and   vertical   lines ,   candidate   edges   are   validated   and   rectangles   are   generated   if   their   surrounding   edges   and   their   combination   are   all   valid .   To   preserve   the   constraints   and   make   full   use   of   global   information ,   the   process   is   recursively   applied .   The   rectangle   extraction   can   tolerate   large   breaks   in   form   lines ,   ignore   irrelevant   segments   and   deal   with   complex   configurations   such   as   embedded   rectangles .   After   rectangle   extraction ,   other   form   components   are   extracted   by   searching   the   remaining   segments .   Experiments   on   a   collection   of   forms   with   handwritten   fields   and   documents   with   tables   show   that   the   proposed   approach   works   well   even   on   poor   quality   images . 
+ 　 　 Key   words 　 Image   analysis ,   document   analysis ,   image   segmentation ,   form   analysis ,   rectangle   extraction ,   recursive   algorithm . 
+ 　 　 正 表格 被 广泛 用于 各种 场合 . 对 表格 的 自动 阅读 可以 减轻 人们 将 表格 信息 输入 计算机 的 繁琐 工作 , 具有 重要 的 实用价值 . 最早 研究 普通 纸张 表格 分析 的 是 日立 ［ 1 ］ 和 IBM 公司 ［ 2 ］ . 
+ 对 给定 的 一个 表格 图像 , 如果 我们 关于 它 的 知识 越 多 , 对 其 分析 就 越 容易 . 很多 分析 系统 采用 表格 模型 来 表示 一类 表格 的 结构 , 依此 来 提高 表格 分析 的 正确率 . 表格 模型 的 建立 可以 是 手工 的 、 半自动 的 和 全自动 的 . 手工 建立 模型 非常 繁琐 . 有时 建立 一个 模型 可能 比 直接 输入 表格 还要 费时 . 而且 , 手工 模型 对于 表格 重新 打印 时 的 内部 位置 调整 无法 对应 , 所以 使用 面窄 . 因此 , 面向 半自动 和 自动 表格 模型 建立 的 结构 模型 未知 的 表格 分析 就 更 有 挑战性 和 重要 意义 . 
+ 　 　 同 一般 文本 分析 一样 , 目前 表格 图像 分析 所 面临 的 主要 问题 是 如何 排除 噪音 的 干扰 问题 . 如果 抽取 的 表格 线 是 完全 理想 的 , 即 没有 断线 和 多余 的 线 , 则 在 仅 由 表格 线 构成 的 图像 中 跟踪 它 内部 的 矩形 就 可以 得到 全部 的 矩形 块 . 但是 , 实际 中 总会 抽取 到 一些 来自 字符 或图 的 假 表格 线段 , 同时 , 真实 表格 线 也 可能 在 预处理 后 产生 断线 . 
+ 　 　 在此之前 的 研究 已经 提出 了 很多 分析 未知 表格 的 方法 . 丁晓青 和 吴佑寿 等 人 采用 基于 投影 的 方法 检测 表格 线 位置 , 然后 用 在 相应 位置 寻找 角 的 办法 来 抽取 矩形 块 ［ 3 ］ . Fan 等 人 采用 细化 后 再 取 特征 点 的 方法 ［ 4 ］ , 但 细化 会 产生 歧变 , 而且 没有 好 方法 把 字符 中 和 表格 线上 的 特征 点 区分 开来 . Wang 和 Srihari 先用 连接 块 分析 去掉 一些 孤立 的 字符 , 然后 用行 相邻 图 ( line   adjacent   graph ) 检测 表格 线段 , 再 从 图像 搜索 关键点 , 由 关键点 搜索 单元 ［ 5 ］ . Garris 用 相关 run 的 方法 检测 表格 单元 的 关键点 ［ 6 ］ . Belaid 等 人用 Hough 变换 抽取 表格 线段 , 然后 将 其 组成 一个 图 , 再 在 图上 进行 搜索 ［ 7 ］ . Yu 和 Jain 用块 相邻 图 抽取 表格 框架 但 不是 单元 ［ 8 ］ . 尽管 Wang 和 Srihari 的 方法 可以 处理 字符 和 表格 线 粘连 的 情况 , 但是 , 上述 4 种 方法 都 没有 考虑 表格 线 断线 的 情况 . Fujisawa 和 Nakano 先对 水平 和 垂直 方向 的 run 滤波 , 然后 用 表格 线 增强 来 填补 小 的 断线 , 最后 用 轮廓 跟踪 来 抽取 矩形 块 的 内环 ［ 1 , 9 ］ . 它 可容忍 很小 的 断线 但 不适 用于 字符 与 表格 线 粘连 或 交叉 的 情况 . Hori 和 Doermann 结合 了 从 原 图像 和 缩小 后 图像 得来 的 轮廓 ［ 10 ］ . 由于 一些 在 原 图像 中 跟踪 不到 的 矩形 块 的 内环 会 出现 在 缩小 后 的 图像 中 , 这种 方法 对 小 的 断线 效果 较 好 , 但是 当 断线 超过 相邻 字符 行 距离 的 一半 或 表格 线 与 相邻 字符 距离 的 一半 时 , 连接 断线 的 缩小 比例 会 连接 相邻 行 字符 或者 表格 线 与 相邻 字符 , 从而 在 缩小 后 的 图像 中 丢失 矩形 块 . 在 文献 ［ 10 ］ 中 给出 的 结果 证实 , 这种 方法 可以 克服 0.32 mm 的 断线 . 这 在 很多 情况 下 是 不够 的 . Shinjo 等 人 概述 了 一个 连接 表格 线 交叉点 的 克服 断线 的 方法 ［ 11 ］ , 它 需要 先 去掉 非 真实 表格 线上 的 线段 而 留下 真实 表格 线上 的 线段 , 这 是 很 难 做到 的 . 
+ 　 　 由于 考虑 问题 的 基点 不同 , 现有 模型 独立 的 表格 分析方法 都 没有 充分利用 全局 信息 . 这 体现 在 两个 方面 : ( 1 )   表格 线 抽取 没有 把 表格 线 作为 一个 整体 来 对待 ; ( 2 )   仅 由 局部 的 区域 来 抽取 矩形 块 单元 , 当 出现 断线 和 假 表格 线段 时 , 在 原 图像 上 局部 的 搜索 就 很 难 找到 正确 的 结果 . 到 目前为止 , 尚 没有 一种 可以 带 噪音 的 表格 线段 抽取 表格 单元 的 算法 . 文献 ［ 10 , 12 ］ 甚至 认为 基于 表格 线 的 方法 常常 不 被 使用 于 带 断线 的 表格 . 
+ 　 　 作者 在 文献 ［ 13 ］ 中 提出 了 一种 利用 全局 信息 的 表格 线 抽取 方法 . 本文 在 此基础 上 提出 一个 分析 结构 未知 表格 的 方法 , 它 包括 矩形 块 抽取 方法 和 其他 单元 抽取 方法 . 矩形 块 抽取 以 抽取 的 表格 线为 导引 , 并 参考 原 图像 信息 . 为 充分利用 全局 信息 , 我们 先 分析 矩形 块 之间 必须 满足 的 一些 约束条件 , 然后 用 一个 基本 抽取 算法 的 迭代 来 抽取 矩形 块 . 
+ 1   基本 定义 与 约束 关系 
+ 　 　 矩形 块 抽取 问题 的 输入 为 一个 水平 表格 线 集合 、 一个 垂直 表格 线 集合 和 表格 的 原 图像 , 输出 为 一个 矩形 块 集合 . 一个 矩形 块 表示 为 ( PTopLeft , PTopRight , PBottomLeft , PBottomRight , LLeft , LRight , LTop , LBottom ) , 其中 PTopLeft , PTopRight , PBottomLeft , PBottomRight 分别 是 矩形 块 的 左上 、 右 上 、 左下 和 右下角 位置 , 用 ( x , y ) 表示 , 它们 描述 矩形 块 的 绝对 位置 . LLeft , LRight , LTop , LBottom 是 包围 该 矩形 块 的 左 、 右 、 上 、 下 表格 线 的 序号 , 描述 矩形 块 的 相对 位置 . 
+ 　 　 由于 抽取 的 表格 线 可能 有 断线 , 也 可能 有 多余 的 线或 线段 , 因此 , 矩形 块 并 不 总是 完全 地被 输入 水平 表格 线 集合 和 垂直 表格 线 集合 所 封闭 . 另一方面 , 矩形 块 之间 不是 相互 独立 的 , 它们 之间 存在 着 很 强 的 依赖 关系 , 也就是说 , 被 抽取 的 几个 矩形 块 可能 会 决定 另 一个 矩形 块 是否 应该 被 抽取 到 . 例如 , 在 图 1 ( b ) 中 , 如果 抽取 了 矩形 块 1 , 3 , 4 和 5 , 则 矩形 块 2 也 应该 被 抽取 . 因为 既然 矩形 块 1 , 3 , 4 和 5 有效 , 这些 矩形 块 的 四边 就 都 有效 , 则 矩形 块 2 的 四边 也 有效 . 如果 我们 用 抽取 算法 得到 了 矩形 块 1 , 3 , 4 和 5 , 而 没有 抽取 到 矩形 块 2 , 就是 一个 不合理 的 结果 . 
+ 
+ 图 1 矩形 块 和 它们 的 边 之间 的 约束 
+ 　 　 关于 矩形 块 之间 必须 满足 的 基本 约束 , 我们 总结 出 以下 3 条 约束 关系 . 
+ 　 　 约束 1 .   如果 一个 矩形 块 完全 被 它 内部 的 其他 矩形 块 所 覆盖 , 则 无效 . 如图 1 ( a ) 中 的 矩形 块 1 . 
+ 　 　 约束 2 .   如果 一个 矩形 块 的 一条 边 完全 被 其他 有效 的 矩形 块 所 覆盖 , 则 该 边 有效 . 如图 1 ( b ) 中 , AD 有效 , 因为 它 被 有效 矩形 1 , 2 , 3 ( 对应 线段 AB , BC 和 CD ) 所 覆盖 . 
+ 　 　 约束 3 .   如果 一个 矩形 块 的 一条 边 部分 地被 其他 有效 矩形 块 所 覆盖 , 而且 未 被 覆盖 的 那 一部分 足够 长 , 则 该 边 有效 . 在 图 1 ( c ) 中 , AD 有效 , 因为 矩形 块 1 ( 对应 线段 AB ) 和 矩形 块 2 ( 对应 线段 BC ) 有效 , 而 CD 足够 长 . 
+ 2   矩形 块 抽取 的 基本 算法 
+ 2.1   算法 的 复杂性 
+ 　 　 设有 P 条 水平 和 Q 条 垂直 表格 线 . 它们 总共 可以 产生 个 矩形 块 候选 . 这些 候选 只有 一小部分 有效 . 原理 上 说 , 可以 通过 校验 这些 候选 来 确定 输出 的 表格 块 集合 . 然而 , 由于 候选 数目 是 O ( P2Q2 ) , 要 穷尽 这个 候选 集合 比较 费时 . 如果 考虑 每 一个 候选 矩形 块 与 其他 每个 矩形 块 的 关系 , 那么 校验 过程 的 复杂度 就 变为 O ( P4Q4 ) . 但是 , 实际上 一个 表格 内 的 最大 可 容纳 矩形 块 数目 远远 小于 矩形 块 候选 的 数目 . 如果 P 条 水平 表格 线 和 Q 条 垂直 表格 线 都 足够 长 , 它们 可以 把 整个 表格 图像 分割 为 ( P - 1 ) × ( Q - 1 ) 个 网格 , 而 每个 矩形 块 至少 要 占 一个 网格 , 所以 最 多只 可能 有 ( P - 1 ) × ( Q - 1 ) 个 矩形 块 . 因此 , 我们 应该 可以 找到 一种 O ( PQ ) 的 算法 . 
+ 2.2   基本 算法 
+ 　 　 矩形 块 抽取 算法 的 过程 要求 一个 从上到下 对 水平 表格 线 的 扫描 和 从左到右 对 垂直 表格 线 的 扫描 . 1 条 水平 表格 线 和 1 条 垂直 表格 线 可能 形成 1 个 交点 . 在 每个 交点 处 , 我们 计算 并 保存 可能 作为 后续 矩形 块 顶边 和 左边 的 表格 线 区间 . 同时 , 如果 前面 已经 有 了 一条 顶边 和 一条 左边 , 则 判断 对应 的 底边 和 右边 是否 足够 长 . 如果 4 条边 均 有效 , 就 产生 一个 矩形 块 . 它 的 时间 复杂度 是 O ( PQ ) . 从 下面 的 描述 中 可以 看到 , 它 满足 约束 关系 1 . 
+ 　 　 算法 的 输入 是 水平 ( 垂直 ) 表格 线 集合 , 水平 ( 垂直 ) 表格 线 从 上 ( 左 ) 到 下 ( 右 ) 排序 , 起始 序号 大于 等于 0 . 设 i , j 分别 是 扫描 过程 中 的 当前 水平 表格 线 和 垂直 表格 线 . 我们 用 一个 整数 数组 TopEdge ［ Q ］ 来 跟踪 可 用作 顶边 来 构造 一个 矩形 块 的 水平 表格 线 . 也就是说 , TopEdge ［ j ］ 是 这样 一条 水平 表格 线 的 序号 : 它 在 当前 水平 表格 线 i 之上 且 在 垂直 表格 线 j 和 j + 1 之间 具有 足够 的 长度 ( 即 有效 ) . 这样 的 表格 线 可能 有 多条 , 我们 只 记录 最靠近 当前 水平 表格 线 i 的 那 一条 . TopEdge ［ j ］ ( 0 ≤ j ＜ Q ) 初始化 为 - 1 , 表示 开始 时 这样 的 顶边 不 存在 . 图 2 列出 了 在 对 一个 表格 的 扫描 过程 中 , 在 当前 水平 表格 线 i = 3 和 当前 垂直 表格 线 j = 0 时 的 TopEdge ［ ］ . 当 i = 1 , j = 0 时 , TopEdge ［ 0 - 2 ］ = - 1 , TopEdge ［ 3 - 7 ］ = 0 . 
+ 
+ 图 2 一个 表格 结构 在 当前 水平 表格 线 i = 3 和 当前 垂直 表格 线 j = 0 时 的 TopEdge [ ] 
+ 　 　 算法 用 一个 变量 vl 跟踪 最近 的 可用 来 作为 矩形 块 左边 的 垂直 表格 线 . 由于 在 每条 水平 表格 线 都 对 所有 垂直 表格 线作 一次 扫描 , 我们 用 一个 变量 而 不是 像 对 顶边 一样 用 一个 数组 . vl 在 开始 对 每个 水平 表格 线 扫描 时 被 初始化 为 - 1 . 对图 2 中 的 表格 , 当前 水平 表格 线 i = 1 时 , vl = - 1 , 当 j = 0 , 1 , 2 , 3 ; vl = 3 , 当 j = 4 ( 正好 完成 对 垂直 表格 线 3 的 扫描 之后 ) ; vl = 4 , 当 j = 5 ; vl = 5 , 当 j = 6 ; vl = 6 , 当 j = 7 ; vl = 7 , 当 j = 8 . 
+ 　 　 下面 , 我们 给出 基本 算法 RectangleExtract . 其中 HEdgeValid ( i , j1 , j2 ) 用来 计算 是否 水平 表格 线 i 在 垂直 表格 线 j1 和 j2 之间 有效 , 或者说 , 是否 水平 表格 线 i 可以 与 垂直 表格 线 j1 和 j2 及 另 一条 水平 表格 线 构成 一个 矩形 块 . 类似 地 , VEdgeValid ( j , i1 , i2 ) 用来 计算 是否 垂直 表格 线 j 在 水平 表格 线 i1 和 i2 之间 有效 . 
+ 　 　 Procedure   RectangleExtract 
+ 　 　 1 .   初始化   TopEdge ［ k ］ = - 1 ( k = 0 , 1 , ... , Q ) . 
+ 　 　 2 .   For   每条 水平 表格 线 i ( i = 0 , 1 , ... , P , 从上到下 )   { 
+ 　 　 　 　 3 .   vl = - 1 ; 
+ 　 　 　 　 4 .   For   每条 垂直 表格 线 j ( j = 0 , 1 , ... , Q , 从左到右 )   { 
+ 　 　 　 　 5 .   If   j ! = 0   and   HEdgeValid ( i , j - 1 , j ) , 置 TopEdge ［ j - 1 ］ = i . 
+ 　 　 　 　 6 .   If   vl ! = - 1   and   TopEdge ［ j - 1 ］   ! = - 1   and   VEdgeValid ( j , TopEdge ［ j - 1 ］ , i )   and   HEdgeValid ( i , vl , j ) / * 校验 右边 和 底边 * / { 
+ 　 　 　 　 　 　 7 .   If   对 vl ≤ k ＜ j 所有 TopEdge ［ k ］ 相等 , 
+ 产生 一个 由 水平 表格 线 TopEdge ［ vl ］ 和 i , 垂直 表格 线 vl 和 j 所 包围 的 矩形 块 ; 
+ 　 　 　 　 　 　 else { 
+ 　 　 　 　 　 　 8 .   设 Hmin 和 Hmax 分别 为 TopEdge ［ k ］ 在 vl ≤ k ＜ j 的 最小 和 最大值 . 
+ 　 　 　 　 　 　 9 .   For   h1 从 Hmin 到 Hmax - 1 , 
+ 　 　 　 　 　 　 if   HEdgeValid ( h1 , vl , j )   and   VEdgeValid ( vl , h , i ) / * 校验 顶边 和 左边 * / { 
+ 　 　 　 　 　 　 10 .   产生 一个 由 水平 表格 线 h1 和 i , 垂直 表格 线 vl 和 j 所 包围 的 矩形 块 ; break . 
+ 　 　 　 　 　 　 } 
+ 　 　 　 　 } 
+ 　 　 　 　 11 .   If   在 Step7 或 Step10 中 产生 了 一个 矩形 块 
+ 　 　 　 　 　 　 　 For   ( k = vl ; k ＜ j ; k ++ ) 
+ 　 　 　 　 　 　 　 　 TopEdge ［ k ］ = i ; 
+ 　 　 　 　 　 　 / * 置 该 矩形 块 的 底边 的 所有 子 区间 为 有效 顶边 * / 
+ 　 　 　 　 } 
+ 　 　 　 　 12 .   If   TopEdge ［ j ］ ! 　 = - 1   and   VEdgeValid ( j , TopEdge ［ j ］ , i ) = = TRUE , 
+ 置 vl = j ; / * 校验 左边 * / 
+ 　 　 　 　 } 
+ 　 　 } 
+ 　 　 在 Step7 , 我们 检查 是否 当时 所有 TopEdge ［ k ］ 都 相等 . 如果 相等 , 水平 表格 线 TopEdge ［ k ］ 在 所有 从 vl 到 vl + 1 , ... , 从 k 到 k + 1 , ... , 从 j - 1 到 j 的 最 小子 区间 都 是 有效 的 . 我们 约定 边 有效 的 判定 条件 满足 : 如果 一条 表格 线 在 一个 区间 的 每个 最 小子 区间 都 有效 , 该 表格 线 在 该 区间 有效 . 事实上 , 这个 约定 是 完全 符合实际 要求 的 . 这样 , TopEdge ［ k ］ 在 从 vl 到 j 的 区间 有效 . 因为 vl 在 从 TopEdge ［ vl ］ 到 i 的 区间 有效 , 而且 在 Step6 中 已经 校验 过 右边 和 底边 , 由 vl , j , TopEdge ［ vl ］ 和 i 所 包围 的 矩形 块 有效 . 如果 不是 对 vl ≤ k ＜ j 所有 TopEdge ［ k ］ 都 相等 ( 如图 3 虚 矩形框 所示 ) , 则 需要 校验 左边 vl . 这 是因为 尽管 vl 在 从 TopEdge ［ vl ］ 到 i 的 区间 有效 , TopEdge ［ vl ］ 可能 不是 矩形 块 的 顶边 . 类似 地 , 我们 需要 校验 顶边 . 
+ 
+ 图 3 对于 vl ≤ k ＜ j , 不是 所有 TopEdge [ k ] 都 相等 的 情况 
+ 2.3   边 的 校验 
+ 　 　 判断 一个 矩形 块 是否 有效 , 最 基本 的 是 要 判断 它 的 条边 是否 有效 , 也 就是 如何 计算 矩形 块 抽取 基本 算法 中 的 HEdgeValid ( i , j1 , j2 ) 和 VEdgeValid ( j , i1 , i2 ) . 本节 只 讨论 VEdgeValid ( j , i1 , i2 ) , 水平 边 的 校验 与 此 类似 . 
+ 　 　 我们 采用 一种 基于 规则 的 方法 , 先 从 区间 内 的 表格 线段 和 区间 内及 区间 附近 的 原始 图像 中 抽取 一些 特征 , 然后 用 一些 规则 判断 该 区间 是否 有效 . 
+ 如果 抽取 到 表格 线 覆盖 全部 区间 , 当然 该 区间 有效 . 但是 , 在 实际 的 表格 中 会 碰到 很多 复杂 的 情况 . 图 4 是 实际 表格 中 的 一些 矩形 块 例子 . 在 图 4 ( a ) ～ ( c ) 中 , 常会 从 字符 中 抽取 到 假 的 垂直 表格 线段 . 而图 4 ( d ) ～ ( f ) 中 , 每个 矩形 块 都 有 比较 短 的 边 . 甚至 在 一些 例子 中 , 来自 字符 的 假 表格 线段 占 整个 区间 的 比例 比 来自 真 表格 线 的 表格 线段 占 整个 区间 的 比例 还要 小 . 在 这些 情况 下 , 仅凭 区间 被 表格 线 所 覆盖 的 长度 来 检验 该 区间 的 有效性 就 不够 了 . 
+           
+ ( a ) 　 　 　   ( b ) 　 　 　   ( c ) 　 　 　   ( d ) 　 　 　 　 　   ( e ) 　   　 　 　 ( f ) 
+ 图 4   从 表格 中 收集 的 矩形 块 例子 
+ 　 　 我们 组合 以下 特征 来 判断 一个 区间 的 有效性 : ( 1 )   区间 的 长度 len ; ( 2 )   区间 被 抽取 到 的 表格 线段 所 覆盖 的 长度 llen ; ( 3 )   区间 内原 图像 的 最大 的 连续 空白 ( 0 ) 行数 zlen ; ( 4 )   区间 内原 图像 垂直 投影 的 峰值 peak ; ( 5 )   区间 的 两侧 是否 有 类似 于 笔画 的 黑 像素 ; ( 6 )   这 条 垂直 表格 线 的 相邻 上 区间 和 相邻 下 区间 是否 有效 , ulvalid . 
+ 　 　 通常 , 一条 垂直 表格 线段 不会 在 它 的 两侧 都 有 笔画 与 之 相连 , 而 来自 字符 的 假 表格 线段 则 常常 在 它 的 一侧 甚至 两侧 有 笔画 . 我们 把 区间 分为 3 类 . 第 1 类 : 两侧 均 无 笔画 ; 第 2 类 : 在 一侧 有 笔画 ; 第 3 类 : 两侧 均 有 笔画 . 对 不同 的 类型 , 采用 不同 的 标准 . 也就是说 , 对 第 1 类松 , 第 3 类紧 . 选用 上下 区间 的 有效性 作为 一个 特征 是 受 了 盖式 塔 心理学 的 启发 . 如果 它 的 上 区间 和 / 或 下 区间 有效 , 且 宽度 相似 , 则 人们 总是 倾向 于 把 该 区间 看做 有效 . 因此 , 在 这种 情况 下 , 我们 采用 较松 的 要求 . 
+ 为了 计算 zlen , peak 和 确定 该 区间 的 两侧 是否 有 笔画 , 将 该 区间 及 它 周围 稍作 延伸 的 区域 的 原 图像 向 水平 和 垂直 方向 投影 . zlen 是 区间 在 Y 轴上 投影 的 最大 连续 空白 长度 , 而 peak 是 区间 在 X 轴上 投影 的 峰值 . 在 X 轴上 的 投影 中 , 如果 在 区间 左侧 ( 右侧 ) 的 邻域 内有 近似 为 0 的 投影 , 我们 说 在 区间 左侧 ( 右侧 ) 没有 笔画 , 否则 , 说 在 它 的 左侧 ( 右侧 ) 有 笔画 . 
+ 　 　 基于 以上 的 特征 , 我们 采用 一些 规则 来 判断 区间 的 有效性 . 
+ 3   基本 算法 的 扩展 
+ 3.1   组合 4 条边 来 确定 矩形 块 的 有效性 
+ 　 　 到 目前为止 , 我们 是 独立 地 使用 每条 边 的 有效性 来 产生 矩形 块 , 这样 做 有时 可能 会 产生 错误 . 例如 , 在 图 5 ( a ) 中 , 按照 长度 , 垂直 表格 线 1 在 水平 表格 线 1 和 3 之间 的 区间 被 确定 为 有效 . 同样 地 , 垂直 表格 线 3 在 水平 表格 线 1 和 3 之间 的 区间 也 被 确定 为 有效 . 这样 , 由 水平 表格 线 1 和 3 及 垂直 表格 线 1 和 3 所 包围 的 矩形 块 ( 如图 5 ( a ) 中 阴影 所示 ) 就 被 确定 为 有效 . 
+ 
+ 图 5 表格 线 区间 按照 长度 被 确定 为 有效 但 有 " 严格 白子 区间 " ( EWS ) 
+ 　 　 为 避免 这样 的 错误 , 对 每条 有效 的 边 , 我们 计算 它 的 “ 严格 白子 区间 ” ( exact   white   interval , 简称 EWS ) 的 数目 . 所谓 严格 白子 区间 是 指 , 表格 线 在 它 的 上下 ( 对 垂直 区间 ) 或 左右 ( 对 水平 区间 ) 边界 上 有 像素 , 但是 在 其 内部 没有 像素 , 也就是说 , 表格 线 正好 覆盖 它 的 两端 但 不 覆盖 它 的 内部 . 垂直 ( 水平 ) 区间 的 EWS 可以 通过 搜索 该 区间 的 水平 ( 垂直 ) 投影 得到 . 在 图 5 ( a ) 中 , 垂直 表格 线 1 和 3 都 有 一个 从 水平 表格 线 1 到 水平 表格 线 2 的 EWS . 在 图 5 ( b ) 中 , 垂直 表格 线 3 有 3 个 EWS . 从 水平 表格 线 0 到 1 , 从 2 到 3 , 从 4 到 5 . 然后 我们 去掉 4 条边 的 EWS 之 和 大于 等于 2 的 矩形 块 . 这样 , 在 图 5 ( a ) 和 ( b ) 中 阴影 所示 的 矩形 块 就 不会 产生 , 因为 它们 分别 有 2 和 3 个 EWS . 
+ 3.2   矩形 块 被 其 内部 矩形 块 部分 覆盖 的 情况 
+ 　 　 当 一个 矩形 块 被 其 内部 矩形 块 部分 覆盖 , 内部 的 矩形 块 把 它 分割 为 一个 凹 多边形 和 内部 矩形 本身 . 由于 凹 多边形 的 表示 比较复杂 , 我们 用 其 内部 矩形 和 最小 外部 矩形 来 表示 . 
+ 　 　 只要 内部 矩形 块 与 外部 矩形 块 不 共 底边 ( 如图 6 ( a ) , ( b ) 所示 ) , 用 前面 所述 的 基本 算法 就 可以 抽取 到 外部 和 内部 矩形框 . 这 是因为 算法 可以 得到 正确 的 上下左右 边 . 否则 , 用 基本 算法 就 抽取 不到 外部 矩形 块 , 因为 在 抽取 内 矩形 块 的 时候 丢失 了 对外 矩形 块 的 正确 左边 vl . 
+ 
+ 图 6 一个 矩形 块 被 其 内部 矩形 块 部分 覆盖 
+ 　 　 为了 找到 外部 的 矩形 块 , 我们 在 基本 矩形 块 抽取 算法 之后 附加 一个 搜索 过程 . 首先 寻找 可能 的 内部 矩形 块 . 一个 矩形 块 可能 是 内部 矩形 块 , 只有 当 它 相邻 的 两边 ( 如图 6 ( b ) , ( c ) 所示 ) 或者 相邻 两边 的 相邻 一段 ( 图 6 ( d ) ) 不 被 其他 矩形 块 所 覆盖 . 然后 对 可能 的 内部 矩形 块 , 逐步 向外 搜索 包围 它 的 最小 矩形 块 , 直至 找到 一个 矩形 块 或 表格 的 边界 为止 , 搜索 方向 如图 6 ( c ) 和 图 6 ( d ) 的 虚 箭头 所示 . 
+ 4   迭代 求精 算法 
+ 　 　 由于 表格 矩形 块 之间 的 强 依赖 关系 , 很难 通过 一次 扫描 就 把 全部 矩形 块 都 抽取 好 . 本节 提出 一个 迭代 算法 , 它 是 在 前面 基本 算法 的 基础 上 进行 迭代 , 以便 有效 地 利用 矩形 块 之间 的 关系 . 
+ 　 　 对 垂直 区间 进行 校验 时 , 我们 使用 了 它 的 上下 区间 的 有效性 urValid 作为 一个 特征 . 由于 基本 算法 是 一个 从 上 往 下 的 扫描 过程 , 校验 一个 垂直 区间 时 已经 得到 了 它 上面 的 区间 的 有效性 . 下面 区间 的 有效性 的 检验 是 以 上面 区间 有效性 检验 的 结果 为 前提 的 . 为了 检验 全部 矩形 块 的 有效性 , 我们 迭代 地 运行 基本 算法 . 在 第 1 轮 , 假定 每个 垂直 区间 的 下 区间 和 每个 水平 区间 的 右 区间 无效 , 得到 矩形 块 结果 . 然后 从 抽取 的 矩形 块 中 导出 水平 和 垂直 表格 线 在 每个 最小 区间 的 有效性 . 在 下 一次 迭代 时 , 当 校验 垂直 ( 水平 ) 区间 时 , 使用 刚 导出 的 下 ( 右 ) 区间 有效性 . 
+ 　 　 我们 用 一个 矩阵 H = ［ hij ］ P × ( Q - 1 ) 记录 水平 表格 线 的 最小 区间 的 有效性 . 
+ 
+ 　 　 同样 地 , 用 矩阵 V = ［ vij ］ Q × ( P - 1 ) 记录 垂直 表格 线 的 最小 区间 的 有效性 . vji 的 定义 类似 . 
+ 　 　 对 抽取 到 的 每个 矩形 块 , 对 i = LTop , LBottom 和 j ∈ ［ LLeft , LRight ) 设置 hij = 1 , 对 j = LLeft , LRight 和 i ∈ ［ LTop , LBottom ) 设置 vji = 1 , 就 得到 最小 区间 的 有效性 . 
+ 　 　 这样 , hij ( 0 ≤ i ＜ P , 0 ≤ j ＜ Q - 1 ) 和 vij ( 0 ≤ i ＜ Q , 0 ≤ j ＜ P - 1 ) 初始 时 被 设置 为 0 , 在 以后 的 迭代 中 设置 某些 hij 和 某些 vij 为 1 . 运行 迭代 过程 直到 抽取 的 矩形 块 集合 与 上次 相同 . 
+ 　 　 迭代 过程 的 另 一个 重要 作用 是 可以 用来 使 算法 保持 第 1 节中 所述 的 约束 . 
+ 　 　 为了 满足 约束 2 , 我们 在 VEdgeValid ( j , i1 , i2 ) 中 增加 下面 规则 . 
+ 　 　 Rule   0 .   如果 对 i1 ≤ i ＜ i2 , vij = 1 , 即 在 上次 抽取 的 结果 中 垂直 表格 线 j 在 i1 和 i2 之间 有效 , 则 VEdgeValid ( j , i1 , i2 ) = 1 . 
+ 　 　 为了 满足 约束 3 , 在 VEdgeValid ( j , i1 , i2 ) 中 增加 下面 规则 . 
+ 　 　 Rule   1 .   如果 一个 区间 不 满足 其他 规则 的 条件 , 但是  i ∈ ［ i1 , i2 ) 使得 vij = 1 , 则 把 该 区间 中 vij = 1 的 最 小子 区间 去掉 , 然后 将 相邻 的 最 小子 区间 合并 , 得到 一个 子 区间 集合 . 如果 这些 子 区间 全部 有效 , 则 该 区间 有效 . 
+ 　 　 例如 , 在 图 7 ( a ) 中 , 假定 在 上 一轮 中 抽取 了 矩形 块 1 和 2 . 对 区间 AF 得到 子 区间 { AB , DF } . 如果 AB 和 DF 有效 , 则 AF 有效 . 
+ 　 　 如果 在 每 抽取 一个 矩形 块 之后 都 更新 vij , 则 在 校验 边时 应用 Rule   0 和 Rule   1 , 不用 迭代 也 可以 使 结果 在 很多 情况 下 满足 约束 . 但是 , 迭代 仍然 是 必不可少 的 . 在 图 7 ( b ) 中 , 假定 由于 DA 被 设置 为 无效 而 矩形 块 4 无效 , 但是 矩形 块 1 , 2 , 3 有效 ( 由于 DA 的 两侧 都 有 笔画 , 但 DC , CB , BA 的 两侧 均 没有 , 这是 可能 的 ) , 我们 需要 第 2 轮来 按 Rule   0 确认 DA 有效 . 
+ 
+ 图 7 利用 迭代 来 使 算法 满足 约束 
+ 　 　 迭代 过程 的 另 一个 作用 是 可以 处理 一些 关于 表格 结构 的 问题 . 由于 关于 表格 结构 的 知识 通常 是 用 某些 特殊 的 表格 线来 表示 的 , 在 应用 这些 知识 前 需 确定 这些 特殊 的 表格 线 . 迭代 可以 解决 这个 问题 . 首先 在 不 应用 表格 结构 知识 的 情况 下 抽取 矩形 块 集合 , 然后 确定 这些 特殊 的 表格 线 , 再 在 以后 的 矩形 块 抽取 中 应用 这些 知识 . 
+ 5   实验 结果 
+ 　 　 到 目前为止 , 尚 没有 可以 用来 测试 表格 分析方法 有效性 的 有 足够 多种类型 表格 的 图像 数据库 . 美国 国家标准 与 技术 研究院 ( NIST ) 的 Special   Database   6 ( structured   forms   database   2 ) 有 5   595 页 图像 , 但是 它 只 属于 20 种 表格 结构 ( 12 种 表格 , 其中 8 种有 两页 ) . 
+ 　 　 如何 衡量 表格 分析 的 精度 目前 尚 没有 一个 统一 的 度量 标准 . 本文 定义 两种 计算精度 的 标准 : 单元 正确率 和 边 正确率 . 对于 单元 正确率 , 任何 在 抽取 结果 中 被 分裂 、 合并 或者 包含 错误 边界 的 一个 单元 都 算作 一个 错误 . 对于 边 正确率 , 任何 在 单元 抽取 结果 中 被 增加 或者 漏掉 的 一条 边 都 算作 一个 错误 . 单元 正确率 反映 抽取 出 的 单元 结果 的 可用 程度 , 而边 正确率 则 反映 用 人工 来 纠正 抽取 的 错误 需要 付出 多大 的 努力 . 
+ 　 　 我们 已经 在 一个 大 的 表格 图像 集上 对 本文 所 提出 的 方法 进行 了 测试 . 测试 集 包括 属于 120 类 表格 的 260 张 图像 . 大部分 表格 是从 实际 应用 中 收集 的 , 很多 图像 的 质量 较差 . 一些 是 包括 一个 或 多个 表格 的 印刷 文本 , 采集 于 国内 、 国际 的 报纸 和 杂志 , 其中 包括 几期 计算机 学报 和 几期 IEEE   Transactions   on   PAMI 上 的 所有 带 表格 的 页 . 这些 杂志 没有 被 拆开 , 先 复印 后 扫描 . 很多 印刷 文本 是 多栏 的 , 一些 带有 双线 . 尽管 表格 只 占 这些 印刷 文本 的 一部分 , 在 分析 前 我们 没有 人工 框定 表格 的 区域 . 我们 选择 这些 印刷 表格 是 由于 有 研究 表明 “ 大部分 印刷体 OCR 系统对 从多栏 文本 中 分割 表格 有 困难 ［ 14 ］ ” . 除此之外 , 我们 也 自己 设计 了 一些 表格 , 来 测试 算法 对于 各种 结构 和 各种 断线 程度 的 适应性 , 其中 一些 是 用 手 ( 不用 尺 ) 画 出来 的 . 260 张 测试 表格 中 120 张 带有 手写 字符 . 对于 在 实际 表格 中 填入 模拟 数据 的 样张 , 没有 对 书写 者 作出 任何 限制 . 图像 至少 扫描 自 6 种 不同 的 扫描仪 , 扫描 分辨率 从 200dpi 到 600dpi 不 等 . 
+ 　 　 对 260 张 测试 表格 , 在 不 提供 任何 关于 表格 类型 的 知识 ( 包括 不 指示 是否 该 表格 是 “ 规则 表格 ” ) 和 不 改变 系统 中 任何 参数 的 情况 下 , 单元 抽取 正确率 是 98.1% , 边 抽取 正确率 是 98.5% . 对于 一般 的 2000 × 3000 大小 的 图像 , 在 一台 Pentium200M   HZ   PC 上 , 从 表格 线 抽取 到 单元 分析 整个 时间 约 为 2s 左右 . 这个 速度 比 其他 方法 要 快 , 或 至少 是 可 与 文献 ［ 6 , 9 ］ 的 结果 相比 的 . 
+ 6   结   论 
+ 　 　 本文 提出 了 一种 新 的 模型 独立 的 表格 单元 分析方法 . 给出 了 一种 矩形 块 抽取 算法 . 它 以 抽取 的 表格 线为 基础 , 通过 在 扫描 水平 表格 线 和 垂直 表格 线 的 过程 中 校验 矩形 块 的 边 抽取 矩形 块 . 在 清楚 分析 矩形 块 之间 的 约束 关系 之后 , 引入 迭代 来 使 抽取 结果 满足 这些 约束 关系 . 迭代 还 进一步 用来 处理 一些 特殊 情况 和 知识 . 校验 边时 兼顾 表格 线 信息 和 原 图像 信息 . 通过 增加 一些 搜索 , 系统 可以 处理 很多 复杂 的 情况 . 实验 证明 了 我们 的 方法 的 有效性 和 对 噪音 的 高 容忍度 . 
+ 基金项目 ： 本文 研究 得到 国家自然科学基金 、 国家 863 高科技 项目 基金 、 国家教育部 跨世纪 人才 基金 和 中国科学院 “ 百 人 计划 ” 基金 资助 . 
+ 作者简介 ： 李星原 , 1964 年生 , 博士 , 副教授 , 主要 研究 领域 为 文本 分析 与 识别 , 机器 学习 , 神经网络 . 
+ 　 　 　 　 　 高文 , 1956 年生 , 博士 , 教授 ， 博士生 导师 , 主要 研究 领域 为 智能 计算机 接口 , 多媒体技术 . 
+ 作者 单位 ： 李星原 　 哈尔滨工业大学 计算机科学 与 工程系   哈尔滨   1500 
+ 　 　 　 　 　 李星原 　 高文 　 中国科学院计算技术研究所   北京   100080 
+ 本文 通讯联系 人 : 高文 ， 北京   100080 , 中国科学院计算技术研究所 
+ 参考文献 
+ 　 1   Nakano   Y ,   Fujisawa   H ,   Okada   K   et   al .   A   document   understanding   system   incorporating   with   character   recognition .   In :   Proceedings   of   the   8th   International   Conference   on   Pattern   Recognition .   Washington   D . C . :   IEEE   Computer   Press ,   1986 .   801 ～ 803 
+ 　 2   Casey   R   G ,   Ferguson   D   R .   Intelligent   forms   processing .   IBM   Systems   Journal ,   1990 , 29 ( 3 ) : 435 ～ 450 
+ 　 3   Liu   J ,   Ding   X ,   Wu   Y .   Description   and   recognition   of   form   and   automated   form   data   entry .   In :   Proceedings   of   the   3rd   International   Conference   on   Document   Analysis   and   Recognition .   Washington   D . C . :   IEEE   Computer   Press ,   1995 .   579 ～ 582 
+ 　 4   Fan   K   C ,   Lu   J   M ,   Wang   J   Y .   A   feature   point   approach   to   the   segmentation   of   form   documents .   In :   Proceedings   of   the   3rd   International   Conference   on   Document   Analysis   and   Recognition .   Washington   D . C . :   IEEE   Computer   Press ,   1995 .   623 ～ 626 
+ 　 5   Wang   D ,   Srihari   S   N .   Analysis   of   form   images .   In :   Proceedings   of   the   1st   International   Conference   on   Document   Analysis   and   Recognition .   AFCET - IRISA / INRIA ,   Washington   D . C . :   IEEE   Computer   Press ,   1991 .   181 ～ 191 
+ 　 6   Garris   M   D .   Correlated   run   length   algorithm   ( CURL )   for   detecting   form   structure   within   digitized   documents .   In :   Proceedings   of   the   3rd   Annual   Symposium   of   Document   Analysis   and   Information   Retrieval .   Washington   D . C . :   IEEE   Computer   Press ,   1994 .   413 ～ 424 
+ 　 7   Belaid   Y ,   Belaid   A ,   Turolla   E .   Item   searching   in   forms :   application   to   french   tax   form .   In :   Proceedings   of   the   3rd   International   Conference   on   Document   Analysis   and   Recognition .   Washington   D . C . :   IEEE   Computer   Press ,   1995 .   744 ～ 747 
+ 　 8   Yu   B ,   Jain   A   K ,   Generic   A .   System   for   form   dropout .   IEEE   Transactions   on   Pattern   Analysis   and   Machine   Intelligence ,   1996 , 18 ( 11 ) : 1127 ～ 1134 
+ 　 9   Fujisawa   H ,   Nakano   Y ,   Kurino   K .   Segmentation   methods   for   character   recognition :   from   segmentation   to   document   structure   analysis .   Proceedings   of   the   IEEE ,   1992 , 80 ( 7 ) : 1079 ～ 1092 
+ 　 10   Hori   O ,   Doermann   D   S .   Robust   table - form   structure   analysis   based   on   box - driven   reasoning .   In :   Proceedings   of   the   3rd   International   Conference   on   Document   Analysis   and   Recognition .   Washington   D . C . :   IEEE   Computer   Press ,   1995 .   218 ～ 221 
+ 　 11   Shinjo   H   et   al .   A   method   for   connecting   disappeared   junction   patterns   on   frame   lines   in   form   documents .   In :   Proceedings   of   the   4th   International   Conference   on   Document   Analysis   and   Recognition .   Washington   D . C . :   IEEE   Computer   Press ,   1997 .   667 ～ 670 
+ 　 12   Watanabe   T ,   Luo   Q ,   Sugie   N .   Layout   recognition   of   multi - kinds   of   table - form   documents .   IEEE   Transactions   on   Pattern   Analysis   and   Machine   Intelligence ,   1995 , 7 ( 4 ) : 432 ～ 445 
+ 　 13   李星原 . 表格 自动 阅读 研究 ［ 博士学位 论文 ］ . 哈尔滨工业大学 , 1997 
+ ( Li   Xing - yuan .   A   study   of   automatic   form   reading   ［ Ph . D .   Thesis ］ .   Harbin   Institute   of   Technology ,   1997 ) 
+ 　 14   Kanai   J ,   Rice   S   V ,   Nartker   T   A   et   al .   Automated   evaluation   of   OCR   zoning .   IEEE   Transactions   on   Pattern   Analysis   and   Machine   Intelligence ,   1995 , 17 ( 1 ) : 86 ～ 90 
+ 本文 1998 - 05 - 12 收到 原稿 , 1998 - 11 - 23 收到 修改稿 

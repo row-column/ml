@@ -1,0 +1,191 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年 　 第 36 卷 　 第 10 期 　 Vol.36 　 No.10 　 1999 
+ 
+ 
+ 
+ 一种 基于 Web 的 网络管理 模型 及 实现 
+ 李木金 　 王光兴 
+ 　 　 摘 　 要 　 随着 网络 的 复杂 和 异构化 ， 迫切需要 计算机网络 管理工具 的 管理 . 文中 提出 了 一种 基于 Web 的 网络管理 模型 . 该 模型 采用 历史 数据模型 作为 存储 网络管理 信息 的 模型 ， 并 以此 作为 基础 ， 能够 进一步 地 研究 网络 的 高级 管理 （ 如 积极 网络管理 ） 策略 和 高速 网络 的 管理 结构 . 文中 给出 了 该 模型 软件 实现 的 层次结构 . 最后 给出 了 该 模型 的 原型 描述 和 实现 . 
+ 　 　 关键词 　 Web ， 网络管理 模型 ， 积极 网络管理 ， 网络管理 
+ 　 　 中图法 分类号 　 TP393 
+ A   MODEL   AND   IMPLEMENTATION   FOR   WEB - BASED 
+ NETWORK   MANAGEMENT 
+ LI   Mu - Jin   and   WANG   Guang - Xing 
+ ( Center   for   Network   &   Communications ,   Northeastern   University ,   Shenyang   110006 ) 
+ 　 　 Abstract 　 As   today ' s   network   has   become   more   complex   and   heterogeneous   as   well ,   there   is   a   growing   demand   for   network   management   tools .   A   model   for   Web - based   network   management   is   proposed   in   this   paper .   A   temporal   data   model   is   adopted   as   the   underlying   information   model ,   and   more   complex   management   application ( e . g . ,   proactive   network   management )   methods   and   management   architecture   of   high - speed   networks   are   studied .   ATM   switches   are   built   on   the   top   of   the   model .   Moreover ,   the   services   provided   by   this   model ,   as   well   as   the   architecture   of   its   related   software   supporting   them   are   presented .   The   description   of   the   prototype   is   also   given   at   the   end   of   the   paper . 
+ 　 　 Key   words 　 Web ,   network   management   model , proactive   network   management , network   management 
+ 1 　 引言 
+ 　 　 随着 计算机网络 和 通信 规模 的 不断扩大 及其 复杂 和 异构化 ， 迫切需要 按照 网络管理 标准 来 管理网络 . 目前 主要 有 两大 网络管理 标准 ： ISO 的 OSI 系统管理 和 IETF 的 简单 网络管理 协议 （ SNMP ） . 
+ 　 　 现有 的 网络 管理系统 ， 例如 HP 的 Open   View ， IBM 的 System   View   AIX ， SNA 、 Cabletron 的 Spectrum ， DEC 的 Polycenter ， Sunsoft 的 SunNet   Manager 和 Madge 的 True   View 等等 ， 这些 只 提供 了 最 基本 的 网络 监视 和 以 一般 的 图形 用户 接口 （ GUI ） 的 形式 显示 所 要求 的 报警 及 管理 信息 功能 ， 而 没有 存储 历史数据 的 功能 ［ 1 ， 2 ］ . 
+ 　 　 基于 Web 的 网络 管理系统 的 一般 结构 是 基于 浏览器 （ browser ） - 服务器 （ server ） 结构 ( 参见 图 1 ) . 每个 被 管理 的 网络设备 含有 一个 代理 （ agent ） ， 它 维持 着 一个 局部 的 管理 信息库 （ MIB ） ， 并且 和 驻留 在 服务器 的 管理 应用 通过 网络管理 协议 SNMP ［ 3 ］ 或 CMIP ［ 4 ］ 进行 通信 . 管理 应用 和 管理 代理 之间 的 交互 允许 管理 信息库 的 信息检索 和 修改 ， 从而 得以 实现 从 监视 网络 的 状态 到 改变 网络 配置 的 各种 网络管理 功能 . 
+ 
+ 
+ 图 1 　 基于 Web 的 网络管理 的 一般 结构 
+ 　 　 随着 数据库 和 WWW ( world   wide   web ) 技术 的 不断 发展 ， 网络管理 采用 数据库 存储 从 MIB 那里 采集 的 管理 信息 ， 将 网络管理 的 当前 和 过去 （ 甚至 将来 的 ） 信息 保存 在 数据库 里 . 在 此基础 上 ， 利用 数据库 存储 的 网络管理 信息 进行 分析 和 预测 ， 建立 积极 的 网络 控制 和 管理策略 等 高级 网络管理 方法 ， 以及 研究 高速 网络 的 管理 体系结构 （ 如 ATM 交换机 ） . 基于 Web 的 网络管理 可以 不 受 操作 平台 的 限制 ， 在 任何 一台 与 之 相连 的 Web 浏览器 上 就 能 浏览 到 网络管理 软件 . 当 网络 节点 或 链路 发生 故障 时 ， 网络 管理系统 能够 自动 地向 网络管理员 发 E - mail 或 打电话 等 . 网络管理 人员 可以 不 在 现场 ， 在 任何 地点 的 任何 一台 与 之 相连 的 Web 浏览器 上 就 能 对 它 所 管理 的 网络 进行 管理 . 
+ 　 　 本文 中 ， 我们 首先 对 OSI 定义 的 网络管理 功能 作 了 分析 ， 并且 详细 地 给出 网络管理 模型 和 它 的 设计 . 然后 描述 了 实现 该 网络管理 模型 的 软件结构 和 网络管理 的 功能 . 最后 给出 了 该 模型 的 描述 和 实现 . 
+ 2 　 网络管理 模型 
+ 2.1 　 概念 
+ 　 　 目前 有 两种 不同 的 网络管理 信息 模型 ， 一种 是 ISO ［ 4 ］ 的 ， 另 一种 是 IETF ［ 3 ， 5 ］ 的 . 两种 模型 均 以 所谓 的 被 管理 的 对象 为 中心 ， 构成 管理 信息库 （ MIB ） . ISO 的 信息 模型 是 充分 面向对象 的 ， 被 管理 的 对象 是 被 管理 的 对象 类 的 例程 . 而 IETF 模型 较 简单 ， 其中 被 管理 的 对象 能够 分成 两类 ： 标量 ( scalar ) 对象 和 表格 （ table ） 对象 . 表格 对象 是 标量 对象 的 二维 数组 ， 该 标量 对象 就是 管理 信息库 的 简单 变量 . 
+ 　 　 被 管理 的 网络 节点 设备 不论 采用 哪 一种 模型 ， 但 它 必须 为 所有 的 网络管理 功能 提供 管理 信息 ， 而且 每个 管理 功能 所 需求 的 管理 信息 在 很大 程度 上 是 不同 的 （ 参见 图 2 ） . 为此 ， 我们 将 管理 信息库 （ MIB ） 信息 进行 了 详细 分类 . 
+ 
+ 
+ 图 2 　 网络管理 功能 与 管理 信息 之间 的 关系 图 
+ 　 　 第 1 ， 根据 网络管理 信息 的 作用 ， 管理 信息 可以 分成 测量 数据 、 结构 数据 和 控制数据 3 种 类型 ［ 1 ］ ， 测量 数据表示 网络 可 观测 的 状态 ， 它 是 一种 原始 的 数据 . 结构 数据 描述 网络 物理 和 逻辑 的 结构 ， 控制数据 捕获 网络 的 操作 设置 . 第 2 ， 按照 管理 信息 变化 频率 来分 ， 管理 信息 可以 分成 准 静态 对象 和 动态 对象 两类 . 准 静态 对象 描述 了 当前 的 网络 配置 （ 例如 主机 的 接口 数目 、 路由表 等 ） ， 它们 的 值 几乎 不变 . 而 动态 对象 与 网络 事件 有关 （ 例如 包 发送 数目 等 ） ， 它们 的 值 变化 频率 高 . 第 3 ， 根据 网络管理 对 时间 的 要求 ， 例如 一个 实时 性能 监视 的 管理 应用 和 一个 离线 性能 数据分析 的 管理 应用 ， 对 时间 要求 有着 根本 的 不同 . 这种 差别 要求 我们 在 设计 网络 管理系统 时 ， 要 建立 具有 共享 功能 的 历史 管理 信息库 . 另外 我们 将 时间 分成 3 个 区域 ： 实时 时间 区域 、 时间 非 临界 区域 和 全程 时间 区域 . 实时 时间 区域 与 实时 操作 有关 ， 时间 非 临界 区域 与 某 段时间 有关 的 操作 有关 ， 而 全程 时间 区域 是 基于 长期 的 信息 基础 上 的 有关 操作 . 
+ 　 　 按照 上述 观点 ， 一个 基于 OSI 的 管理 功能 能够 定义 在 用 上述 3 个 参数 描述 的 区域 内 ： 
+ 　 　 ( 1 )   配置管理 . 例如 仅 提供 一般 网络 信息 的 集中 存取 的 一个 简单 配置管理 ， 诸如 设备 名称 、 系统 的 物理 位置 和 系统管理 等 与 网络管理 有关 的 数据 . 利用 子 空间 定义 为 ： 全程 时间 × 准 静态 信息 × 结构 数据 ； 一个 较为 复杂 的 配置管理 工具 能够 自动 地 收集 和 存储 各个 被 管理 的 装置 的 信息 ， 将 存储 在 该 工具 内 的 控制数据 与 系统 当前 的 运行 配置 进行 比较 ， 并且 使得 用户 能够 修改 设备 的 运行 配置 ， 用子 空间 定义 为 ： 时间 非 临界 × 准 静态 信息 × 控制数据 . 
+ 　 　 ( 2 )   性能 管理 . 例如 将 当前 网络 利用率 与 用户 定义 的 门限 进行 比较 来 判断 是否 超限 报警 的 性能 管理 ， 利用 子 空间 定义 为 ： 实时 × 动态 信息 × 测量 数据 . 
+ 　 　 ( 3 )   故障 管理 . 一个 检测 被 管理 的 路由器 的 每个 接口 接收 到 的 错误 包数 并 当 其 超出 预先 定义 的 值 则 报警 的 故障 管理 ， 利用 子 空间 定义 为 ： 实时 × 动态 信息 × 测量 数据 . 一个 检测 企业 网络 所有 被 管理 对象 各个 接口 的 ifAdminStatus 和 ifOperStatus 的 值来 判断 该 接口 状态 的 故障 管理 ， 利用 子 空间 定义 为 ： 实时 × 准 静态 信息 × 测量 数据 . 
+ 2.2 　 模型 
+ 　 　 网络管理 的 第一步 就 是从 所有 被 管理 对象 的 管理 信息库 采集 管理 信息 并 存储 在 数据库 里 . 由 前面 分析 所知 ， 存储 在 数据库 里 的 管理 信息 不仅 包含 当前 的 信息 ， 而且 包含 历史 的 、 甚至 将来 的 信息 . 该 历史 数据库 是 网络管理 的 核心 . 网络管理 人员 只须 与 数据库 打交道 来 达到 管理网络 的 目的 . 
+ 　 　 我们 利用 TRDM 历史 数据模型 来 存储 历史数据 ， 该 模型 或者 通过 在 标准 关系 里 添加 两个 时间 属性 validFrom ,   validTo 而 得到 ， 在 这种 关系 里 的 ［ validFrom , validTo ］ 表示 除 它们 俩 之外 的 所有 列 在 此 时间段 内 的 值 有效 ； 或者 由 嵌入 单个 的 时间 属性 validAt 来 扩展 标准 关系 来 定义 . 该 validAt 表示 一个 事件 发生 的 时刻 . 
+ 　 　 按照 这种 新 的 历史 数据模型 的 观点 ， 管理 信息库 （ MIB ） 里 的 每 一组 标量 对象 和 表格 对象 都 能 映射 成 这种 表格 形式 . validFrom ,   validTo 和 validAt 的 时间 值 表示 在 管理者 （ manager ） 处 的 时间 ， 而 管理 信息库 （ MIB ） 对象 与 时间 有关 的 值 ， 例如 在 MIB - II 里 sysUpTime ,   ifLastChange 等 以及 在 SNMPv2 的 M2M 的 MIB 的 snmpEventLastTimeSent 等 表示 在 集中式 网络管理 结构 里 ， 在 代理处 的 时间 或者 在 分布式 网络管理 结构 里 ， 在 中间 节点 处 的 时间 . 这种 映射 的 设计 允许 SNMPv2MIBs 等 与 时间 有关 的 对象 的 值 能够 以 这种 方式 表示 并且 它 具有 开放 的 特征 . 
+ 　 　 我们 将 历史 数据库 分成 准 静态 历史 数据库 和 动态 历史 数据库 两种 类型 . 准 静态 历史 数据库 的 列 由 管理 信息库 （ MIB ） 的 准 静态 对象 所 组成 ， 而 动态 历史 数据库 的 列 由 管理 信息库 （ MIB ） 的 动态 对象 所 组成 . 一个 ipRouteTable 的 准 静态 对象 历史数据 的 例子 如图 3 所示 ， 其中 validTo 的 值 ∝ 表示 一直 有效 . 一个 ip 组 的 动态 对象 历史数据 的 例子 如图 4 所示 ， 其中 列值 表示 在 时间 间隔 ［ validFrom ,   validTo ］ 内 的 差值 . 此外 在 这 两个 历史 数据库 里 能够 执行 的 动作 是 大不相同 的 . 在 准 静态 历史 数据库 里 能够 执行 检索 、 添加 、 删除 或 替换 操作 ， 而 动态 历史 数据库 仅 能够 执行 检索 . 
+ 
+ 　 　 　 　 　 Valid   time 
+ nodeIDipRouteDest … IpRouteNextHop … ( from ) ( to ) 
+ NEU202.18 . 10.8 　 202.118 . 10.211 　 5070 
+ center202.18 . 10.7 　 202.118 . 10.212 　 70 ∞ 
+ 　 　 　 　 　 　 
+ 
+ 图 3 　 ipRouteTable 的 准 静态 对象 部分 历史数据 
+ 
+ 　 　 　 　 Valid   time 
+ NodeIDIpInReceivesipForwDatagramsIpOutRequests ( from ) ( to ) 
+ Center495884466 
+ 　 　 　 　 　 　 
+ 
+ 图 4 　 Ip 组 的 动态 对象 的 部分 历史 值 
+ 　 　 该 网络管理 模型 的 层次结构 图如图 5 所示 . 在 低层 ， Network   Monitors 是 一个 轮询 程序 ， 其 被 用作 采集 和 存储 准 静态 和 动态 对象 信息 ； 而 Network   Executors 被 用作 实现 在 准 静态 对象 的 添加 、 删除 和 替换 操作 . 在 中间 ， 有 提供 历史 管理 信息 的 动态 和准 静态 对象 信息 . 在 上层 ， 有 网络 积极 管理策略 . 
+ 
+ 
+ 图 5 　 网络管理 模型 的 层次结构 图 
+ 3 　 结构 和 功能 
+ 　 　 随着 计算机网络 和 通信 规模 的 不断扩大 ， 这些 网络 或者 是 局域网 （ LAN ' s ） 、 或者 是 城域网 （ MAN ' s ） 、 或者 是 广域网 （ WAN ' s ） ［ 1 ］ 的 网络 所 组成 ， 而且 这些 网络 将 是 复杂 和 异构 的 . 要 对 这样 的 网络 进行 管理 ， 我们 按照 某种 方式 定义 不同 的 域 ， 在 每个 域 上 使用 一个 管理者 . 每个 管理者 含有 轮询 装置 和 在 上 一节 所 建议 的 管理 信息 模型 ， 并 将 所 采集 的 管理 信息 按照 所 建议 的 网络管理 模型 存入 历史 数据库 . 
+ 　 　 网络管理 模型 的 结构 是 管理 信息库 （ MIB ） 结构 的 扩展 ， 它 是 通过 将 MIB 所 定义 的 对象 添加 时间 属性 来 实现 的 ， 但是 仍 保持 着 管理 信息库 （ MIB ） 的 语义 . 基于 Web 的 网络 管理系统 ， 以 这种 方式 ， 每个 域 的 管理者 的 历史 数据库 能够 与 任何 其他 域 的 管理者 的 历史 数据库 进行 通信 ， 并且 通过 这种 方式 能够 进行 一般 的 互联网 之间 的 网络管理 ， 其 网络管理 结构 一般 采用 分层 式 （ hierarchical ） ［ 6 ， 7 ］ 的 或 平台 （ 基于 TINA ） 结构 ［ 8 ］ ， 这样 可以 节省 采集 网络 数据 所 利用 的 通信 带宽 和 提高 网络管理 的 水平 及 可靠性 等 . 
+ 　 　 这种 方法 实现 的 软件 层次结构 ［ 9 ］ 如图 6 所示 ， 每个 域 含有 下列 层次 和 元素 ： 
+ 
+ 
+ 图 6 　 实现 的 软件 层次结构 
+ 　 　 ( 1 )   第 1 层 
+ 　 　 这 一层 包含 SNMP 协议 . 它 提供 基于 SNMPv1   get - request ,   getnext - request ,   set - request ,   get - response   和 trap 原子 操作 而 发送 网络管理 信息 的 原始 服务 . 网络管理 协议 不 局限于 SNMPv1 协议 . SNMPv2 ， CMIP 以及 其他 任何 网络管理 协议 也 能 被 用 在 这 一层 . 
+ 　 　 ( 2 )   第 2 层 
+ 　 　 这 一层 提供 3 种 服务 . 
+ 　 　 第 1 种 提供 修改 网络管理 信息 （ MIB ） 的 服务 ， 并且 基于 SNMP 原子 服务 set - request 之上 . 这类 服务 被 用作 修改 网络 的 配置 ， 其 目的 是 为了 保持 事先 规定 的 网络 性能 级 和 当 网络 元素 发生 故障 时 激活 故障 恢复 装置 . 　 　 
+ 　 　 第 2 种 提供 监视 服务 . 这类 服务 进一步 能 分成 实时 性能 监视 服务 和 实时 网络 状态 监视 服务 . 
+ 　 　 第 3 种 提供 采集 和 储存 MIB 信息 的 服务 . 
+ 　 　 ( 3 )   第 3 层 
+ 　 　 这 一层 由 高级 网络管理 策略 （ 例如 网络 积极 管理策略 ） 所 组成 . 实现 对 网络 自动 和 自 适应 的 管理 . 该层 是 基于 第 2 层 的 基础 上 实现 的 . 
+ 4 　 实现 
+ 4.1 　 原型 的 描述 
+ 　 　 为了 实现 上面 所 描述 的 网络管理 模型 ， 我们 开发 了 包含 上面 所 描述 的 某些 特征 的 原型 . 下面 我们 将 描述 原型 的 主要 特征 以及 我们 的 经验 . 
+ 　 　 原型 在 服务器端 软件 为 Windows   NT4.0   server ,   SQL   server   6.5 的 环境 下 实现 的 . 采用 的 网络管理 协议 是 SNMPv1 和 管理 信息库 是 MIB   II （ 其它 MIB ， 例如 AToMMIB 可以 容易 地 得到 ） . 为了 获得 被 管理 的 网络 信息 ， 我们 采用 轮询 的 方法 ， 其 轮询 周期 与 需要 采集 的 数据类型 以及 被 管理 的 节点 数 有关 . 此外 ， 我们 还 增加 了 一个 Status   MIB ， 该 MIB 的 变量 用来 存储 被 管理网络 节点 的 状态 信息 . 它 的 ASN.1 代码 见 附录 . 
+ 　 　 原型 实现 的 结构 示意图 如图 7 所示 . 每个 域 由 两个 主要 进程 组成 ： 轮询 过程 和 实现 WWW 浏览 页面 的 进程 . 
+ 
+ 
+ 图 7 　 原型 实现 的 结构 
+ 　 　 在 我们 的 项目 中 ， 轮询 进程 是 由 Visual   C++   5.0 语言 编写 的 程序 来 实现 的 . 该 程序 在 后台 执行 ， 并 按 一定 的 轮询 周期 来 采集 和 修改 被 管理 的 网络设备 的 管理 信息 . 采样 周期 选择 的 优劣 既 影响 到 被 用作 网络管理 的 带宽 多少 ， 也 影响 到 存储 这些 历史数据 的 磁盘空间 的 大小 . 对于 准 静态 对象 来说 ， 采样 周期 选择 在 ［ 30 秒 , 3 分 ］ 之间 ， 而 对于 动态 对象 来说 ， 采样 周期 选择 在 ［ 30 秒 ， 90 秒 ］ 之间 足够 了 . 
+ 　 　 WWW 进程 由 性能 管理 模块 、 配置管理 模块 和 故障 管理 模块 . ActiveX 控件 被 用作 与 WWW 页面 实时 地 和 动态 地 进行 交互 . WWW 页面 具有 以下 功能 ： 
+ 　 　 ( 1 )   实时 监视 下列 参数 ： 网络资源 的 操作 状态 、 MIB 控制 和 配置 变量 ； 
+ 　 　 ( 2 )   实时 显示 网络 性能 曲线 和 历史 曲线 ； 
+ 　 　 ( 3 )   实时 显示 网络拓扑 图 ； 
+ 　 　 ( 4 )   实时 显示 网络故障 状态 ， 当 网络 发生 故障 时 ， 系统 自动 报警 ， 故障 恢复 和 发 E - mail ； 
+ 　 　 ( 5 )   原始 的 网络管理 信息 的 维护 . 
+ 　 　 我们 的 系统 能够 实现 性能 管理 、 故障 管理 和 配置管理 . 限于 篇幅 的 限制 ， 我们 下面 重点 介绍 性能 管理 . 
+ 4.2 　 性能 管理 
+ 　 　 下面 我们 给出 与 显示 网络 性能 管理 有关 的 部分 性能参数 （ 如 吞吐量 、 链路 的 利用率 、 出错率 ） 的 公式 . 这些 公式 由 网络管理 模型 提供 当前 和 历史数据 ， 通过 计算 网络 的 性能 参数值 ， 我们 能够 检测 到 网络设备 的 性能 状态 ， 这些 性能参数 以 数据 、 曲线 形式 和 图形 显示 在 Web 页面 上 ( 其中 ‘ Δ ’ 表示 某 一段时间 内 的 差值 ) ： 
+ 
+ 　 　 * 网 关节点 ( for   nodes   acting   as   gateway ) ; 
+ 
+ 　 　 上述 参数 可以 用 随 时间 变化 的 曲线 趋势 图形 来 显示 ， 通过 它们 网络管理员 可以 知道 这些 参数 的 变化趋势 . 　 　 
+ 　 　 输入 错误率 可以 用来 检测 传输 媒介 的 故障 ， 而 输出 错误率 能够 被 用来 监视 该 接口 的 性能 . 例如 在 以太网 （ Ethernet ） 里 终结 器 的 断 连 ， 就 导致 接收 到 许多 错误 的 包 . 输出 错误率 大于 一定 的 值 可能 表示 某 端口 发生 故障 . 此外 ， 也 为 该 端口 定义 了 吞吐量 和 利用率 . 
+ 　 　 剩余 的 参数 与 TCP / IP 的 性能 有关 . 例如 ， 重组 故障 概率 和 TCP 重复 发送 概率 可以 检测 出 TCP / IP 参数值 的 故障 和 网络故障 . 
+ 　 　 当 这些 参数值 超出 预先 定义 的 值时 ， 则 报警 并 显示 报警 的 时间 、 地点 等 和 发 E - mail . 这里 仅 介绍 一些 基本 的 性能 管理 方法 ， 更 高级 的 性能 管理策略 （ 例如 对 MIB 信息 进一步 分析 和 预测 ） 可以 建立 在 它们 上面 . 
+ 5 　 结论 
+ 　 　 本文 讨论 的 方法 已经 运用 到 由 国家 “ 八 六三 ” 高技术 计划 资助 的 课题 “ 企业 Intranet 网络管理 软件 的 研究 及 开发 ” 上 . 经 调试 表明 ， 该 方法 除 第 1 节 引言 所说 的 优点 之外 ， 还 具有 以下 特点 ： 
+ 　 　 ( 1 )   查询 历史 信息 方便 ， 并且 具有 实时性 ； 
+ 　 　 ( 2 )   节省 网络管理 信息 所 占用 的 带宽 ； 
+ 　 　 ( 3 )   节省 被 用作 存储 信息 的 硬盘空间 ； 
+ 　 　 ( 4 )   具有 开放 的 特征 . 
+ 本 课题 得到 国家 “ 八 六三 ” 计划 （ 项目编号 863 － 511 － 711 － 003 ） 、 国家 自然科学 资金 （ 项目编号 69583001 ） 和 国家教委 博士点 基金 （ 项目编号 9514514 ） 资助 . 
+ 作者简介 : 李木金 ， 男 ， 1963 年 10 月生 ， 博士 研究生 ， 主要 研究 领域 为 计算机网络 和 多媒体通信 研究 . 
+ 　 　 　 　 　 王光兴 ， 男 ， 1937 年 9 月生 ， 博士生 导师 ， 教授 ， 主要 研究 领域 为 计算机网络 和 多媒体通信 研究 . 
+ 作者 单位 : 东北大学 网络通信 中心 　 沈阳 　 110006 
+ 参考文献 
+ 　 1 　 　 Jayant   R ,   Haritsa ,   Michael   O   Ball ,   Nicholas   Roussopoulos   et   al .   MANDATE :   Managing   networks   using   database   technology .   IEEE   Journal   on   Selected   Areas   in   Communications ,   1993 ,   11 ( 9 ) :   1361 ～ 1372 
+ 　 2 　 　 Kyu - Young   Whang ,   Stephen   Brady .   High - performance   expert   system — — DBMS   interface   for   network   management   and   control .   IEEE   Journal   on   Selected   Areas   in   Communications ,   1989 ,   7 ( 3 ) :   408 ～ 417 
+ 　 3 　 　 Case   J ,   Fedor   M ,   Schoffstall   M   et   al .   A   simple   network   management   protocol .   DDN   Network   Information   Center ,   SRI   International ,   1990 
+ 　 4 　 　 Information   processing ,   open   system   interconnection ,   common   management   information   protocol   ( CMIP ) .   International   Organization   for   Standardization   and   International   Electrotechnical   Committee ,   International   Standard   9596 
+ 　 5 　 　 Rose   M ,   McCloghrie   K .   Structure   of   management   information   for   TCP / IP   based   Internets .   DDN   Network   Information   Center ,   SRI   International , 1990 
+ 　 6 　 　 Ying - Dar   Lin ,   Mario   Gerla .   Induction   and   deduction   for   autonomous   networks .   IEEE   Journal   on   Selected   Areas   in   Communications ,   1993 ,   11 ( 9 ) :   1415 ～ 1425 
+ 　 7 　 　 Manfred   R   Siegl ,   George   Trausmuth .   Hierarchical   network   management :   A   concept   and   its   prototype   in   SNMPv2 .   Computer   Networks   and   ISDN   Systems ,   1996 ,   28 :   441 ～ 452 
+ 　 8 　 　 Raouf   Boutaba ,   Simon   Znaty .   An   architectural   approach   for   integrated   network   and   systems   management .   Computer   Communication   Review ,   1995 ,   20 :   13 ～ 78 
+ 　 9 　 　 Jonathan   Weinstock ,   Rajiv   Tewari .   An   object - oriented   approach   to   the   management   of   distributed   application   systems .   Computer   Networks   and   ISDN   Systems ,   1997 ,   29 :   1869 ～ 1879 
+ 附 　 录 
+ 　 　 Status   MIB 的 ASN.1 编码 如下 ： 
+ 　 　 DIAGNOSIS - MIB   DEFINITIONS   ∷ = BEGIN 
+ 　 　 EXPORTS — — everything - ; 
+ 　 　 IMPORTS 
+ 　 　 　 OBJECT - TYPE ,   OBJECT - GROUP 
+ 　 　 　 　 FROM   SMI - SMI 
+ 　 　 　 Enterprise ,   IPAddress 
+ 　 　 　 　 FROM   RFC1155 - SMI 
+ 　 　 　 DisplayString 
+ 　 　 　 　 FROM   RFC1213 - MIB ; 
+ 　 　 DiagnosisMIB   OBJECT   IDENTIFIER   ∷ =   { enterprise   627 } — — this   number   is   NOT   official 
+ 　 　 DIAGGroup   OBJECT - GROUP 
+ 　 　 　 OBJECTS   {   DiagTree ， NMSid } 
+ 　 　 　 DESCRIPTION 
+ 　 　 　 　 “ The   diagnosis   group ” . 
+ 　 　 ∷ = { DiagnosisMIB   1 } 
+ 　 　 DiagTree   OBJECT - TYPE 
+ 　 　 SYNTAX   SEQUENCE   OF   DiagTreeEntry 
+ 　 　 　 　 ACCESS 　 　 　 not - accessible 
+ 　 　 　 　 STATUS 　 　 　 mandatory 
+ 　 　 　 　 DESCRIPTION 
+ 　 　 　 　 　 “ Table   in   which   each   testing   node   keeps   network   diagnosis   info ” . 
+ 　 　 ∷ =   {   DIAGGroup   1   } 
+ 　 　 DiagTreeEntry   :   OBJECT - TYPE 
+ 　 　 　 　 SYNTAX 　 　 　 DiagTreeEntry 
+ 　 　 　 　 ACCESS 　 　 　 not - accessible 
+ 　 　 　 　 STATUS 　 　 　 mandatory 
+ 　 　 　 　 DESCRIPTION 
+ 　 　 　 “ Each   entry   of   DiagTree   identifiers   which   node   the   testing   node   recognized   as   up   in   the   last   testing   round ” . 
+ 　 　 　 INDEX   { testingID } 
+ 　 　 ∷ =   {   DiagTree   1 } 
+ 　 　 DiagTreeEntry   ∷ = SEQUENCE   {   NodeID 　 　 　 　 INTEGER , 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 NodeAD 　 　 　 　 IpAddress , 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 NodeStatus 　 　 　 INTEGER ,   } 
+ 　 　 NodeID   OBJECT - TYPE 
+ 　 　 　 　 SYNTAX 　 INTEGER 
+ 　 　 　 　 ACCESS 　 read - only 
+ 　 　 　 　 STATUS 　 mandatory 
+ 　 　 　 　 DESCRIPTION 
+ 　 　 　 　 　 “ The   integer   unique   identifer   of   all   the   nodes   participating ” 
+ 　 　 ∷ =   {   DiagTreeEntry   1   } 
+ 　 　 NodeAD   OBJECT - TYPE 
+ 　 　 　 　 SYNTAX 　 IPAddress 
+ 　 　 　 　 ACCESS 　 read - write 
+ 　 　 　 　 STATUS 　 mandatory 
+ 　 　 　 　 DESCRIPTION 
+ 　 　 　 　 　 “ IP - address   of   all   the   nodes   participating ” 
+ 　 　 ∷ =   {   DiagTreeEntry   2   } 
+ 　 　 NodeStatus   OBJECT - TYPE 
+ 　 　 　 　 SYNTAX 　 INTEGER 
+ 　 　 　 　 ACCESS 　 read - write 
+ 　 　 　 　 STATUS 　 mandatory 
+ 　 　 　 　 DESCRIPTION 
+ 　 　 　 　 　 “ 0 - node   is   fault - free ;   1 - node   is   faulty ;   2 - node   replies   to   ping   but   not   to   SNMP ” . 
+ 　 　 ∷ =   {   DiagTreeEntry   3   } 
+ 　 　 NMSid   OBJECT - TYPE 
+ 　 　 　 　 SYNTAX 　 IPAddress 
+ 　 　 　 　 ACCESS 　 read - write 
+ 　 　 　 　 STATUS 　 mandatory 
+ 　 　 　 　 DESCRIPTION 
+ 　 　 　 　 　 “ Used   by   the   human   manager   to   set   the   id   of   the   machine   from   which   someone   is   monitoring   the   network ” 
+ 　 　 ∷ =   {   DIAGGroup   2 } 
+ 　 　 END 
+ 　 　 该 Diagnosis   MIB 的 主体 是 DiagTree ， 并且 以 简单 网络管理 （ SNMP ） 表格 形式 实现 . NodeID 是 每个 节点 的 编号 （ 1 - N ） ； NodeAD 是 该 节点 的 IP地址 ； NodeStatus 表示 网络 节点 设备 的 状态值 （ 0 - 正常 ； 1 - 故障 ； 2 - 对 Ping 有 响应 但是 对 SNMP 没有响应 ） ； 
+ 　 　 NMSid 是 服务器 或 网络管理 站 的 IP地址 ， 其 信息 被 存储 在 该 服务器 或 网络管理 站上 . 
+ 原稿 收到 日期 ： 1998 - 12 - 02 ； 
+ 修改稿 收到 日期 ： 1999 - 03 - 22 . 

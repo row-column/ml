@@ -1,0 +1,90 @@
+自动化 学报 
+ ACTA   AUTOMATICA   SINICA 
+ 1999 年 　 第 25 卷 　 第 5 期 　 Vol.25   No.5   1999 
+ 
+ 
+ 
+ 非 完整 链式 系统 的 路径 规划 
+ — — 多项式 拟 合法 
+ 马保离 　 宗 光华 　 霍 　 伟 
+ 摘 　 要 　 针对 非 完整 链式 系统 ， 给出 了 一种 路径 规划 新 算法 . 该 算法 将 较为 困难 的 非 完整 系统 路径 规划 问题 转化 为 满足 给定 端点 条件 的 多项式 拟合 问题 ， 不仅 使 路径 规划 问题 得到 简化 ， 而且 可以 很 容易 地 应用 于 复杂 环境 下 的 路径 规划 问题 . 仿真 结果 证实 了 该 方法 的 有效性 . 
+ 关键词 　 非 完整 系统 ， 链式 系统 ， 路径 规划 ， 多项式 拟合 
+ PATH   PLANNING   OF   NOHOLONOMIC   CHAINED   SYSTEMS ： A   POLYNOMIAL   FITTING   APPROACH 
+ MA   Baoli 　 ZONG   Guanghua 　 HUO   Wei 
+ ( The   Seventh   Research   Division ,   Beijing   Univ .   of   Aero .   and   Astro . , Beijing 　 100083 ) 
+ Abstract 　 A   new   algorithm   is   presented   to   solve   the   path   planning   problem   of   nonholonomic   chained   systems .   By   the   algorithm ,   the   intricated   nonholonomic   path   planning   problem   can   be   transformed   into   a   polynomial   fitting   problem   satisfying   some   given   boundary   conditions .   The   algorithm   simplifies   the   path   planning   problem   and   can   easily   handle   other   complex   geometric   constraints .   Simulation   of   a   four   wheel   mobile   cart   is   implemented   to   verify   effectiveness   of   the   proposed   algorithm . 
+ Key   words 　 Nonholonomic   system ,   path   planning ,   chained   system ,   polynomial   fitting . 
+ 1 　 引 　 言 
+ 　 　 近年来 ， 非 完整 系统 的 路径 规划 和 控制 问题 已 成为 控制 理论界 的 一个 研究 热点 . 和 完整 系统 相比 ， 非 完整 系统 的 路径 规划 有 其 特殊 的 困难 . 除了 要 考虑 状态 约束 外 ， 还 必须 使得 所 规划 的 路径 在 每 一点 处 都 满足 非 完整 约束 . 在 非 完整 系统 的 研究 中 ， 链式 系统 具有 重要 的 意义 . 这 是因为 一般 的 非 完整 系统 在 一定 条件 下 可 通过 状态 坐标 和 输入 变换 化为 链式 系统 ， 特别 是 大多数 实际 的 非 完整 机械系统 一般 都 可 化为 链式 系统 ［ 1 ］ . 文献 ［ 1 ］ 利用 链式 系统结构 简单 、 容易 积分 的 特点 ， 分别 取 控制 为 含有 未知 系数 的 三角函数 、 分段 常值 和 多项式 函数 ， 并 通过 积分 分别 得到 状态 的 终态 表达式 ， 然后 由此 表达式 和 期望 的 终态 来 确定 控制 量 中 的 未知 系数 . 此 方法 的 主要 缺点 是 不 容易 应用 于 复杂 环境 下 的 路径 规划 问题 ( 如避 碰 ， 穿过 狭窄 通道 等 ) . 
+ 　 　 本文 针对 链式 系统 提出 了 一种 新 的 路径 规划 方法 ， 该 方法 将 路径 规划 问题 转化 为 已知 端点 条件 的 多项式 拟合 问题 . 和 文献 ［ 1 ］ 的 方法 相比 ， 该 方法 更为 简单 灵活 ， 并 可 很 容易 用于 复杂 环境 下 的 路径 规划 问题 . 仿真 结果 证实 了 本文 方法 的 有效性 . 
+ 2 　 链式 系统 的 路径 规划 
+ 　 　 考虑 如下 的 非 完整 单链 系统 
+ 　 ( 1 ) 
+ 显然 系统 ( 1 ) 受到 如下 ( n - 2 ) 个 非 完整 约束 
+ 　 ( 2 ) 
+ 此 系统 的 路径 规划 问题 为 ； 在 状态 空间 Rn = ｛ x ｜ x = ［ x1 , … ， xn ］ T ｝ 中 设计 连接 初态 x ( t0 ) 和 终态 x ( tf ) 且 满足 约束条件 ( 2 ) 的 路径 . 
+ 　 　 由式 ( 1 ) ， ( 2 ) 可 得到 
+ 　 ( 3 ) 
+ 由式 ( 3 ) 可知 ， 链式 系统 的 路径 规划 问题 可 转化 为 满足 如下 端点 条件 的 函数 xn ( x1 ) = f ( x1 ) 的 拟合 问题 ： 
+ 
+ 　 ( 4 ) 
+ 式 中 x10 = x1 ( t0 ) ， x1f = x1 ( tf ) . 
+ 　 　 为 满足 ( 4 ) 式 中 2 ( n - 1 ) 个 端点 条件 ， 可 选用 2n - 3 阶 多项式 函数 ［ 2 ］ 
+ 　 ( 5 ) 
+ 作为 所 规划 的 路径 . 式 中 待定 的 常 系数 ck ( k = 0 , 1 , … , 2n - 3 ) 可 由 端点 条件 式 ( 4 ) 确定 . 
+ 　 　 注 1 . 原则上 也 可 选取 其它 的 函数 ( 如 正交 三角函数 等 ) 来 拟合 ， 而且 可能 效果 更好 ， 此处 为 简单 计而 选用 了 多项式 函数 . 
+ 　 　 对式 ( 5 ) 逐阶 求导 有 
+ 　 ( 6 ) 
+ 将式 ( 5 ) ， ( 6 ) 代入 端点 条件 ( 4 ) ， 可 得到 如下 线性方程 
+ Mc = a ， 　 ( 7 ) 
+ 其中 
+ a = ［ xn ( t0 ) , xn - 1 ( t0 ) ， … ， x2 ( t0 ) ； xn ( tf ) , xn - 1 ( tf ) , … ， x2 ( tf ) ］ T ； 
+ 
+ 
+ 
+ i = 1 , … ， n - 1 ； j = 1 , … ， 2 ( n - 1 ) . 
+ 当 T 阵非 奇异 时 ， 由式 ( 7 ) 可解出 系数 阵 
+ c = M - 1a . 
+ 　 　 注 2 . 　 1 ) 当 x10 = x1f 时 ， T 阵 奇异 ， 这时 若 xn0 ≠ xnf ， 则 可用 旋转 坐标 变换 将 x10 ， x1f 分别 变换 为 xnew10 ， xnew1f 并 使得 xnew10 ≠ xnew1f . 
+ 　 　 2 ) 如果 x10 = x1f 且 xn0 = xnf ， 则 应 选择 一个 不同于 起点 和 终点 的 第三点 作为 所 规划 路径 上 的 一点 ， 然后 再 分别 规划 从 起点 到 该点 以及 从 该 点 到 终点 的 路径 . 
+ 　 　 以上 仅 给出 了 满足 非 完整 约束 的 状态 的 几何 轨线 ， 为 得到 状态 和 控制 的 时间 轨线 ， 必须 给定 x1 的 时间 轨迹 . 原则上 ， x1 ( t ) 可以 取为 任一 满足 端点 条件 x1 ( t0 ) = x10 ， x1 ( tf ) = x1f 的 连续函数 . 例如 ， 可 简单 地取 为 x1 ( t ) = x10 + ( x1f - x10 ) t . x1 ( t ) 确定 后 ， 可 得到 控制 u1 , u2 为 
+ 
+ 3 　 复杂 环境 下 的 路径 规划 问题 
+ 　 　 在 实际 应用 中 ， 常要 遇到 复杂 的 环境 约束 . 为 使 所 规划 的 路径 满足 这些 约束 ， 可 根据 环境 情况 再 适当 选取 更 多 的 期望 点 ， 并 使 所 规划 的 路径 通过 这些 点 ， 从而 规划 出 满足 复杂 环境 约束 的 路径 . 假定 为 满足 复杂 环境 约束 再 选取 m 个 期望 点为 ( x11 , xn1 ) ， ( x12 , xn2 ) ， … ， ( x1m , xnm ) ， 则 路径 规划 问题 可 化为 满足 端点 约束 ( 4 ) 和 环境 约束 
+ xn1 = f ( x11 ) , xn2 = f ( x12 ) , … ， xnm = f ( x1m ) 　 ( 8 ) 
+ 的 路径 规划 问题 . 由于 增加 了 m 个 约束条件 ， 因此 应选 用 2n - 3 + m 阶 多项式 
+ 
+ 作为 期望 的 路径 . 对 上式 求导 n - 2 + m 次 并 代入 约束条件 ( 4 ) ， ( 8 ) ， 可 得到 关于 系数 cj 线性方程组 ， 解 出 这些 系数 即可 得到 满足 给定 约束条件 的 路径 . 
+ 4 　 仿真 研究 
+ 　 　 以 四轮 小车 为例 说明 上述 方法 的 有效性 . 小车 的 运动 方程 为 
+ 　 ( 9 ) 
+ 其中 ( x , y ) 为 小车 后轴 中点 的 位置 ， θ 为 车体 的 姿态 ， φ 为 前轮 的 操纵 角 ， v1 为 前进 速度 ， v2 为 操纵 角速度 . 
+ 　 　 利用 如下 的 状态 坐标 变换 和 输入 变换 
+ 
+ 可 将 系统 ( 9 ) 化为 如下 的 四阶 链式 系统 ： 
+ 
+ 　 　 令 t0 = 0 , tf = 1 ， 系统 的 初态 ［ x ( t0 ) , y ( t0 ) , θ ( t0 ) , φ ( t0 ) ］ T = ［ 10 ， 10 ， 0 ， 0 ］ T ， 终态 ［ x ( tf ) , y ( tf ) ， θ ( tf ) , φ ( tf ) ］ T = ［ 0 ， 0 ， 0 ， 0 ］ T ， 并取 x1 ( t ) = ξ 1 ( t ) = x10 + ( x1f - x10 ) t . 
+ 　 　 仿真 1 . 无 障碍物 环境 　 仿真 结果 如图 1 和 图 2 所示 ， 可以 看出 状态 ［ x ( t ) , y ( t ) , θ ( t ) , φ ( t ) ］ 均 在 t = 1 时 到达 零点 ， 同时 所 规划 的 几何 路径 也 是 合理 的 . 
+ 
+ 
+ 图 1 　 仿真 1 状态 ［ x ( t ) , y ( t ) , θ ( t ) , φ ( t ) ］ 的 时间 轨迹 
+ 
+ 
+ 图 2 　 仿真 1 小车 的 几何 运动 轨迹 x - y 
+ 　 　 仿真 2 . 有 通道 环境 　 假定 在 ( x , y ) = ( 4 , 5 ) 到 ( x , y ) = ( 7 , 5 ) 之间 有 一长 3 米 ， 宽 1 米 的 通道 ， 要求 小车 在 向 期望 位置 的 运动 过程 中 穿过 此 通道 . 显然 仿真 1 中所 规划 的 路径 不 满足 此 条件 . 为此 ， 在 通道 中心线 上 选取 四个 点 ( x1 , y1 ) = ( 4 , 5 ) ， ( x2 , y2 ) = ( 5 , 5 ) , ( x3 , y3 ) = ( 6 ， 5 ) ， ( x4 , y4 ) = ( 7 , 5 ) 作为 所 规划 路径 上 的 点 ， 并 重新 进行 路径 规划 ， 结果 如图 3 和 图 4 所示 ， 可以 看出 状态 ［ x ( t ) , y ( t ) , θ ( t ) , φ ( t ) ］ 均 在 t = 1 时 到达 零点 ， 同时 所 规划 的 几何 路径 也 正好 穿过 通道 . 
+ 
+ 
+ 
+ 图 3 　 仿真 2 状态 ［ x ( t ) , y ( t ) , θ ( t ) , φ ( t ) ］ 的 时间 轨迹 
+ 
+ 
+ 图 4 　 仿真 2 小车 的 几何 运动 轨迹 x - y 
+ 作者简介 ： 马保离 　 见 本刊 1998 年 第 1 期 . 
+ 　 　 　 　 　 宗 光华 　 1943 年生 ， 1966 年 毕业 于 北京工业大学 . 1981 年 毕业 于 北京航空航天大学 ， 获 硕士学位 . 现为 北京航空航天大学 教授 ， 博士生 导师 . 研究 方向 为 机器人学 . 
+ 　 　 　 　 　 霍 　 伟 　 见 本刊 1994 年 第 3 期 . 
+ 作者 单位 ： 北京航空航天大学 第七 研究室 　 北京 　 100083 
+ 参考文献 
+ 1 　 Tibury   D ,   Murray   R   M ,   Sastry   S   S .   Trajectory   generation   for   the   N - trailer   problem   using   Goursat   norm   form . IEEE   Trans .   on   Automatic   Control , 1995 ， AC - 40 ( 5 ) ， 802 — 819 
+ 2 　 Faux   I   D ,   Pratt   M   J .   Computational   Geometry   for   Design   and   Manufacture .   London : John   Wiley   and   Sons   Limited , 1987 
+ 收稿 日期 ： 1997 - 08 - 20 
+ 修稿 日期 ： 1998 - 09 - 09 

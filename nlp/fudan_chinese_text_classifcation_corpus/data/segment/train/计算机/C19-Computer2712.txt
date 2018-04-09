@@ -1,0 +1,120 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 10 卷   第 12 期     Vol.10   No.12   1999 
+ 
+ 
+ 
+ 非 正则 精确 模型 的 布尔 操作 
+ 唐 　 敏 　 董金 祥 　 李 海龙 　 何志均 
+ 摘要 　 为了 加强 造型 系统 的 表达能力 ， 实现 对 线框 模型 、 曲面模型 和 实体模型 的 统一 表示 和 操作 ， 该文 采用 非 正则 精确 模型 作为 几何 对象 表示 的 数据结构 ， 并 给出 了 相应 的 布尔 操作 实现 算法 ， 在 保证 效率 和 精确性 的 同时 确保 鲁棒性 是 算法 的 目标 . 作为 一个 特征 造型 系统 的 几何 核心 ， 该 算法 已经 在 基于 NT 平台 的 特征 造型 系统 GS - CAD98 中 实现 . 
+ 关键词 　 非 正则 模型 ， 布尔 操作 ， 裁剪 曲面 片 ， 鲁棒性 . 
+ 中图法 分类号 　 TP391 
+ Boolean   Operation   of   Non - Regular   Precise   Geometric   Models 
+ TANG   Min   DONG   Jin - xiang   LI   Hai - long   HE   Zhi - jun 
+ ( State   Key   Laboratory   of   CAD   &   CG   Zhejiang   University   Hangzhou   310027 ) 
+ ( Artificial   Intelligence   Institute   Zhejiang   University   Hangzhou   310027 ) 
+ Abstract 　   To   enhance   the   geometric   ability   of   current   modeling   system ,   the   non - regular   precise   geometric   model   is   used   as   the   unified   data   structure   to   represent   and   manipulate   the   wire - frame   models ,   the   surface   models   and   the   solid   models   in   the   algorithms .   The   authors   present   the   data   structure   and   Boolean   operation   in   this   paper .   For   Boolean   operation ,   accuracy ,   efficiency   and   robustness   are   the   main   consideration .   As   the   geometric   kernel   of   a   feature   based   modeling   system ,   the   algorithm   has   been   implemented   in   a   feature   based   modeling   system   named   GS - CAD98   on   NT   platform . 
+ Key   words 　 Non - Regular   geometric   model ,   Boolean   operation ,   trimmed   patches ,   robustness . 
+ 　 　 随着 特征 造型 技术 的 飞速发展 ， 人们 对 几何 造型 系统核心 的 要求 也 进一步提高 . 只 支持 单一 实体模型 的 造型 核心 在 以下 几个 方面 受到 了 挑战 ［ 1 ～ 4 ］ ： 
+ 　 　 ( 1 )   由于 缺乏 曲面模型 ， 无法 精确 地 表达 和 操作 符合 特定 形状 和 连续性 条件 的 雕塑 曲面 片 ； 
+ 　 　 ( 2 )   针对 不同 的 应用 ， 形状 特征 应该 可以 表达 为 任意 维数 ， 例如 体 特征 、 面 特征 和 线框 特征 等 ； 
+ 　 　 ( 3 )   几何 形状 应 可以 允许 以 线框 、 曲面 和 实体 的 形式 存在 ， 因为 在 各个 独立 的 设计阶段 ， 并 不 总 需要 完整 的 实体模型 ； 
+ 　 　 ( 4 )   基于 精确 实体模型 的 鲁棒 、 高效 和 精确 的 布尔 操作 是 目前 提高 造型 能力 的 瓶颈 . 
+ 　 　 为了 将 线框 、 曲面 和 实体 的 表示 和 操作 置于 统一 的 体系结构 下 ， 我们 采用 非 正则 精确 模型 来 表示 几何 模型 . 本文 详细 讨论 了 在 实现 布尔 操作 的 过程 中 为了 达到 鲁棒 、 高效 和 精确 的 目标 而 采用 的 一些 技术 . 模型 的 精确 信息 采用 参数 裁剪 曲面 片 表示 ， 也 可以 推广 到 代数 曲面 . 为了 得到 精确 的 几何 结果 ， 曲面 求交 算法 的 选择 是 关键 . 曲面 求交 的 算法 主要 分为 解析 法 、 子分法 、 步进 法 、 区间 分析法 . 目前 ， 基于 步进 的 方法 ， 加上 环 检测 、 奇异 情况 处理 、 分支 跳跃 技术 ， 已经 可以 鲁棒 地 计算 曲面 间 非 退化 求交 ［ 5 ～ 8 ］ 的 问题 . 
+ 　 　 在 几何 元素 求交时 ， 我们 采用 了 层次 求交 的 方法 . 原因 有 两个 ， 一方面 ， 这 是 由 非 正则 模型 中 的 拓扑 层次结构 决定 的 ； 另一方面 是因为 高维 元素 的 边界 通过 低维 元素 来 定义 ， 从而 避免 了 分别 求交时 由于 计算误差 而 引起 的 裂纹 以及 拓扑 生成 的 不一致性 . 对于 曲面 求交 的 退化 情况 ， 例如 部分 重叠 ， 可以 通过 侧面 边界 曲面 交线 来 找出 结果 ， 而 不是 直接 对 重叠 曲面 求交 ， 从而 提高 了 系统 的 可靠性 . 另 一个 关键技术 是 交线 跟踪 ， 在 几何 求交 的 过程 中 ， 利用 模型 的 拓扑 信息 ， 找出 相邻 的 最 有 可能 相交 的 几何 元素 对 ， 并 记录 跟踪 交线 分支 ， 从而 易于 克服 布尔 操作 中 由于 交线 不 封闭 而 引起 的 区域 分类 失败 的 情况 . 
+ 1   非 正则 精确 模型表示 
+ 　 　 在 非 正则 模型 中 ［ 9 ］ ， 一个 顶点 表示 为 零维 元素 ， 对应 于 R1 中 的 一个 位置矢量 ； 一条 边 表示 为 一个 连通 的 、 开放 有界 的 一维 元素 ， 对应 于 参数 域 上 的 一条 样条 ， 并 不 包含 端点 ； 一个 面 表示 为 一个 连通 的 、 开放 有界 的 二维 元素 ， 对应 于 参数 域 上 的 一个 剪裁 区域 ， 并 不 包含 边界 顶点 和 边 ； 一个 体 表示 为 一个 连通 的 、 开放 有界 的 三维 元素 ， 根据 其 边界 面 的 法 向量 对应 于 R3 上 的 一个 空间 区域 ， 并 不 包含 边界 上 的 顶点 、 边和面 . 
+ 　 　 图 1 给出 了 非 正则 精确 模型 的 数据结构 ， 图中 右上角 为 几何 信息 ， 左部 为 拓扑 信息 ， 在 图 中 线框 、 曲面 和 实体模型 统一 于体 ( solid ) 的 结构 下 . 每个 模型 在 拓扑 上由体 、 壳 、 线框 、 面 、 边 、 顶点 、 半边 组成 ， 面 包含 一个 或 多个 环 ， 环由 半边 构成 ， 每条 边 分为 一对 方向 相反 的 半边 . 几何 信息 由 分别 附加 在 面 、 边 、 顶点 上 的 裁剪 曲面 、 空间 曲线 和 空间 点 信息 组成 . 
+ 
+ 图 1 　 非 正则 精确 模型 的 数据表示 
+ 　 　 体 模型 中面 的 几何 信息 为 一张 参数 裁剪 曲面 ， 边 的 几何 信息 为 一条 R3 上 的 空间 样条 ， 这是 为了 避免 两个 邻接面 定义 在 曲面 参数 域 上 的 边界 曲线 由于 误差 而 产生 裂纹 . 顶点 的 几何 信息 为 R3 上 的 一个 位置矢量 . 
+ 为了 精确 地 表达 雕塑 曲面 ， 每个 体中面 的 几何 信息 通过 一组 参数 裁剪 曲面 片 定义 ， 我们 用 张量积 有理 B é zier 曲面 F ( s , t ) 表示 每个 曲面 片 ： 
+ 
+ 其中 Vij = ( xij , yij , zij ) 为 曲面 片 的 控制顶点 ， 为 Bernstein 多项式 . F ( s , t ) 可 看成 从 参数 空间 ( s , t ) 平面 到 三维空间 R3 的 一个 映射 . 裁剪 曲面 通过 原 参数 空间 及其 上 的 裁剪 曲线 定义 . 裁剪 曲线 一般 是 高阶 曲线 ， 不能 精确 参数 化 . 我们 用 参数 域 上 的 分段 线性 链来 近似 表示 ， 得到 的 裁剪 区域 为 曲面 参数 域 上 的 多边形 . 为了 表示 紧凑 ， 在 一定 误差 范围 内用 样条 近似 高阶 交线 ， 这样 , 裁剪 区域 就 通过 曲面 参数 域 上 的 一组 样条 来 定义 . 
+ 2   算法 概述 
+ 　 　 整个 算法 大体 分为 求交 检测 、 曲面 片求 交 和 分割 、 区域 分类 和 生成 体 ［ 10 ］ 三个 阶段 . 
+ 　 　 ( 1 )   求交 检测 . 首先 对 两个 输入 体 的 几何 元素 : 顶点 、 边和面 ， 用 包围 盒 测试 和 线性规划 法 去掉 不 相交 的 情况 ， 记录 可能 相交 的 元素 对 . 
+ 　 　 ( 2 )   曲面 片求 交 和 分割 . 对于 求交 检测 后 记录 的 可能 相交 的 元素 对 ， 按照 顶点 、 边 、 面 的 层次 关系 进行 几何 求交 ， 即 按 Vertex - Vertex , Vertex - Edge , Vertex - Face , Edge - Edge , Edge - Face , Face - Face 的 次序 来 确保 拓扑 分割 的 一致性 . 为了 提高 求交 速度 和 稳定性 ， 根据 面 面 相交 的 情况 进行 分析 ， 沿已 求得 的 交线 走向 进行 跟踪 求交 . 在 求交 过程 中 ， 适当 插入 新 顶点 和 边 ， 并 分割 曲面 片 产生 新 曲面 片 ， 得到 的 交线 按照 次序 记录 在 交线 链 中 . 
+ 　 　 ( 3 )   区域 分类 和 生成 体 . 由于 参加 布尔 操作 的 两个 体 封闭 紧凑 ， 上 一步 得到 的 交线 链 必然 是体 边界 上 的 一系列 闭环 ， 它们 把体 划分 为 独立 的 边界 部件 . 区域 分类 判别 每个 边界 部件 相对 于 另 一个 体 边界 的 in - out 关系 ， 然后 根据 布尔 操作 类型 , 选择 适当 的 边界 部件 沿着 交线 环 进行 边界 粘合 ， 生成 结果 体 . 
+ 　 　 以图 2 中 的 圆柱 和 方块 进行 并 操作 为例 ， 首先 进行 求交 检测 ， 找出 可能 相交 的 Solid   A 中 的 前 平面 和 Solid   B 中 的 圆柱面 ， 然后 进行 曲面 求交 和 分割 . 将 Solid   A 和 Solid   B 分别 划分 为 两个 部分 ( a ) , ( b ) 和 ( c ) , ( d ) ， 再 进行 区域 分类 ， 将 Solid   A 中 不 属于 Solid   B 的 部分 ( a ) 和 Solid   B 中 不 属于 Solid   A 的 部分 ( c ) 找 出来 ， 沿交线 粘合 形成 结果 体 . 
+ 
+ 图 2 　 圆柱 和 方块 的 并 操作 的 过程 
+ 3   曲面 片求 交 和 分割 
+ 3.1   相交 检测 
+ 　 　 每个 曲面 片 都 有 自己 的 包围 盒 . 由 B é zier 曲面 的 凸 包性 ［ 11 ］ 可知 ， 控制顶点 的 凸包 完全 包含 了 整张 曲面 ， 因此 ， 通过 包围 盒 测试 可以 过滤 掉 大部分 不 可能 相交 的 情况 ， 然后 运用 线性规划 来 剪裁 . 该 线性规划 问题 表达 为 ： 如果 在 两个 曲面 片中 有 一个 分离 平面 ， 则 它们 不 相交 . 因此 ， 如果 两个 控制点 集 存在 一个 分割 面 ， 则 曲面 片 对 不 相交 . 我们 实现 了 Seidel ［ 12 ］ 的 线性规划 算法 . 通过 这 两种 方法 ， 我们 记录 下 少数 可能 相交 的 面对 . 
+ 3.2   参数 曲面 片交线 计算 
+ 　 　 参数 曲面 和 代数 曲面 求交是 一个 在 计算机 图形学 和 几何 造型 中 经常 发生 的 操作 ， 目前 已有 大量 文献 讨论 了 这个 问题 . 所用 方法 大致 分为 子分法 ［ 13 ］ 、 区间 算术 ［ 14 , 5 ］ 、 格子 求交 ［ 15 ］ 、 解析 法 ［ 16 , 17 ］ 和 步进 法 ［ 18 ～ 20 ］ . 最新 的 技术 组合 了 不同 方法 的 特征 , 统称 为 混合 算法 ［ 21 ］ . 
+ 　 　 本 系统 采用 了 解析 法 和 步进 法相 结合 的 方法 ， 将求 交 问题 代数 化 ， 把 交线 的 投影 作为 一条 代数 平面曲线 求值 . 算法 利用 矩阵 计算 跟踪 交线 ， 跟踪 是 几何 操作 ， 通过 计算 平面曲线 降低 了 几何 复杂度 . 本 系统 所 采用 的 跟踪 算法 可以 在 跟踪 阶段 检测 出 奇异 点 的 存在 ， 从而 精确 而 高效 地 得到 交线 . 
+ 　 　 曲面 片 的 交线 可以 看成 是 参数 域 上 的 开环 和 闭环 ， 例如 图 3 中 的 l ′ 和 l . 对于 开环 ， 它 必然 与 曲面 边界 有 一个 交点 ， 结合 上 节 所述 的 层次 求交 技术 ， 这个 交点 由 Edge - Face 求交中 的 曲线 和 曲面 求交 得到 ， 我们 将 它 作为 跟踪 的 初始 迭代 点 . 对于 闭环 ， 由 Hohmeyer ［ 6 ］ 的 基于 Gauss 图 的 环 检测 算法 进行 判别 ， 然后 对 其 进行 子分 ， 将 其 转化 到 开环 的 情况 . 这样 可以 确保 所有 的 Face - Face 相交 时 不会 形成 环 ， 于是 可以 采用 交线 跟踪 分割 技术 对求 交 进行 加速 . 
+ 
+ 图 3 　 交线 环 分析 ， l ′ 和 l 分别 对应 于 参数 域 上 的 开环 和 闭环   
+ 3.3   层次 求交 
+ 　 　 在 体中 ， 高维 元素 的 边界 通过 低维 元素 来 定义 . 因此 ， 在 求交 过程 中应 先 完成 低维 元素 间 的 求交 分割 ， 然后 再 完成 高维 元素 间 的 求交 ， 这个 过程 称为 层次 求交 . 例如 , 一个 面 与 另 一个 面求 交 的 结果 依赖于 它 与 定义 该面 的 边 和 顶点 相交 的 结果 . 另外 , 低维 的 每条 边会 参与 其 两个 高维 邻面 与 其他 表面 求交 ， 如果 重复 计算 它 与 其他 面 的 交点 ， 不仅 费时 ， 还 可能 引起 分割 的 不一致性 . 如图 4 所示 ， 曲面 S1 和 S2 分别 与 S0 求交 ， 边界 空间 曲线 C0 两次 与 S0 求交 ， 因 误差 引起 交点 P0 ≠ P1 ， 导致 曲线 C0 被 S0 分割 不 一致 . 因此 ， 我们 采用 了 层次 求交 的 算法 ， 将求 交 按照 Vertex - Vertex 求交 、 Vertex - Edge 求交 、 Edge - Edge   求交 和 Vertex - Face 求交 、 Edge - Face 求交 、 Face - Face 求交 的 次序 进行 . 下面 分别 分析 这些 情况 . 
+ 
+ 图 4 　 S1 和 S2 分别 与 S0 求交 ， 因 误差 引起 交点 
+ P0 ≠ P1 ， 曲线 C0 被 S0 分割 不 一致 
+ 　 　 ( 1 )   Vertex - Vertex 求交 . 检测 顶点 是否 重合 ， 若 重合 , 则 从 后继 Vertex - Vertex ,   Vertex - Edge 和 Vertex - Face 求交中 删除 . 
+ 　 　 ( 2 )   Vertex - Edge 求交 . 判断 顶点 到 曲线 的 距离 ， 若 在 误差 范围 内 ， 则 插入 新 顶点 将边 分裂 ， 原 顶点 和 新 顶点 标为 重合 ， 并 不再 参加 后继 求交 ， 而 两条 新边 参加 后继 求交 . 
+ 　 　 ( 3 )   Edge - Edge   求交 . 若 两条 边 曲线 在 误差 范围 内交于 某点 ， 将 两条 边 分裂 ， 并 将 两个 新 顶点 标为 重合 ， 并 不再 参加 后继 求交 ， 而 新 产生 的 边 参加 后继 求交 . 
+ 　 　 ( 4 )   Vertex - Face 求交 . 若 顶点 在 误差 范围 内落 在 曲面 上 ， 在 面上 产生 一个 单点 内环 ， 并 将 原 顶点 和 新 顶点 标为 重合 . 
+ 　 　 ( 5 )   Edge - Face 求交 . 由于 边 的 端点 已经 进行 了 Vertex - Face 求交 ， 重合 顶点 数为 0 , 1 , 2 . 若为 2 ， 仍 需 进一步 进行 曲线 和 曲面 重合 测试 ， 若 重合 ， 插入 新边 并 将面 分割 . 
+ 　 　 ( 6 )   Face - Face 求交 . 进行 参数 曲面 片求 交 ， 在 已 插入 的 单点 内环 间 和 已 插入 边 , 根据 交线 插入 新边 , 将面 进行 分割 . 
+ 3.4   交线 跟踪 分割 
+ 　 　 在 上 节求 出 了 Face - Face 相交 的 曲面 交线 的 基础 上 ， 我们 采用 了 交线 跟踪 分割 技术 来求 出交线 链 . 求交 的 过程 可以 看成 是 找出 所有 曲面 片 的 交 线段 的 过程 ， 可以 进行 穷举 式 的 两 两求 交 ， 但 考虑 到 几何 求交中 的 计算误差 可能 带来 后继 连接 失败 ， 从而 导致 生成 拓扑 非法 的 体 ， 我们 采用 了 交线 跟踪 的 方法 . 在 曲面 的 参数 域 上 考虑 交线 的 情况 ， 可 分为 以下 几种 情况 （ 闭环 的 情况 已经 由 上 一节 排除 ） ， 如图 5 所示 . 
+ 
+ 图 5 　 跟踪 情况 
+ 　 　 情况 1 ： 下次 加入 求交 面对 为 ( S1 , S ′ 2 ) , ( S2 , S ′ 1 ) . 
+ 　 　 情况 2 ： 下次 加入 求交 面对 为 ( S ′ 1 , S ′ 2 ) , ( S ″ 1 , S ″ 2 ) . 
+ 　 　 情况 3 ： 下次 加入 求交 面对 为 ( S1 , S ′ 2 ) , ( S1 , S ″ 2 ) . 
+ 　 　 在 实际 求交 的 情况 下 ， 预测 可能 并 不 符合实际 情况 ， 算法 在 最坏 的 情况 下 退化 为 穷举法 . 
+ 　 　 跟踪 分割 具体 算法 如下 ： 
+ 　 　 ( 1 )   设 ( fi , fj ) 为 经过 相交 检测 后 仍 有 可能 相交 的 面对 ， fjSB , fiSA ， 从 候选 面对 缓冲 池中 取出 ( fi , fj ) ； 
+ 　 　 ( 2 )   如果 ( fi , fj ) 的 交线集 Cij ≠ Φ ， 继续 ， 否则 跳转 ( 6 ) ； 
+ 　 　 ( 3 )   如果 Cij 封闭 ， 将 Cij 加入 交线 链 缓冲 池中 ， 跳转 ( 6 ) ， 否则 ， 继续 ； 
+ 　 　 ( 4 )   如果 Cij 可 与 不 封闭 交线 链 缓冲 池中 某段 相连 产生 C ′ ij ， 则 继续 ， 否则 将 Cij 加入 不 封闭 交线 链 缓冲 池中 ， 跳转 ( 6 ) ； 
+ 　 　 ( 5 )   如果 C ′ ij 封闭 ， 则 将 C ′ ij 加入 交线 链 缓冲 池中 ， 继续 ， 否则 将 C ′ ij 加入 不 封闭 交线 链 缓冲 池中 ， 继续 ； 
+ 　 　 ( 6 )   根据 fi , fj 的 拓扑 信息 进行 交线 跟踪 ， 更新 候选 面对 缓冲 池 ， 继续 ； 
+ 　 　 ( 7 )   如果 候选 面对 缓冲 池非空 ， 从 候选 面对 缓冲 池 取出 ( fi , fj ) ， 跳转 ( 2 ) ， 否则 返回 ， 求交 结果 在 交线 链 缓冲 池中 . 
+ 4   区域 分类 和 退化 情况 处理 
+ 　 　 求交 过程 的 结果 是 得到 交线 环 和 被 分割 开 的 边界 部件 ， 例如 ， 在 图 2 中 ， 方块 被 分为 ( a ) 和 ( b ) ， 圆柱 被 分为 ( c ) 和 ( d ) . 我们 需要 对 每个 边界 部件 进行 分类 测试 ， 再 根据 特定 的 布尔 操作 类型 决定 该 边界 部件是否 属于 新 体 ， 规则 如下 ， A , B 为 参加 布尔 操作 的 两个 体 ， 
+ 
+ 　 　 对 边界 部件 进行 分类 测试 的 过程 称为 区域 分类 . 由于 体 封闭 紧凑 ， 如果 边界 部件 上 的 一个 顶点 在 另 一个 体 外部 ， 则 整个 边界 部件 在 另 一个 体 外部 ， 反之亦然 . 
+ 　 　 判断 一个 顶点 是否 在 一个 体内 是 一个 很 费时 的 操作 ， 需要 计算 从 该点 出发 的 一条 射线 与体 交点 的 个数 ， 如果 是 奇数 ， 则 点 在 内部 ， 否则 在 外部 . 这 涉及 到 曲线 / 曲面 求交 ， 其 复杂度 对于 曲面 的 次数 很 敏感 . 事实上 ， 由体 的 拓扑 信息 我们 可以 得到 边界 部件 间 的 邻接 关系 ， 对 每个 体只 需 计算 一次 内外 测试 就 可以 完成 其 区域 分类 . 由于 体 边界 连续 ， 从 一个 边界 部件 跨过 交线 环 到达 邻接 边界 部件 时 ， 其 相对 于 另 一个 体 的 内外 关系 取反 . 通过 确定 一个 边界 部件 的 分类 属性 ， 然后 通过 交线 环 扩散 到体 的 所有 边界 部件 . 
+ 　 　 退化 情况 是 所有 实用 系统 必须 面对 的 问题 ， 在 大多数 系统 中 ， 退化 情况 会 导致 失败 或 退出 . 根据 文献 ［ 12 ］ ， 退化 情况 分为 奇异 点 、 接触 边和面 重合 3 种 情况 . 由于 采用 了 层次 求交 和 跟踪 分割 ， 我们 的 实现 能 较 好 地 处理 前 两种 情况 以及 两个 曲面 片 重合 区域 被 曲线 边界 限定 时 的 情况 . 这 已经 能够 较 好 地 满足 实践 的 需要 了 . 
+ 5   实现 和 结果 
+ 　 　 我们 已经 在 NT 平台 上用 C语言 实现 了 该 算法 . 参数 化 特征 造型 系统 GS - CAD98 是从 工作站 平台 上 的 ZD - MCADII 系统 演化 而来 的 . 原 系统 ZD - MCADII 采用 的 是 多面体 模型 ， 但 考虑 到 应用领域 对于 高精度 数控 加工 、 外形 美学 设计 的 要求 ， 我们 引入 了 非 正则 精确 模型 ， 而 布尔 操作 是 一个 重要 的 造型 手段 . 在 图 6 的 实例 中 ， 对于 左边 叶轮 ， 用 13 个 辅助 面求 其 截面 ， 每次 做 截面 都 进行 了 一次 实体模型 与 曲面模型 （ 该处 为 平面 ） 的 布尔 操作 . 图 6 的 右下方 为 13 个 截面 的 重叠 图 ， 右上方 为 其中 的 一个 截面 . 图 7 为 基座 线框 模型 与 平面 相交 的 截交线 . 在 最坏 的 情况 下 ， 当 两个 体 的 所有 曲面 片 都 相交 时 ， 算法 的 复杂度 为 O ( mn ) ， m 和 n 分别 为 两个 体中 的 曲面 片数 . 在 造型 实践 中 , 通过 大量 雕塑 体 的 布尔 操作 随机 测试 ， 算法 的 平均 复杂度 为 O ( k ) ， k 为 实际 相交 的 曲面 片 对数 . 
+ 
+ 图 6 　 叶轮 截面 实例 
+ 
+ 图 7 　 基座 线框 截面 实例 
+ * 本文 研究 得到 国家自然科学基金 、 国家 863 高科技 项目 基金 和 浙江大学 CAD & CG 国家 重点 实验室 开放 课题 基金 资助 . 
+ 作者简介 ： 唐敏 ， 1974 年生 ， 博士 ， 讲师 ， 主要 研究 领域 为 计算机 图形学 与 辅助设计 ， 几何 造型 . 董金 祥 ， 1945 年生 ， 教授 ， 博士生 导师 ， 主要 研究 领域 为 计算机 图形学 与 CAD ， 先进 制造 技术 与 自动化 ， DBMS . 
+ 　 　 　 　 　 李 海龙 ， 1970 年生 ， 博士 ， 讲师 ， 主要 研究 领域 为 CAD ， 特征参数 化 设计 . 
+ 　 　 　 　 　 何志均 ， 1923 年生 ， 教授 ， 博士生 导师 ， 主要 研究 领域 为 人工智能 ， CAD & CG ， 智能 软件工程 . 
+ 本文 通讯联系 人 : 唐敏 ， 杭州 310027 , 浙江大学 1549 信箱 
+ 作者 单位 ： 浙江大学 CAD & CG 国家 重点 实验室 　 杭州 　 310027 
+ 　 　 　 　 　 浙江大学 人工智能 研究所 　 杭州 　 310027 
+ E - mail :   tang - m @ netease . com 
+ 参考文献 
+ 　 　 1 　 Hoffman   C   H .   Geometric   and   Solid   Modeling .   San   Mateo ,   CA :   Morgan   Kaufmann   Publishers ,   Inc . ,   1989 
+ 　 　 2 　 Masuda   H .   Topological   operators   and   Boolean   operations   for   complex - based   nonmanifold   geometric   models .   Computer   Aided   Design ,   1993 , 25 ( 2 ) : 119 ～ 129 
+ 　 　 3 　 Wiler   Kenin   J .   Edge - based   data   structures   for   solid   modeling   in   curved - surface   environments .   IEEE   Computer   Graphics   and   Applications ,   1985 , 5 ( 1 ) : 21 ～ 40 
+ 　 　 4 　 Stroud   I .   Modeling   with   degenerate   objects .   Computer   Aided   Design ,   1990 , 22 ( 6 ) : 344 ～ 351 
+ 　 　 5 　 Hu   Chun - yi ,   Maekawa   Takashi ,   Patrikalakis   N   M   et   al .   Robust   interval   algorithm   for   surface   intersections .   Computer   Aided   Design ,   1997 , 29 ( 9 ) : 617 ～ 627 
+ 　 　 6 　 Hohmeyer   M   E .   Robust   and   efficient   intersection   for   solid   modeling   ［ Ph . D .   Thesis ］ .   Berkeley :   University   of   California ,   1992 
+ 　 　 7 　 Krishnan   S ,   Manocha   D .   An   efficient   surface   intersection   algorithm   based   on   the   lower   dimensional   formulation .   Technical   Report ,   TR94 - 064 ,   University   of   North   Carolina ,   1994 
+ 　 　 8 　 Sederberg   T   W ,   Nishita   T .   Geometric   hermite   approximation   of   surface   patch   intersection   curves .   Computer   Aided   Geometric   Design ,   1991 , 8 : 97 ～ 114 
+ 　 　 9 　 Gursoz   E   L ,   Choi   Y ,   Friedrich   B   P .   Boolean   set   operations   on   non - manifold   boundary   representation   objects .   Computer   Aided   Design ,   1991 , 23 ( 1 ) : 33 ～ 39 
+ 　 10 　 Crocker   G   A ,   Reinke   W   F .   An   enditable   nonmanifold   boundary   representation .   IEEE   Computer   Graphics   &   Application ,   1991 .   39 ～ 51 
+ 　 11 　 Farin   G .   Curves   and   surfaces   for   computer   aided   geometric   design :   a   practical   guide .   New   York ,   NY :   Academic   Press   Inc . ,   1993 
+ 　 12 　 Seidel   R .   Linear   programming   and   convex   hulls   made   easy .   In :   Proceedings   of   the   6th   Annual   ACM   Conference   on   Computational   Geometry .   Berkeley ,   1990 .   211 ～ 215 .   http : / / www - tcs . cs . uni - sb . de / seidel / index . en . html 
+ 　 13 　 Lane   J   M ,   Riesenfeild   R   F .   A   theoretical   development   for   the   computer   generation   and   display   of   piecewise   polynomial   surfaces .   IEEE   Transactions   on   Pattern   Analysis   and   Machine   Intelligence ,   1980 , 2 ( 1 ) : 150 ～ 159 
+ 　 14 　 Snyder   J .   Interval   arithmetic   for   computer   graphics .   In :   Proceedings   of   ACM   Siggraph .   1992 .   121 ～ 130 .   http : / / www . gg . caltech . edu / papers / intervalabstract . html 
+ 　 15 　 Rossignac   J   R ,   Requicha   A   A   G .   Piecewise - circular   curves   for   geometric   modeling .   IBM   Journal   of   Research   and   Development ,   1987 , 31 ( 3 ) : 296 ～ 313 
+ 　 16 　 Sederberg   T   W .   Implicit   and   Parametric   Curves   and   Surfaces ,   ［ Ph . D .   Thesis ］ .   Prude   University ,   1983 
+ 　 17 　 Sarraga   R   F .   Algebraic   methods   for   intersection .   Computer   Vision ,   Graphics   and   Image   Processing ,   1983 , 22 : 222 ～ 238 
+ 　 18 　 Farouki   R   T .   The   characterization   of   parametric   surface   sections .   Computer   Vision ,   Graphics   and   Image   Processing ,   1986 , 33 : 209 ～ 236 
+ 　 19 　 Bajaj   C   L ,   Hoffmann   C   M ,   Hopcroft   J   E   H .   Tracing   surface   intersections .   Computer   Aided   Geometric   Design ,   1988 , 5 : 285 ～ 307 
+ 　 20 　 Kriezis   G   A ,   Patrikalakis   N   M ,   Wolter   F   E .   Topological   and   differential   equation   method   for   surface   intersections .   Computer   Aided   Design ,   1992 , 24 ( 1 ) : 41 ～ 55 
+ 　 21 　 Krishnan   S ,   Gopi   M ,   Manocha   D   et   al .   Interactive   boundary   computation   of   boolean   combinations   of   sculptured   solids .   Computer   Graphics   Forum ,   1997 , 16 ( 3 ) : 67 ～ 78 
+ 本文 1998 - 09 - 11 收到 原稿 , 1999 - 01 - 11 收到 修改稿 

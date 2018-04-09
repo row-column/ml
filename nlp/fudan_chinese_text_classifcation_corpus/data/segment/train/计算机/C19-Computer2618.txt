@@ -1,0 +1,76 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 6 期   第 10 卷   Vol.10   No.6   1999 
+ 
+ 
+ 
+ 新型 网络 管理系统 模型 及其 专家系统 * 
+ 罗军舟 　 顾 冠群 　 费 　 翔 　 方宁生 　 姜 　 浩 
+ 　 　 摘要 　 现代 计算机网络 管理 是 一项 复杂 而 又 繁重 的 工作 ， 它 需要 大量 的 信息 并 运用 操作者 的 判断 与 技能 . 由于 产品 厂商 不同 而 导致 的 异种 网络 环境 以及 高质量 的 用户服务 需求 ， 这种 网络管理 的 复杂性 还 在 不断 增加 . 文章 提出 了 一个 进行 网络 智能 管理 ( intelligent   management   of   network , 简称 IMN ) 的 新型 系统 模型 . 在 IMN 体系结构 中 ， 用 专家系统 处理 特定 问题 ， 建立 一个 智能 故障 管理系统 ； 用 网段 或 网域 中 的 智能 代理 建立 网络管理 与 应用 和 用户 需求 的 密切关系 ； 给出 了 一个 管理员 模型 ， 用于 控制 各 子系统 , 协调 各项 管理 任务 . IMN 系统 是 一个 进行 计算机网络 智能 管理 的 有效 模型 . 
+ 　 　 关键词 　 网络管理 ， 网络 智能 管理 ， 人工智能 ， 专家系统 ， 智能 代理 ， 管理员 . 
+ 　 　 中图法 分类号 　 TP393 
+ A   Novel   Network   Management   System   Model   and   Its   Expert   Systems 
+ LUO   Jun - zhou   GU   Guan - qun   FEI   Xiang   FANG   Ning - sheng   JIANG   Hao 
+ ( Department   of   Computer   Science   and   Engineering   Southeast   University   Nanjing   210096 ) 
+ 　 　 Abstract 　 The   management   of   modern   computer   networks   is   a   complex   and   labour - intensive   task   that   requires   the   assimilation   of   vast   amounts   of   information   and   application   of   operator ' s   judgment   and   expertise .   The   complexity   is   further   increased   because   of   the   multi - vendor   heterogeneous   elements   that   make   up   many   of   these   networks ,   and   the   high   quality   of   user   service   requirements .   In   this   paper ,   the   authors   give   a   novel   system   model   for   building   an   intelligent   management   of   network   ( IMN )   in   order   to   solve   related   problems .   In   the   IMN   architecture   proposed ,   expert   systems   are   integrated   in   the   network   management   system   to   handle   particularly   difficult   problems ,   especially   an   intelligent   fault   management   system   is   presented .   By   spreading   intelligent   agents   through   network   segments   or   domain ,   the   IMN   system   can   bring   the   management   closer   to   application   and   user   requirements .   The   authors   also   give   a   manager   model   in   the   IMN   system ,   which   controls   each   subsystems   and   coordinates   different   management   task .   The   IMN   system   is   well   suited   to   manage   the   current   computer   network   intelligently ,   effectively   and   efficiently . 
+ 　 　 Key   words 　 Network   management ,   intelligent   network   management ,   artificial   intelligence ,   expert   system ,   intelligent   agent ,   manager . 
+ 　 　 计算机网络 规模 的 膨胀 和 复杂度 的 增加 意味着 网络管理 是 至关重要 的 . 由于 分布式应用 和 全球化 协同工作 的 需求 ， 用户 要求 网络 是 一种 基础设施 ， 随时随地 可 得 ， 并且 使用 稳定 、 可靠 . 另外 ， 被 管 网络 越来越 呈现出 异构 和 动态 特性 ， 诸如 故障 预测 和 诊断 ， 以及 性能 分析 等 管理 功能 愈加 复杂 . 特别 是 CSCW 的 应用 ， 需要 高质量 的 多媒体 服务 ， 网络资源 也 应该 按照 服务质量 ( QoS ) 进行 管理 . 传统 的 网络管理 方式 是 通过 各自 专有 单元 管理系统 对 各 网段 进行 孤立 管理 ， 因而 无法 解决 以上 问题 . 研究 新型 的 网络 管理系统 迫在眉睫 ， 需要 使用 基于 知识 的 信息处理 技术 ［ 1 , 2 ］ ， 如 人工智能 和 专家系统 等 . 
+ 　 　 网络 智能 管理 ( intelligent   management   of   network , 简称 IMN ) 能够 智能 地 监控 异构 计算机网络 系统 ， 有效 而 妥善 地 处理 网络 上 发生 的 各种 问题 . 将 专家系统 用于 解决 特定 的 管理 问题 . 基于 知识 的 专家系统 能够 完成 监控 、 故障诊断 、 网络 规划 和 培训 等 任务 ［ 1 , 3 , 4 ］ . IMN 应 具有 如下 特点 ： 不需 依赖 高技能 的 网络管理 人员 ; 不 需要 从事 处理 异构 网络 上 的 繁重 管理 任务 ； 交互 设施 能够 使 网络故障 得到 快速 修复 . 借助 智能 功能 ， IMN 系统 成为 一个 自治 的 系统 ， 能够 以 最小 的 人工干预 ， 处理 各种 网络 问题 . 
+ 　 　 IMN 系统 具有 以下 几个 主要 目标 ［ 3 ］ ： 管理 异构 网络 ， 支持 分布式 管理 和 数据库 ， 缩减 网络管理 与 应用 间 的 距离 ， 允许 网络 规模 的 不断 增长 ， 提供 智能 设施 ， 支持 容错 网络管理 . 本文 对 当代 网络管理 需求 略作 分析 ， 导出 了 开发 网络 智能 管理 的 几个 关键技术 . 文章 第 1 节 提出 了 一个 IMN 系统 的 体系结构 ［ 5 ］ ， 包括 管理员 、 专家系统 、 智能 代理 、 管理 信息库 ( management   information   base , 简称 MIB ) 、 管理 知识库 ( management   knowledge   base , 简称 MKB ) 和 各个 接口 . IMN 系统 通过 智能 代理 访问 被 管 对象 ， 建立 基于 人工智能 的 知识库 和 推理 机制 . 第 2 节 定义 了 一个 管理员 模型 和 相应 接口 ［ 6 ］ ， 描述 了 模型 的 内部结构 和 各项 功能 . 管理员 由 规划 器 、 应用 接口 、 智能 代理 、 管理 功能 和 管理工具 等 不同 模块 组成 . 第 3 节 讨论 一个 专家系统 模型 ［ 3 , 7 ］ ， 特别 给出 了 一个 网络 故障诊断 和 修复 系统 ， 使用 基于 模型 的 专家系统 和 基于 案例 的 推理 技术 ， 完成 所 需 智能 决策 任务 . 第 4 节 阐述 智能 代理 的 作用 ［ 8 , 9 ］ ， 其 功能 模型 由 上下文 管理员 、 目标 管理员 和 智能 代理 引擎 . 文章 最后 给出 了 结论 . 
+ 1   IMN 体系结构 
+ 　 　 在 传统 的 网络管理 模型 中 ， 管理员 的 主要 功能 是从 被 管 资源 处 收集 各种 信息 ， 然后 实施 有关 控制 和 处理 . 这样 的 模式 存在 两个 弊端 ： ( 1 )   管理员 功能 简单 ， 只是 状态 监控 和 显示 ， 系统管理 人员 必须 参与 许多 管理工作 ； ( 2 )   应用 处理 ( 如 应用 的 QoS 需求 ) 和 管理 处理 ( 如 性能 管理 ) 之间 缺乏 有机 的 联系 . 因此 ， 这个 系统管理 级 的 管理员 必须 重新 建立 ， 他 不仅 能够 胜任 而且 能够 高效 完成 相当 复杂 的 任务 . 智能 代理 ( intelligent   agent ， 简称 IA ) 和 专家系统 ( expert   system , 简称 ES ) 建立 了 管理员 与 网络 间 的 桥梁 . 图 1 表示 了 IMN 的 体系结构 . 
+ 
+ 图 1 　 IMN 体系结构 
+ 　 　 管理员 监控 网络 各 部分 ， ES 与 管理员 协同工作 ， 提供 建议 信息 ， 应用 和 系统管理 人员 能够 统一 地 观察 到 所有 网络资源 ， 并 对 各个 网络资源 实施 网络管理 操作 . 网络管理 通过 信息 的 采集 和 处理 实现 ， 为了 存储 被 管 网络资源 的 历史 信息 和 操作 信息 ， 管理员 使用 一个 面向对象 的 数据库 MIB . 
+ 　 　 IA 连接 多个 本地 网络资源 管理员 ， 即 代理 ( A ) ， 因而 IA 分布 在 整个 网络系统 的 代理 之上 . IA 根据 本地 代理 ， 处理 被 管 对象 ( MO ) 的 有关 信息 . 当 每个 IA 接收 到 管理员 发送 的 应用 资源 需求 或 系统管理 人员 命令 时 ， 在 系统 功能 层 与 其他 IA 进行 相互 协商 处理 ， 交换 管理 信息 和 已 获得 的 知识 ， 执行 管理 功能 ， 然后 通知 应用 系统 和 系统管理 人员 有关 信息 . 为了 实现 IA 系统 ， 需要 使用 诸如 基于 面向对象 的 网络资源 建模 和 本地 代理 实现 等 关键技术 . 
+ 　 　 对于 比较复杂 的 管理 问题 ， 管理员 向 ES 发送 咨询 请求 ， 咨询 可以 是 发生 故障 的 网段 或 网络 规划 问题 等 . 一旦 管理员 收到 ES 返回 的 建议 信息 ， 就 决定 最终 的 管理 实施 步骤 . 管理员 协调 所 控制 管理 的 各个 部分 ， ES 不 直接 与 网络资源 进行 通信 . MKB 存放 已 获得 的 知识 ， 随时 为 ES 所用 . 当 ES 收到 咨询 请求 时 ， 就 力图 向 管理员 提供 适当 的 建议 信息 . 
+ 2 　 管理员 模型 
+ 　 　 管理员 模型 定义 与 外部 模块 的 接口 ， 描述 内部结构 和 功能 . 管理员 由 几个 不同 模块 组成 ， 如图 2 所示 . 每个 模块 使用 其他 模块 提供 的 服务 ， 同时 提供 服务 给 其他 模块 . 
+ 
+ 图 2 　 管理员 模型 
+ 　 　 IA 接口 模块 是 管理员 与 每 一个 IA 间 的 接口 ， 具有 通信 和 转换 功能 . 通信 功能 提供 逻辑 和 物理 上 访问 每个 IA 的 设施 ， 转换 功能 先 进行 IA 使用 的 管理 命令 的 分析 、 翻译 和 语法 语义 一致性 检查 ， 然后 将 系统控制 报文 翻译成 IA 控制 报文 . 为了 实现 各个 IA 间 的 通信 ， 通信协议 采用 国际标准 . 
+ 　 　   网络管理 功能模块 具有 配置 、 故障 、 安全 、 性能 和 计费 等 基本 管理 功能 . 每个 子 模块 包括 若干 基于 接收 信息 的 决策 过程 ， 模块 中 的 复杂 功能 交给 ES 处理 ， 例如 ES 支持 故障 管理 功能 ， 因此 , 有些 子 模块 需要 与 ES 进行 通信 . 
+ 　 　 MIB 使用 被 管 对象 及 相应 属性 的 分层 组织 结构 ， 一组 类 用来 描述 对象 . 对象 间 有 “ 静态 ” 和 “ 动态 ” 两种 关系 . 静态 关系 存在 于 对象 类 之间 ， 可 由 一棵 继承 树 表示 ； 动态 关系 存在 于 对象 类 实例 之间 ， 可 动态 地 建立 或 消除 . 在 管理 上下文 中 ， 继承 树 用于 定义 数据结构 和 被 管 对象 行为 ， 包含 树 描述 被 管 对象 实际 组织 结构 . 数据库 设施 在 占用 较 小 内存空间 和 操作 时间 的 情况 下 提供 公共 管理 信息 服务 . 
+ 　 　 AA 接口 包括 网络管理 应用 接口 和 网络 管理系统 管理人员 接口 . 应用 接口 模块 向 管理 应用 提供 特定 的 管理 应用服务 ， 这些 服务 按照 5 个 网络管理 功能 分成 5 类 . 例如 , 在 配置管理 中 ， 可 提供 拓扑 结构 、 体系结构 、 状态 、 属性 设置 和 重新配置 ( 建立 或 删除 对象 ) 等 多项 服务 . 系统管理 人员 接口 模块 提供 统一 和 一致 的 界面 ， 包括 视图 、 声音 和 话音 等 3 个子 模块 . 为了 使 系统管理 人员 接口 生动 形象 ， 可以 使用 多窗口 、 鼠标 和 图形 工具 等 . 
+ 　 　 管理工具 模块 向 系统 和 系统管理 人员 提供 一些 有用 的 工具 . 这些 工具 与 应用 接口 模块 提供 的 服务 不同 ， 可以 包括 诸如 仿真 、 文本编辑 等 工具 . 
+ 　 　 规划 器是 一个 中心 模块 ， 有 许多 预定 义 状态 ， 它 能够 控制 和 协调 各个 模块 ， 完成 以下 工作 ： ①   管理 报文 的 综合 ； ②   变迁 到 一个 新 状态 ； ③   报文 至 相应 模块 的 路由 选择 . 管理 报文 来自 系统 的 各个 模块 ， 具有 一个 统一 的 格式 . 由于 任一 模块 可以 置于 不同 的 机器 ， 因而 规划 器 的 另 一个 功能 是 对 数据库 和 规划 器 的 各 模块 进行 分布式 管理 . 规划 器 维护 一张 类似 于 路由表 的 地址 表 ， 每个 入口 包含 模块 名 、 应用 实体 标识符 和 网络地址 等 . 规划 器 还 提供 一个 到 ES 的 通信接口 . 
+ 3   专家系统 模型 
+ 　 　 在 IMN 体系结构 中 ， ES 表示 若干个 专家 ， 每位 专家 都 是 某个 问题 域 的 万 能手 ， 具有 相应 的 域 知识 . 为了 处理 完成 各种 问题 ， ES 使用 二级 专家 机制 ， 即 一个 通用 专家 和 几个 专用 专家 . 通用 专家 具有 全局 管理 知识 和 ES 控制 模块 ， 协调 ES 中 的 所有 专用 专家 ； 每个 专用 专家 有 一个 推理机 ， 包括 一组 产生 式 规则 的 规则 存储器 和 工作 存储器 . MKB 以 规则 和 实事 形式 存放 知识 ， 一条 规则 是 一对 条件 和 结论 ， 一个 实事 是 一对 变量 和 值 ， 如 某个 网段 的 故障 概率 . 另外 ， ES 包括 一个 与 管理员 的 接口 ， 该 接口 以 预定 义 格式 重新 组织 报文 ， 然后 转发给 管理员 . 该 接口 也 对 管理员 发送 的 报文 进行 翻译 . 
+ 　 　 专家系统 的 研究 和 发展 也 为 计算机网络 的 智能化 和 可操作性 管理 注入 了 新 的 技术 ， 例如 ， 神经网络 和 基于 案例 推理 等 机器 学习 技术 . 基于 模型 的 专家系统 主要 用于 网络故障 管理系统 ， 尤其 在 过滤 和 诊断 方面 . 这个 方法 需要 建立 结构 、 功能 和 因果 模型 ， 这些 模型 的 运用 和 导航 策略 通常 是 由 一般 产生 式 规则 表示 . 这个 方法 有 两个 主要 特点 ， 第 1 ， 有益于 运用 现有 标准 网络管理 模型 ； 第 2 ， 所 产生 的 系统 通用 ， 能够 运用 于 不同 的 网络 模型 . 基于 案例 的 推理 ( case   based   reasonning , 简称 CBR ) 是 一种 使用 类比 和 提示 的 数据处理 技术 ， 提供 限定 上下文 中 类比推理 的 一个 模型 ， 其 基本 的 数据结构 是 案例 ， 表示 特定 问题 经验 的 上下文 ( 条件 部分 ) 和 解题 过程 的 描述 ( 动作 部分 ) . CBR 功能 可以 定义 为 一种 从 输入 ( 新 案例 ) 到 寻求 案例 空间 ( 另 一个 类比 案例 ) 的 能力 . 类比 案例 将 适应 于 这个 新 案例 ， 对 当前 问题 进行 处理 . CBR 与 专家系统 互补 ， 允许 开发 相关 和 通用 的 应用 ， 适应 于 网络拓扑 和 物理 组成 的 变化 . 
+ 　 　 图 3 给出 一个 网络 故障诊断 和 修复 专家系统 ( network   fault   diagnosis   and   repairing   expert   system , 简称 NFDRES ) 模型 ， 以 表示 IMN 体系结构 中 ES 的 一个 专用 专家系统 . NFDRES 处理 不同 网络 上 的 异种 信息 ， 定义 子网 、 设备 和 软件 等 被 管 对象 的 一个 全局 标准 信息 模型 . 这个 模型 包括 中心 和 全局 二级 管理 . 
+ 
+ 图 3 　 NFDRES 模型 
+ 　 　 中心 级 管理 负责 总体 协调 异构 域 信息 ， 提供 统一 集中 的 网络 状态 视图 . 这 一级 包括 一个 使用 基于 模型 的 专家系统 技术 的 诊断 模块 、 一个 作为 与 管理员 接口 的 报警 监控 模块 、 一个 使用 CBR 技术 的 限定 和 修复 模块 以及 一个 作为 案例 知识库 的 故障 标签 库 . 全局 级 管理 负责管理 和 维护 各个 模块 所 需 的 知识 ， 同时 ， 通过 分析 历史数据 ， 决定 故障 管理员 的 性能 改进 原则 . 
+ 4   智能 代理 
+ 　 　 由于 传统 的 代理 设计 被 视为 一种 十分 通用 的 形式 ， 不能 针对 特定 的 需求 进行 更新 ， 因而 这种 代理 不能 被 修改 ， 以 适应 处理 某个 问题 . 然而 ， 从 网络 用户 角度 来看 ， 管理 进程 事实上 是 管理 前置 系统 ； 从 管理员 角度 来看 ， 管理 进程 被 认为 是 自治 的 “ 代理 ” ， 它 被 授权 按照 已 制定 的 策略 以 一种 自治 的 方式 进行 网络管理 . 这种 网络管理 前置 系统 称为 智能 代理 ( IA ) . 
+ 　 　 IA 在 概念 上 有别于 传统 网络 管理系统 中 的 被动式 代理 ， 具有 如下 新 的 特性 ［ 4 , 8 ］ ： ( 1 )   自治 性 ： 代理 的 操作 无需 直接 的 人工干预 ， 具有 行为 动作 和 内部 状态 的 多种 控制 ； ( 2 )   社会性 ： 代理 与 代理 之间 进行 交互 ( 包括 人 在内 ) ； ( 3 )   反应 性 ： 代理 能 对 其 环境 进行 感知 ， 并 在 环境 发生变化 时 作出 迅速 反应 ； ( 4 )   主动性 ： 代理 不仅 能够 对 其 环境 进行 响应 ， 还 能够 发起 目标 制导 的 行为 动作 . 显然 ， IA 是 一个 自治 的 实体 ， 能够 独立 担负起 各项任务 ， 具有 一个 较为 复杂 的 体系结构 ［ 8 ］ . 在 这样 的 体系结构 中 ， 定义 了 几个 主要 的 功能模块 ， 对于 实现 IA 系统 极为重要 . 图 4 给出 了 IA 体系结构 的 一个 总体 框架 ， 分为 上下文 管理员 、 目标 管理员 和 IA 引擎 3 个 部分 . 
+ 
+ 图 4 　 IA 体系结构 
+ 　 　 管理员 通过 应用 上下文 向 某个 IA 传递 用户 需求 . 上下文 包括 应用 需求 的 有关 信息 ， 如 关键 资源 或 服务 的 识别 和 应用 所 需 的 服务质量 ( QoS ) 等 . IA 有 一个 上下文 管理员 ， 根据 按 某个 网络管理 目的 ( 如 某个 QoS ) ， IA 所应 达到 的 目标 进行 应用 需求 翻译 . IA 还有 一个 内部 引擎 ， 执行 任务 实现目标 . 任务 的 执行 将 完成 ： ( 1 )   当 有关 代理处 在 相同 管理 域时 ， 实现 对 当前 MIB 的 特定 观察 ； ( 2 )   实现 对 可编程 MIB 的 特定 观察 ； ( 3 )   测试 资源 ； ( 4 )   定义 和 发送 其他 IA 必须 达到 的 目标 . 因此 ， IA 与 其他 IA 之间 有 两种 接口 ， 一种 用于 发送 ， 一种 用于 接收 . 
+ 　 　 上下文 管理员 从 管理员 接收 用户 需求 ， 然后 将 它们 自动 转换成 一定 的 格式 ， 放在 一个 应用 上下文 的 实时 数据库 内 . 该 数据库 存储 不同 上下文 类型 实例 ， 以及 实例 间 的 关系 或 与 IA 域 上 运行 的 应用 的 关系 . 上下文 管理员 还 根据 所 接收 到 的 应用 上下文 进行 目标 建立 ， 并且 当 目标 没有 成功 实现 时 ， 将 事件 转发给 应用 和 管理站 . 此外 ， 上下文 管理员 具有 应用 与 上下文 协商 的 功能 . 
+ 目标 管理员 是 IA 的 核心 . IA 表示 目标 制导 的 行为 ， 目标 按照 用户 需求 动态 建立 . 每当 一个 应用 进入 网络 环境 ， IA 就 有 一组 新 的 目标 . 根据 域 内 网络 组织关系 ， 已 建立 的 目标 需要 与 其他 IA 进行 协同工作 . 因而 ， 目标 管理员 必须 处理 从 上下文 管理员 或者 从 远端 IA 收到 的 目标 监测 所 处 状态 ， 相应 实体 ( 应用 和 远程 IA ) 能够 知道 . 如果 本地 监控 不了 目标 ， 则 要 转发 至 其他 位置 更 有利于 监控 的 IA . 目标 管理员 和 上下文 管理员 共享 一个 实时 数据库 ， 该 数据库 存放 目标 和 上下文 入口 之间 的 关系 ， 因而 当 目标 不 成功 时 ， 上下文 管理员 能够 决定 哪个 上下文 参数 受到 影响 . 
+ 　 　 IA 引擎 有 3 个 功能模块 . ( 1 )   观察器 ： 监控 网络资源 ， 验证 目标 完成 情况 ， 包括 以下 几种 观察 类型 ： 监控 MIB 值 、 监控 探索 MIB 值 ( 由 观察器 远程 配置 ) 、 测试 网络资源 或 服务提供者 、 阅览 网络 元素 的 系统日志 . 因为 观察 是 根据 目标 进行 ， 当 某个 目标 不能 实现 时 ， 观察器 通知 分析器 是 哪个 目标 不 成功 . 然后 ， 由 分析器 决定 调用 诊断 过程 . ( 2 )   分析器 ： 按照 观察器 的 请求 ， 进行 故障诊断 和 性能 分析 . 因为 分析器 知道 失败 的 目标 以及 与 服务 、 子系统 或 资源 的 相应 关系 ， 所以 它 至少 要 准确 地 知道 从 哪里 起动 诊断系统 . 分析器 工作 完成 后 ， 还 把 带 标识 的 故障 交给 纠错 器 ， 由 纠错 器 进行 修复 . ( 3 )   纠错 器 ： 负责 故障 恢复 . 在 准确 定位 故障 子系统 或 资源 后 ， 纠错 器 力图 使 其 回到 正常 状态 ， 在 数据库 或 知识库 上 调用 内部 处理过程 进行 修复 . 应该 注意 到 局域网 的 几个 服务 依赖于 远程 进程 ， 例如 ， 在 多数 情况 下 ， 重新启动 将 使 有关 服务 恢复 到 正常 状态 . 
+ 5   结   论 
+ 　 　 由于 大规模 网络 的 资源 和 相应 行为 的 无穷无尽 、 各式各样 ， 以及 特定 QoS 的 应用 需求 ， 网络系统 的 管理 十分复杂 . 目前 在 研究 、 应用 、 产品开发 和 标准化 组织 等 各 方面 的 许多 专家 和 研究 人员 都 十分 注重 网络管理 领域 的 突破性 进展 和 新一代 的 网络管理 产品 ， 但是 至今 仍然 没有 出现 令人满意 的 研究成果 和 全面 的 解决方案 . 本文 给出 了 在 网络 智能 管理 方面 研究 的 一些 想法 和 结果 . 
+ 文章 提出 一个 网络 智能 管理系统 的 体系结构 框架 ， 分为 两个 层次 . 在 上 一 层次 ， IMN 系统 包括 管理员 和 专家系统 两个 主要 模块 . 管理 任务 由 管理员 协调 专家系统 共同完成 ， 管理员 模型 和 ES 模型 被 定义 . 文章 特别 提出 一个 基于 不同 人工智能 技术 的 智能 故障 管理 专家系统 ， 能够 用于 解决 网络故障 管理 中 的 特定 问题 . 在 下 一 层次 ， IMN 系统 借助 智能 代理 考虑 关键 应用 的 用户 需求 ， 给出 了 一个 增强型 管理 结构 和 IA 框架 以及 有关 主要 模块 . 
+ * 　 本文 研究 得到 国家自然科学基金 、 国家 863 高科技 项目 基金 和 江苏省 自然科学 基金 资助 . 
+ 作者简介 　 罗军舟 , 1960 年生 , 教授 , 主要 研究 领域 为 协议 工程 ， 形式 技术 ， 网络管理 ， 网络安全 . 
+ 　 　 　 　 　 顾 冠群 , 1940 年生 , 教授 ， 博士生 导师 ， 中国工程院 院士 , 主要 研究 领域 为 高性能 网络 ， 分布 对象 计算 ， 协议 工程 ， 网络管理 ， CIMS 网络 . 
+ 　 　 　 　 　 费翔 , 1970 年生 , 博士生 , 主要 研究 领域 为 协议 工程 ， 网络管理 ， Petri 网 应用 ， CIMS 网络 . 
+ 　 　 　 　 　 方宁生 , 1957 年生 , 工程师 , 主要 研究 领域 为 网络管理 ， 电信 网络管理 ， 网络协议 . 
+ 　 　 　 　 　 姜浩 , 1958 年生 , 副教授 ， 主要 研究 领域 为 网络管理 ， CIMS 网络 ， 协议 工程 . 
+ 本文 通讯联系 人 : 罗军舟 ， 南京 210096 ， 东南大学 计算机科学 与 工程系 
+ 作者 单位 ： 东南大学 计算机科学 与 工程系 　 南京 　 210096 
+ E - mail :   jluo @ seu . edu . cn 
+ 参考文献 
+ 　 1 　 Zhang   C .   The   design   and   implementation   of   a   knowledge - based   communication   system   in   a   framework   for   distributed   expert   systems .   IEEE   Transactions   on   Communications ,   1995 , 43 ( 5 ) : 1926 ～ 1936 
+ 　 2 　 Mansfield   G   et   al .   The   MIKB   model   for   intelligent   network   management .   In :   Proceedings   of   IEEE   International   Conference   on   Communications .   1993 .   1210 ～ 1214 
+ 　 3 　 Rabie   S .   Integrated   network   management :   technologies   and   implementation   experience .   In :   Proceedings   of   the   INFOCOM   ' 92 .   1992 .   1020 ～ 1027 
+ 　 4 　 Fei   Xiang ,   Wu   Jie - yi ,   Luo   Jun - zhou   et   al .   Intelligent   integrated   network   management   based   on   distributed   cooperative   multi   agent   model .   In :   Siriruchatapong   Pansak   eds .   Proceedings   of   the   CSCWID ' 97 .   Beijing :   International   Academic   Publishers ,   1997 .   492 ～ 495 
+ 　 5 　 Filipiak   J .   Design   of   network   management   architectures   for   heterogeneous   networks   using   object   oriented   approach .   In :   Proceedings   of   the   Integrated   Network   Management ,   III .   1993 .   59 ～ 70 
+ 　 6 　 Wiele   J   D .   Meeting   network   management   challenges :   customization ,   integration   and   scalability .   In :   Proceedings   of   IEEE   International   Conference   on   Communications .   1993 .   1197 ～ 1204 
+ 　 7 　 Fei   Xiang ,   Luo   Jun - zhou ,   Gu   Guan - qun   et   al .   Modeling   of   intelligent   integrated   network   management   system   using   object   oriented   approach .   Journal   of   Southeast   University ,   1998 , 14 ( 1 ) : 1 ～ 5 
+ 　 8 　 罗军舟 ， 沈俊 ， 顾 冠群 . 基于 多 代理 系统 的 网络管理 实现 模型 . 见 ： 史 美林 等 编 . 第 1 次 全国 CSCW 学术会议 论文集 . 北京 ： 电子 工业 出版社 ， 1998.194 ～ 198 
+ ( Luo   Jun - zhou ,   Shen   Jun ,   Gu   Guan - qun .   Multi - agent   system   based   network   management   implementation   model .   In :   Shi   Mei - lin   et   al   eds .   In :   Proceedings   of   the   1st   National   CSCW   Workshop .   Beijing :   Publishing   House   of   Electronics   Industry ,   1998 .   194 ～ 198 ) 
+ 　 9 　 Festor   O .   Formal   description   of   managed   object   behavior - A   rule   based   approach .   In :   Proceedings   of   the   Integrated   Network   Management ,   III .   1993 .   45 ～ 58 
+ 本文 1998 - 08 - 20 收到 原稿 , 1999 - 01 - 15 收到 修改稿 

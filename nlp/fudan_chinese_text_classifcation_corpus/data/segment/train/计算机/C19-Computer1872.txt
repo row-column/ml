@@ -1,0 +1,129 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000   Vol.19   No.3   P.53 - 55 
+ 
+ 
+ 
+ Windows   NT   4.0 下无盘 工作站 的 建立 方法 
+ 姚卫新 
+ 　 　 摘 　 要 ： 在 Windows   NT 环境 下用 NE2000 兼容 网卡 建立 无盘 工作站 的 方法 。 
+ 　 　 关键词 ： 远程 启动   无盘 工作站   服务器   机器 目录 
+ 1   远程 启动 工作 原理 和 过程 
+ 　 　 客户机 上电后 , 初始化 网卡 , 网卡 BootROM 上 固化 的 软件 向 网络 广播 1 个 FIND 帧 , 即 引导 请求 帧 , 该 帧 中 包含 有 客户机 的 网卡 ID 号 。 
+ 　 　 服务器端 的 远程 启动 服务 接收 到 客户机 广播 的 FIND 帧 后 , 根据 帧 中 所 带 的 网卡 ID 号 在 远程 启动 数据库 中 查找 相应 的 工作站 记录 , 如果 不 存在 这样 1 个 记录 , 引导 过程 不能 继续 ; 如果 此 工作站 记录 已经 存在 , 远程 启动 服务 则 发送 1 个 FOUND 帧 给 客户机 , FOUND 帧 中 已 包含 了 服务器 的 网卡 ID 。 
+ 　 　 当 网络 上 有数 台 服务器 在 运行 远程 启动 服务 时 , RPLROM 有 可能 会 接收 到 多个 FOUND 帧 , 但 RPLROM 只 对 它 收到 的 第 1 个 FOUND 帧 有 反应 , 它 将 根据 第 1 个 FOUND 帧 中 所 带 的 服务器 网卡 ID 号 , 返回 1 个 SEND . FILE . REQUEST 帧 给 对应 的 服务器 。 SEND . FILE . REQUEST 帧 是 1 个 要求 服务器发送 文件 的 请求 。 
+ 　 　 服务器端 的 远程 启动 服务 在 收到 SEND . FILE . REQUEST 帧 后 , 将 根据 远程 启动 数据库 的 工作站 记录 查找 对应 的 启动 块 （ BootBlock ） , 用 FILE . DATA . RESPONSE 帧 将 启动 块 送回 客户机 端的 RPLROM 。 
+ 　 　 RPLROM 在 收齐 所有 的 FILE . DATA . RESPONSE 帧 后 , 将 执行 点 转向 启动 块 的 入口 , 启动 工作站 。 工作站 以 Win95 实 模式 启动 后 , 将 创建 1 个 RAM 盘 , 并 将 Win95 实 模式 文件 从 远程 启动 服务器 拷贝到 RAM 盘 , 加载 Win95 实 模式 网络设备 启动 并 建立 1 个 到 SBS 服务器 的 连接 。 最后 , 连接 到 该 客户机 的 机器 目录 （ MachineDirectory ） 所在 的 服务器 上 , 并 根据 机器 目录 中 的 有关 设置 及 数据 完成 Win95 启动 过程 。 
+ 2   服务器 设置 
+ 　 　 设 NT 安装 在 C ： \ WINNT 目录 下 , 工作站 网卡 是 SN2000 + , 用 附带 程序 设置 该卡 I / O = 300 , IRQ = 3 , BOOTADRESS = C800 （ 尽量 用此 设置 ） , 其 卡号 前 6 位为 52544C （ 通过 网卡 的 附带 程序 测 得 ） 。 
+ 　 　 通过 “ 控制面板 \ 网络 \ 添加 协议 ” 添加 DLC 通信协议 。 通过 “ 控制面板 \ 网络 \ 添加 服务 ” 添加 远程 启动 服务 。 
+ 　 　 通过 “ 控制面板 \ 服务 ” 激活 “ 服务 ” 对话框 , 在 “ 启动 类型 ” 选项 中 选中 “ 自动 ” , 再 单击 “ 确定 ” 即可 。 
+ 3   建立 DOS 环境 下 的 无盘 工作站 
+ 3.1   增加 网卡 
+ 　 　 在 众多 的 网卡 中 , 卡号 前 6 位 数字 为 0020AF 和 00608C 的 网卡 直接 支持 NT 的 远程 启动 , 如果 选用 的 网卡 是 这 2 种 , 那么 就 可以 忽略 本 段 内容 。 
+ 　 　 在 MS - DOS 方式 下 执行 RPLCMD , 对 每 一步 的 提示 按 如下 说明 来 填写 。 
+ C ： \ WINNT \ RPLCMD . EXE 
+ 适配器   引导 Config 配置文件   服务 代理商 WKSTA 
+ ［ 退出 ］ ： V （ Vender ） 
+ （ Adapter   Boot   Config   Profile   Vender ［ Quit ］ ） 
+ Add   Del   Enum  A （ Add ） 
+ VenderName = 52544 （ 输入 卡号 前 6 位 ） 
+ all   other   parameters   are   optional 
+ VenderComment = 
+ 适配器   引导 Config 配置文件   服务 代理商 WKSTA 
+ ［ 退出 ］ ： B （ Boot   Block ） 
+ Add   Del   Enum  A 
+ BootName = bootdos 
+ VendorName = 52544C （ 对应 VendorName ） 
+ BbcFile = BBLOCK \ NETBEUI \ NE2000 \ DOSBB . CNF 
+ all   other   parameters   are   optional 
+ BootComment = 
+ WindowSize = 
+ 适配器   引导 Config 配置文件   服务 代理商 WKSTA 
+ ［ 退出 ］ ： C （ Config ） 
+ Add   Del   Enum  A 
+ ConfigName = configdos 
+ BootName = bootdos （ 对应 BootName ） 
+ DirName = dos 
+ DirName2 = dos622 
+ FitShared = fits \ dos622 . fit 
+ FitPersonal = fits \ dos622p . fit 
+ all   other   parameters   are   optional 
+ ConfigComment = CONFIGDOS622 
+ DirName3 = 
+ DirName4 = 
+ 适配器   引导 Config 配置文件   服务 代理商 WKSTA 
+ ［ 退出 ］ ： Q 
+ 3.2   建立 无盘 工作站 
+ 　 　 将 DOS6.22 的 文件 复制到 C ： \ WINNT \ RPL \ RPLFILES \ BINFILES \ DOS622 下 , 并 解除 MSDOS . SYS 和 IO . SYS 的 S 和 H 属性 。 
+ 　 　 启动 “ 远程 启动 管理器 ” , 执行 “ 配置 \ 检查 配置 ” 并 选择 “ 是 ” ; 执行 “ 配置 \ 修复 安全性 ” , 选择 “ 是 ” 。 
+ 　 　 建立 启动 配置文件 （ profile ） , 注意 选择 建立 的 新 配置 : CONFIGDOS622 
+ 　 　 用建好 的 配置文件 建立 新 的 工作站 , 在 “ WKSTA ” 处 输入 工作站 名 , 如 : STATION1 ; 在 “ 适配器 ID ” 处 输入 卡号 , 例如 : 52544C1B1E60 。 
+ 　 　 启动 远程 工作站 。 
+ 4   建立 Windows   95 环境 下 的 无盘 工作站 
+ 4.1   安装 Windows   95 共享 文件 
+ 　 　 在 NT 服务器 上建 一 共享 目录 （ 如 PWIN95 . SBS ） 用于 保存 公共 文件 , 并建 另 一 共享 目录 （ 如 : PWIN95RPL ） 用于 保存 每台 工作站 的 私有 文件 。 
+ 　 　 登录 1 台 普通 的 Windows   95 工作站 , 将 Windows   95 安装 光盘 放入 光驱 中 , 执行 NETSETUP . EXE , 此 程序 可以 在 升级版 WINDOWS95 的 ADMIN \ NETTOOLS \ NETSETUP 目录 中 找到 , 或 从 网上 下载 。 将 Windows   95 的 文件 安装 到 \ \ YWXSERVER \ PWIN95 . SBS 中 （ 其中 YWXS - ERVER 为 服务器 名 ） 。 按 缺省值 完成 安装 即可 。 
+ 　 　 在 服务器 上 放入 Windows   NT 光盘 , 执行 CLIENTS \ RPL \ UPDATE \ WIN95 下 的 WIN95SRV . BAT 文件 。 此 步骤 使 PWIN95 . SBS 中 的 文件 具有 网络 安装 功能 。 格式 为 : WIN95SRV   D ： \ PWIN95 . SBS 
+ 4.2   安装 网卡 
+ 　 　 在 服务器 的 MS - DOS 方式 下 执行 RPLCMD , 并 按 下列 说明 填写 。 
+ C ： \ WINNT \ RPLCMD 
+ 适配器   引导 Config 配置文件   服务 代理商 WKSTA 
+ ［ 退出 ］ ： B 
+ Add   Del   Enum  A 
+ BootName = bootwin 
+ VenderName = 52544C 
+ BbcFile = BBLOCK \ NETBEUI \ NE2000 \ W95BB . CNF 
+ all   other   parameters   are   optional 
+ BootComment = 
+ WindowSize = 
+ 适配器   引导 Config 配置文件   服务 代理商 WKSTA 
+ ［ 退出 ］ ： C 
+ Add   Del   Enum  A 
+ ConfigName = configwin 
+ BootName = bootwin 
+ DirName = dos 
+ DirName2 = win95 
+ FitShared = fits \ win95 . fit 
+ FitPersonal = fits \ win95p . fit 
+ all   other   parameters   are   optional 
+ ConfigComment = CONFIGPWIN95 
+ DirName3 = 
+ DirName4 = 
+ 4.3   安装 Windows   95 无盘 工作站 
+ 　 　 登录 MS - DOS 无盘 工作站 , 映射 网络 驱动器 。 因为 Windows   95 远程 启动 时 首先 映射 C盘 , 所以 工作站 本地 硬盘 和 光盘 盘符 从 D 开始 , 另外 由于 Windows   95 还 需要 1 个 虚拟盘 （ RAMDRIVE ） , 所以 需要 保留 1 个 盘符 给 RAMDRIVE 。 
+ 　 　 　 NET   USE   F ： \ \ NTS4 \ PWIN95 . SBS 
+ 　 　 　 NET   USE   G ： \ \ NTS4 \ PWIN95RPL 
+ 　 　 在 F盘 上 执行 SETUP , 将 Windows   95 安装 到 G ： \ CLIENT1 目录 下 。 安装 出现 “ Setup   Options ” , 选择 “ Custom ” ; 出现 “ Analyzing   Your   Computer ” 对话框 时 选择 “ NoI   want   to   modify   the   hardware   list ” , 并 删除 所有 硬件 ; 出现 “ Network   Configuration ” 对话框 时 , 请 利用 “ 选择 网卡 Properties   Resources ” 设置 网卡 的 IRQ 和 I / O 地址 。 其余 选择 Windows   95 的 缺省值 。 
+ 　 　 运行 “ 远程 启动 管理器 ” , 执行 “ 检查 配置 ” 和 “ 修复 安全性 ” , 建立 1 个 使用 “ CONFIGPWIN95 ” 配置 的 profile , 例如 : PWIN95PRO 。 
+ 　 　 执行 服务器 上 的 C ： \ WINNT \ RPL \ BIN \ WIN95CLT . BAT 建立 配置文件 与 工作 目录 及 服务器 的 对应 关系 , 例如 : Win95clt   d ： \ 95rpl \ client1 \ \ YWXSERVER   PWIN95PRO 。 
+ 　 　 修改 C ： \ PWIN95 . SBS 目录 下 的 MACHINES . INI 文件 。 加入 工作站 的 启动 信息 , 例如 : 
+ 　 　 　 　 ［ 52544C1B1E60 ］ 
+ 　 　 　 　 　 SYSDATPATH = G ： \ CLIENT1 
+ 　 　 　 　 　 G = \ \ YWXSERVER \ PWIN95RPL 
+ 　 　 更换 工作站 的 profile 为 PWIN95PRO , 重新启动 工作站 , 当 出现 “ Type   the   username , or   press   enter   if   it   is   52544C1B1E60 : ” 时 , 注意 输入 用户名 , 例如 : STATION1 , 即可 完成 以后 的 安装 。 
+ 5   安装 其它 Windows   95 无盘 工作站 
+ 　 　 启动 1 台 MS - DOS 的 无盘 工作站 。 
+ 　 　 在 1 台 普通 的 Windows   95 工作站 上 执行 Windows   95 光盘 上 的 NETSETUP . EXE 程序 。 出现 “ 服务器 安装 ” 对话框 时 , 单击 “ 设置 路径 ” 。 
+ 　 　 出现 “ 服务器 路径 ” 对话框 时 , 输入 : \ \ YWXSERVER \ PWIN95 . SBS , 单击 “ 确定 ” 。 
+ 　 　 单击 “ 机器 安装 目录 ” 中 的 “ 添加 ” 按钮 , 分别 输入 计算机 名 , 本 机 工作 目录 和 第 1 台无盘 工作站 的 工作 目录 , 例如 : STATION2 ; \ \ YWXSERVER \ PWIN95RPL \ CLIENT2 ; \ \ YWXSERVER \ PWIN95RPL \ CLIENT1 。 继续 完成 以后 的 安装 。 
+ 　 　 在 服务器 上 修改 工作站 的 启动 记录 , 让 它 使用 第 1 台 工作站 的 profile , 修改 MACHINES . INI , 加入 该 工作站 的 信息 （ 方法 同 上 ） 。 
+ 　 　 　 　 　 ［ 52544C1B17B4 ］ 
+ 　 　 　 　 　 　 SYSDATPATH = G ： \ CLIENT2 
+ 　 　 　 　 　 　 G = \ \ YWXSERVER \ PWIN95RPL 
+ 　 　 重新启动 工作站 , 完成 安装 。 
+ 6   建立 无盘 工作站 的 注意事项 
+ 　 　 1 . 在 安装 和 初次 启动 无盘 工作站 时 , 最好 只有 服务器 和 工作站 2 台 机器 。 
+ 　 　 2 . 在 安装 无盘 Win95 时 , 如 出现 编号 为 “ SU - 0013 ” 的 错误 提示 , 需要 通过 设置 CMOS 把 硬盘 禁止 掉 。 
+ 　 　 3 . 安装 DOS 无盘 工作站 时 一定 要 把 IO . SYS 和 MSDOS . SYS 文件 的 系统 、 隐藏 的 属性 清除 掉 , 否则 工作站 启动 登录 时会 出现 错误信息 ; 
+ 　 　 Non - system   disk   for   disk   error 
+ 　 　 Replace   and   press   any   key   when   ready 
+ 　 　 无法 启动 无盘 工作站 。 
+ 　 　 4 . 拷贝到 \ winnt \ rpl \ rplfiles \ binfiles \ DOS6.22 下 的 IO . SYS 和 MSDOS . SYS 必须 是 英文版 DOS6.22 的 系统文件 , 否则 安装 PWin95 不 正常 。 
+ 　 　 5 . 在 DOS 无盘 工作站 上 安装 PWin95 时 , 要 使用 “ CUSTOM ” 方式 , 不要 选用 “ TYPICAL ” 方式 , 否则 , 安装 过程 会 死机 , 而且 下次 再 安装 PWin95 时 不 正常 。 
+ 　 　 6 . 第一次 运行 Windows95 时 , 如果 提示 “ 访问 软盘驱动器 A : 出错 ” , 单击 “ 取消 ” ; 如果 提示 “ 装载 Explorer . exe 出错 ” , 单击 “ 确定 ” , 重新启动 即可 。 
+ 姚卫新 （ 无锡市 中国 纺织 大学 计算机系  214063 ） 
+ 参考文献 
+ 1 ， 詹文军 . Windows   NT4 组网 与 管理 基础教程 . 北京 : 机械 工业 出版社 , 1998 , 205 
+ 2 ， 陆晨音 . Windows   NT   4.0 系统 下 远程 引导 的 设置 与 管理 . 计算机系统 应用 , 1998 ; ( 11 ) 
+ 收稿 日期 ： 1999 - 09 - 06 

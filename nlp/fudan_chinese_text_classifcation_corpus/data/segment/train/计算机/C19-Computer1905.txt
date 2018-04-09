@@ -1,0 +1,112 @@
+微型机 与 应用 
+ WEIXINGJI   YU   YINGYONG 
+ 2000 　 Vol.19 　 No.5 　 P.31 - 32 
+ 
+ 
+ 
+ 
+ ASP 的 Session 对象 在 网上 购物 系统 中 的 应用 
+ 林 鹤鸣 
+ 摘   要 ： ASP 是 近年来 新兴 的 动态 网页 设计 技术 ， Session 对象 在 ASP 编程技术 中 占有 相当 重 的 份量 。 本文 通过 网上 购物 系统 的 一个 侧面 ， 介绍 Session   对象 的 应用 。 
+ 关键词 ： ASP   Session 对象   购物 网页 
+ 1   网上 购物 系统 基本 构架 
+ 　 　 网上 购物 是 当今 Internet 应用 十分 热门 的 话题 。 一个 网上 购物 系统 的 基本 构架 包括 ： 
+ 　 　 （ 1 ） 主页 。 提供 可 选择 的 购物 分类 ， 让 用户 进入 自己 感兴趣 的 购物 区 ， 即 购物 网页 。 
+ 　 　 （ 2 ） 购物 网页 。 提供 可 选择 的 各种 商品 （ 名称 、 单价 、 简介 、 制造厂 家 、 生产日期 等 ） 任 用户 选购 。 设有 “ 放入 购物袋 ” 按钮 ， 含有 “ 查看 购物袋 ” ， “ 退回 所有 商品 ” ， 及 各 分类 购物 网页 的 连接 。 
+ 　 　 （ 3 ） 查看 购物袋 网页 。 列出 用户 选择 的 所有 商品 ， 能 更改 所选 某 商品 的 数量 ， 取消 选中 的 某 商品 。 
+ 　 　 （ 4 ） 放入 购物袋 程序 。 把 用户 选择 的 所有 商品 记录 在 Session 对象 中 。 
+ 　 　 （ 5 ） 退回 所有 商品 程序 。 清除 购物袋 内容 。 
+ 　 　 由于 ASP （ Active   Server   Pages ） 的 Session 是 某 一 连接 者 所有 网页 的 共同 对象 ， 可以 用 它 来 记录 用户 在 不同 网页 上 选购 的 商品 。 如 放入 购物袋 程序 、 购物 网页 、 查看 购物袋 网页 ， 就是 Session 对象 的 一个 很 好 的 应用 。 
+ 2   Session 对象 在 购物 网页 和 购物袋 程序 中 的 应用 
+ 　 　 购物 网页 的 主体 是 数据 表单 。 可以 在 数据 表单 内 引入 表格 ， 结合 复选框 形式 来 展示 数据库 内 各种 商品 ， 为 方便 起 见 ， 只 列出 商品编号 、 名称 、 单价 、 简介 。 表单 设有 “ 放入 购物袋 ” 按钮 ， 当 按 下此 按钮 时 指定 服务器端 执行 放入 购物袋 程序 。 放入 购物袋 程序 把 在 本 购物 网页 所 选购 的 商品编号 先 放在 1 个 Products 数组 中 ， 使用 以下 命令 ： 
+ 　 　 Products ＝ Split   （ Request   （ ″ ProductID ″ ） ， ″ ， ″ ） 
+ 　 　 式 中 Split 函数 能 把 所 选中 的 商品编号 分割 成 字符串 数组 。 这样 经 Split 处理 后 ， Products 就 成为 所 选中 商品编号 的 1 个 数组 。 如 ： 
+ 　 　 Products （ 0 ） ＝ ″ 1002 ″ ， Products （ 1 ） ＝ ″ 1004 ″ ， Products （ 2 ） ＝ ″ 1008 ″ 
+ 　 　 然后 把 这个 数组 成员 追加 到 一个 总 购物 字符串 变量 ProductList 中 ， 如下 代码 ： 
+ 　 　 ＜ ％ 
+ 　 　 　 　 ProductList ＝ Session （ ″ ProductList ″ ） 　 　 　 　   ′ 还原 Session   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ′ （ ″ ProductList ″ ） 中 内容 
+ 　 　 　 　 For   I ＝ 0   To   Ubound （ Products ） 
+ 　 　 　 　 　 If   Len （ ProductList ）   ＝   0   Then 
+ 　 　 　 　 　 　 　 ProductList   ＝ ″ ′ ″   ＆   ProductID   ＆   ″ ′ ″   
+ 　 　 　 　 　 ElseIf   InStr （ ProductList ， ProductID ） ＜ ＝   0   Then 
+ 　 　 　 　 　 　 　 ProductList ＝ ProductList   ＆   ″ ， ′ ″   ＆   ProductID   ＆   ″ ′ ″   
+ 　 　 　 　 　 End   If 
+ 　 　 　 　 Next 
+ 　 　 　 　 Session （ ″ ProductList ″ ） ＝ ProductList   　 　 　 ′ 将 追加 好 的 Pro － 
+ 　 　 　 　 　 　 　 　 ductList 存储 于 Session （ ″ ProductList ″ ） 对象 中 
+ ％ ＞ 
+ 　 　 总 购物 字符串 变量 ProductList 存放 的 是 用户 在 各 购物 网页 所 选购 的 商品编号 ， 内容 如 ： 
+ 　 　 ProductList ＝ ″ ′ 2001 ′ ， 2006 ′ ， ′ 1002 ′ ， ′ 1004 ′ ， ′ 1008 ′ ″ 
+ 3   Session 对象 在 查看 购物袋 网页 中 的 应用 
+ 　 　 查看 购物袋 网页 设计 的 主要 功能 是 列出 用户 所 选购 的 商品 、 能 更改 所选 某 商品 的 数量 、 取消 选中 的 某 商品 、 统计 金额 。 为了 列出 用户 所 选购 的 商品 ， 必须 ： 
+ 　 　 （ 1 ） 把 存储 于 Session （ ″ ProductList ″ ） 中 内容 还原 回来 ， 使用 以下 命令 ： 
+ 　 　 ProductList ＝ Session （ ″ ProductList ″ ） 
+ 　 　 （ 2 ） 建立 连接 对象 ， 打开 数据库 ， 设定 SQL 命令 ， 使用 Execute 命令 执行 访问 数据库 的 操作 。 如下 代码 ： 
+ 　 　 ＜ ％ 
+ 　 　 　 　 DbPath ＝ SERVER ． MapPath （ ″ ShopBag ． mdb ″ ） 
+ 　 　 　 　 Set   conn ＝ Server ． CreateObject （ ″ ADODB ． Connection ″ ）   
+ 　 　 　 　 conn ． open   ″ driver ＝ ｛ Microsoft   Access   Driver   （ ＊ ． mdb ） ｝ ； 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 dbq ＝ ″   ＆   DbPath 
+ 　 　 　 　 sql ＝ ″ Select ＊ From   Products ″   ′ 这里 的 Products 是 
+ 　 　 　 　 　 　 　 　 　 　 　 　   ′ ShopBag ． mdb 数据库 的 1 个 数据表 
+ 　 　 　 　 sql ＝ sql   ＆   ″ Where   ProductID   In   （ ″   ＆   ProductList   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ＆   ″ ） ″ 
+ 　 　 　 　 sql ＝ sql   ＆   ″ Order   By   ProductID ″ 
+ 　 　 　 　 Set   rs   ＝   conn ． Execute （ sql ） 
+ 　 　 ％ ＞ 
+ 　 　 由于 调用 conn ． Execute 命令 建立 了 1 个 Recordset 对象 ： rs    则 rs 中 的 数据 记录 即 是 被 选中 的 商品 的 记录 。 
+ 　 　 （ 3 ） 利用 数据 表单 引入 表格 来 展示 rs 中 数据 记录 ， 表头 格式 为 ： 
+ 　 　 ＜ TR   BGCOLOR ＝ ＃ 00FFFF ＞ 
+ 　 　 ＜ TD ＞ 取消 ＜ ／ TD ＞ ＜ TD ＞ 商品编号 ＜ ／ TD ＞ ＜ TD ＞ 商品名称 ＜ ／ TD ＞ ＜ TD ＞ 单价 ＜ ／ TD ＞ ＜ TD ＞ 数量 ＜ ／ TD ＞ ＜ TD ＞ 总价 ＜ ／ TD ＞ ＜ TD ＞ 商品 简介 ＜ ／ TD ＞ ＜ ／ TR ＞ 
+ 　 　 用 以下 代码 列出 rs 中 所有 被 选中 的 商品 的 记录 ： 
+ 　 　 ＜ ％ 
+ 　 　 　 　 While   Not   rs ． EOF 
+ 　 　 　 　 　 Quatity ＝ CInt （ Request （ ″ Q ＿ ″   ＆   rs （ ″ ProductID ″ ） ）   ） 
+ 　 　 　 　 　 If   Quatity   ＜ ＝   0   Then 
+ 　 　 　 　 　 　 Quatity ＝ CInt （   Session （ rs （ ″ ProductID ″ ） ）   ） 
+ 　 　 　 　 　 　 If   Quatity   ＜ ＝   0   Then   Quatity ＝ 1 
+ 　 　 　 　 End   If 
+ 　 　 　 　 Session （ rs （ ″ ProductID ″ ） ） ＝ Quatity 
+ 　 　 　 　 Sum ＝ Sum ＋ CDbl （ rs （ ″ Price ″ ） ） ＊   Quatity 
+ 　 　 ％ ＞ 
+ 　 　 ＜ TR ＞ 
+ 　 　 ＜ TD   Align ＝ Center ＞ 
+ 　 　 ＜ Input   Type ＝ CheckBox   Name ＝ ″ ProductID ″   Value ＝ 
+ 　 　 　 　 　 　 　 　 　 ″ ＜ ％ ＝ rs （ ″ ProductID ″ ） ％ ＞ ″   Checked ＞ 
+ 　 　 ＜ ／ TD ＞ 
+ 　 　 ＜ TD ＞ ＜ ％ ＝ rs （ ″ ProductID ″ ） ％ ＞ ＜ ／ TD ＞ 
+ 　 　 ＜ TD ＞ ＜ ％ ＝ rs （ ″ ProductName ″ ） ％ ＞ ＜ ／ TD ＞ 
+ 　 　 ＜ TD   Align ＝ Right ＞ ＜ ％ ＝ rs （ ″ Price ″ ） ％ ＞ ＜ ／ TD ＞ 
+ 　 　 ＜ TD ＞ ＜ Input   Type ＝ Text   Name ＝ ″ ＜ ％ ＝ ″ Q ＿ ″   ＆   rs （ ″ Pro － 
+ 　 　 　 　 ductID ″ ） ％ ＞ ″   Value ＝ ＜ ％ ＝ Quatity ％ ＞   Size ＝ 3 ＞ ＜ ／ TD ＞ 
+ 　 　 ＜ TD   Align ＝ Right ＞ ＜ ％ ＝ CDbl （ rs （ ″ Price ″ ） ）  Quatity ％ ＞ ＜ ／ TD ＞ 
+ 　 　 ＜ TD ＞ ＜ A   HREF ＝ ＜ ％ ＝ rs （ ″ Link ″ ） ％ ＞ ＞ ＜ ％ ＝ rs （ ″ Description ″ ）   
+ 　 　 　 　 　 　 　 ％ ＞ ＜ ／ A ＞ ＜ ／ TD ＞ 
+ 　 　 ＜ ／ TR ＞ 
+ 　 　 ＜ ％ 
+ 　 　 　 　 　 rs ． MoveNext 
+ 　 　 　 　 Wend 
+ 　 　 ％ ＞ 
+ 　 　 其中 HTML 代码 部分 为 利用 表格 列出 rs 中 所有 被 选中 商品 的 记录 。 为了 能 更改 某 商品 的 数量 ， 用 文本框 形式 由 用户 输入 ， 如 上 代码 中 文本框 输入 命令 ： 
+ 　 　 ＜ TD ＞ ＜ Input   Type ＝ Text   Name ＝ ″ ＜ ％ ＝ ″ Q ＿ ″   ＆   rs （ ″ ProductID ″ ） ％ ＞ ″   Value ＝ ＜ ％ ＝ Quatity ％ ＞   Size ＝ 3 ＞ ＜ ／ TD ＞ 
+ 　 　 用 Session （ rs （ ″ ProductID ″ ） 记录 某 商品 的 数量 ， 如 上 代码 ASP 程序 部分 ： 
+ 　 　 ＜ ％   
+ 　 　 　 　 While   Not   rs ． EOF 
+ 　 　 　 　 Quatity ＝ CInt （ Request （ ″ Q ＿ ″   ＆   rs （ ″ ProductID ″ ） ）   ） 
+ 　 　 　 　 If   Quatity   ＜ ＝   0   Then 
+ 　 　 　 　 　 Quatity ＝ CInt （ Session （ rs （ ″ ProductID ″ ） ）   ） 
+ 　 　 　 　 　 If   Quatity   ＜ ＝   0   Then   Quatity ＝ 1 
+ 　 　 　 　 End   If 
+ 　 　 　 　 　 Session （ rs （ ″ ProductID ″ ） ） ＝ Quatity 
+ 　 　 　 　 　 rs ． MoveNext 
+ 　 　 　 Wend 
+ 　 　 ％ ＞ 
+ 　 　 其中 Session （ rs （ ″ ProductID ″ ） ） ＝ Quatity   是 将 用户 确定 的 数量 记录 在 Session （ rs （ ″ ProductID ″ ） 对象 中 。 
+ 　 　 为了 更 详细 了解 程序 内容 ， 请参阅 参考文献 1 光盘 。 
+ 林 鹤鸣 （ 广州 广东省 电力工业 学校 计算中心  510520 ） 
+ 参考文献 
+ ［ 1 ］ 王国 荣 ． Active   Server   Pages   ＆   Web 数据库 ． 北京 ： 人民   邮电 出版社 ， 1999 
+ ［ 2 ］ 杨内 ， 江南 ． 精品 动态 网页 制作 ． 北京 ： 清华大学出版社 ， 1999 
+ ［ 3 ］ 林金霖 ． ASP 实务 经典 ． 北京 ： 中国 铁道 出版社 ， 1999 
+ 收稿 日期 ： 2000 － 02 － 10 

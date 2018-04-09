@@ -1,0 +1,122 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 8 期   Vol.25   No.8   1999 
+ 
+ 
+ 
+ 动态 监控 的 一种 实现 方法 
+ 张发 ， 赵巧霞 
+ 摘要 ： 介绍 了 一种 在 网络 环境 下 适用范围 较广 的 动态 监控 实现 方法 。 
+ 关键词 ： 动态 监控 ； NetBios 协议 ； 消息 循环 ； 定时器 
+ An   Implement   Method   of   Dynamic   Monitor 
+ Zhang   Fa , Zhao   Qiaoxia 
+ ( Aeronautic   Management   Department   of   Air   Force   College   of   Engineering , Xian   710038 ) 
+ 【 Abstract 】 Each   computer   in   a   network   must   does   its   work , at   the   same   time   all   of   them   should   cooperate   to   full   the   system   function . The   single   master / mulit   slave   mode   is   often   used . In   a   mode   liki   this , a   function   of   dynamic   monitor   is   needed . In   this   paper , a   method   of   implement   is   given . 
+ 【 Key   words 】 Dynamic   monitor ; NetBios   protocol ; Message   loop ; Timer 
+ 1   总体 实现 技术   
+ 　 　 动态 监控 实现 的 一般 过程 为 ： 首先 各 工作站 之间 建立 连接 ， 启动 监控 进程 ， 受控 机 建立 发送 队列 ， 主控 机 建立 接收 队列 ； 当某 受控 机状态 改变 时 ， 发送 状态 消息 到 主控 机 ， 而 主控 机 一直 处于 侦听 状态 ， 接受 到 状态 消息 后 进行 处理 ， 并 在 需要 时 给 以 显示 ； 最后 撤除 发送 、 接受 队列 ， 断开连接 ， 终止 监控 进程 。   
+ 　 　 监控 软件 的 实现 有   3   层 ， 由 底向上 依次 为 网络通信 、 状态 发送 与 接受 、 动态显示 。 下面 详细 说明 应用程序 的 具体 实现 。   
+ 2   动态 监控 的 具体 实现 
+ 　 　 ( 1 )   网络通信   
+ 　 　 由于 系统 中 各 工作站 可能 采用 不同 的 操作系统 ， 如 在 智能 人工 长途 话务 系统 中 ， 班长 台 为主 控机 ， 采用   Windows   3 . X   操作系统 。 各 话务台 为 受控 机 ， 采用   DOS   操作系统 。 为 保证 计算机 之间 的 通信 采用 了 通用性 强 的   NetBios   协议 。 在 软件开发 时为 便于 程序 使用 ， 对   NetBios   进行 了 面向对象 的 封装 ， 设计 了 消息 类 和 消息 发送 、 接受 队列 类 ， 通过 使用 类 对象 实现 消息 的 发送 与 接收 。 这样 动态 监控 的 通信 底层 支持 已经 具备 。   
+ 　 　 ( 2 )   状态 信息 发送 与 接收   
+ 　 　 一般 系统 中有 一台 主控 机 多台 受控 机 ， 当某 一台 受控 机 发生 状态 改变 时 ， 主动 发送 消息 给 主控 机 。 消息 发送 一侧 比较简单 ， 下面 讨论 消息 接收 技术 。   
+ 　 　 主控 机 作为 消息 的 接收 方 ， 一 要 保证 消息 不 丢失 ， 二要 保证 消息 能 得到 及时处理 。 为了 做到 不 丢失 消息 ， 采用   NetBios   异步 通信 机制 和 队列 缓冲 技术 。 具体 实现 为 ： 当有 网络 事件 时 ， 由   NetBios   后处理 例程 处理 ， 取出 消息 并 放入 接收 消息 队列 ， 只要 选取 合适 的 队列 长 ， 就 可 保证 实用 意义 上 的 不 丢失 。   
+ 　 　 为 保证 消息 的 及时处理 ， 应对   Windows   的 应用程序 机制 深入研究 ，   Windows   程序 的 入口 为   WinMain   函数 ， 用   C   语言 描述 概略 结构 如下 ：   
+ 　 　 int   Pascal   WinMain ( Handle   , Handle   , LPSTR , int )   
+ 　 　 {   
+ 　 　 / /   变量 声明 、 初始化   
+ 　 　 / /   注册   
+ 　 　 / /   创建 窗口   
+ 　 　 / /   显示 窗口   
+ 　 　 / / * * *   消息 循环   * * *   
+ 　 　 while ( GetMessage ( & msg , NULL , 0 , 0 ) )   
+ 　 　 {   
+ 　 　 TranslateMessage ( & msg ) ;   
+ 　 　 DispatchMessage ( & msg ) ;   
+ 　 　 }   
+ 　 　 return   msg . wParam ;   
+ 　 　 }   
+ 　 　 消息 循环 在 其中 起着 非常 重要 的 作用 ， 应用程序 启动 后 ， 它 就 在 不停 地 执行 。 利用 这一 特点 ， 把 需要 及时处理 的 任务 放到 消息 循环 中 ， 就 可以 使 网络 消息 得到 最大 可能 的 及时处理 。 在   Borland   C++   的   OWL   中 对 消息 循环 进行 了 封装 ， 它 是 在   TApplication   类 的 成员 函数   MessageLoop ( )   中 实现 的 ， 其 具体 过程 是 ：   
+ 　 　 void   TApplication : : MessageLoop ( )   
+ 　 　 {   
+ 　 　 　 MSG   Message ;   
+ 　 　 　 while   (   TRUE   )   
+ 　 　 　 {   
+ 　 　 　 　 / /   此处 插入 特定 的 需 及时处理 例程 ， 如下 一行 所示   
+ 　 　 　 　 / / HandleNetWorkEvent ( ) ;   
+ 　 　 if ( PeekMessage ( & Message , 0 , 0 , 0 , PM _ REMOVE )   ) 
+ 　 　 　 　 {   
+ 　 　 　 　 if   (   Message . message   = =   WM _ QUIT   )   break ;   
+ 　 　 　 　 if   (   ! ProcessAppMsg ( & Message )   )   
+ 　 　 　 　 {   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 TranslateMessage ( & Message ) ;   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 DispatchMessage ( & Message ) ;   
+ 　 　 　 　 　 　 　 　 　 　 }   
+ 　 　 　 　 }   
+ 　 　 　 　 else   / /   No   message   waiting .   
+ 　 　 　 　 IdleAction ( ) ;   
+ 　 　 　 　 }   
+ 　 　 　 　 Status   =   Message . wParam ;   
+ 　 　 } 
+ 　 　 如 上面 注释 所示 ， 为 保证 网络 消息 及时处理 ， 将 处理 例程   HandleNetWorkEvent (   )   插入   MessageLoop ( )   中 。 需要 指出 的 是 ， 主 消息 循环 中 插入 的 例程 不能 占用 太 长时间 ， 否则 会 使 其它 应用程序 得不到 执行 机会 ， 造成 假死 机 ， 因此 例程 要 尽可能 简单 ， 仅 需 完成 必要 的 操作 ， 将 耗时 操作 放到 主 循环 外面 处理 。 两 部分 处理 例程 可 通过 共享 数据 进行 协调 。 以 程序 中 的 座席 状态 为例 ， 设置 了 两个 变量 来 存储 它 ， 一个 是 状态 改变 标志   bSeatStateChanged   ， 一个 是 状态表 指针   pSeatStateTable   ， 将 两者 定义 为   TMyApplication   类 的   public   数据 成员 。 在 消息 循环 内部 ， 只 需 将 状态 消息 取出 保存 在 状态表 中 ， 其他 处理 操作 放到 消息 循环 外 进行 。   
+ 　 　 网络 事件处理 例程 如下 ：   
+ 　 　 void   TMyApplication : : HandleNetWorkEvent ( )   
+ 　 　 {   
+ 　 　 　 / /   从 消息 接收 队列 中 取出 一条 消息 ， 置入   netInfor   中   
+ 　 　 　 if ( pReceiveQueue - > getNetEvent ( netInfor ) )   
+ 　 　 　 { 　   / /   根据 消息 的 类型 分别 处理   
+ 　 　 　 　 　 switch (   netInfor . command   )   
+ 　 　 　 　 　 {   
+ 　 　 　 　 　 　 　 　 　 　 / /   若 为 状态 更新 消息   case   msgSeatStateChange :   
+ 　 　 　 　 　 　 　 　 　 　 / /   取得 消息 中 包含 的 机器 号 和 最新 状态   int   seatNum   = netInfor . seatNum ;   
+ 　 　 　 　 　 　 　 　 　 　 int   seatState = netInfor . seatState ;   
+ 　 　 　 　 　 　 　 　 　 　 / /   修改 状态表   
+ 　 　 　 　 　 　 　 　 　 　 pSeatStateTable - > modifyTable ( seatNum , seatState ) ;   
+ 　 　 　 　 　 　 　 　 　 　 / /   置 状态 改变 标志 为 真   
+ 　 　 　 　 　 　 　 　 　 　 bStateChanged = TRUE ; 
+ 　 　 　 　 　 　 　 　 　 　 break ;   
+ 　 　 　 　 　 　 　 　 　 　 / /   其它 类型 的 消息   
+ 　 　 　 　 　 　 　 　 　 　 case   …   
+ 　 　 　 　 　 　 　 　 　 　 case   …   
+ 　 　 　 　 　 　 　 　 　 　 default :   
+ 　 　 　 　 　 　 　 　 　 　 break ;   
+ 　 　 　 　 　 　 　 　 　 　 }   
+ 　 　 　 　 　 　 　 　 　 　 }   
+ 　 　 至此 ， 已经 得到 了 最新 的 座席 状态 信息 ， 存放 在   pSeatStateTable   中 ， 然后 使用 它 实现 动态显示 。   
+ 　 　 ( 3 )   动态显示   
+ 　 　 为 实现 动态显示 ， 结合 利用   Windows   的 定时器 和 无 模态 对话框 。 显示 界面 之所以 使用 对话框 而 非 窗口 ， 是因为 对话框 可以 利用 资源 编辑器 创建 ， 可以 非常 方便 地 做出 美观 的 界面 。 对 该 无 模态 对话框 的 使用 有 以下 几步 ：   
+ 　 　 在 使用 前 创建 界面 元素 和 界面 对象 ：   
+ 　 　 TMyWindow : : TMyWindow ( )   
+ 　 　 {   
+ 　 　 … …   
+ 　 　 pSeatStateDialog = new 　 　 TSeatStateDialog ( this , ID _ DLG _ SEATSTATE ) ; 
+ 　 　 GetApplication ( ) - > MakeWindow ( pSeatStateDialog ) ;   
+ 　 　 }   
+ 　 　 在 需要 显示 监控 状态 窗口 时   :   
+ 　 　 ShowWindow ( pSeatStateDialog - > HWindow , SW _ SHOW ) ;   
+ 　 　 在 需要 隐藏 监控 状态 窗口 时   :   
+ 　 　 ShowWindow ( pSeatStateDialog - > HWindow , SW _ HIDE ) ;   
+ 　 　 通过 以上 几步 ， 就 可以 实现 受控 机状态 的 显示 。 更进一步 ， 采用 定时器 对 状态 信息 及时 刷新 ， 实现 动态 监控 。 关于   Windows   定时器 的 论述 已经 非常 多 了 ， 此处 不再 赘述 ， 仅 说明   WM _ TIMER   消息 的 响应函数 。   
+ 　 　 void   TMyWindow : : WMTimer ( RTMessage   Msg )   
+ 　 　 {   
+ 　 　 　 　 / /   其它 处理   
+ 　 　 　 　 　 　 　 　 … …   
+ 　 　 　 　 　 　 　 　 / /   动态 刷新   
+ 　 　 bShowSeatState =   IsWindowVisible (   pSeatStateDialog - >   HWindow ) ;   
+ 　 　 if ( bSeatStateChanged && bShowSeatState )   
+ 　 　 　 　 {   
+ 　 　 　 　 　 　 　 　 pSeatStateDialog - > Refresh ( ) ;   
+ 　 　 　 　 　 　 　 　 bSeatStateChanged = FALSE ;   
+ 　 　 　 　 }   
+ 　 　 } 
+ 　 　 其中 的   bShowSeatState   为 状态 对话框 是否 需要 显示 的 标志 。   
+ 　 　 因为 监控 信息 主要 提供 给 操作 人员 观察 ， 状态 刷新 的 速度 不必 很快 ， 根据 经验 刷新 速度   0.5 ~ 1.0   秒 比较 合适 。 不过 ， 若 是 监控 受控 机 的 显示 屏幕 则 另当别论 。   
+ 3   结束语 
+ 　 　 本文 论述 了 网络 环境 下 实现 动态 监控 的 一般 实现 框架 ， 并 以 状态 监控 为例 ， 给出 了 通过   NetBios   实现 底层 通信 ， 在   Windows   下 实现 动态显示 的 具体 实现 方法 。 关键技术 包括 ： 利用 消息 缓冲 队列 保证 实际意义 下 的 消息 不 丢失 ； 重载   OWL   的   TApplication   类 成员   MessageLoop (   )   实现 网络 事件 的 及时处理 ； 通过 共享 数据 实现 主 消息 循环 内外 处理函数 的 分工协作 ； 结合 利用 无 模态 对话框 和   WM _ TIMER   消息 处理函数 实现 动态显示 。   
+ 作者 单位 ： 空军 工程学院 航空工程 管理系 ， 西安   710038 ； 
+ 　 　 　 　 　 空军 电讯 工程学院 有线 通讯 系 ， 西安   710077 
+ 参考文献   
+ 1   李增智   .   计算机网络 原理   .   西安 ： 西安交通大学 出版社 ，   1990   
+ 2   希望 公司   .   NetBios   C   程序员 指南   . 1991   
+ 3   马强   . Borland   C++   环境 下 的   Windows   编程技术 与 实例   .   青岛 ： 海   洋 出版社 ，   1992   

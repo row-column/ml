@@ -1,0 +1,177 @@
+计算机 应用 
+ COMPUTER   APPLICATIONS 
+ 1999 年   第 19 卷   第 10 期   Vol.19   No.10   1999 
+ 
+ 
+ 
+ 轻度 目录 访问 协议 的 分析 
+ 张军 　 颜凯 
+ 　 　 摘 　 要 　 本文 详细 阐述 了 轻度 目录 访问 协议 ， 包括 该 协议 数据 报 的 分析 以及 协议 操作 中 服务器 与 客户端 的 处理过程 等 大量 细节 。 
+ 　 　 关键词 　 目录 服务 ， LDAP ， 身份 认证 ， Kerberos ， SASL 
+ THE   ANALYSIS   OF   THE   LIGHT   WEIGHT   DIRECTORY   
+ ACCESS   PROTOCOL 
+ Zhang   Jun 　 Yan   Kai   
+ Information   Center   of   University   of   Electronice   and   Technology ,   Sichuan . Chengdu   610054 
+ 　 　 Abstract 　 This   article   illustrates   the   Light   Weight   Directory   Access   Protocol   including   the   details   of   the   protocol   message   and   the   process   of   the   protocol   operations   between   the   servers   and   the   clients   . 
+ 　 　 Keywords 　 Directory   Service ,   LDAP , Authentication ,   Kerberos ,   SASL 
+ 1 　 概述 
+ 　 　 随着 因特网 技术 的 迅猛发展 ， 网络管理 特别 是 基于 用户 和 应用 的 网络管理 ， 成为 网络 进一步 有序 发展 的 关键 。 为此 ， 人们 提出 了 使用 目录 服务 管理网络 上 的 所有 资源 ， 使 网络 上 的 所有 资源 在 管理员 、 用户 和 应用程序 面前 都 表现 为 一个 有序 的 目录 结构 ； 用户 和 应用程序 可以 通过 目录 授权 访问 这些 资源 。 
+ 　 　 实现 通用 式 目录 服务 的 主要 标准 是 1993 年版 ITU - T   X.500 系列 建议 标准 。 ISO 接受 此 建议 ， 把 它 作为 ISO9594 国际标准 。 此 建议 系列 规定 了 信息 模型 ， 通信协议 ， 安全 认证 等 各个方面 。 然而 不幸 的 是 ， X.500 系列 协议 并 不 支持 TCP / IP 协议 。 
+ 　 　 于是 ， IEIF 下 的 ASID 小组 制定 了 轻度 目录 访问 协议 （ Light   Weight   Directory   Access   Protocol ， 简称 LDAP ） ， 其 目标 是 用 较 小 的 代价 在 因特网 上 实现 X.500 大多数 的 功能 。 最终 LDAP 用 相当于 X.500 标准 10% 的 代价 完成 了 其 90% 的 功能 。 这 使得 LDAP 成为 了 因特网 目录 服务 的 标准 。 
+ 2 　 LDAP 协议 分析 
+ 2.1 　 协议 模型 
+ 　 　 LDAP 协议 采用 的 协议 模式 是 ： 一个 客户端 请求 服务器 代替 它 执行 协议 操作 并 把 结果 返回 。 在 这 一 模型 中 ， 自始至终 都 是 客户 处于 主动 ， 客户 传送 一个 协议 请求 到 服务器 ， 服务器 负责 在 目录 中 执行 该 请求 必要 的 操作 。 执行 完 这些 必要 操作 之后 ， 服务器 向 发出请求 的 客户 返回 一个 响应 ， 响应 中 包含 了 执行 请求 所 获得 的 任何 结果 或 错误 。 客户 不再 需要 与 服务器 联系 时 ， 由 客户 断开连接 。 
+ 
+ 图 1 　 LDAP 协议 模型 示例 
+ 　 　 在 LDAP 版本 1 和 版本 2 中 ， 服务器 如果 发现 了 操作 所 需 的 参考 节点 ， 会 继续 跟踪 执行 协议 操作 ， 它 只 向 客户 返回 最终 结果 。 这种 操作 模式 可能 会 带来 性能 上 的 问题 。 为了 解决 这一 问题 ， 在 版本 3 中 允许 服务器 向 客户端 返回 指向 其它 服务器 的 参考 指针 。 这 就 使得 服务器 可以 不用 联系 其它 服务器 以 继续 其 操作 ， 而是 把 这个 服务器 指针 返回 给 客户 ， 由 客户 完成 操作 。 这 虽然 增加 了 一些 客户 的 复杂度 ， 但是 大大提高 了 性能 和 分布式应用 的 能力 。 从 工程 角度看 还是 值得 的 。 
+ 2 .   2 　 数据模型 
+ 　 　 目录 信息 树 （ Directory   Information   Tree ， 简称 DIT ） 及其 相关 概念 构成 了 LDAP 协议 的 数据模型 。 一个 目录 信息 树如图 2 所示 ： 
+ 
+ 图 2 　 目录 信息 树 示例 
+ 　 　 图 2 描述 了 一个 目录 信息 树 。 目录 信息 树 的 根 （ root ） 是 一个 虚根 ， 并 没有 实际意义 。 树中 的 任意 一个 节点 都 是 目录 信息 树 的 一个 入口 （ Entry ） 。 每 一个 节点 旁 的 标注 指明 了 该 入口 的 一个 或 多个 属性 值 ， 构成 了 该 入口 的 相关 辨识 名 （ Relative   Distinguished   Name ， 简称 RDN ） ， 把 该 入口 与 其它 同级 入口 区别 开来 。 从 特定 入口 到 根 的 直接 下级 入口 的 相关 辨识 名 序列 形成 了 该 特定 入口 的 辨识 名 （ Distinguished   Name ， 简称 DN ） ， 可以 在 整个 树中 标识 该 入口 。 
+ 　 　 例如 从 Cn = Zhang   Jun 这一 特定 入口 一直 到 C = CN 入口 存在 一条 唯一 的 路径 ， 路径 上 的 所有 入口 组成 一个 序列 ， 该 序列 的 所有 相关 辨识 名 就 构成 了 本人 的 辨识 名 ： 
+ 　 　 Cn = Zhang   Jun ， Ou = people ， O = UESTC ， C = CN 
+ 　 　 下面 是 一些 LDAP 协议 中 关于 目录 信息 树 的 基本概念 ： 
+ 　 　 目录 信息 树 的 入口 属性 
+ 　 　 目录 信息 树 入口 是 由 一个 属性 集合 组成 的 。 属性 是 由 一个 类型 描述 以及 该 类型 所 具有 的 一个 或 多个 值 组成 。 
+ 　 　 例如 ， 一个 属性 是 “ mail ” ， 则 该 属性 可能 有 一个 或 多个 值 ， 这些 值 必须 是 IA5 （ ASCII ） 字符串 ， 并且 是 大小写 无关 的 （ 即 ， “ zj @ uestc . edu . cn ” 与 “ ZJ @ UESTC . EDU . CN ” 相匹配 ） 。 子 入口 和 子模式 入口 。 
+ 　 　 模式 （ Schema ） 是 一个 集合 ， 其中 包括 了 属性 类型定义 、 对象 类 定义 以及 其它 一些 信息 。 服务器 使用 模式 中 的 信息 来 决定 如何 操纵 一个 入口 。 子模式 入口 用来 管理 与 目录 模式 相关 的 信息 。 下述 四个 属性 必须 出现 在 所有 子模式 入口 中 ： 
+ 　 　 .   cn ： 这个 属性 被 用来 构成 该 子模式 入口 的 RDN 。 
+ 　 　 .   objectClass ： 这个 属性 必须 至少 具有 值 “ top ” 和 “ subschema ” 。 
+ 　 　 .   objectClasses ： 这个 属性 的 每 一个 值 都 定义 了 一种 服务器 知道 的 对象 类 。 
+ 　 　 .   attributeTypes ： 这个 属性 的 每 一个 值 都 定义 了 一种 服务器 知道 的 属性 类型 。 
+ 　 　 服务器 特定 数据 要求 
+ 　 　 一个 LDAP 服务器 必须 提供 关于 它 自己 的 信息 和 其它 用来 指定 每 一个 服务器 的 信息 。 这种 信息 被 称之为 服务器 特定 数据 。 下面 是 一些 服务器 特定 数据 属性 ： 
+ 　 　 .   namingContexts ： 命名 上下文 被 保持 在 服务器 中 。 
+ 　 　 .   subschemaSubentry ： 该 服务器 可 识别 的 子模式 入口 （ 或子 入口 ） 。 
+ 　 　 .   altServer ： 本 服务器 稍后 将 不可 用时 的 替代 服务器 。 
+ 　 　 .   supportedExtension ： 被 支持 的 扩展 操作 列表 。 
+ 　 　 .   supportedControl ： 被 支持 的 控制 列表 。 
+ 　 　 .   supportedSASLMechanisms ： 被 支持 的 SASL 安全 要素 。 
+ 　 　 .   supportedLDAPVersion ： 本 服务器 所 实现 的 LDAP 版本 。 
+ 2.3 　 协议 要素 
+ 2.3 . 1 　 公共 要素 
+ 　 　 LDAP 协议 的 公共 要素 主要 包含 了 LDAPMessage 封装 协议 数据 单元 （ Protocol   Data   Unit ， 简称 PDU ） 的 格式 ， 以及 被 用于 协议 操作 的 其它 数据类型 。 
+ 　 　 .   协议 数据 报 封装 
+ 　 　 为了 达到 协议 交换 的 目的 ， 所有 协议 操作 都 被 封装 在 一个 公共 的 数据 报中 ， 这个 数据 报 就是 LDAPMessage 。 其包 格式 是 一个 队列 ， 队列 中 每 一个 元素 的 定义 如下 ： 
+ 
+ messageIDprotocolOpcontrols 
+ 
+ 　 　 LDAPMessage 的 功能 是 提供 一个 协议 封套 ， 其中 包含 了 所有 协议 交换所 必须 的 公共 域 。 现在 仅 有 的 公共 域 是 数据 报 标识符 Message   ID 和 控制符 controls 。 
+ 　 　 .   字符串 类型 
+ 　 　 LDAP 协议 中 的 字符串 类型 包括 LDAPString 和 LDAPOID 两种 。 
+ 　 　 LDAPString 用于 描述 LDAP 协议 中 的 字符串 类型 。 虽然 LDAPString 的 字符串 类型 是 作为 八位 组 字符串 （ OCTET   STRING ） 编码 的 ， 但是 它 仍然 使用 了 ISO   10646 字符集 ， 其 编码 算法 采用 UTF - 8 。 在 UTF - 8 算法 中 ， 与 ASCII 字符 （ 0x0000 - 0x007F ） 相同 的 字符 采用 与 ASCII 字符集 相同 的 单字节 表示 方式 。 其它 的 字节 值则 被 用于 形成 任意 字符 的 可变 长度 编码 。 
+ 　 　 LDAPString ： ： =   OCTET   STRING 
+ 　 　 LDAPOID 用于 描述 LDAP 协议 中 的 对象 标识符 。 字符串 的 允许值 是 采用 点分 十进制 数值 表示法 ， 它 也 是 经过 UTF - 8 编码 的 。 
+ 　 　 LDAPOID ： ： =   OCTET   STRING 
+ 　 　 例如 ： 1.3 . 6.1 . 4.1 . 1466.1 . 2.3 
+ 　 　 .   结果 数据 报 
+ 　 　 LDAP 协议 使用 LDAPResult 结构 从 服务器 向 客户 返回 成功 或 失败 的 指示 。 为了 响应 多种 请求 ， 服务器返回 的 响应 将 包括 LDAPResult 类型 字段 以 指示 协议 操作 请求 的 最后 状态 。 LDAPResult 数据 报是 一个 队列 ， 队列 中 元素 的 格式 如下 ： 
+ 
+ resultCodematchedDNerrorMessagereferral 
+ 
+ 2.3 . 2 　 绑定 操作 
+ 　 　 绑定 操作 的 功能 是 允许 在 客户 和 服务器之间 交换 身份 认证 信息 。 使 客户 能够 以 服务器 上 一个 合法 对象 的 身份 对 目录 进行 合法 操作 。 
+ 　 　 .   绑定 请求 
+ 　 　 绑定 请求 是 一个 请求 队列 ， 队列 中 元素 的 定义 为 ： 
+ 
+ versionnameauthentication 
+ 
+ 　 　 .   绑定 响应 
+ 　 　 绑定 请求 也 是 一个 请求 队列 ， 队列 中 元素 的 定义 为 ： 
+ 
+ 请求 结果   LDAPResultSASL 证书   serverSaslCreds 
+ 
+ 2.3 . 3 　 解 绑定 操作 
+ 　 　 解 绑定 操作 用于 终止 一个 协议 会晤 。 当 一个 LDAPMessage 数据 报 的 协议 操作 字 段 使用 unbindRequest 标签 ， 并且 其值 为 空值 时 执行 解 绑定 操作 。 在 发送 了 一个 解 绑定 操作 之后 ， 协议 客户 假设 协议 会晤 被 终止 ， 而 协议 服务器 则 假定 客户 已经 终止 会晤 ， 所有 尚未 处理 的 请求 将 被 丢弃 ， 并且 关闭 连接 。 
+ 2.3 . 4 　 搜索 操作 
+ 　 　 搜索 操作 允许 客户端 请求 服务器 代替 她 执行 一个 搜索 。 这 可以 用于 从 一个 单独 入口 或者 一个 特性 入口 下 的 各个 入口 或者 整个 子树中 读取 属性 。 
+ 　 　 搜索 请求 是 一个 队列 ， 队列 中 的 元素 定义 如下 ： 
+ 
+ baseObjectscopederefAliasessizeLimit 
+ timeLimittypesOnlyfilterattributes 
+ 
+ 　 　 参数 说明 如下 ： 
+ 　 　 基本 对象 baseObject — — 是 一个 辨识 名 ， 指明 搜索 被 执行 的 目录 对象 。 
+ 　 　 搜索 范围 scope — — 搜索 被 执行 的 范围 指针 。 
+ 　 　 解 别名 参考 DerefAliases — — 指示 了 别名 对象 在 搜索 中 如何 被 处理 。 
+ 　 　 大小 限制 sizeLimit — — 限制 了 搜索 结果 中 返回 的 最大 入口 数 。 0 值 表示 没有 客户端 请求 的 大小 限制 。 
+ 　 　 时间 限制 timeLimit — — 允许 一个 搜索 执行 的 最大 时间 。 0 值 表示 没有 客户端 请求 的 时间 限制 。 
+ 　 　 只含 类型 typesOnly — — 指示 搜索 结果 是 包含 属性 类型 和 属性 值 ， 还是 只 包括 属性 类型 。 
+ 　 　 过滤器 filter — — 搜索 匹配 一个 给出 的 入口 时所 必须 满足 的 条件 。 
+ 　 　 属性 attributes — — 应当 从 每 一个 匹配 的 入口 中 返回 的 属性 列表 。 不管 此 列表 为空 还是 为 “ * ” ， 都 表示 所有 的 用户 属性 被 返回 。 
+ 　 　 服务器 在 收到 一个 搜索 请求 之后 ， 将 执行 搜索 操作 ， 并 把 结果 放在 搜索 响应 中 返回 。 搜索 响应 是 一些 LDAPMessage 数据 报 ， 每 一个 数据 报中 都 包含 了 SearchResulEntry 、 SearchResultReference 、 ExtendedResponse 或者 SearchResultDone 中 的 某 一个 数据类型 。 
+ 　 　 SearchResultEntry 是 一个 队列 ， 其 元素 定义 为 ： 
+ 
+ objectNameattributes 
+ 
+ 　 　 参数 说明 如下 ： 
+ 　 　 对象 名称 objectName — — 与 搜索 条件 匹配 的 目录 对象 名称 。 
+ 　 　 属性 attributes — — 返回 的 特定 属性 列表 。 
+ 　 　 SearchResultReference 也 是 一个 队列 ， 其中 包含 了 一个 或 多个 LDAPURL 指向 其它 服务器 。 
+ 　 　 SearchResultDone 中 包含 一个 LDAPResult 包 ， 给出 搜索 的 最终 状态 。 
+ 　 　 如果 LDAP 会晤 是 在 一个 面向 连接 的 传输 协议 上 进行 ， 则 服务器 将 向 客户 返回 一个 响应 队列 ， 这个 响应 队列 被 封装 在 一些 分开 的 LDAPMessage 数据 报中 。 在 搜索 返回 的 响应 队列 中 可能 存在 0 个 或 多个 的 SearchResultEntry 和 SearchResultReference ， 它们 之间 可以 以 任何 顺序 返回 。 在 这些 SearchResultEntry 和 SearchResultReference 返回 之后 ， 服务器 将 返回 一个 包含 SearchResultDone 的 响应 ， 指示 搜索 操作 是否 成功 和 发生 的 错误 详情 。 
+ 　 　 下面 为 一个 LDAP 搜索 示例 ： 
+ 　 　 图 3 是 一个 含有 多个 LDAP 服务器 的 目录 树 实例 。 
+ 
+ 图 3 　 由 多 服务器 组成 的 一个 信息 目录 树 
+ 　 　 假设 如图 3 所示 的 目录 树中 搜索 子树 “ O = EDU ， C = CN ” ， 请求 发往 已 连接 服务器 HostA ， 则 将 有 如下 返回 响应 ： 
+ 　 　 SearchResultEntry   for   O = EDU , C = CN 
+ SearchResultEntry   for   CN = Manager , O = EDU , C = CN 
+ SearchResultReference   { 
+ ldap : / / hostb / OU = People ,   O = EDU ， C = CN 
+ ldap : / / hostc / OU = People ,   O = EDU ， C = CN 
+ } 
+ SearchResultReference   { 
+ ldap : / / hostd / OU = Roles ,   O = EDU ， C = CN 
+ } 
+ SearchResultDone   ( success ) 
+ 2.3 . 5 　 修改 操作 
+ 　 　 修改 操作 允许 客户 请求 服务器 代替 自己 在 目录 中 对 入口 进行 修改 。 
+ 　 　 修改 请求 的 包 格式 为 ： 
+ 
+ objectmodification 
+ 
+ 　 　 参数 说明 如下 ： 
+ 　 　 对象 object — — 将 被 修改 的 对象 ， 其值 为 一个 LDAPDN 类型 的 值 。 
+ 　 　 修改 modificatin — — 将 在 入口 上 执行 的 修改 。 其 数据格式 为 ： 
+ 
+ operationmodification 
+ 
+ 　 　 其中 操作 operation 是 add 、 delete 和 replace 中 的 一个 。 而 此处 的 修改 modification 是 一个 属性 类型 / 值 对 的 列表 ， 提供 了 入口 将 被 修改 成 的 新值 。 
+ 2.3 . 6 　 增加 操作 
+ 　 　 增加 操作 允许 在 目录 中 添加 一个 入口 。 
+ 　 　 增加 请求 的 定义 为 ： 
+ 
+ entryattributes 
+ 
+ 　 　 参数 说明 如下 ： 
+ 　 　 入口 entry — — 被 增加 入口 的 辨识 名 。 
+ 　 　 属性 列表 — — 构成 被 增加 入口 内容 的 属性 。 这个 列表 中 必须 包含 入口 的 可 辨识 值 （ 用于 形成 该 入口 的 RDN ） ， 对象 类 属性 以及 对象 类 所 强制 包含 的 任何 属性 。 
+ 2.3 . 7 　 删除 操作 
+ 　 　 删除 操作 允许 客户 请求 在 目录 中 删除 一个 入口 。 删除 请求 中 包含 了 要 删除 入口 的 LDAPDN 值 。 服务器 在 删除 入口 时 不会 解除 别名 参考 ， 并且 只有 叶 节点 能够 被 删除 。 
+ 2.3 . 8 　 修改 辨识 名 操作 
+ 　 　 修改 辨识 名 操作 允许 客户 修改 目录 中 一个 入口 最 左边 的 成分 或者 是 将 入口 构成 的 子树 移动 到 目录 中 一个 新 的 位置 。 修改 辨识 名 请求 定义 为 ： 
+ 
+ entrynewrdndeleteoldrdnnewSuperior 
+ 
+ 参数 说明 如下 ： 
+ 　 　 入口 entry — — 将 被 修改 的 入口 的 辨识 名 。 
+ 　 　 新 的 相关 辨识 名 newrdn — — 用来 构成 入口 新 名字 最 左端 成分 的 相关 辨识 名 。 
+ 　 　 是否 删除 旧 相关 辨识 名 deleteoldrdn — — 决定 是否 删除 入口 的 旧 相关 辨识 名 。 
+ 　 　 新 优先级 newSuperior — — 是 可选项 ， 其值 为 LDAPDN 类型 。 如果 存在 ， 则 表示 优先级 仅次于 现有 入口 的 入口 。 
+ 　 　 在 协议 要素 中 还 包括 比较 操作 、 丢弃 操作 和 扩展 操作 等 协议 操作 ， 由于 篇幅 所 限 ， 这里 就 不再 作过 多 分析 ， 其 详情 可以 参见 RFC2251 。 
+ 2.4 　 协议 要素 的 编码 和 传输 
+ 　 　 LDAP 协议 要素 在 交换 时 使用 抽象 语法 规则 1 （ ASN.1 ） 中 的 基本 编码 规则 （ BER ） 进行 编码 。 
+ 　 　 LDAP 协议 被 设计 运行 于 面向 连接 ， 可靠 的 传输层 协议 之上 。 数据流 中 八位 组 字符串 的 任意 一位 都 具有 意义 。 传输控制协议 ( TCP ) 
+ 　 　 LDAPMessage 数据 报 的 协议 数据 单元 直接 映射 到 TCP 字节 流 上 。 服务器 运行 监听 的 TCP 端口 值 建议 为 389 。 服务器 可以 使用 替代 用 的 其它 端口 。 客户 必须 支持 在 任一 合法 TCP 端口 上 连接 服务器 。 
+ 2.5 　 安全 考虑 
+ 　 　 当 使用 面向 连接 的 传输 协议 时 ， LDAPv3 提供 了 与 LDAPv2 兼容 的 认证 机制 ： 使用 明文 口令 的 简单 认证 和 其它 一些 简单 认证 和 安全 层 （ SASL ） 机制 。 LDAPv3 安全 机制 还 允许 在 客户 要求 时 ， 服务器返回 其 安全 证书 。 
+ 3 　 结束语 
+ 　 　 本文 讨论 了 LDAP 协议 使用 的 协议 模型 、 数据模型 和 协议 要素 的 细节 ， 给出 了 LDAP 协议 使用 的 多种 数据 报文 、 请求 及 响应 的 详细 格式 ， 希望 能够 对 读者 掌握 LDAP 这个 下一代 因特网 服务 与 应用 的 基础 提供 帮助 。 
+ 作者简介 ： 张军 　 教师 。 从事 计算机信息 网络 和 因特网 技术 的 开发 与 研究 。 
+ 颜凯 　 教师 。 从事 因特网 网络管理 技术 的 开发 与 研究 。 
+ 作者 单位 ： 电子科技 大学 信息中心 　 四川 . 成都 （ 610054 ） 
+ 参考文献 
+ ［ 1 ］ 　 Douglas   E .   Comer .   用 TCP / IP 进行 网际 互连 . 第 1 卷 ： 原理 、 协议 和 体系结构 （ 第 3 版 ） . 林 　 瑶 ， 蒋 　 慧 ， 杜蔚轩 ， 等 译 .   电子 工业 出版社 , 1998 
+ 收稿 日期 : 1999 - 06 - 21 

@@ -1,0 +1,133 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 12 期   vol.25   No.12   1999 
+ 
+ 
+ 
+ ActiveX 技术 对 浏览 鉴器 / Web 服务器 构架 的 功能扩充 
+ 周皓峰 　 方 　 方 　 朱杨勇 
+ 　 　 随着 Internet 和 Intranet 技术 的 迅猛发展 , 越来越 多 的 企业 利用 浏览器 ( Browser ) / Web 服务器 构架   ( 简称 B / W ) 便捷 地 发布 信息 ， 但 要 使 B / W 构架 完全 替代 业已 成熟 的 客户机 ( Client ) / 服务器 ( Server ) 构架 ( 简称 C / S ) 则 还有 许多 工作 要 做 。 
+ 1   B / W 构架 的 特点 
+ 1.1   B / W 构架 的 基本 形式 
+ 　 　 B / W 构架 在 本质 上 是 一种 C / S 构架 。 其 基本 形式 如图 1 所示 。 
+ 
+ 图 1   B / W   构架 基本 形式 
+ 　 　 从 形式 上 看 ， B / W 和 C / S 构架 没有 什么 区别 ， 但 当前 的 实际 应用 中 ， 更 多 的 B / W 构架 都 是 一种 三层 ( tier ) 模型 ， 即 Browser - Web   Server - Application   Server 的 模型 。 Browser 使用 HTTP 向 Web   Server 发出请求 。 Web   Server 根据 请求 内容 ， 将 一部分 自身 无 能力 处理 的 请求 内容 提交   Application   Server 执行 。 这时 Web   Server   就 成 了 Application   Server 的 客户机 ， 待 Application   Server 执行 完 请求 将 结果 返回 给   Web   Server 后 ， 再 由 Web   Server 结合 其它 请求 内容 的 执行 结果 生成 标准 的 HTML 页面 ， 通过 HTTP 回 传给 Browser 显示 。 在 这种 构架 中 ，   Browser   真正 实现 了 瘦 客户机 的 要求 ， 而 Web   Server   在 实质 上成 了 一个 请求 代理 者 ( Agent ) 。 对 请求 的 真正 处理 工作 基本 是 在   Application   Server 上 进行 的 。 由于 Application   Server 对于 Browser 端的 用户 是 透明 的 ， 而且 可以 独立 于 Web   Server ， 这 使得 Application   Server 可 做 得 十分 强大 ， 以 响应 并 实现 多种 复杂 的 请求 的 处理 工作 。 
+ 　 　 在 目前 的 实际 应用 中 ， Application   Server 往往 是 通过 在 Web   Server 上 运行 的 CGI ( 通用 网关 接口 ) 或 类似 ISAPI 的 调用 形式 提供 服务 的 。 CGI 与 ISAPI 之间 的 最大 区别 是 系统 进程 空间 占用 方式 的 不同 ， 如图 2 所示 。 
+ 
+ 图 2   ISAPI 与 CGI 的 进程 空间 占用 方式 比较 
+ 　 　 CGI 形式 与 C / S 构架 对系统 进程 空间 的 占用 方式 可以 说 完全相同 。 每个 来自 Browser 的 请求 都 将 产生 一个 或 多个 进程 ， 这使 在 Web 服务器 上 的 进程 数总 大于 等于 Browser 提交 来 的 请求 数 。 请求 越 多 ， 进程 越 多 ， 系统 开销 也 就 越 大 ， 不 稳定 因素 也 就 越 多 ， 这 容易 造成 系统 崩溃 。 ISAPI 使用 线程 代替 了 进程 ， 各 线程 在 一个 统一 的 Web   Server 进程 空间 中 共同 运作 ， 基本 避免 了 CGI 形式 下 的 系统 不 稳定 因素 ， 提高 了 系统 的 稳定性 。 但是 ， 一方面 ， 使用 API 函数 是 一件 麻烦 的 事 ； 另一方面 ， 对 一个 ISAPI 应用程序 的 违法 访问 同样 可以 导致 Web   Server 的 崩溃 。 为此 微软 推出 了 对 ISAPI 进行 了 封装 改进 后 的 工具 ： Active   Server   Pages ( ASP ) 。 
+ 1.2   B / W 构架 与 C / S 构架 的 异同 
+ 　 　 B / W 构架 源自 于 C / S 构架 ， 但 又 是 C / S 构架 的 一个 特例 ， 主要 表现 在 ： 
+ 　 　 ( 1 ) 在 B / W 构架 中 ， 客户端 只有 一个 浏览器 。 因此 其 应用 程序界面 是 高度 统一 的 ； 而 在 C / S 构架 中 ， 客户端 的 应用程序 具有 多样性 。 
+ 　 　 ( 2 ) 在 B / W 构架 中 ， 客户端 与 服务器之间 只能 基于 TCP / IP 协议 。 Browser 与 Web   Server 之间 只能 按 标准 的 HTTP   传输数据 ； 而 在 C / S 构架 ， 网络平台 可以 是 多种多样 的 。 
+ 　 　 ( 3 ) 在 B / W 构架 中 ， Browser 只 提出 请求 服务 所 需 的 参数 , 而 具体 的 请求 命令 在 Web   Server 或 Application   Server 上 解释 、 生成 并 运行 ； 而 在 C / S 构架 中 ， 请求 命令 不仅 可以 在 服务器端 生成 ， 也 可以 在 客户机 端 生成 ， 直接 由 客户机 向 服务器 发出 具体 的 请求 命令 。 
+ 　 　 ( 4 ) 在 B / W 构架 中 ， Browser 只能 通过 HTML 页面 的 方式 实现 与 用户 的 交互 ， 对 用户 需求 的 响应 是 以 页面 为 单位 进行 的 ， 不 具备 实时性 ； 而 在 C / S 构架 中 ， 用户 可以 在 瞬间 实现 与 后台 服务 的 交互 ， 具有 较强 的 实时性 。 
+ 　 　 实际 应用 中 B / W 体现 出 了 C / S 无法比拟 的 能 同时 与 更 多 客户 打交道 的 广泛性 ， 但 又 缺少 了 C / S 构架 中 同时 在 客户端 和 服务器端 处理事务 的 灵活性 及 实时性 。 因为 功能 上 的 限制 而 不能 完全 替代 C / S 构架 ， B / W 构架 的 发展 受到 了 制约 。 
+ 2   ActiveX 技术 与 B / W 构架 的 关系 
+ 2.1   ActiveX 技术 的 概况 
+ 　 　 ActiveX 是 基于 构件 对象 模型 ( COM ) 的 。 ActiveX 描述 的 对象 的 可 执行 代码 可 被 其他 用 不同 语言 编写 的 对象 执行 ， 对象 之间 通过 接口 交互 。 
+ 　 　 应用程序 ActiveX   Automation   Server 让 其它 程序 告诉 它 在 做 什么 ， 揭示 方法 和 属性 ， 由 它 控制 着 与 ActiveX 对象 运行 。 
+ 2.2   ActiveX 技术 在 B / W 构架 上 的 应用 
+ 　 　 ActiveX 技术 在 B / W 构架 上 的 应用 是 以 ActiveX 控件 的 形式 出现 的 。 ActiveX 控件 是 一个 非常 快 的 小型 ActiveX   Automation   Server ， 分为 客户端 控件 和 服务器端 控件 。 
+ 　 　 客户端 控件 是 面向用户 的 ， 以 可视化 的 图形 视频 或 文字 界面 、 或者 音频 形式 在 浏览器 上 出现 。 但 它 可能 并 不是 浏览器 的 组成部分 。 这些 控件 原先 是 放在 服务器 上 的 。 当 浏览器 发出请求 时 ， Web 服务器 回传 页面 ， 由 浏览器 负责 解释 。 在 解释 过程 中 ， 若 发现 页面 中 要求 调用 ActiveX 控件 时 ， 则 用 该 控件 的 在 页面 中 注明 的 ID 值先 在 本地 的 注册表 内 进行 查询 。 若 已经 存在 ， 则 说明 该 控件 已经 在 本地 安装 ， 然后 通过 注册表 中 的 相关 信息 直接 使用 该 控件 ； 否则 就要 根据 页面 中 所 提示 的 该 控件 所在 的 服务器 上 的 路径 到 服务器 上去 下载 并且 自动 完成 在 本地 的 安装 注册 ， 使该 控件 成为 本地 资源 ， 供 今后 使用 ， 这 就是 所谓 的 " 一次 下载 ， 永久 使用 " 。 客户端 控件 一旦 在 本地 安装 完毕 ， 就 等价 于 一个 可 执行 的 应用程序 ， 它 能 访问 使用 本地 的 系统资源 ， 甚至 进行 远程 访问 。 这样 就 带来 了 安全性 问题 。 
+ 　 　 服务器端 控件 是 位于 Web 服务器 上 与 Application   Server 进行 交互 的 控件 。 它 是 面向 服务器 的 。 在 这种 控件 上 运行 的 操作 对于 浏览器 端 是 透明 的 。 它 始终 位于 服务器 上 ， 不会 象 客户端 控件 那样 被 下载 ， 也 不能 以 可视 的 或 可闻 的 方式 让 服务器 管理者 监控 ， 只能 完全 在 服务器 上 运行 。 该 控件 是 Web 服务器 与 Application   Server 之间 的 接口 。 通过 它 ， Web 服务器 可以 作为 客户端 便捷 地 访问 使用 Application   Server 上 的 资源 和 服务 。 又 由于 控件 对 浏览器 透明 ， 因此 对于 最终用户 是 安全 的 。 确良   
+ 　 　 综上所述 ， 在 B / W 构架 下 ， ActiveX 控件 的 作用 可用 图 3 表示 。 
+ 
+ 图 3   ActiveX 控件 的 作用 表示 
+ 3   使用 ActiveX 技术 完善 B / W 构架 的 功能 
+ 　 　 本文 在 此 分别 用 两个 实例 来 说明 B / W 构架 下 ActiveX 技术 在 服务器端 和 客户机 端的 使用 ， 并 借此 展示 B / W 构架 下 对 Cookie 的 处理 和 浏览器 端的 打印 功能 。 
+ 3.1   实例 运行 的 平台 
+ 　 　 以下 实例 运行 于 Windows   NT   4.0   和 IIS   4.0 。 使用 的 Active   Server   Pages ( ASP ) 作为 浏览器 动态 画面 的 编程 工具 ， V C++ 5.0 和 Delphi   3.0 作为 ActiveX 控件 的 编程 工具 。 
+ 3.2   使用 ActiveX 服务器 控件 实现 对 Cookie 的 处理 
+ 　 　 Cookie 是 由 Web 服务器 生成 ， 传送 并 运行 于 浏览器 端 监控 浏览器 工作 状态 的 小 程序 。 这里 将 用 ActiveX 技术 在 服务器端 生成 Cookie 。 
+ 　 　 通过 使用 V C++   5.0 的 Active   Template   Library ( ATL ) ， Active   Server 控件 将 Active   Server   Pages 作为 其一 扩充 功能 使用 。 当 被 放入 一个 ASP 页面 中 时 ， 将要 创建 的 控件 就 会 生成 用户 的 Cookie ， 或 分配 给 用户 一个 Cookie 。 
+ 　 　 创建 一个 Active   Server   控件 包含 ： 创建 一个 ATL 项目 、 加入 一个 Active   Server 控件 、 生成 方法 、 让 它 运行 、 将 该 控件 加入 到 ASP 页 中 去 等 共 5 步 。 
+ 　 　 步骤 1   创建 一个 ATL 项目 
+ 　 　 步骤 2   加入 Active   服务器 控件 。 创建 控件 名为   " Example " 的 控件 ， 其 Prog   ID 为 " SMUM . Example " 
+ 　 　 步骤 3   创建 方法   先 加入 GetCookie 的 方法 到 Example 接口 中 。 以 " GetCookie " 作为 方法 名 ， 以 " [ out ， retval ] BSTR *   pVal " 作为 参数 。 
+ 　 　 步骤 4   运行 代码   在 GetCookie 方法 中 加入 功能 代码 。 代码 如下 ： 
+ 　 　 　 STDMETHODIMP   CExample : : GetCookie ( BSTR   *   pVal ) 
+ 　 　 　 {   GUID 　 　 　 guid ;   
+ 　 　 　 TCHAR 　 　 　 lpszCookie [ 25 ] ;   
+ 　 　 　 VARIANT 　 　 　 varOptional ;   
+ 　 　 　 HRESULT 　 　 　 hr ;   
+ 　 　 　 if   ( pVal = = NULL )   return   E _ POINTER ;   
+ 　 　 　 hr = S _ OK ; 
+ 　 　 　 V _ ERROR ( & varOptional )   = =   DISP _ E _ PARAMNOTFOUND ;   
+ 　 　 　 if   ( m _ bOnStartPageCalled )   
+ 　 　 　 {   CComPtr < IRequestDictionary >   piReadDict ;   
+ 　 　 　 　 CComPtr < IRequestDictionary >   piWriteDict ;   
+ 　 　 　 　 IWriteCookie   * piWriteCookie ;   
+ 　 　 　 　 hr = m _ piRequest - > get _ Cookies ( & piReadDict ) ;   
+ 　 　 　 　 if   ( FAILED ( hr ) )   return   hr ;   
+ 　 　 　 　 CComVariant   vtIn ( _ T ( " GUID " ) ) ;   
+ 　 　 　 　 CComVariant   vtOut ;   
+ 　 　 　 　 hr   =   piReadDict - > get _ Item ( vtIn ,   & vtOut ) ;   
+ 　 　 　 　 if   ( FAILED ( hr ) )   return   hr ;   
+ 　 　 　 　 hr   =   VariantChangeType ( & vtOut ,   & vtOut ,   0 ,   VT _ BSTR ) ;   
+ 　 　 　 　 if   ( FAILED ( hr ) )   return   hr ;   
+ 　 　 　 　 if   ( ! wcslen ( V _ BSTR ( & vtOut ) ) )   
+ 　 　 　 　 {   CoCreateGuid ( & guid ) ;   
+ 　 　 　 　 　 wsprintf ( lpszCookie ,   
+ 　 　 　 　 　 _ T ( " % X% X% X% X% X% X% X% X% X% X% X " ) ,   
+ 　 　 　 　 　 guid . Data1 ,   guid . Data2 ,   guid . Data3 ,   
+ 　 　 　 　 　 guid . Data4 [ 0 ] ,   guid . Data4 [ 1 ] ,   
+ 　 　 　 　 　 guid . Data4 [ 2 ] ,   guid . Data4 [ 3 ] ,   
+ 　 　 　 　 　 guid . Data4 [ 4 ] ,   guid . Data4 [ 5 ] ,   
+ 　 　 　 　 　 guid . Data4 [ 6 ] ,   guid . Data4 [ 7 ] ) ;   
+ 　 　 　 　 CComVariant   vtCookieValue ( lpszCookie ) ;   
+ 　 　 　 　 hr = m _ piResponse - > get _ Cookies ( & piWriteDict ) ;   
+ 　 　 　 　 if   ( FAILED ( hr ) )   return   ( hr ) ;   
+ 　 　 　 　 hr   =   piWriteDict - > get _ Item ( vtIn ,   & vtOut ) ;   
+ 　 　 　 　 if   ( FAILED ( hr ) )   return ( hr ) ;   
+ 　 　 　 　 piWriteCookie   =   ( IWriteCookie * ) ( vtOut . ppdispVal ) ;   
+ 　 　 　 　 hr   =   piWriteCookie - > put _ Item ( varOptional ,   
+ 　 　 　 　 V _ BSTR ( & vtCookieValue ) ) ;   
+ 　 　 　 　 if   ( FAILED ( hr ) )   return ( hr ) ;   
+ 　 　 　 　 DATE   dtExpiration = 40455.0 ;   
+ 　 　 　 　 hr   =   piWriteCookie - > put _ Expires ( dtExpiration ) ;   
+ 　 　 　 　 if   ( FAILED ( hr ) )   return ( hr ) ;   
+ 　 　 　 　 * pVal   =   : : SysAllocString ( V _ BSTR ( & vtCookieValue ) ) ;   
+ 　 　 　 }   
+ 　 　 　 else 
+ 　 　 　   {   * pVal   =   : : SysAllocString ( V _ BSTR ( & vtOut ) ) ;   }   
+ 　 　 }   
+ 　 return   hr ; 
+ } 
+ 　 　 加入 以上 代码 之后 ， 编译 与 连接 之后 就 生成 了 DLL 文件 ， Visual   C++ 会 将 该 文件 自动 注册 。 
+ 　 　 步骤 5   将 该 控件 加入 到 ASP 页 中 去 
+ 　 　 下面 是 正确 调用 该 Active 服务器 控件 的 方法 的 实例 。 
+ 　 　 < % ' 
+ 　 　 Here   is   where   the   OnStartPage   method   is   called 
+ 　 　 Set   Example = Server . CreateObject ( " SMUM . Example.1 " ) 
+ 　 　 ' Here   is   the   method   call   to   assign   the   cookie 
+ 　 　 Cookie   =   Example . GetCookie ( ) 
+ 　 　 % > 
+ 　 　 < HTML > 
+ 　 　 < BODY > 
+ 　 　 < % = Cookie% > 
+ 　 　 < / BODY > 
+ 　 　 < / HTML > 
+ 3.3   使用 ActiveX 客户机 控件 实现 浏览器 端的 打印 功能 
+ 　 　 现在 常用 的 浏览器 都 自带 按 页面 打印 的 打印 功能 ， 页面 上以 HTML 显示 的 内容 打印 出来 决不会 比 现有 的 C / S   构架 下 由 程序员 专门 定制 的 打印 功能 出来 的 令人满意 。 这时 就要 由 ActiveX 客户机 控件 发挥作用 。 
+ 　 　 在 该 例中 ， 将 在 页面 上 显示 一个 控钮 ， 按下 该 按钮 时 ， 将 直接 打印 一个 带 " Hello " 字样 的 标签 。 该 控件 以 OCX 文件 形式 存在 。 
+ 　 　 工作 步骤 如下 ： 
+ 　 　 步骤 1   创建 一个 Active   Library 的 工程 ， 以 " Exapmle " 命名 。 
+ 　 　 步骤 2   在 工程 中 添加 一个 Active   Form ， 在 其 上面 放置 一个 以 " OK " 为 标题 内容 ， 以 " Button1 " 为 名字 的 按钮 。 
+ 　 　 步骤 3   再 放置 一个 以 " QuickRep1 " 为 QuickRep 控件 ， 再 在 该 控件 上 放置 一个 以 " Hello " 为 标题 内容 ， 以 " QRLabel1 " 为 名字 的 QRLable 控件 ， 调整 其 字体 属性 使 " Hello " 字体 放大 ， 然后 调整 QuickRep 控件 的 属性 ， 使 其 在 Form 中 不 可见 。 
+ 　 　 步骤 4   双击 按钮 控件 ， 加入 以下 代码 ： 
+ 　 　 procedureTactiveFormX . Button1Click ( Sender : Tobject ) ; 
+ 　 　 begin   
+ 　 　 　 QuickRep1 . Print ; 
+ 　 　 end ; 
+ 　 　 步骤 5   编译 生成 OCX 文件 。 
+ 　 　 步骤 6   设置 完 Project \ Web   Deploy   Option 菜单 选项 中 的 内容 ( OCX 文件目录 位置 和 URL 位置 及 生成 的 HTML 文件 位置 ) ， 使用 Project \ Web   Deploy 功能 生成 HTML 文件 。 
+ 　 　 此时 ， 就 可以 通过 IE 的 浏览器 来 检验 最终 效果 。 
+ 4   结束语 
+ 　 　 基于 B / W 构架 的 各类 信息 服务 ( IS ) 系统 是 IS 系统 发展 的 潮流 。 虽然 B / W 构架 是 一个 标准 的 瘦 客户机 ／ 服务器 结构 ， 但 从 C / S 构架 到 B / W 构架 过渡 并 不 轻而易举 ， 这里 有 许多 工作 要 做 ， 而 ActiveX 技术 就 为 这种 工作 提供方便 。 本文 中 所用 的 技术 均 已 在 某 基于 B / W 构架 的 智能网 中 得以 实现 ， 并且 正 努力 地 将 其 结合 到 影视 数据库 应用 的 开发 过程 中 去 。 
+ 作者 单位 ： 复旦大学 计算机科学 系 ， 上海 200433 
+ 参考文献 
+ 1   Farrar   B . ActiveX 使用指南 . 北京 ： 机械 工业 出版社 , 1997 
+ 2   Lomax   P . ActiveX 与 VB   Sctipt 实践 解析 . 北京 ： 机械 工业 出版   社 , 1997 
+ 3   Gregory   K . Visual   C++ 5 开发 使用手册 . 北京 ： 机械 工业 出版社 ,   1998 

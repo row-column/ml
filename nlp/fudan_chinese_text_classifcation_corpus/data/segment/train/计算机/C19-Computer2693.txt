@@ -1,0 +1,114 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年 　 第 10 卷 　 第 11 期 　 Vol.10 　 No.11 　 1999 
+ 
+ 
+ 
+ 抽象 事件 的 完备 逻辑 时钟 
+ 董宏 　 孙永强 
+ 　 　 摘要 　 调试 分布式应用 系统 要 比 调试 顺序程序 困难 得 多 , 原因 之一 是 分布式应用 系统 要 比 顺序程序 复杂 得 多 . 为了 处理 分布式应用 系统 的 复杂性 , 提出 了 对 分布式应用 系统 的 事件 进行 抽象 的 调试 方法 , 这种 方法 让 用户 从 不同 的 层次 观察 分布式应用 系统 的 行为 . 在 对 分布式应用 系统 进行 调试 和 抽象 时 , 抽象 事件 （ 事件 集 ） 之间 的 先于 关系 起着 重要 作用 , 而 逻辑 时钟 用来 确定 事件 间 的 先于 关系 . 文章 给出 了 一种 计算 抽象 事件 的 完备 逻辑 时钟 的 方法 , 这种 方法 比 以往 的 方法 所 占 存储量 小 , 而且 计算速度 快 . 另外 , 文中 还 给出 了 算法 的 正确性 证明 . 
+ 　 　 关键词 　 分布式系统 , 调试 , 抽象 , 完备 逻辑 时钟 . 
+ 　 　 中图法 分类号 　 TP311 
+ Abstraction   Events '   Complete   Logical - time 
+ DONG   Hong   SUN   Yong - qiang 
+ ( Department   of   Computer   Science   and   Engineering   Shanghai   Jiaotong   University   Shanghai   200030 ) 
+ 　 　 Abstract 　   Debugging   the   distributed   applications   is   very   difficult .   One   of   the   reasons   why   this   problem   is   made   is   that   the   distributed   applications   are   inherently   more   complex   than   sequential   ones .   To   solve   this   problem ,   the   method   of   abstracting   events   is   proposed ,   which   lets   the   users   grasp   the   various   aspects   of   behaviors   of   a   distributed   application .   Abstract   event   timestamp   is   used   to   decide   the   “ happened   before ”   relation   among   abstract   events ,   which   plays   a   very   important   role   in   abstracting   and   debugging   the   distributed   applications .   In   this   paper ,   a   new   complete   algorithm   of   timestamping   abstract   event   is   proposed ,   which   needs   less   storage   and   costs   less   time   than   others .   Proofs   of   the   correctness   of   the   algorithms   are   also   given   in   this   paper . 
+ 　 　 Key   words 　 Distributed   system ,   debugging ,   abstraction ,   complete   logic - timestamp . 
+ 　 　 分布式应用 系统 （ 以后 简称 分布式系统 ） 是 由 一些 各自 独立 的 顺序进程 组成 , 这些 进程 相互协作 共同完成 一个 任务 , 通过 消息 交换 完成 通信 与 同步 . 分布式系统 中 某个 进程 某时 的 状态 是 该 进程 在 此时 的 所有 变量值 以及 与 之 有关 的 环境 信息 （ 寄存器 值 、 消息 等 ） 的 总和 , 系统 状态 是 所有 进程 状态 的 和 . 事件 是 给定 时刻 引起 状态 改变 的 实体 （ 给 变量 赋值 、 创建 新 进程 等 ） . 
+ 　 　 调试 分布式系统 要 比 调试 顺序程序 困难 得 多 ［ 1 ］ , 原因 之一 是 分布式系统 要 比 顺序程序 复杂 得 多 . Bates ［ 2 ］ , Lumpp 和 Casavant ［ 3 ］ 分别 提出 了 对 事件 进行 抽象 的 方法 处理 复杂 系统 , 使 用户 从 不同 的 层次 观察 分布式系统 的 行为 . Zernik 用 简单 抽象 的 方法 实现 了 一个 调试 系统 ［ 4 ］ . 事件 的 抽象 就是 把 一组 事件 组合成 一个 抽象 事件 , 把 一组 较 低层 的 抽象 事件 组合成 一个 较 高层次 的 抽象 事件 . 
+ 　 　 先于 ( happened   before ) 关系 反映 事件 间 的 因果性 , 在 调试 与 抽象 过程 中起 着 重要 的 作用 , 而 逻辑 时钟 用来 快速 确定 先于 关系 （ 替代 搜索 图 的 方法 ） ［ 5 ］ . 单个 事件 的 逻辑 时钟 已 广泛应用 , 但 抽象 事件 的 逻辑 时钟 还 在 讨论 ［ 5 , 6 ］ 之中 , 本文 给出 一种 所 占 存储量 小且 计算速度 快 的 抽象 事件 （ 事件 集 ） 逻辑 时钟 的 计算方法 . 
+ 1   事件 集间 的 关系 及其 抽象 
+ 1.1 　 事件 间 的 关系 
+ 　 　 - > 关系 是 一 事件 集上 满足 下列 条件 的 关系 : 
+ 　 　 ( 1 )   如果 事件 a 和 b 在 同一 进程 P 中 , a 在 b 之前 发生 并且 不 存在 发生 在 a 之后 b 之前 的 P 中 的 事件 , 则 a - > b ; 
+ 　 　 ( 2 )   如果 a 是 一 进程 的 发送 事件 , b 是 另 一 进程 的 接收 由 a 发送 的 消息 的 接收 事件 , 则 a - > b ; 
+ 　 　 ( 3 )   如果 a 和 b 是 同步 事件 , 那么 , a - > b ∧ b - > a . 
+ 　 　 先于 关系 → 是 关系 - > 的 自反 传递 闭包 . 两个 事件 a 和 b 当且 仅 当 它们 是 同一 事件 时 就 称 它们 相等 . 如果 d - > c , 就 称 d 为 c 的 直接 前驱 或 d 直接 先于 c , c 为 d 的 直接 后继 或 c 直接 后继 于 d . 
+ 1.2 　 事件 集间 的 关系 
+ 　 　 假定 A 为 一个 分布式系统 的 事件 集 , A 的 输入 事件 iA ∈ A ∧ ( bA : b - > iA ) , A 的 输出 事件 oA ∈ A ∧ ( bA : oA - > b ) . IA 是 A 的 所有 输入 事件 的 集合 , OA 是 A 的 所有 输出 事件 的 集合 . 
+ 　 　 事件 集间 的 先于 关系 也 用 → 表示 . 对于 两个 事件 集 A 和 B , A → B 当且 仅 当 存在 一个 事件 a ∈ A 且 存在 一个 事件 b ∈ B : a → b , A - > B （ A 为 B 的 直接 前驱 、 B 为 A 的 直接 后继 ） 当且 仅 当 存在 一个 输出 事件 oA ∈ A 且 存在 一个 输入 事件 iB ∈ B : oA - > iB , A ‖ B （ A 和 B 是 并行 的 ） , 当且 仅 当 ( A → B ) ∧ ( B → A ) . 
+ 　 　 对于 任意 两个 事件 集 A 和 B , 准 因果关系 定义 如下 : 
+ 　 　 ( 1 )   如果 a ∈ A , b ∈ B : a → b , 则 AB ; 
+ 　 　 ( 2 )   如果 AB ∧ BC , 那么 , AC . 
+ 　 　 AB （ A 和 B 是 准 并行 的 ） , 当且 仅 当 ( AB ) ∧ ( BA ) . 
+ 　 　 假定 分布式系统 是 由 事件 构成 的 集合 PE , 对 分布式系统 进行 抽象 就是 构造 一个 PE1 = { E1 , ... , Em } , 满足 PE ＝ E1 ∪ ... ∪ Em , Ei ∩ Ej = ( 1 ≤ i , j ≤ m , i ≠ j ) . 称 PE1 为 PE 的 一次 抽象 （ 或 抽象 ） , 称 Ei ( 1 ≤ i ≤ m ) 为 抽象 事件 . 如果 对 PE1 再 进行 抽象 , 构造 出 PE2 （ PE1 的 抽象 ） , 那么 , 这 就是 PE 的 更 高层次 的 （ 二次 ） 抽象 . 同样 地 , 对 PE2 也 可 再 进行 抽象 , 一直 继续下去 , 直到 PEk ＝ { PEk - 1 } . 
+ 　 　 将 一个 分布式系统 PE 抽象 成 PEn , 如果 对于 任意 两个 事件 集 A , B ∈ PEn , 都 有 ABA → B , 那么 这个 抽象 就 称为 正确 抽象 . 只有 正确 的 抽象 才能 反映 系统 的 特征 ［ 3 , 7 ］ . 给 用户 以 不同 层次 系统 面貌 的 核心 就是 自动 分析 分布式系统 运行 时所 产生 的 事件 流 , 并 产生 各层 抽象 , 同时 检查 这些 抽象 是否是 正确 的 抽象 . James 提出 了 按照 一定 的 结构 进行 抽象 的 方法 ［ 3 ］ , Cheung 等 人 对 抽象 结构 进行 了 研究 ［ 8 ］ , 目前 已有 的 可 实用 的 正确 抽象 结构 为 完全 优先 抽象 、 合约 抽象 和 协议 抽象 . 
+ 2   事件 的 逻辑 时钟 （ events '   logical   time ） 
+ 　 　 分布式系统 PE 的 逻辑 时钟 是 赋 给 每个 事件 e ∈ PE 的 值 T ( e ) 的 集合 PT , 通过 所有 的 值 T ( e ) ∈ PT 来 决定 事件 间 的 先于 关系 . 逻辑 时钟 由 两 部分 组成 : （ 1 ）   逻辑 时钟 计算方法 的 描述 , 即 如何 给 事件 e ∈ PE 赋值 T ( e ) ; （ 2 ）   逻辑 时钟 的 判断 方法 , 即 如何 用 逻辑 时钟 值 T ( e ) ∈ PT 决定 优先 关系 . 
+ 　 　 对于 分布式系统 PE 的 逻辑 时钟 PT , 如果 e1 , e2 ∈ PE , e1 → e2T ( e1 ) ≤ T ( e2 ) , 但 ( T ( e1 ) ≤ T ( e2 ) e1 → e2 ) , 就 称 PT 为 非 完备 的 ( incompleted ) ; 如果 e1 → e2T ( e1 ) ≤ T ( e2 ) , 就 称 PT 为 完备 的 ( completed ) . 
+ 　 　 在 后面 的 讨论 中 我们 规定 , 求 两个 n 维 向量 A 与 B 的 最大值 , 其 结果 为 各 对 对应 元素 的 最大值 所 组成 的 n 维 向量 , 即 假定 C = max { A , B } , 则 C ［ i ］ = max { A ［ i ］ , B ［ i ］ } , i = 1 , ... , n . 
+ 3   抽象 事件 的 逻辑 时钟 
+ 　 　 完全 优先 抽象 的 完备 逻辑 时钟 在 文献 ［ 8 ］ 中 已 给出 , 把 抽象 事件 的 逻辑 时钟 建立 在 各个 事件 的 逻辑 时钟 的 基础 之上 , 给 每个 抽象 事件 赋予 一 向量 , 但 它 只 用于 完全 优先 抽象 , 不能 用于 适应 范围 较大 的 合约 抽象 和 协议 抽象 . 
+ 　 　 以往 可 用于 任何 正确 抽象 的 完备 逻辑 时钟 是 给 每个 抽象 事件 E 赋予 两个 向量 集合 （ 所有 输入 事件 的 向量 时钟 的 集合 ETI 和 所有 输出 事件 的 向量 时钟 的 集合 ETO ） ［ 5 ］ . 这种 抽象 事件 的 逻辑 时钟 有 两个 致命 的 缺点 : ( 1 )   占用 内存 太 大 , 每 一个 抽象 事件 要 保存 所有 输入 、 输出 事件 的 向量 时钟 , 如果 系统 有 N 个 进程 , 最大 要 保存 2N 个 N 维 向量 , 即 两个 N × N 的 矩阵 ; ( 2 )   判断 任意 两个 抽象 事件 A , B 的 优先 关系 时所 花费 的 时间 多 , 要 逐一 比较 ATO 和 BTI 的 所有 向量 , 如果 比较 不 成功 就要 逐一 用 BTO 的 所有 向量 和 ATI 的 所有 向量 比较 , 其 算法 的 复杂度 为 O ( N2 ) . 本文 给出 一种 在 异步 系统 下 可 用于 任何 正确 抽象 的 完备 逻辑 时钟 , 每 一个 抽象 事件 只含 一个 向量 , 减少 了 所 需 保存 的 数据量 , 由于 判断 任意 两 抽象 事件 的 优先 关系 只 比较 两个 向量 , 也 减少 了 运算量 , 算法 的 复杂度 仅为 O ( N ) . 
+ 　 　 下面 通过 对 抽象 事件 的 历史 集 的 分析 , 给出 在 异步 分布式系统 下 抽象 的 完备 逻辑 时钟 算法 以及 算法 的 正确性 证明 . 
+ 3.1 　 抽象 事件 的 历史 集 
+ 　 　 定义 3.1 （ 事件 的 自然 次序 ） .   假定 P1 , ... , PN 为 分布式系统 的 进程 , 进程 Pi ( 1 ≤ i ≤ N ) 中 的 事件 按 其 出现 次序 记为 ei1 , ei2 , ... , PEi 为 Pi 中 事件 的 集合 , 即 PEi ＝ { ei1 , ei2 , ... } . PE = PE1 ∪ PE2 ∪ ... ∪ PEN 为 系统 所有 事件 的 集合 . 称 PEi 中 给 事件 赋予 的 出现 次序 号 1 , 2 , ... 为 事件 的 自然 序号 . 
+ 　 　 定义 3.2 （ 自然 优先 事件 与 自然 优先 事件 集 ） .   对于 任意 一个 抽象 事件 EPE 和 事件 a ∈ PEi ∧ aE , 如果 b ∈ E ∧ b ∈ PEi 且 b 的 自然 序号 大于 a 的 自然 序号 , 则 称 a 为 E 的 自然 优先 事件 , 包含 a 的 抽象 事件 A （ 即 假定 a ∈ A ） , 则 A 称为 E 的 自然 优先 集 ; 如果 a 的 序号 加 1 等于 b 的 序号 , 则 称 a 为 E 的 直接 自然 优先 事件 , 相应 的 抽象 事件 A 为 E 的 直接 自然 优先 集 . 
+ 　 　 定义 3.3 （ 抽象 事件 的 历史 集 ） .   任意 抽象 事件 APE 的 历史 集 H ( A ) = { b ｜ b ∈ B ∧ BA } ∪ A . H ( A ) 在 PEi 上 的 投影 H ( A ) ［ i ］ = H ( A ) ∩ PEi . 由于 PE ＝ PE1 ∪ PE2 ∪ ... ∪ PEN 为 全集 , 因此 , H ( A ) = H ( A ) ［ 1 ］ ∪ H ( A ) ［ 2 ］ ∪ ... ∪ H ( A ) ［ N ］ . 
+ 　 　 引理 3.1 .   对于 一个 分布式系统 PE 的 任意 一 抽象 PE1 的 任意 两个 抽象 事件 A , B ∈ PE1 , 如果 A ≠ B ∧  b ∈ B ∧ b ∈ H ( A ) , 则 ( 1 )   BH ( A ) ; ( 2 )   BA . 
+ 证明 : 由 抽象 定义 可知 , 系统 中 的 任意 一个 事件 只能 属于 一个 抽象 事件 , 通过 定义 3.3 可 直接 得出结论 . 
+ 　 　 引理 3.2 .   对于 一个 分布式系统 PE 的 任意 一个 抽象 PE1 的 任意 两个 抽象 事件 A , B ∈ PE1 且 A ≠ B , 历史 集与准 因果关系 之间 有 : 
+ 　 　 ( 1 )   AB   Iff   AH ( B ) ; 
+ 　 　 ( 2 )   AB   Iff   AH ( B ) ∧ BH ( A ) . 
+ 　 　 证明 : 直接 由 定义 3.3 得出 . 从 定义 3.3 可 直接 得出 异步 分布式系统 的 任意 抽象 事件 A 的 历史 集 H ( A ) 的 算法 1 . 
+ 　 　 算法 1 .   历史 集 算法 
+ 　 　 ( 1 )   H ( A ) = A , 转 ( 2 ) ; 
+ 　 　 ( 2 )   如果 A 无 直接 自然 优先 集 , 则 转 ( 3 ) , 否则 , 将 它 的 所有 直接 自然 优先 集 的 历史 集 的 事件 加入 到 H ( A ) 中 , 即 假定 A 的 直接 自然 优先 集为 E1 , ... , Em , 则 H ( A ) = H ( E1 ) ∪ ... ∪ H ( Em ) ∪ H ( A ) , 转 ( 3 ) ; 
+ 　 　 ( 3 )   如果 A 无 接收 事件 , 则 结束 , 否则 , 将 所有 发送给 它 消息 的 事件 集 的 历史 集 的 事件 加入 到 H ( A ) 中 , 即 假定 A 接收 由 E1 , ... , Es 发来 的 消息 , 则 H ( A ) = H ( E1 ) ∪ ... ∪ H ( Es ) ∪ H ( A ) , 结束 . 
+ 　 　 引理 3.3 .   对于 任意 进程 Pi （ i = 1 , ... , N ) 的 事件 集 PEi = { ei1 , ... , eim } , 如果 eij ∈ H ( A ) ［ i ］ , 则 ei1 , ... , ei ( j - 1 ) ∈ H ( A ) ［ i ］ . 
+ 　 　 证明 : 假定 eij ∈ E , 则 由 引理 3.1 可知 , EA ; 由于 ei1 → eij , ... , ei ( j - 1 ) → eij , 假定 ei1 ∈ E1 , ... , ei ( j - 1 ) ∈ Ej － 1 , 则 E1EA , ... , Ej - 1EA , 按 定义 3.3 , E1 , ... , Ej - 1H ( A ) , 因此 , ei1 , ... , ei ( j - 1 ) ∈ H ( A ) ; 由 H ( A ) ［ i ］ 的 定义 可知 , 结论 成立 . 
+ 　 　 定义 3.4 .   对于 由 N 个 进程 组成 的 分布式系统 PE , 任意 抽象 事件 A ∈ PE 的 历史 集 向量 T ( A ) 是 N 维 向量 , T ( A ) ［ i ］ = ｜ H ( A ) ［ i ］ ｜ ( i = 1 , ... , N ) . 
+ 　 　 引理 3.3 说明 , 任意 H ( A ) ［ i ］ （ 1 ≤ i ≤ N ） 都 可 由 它 的 元素 的 最大 下标 刻画 , 因此 , H ( A ) 可 唯一 地用 N 维 向量 T ( A ) 表示 . 
+ 　 　 引理 3.4 .   令 A , BPE 为 抽象 事件 , H ( A ) , H ( B ) 分别 为 它们 的 历史 集 , T ( A ) , T ( B ) 分别 为 相应 的 历史 向量 , 那么 , T ( H ( A ) ∪ H ( B ) ) = max { T ( A ) , T ( B ) } . 
+ 　 　 证明 : 由 定义 3.3 和 定义 3.4 , 通过 引理 3.3 可 直接 推出 . 
+ 3.2 　 完备 逻辑 时钟 
+ 　 　 通过 引理 3.4 , 可 从 算法 1 得出 在 异步 分布式系统 的 抽象 事件 的 历史 向量 的 算法 , 该 算法 就是 本文 提出 的 求 抽象 事件 的 逻辑 时钟 的 算法 .   
+ 　 　 定义 3.5 （ 抽象 事件 的 逻辑 时钟 ） .   假定 P1 , ... , PN 为 一个 异步 分布式系统 的 进程 , 该 系统 的 抽象 事件 的 逻辑 时钟 （ 历史 集 向量 ） 按 下面 的 算法 2 计算 . 
+ 　 　 算法 2 . 
+ 　 　 ( 1 )   置 向量 计数器 V 的 初值 为 0 : V ［ k ］ = 0 ( k = 1 , ... , N ) ; 
+ 　 　 ( 2 )   选取 一个 未 处理 的 事件 集 E , E 应 没有 直接 自然 优先 集 , 或 虽 有 直接 自然 优先 集 但 这些 直接 自然 优先 集都 已 处理 过 , 如果 选不出 这样 的 E , 则 结束 , 否则 , 转 ( 3 ) ; 
+ 　 　 ( 3 )   处理 E : 对于 所有 进程 Pi ( i = 1 , ... , N ) , 如果 E 中有 m 个 Pi 的 事件 , 则 V ［ i ］ = V ［ i ］ + m , T ( E ) ［ i ］ = V ［ i ］ ; 如果 E 中 没有 Pi 的 事件 , 则 T ( E ) ［ i ］ = 0 , 转 ( 4 ) . 
+ 　 　 ( 4 )   若 E 没有 直接 自然 优先 集 , 则 转 ( 5 ) ; 否则 , 更改 T ( E ) 为 T ( E ) 及 所有 E 的 直接 自然 优先 集 的 时钟 的 最大值 , 即 假定 E 有 l 个 直接 自然 优先 集 E1 , ... , El , 则 T ( E ) = max ( T ( E ) , T ( E1 ) , ... , T ( El ) ) , 转 ( 5 ) ; 
+ 　 　 ( 5 )   若 E 没有 接收 消息 事件 , 则 转 ( 6 ) ; 否则 , 更改 T ( E ) 为 T ( E ) 及 所有 已 附 在 E 的 接收 消息 事件 上 的 向量 的 最大值 , 即 假定 E 有 s 个 接收 消息 事件 r1 , ... , rs 上 已 附有 的 向量 T ( E1 ) , ... , T ( Es ) , 则 T ( E ) = max ( T ( E ) , T ( E1 ) , ... , T ( Es ) ) , 转 ( 6 ) ; 
+ 　 　 ( 6 )   若 E 没有 发送 消息 事件 , 则 转 ( 2 ) ; 否则 , 假定 E 有 t 个 发送 消息 事件 s1 , ... , st , 相应 的 接收 消息 事件 为 r1 , ... , rt , 则 对 每个 ri ( i = 1 , ... , t ) 作 如下 处理 后 转 ( 2 ) . 
+ 　 　 如果 包含 ri 的 抽象 事件 Er 已 处理 过 , 则 T ( Er ) = max { T ( Er ) , T ( E ) } ; 否则 , 将 T ( E ) 附在 ri 上 . 
+ 　 　 例如 , 图 1 是 由 4 个 进程 组成 的 异步 分布式系统 的 一个 正确 抽象 时序 图 , 虚 线框 表示 抽象 事件 , 各个 抽象 事件 的 逻辑 时钟 为 : 
+ 
+ 图 1   四 进程 异步 系统 的 正确 抽象 时序 图 
+ 　 　 T ( G ) = ［ 0 , 0 , 0 , 2 ］ ,   T ( E ) = max { ［ 0 , 2 , 2 , 0 ］ ,   T ( H ) } = ［ 0 , 2 , 2 , 2 ］ , 
+ T ( A ) = max { ［ 2 , 0 , 0 , 0 ］ ,   T ( E ) } = ［ 2 , 2 , 2 , 2 ］ ,   T ( B ) = max { ［ 4 , 4 , 0 , 0 ］ ,   T ( E ) , T ( A ) } = ［ 4 , 4 , 2 , 2 ］ , 
+ 　 　 T ( H ) = max { ［ 0 , 0 , 4 , 4 ］ , T ( E ) , T ( G ) } = ［ 0 , 2 , 4 , 4 ］ ,   T ( C ) = max { ［ 6 , 6 , 0 , 0 ］ , T ( B ) , T ( I ) } = ［ 6 , 6 , 6 , 6 ］ , 
+ 　 　 T ( I ) = max { ［ 0 , 0 , 6 , 6 ］ , T ( C ) , T ( H ) } = ［ 6 , 6 , 6 , 6 ］ ,   T ( D ) = max { ［ 8 , 0 , 0 , 0 ］ , T ( C ) } = ［ 8 , 6 , 6 , 6 ］ , 
+ 　 　 T ( J ) = max { ［ 0 , 0 , 0 , 7 ］ , T ［ I ］ } = ［ 6 , 6 , 6 , 7 ］ , 
+ 　 　 T ( F ) = max { ［ 0 , 8 , 8 , 0 ］ , T ( C ) , T ( J ) , T ( I ) } = ［ 6 , 8 , 8 , 7 ］ , 
+ 　 　 T ( K ) = max { ［ 0 , 0 , 9 , 8 ］ , T ( F ) , T ( J ) } = ［ 6 , 8 , 9 , 8 ］ . 
+ 　 　 定义 3.6 .   令 u , v 为 n 维 向量 的 逻辑 时钟 . 
+ 　 　 ( 1 )   u ≤ v 　 Iff 　 u ［ k ］ ≤ v ［ k ］ ( k = 1 , ... , m ) ; 
+ 　 　 ( 2 )   u < v 　 Iff 　 u ≤ v ∧ u ≠ v ; 
+ 　 　 ( 3 )   u ‖ v 　 Iff 　 ( u ＜ v ) ∧ ( v ＜ u ) . 
+ 　 　 下面 证明 定义 3.5 和 定义 3.6 构成 了 异步 分布式系统 抽象 的 完备 逻辑 时钟 . 
+ 　 　 引理 3.5 .   对 任意 一个 由 N 个 进程 组成 的 异步 分布式系统 PE 抽象 的 任意 两个 抽象 事件 A , BPE 有 : 
+ 　 　 ( 1 )   AB 　 Iff 　 T ( A ) ≤ T ( B ) ; 
+ 　 　 ( 2 )   AB 　 Iff 　 T ( A ) ‖ T ( B ) . 
+ 　 　 证明 : ( 1 )   假定 AB , 按 引理 3.2 , 有 AH ( B ) ; 按 定义 3.3 和 的 传递性 , 有 H ( A ) H ( B ) , 因此 , H ( A ) ［ k ］ H ( B ) ［ k ］ ( k = 1 , ... , N ) , 从而 有 T ( A ) ［ k ］ = ｜ H ( A ) ［ k ］ ｜ ≤ ｜ H ( B ) ［ k ］ ｜ = T ( B ) ［ k ］ ( k = 1 , ... , N ) , 即 T ( A ) ≤ T ( B ) . 
+ 　 　 反之 , 假定 T ( A ) ≤ T ( B ) , 由 引理 3.3 可知 , H ( A ) ［ k ］ H ( B ) ［ k ］ ( k = 1 , ... , N ) , 即 H ( A ) H ( B ) ; 由于 AH ( A ) H ( B ) , 由 引理 3.1 得 , AB . 
+ 　 　 ( 2 )   由 ( 1 ) 和 ‖ 以及 的 定义 直接 得出 . 
+ 　 　 定理 3.1 .   如果 对于 任意 异步 分布式系统 PE 的 抽象 PE1 是 正确 的 , 那么 , 按 定义 3.5 和 定义 3.6 所 构造 的 PE1 中 的 抽象 事件 的 逻辑 时钟 是 完备 的 . 
+ 　 　 证明 : 对于 任意 A , B ∈ PE1 , ( 1 )   由 正确 抽象 的 定义 可知 , 如果 AB , 则 a ∈ A , b ∈ B : a → b , 即 A → B ; ( 2 )   由 的 定义 可知 , A → BAB ; 综合 ( 1 ) 和 ( 2 ) , 由 引理 3.5 可 直接 得出结论 . 
+ 4   结   论 
+ 　 　 定义 3.5 和 定义 3.6 给出 了 在 异步 分布式系统 下 抽象 事件 的 完备 逻辑 时钟 , 每个 抽象 事件 的 时钟 只用 一个 向量 , 比 以往 的 基于 事件 向量 的 完备 的 逻辑 时钟 减少 了 对 内存 的 需求 和 计算 量 , 算法 复杂度 由 O ( N2 ) 降为 O ( N ) . 算法 1 和 算法 2 都 是 相对 于 异步 系统 给出 的 , 但 从 所有 引理 和 定理 的 证明 不难看出 , 它们 都 适合 同步 系统 , 如果 在 算法 2 中 对 同步 事件 作 相应 的 处理 , 即 把 同步 事件 看成 发送 事件 与 接收 事件 的 组合 , 则 同样 也 适合 同步 系统 . 
+ 基金项目 ： 本文 研究 得到 国家自然科学基金 资助 . 
+ 作者简介 ： 董宏 , 1959 年生 , 博士 , 主要 研究 领域 为 分布式系统 , 计算机网络 . 
+ 　 　 　 　 　 孙永强 , 1931 年生 , 教授 ， 博士生 导师 , 主要 研究 领域 为 计算机软件 . 
+ 作者 单位 ： 上海交通大学 计算机科学 与 工程系 　 上海   200030 
+ 本文 通讯联系 人 : 董宏 ， 上海   200030 , 上海交通大学 计算机科学 与 工程系 
+ 参考文献 
+ 　 1 　 Cheng   Wing - hong ,   Black   J   P ,   Manning   E .   A   frame   work   for   distributed   debugging .   IEEE   Software ,   1990 , 7 ( 1 ) : 106 ～ 115 
+ 　 2 　 Peter   Butes .   Distributed   debugging   tools   for   heterogeneous   distributed   systems .   In :   Davis   C   T   ed .   Proceedings   of   the   8th   International   Conference   on   Distributed   Computing   System .   San   Jose ,   CA :   IEEE   Computer   Society   Press ,   1988.308 ～ 315 
+ 　 3 　 Lumpp   J   E ,   Jr   Casavant   T   L ,   Siegel   H   J   et   al .   Specification   and   identification   of   events   for   debugging   and   performance   monitoring   of   distributed   mutiprocessor   systems .   In :   Gerard   Le   Lann ,   Walt   Koheler   eds .   Proceedings   of   the   10th   International   Conference   on   Distributed   Computing   Systems .   Paris :   IEEE   Computer   Society   Press ,   1990 .   476 ～ 483 
+ 　 4 　 Dror   Zernik ,   Marc   Snir ,   Daliamaki .   Using   visualization   tools   to   understand   concurrency .   IEEE   Software ,   1992 , 9 ( 3 ) : 87 ～ 92 
+ 　 5 　 Reinhard   Schwarz ,   Friedemann   Mattern .   Detecting   casual   relationships   in   distributed   computations :   in   search   of   the   holy   grail .   Distributed   Computing ,   1994 , 7 ( 3 ) : 149 ～ 174 
+ 　 6 　 Suresh   K .   Damodaran - Kamal ,   Brown   J   S .   Toward   heterogeneous   distributed   debugging .   Technical   Report ,   No .   LAUR - 97 - 906 ,   Los   Alamos   National   Laboratory ,   Los   Alamos ,   NM - 87545 ,   1997 
+ 　 7 　 Kunz   T .   Event   abstraction :   some   definition   and   theorems .   Technical   Report ,   TI - Z / 93 ,   Darmstadt :   Technical   Univer - sity ,   1996 
+ 　 8 　 Cheung   Wing - hong .   Process   and   event   abstraction   for   debugging   distributed   programs .   Technical   Report   T - 189 ,   Computer   Communications   Network   Group ,   Ontario :   University   of   Waterloo ,   1992 
+ 本文 1998 - 03 - 11 收到 原稿 , 1998 - 11 - 23 收到 修改稿 

@@ -1,0 +1,95 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 2 期   No.2   1999 
+ 
+ 
+ 
+ 协同 编辑 中 维护 操作 意愿 的 文档 标注 方法 
+ 何鸿君 　 吴 泉源 　 罗 　 莉 
+ 　 　 摘要 　 在 实时 协同 编辑 系统 中 , 操作 意愿 一致性 维护 是 国际 上 提出 的 新 概念 , 是 协同 系统 一致性 维护 的 重要 方面 . 文档 标注 文法 通过 对 共享 文档 进行 恰当 标注 , 屏蔽 并发 操作 对 共享 文档 造成 的 影响 , 使得 操作 在 任意 协作 点上 执行 时 的 环境 与 操作 产生 的 环境 一致 , 从而 有效 地 维护 操作 意愿 一致性 . 结合实际 应用 中 的 具体操作 , 重点 论述 文档 标注 方法 以及 相应 的 控制算法 . 
+ 　 　 关键词 　 CSCW , 实时 协同 编辑 , 操作 意愿 维护 , 文档 标注 方法 . 
+ 　 　 中图法 分类号 　 TP311 
+ Document   Marking   Scheme   for   Preserving   Intention   of   Operationin   Cooperative   Editing   System 
+ HE   Hong - jun 　 WU   Quan - yuan 　 LUO   Li 
+ 　 　 Abstract 　 　 Intention   preservation   of   operation   is   a   new   proposed   concept   in   the   field   of   CSCW   ( computer - supported   cooperative   work ) ,   and   the   key   feature   of   consistency   control .   A   new   called   document   marking   scheme   for   intention   preservation   is   proposed   in   this   paper .   By   properly   marking   the   sharing   document ,   the   document   marking   scheme   can   hide   the   effect   of   all   concurrent   operations   of   one   operation .   Therefore ,   operation   can   be   performed   at   any   cooperative   side   under   the   document   environment   just   like   it   produced .   Associating   operations   in   a   real - time   cooperative   editing   system ,   the   idea   and   the   high - level   control   algorithm   of   the   new   method   are   presented   in   detail . 
+ 　 　 Key   words 　 CSCW ( computer - supported   cooperative   work ) ,   real - time   cooperative   editing ,   intention   preservation   of   operation ,   document   marking   scheme . 
+ 　 　 实时 协同 编辑 系统 支持 物理 上 分布 的 多个 协作者 同时 编辑 同一 文档 , 这是 一类 重要 的 CSCW （ computer - supported   cooperative   work ） 应用 系统 . 实时 协同 编辑 系统 是 典型 的 分布式应用 系统 , 除 要求 对 用户 操作 有 很快 的 响应速度 外 , 通常 还有 以下 特点 ： 对 同一 时刻 进行 操作 的 协作 用户 数目 没有 限制 , 对 协作 用户 可以 编辑 的 文档 部分 也 不加 制约 , 用户 可 在 任意 时刻 编辑 共享 文档 的 任意 部分 , 如同 GROVE , REDUCE 等 系统 所 倡导 的 那样 ［ 1 ～ 3 ］ ； 所有 结点 都 在 本地 存储器 保留 有 共享 文档 的 整个 拷贝 , 结点 之间 传送 的 信息 主要 是 操作 信息 和 参数 以及 必要 的 控制 信息 , 这种 体系结构 允许 操作 首先 在 本地 执行 , 操作 在 本地 的 响应 时间 很 短 . 
+ 　 　 维护 操作 意愿 ( Intention   Preservation   of   Operation ) 是 国际 上 提出 的 新 概念 , 旨在 使 用户 产生 该 操作 时 希望 达到 的 效果 与 该 操作 实际 执行 后 所 产生 的 效果 一致 , 属于 并发 操作 的 一致性 维护 范畴 . 分布式 操作系统 和 数据库系统 等 , 对 并发 操作 及其 一致性 维护 问题 进行 了 广泛 而 深入 的 研究 , 有 大量 可资 使用 的 成果 . 但是 , 随着 网络 计算 与 协同工作 研究 的 发展 , 这种 一致性 维护 问题 因 操作 的 并发 和 网络 传输 延迟 的 不确定性 而 大大 复杂化 了 . 操作 意愿 的 维护 便是 在 这种 背景 下 提出 的 . 目前 , 维护 操作 意愿 已 成为 协同工作 , 特别 是 实时 协同 编辑 系统 研究 的 挑战性 研究课题 ［ 1 ～ 5 ］ . 本文 提出 的 文档 标注 方法 , 是 实现 操作 意愿 维护 的 有效途径 . 
+ 　 　 本文 首先 讨论 操作 意愿 问题 的 若干 重要 概念 , 简单 介绍 目前 国际 上 解决 操作 意愿 维护 问题 的 主要 成果 , 即 操作 变换 方法 的 基本 思想 . 然后 , 提出 文档 标注 方法 , 结合 具体 实例 进行 说明 , 并 详细 论述 该 方法 在 实时 协同 编辑 系统 中 维护 操作 意愿 的 控制算法 . 最后 , 总结 文档 标注 方法 的 特点 , 并 给出 进一步 的 研究 计划 . 
+ 1 　 操作 意愿 问题 
+ 　 　   或许 是 由于 其 隐蔽性 , 或许 是 由于 网络 计算 的 发展 时间 还 不长 , 操作 意愿 维护 问题 长期以来 没有 得到 足够 的 重视 , 对 问题 的 本质 和 复杂性 缺乏 深刻 了解 . C . Sun 博士 于 近年 在世界上 首先 明确 地 提出 了 操作 意愿 （ Intention   of   Operation ） 的 概念 , 并 将 操作 变换 方法 应用 于 实时 协同 文本编辑 系统 中 操作 意愿 的 维护 ［ 4 , 5 ］ . 
+ 　 　 定义 1 .   操作 意愿 . 
+ 　 　 操作 O 的 操作 意愿 是 指 在 O 产生 时 的 环境 下 , 操作 O 所要 完成 的 动作 . 在 操作 O 产生 时 的 文档 状态 下 , 执行 O 得到 的 结果 显然 满足 操作 意愿 . 
+ 　 　 在 实时 协同 编辑 系统 中 , 一个 操作 在 远程 结点 执行 产生 的 效果 , 若 不 加以 调整 和 控制 , 则 可能 与 操作 在 本地 执行 时 产生 的 效果 不 一样 , 即 与 用户 希望 达到 的 效果 不 一致 . 不妨 假定 O1 和 O2 分别 是 在 结点 A , B 上 同时 产生 的 操作 , 并且 A , B 结点 的 文档 状态 在 O1 和 O2 产生 前 是 相同 的 . 那么 , 根据 实时 协同 编辑 系统 的 特点 , O1 和 O2 产生 后 首先 在 本地 结点 执行 , 然后 广播 到 所有 其他 协作 结点 并 执行 . 当 O1 到达 结点 B 时 , 结点 的 文档 状态 由于 执行 了 O2 而 发生 了 变化 , 与 O1 产生 时 的 文档 状态 不 一致 , 若 简单 执行 O1 , 则 很 可能 产生 错误 的 结果 . 同样 , O2 到达 结点 A 时 , 也 将 遇到 类似 的 问题 . 
+ 　 　 现 考察 一个 具有 插入 、 删除 操作 的 实时 协同 文本编辑 系统 . 如图 1 所示 , 考虑 O1 , O2 在 结点 N0 和 N1 上 的 执行 情况 . 假设 共享 文档 的 初始状态 为 “ ABCDEF ” , O1 = O2 = remove ［ 1 , 3 ］ , 表示 删除 位置 3 （ 记第 1 个字符 的 位置 为 0 ） 开始 的 1 个字符 , 即 都 想 删除 字符 “ D ” . 显然 , 所有 结点 上 应该 得到 的 正确 结果 是 “ ABCEF ” . 然而 , 得到 的 结果 很 可能 是 “ ABCF ” . 实际上 , 这 类 例子 俯拾皆是 . 仍 以图 1 为例 , 且 共享 文档 的 初始状态 仍为 “ ABCEF ” , 设 O1 ＝ insert ［ “ 11 ” , 1 ］ , O2 ＝ insert 
+ ［ “ 22 ” , 3 ］ , O3 ＝ remove ［ 3 , 0 ］ , 为 3 个 不同 结点 上 同时 产生 的 并发 操作 , 分别 表示 在 位置 1 、 3 之前 插入 字符串 “ 11 ” 、 “ 22 ” 以及 删除 “ ABC ” . 正确 的 结果 是 “ 1122DEF ” , 而 按 O1 , O2 , O3 的 6 种 排列 中 的 任何 一种 顺序 执行 , 都 不 可能 得到 正确 结果 . 操作 意愿 违背 问题 , 本质 上 与 操作 的 执行 顺序 无关 , 它 是 由于 操作 的 并发 而 引起 的 , 而 网络 分布 计算 使 问题 变得 更加 复杂 . 可以 看出 , 这种 来自 实时 协同 编辑 系统 的 一致性 维护 问题 , 具有 相当 的 挑战性 , 现有 分布式计算 的 控制算法 不能 直接 用来 解决问题 ［ 6 ～ 8 ］ . 
+ 
+ 图 1 　 实时 协同 编辑 系统 的 操作 关系 示例 
+ 2 　 维护 操作 意愿 的 现有 方法 
+ 　 　   操作 变换 方法 是 目前 国际 上 研究 操作 意愿 维护 而 提出 的 一种 有效 方法 . 将 操作 变换 思想 用于 实时 协同 编辑 系统 , C . A . Ellis 等 人 做 了 先驱 性 的 工作 ［ 1 , 2 ］ . 其后 , C . Sun 博士 等 人 在 其 基础 上 继续 深入研究 , 发现 了 原来 方法 存在 的 问题 , 并 首次 明确提出 了 维护 操作 意愿 的 概念 , 操作 变换 方法 得到 了 进一步 的 发展 和 完善 ［ 3 ～ 5 ］ . 
+ 　 　 操作 变换 的 基本 思想 是 ： 操作 执行 前 对 操作 的 各 参数 形式 进行 调整 , 以 补偿 由于 执行 了 其他 操作 而 引起 的 文档 变化 . 有 两种 主要 的 操作 变换 , 分别 称为 包含 变换 （ Inclusion   Transformation ） 和 剔除 变换 （ Exclusion   Transformation ） ［ 1 , 3 ～ 5 ］ . 包含 变换 的 作用 是 把 一个 操作 对 文档 造成 的 影响 有效 地 包含 进 另 一个 操作 里 , 即 变换 后 的 操作 参数 已经 考虑 了 另 一个 操作 对 文档 造成 的 影响 . 剔除 变换 的 作用 是 消除 一个 操作 对 另 一个 操作 的 影响 . 操作 变换 的 实现 与 具体 应用 相关 , 需 根据 实际 的 操作 语义 来 设计 相应 的 算法 . 不同 的 应用 , 对于 任一 操作 , 如何 得到 操作 的 正确 变换 形式 , 是 对 变换 操作 进行 调度 的 过程 , 其 控制算法 是 通用 的 ［ 1 , 4 , 5 ］ . 
+ 　 　 举个 简单 例子 , 如图 1 所示 . 设 共享 文档 的 初始状态 为 “ ABCDEF ” , O1 ＝ insert ［ “ 11 ” , 1 ］ , 即 在 “ A ” 与 “ BCDEF ” 之间 插入 “ 11 ” , 设 O2 ＝ remove ［ 3 , 2 ］ , 即 删除 “ CDE ” . O1 在 结点 N0 执行 后 , 文档 变为 “ A11BCDEF ” , O2 到达 结点 N0 时 , 通过 操作 变换 后 变为 O ′ 2 ＝ remove ［ 3 , 4 ］ , 执行 得到 文档 “ A11BF ” . 
+ 　 　 应该 指出 的 是 , 复杂 的 操作 关系 使得 实施 操作 变换 并 不 容易 . 例如 , 将 上面 例子 中 的 O1 改为 insert ［ “ 11 ” , 3 ］ , 则 O2 变换 后应 得到 两个 操作 remove ［ 1 , 2 ］ 和 remove ［ 2 , 5 ］ . 
+ 3 　 文档 标注 方法 
+ 　 　   可以 看出 , 操作 变换 方法 着眼于 操作 本身 , 试图 通过 变换 操作 的 参数 形式 来 实现 操作 意愿 维护 . 由于 操作 变换 算法 与 操作 的 语义 紧密 相关 , 特别 是 , 由于 网络 传输 延迟 的 不确定性 , 当 结点 规模 稍大时 , 操作 之间 的 可能 关系 变得 非常复杂 , 考虑 全面 很 不 容易 , 并且 实施 操作 变换 时 还 会 遇到 不少 需要 特别 处理 的 情况 . ［ 5 ］ 因此 , 操作 变换 算法 设计 的 难度 和 技巧性 要求 都 很 高 . 
+ 　 　 文档 标注 方法 则 立足于 共享 文档 本身 . 无论 某一 操作 执行 前 发生 了 多少 并发 操作 , 通过 对 共享 文档 加 标注 的 手段 , 把 并发 操作 执行 所 引起 的 文档 变化 部分 屏蔽 起来 , 使该 操作 执行 时 的 文档 状态 仍然 与 该 操作 产生 前 瞬间 的 文档 状态 一致 , 从而 实现 操作 意愿 的 维护 . 具体方法 如下 ： 设 操作 O 产生 前 瞬间 的 文档 状态 为 DOC , 当 O 传送 到 远程 结点 执行 时 , 若有 O 的 并发 操作 在 该 远程 结点 上 已经 先 执行 , 则 通过 对 文档 加 标注 的 手段 , 隐藏 由于 先 执行 的 并发 操作 所 引起 的 文档 的 变化 部分 , 使得 该 远程 结点 的 文档 状态 仍然 是 DOC , 然后 执行 O , 最后 , 去除 所加 的 标注 , 以 恢复 隐藏 的 文档 部分 . 
+ 　 　 根据 我们 目前 的 研究 , 文档 被 标注 部分 的 类型 有 两种 ： ( 1 )   不 可见 . 表示 从 操作 的 角度看 , 这部分 文档 是 不 存在 的 , 而 实际上 这部分 文档 是 存在 的 , 即 对于 操作 而言 是 不 可见 的 . ( 2 )   可见 但 实际 不 存在 . 表示 从 操作 的 角度看 , 这部分 文档 是 可见 的 , 但 实际上 已经 被 前面 执行 的 某个 操作 删除 了 . 
+ 　 　 删除 操作 需要 重点 关注 . 执行 删除 操作 时 , 如果 将 文档 的 相应 部分 真正 删除 掉 了 , 那么 其后 将 该 删除 部分 恢复 出来 是 很 不 方便 的 . 其 原因 在于 ： 操作 的 执行 结果 和 当时 的 系统 状态 是 相关 的 , 而 执行 操作 后 , 系统 状态 即 发生 了 改变 ； 操作 的 逆 操作 要 正确 执行 , 往往 还 需要 用到 这些 系统 状态 数据 . 一种 可行 的 做法 是 ： 当 执行 删除 操作 时 , 并 不 真正 将 文档 的 对应 部分 删除 掉 , 而是 做 上 相应 标记 . 不少 文件系统 、 数据库系统 为了 提供 被 删除 文件 、 数据 记录 的 恢复 功能 都 采用 了 类似 技术 . 
+ 　 　 我们 通过 上节 中 的 例子 来 说明 文档 标注 方法 . 如图 1 所示 , 设 共享 文档 的 初始状态 为 “ ABCDEF ” , O1 ＝ insert ［ “ 11 ” ,   3 ］ , O2 ＝ remove ［ 3 ,   2 ］ , 考察 O1   和 O2 在 结点 N0 和 N1 上 的 执行 情况 . 假定 用 下划线 代表 “ 不 可见 ” 标注 , 用 删除 线 代表 “ 可见 但 实际 不 存在 ” 标注 . 
+ 　 　 结点 N0   ： ( 1 )   O1 执行 后 , 文档 状态 变为 “ ABC11DEF ” ； ( 2 ) O2 到达 本 结点 , 由于 O1 是 O2 的 并发 操作 , 因此 , 需要 屏蔽 O1 所 引起 的 文档 变化 部分 , 即 “ 11 ” . 对 “ 11 ” 加 下划线 标注 , 文档 状态 变为 “ ABC11DEF ” . 执行 O2 , 删除 位置 2 开始 的 3 个字符 , 由于 “ 11 ” 带有 下划线 标注 , 不 在 删除 之 列 , 因此 , 删除 的 字符 是 “ CDE ” , 从而 得到 “ AB11F ” . 然后 , 去掉 “ 11 ” 上 的 标注 . 
+ 　 　 上 一节 中 提到 , 采用 操作 变化 方法 , O2 变换 后应 得到 两个 操作 . 而 这里 采用 文档 标注 方法 , O2 不 需作 任何 变化 , 执行 时 只 需 记住 带 下划线 标注 的 字符 不 在 删除 之列 . 
+ 　 　 结点 N1   ： 1 )   O2 执行 后 , 用户 看到 的 文档 为 “ ABF ” . 由于 O2 是 删除 操作 , 所以 , 如前所述 , 并 不 实际 把 “ CDE ” 从 文档 中 除去 , 文档 状态 仍为 “ ABCDEF ” , 但 需要 在 “ CDE ” 的 各 字符 上 标明 操作 O2 , 表示 被 操作 O2 所 删除 , 并且 不 被 显示 出来 ； 2 )   O1 到达 本 结点 , 由于 O2 是 O1 的 并发 操作 , 因此 , 需要 屏蔽 O2 所 引起 的 文档 变化 部分 . 对 “ CDE ” 加上 删除 线 标注 , 文档 状态 变为 “ ABCDEF ” . 执行 O1 , 将 “ 11 ” 插入 位置 3 （ 即 D ） 之前 , 得到 “ ABC11DEF ” . 接着 , 去掉 “ C ” 、 “ DE ” 上 的 删除 线 标注 , 用户 看到 的 文档 为 “ AB11F ” . 
+ 4 　 控制算法 
+ 　 　   文档 标注 方法 的 实现 可 分为 两个 部分 . 一部分 是 如何 对 文档 进行 标注 , 算法 与 具体 应用 相关 . 另 一部分 则 是 高层 控制算法 , 它 与 具体 应用 无关 , 负责 根据 当前 到达 的 操作 与 已经 执行 了 的 操作 的 关系 , 调度 文档 标注 算法 , 以 使 操作 所 看到 的 文档 状态 与 该 操作 产生 时 本地 结点 的 文档 状态 相同 , 然后 执行 操作 , 满足 操作 意愿 要求 . 
+ 　 　 定义 2 .   结点 的 状态 NS . 
+ 　 　 结点 的 状态 由 在 该 结点 上 已经 执行 了 的 操作 序列 表示 . 例如 , 结点 i 上 已经 按 顺序 执行 了 操作 O1 , O2 和 O3 , 那么 , 结点 i 的 状态 NSi 可以 表示 为 一个 表 ［ O1   , O2   , O3 ］ . 表尾 元素 是 最近 执行 的 操作 . 
+ 　 　 定义 3 .   操作 的 上下文 CT . 
+ 　 　 操作 的 上下文 定义 为 操作 产生 时 本地 结点 已经 执行 了 的 操作 序列 . 例如 , 操作 O 在 结点 i 上 产生 的 瞬间 , 结点 i 上 已经 按 顺序 执行 了 操作 O1 , O2 和 O3 , 那么 , 操作 O 的 上下文 CTO 可以 表示 为 一个 表 ［ O1 , O2 , O3 ］ . 
+ 　 　 在 控制算法 中 需要 用到 操作 的 上下文 信息 , 因此 , 操作 的 上下文 信息 连同 操作 本身 打包 在 一起 , 然后 传送 到 各个 协作 结点 . 
+ 　 　 不同 的 应用 和 操作 , 给 文档 加 标注 的 算法 的 具体 实现 不同 , 但 功能 思想 是 一致 的 . 为 讨论 方便 , 定义 以下 两个 函数 . 
+ 　 　 ( 1 )   Document 　 　 markDoc ( Document 　 　 doc , 　 　 Operation 　 　 op ) ; 
+ 　 　 前提条件 ： 结点 的 文档 状态 为 doc , 执行 了 的 操作 为 op . 
+ 　 　 功能 描述 ： 将 操作 op 对 文档 所 造成 的 影响 进行 标注 , 以 隐藏 起 op 执行 后 文档 所 发生 的 变化 . 
+ 　 　 结果 条件 ： 文档 将 发生变化 到 一个 新 的 状态 doc ′ . 设 op 执行 前 文档 的 状态 为 doc ″ , 则 markDoc ( ) 执行 后 , 从 操作 的 角度看 , 文档 状态 仍然 是 doc ″ , 即 看不出 doc ′ 与 doc ″ 的 区别 . 
+ 　 　 ( 2 )   Document 　 　 demarkDoc ( Document 　 　 doc , 　 　 Operation 　 　 op ) ; 
+ 　 　 前提条件 ： 结点 的 文档 状态 为 doc , 执行 了 的 操作 为 op , 并且 操作 op 对 文档 doc 造成 的 影响 已经 通过 调用 markDoc ( ) 被 隐藏 起来 . 
+ 　 　 功能 描述 ： 将 文档 中 针对 op 所加 的 标注 除去 . 
+ 　 　 结果 条件 ： 文档 将 发生变化 到 一个 新 的 文档 状态 doc ′ , 在 doc ′ 中 操作 op 对 文档 造成 的 影响 被 显示 出来 . 
+ 　 　 上述 两个 函数 满足 以下 关系 ： 
+ demarkDoc ( markDoc ( DOC , op ) , op ) = DOC . 
+ 　 　 任意 一个 操作 , 如果 产生 于 本地 结点 , 则 立即 执行 ； 如果 产生 于 远程 结点 , 其 执行 由 以下 算法 控制 . 
+ 　 　 控制算法   操作 O 产生 于 远程 结点 , 设 当前 结点 的 状态 为 NS , 文档 状态 为 DOC , 操作 O 的 上下文 为 CTO , 按 以下 步骤 执行 ： 
+ 　 　 ( 1 )   如果 NS ＝ CTO , 则 执行 O . 算法 结束 ； 
+ 　 　 ( 2 )   如果 （ op 是 CTO 的 元素 , 并且 不是 NS 的 元素 ） , 则 延迟 执行 O . 算法 结束 ； 
+ 　 　 ( 3 )   ( a )   置 ListTmp 为 空表 . 
+ 　 　 　 　 ( b )   从右 向 左 扫描 NS , 如果 （ op 是 NS 的 元素 ,   并且 不是 CTO 的 元素 ） , 则 
+ 　 　 　 　 　 { DOC ＝ markDoc ( DOC , op ) ; 
+ 　   　 　 　 　 将 op 放入 ListTmp 的 表尾 ； 
+ 　 　 　 　 　 } 
+ 　 　 ( 4 )   执行 O ; 
+ 　 　 ( 5 )   从右 向 左 扫描 ListTmp , 对于 ListTmp 的 元素 op , 执行 
+ DOC ＝ demarkDoc ( DOC , op ) ; 
+ 　 　 ( 6 )   算法 结束 . 
+ 　 　 当 一个 操作 到达 结点 时 , 如果 需要 进行 文档 标注 , 除了 操作 的 上下文 信息 外 , 还 应当 知道 结点 的 状态 信息 , 才能 使 标注 操作 得以 正确 实施 . 如果 在 结点 上 保存 所有 操作 的 信息 , 会 造成 信息 大量 冗余 , 消耗 过多 内存 资源 , 效率 降低 越来越 严重 . 那么 , 该 如何 确定 需 保存 的 操作 信息 呢 ？ 我们 有 下面 的 定理 . 
+ 　 　 定理 1 .   设 集合 S 所 包含 的 操作 在 所有 协作 结点 上 都 被 执行 , 则 结点 可以 不再 保存 集合 S 所 包含 的 操作 的 信息 . 
+ 　 　 根据上述 定理 , 可以 构造 不同 形式 的 算法 , 以 实现 操作 信息 的 保存 . 
+ 　 　 我们 由 上节 中 的 例子 来 进一步 说明 . 如果 确信 O1 和 O2 已经 在 所有 结点 上 被 执行 , 那么 , 根据 定理 1 , 在 结点 N1 和 N2 上 , “ CDE ” 可以 正式 从 文档 中 除去 . 
+ 5 　 结束语 
+ 　 　   维护 操作 意愿 是 一项 复杂 的 、 颇具 挑战性 的 课题 , 国际 上 的 研究 也 刚刚 起步 , 我们 目前 所 取得 的 成果 只是 迈向 成功 的 一 小步 . 文档 标注 方法 是 维护 操作 意愿 的 一种 新 方法 , 它 具有 易于 理解 、 通用 的 特点 , 算法 设计 也 比较 直观 , 但 还 不 完善 . 在 今后 的 研究 中 , 我们 将 进一步 发展 和 完善 文档 标注 方法 , 并 考虑 把 它 应用 到 分布式计算 的 其他 领域 . 
+ 致谢 　 C . Sun 博士 在 华 讲学 的 内容 对 我们 启发 很大 , 特别 是 对 本文 的 写作 提出 了 很多 宝贵 的 具体意见 . 另外 , 我们 与 王怀民 博士 还 进行 过 多次 有益 的 讨论 . 在 此 , 谨向 他们 表示 我们 诚挚 的 谢意 . 
+ 本文 研究 得到 国家 863 高科技 项目 基金 资助 . 
+ 作者 介绍 ： 何鸿君 , 1968 年生 , 博士 , 讲师 , 主要 研究 领域 为 分布 计算技术 , 多媒体技术 . 
+ 　 　 　 　 　 吴 泉源 , 1942 年生 , 教授 , 博士生 导师 , 主要 研究 领域 为 专家系统 , 分布 计算技术 . 
+ 　 　 　 　 　 罗莉 , 女 , 1971 年生 , 博士 , 讲师 , 主要 研究 领域 为 人工神经网络 , 分布 计算技术 . 
+ 本文 通讯联系 人 ： 何鸿君 , 长沙   410073 , 长沙 工学院 计算机系 601 教研室 
+ 作者 单位 ： 何鸿君 　 吴 泉源 　 罗 　 莉 　 长沙 工学院 计算机系 　 长沙 　 410073 
+ 参考文献 
+ 　 ［ 1 ］ Ellis   C   A ,   Gibbs   S   J .   Concurrency   control   in   groupware   systems .   In :   Baltimore   ed .   Proceedings   of   ACM   SIGMOD   Conference   on   Management   of   Data .   New   York :   ACM   Press ,   1989 .   399 ～ 407 
+ 　 ［ 2 ］ Ellis   C   A ,   Gibbs   S   J ,   Rein   G   L .   Groupware :   some   issues   and   experiences .   Communications   of   ACM ,   1991 , 34 ( 1 ) : 39 ～ 58 
+ 　 ［ 3 ］ Sun   C   et   al .   REDUCE :   a   prototypical   cooperative   editing   system .   In :   Smith   M   J   et   al   eds .   Proceedings   of   the   7th   International   Conference   on   Human - Computer   Interaction .   San   Fransisco :   Elsevier   Press ,   August ,   1997 .   89 ～ 92 
+ 　 ［ 4 ］ Ressel   M ,   Nitsche - Ruhland   D ,   Gunzenbauser   R .   An   integrating   transformation - oriented   approach   to   concurrency   control   and   undo   in   group   editors .   In :   Turner   J   ed .   Proceedings   of   ACM   Conference   on   Computer   Supported   Cooperative   Work .   1996 .   288 ～ 297 
+ 　 ［ 5 ］ Sun   C   et   al .   A   generic   operation   transformation   scheme   for   consistency   maintenance   in   real - time   cooperative   editing   system .   In :   Payne   S   C ,   Prinz   W   eds .   Proceedings   of   the   International   Conference   on   Supporting   Group   Work   ( GROUP ' 97 ) .   Phoenix ,   Arizona   USA ,   Nov .   1997 .   425 ～ 434 
+ 　 ［ 6 ］ Tanenbaum   A   S .   Distributed   Operating   System .   Beijing :   Tsinghua   University   Press ,   1996 .   119 ～ 158 
+ 　 ［ 7 ］ Gerard   Tel .   Introduction   to   Distributed   Algorithms .   London :   Cambridge   University   Press ,   1994 
+ 　 ［ 8 ］ Stefano   Ceri   et   al .   Distributed   Databases :   Principles   and   Systems .   New   York :   McGraw - Hill   Book   Company ,   1984 .   209 ～ 244 
+ 本文 1997 - 10 - 22 收到 原稿 , 1998 - 02 - 17 收到 修改稿 

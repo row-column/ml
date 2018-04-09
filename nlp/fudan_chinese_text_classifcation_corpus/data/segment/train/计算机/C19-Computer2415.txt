@@ -1,0 +1,172 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年 　 第 36 卷 　 第 11 期 　 Vol.36 　 No.11 　 1999 
+ 
+ 
+ 
+ 嵌入式 微处理器 NCS 保护方式 的 异常 与 中断 研究 
+ 李树国 　 高德远 　 聂培琴 　 刘诗斌 
+ 摘 　 要 ： 保护方式 下 的 异常 与 中断 管理 是 微处理器 设计 的 重要 组成部分 . 文中 探讨 了 异常 与 中断 的 数据结构 、 定义 、 表 ， 给出 了 保护方式 下 的 异常 与 中断 管理 算法 ； 提出 了 异常 / 中断 管理 单元 ( EIMU ) 的 细胞 群 结构 ， 并 指出 细胞 是 异常 / 中断 管理 单元 的 基本 测试 单位 ； 系统 评价 了 任务 门 ， 中断 门 / 陷阱 门 区别 及 优缺点 . 最后 用 EDA 工具 MENTOR   GRAPHICS   对 异常 与 中断 管理 单元 及其 算法 的 RTL 级 VHDL 描述 进行 综合 与 仿真 ， 验证 了 其 正确性 与 有效性 . 
+ 关键词 ： 异常 / 中断 管理 单元 ( EIMU ) , 中断 门 ,   陷阱 门 ,   任务 门 ,   细胞   
+ 中图法 分类号 ： TP368.1 
+ RESEARCH   ON   EXCEPTION   AND   INTERRUPT   OF   EMBEDDED 
+ MICROPROCESSOR   NCS   IN   PROTECTED - MODE 
+ LI   Shu - Guo 　 GAO   De - Yuan 　 LIU   Shi - Bin   
+ ( Aviation   Microelectronic   Center ， Northwestern   Polytechnical   Uni   versity ,   Xi ' an   710072 ) 
+ NIE   Pei - Qin 
+ ( Information   &   Control   Department ,   Shandong   University   of   Builing   Materials ,   Jinan   250022 ) 
+ Abstract 　 After   definition   and   data   structure   in   exception / inte   rrupt   management   are   analyzed , an   algorithm   is   given   to   deal   with   the   exceptio   n / interrupt . In   the   algorithm   there   are   two   mechanisms   to   answer   exception / inter   rupt :   one   is   to   utilize   a   trap / interrupt   gate   in   current   task ,   the   other   is   to   u   tilize   a   task   gate   in   another   task .   As   a   results ,   exception   or   interrupt   which   c   an   not   be   processed   in   current Р task   may   use   task   gate   to   handle   in   another   task .   On   the   other   hand ,   a   basic   test   unit - cell   is   deduced   to   genera   te   Boolean   value   for   cell   test   to   control   branch   in   the   microprogram .   With   cell   extracted   from   the   algorithm ,   a   kind   of   cell   group   structure   is   put   forward   to   e   stablish   exception / interrupt   management   unit   ( EIMU ) .   The   VHDL   RTL   description   f   or   EIMU   and   the   algorithm   is   synthesized   and   simulated   in   MENTOR   GRAPHICS   and   it   s   simulation   proves   its   validity . 
+ Key   words 　 exception / interrupt   management   unit   ( EIMU ) ,   interr   upt   gate ,   trap   gate ,   task   gate ,   cell 
+ 　 　 嵌入式 16 位 微处理器 在 军事 和 民用 领域 都 有着 广泛 的 应用 ， 研制 具有 我国 自主 版权 的 微 处理   器 在 当今 具有 重大意义 . 西工大 航空 微电子 中心 结合 国防 及 航空 应用 的 高可靠性 、 抗干扰性   、 实时 检测 、 故障 恢复 及 容错 等 特点 ， 依照 国防 及 航空 技术 规格 要求 ， 设计 了 机载 嵌入式 16 位 拥有 保护 机制 的 微处理器 . 该 微处理器 集 异常 与 中断 、 实虚 模式 、 多任务 管理 ［ 1 ］ 、 内存保护 ［ 2 ］ 等 嵌入 在 芯片 内 . 
+ 　 　 嵌入式 微处理器 保护模式 下 异常 / 中断 与实 模式 下 的 异常 / 中断 具有 很大 的 不同 ， 这 是因为   访问 保护模式 下 的 异常 / 中断 的 程序 应 具有 规定 的 特权 级 ， 而实 模式 下无此 限制 ；   其次 ， 保护模式 可 寻址 微处理器 整个 虚拟空间 ， 而实 模式 仅能 寻址 局部 物理 空间 ； 再次 ， 保护模式 给 那些 不能 由 中断 处理程序 恢复 的 故障 提供 了 用 任务 恢复 的 可能性 ， 而实 模式 下则 不能 .   因此 ， 研究 保护模式 下 的 异常 / 中断 对 机载 嵌入式 微处理器 来说 意义 重大 . 
+ 1 　 保护方式 下 的 异常 与 中断 的 定义 
+ 　 　 异常 / 中断 强使 微处理器 的 执行 转移 到 另 一个 任务 或 过程 . 异常 是 由 指令 引起 的 ， 而 中断 则 是   由 外设 引起 的 .   通常 ， 异常 和 中断 是 以 应用程序 透明 的 方式 执行 的 . 
+ 　 　 支持 保护方式 异常 / 中断 的 数据结构 ［ 3 ， 4 ］ 是 中断 门 、 陷阱 门 、 任务 门 、 中断 描述符 表 ( GDT ) 、 局部 描述符 表 ( LDT ) 、 任务 状态 段 ( TSS ) 、 任务 状态 段 描述符 、 中断 描述符 表 寄存器 ( GDTR ) 和 局部 描述 表 寄存器 ( LDTR ) 等 . 使用 这些 结构 ， 处理器 能 对 保护方式 的 异常 和 中断 进行 响应 与 处理 . 
+ 1.1 　 段 选择 子 的 定义 Selector 
+ 　 　 嵌入式 微处理器 NCS 采用 段 式 存储器 管理 ， 濏 段 的 控制 信息 用 连续 的 8 个 字节 来 表示 ， 这 8 个 字节 称为 描述符 ( descriptor ) . 段 选择 子 指定 描述符 表及 该表中 的 描述符 . 段 选择 子 含有 3 个 字 段 见 图 1 ，   TI 描述符 表 指示 符 ( GDT 或 LDT ) .   INDEX 寻址 描述符 表 ( GDT 或 LDT ) 内 索引 值 .   RPL   ( requestor   privilege   level ) 请求者 的 特权 级 ， RPL 被 用来 防止出现 较 低 特权 级 的 程序 使用 较 高 特权 级 的 程序 去 访问 被 保护 的 数据 . 
+ 
+ 
+ 图 1 　 选择 子 格式 
+ 1.2 　 中断 门 、 陷阱 门 和 任务 门 的 定义 ( interrupt   gate ， trap   gate   and   task   gate ) 
+ 　 　 描述符 分 两类 ， 一类 称作 一般 的 段 描述符 ， 如 代码段 、 数据 段 描述符 等 ； 另一类 属于 控制 转移 的 特殊 描述符 ， 一般 称 这类 描述符 为门 ， 如 中断 门 和 陷阱 门 等 . 当 中断 或 异常 发生 时 ， 陷阱 门 / 中断 门 控制程序 的 转移 . 陷阱 门 / 中断 门 的 格式 见图 2 .   门中 的 选择 子 指明 在 GDT 或 LDT 表 寻址 描述符 的 索引 值 ； 偏移量 即 异常 / 中断 处理程序 起始 点 ； xx 无关 项 ； 属性 字段 中 P ： 存在 位 ； 00111 和 00110 分别 是 陷阱 门 和 中断 门 标志 ； DPL 是 程序 访问 陷阱 门 或 中断 门 的 最低 特权 级 . 
+ 
+ 
+ 图 2 　 中断 门 和 陷阱 门 
+ 　 　 如果 在 中断 描述符 表 IDT ( interrupt   descriptor   table ) 的 槽 位 中 定义 任务 门时 ， 则 不 执   行 中断 处理 ， 而 执行 任务 切换 . 这 对 那些 不能 用 陷阱 门 或 中断 门 处理 的 故障 和 异常 ， 提供 了 用 任务 门 修复 故障 的 可能性 . 任务 门 提供 对 任务 状态 段 间接 的 ， 受 保护 的 访问 . 图 3 示出 了 任务 门 的 组成 . 任务 门 属性 中 DPL 是 程序 访问 任务 门 的 最低 特权 级 .   TSS 选择 子 即 在 GDT 表中 寻址 TSS 描述符 索引 值 . 
+ 
+ 
+ 图 3 　 任务 门 描述符 
+ 1.3 　 任务 状态 段 寄存器 TR   ( task   register ) 定义 
+ 　 　 在 用 任务 门 处理 异常 / 中断 时 ， 需用 任务 状态 段 寄存器 ( TR ) 来 寻址 TSS 段 ( task   statese   gment 段 ， 它 记载 一个 任务 的 上下文 环境 ) . TR 分两 部分 组成 ， 见图 4 ， 一部分 存放 16 位 的 选择 子简 TR . selector ， 另 一部分 是 TR 选择 子 所 对应 的 TR . CACHE ( 48 位 ) ， 用于 存放 由 选择 子 所 索引 的 TSS 段 描述符 . 
+ 
+ 
+ 图 4 　 任务 寄存器 TR 
+ 1.4 　 异常 保护 的 定义 
+ 　 　 异常 保护 是 在 描述符 不 正确 ， 对 TSS 访问 或 特权 级 规则 有所 违反 时 产生 的 异常中断 . 异常 保护   是 保护 模 嬏 下 存储器 管理 与 任务 管理 的 异常中断 ， 只 适用 于 保护模式 . 异常 保护 的 种类 列于 表 1 . 在 保护模式 中 ， 嵌入式 微处理器 NCS 异常 / 中断 的 处理程序 不仅 提供 了 返回 地址 ， 而且 还 提供 了 错误码 . 错误码 指明 了 误 的 性质 ， 但用 任务 门 进行 中断 处理 时仅 压入 错误码 而 不 压入 返回 地址 . 
+ 表 1 　 异常 保护 的 种类 
+ 
+ 中断 类型 保护 种类 出错 代码 压栈 地址 
+ 8 双重 错 0 异常 指令 地址 
+ 10 不 正确 的 TSS 非 0 异常 指令 地址 
+ 11 段 不 存在 非 0 异常 指令 地址 
+ 12 堆栈 出错 非 0 异常 指令 地址 
+ 13 一般 保护 错非 0 异常 指令 地址 
+ 
+ 2 　 异常 与 中断 管理 算法   
+ 2.1 　 异常 / 中断 管理 的 数据结构 ： 表 结构 及表 寄存器 
+ 　 　 保护模式 下 的 段式 存储器 管理 的 每个 段 都 对应 一个 描述符 ， 所有 的 段 描述符 根据 用途 不同 分   别 存放 在 系统 的 3 张表 IDT ， GDT 和 LDT 中 .   IDT ( interrupt   descriptor   table ) 中断 描述符 表 ， GDT ( global   descriptor   table ) 全局 描述符 表 ， LDT ( local   descriptor   table ) 局部 描述符 表 ， 它们 都 被 定义 在 存储器 中 .   GDT ， LDT 和 IDT 每个 表 空间 可达 64K 字节 ， 最 多 可定义 216 / 23 = 213 ( 8192 ) 个 描述符 ； IDT 表 整个 系统 仅 有 一张 ， 主要 用于 存放   中断 门 、 陷阱 门 和 任务 门 ， 以 进行 中断 处理 或 故障 恢复 . GDT 表 整个 系统 仅 有 一张 主要 用来 存   放 系统 代码段 和 数据 段 描述符 、 任务 门 等 ； LDT 表 每个 任务 一张 主要 用于 存放 局部 的 代码段   和 数据 段 描述符 、 调用 门 等 . 
+ 　 　 IDTR   ( interrupt   descriptor   table   register )   中断 描述符 表 寄存器 ， GDTR ( globalde   scriptor   table   register ) 全局 描述符 表 寄存器 它们 分别 用于 存放 IDT 或 GDT 的 24 位 线性表 基 地址 及其 表限 . LDTR   ( local   descriptor   table   register ) 局部 描述符 表 寄存器 用于 存放 寻址 当前任务 的 LDT 表 的 选择 子 ， LDTR . CACHE   用于 存放 由 选择 子 所 指定 GDT 中 的 描述符 ， 见图 5 . 
+ 
+ 
+ 图 5 　 GDTR ， IDTR ， LDTR 寄存器 
+ 2.2 　 异常 与 中断 管理 算法 
+ 　 　 基于 上述 数据结构 及 定义 ， 我们 给出 微处理器 异常 与 中断 的 管理 算法 . 算法 自顶向下 分 4 个   层次 ， ( 1 ) 顶层 ： 取指令 执行 指令 循环 算法 Fetch _ executeloop _ algorithm ， 清 EXT 并 保存 IP 的 值 ， 为 要 发生 异常 /   中断 作 准备 ； ( 2 ) 驱动 层 ： Drive _ save _ algorithm ， 恢复 IP ， 置 错误码 并 驱动 支持 层 ； ( 3 ) 支持 层 ： gate _ sort _ algorithm   门 分类 算法 ； ( 4 ) 底层 ： 当前任务 的 中断 / 陷阱 门 处理 羗 法 Exception _ interrupt _ gate _ algorithm 和 任务 门 处理 算法 Task _ gate _ algorithm . 
+ 　 　 ( 1 ) 顶层 Fetch _ execute _ loop _ algorithm ( 模拟 微处理器 NCS 取指令 执行 指令 的 过程 ) 
+ 　 　 步骤 1 ： EXT < = 0 ； 
+ 　 　 步骤 2 ： old _ IP < = IP ； 
+ 　 　 步骤 3 ： 取指令 Fetch _ instruction   (   ) ； 
+ 　 　 步骤 4 ： 执行 指令   Execute   (   ) ； 
+ 　 　 步骤 5 ： Goto   步骤 1 . 
+ 　 　 ( 2 ) 驱动 层 ： Drive _ save _ algorith   m 
+ 　 　 顶层 算法 若 步骤 4 执行 的 指令 是 INT 指令 ， Vecnumber 由 INT 指令 的 操作数 获得 ； 若 步骤 4   执行   的 指令 发生 异常 ， Vecnumber 由 预先 定义 的 异常 矢量 表 ( 见表 1 ) 获得 ； 若 步骤 4 执行 完 指令   后 ， 微处理器 检测 外部 中断请求 ， Vecnumber 由 外设 提供 . 
+ 输入 参数 ： Vecnumber   异常 的 矢量 号 
+ 　 　 步骤 1 ： 置出 错码 的 末位 ， 即   Errorcode  Errorcode & 0FFFEH | EXT ； 
+ 　 　 步骤 2 ： 回退 指令 指针 ， 使 其 指向 产生 故障 的 指令 ， 即   IP  old _ IP ； 
+ 　 　 步骤 3 ： 调用 门 分类 算法   即   CALL   gate _ sort _ algorithm ； 
+ 　 　 步骤 4 ： 出 错码 压栈 ； 
+ 　 　 步骤 5 ： 转移 到 顶层 　 Fetch _ execute _ loop _ algorithm   的 步骤 1 ； 
+ 　 　 步骤 6 ： 结束 . 
+ 　 　 ( 3 )   支持 层 ： 门 分类 算法 gate _ sort _ agorithm 
+ 　 　 步骤 1 ： 检查 IDT 表 的 越界 ； 即 若 中断 矢量 × 8 + 7 ≤ IDTR . limit ( 中断 矢量 表表 长 ) ， 顺   序 执行 ； 否则 ， 报告 异常 ； 
+ 　 　 步骤 2 ：   以 中断 矢量 × 8 + IDTR . base 为 地址 得 描述符 ； 
+ 　 　 步骤 3 ： 若 描述符 中 的 DPL 不 小于 当前 运行 程序 的 特权 级 CPL ， 即 DPL ≥ CPL 且 描述符 为 任务 门   或 中断 门 或 陷阱 门 ， 则 顺序 执行 ； 否则 ， 报告 异常 ； 
+ 　 　 步骤 4 ：   若 为 中断 / 陷阱 门 ， 则 转入 当前任务 中断 / 陷阱 门 处理 算法 ( Exception _ interrupt _ gate _ al   gorithm ) ； 若 为 任务 门则 转入 任务 门 处理 算法 ( Task _ gate _ algorithm ) ； 
+ 　 　 步骤 5 ： 结束 . 
+ 　 　 ( 4 )   底层 ： 
+ 　 　 ①   当前任务 的 中断 / 陷阱 门 处理 算法 Exception _ interrupt _ gate _ algorithm 
+ 　 　 步骤 1 ： 取 中断 / 陷阱 门中 的 选择 子 ， 并 以 选择 子 × 8 + GDTR . base ( LDTR . base ) 为 地址 得 段 描   述符 ； 
+ 　 　 步骤 2 ： 若 为 代码段 描述符 ( 代码段 描述符 含有 段 基址 、 属性 和 段界 ) ， 则 将 其 装入 CS . CACH   E ， 顺序 执行 ， 否则 ， 报告 异常 ； 
+ 　 　 步骤 3 ： 若 中断 / 陷阱 门 的 偏移量 不 大于 代码段 的 描述符 的 澵 界 ， 顺序 执行 ； 否则 ， 报告 异常   ； 
+ 　 　 步骤 4 ： 将 标志 寄存器 FLAGS 和 返回 地址 压入 堆栈 并 清 ц LAG . TF 及 FLAG . NT ； 
+ 　 　 步骤 5 ： 测试 中断 / 陷阱 的 标志 ( 见图 2 的 属性 字 段 ) ， 若 为 中断 门 ， 清 FLAG . IF   位 ； 若为 陷   阱 门 ， 不 改变 FLAG . IF 位 ； 顺序 执行 ； 
+ 　 　 步骤 6 ： 将 中断 / 陷阱 门 的 选择 子 加载 到 CS . selector ； 
+ 　 　 步骤 7 ： 结束 . 
+ 　 　 ②   任务 门 调度 算法 ： Task _ gate _ algorithm 
+ 　 　 若 IDT 表中 的 槽 位 中 存放 的 是 任务 门时 ， 它 可 进行 任务 切换 ， 在 另 一 任务 进行 异常 / 中断 处理   . 这 对 那些 不能 在 当前任务 进行 的 异常 / 中断 处理 提供 了 另 一 任务 环境 恢复 的 可能性 . 
+ 　 　 步骤 1 ： 检查 任务 状态 段长度 ， 若 大于 43 ， 顺序 执行 ； 否则 报告 异常 ； 
+ 　 　 步骤 2 ： 当前 的 机器 状态 保存 在 老 任务 的 TSS 中 ； 
+ 　 　 步骤 3 ： 把 新 任务 TSS 描述符 的 选择 子 送入 TR . selector ， 并 由 系统 依照 TR . selector 自动 加载   新 任务 的 TSS 段 的 描述符 到 TR . CACHE ； 
+ 　 　 步骤 4 ： 把 除 CS ， SS ， DS ， ES 之外 新 任务 TSS 段 的 内容 ， 装入 微处理器 的 硬件 寄存器 ； 
+ 　 　 步骤 5 ： 若 链接 ， 老 任务 的 TSS 选择 子 存入 新 任务 的 TSS 中 ， 置 嵌套 位 ， 新 任务 的 描述符 置 “   忙 ” 标记 ； 若 解链 ,   老 任务 的 TSS 的 描述符 标为 “ 非忙 ” ； 若 无 链接 ， 老 任务 的 TSS 的 描述符 标为 “ 非忙 ” ， 新 任务 的 TSS 描述符 标为 “ 忙 ” ； 
+ 　 　 步骤 6 ： 将 TSS 段 偏移量 42 处 的 LDT 选择 子 送入 LDTR ， 并 将 该 选择 子 × 8 与 GDTR 的 表 基址 相加 来 寻址 GDT 表 的 LDT 描述符 并 将 LDT   描述符 送入 LDTR . CACHE . 
+ 　 　 步骤 7 ：   新 任务 的 段 CS ， SS ， DS ， ES 选择 子 装入 微处理器 段 寄存器 ， 并 由 系统 自动 加载 各自   的 描述符 到 相应 的 CACHE . 
+ 　 　 步骤 8 ： 结束 . 
+ 　 　 异常 / 中断 调用 示例 见图 6 中 ① ～ ⑥ 所示 ： 
+ 　 　 ①   Vecnumber × 8 + IDTR . base 得 中断 / 陷阱 门 ； 
+ 　 　 ②   从 中断 / 陷阱 门中取 选择 子 ， 并 将 选择 子 × 8 + GDT 或 LDT . base 寻址 代码段 描述符 ； 
+ 　 　 ③   将 代码段 描述符 加载 到 段 寄存器 高速缓存 器 CS . CACHE 中 ； 
+ 　 　 ④   把 中断 / 陷阱 门 的 选择 子 装入 段 寄存器 CS . selector ； 
+ 　 　 ⑤ 从 CS . CACHE 中 得到 代码段 基 地址 ； 
+ 　 　 ⑥   将 中断 门 / 陷阱 门 的 偏移量 加上 CS . CACHE 中 的 段 基址 ， 得 异常 / 中断 代码段 执行 的 起始 位   置 . 
+ 
+ 
+ 图 6 　 中断 或 异常 过程 的 调用 
+ 3 　 异常 / 中断 管理 单元 EIMU 的 设计 
+ 3.1 　 异常 / 中断 管理 单元 的 基本 测试 单位 — 细胞 
+ 　 　 异常 / 中断 管理 单元 是 保护模式 异常 / 中断 管理 的 控制 机构 ， 它 主要 是 在 异常 / 中断 时 实施 特   权级 检查 ， IDT 表 越界 比较 ， 描述符 的 分类 等 . 我们 列举 中断 异常 处理单元 所 进行 的 各种 测试   ， 给 每种 测试 建立 一个 基本 的 测试 单位 称 细胞 . 例如 ： 进入 IDT 表时 ， 必须 满足 Vecnumber × 8   + 7 ≤ IDTR . limit ， Vecnumber 中断 矢量 ， IDTR . limit   中断 矢量 表 的 表限 . 实现 此 关系式 的 细   胞 cell 见图 7 . 
+ 
+ 
+ 图 7 　 基本 测试 单位 — 细胞 
+ 3.2 　 异常 / 中断 管理 单元 细胞 群 结构 
+ 　 　 对 异常 / 中断 管理 单元 中 的 任一 测试 celli ,   1 ≤ i ≤ n ,   n 细胞 数 .   根据 功能 不同 也 建立 各自 的 细胞体 ， 则 构成 细胞 群 集合 C . 
+ 　 　 cell 若 cell ∈ C   ,   合并 同类项 ( 细胞 功能 相同 ， 输入 端 数目 相同 ) 得 子集 C ′ ， 那么 C ′ C ， 则 C ′ 为 真 子集 即 测试 单元 的 终结 细胞 群 集合 .   
+ 　 　 在 微处理器 的 每个 控制 步中 ， 细胞 群中 的 个体 仅能 有 一个 处于 激活状态 ( 有效 ) ， 其它 应为 睡眠 状态 . 这 可 采用 多选 一 电路 来 控制 ， 以 激活 所 选择 的 测试 细胞 . 图 8 中 表示 测试 细胞 . 被 测数据 由 DBUS 送至 暂存器 temp1 , temp2 中 . 控制 信号 由 控制 总   线 CBUS 送至 控制电路 以 选择 某个 测试 细胞 ， 该 细胞 测试 的 布尔值 可 控制 异常   / 中断 微程序 的 转移 . 
+ 
+ 
+ 图 8 　 异常 / 中断 管   理 单元 细胞 群 
+ 3.3 　 微处理器 中 的 异常 / 中断 管理 单元 EIMU 
+ 　 　 机载 嵌入式 16 位 微处理器 NCS 体系结构 ， 采用 三级 流水 ［ 5 ， 6 ］ ， 即 指令预取 指令 译码 指令 执行 . 它 由 6 个 部件 构成 见图 9 ， 分别 是 异常 / 中断 管理 单元 EIMU 、 地址 单元 AU 、 算术 逻辑 单元 ALU 、 微 程序控制 单元 MCU 、 指令 译码 单元 IU 和 接口 单元 I / O . 异常 / 中断 管理 单元 EIMU 与 其它 部件 的 关系 见图 9 . 
+ 
+ 
+ 图 9 　 16 位 嵌入式 机载 微处   理器 NCS 体系结构 
+ 　 　 异常 / 中断 管理 单元 EIMU 的 数据通路 和 控制 通路 ： 首先 ， 被 测数据 从 DBUS 漠送 至 EIMU 的 暂存   器 ； 其次 ， 微指令 从 微 程序控制 单元 MCU 送至 控制 总线 CBUS 来 选择 EIMU 来 选择 某个 细胞 cell 进行 测试 ； 再次 ， 经 测试 所 形成 的 状态 位 又 送回 微 程序控制 单元 MCU ， MCU 根据 微程序 状态 位 确定 微程序 的 走向 ， 从而 达到 了 以 细胞 测试 结果 控制 微程序 转移 的 目的 . 
+ 4 　 任务 门 、 中断 门 和 陷阱 门 的 比较 及 仿真 结果 
+ 4.1 　 任务 门 、 中断 门 和 陷阱 门 的 比较 
+ 　 　 嵌入 缏 微处理器 NCS 允许 使用 陷阱 门 / 中断 门 由 当前任务 进行 异常 / 中断 处理 ， 也 允许 通过   使用 任务 门 由 另外 一个 任务 进行 异常 / 中断 处理 . 在 当前任务 内 缂 常 / 中断 处理程序 较为简单   ， 并 可以 很快 地 转移 到 处理程序 . 但 处理程序 要 负责 保存 及 恢复 处理器 的 寄存器 内容 . 转到 不   同 任务 的 异常 / 中断 处理程序 要花费 较长 的 时间 ， 这时 ， 保存 及 恢复 寄存器 内容 的 开销 是 作   为 任务 切换 的 一部分 处理 . 使用 当前任务 内 的 异常 / 中断 处理程序 ， 在 中断 和 异常 信号 产生 时   ， 对 正 执行 的 任务 状态 可 直接 进行 访问 ， 但是 ， 这 要求 每个 任务 内 都 包含 一个 异常 / 中断 处   理 程序 . 使用 独立 的 任务 来 处理 异常 和 中断 ， 使 异常 / 中断 处理程序 得到 较 好 的 隔离 ， 但 在 中   断 和 异常 信号 产生 时 ， 对 任务 状态 的 访问 变得 较为 复杂 . 
+ 　 　 无效 的 TSS 异常 、 双重 错翅须 由 任务 门 进行 处理 ， 以 保证 异常 / 中断 处理程序 有 一个 有效 的 任   务 环境 . 其它 的 异常 通常 在 当前任务 环境 内 进行 处理 . 在 当前任务 内 异常 被 检测 并且 不必 屏蔽 中断 ， 所以 最好 使用 陷阱 门 . 由 陷阱 门 指向 的 异常 处理程序 ， 是 一个 由 所有 任务 共享 的 过程 .   所以 ， 该 处理程序 最好 至于 全局 地址 空间 之内 . 如果 各个 任务 要求 有 不同 的 处理程序 ， 则 全局 异常 处理程序 ， 保存 一个 处理程序 的 入口 表 ， 并 为 引起 异常 的 任务 调用 相应 的 处理程序   . 
+ 　 　 中断 通常 与 正 执行 的 任务 没有 关系 ， 并 可能 从 使用 任务 门 提供 的 任务 隔离 中 获得 好处 . 要求   较 快 响应 的 中断 ， 通过 中断 门 可以 得到 较 好 的 处理 . 没有 使用 任务 切换 机制 的 系统 ， 也 将 使用 中断 门 . 因为 中断 可以 在 任意 时刻 产生 ， 所以 ，   通过 中断 门 访问 的 中断 处理程序 ， 必须 置于 全局 地址 空间 中 . 这些 处理程序 对于 所有 的 任务 都 是 可 寻址 的 . 
+ 　 　 当 中断 和 异常 被 接受 时 ， 使用 任务 门 可 提供 一个 任务 处理程序 的 自动 调度 . 这种 任务调度 由   微处理器 NCS 硬件 直接 执行 . 这 就 为 处理程序 提供 了 一个 快速 的 任务 切换 . 
+ 4.2 　 仿真 结果 
+ 　 　 16 位 机载 嵌入式 微处理器 NCS 异常 / 中断 管理 单元 EIMU 的 设计方案 及 算法 已 实现 了 RTL 级 的 VHD   L 描述 ， 经 MENTOR   GRAPHICS 工具 仿真 ， 嵌入式 微处理器 NCS 在 ①   INT 指令 ； ②   指令 异常 ； ③   外设 中断 3 种 情形 在 相同 或 不 相同 特权 级 下 仿真 结果 见表 2 . 这一 结果 优于 文献 ［ 3 ］ Intel 公司 16 位 微处理器 iAPX 异常 / 中断 处理 周期 ， 用 MENTOR   GRAPHICS 工具 综合 EIMU 面积 低于 3500 个 等效 门 .   又 将 EIMU 管理 单元 与 微处理器 NCS 的 其它 部件 联调 ， 微处理器 NCS   指令集 运行 正确 验证 了 异常 / 中断 管理 结构 及其 算法 正确性 与 有效性 . 
+ 表 2 　 INT 指令 、 异常 与 中断 仿真 结果 
+ 
+ 异常 / 中断 类型 门 特权 级 异常 / 中断 处理 周期 
+ INT 指令 中断 / 陷阱 相同 转移 38 
+ INT 指令 中断 / 陷阱 不 相同 转移 79 
+ INT 指令 任务 门同 或 不同 转移 163 
+ 指令 异常中断 / 陷阱 相同 转移 39 
+ 指令 异常中断 / 陷阱 不 相同 转移 80 
+ 指令 异常 任务 门同 或 不同 转移 165 
+ 外设 中断 中断 / 陷阱 相同 转移 41 ＋ n 
+ 外设 中断 中断 / 陷阱 不 相同 转移 82 ＋ n 
+ 外设 中断 任务 门同 或 不同 转移 167 ＋ n 
+ 
+ 　 　 n 依赖于 外设 速度 不同 而 需 额外 添加 的 处理 周期   
+ 5 　 结束语 
+ 　 　 异常 / 中断 管理 单元 EIMU 及其 算法 是 拥有 保护模式 微处理器 不可 缺少 的 组成部分 ， EIMU 结构   及其 算法 在 硬件 芯片级 为 当前任务 或 另 一 任务 异常 / 中断 的 管理 提供 了 硬件 环境 . 异常 / 中断   管理 单元 的 细胞 群 结构 及其 算法 的 VHDL 描述 的 仿真 成功 ， 为 探索 拥有 保护 机制 的 微   处理器 保护 测试 电路设计 奠定 了 基础 . 异常 / 中断 管理 设计方案 及 算法 的 提出 、 设计 、 实现 使   拥有 我国 自主 版权 的 微处理器 设计 领域 ［ 7 ］ 又 迈出 了 一步 . 
+ 作者简介 ： 李树国 ， 男 ， 1963 年 12 月生 ， 博士 研究生 ， 主要 研究 方向 为 计算机 体系结构 和 ASIC 系统 设计 . 
+ 　 　 　 　 　 高德远 ， 男 ， 1946 年生 ， 教授 ， 博士   生 导师 ， 主要 研究 方向 为 计算机 体系结构 、 VLSI 、 ASIC 系统 设计 等 . 
+ 　 　 　 　 　 聂培琴 ， 女 ， 1965 年生 ， 讲师 ， 主要 从事 系统软件 研制开发 工作 . 
+ 　 　 　 　 　 刘诗斌 ， 男 ， 1961 年生 ， 博士 研究生 ， 主要 研究 方向 为 无人机 导航 及 控制 . 
+ 作者 单位 ： 李树国 　 高德远 　 刘诗斌 　 西北工业大学 航空 微电子 中心 　 西安 　 710072 
+ 　 　 　 　 　 聂培琴 　 山东 建筑材料 工业 学院 信息 与 控制 系 　 济南 　 250022 
+ 参考文献 
+ 1 　 Veronis   A .   Survey   of   Advanced   Microprocessors .   New   York :   Van   Nostrand   Reinhold ,   1991 
+ 2 　 Heller   P ,   Childs   R .   Memory   protection   moves   onto   16 - bit   microprocessor   chip .   Electronics ,   1982 ,   55 ( 4 ) :   133 ～ 137 
+ 3 　 Intel   Corporation .   Microprocessor   and   peripheral   handbook .   Santa   Clara :   Intel   Corporation .   1988 
+ 4 　 Intel   Corporation .   Pentium   Family   User ' s   Manual .   Santa   Clara :   Intel   Corporation   1994 
+ 5 　 Luigi   Ciminiera ,   Adriano   Valenzano .   Advanced   Microprocessor   Architectures .   New   York :   Addison - Wesley ,   1987 
+ 6 　 Stallings   W .   Computer   Organization   and   Architecture .   Englewood   Cliffs :   Prentice   Hall ,   1996 
+ 7 　 任恭海 .   32 位 嵌入式 航空 机载 RISC 微处理器 的 研究 及 系统 设计 ［ 博士论文 ］ .   西北工业大学 ,   西安 ， 1996 
+ 　 　 ( Ren   Gonghai .   Research   and   system   design   on   32   bit   aviation   airborne   embedded   microprocessor ［ Ph   D   dissertation ］ .   Northwestern   Polytechnical   University ,   Xi ' an ，   1996 ) 
+ 原稿 收到 日期 ： 1999 - 02 - 03 ； 修改稿 收到 日期   ： 1999 - 06 - 30 .   

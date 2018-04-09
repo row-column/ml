@@ -1,0 +1,96 @@
+信息 与 控制 
+ INFORMATION   AND   CONTROL 
+ 1999 年   第 28 卷   第 3 期   Vol.28   No.3   1999 
+ 
+ 
+ 
+ 
+ 不 确定 广义 系统 的 圆形 区域 极点 配置 * 
+ 徐胜元 　 齐延信 　 杨成 梧 
+ 　 　 摘要 : 考虑 不 确定 连续 或 离散 广义 系统 的 圆形 区域 极点 配置 问题 ,   目的 是 设计 状态 反馈 控制 律 ,   使得 闭环 系统 正则 ,   无 脉冲 ( 连续 广义 系统 情形 ) 或 因果 ( 离散 广义 系统 情形 ) ,   且 闭环 极点 位于 一 给定 的 圆形 区域 内 .   给出 了 所 期望 的 状态 反馈 控制 律 存在 的 充分条件 及其 解析 表达式 . 
+ 　 　 关键词 ： 不 确定 广义 系统 ,   圆形 区域 ,   极点 配置 ,   状态 反馈 
+ 　 　 中 图 分类号 ： TP13 　 　 　 　 　 　 文献 标识码 ： A 
+ POLE   ASSIGNMENT   IN   A   SPECIFIED   CIRCULAR   REGION 
+ FOR   UNCERTAIN   SINGULAR   SYSTEMS 
+ XU   Shengyuan 　 QI   Yanxin 　 YANG   Chengwu 
+ ( School   of   Dynamic   Engineering , Nanjing   University   of   Science   and   Technology ,   Nanjing 　 210094 ) 
+ 　 　 Abstract 　 In   this   paper ,   we   consider   the   problem   of   pole   assignment   in   a   specified   circular   region   for   uncertain   continuous - and   discrete - time   singular   systems .   The   system   under   consideration   is   subjected   to   time - invariant   norm - bounded   uncertainties   in   both   the   state   and   input   matrices .   The   problem   addressed   is   the   design   of   state   feedback   controllers   such   that   the   closed - loop   system   is   regular ,   impulse - free   ( in   the   case   of   continuous   singular   systems )   or   causal   ( in   the   case   of   discrete   singular   systems ) ,   as   well   as   satisfying   that   the   finite   closed - loop   poles   are   located   within   a   prespecified   circular   region   for   all   admissible   uncertainties .   The   conditions   for   the   existence   of   desired   state   feedback   controllers   are   given   and   the   analytic   expression   of   expected   controllers   are   proposed .   The   results   can   be   viewed   as   extensions   of   existing   results   on   robust   pole   assignment   in   a   specified   disk   for   uncertain   state - space   systems   to   uncertain   singular   systems . 
+ 　 　 Key   words 　 uncertain   singular   systems ,   circular   region ,   pole   assignment ,   state   feedback 
+ 　 　 1 　 引言 
+ 　 　 众所周知 ,   线性 定常 系统 的 动态 与 稳态 特性 直接 受其 极点 所在位置 的 影响 ,   因此 极点 配置 问题 一直 是 控制 理论 及 实践 中 一个 重要 的 研究课题 之一 .   由于 在 工程 实践 中 ,   由 辨识 误差 ,   元器件 的 老化 ,   线性 近似 化等 诸多 因素 导致 的 参数 不确定性 使得 精确 极点 配置 有时 难以实现 ;   另一方面 ,   在 实际 应用 中 ,   人们 通常 只 需 将 极点 配置 到 一定 的 区域 就 足以 满足 一定 的 设计 目标 ;   所以 ,   近 20 多年 来 ,   线性系统 的 区域 极点 配置 问题 引起 了 人们 的 关注 并 取得 了 一定 的 研究成果 \ [ 1 ~ 3 \ ] .   但 对 广义 系统 来说 ,   其 极点 配置 问题 的 研究 目前 大都 集中 于 精确 极点 配置 \ [ 4 ~ 5 \ ] ,   而 对 区域 极点 配置 的 研究 还 不多见 .   另外 ,   考虑 到 实际 系统 的 参数 扰动 总是 不可避免 的 ,   因此 ,   本文 研究 不 确定 连续 或 离散 广义 系统 的 区域 极点 配置 问题 ,   给出 了 所 期望 的 状态 反馈 控制 律 存在 的 条件 及其 解析 表达式 . 
+ 　 　 2 　 问题 描述 
+ 　 　 考虑 如下 的 不 确定 连续 或 离散 广义 系统 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 其中 E , A ∈ Rn × n 且 rankE = d ≤ n ; B ∈ Rn × l ; u ( t ) ∈ Rl 是 系统 的 控制 输入 向量 ; x ( t ) ∈ Rn 是 系统 的 状态 向量 ,   且 
+ 
+ Δ A , Δ B 表 系统 的 时 不变 参数 扰动 , 并 假定 具有 以下 形式 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 2 ) 
+ 其中 F ∈ Rj × k 是 未知 的 定常 矩阵 函数 , 且 F 满足 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 3 ) 
+ 这里 M ， Na , Nb 为 适维 已知 矩阵 ;   称 满足 上述 条件 的 不确定性 Δ A , Δ B 是 容许 的 . 
+ 　 　 现在 考虑 如下 的 状态 反馈 控制 律 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 4 ) 
+ 将 ( 4 ) 作用 于 ( 1 ) 得 如下 的 闭环 系统 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 5 ) 
+ 其中 . Ac = A + BG + MF ( Na + NbG ) . 
+ 　 　 本文 所 考虑 的 圆形 区域 极点 配置 问题 是 :   寻求 状态 反馈 控制 律 ( 4 ) 使得 对 所有 容许 的 不确定性 参数 Δ A , Δ B 闭环 系统 ( 5 ) 正则 ,   无 脉冲 ( 当 ( 1 ) 是 连续 广义 系统 时 ) 或 因果 ( 当 ( 1 ) 是 离散 广义 系统 时 ) 且 其 有限 极点 位于 Ω ( q , r ) 的 圆形 区域 内 ,   即 ; 其中 σ ( E , Ac ) 表 集合 { s | det ( sE - Ac ) = 0 , s ∈ C } ; q ≠ 0   ,   且 当 ( 1 ) 是 连续 广义 系统 时 , r - | q | ＜ 0 ,   Ω ( q , r ) 表示 左半 平面 内以 ( - | q | ,   0 ) 为 圆心 ,   r 为 半径 的 圆盘 ;   当 ( 1 ) 是 离散 广义 系统 时 ,   r + | q | ＜ 1 ,   Ω ( q , r ) , 表示 以 ( q ,   0 ) 为 圆心 ,   r 为 半径 的 圆盘 ,   且 ,   这里 Ω ( 0 , 1 ) 是 指以 原点 为 圆心 的 单位 圆 ( 下同 ) . 
+ 　 　 3 　 主要 结论 
+ 　 　 以下 为了 方便 起 见 ,   将 连续 广义 系统 无 脉冲 及 离散 广义 系统 具 因果性 统称 为 因果 的 .   首先 考虑 如下 的 广义 系统 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 6 ) 
+ 　 　 引理 1 　 广义 系统 ( 6 ) 正则 ,   因果 且 其 极点 位于 Ω ( 0 ,   1 ) 内 ,   即 的 充要条件 是 :   存在 矩阵 P ∈ Rn × n ,   且 P = PT 使得 以下 两 不等式 同时 成立 . 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 7 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 8 ) 
+ 　 　 证明 　 利用 ( 6 ) 的 受限 等价 形式 及 [ 6 ， 7 ] 中 的 有关 结论 即可 得证 . 
+ 　 　 下面 考虑 如下 的 连续 广义 系统 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 9 ) 
+ 其中 
+ 
+ 　 　 引理 2 　 广义 系统 ( 9 ) 正则 ,   因果 且 成立 的 充要条件 是 广义 系统 ( 6 ) 正则 , 因果 且 
+ 　 　 证明 类似 于 [ 8 ] ,   略 . 
+ 　 　 为了 方便 起 见 ,   记 Acl = A + BG - qE ,   Ac2 = Na + NbG .   于是 由 引理 1 及 引理 2 易得 如下 的 结论 . 
+ 　 　 定理 1 　 若 存在 矩阵 P ∈ Rn × n ,   且 P = PT 使得 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 10 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 11 ) 
+ 同时 成立 ,   则 广义 系统 ( 5 ) 正则 ,   因果 且 
+ 　 　 引理 3 [ 3 ] 　 若 存在 β ＞ 0 ,   使得 MTPM ＜ β I ,   则 
+ 
+ 这里 PT = P . 
+ 　 　 定理 2 　 若 存在 可逆 阵 P ∈ Rn × n , P = PT , ETPE ≥ 0 及 常数 β ＞ 0 ,   使得 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 12 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 13 ) 
+ 同时 成立 ,   则 广义 系统 ( 5 ) 正则 ,   因果 且 
+ 　 　 证明 　 首先 ,   由 MTPM ＜ β I 知 ( P - 1 - β - 1MMT ) - 1 存在 , 于是 利用 引理 3 并 注意 到 
+ 
+ 得 ． 从而 由 定理 1 即得 所证 . 
+ 　 　 由 定理 2 易知 ,   对 给定 的 β ＞ 0 及 可逆 阵 P ∈ Rn × n , P = PT , ETPE ≥ 0 且 MTPM ＜ β I ,   若 存在 反馈 增益 阵 G ∈ Rl × n ,   使得 ( 13 ) 式 成立 ,   则 本文 所 考虑 的 不 确定 广义 系统 区域 极点 配置 问题 即可 得到 解决 ;   因此 ,   给出 上述 β ＞ 0 及 可逆 矩阵 P 的 存在 条件 将 是 有益 的 .   为了 方便 起 见 ,   给出 以下 定义 . 
+ 　 　 定义 　 对 给定 的 β ＞ 0 及 可逆 阵 P ∈ Rn × n , P = PT , ETPE ≥ 0 且 MTPM ＜ β I ,   若 存在 G ∈ Rl × n 使得 ( 13 ) 式 成立 ,   则 称 ( P , β ) 是 可 实现 的 . 
+ 　 　 于是 本文 所 考虑 的 不 确定 广义 系统 的 区域 极点 配置 问题 可 转化 为 :   ( i ) 寻求 ( P ,   β ) 可 实现 的 充要条件 ;   ( ii ) 对 可 实现 ( P ,   β ) 的 给出 相应 的 反馈 增益 阵 G 的 表达式 . 
+ 　 　 为了 方便 起 见 ,   对 B 作 以下 假设 . 
+ 　 　 假设 1 　 rank ( E ,   B ) = rankE . 
+ 　 　 下面 给出 ( P , β ) 可 实现 的 充要条件 及 反馈 增益 阵 G 的 代数 表达式 . 
+ 　 　 定理 3 　 在 假设 1 下 ,   对于 满足 P ∈ Rn × n , P 可逆 , P = PT , ETPE ≥ 0 且 MTPM ＜ β I , β ＞ 0 的 ( P ,   β ) 可 实现 的 充要条件 是 存在 α ＞ 0 及 正定 阵 Q 使得 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 14 ) 
+ 且 rank ( WT2H - 1W2 - W1 - Q ) ≤ min ( l , n ) .   其中 W1 = ATqSAq + β NTaNa - r2ETPE , Aq = A - qE ,   W2 = BTSAq + β NTbNa , S = ( P - 1 - β - 1MMT ) - 1 , H = BTSB + β NTbNb + α I . 
+ 而且 ,   在 此 情形 下 ,   对 上述 的 α , Q ,   使得 ( P ,   β ) 可 实现 的 反馈 增益 阵 G 可 表示 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 15 ) 
+ 其中 V ∈ Rl × l 是 正交 阵 , u ∈ kl × n 且 UTU = WT2H - 1W2 - W1 - Q . 
+ 　 　 证明 　 由 ( P , β ) 可 实现 的 定义 并 利用 [ 3 ] 中 的 有关 结论 ,   通过 计算 即得 所证 . 
+ 　 　 由 定理 3 ,   易得 本文 所 考虑 的 不 确定 广义 系统 圆形 区域 极点 配置 问题 的 解 . 
+ 　 　 定理 4 　 在 假设 1 下 ,   若 存在 正定 阵 Q ,   常数 α ＞ 0 使得 对于 满足 P ∈ Rn × n , P 可逆 ,   P = PT ,   ETPE ≥ 0 且 MTPM ＜ β I , β ＞ 0 的 ( P ,   β ) 可 实现 ,   即 ( 14 ) 成立 ,   则 所 考虑 的 不 确定 广义 系统 圆形 区域 极点 配置 问题 可解 ,   此时 状态 反馈 增益 阵 G 可 由 ( 15 ) 给出 . 
+ 　 　 4 　 结论 
+ 　 　 本文 考虑 了 不 确定 广义 系统 的 圆形 区域 极点 配置 问题 .   利用 一 矩阵 不等式 , 得到 了 在 状态 反馈作用 下 广义 系统 正则 ,   无 脉冲 ( 连续 广义 系统 情形 ) 或 因果 ( 离散 广义 系统 情形 ) ,   且 闭环 极点 位于 一 给定 圆形 区域 内 的 条件 ;   从而 将 期望 状态 反馈 控制器 的 设计 转化 为 一 给定 常数 及 一 矩阵 的 可 实现 问题 .   给出 了 期望 状态 反馈 增益 阵 的 存在 条件 及其 解析 表达式 ;   进一步 的 工作 是 要 给出 期望 状态 反馈 控制器 的 具体 求解 方法 . 
+ * 国家教委 博士点 基金 及 南京 理工大学 科研 发展 基金 资助 项目 。 
+ 作者简介 ： 徐胜元 ,   男 ,   31 岁 ,   博士生 .   研究 领域 为 广义 系统 ,   鲁棒控制 ,   自 适应控制 . 
+ 　 　 　 　 　 齐延信 ,   男 ,   35 岁 ,   硕士生 ,   讲师 .   研究 领域 为 广义 系统 ,   变 结构 控制 . 
+ 　 　 　 　 　 杨成 梧 ,   男 ,   61 岁 ,   教授 ,   博士生 导师 .   研究 领域 为 复杂 系统 ,   高速 采样 控制 ,   信号处理 等 . 
+ 作者简介 ： 南京 理工大学 动力 工程学院 　 南京 　 210094 
+ 参考文献 
+ 　 1 　 Garcia   G ,   Bernussou   J .   Pole   Assignment   for   Uncertain   Systems   in   a   Specified   Disk   by   State   Feedback .   IEEE   Trans .   Automat .   Contr . ,   1995 ,   40 ( 2 ) :   184 ～ 190 
+ 　 2 　 Furuta   K ,   Kim   S   B .   Pole   Assignment   in   a   Specified   Disk .   IEEE   Trans .   Automat .   Contr . , 1987 ,   32 ( 5 ) :   423 ～ 427 
+ 　 3 　 Wang   Z ,   Tang   G ,   Chen   X .   Robust   Controller   Design   for   Uncertain   Linear   Systems   with   Circular   Pole   Constraints .   Int .   J .   Contr . ,   1996 ,   65 ( 6 ) :   1045 ～ 1054 
+ 　 4 　 Cobb   D .   Feedback   and   Pole   Placement   in   Descriptor   Variable   Systems .   Int .   J .   Contr . ,   1981 ,   33 ( 6 ) :   1135 ～ 1146 
+ 　 5 　 Fletecher   L   R .   Pole   Assignment   and   Controllability   Subspaces   in   Descriptor   Systems .   Int .   J .   Contr . ,   1997 ,   66 ( 5 ) :   677 ～ 709 
+ 　 6 　 Desoer   C   A ,   Vidyasagar   M .   Feedback   Systems :   Input - Output   Properties .   New   York :   Academic   Press ,   1975 
+ 　 7 　 Dai   L .   Singular   Control   Systems .   Lecture   Notes   in   Control   and   Information   Sciences .   Berlin :   Springer - Verlag ,   1989 ,   118 
+ 　 8 　 Fang   C ,   Lee   L ,   Chang   F   R .   Robust   Control   Analysis   and   Design   for   Discrete - time   Singular   Systems .   Automatica ,   1994 ,   30 ( 11 ) :   1741 ～ 1750 
+ 1998 - 10 - 30 收稿 

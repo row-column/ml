@@ -1,0 +1,41 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 8 期   Vol.25   No.8   1999 
+ 
+ 
+ 
+ 银川 海关 办公自动化 网络系统 
+ 隆 益民 
+ 摘要 ： 介绍 了 银川 海关 办公自动化 网络系统 的 规划设计 、 网络拓扑 结构 及 技术 性能 ， 系统 的 基本 配置 、 网络 的 安全措施 、 EDI 等 。 
+ 关键词 ： 办公自动化 ； EDI ； 星型 ； 快速 以太网 
+ Yinchuan   Customs   Office   Automation   Network   System 
+ Long   Yiming 
+ ( Mathematics   and   computer   Department   of   Xijiang   University , Guangdong   526061 ) 
+ 【 Abstract 】 This   article   introduces   the   plan   and   design   of   Yinchuan   customs   office   automation   network   system ; the   structure   and   technical   performance   of   network   topology ; majior   system   configurations ; safety   measures   of   network , electronic   data   interchange ( EDI ) . 
+ 【 Key   words 】 Office   automation ; EDI ; Star ; Ethernet 
+ 1   设计 原则 与 目标   
+ 1.1   设计 目标   
+ 　 　 银川 海关 办公自动化 网络系统 采用 计算机 、 通信 、   网络 和 数据库 等 技术 ， 建立 起上 与 海关总署 、 下 与 各 报关 单位 ， 以及 与 全国 其它 海关 相连 的 计算机网络 系统 ， 逐步 实现 业务 处理 自动化 、 数据传输 网络化 、 管理决策 科学化 。   
+ 1.2   设计 原则   
+ 　 　 在 整个 网络 的 设计 原则上 ， 应 充分考虑 先进性 、 可靠性 、 安全性 、 实用性 、 可扩展性 以及 可管理性 等 几个 方面 。   
+ 　 　 网络 建设 应从 业务 需求 出发 ， 把握住 网络 的 发展 方向 ， 采用 最 先进 的 软 、 硬件 产品 和 组网 技术 ， 以 确保 所建 的 系统 能 满足 银川 海关 业务 要求 ，   适应 海关 行业 自身 发展 的 特点 和 网络通信 技术 的 更新换代 ， 能 在 投资 的 基础 上 过渡 到 下一代 产品 和 新 技术 体制 ， 不致于 造成 经济 和 时间 的 巨大 浪费 。   
+ 　 　 采取有效 措施 ， 保证 计算机网络 系统 可靠 、 安全 地 运行 。 要 有 较 强 的 网络管理 手段 ， 合理 地 配置 和 调整 网络资源 、 监视 网络 状态 、 控制 网络 运行 。   
+ 　 　 根据 银川 海关 的 实际 情况 、 业务 需要 ， 采用 交换 技术 的   100Base - t   快速 以太网 。   
+ 2   设备 的 配置 
+ 　 　 服务器 选用 美国   HP   公司 的 “   NetServer   LH   Pro   ” 型 网络 专用 服务器 。   它 带有   Pentium   Pro   200M   CPU   ，   64M   内存 ，   4G   热交换   Ultra   SCSI   硬盘 ，   4   个   PCI   插槽 ，   4   个   EISA   插槽 ， 一个   PCI / EISA   插槽 ； 附有   3   个   Ultra   SCSI   通道 的   HP   NetRAID   PCI   磁盘阵列 控制器 ； 内带 一块   HP   10 / 100TX   PCI   总线 局域网 接口卡 ； 可 选配   SureStore   DAT   磁带驱动器 进行 数据 与 系统 的 备份 。   
+ 　 　 交换机 选用   3Com   公司 的   Superstack   ∏   Switch   3000   TP   型 ， 选用   Superstack   ∏   HUB   100   型 集线器 ， 它 具有   12   个   100M   接口 。 路由器 型号 为   Cisco   2511   ， 它 具有 一个 以太网 接口 、   2   个 同步 串口 和   16   个 异步 串口 。   选用   3Com   公司 的   Fast   Etherlink   XL   PCI   TX   网卡 。 选用 美国   APC   公司 的   APC   Smart - UPS   。   
+ 3   网络操作系统 及 软件平台   
+ 3.1   网络操作系统   
+ 　 　 选择 了   Microsoft   的 “   Windows   NT   ” 作为 网络管理 软件 。 因为 服务器端 操作系统 的 开放性 、 可伸缩性 、 互操作性 等 是 选择 产品 的 重要 指标 。 海关 由于 其 业务 性质 ，   对 网络 的 安全性 给予 了 极大 的 关注 ， 考虑 到 “   Windows   NT   ” 在 用户 账号 方面 为 应用 系统 提供 了 更 高 的 灵活性 和 更好 的 帐户 管理 功能 ， 在 资源 的 安全性 和 审计 方面 也 有 很 强 的 优势 。   另外 ， 对 窗口 软件 的 可视性 与 可操作性 方面 的 习惯 等 因素 ， “   Windows   NT   ” 成为 首选 。   
+ 3.2   网络管理 软件   
+ 　 　 网络管理 平台 使用   HP   NetServer   LH   Pro   网络 服务器 随机 带 的   HP   OpenView   ， 网络管理 软件 使用   3Com   公司 的   Transcend   Enterprise   Manager   Version   5.0   for   Windows   。 它 能 对 所 使用 的   3   Com   公司 的 网络设备 提供 端口 管理 ， 设置 方便 简单 ， 排除故障 容易 ， 能 对 网络 交换机 、 集线器 、   路由器 中 每 一 端口 进行 管理 和 设置 。   
+ 4   网络结构   
+ 　 　 业务 网络系统 的 计算机网络 以   3   Com   公司 的   Superstack   ∏   Switch   3000   TP   型 交换机 为 网络 中心 ， 组成 星型 网络 。 银川 海关 大厦 共有   7   层 ， 其中 服务器 、   网络 交换机 等 关键设备 所在 的 网络 中心 机房 在   7   楼 ， 报关 大厅 在 一楼 ，   各 工作人员 的 网络 工作站 分散 在 其余 层 。   1   楼 、   4   楼 、   5   楼 分别 放置   3   台   HUB   网络 集线器 ， 把 整个 业务 网络 划分 为   3   个 网段 。 其中 一楼 使用   Intel   公司 的   Intel   Express   12   口   10 / 100M   可 堆栈 集线器 ， 一楼 报关 大厅 的 网络 工作站 接入 这台 集线器 ；   4   楼 、   5   楼 各 放置 一台   Superstack   ∏   HUB   100   型 集线器 ，   2   、   3   、   4   楼 的 网络 工作站 接入   4   楼 集线器 ，   5   、   6   楼 的 网络 工作站 接入   5   楼 集线器 。   3   台 集线器 直接 接入   7   楼 的   Superstack   ∏   Switch   3000   TP   的   10BaseT / 100BaseTX   端口 ，   HP   NetServer   LH   Pro   网络 服务器 、   Cisco   2511   路由器 的 以太网 接口 和 网络管理 工作站 也 直接 接入 交换机 的   10BaseT / 100BaseTX   端口 ， 由 网络 工作站 对 全网 进行 实效 、 性能 、 记帐 、 配置 和 安全 等 方面 的 管理 。   
+ 　 　 这样 ， 银川 海关 业务 网络系统 的 主干网 就 由 网络 服务器 、 网络 交换机 、 网络 集线器 和 网络 工作站 构成 ， 加上 由 集线器 划分 的   3   个 网段 ， 形成 了 如图   1   所示 的 网络系统 结构 。   
+ 　 　 网络操作系统 为 中文   Windows   NT   Server   4.0   ， 采用   TCP / IP   协议 ，   通信 介质 为 美国   AMP   公司 的   UTP   5   类 无 屏蔽 双绞线 。 除了 一楼 网段 的 传输速率 为   10Mbps   外 ，   主干网 和 其余 网段 的 传输速率 都 为   100Mbps   。   
+ 
+ 图 1   网络结构 框图 
+ 5   与 全国 海关 的 广域网 的 连接 及   EDI   电子 报关   
+ 　 　 海关 卫星 以 海关总署 为 中心 ， 通过 遍布全国 的   PES   小站 与 总署 的 主站 相连 ， 是 一个 全国 范围 内 的 海关 系统 综合 宽带 信息网 。 此网 与 全国 光缆 传输网 互为 备份 ， 形成 天空 、   陆地 的 交叉 覆盖网 ， 实现 全国 海关 系统 的 连网 。   
+ 　 　 银川 海关 还 开通 了 异地 申报 业务 ，   允许 报关 单位 通过 电子邮件 进行 异地 远程 申报 。 在 这种 方式 下 ， 银川 海关 计算机网络 系统 增加 一台 通信 服务器 ，   远程 报关 单位 也 要 一台 通信 机 ， 都 通过   Modem   接入   PSTN   公共 电话网 。 即 各 报关 单位 与 银川 海关 之间 的 数据通信 是 通过   PSTN   进行 的 。   
+ 作者 单位 ： 西江 大学 数计 系 ， 广东   526061 

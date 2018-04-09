@@ -1,0 +1,133 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 19 卷   第 3 期     Vol.19   No.3   1999 
+ 
+ 
+ 
+ 简评 美国 公布 的 15 个 AES 候选 算法 
+ 吴文玲 　 冯登国 　 卿斯汉 
+ 摘 　 要 　 文章 对 美国 国家标准 和 技术 研究所 ( NIST ) 最近 公布 的 15 个 AES 候选 算法 的 基本 设计 思想 作 了 简要 介绍 ， 同时 也 介绍 了 对 这些 算法 的 最新 分析 结果 . 
+ 关键词 　 AES ( advanced   encryption   standard ) , DES ( data   encryption   standard ) , 加密 , 解密 , 密钥 . 
+ 中图法 分类号 　 TP391 
+ Brief   Commentary   on   the   15   AES   Candidate   Algorithms   Issued   by   NIST   of   USA 
+ WU   Wen - ling   FENG   Deng - guo   QING   Si - han 
+ ( Institute   of   Software   The   Chinese   Academy   of   Sciences   Beijing   100080 ) 
+ ( Engineering   Research   Center   for   Information   Security   Technology   The   Chinese   
+ Academy   of   Sciences   Beijing   100080 ) 
+ Abstract 　   In   this   paper ,   the   authors   introduce   the   basic   ideas   of   the   15   AES ( advanced   encryption   standard )   candidate   algorithms   issued   by   National   Institute   of   Standards   and   Technology   ( NIST )   of   USA .   The   current   analysis   results   of   these   algorithms   are   also   presented . 
+ Key   words 　 AES ( advanced   encryption   standard ) ,   DES ( data   encryption   standard ) ,   encryption ,   decryption ,   key . 
+ 　 　 各 方面 来看 ， DES ( data   encryption   standard ) 已 走 到 了 它 生命 的 尽头 . 最近 的 秘密 密钥 挑战赛 已 证明 DES 的 56 - 比特 密钥 太短 . 虽然 三重 DES 可以 解决 密钥 长度 的 问题 ， 但是 DES 的 设计 主要 针对 硬件 实现 . 而今 , 在 许多 领域 ， 需要 针对 软件 实现 相对 有效 的 算法 . 鉴于 此 ， 1997 年 4 月 15 日 , 美国 国家标准 和 技术 研究所 （ NIST ） 发起 征集 AES （ advanced   encryption   standard ） 算法 的 活动 ［ 1 ］ ， 并 成立 了 AES 工作组 . 其 目的 是 为了 确定 一个 非保密 的 、 公开 披露 的 、 全球 免费 使用 的 加密算法 ， 用于 保护 下 一 世纪 政府 的 敏感 信息 ， 也 希望 能够 成为 秘密 和 公开 部门 的 数据 加密 标准 （ DES ） . 1997 年 9 月 12 日 ， NIST 在 联邦 登记处 （ FR ） 公布 了 征集 AES 候选 算法 的 通告 . AES 的 基本 要求 是 比 三重 DES 快 ， 且 至少 和 三重 DES 一样 安全 ， 分组 长度 是 128 比特 ， 密钥 长度 为 128 ， 192 和 256 比特 . 1998 年 8 月 20 日 ， NIST 召开 了 第 1 次 AES 候选 会议 ， 并 公布 了 15 个 AES 候选者 . 目前 工作 正 处在 评论 阶段 . 除了 NIST 对 这些 候选者 做 大量 的 分析 和 测试 外 ， 也 欢迎 每个 对此 感兴趣 的 部门 和 个人 提出 自己 的 看法 和 意见 . 1999 年 3 月 22 日 ， NIST 将 举行 第 2 次 AES 候选 会议 ， 公开 15 个 候选 算法 的 讨论 结果 . 关于 这些 算法 的 讨论 将 于 1999 年 4 月 15 日 结束 ， 到 时会 从 这 15 个 算法 中 选出 5 个 . 最终 在 这 5 个 算法 中 遴选出 一个 算法 作为 AES ， 预计 于 2001 年 出台 . 为了 让 更 多 的 国内 读者 了解 这些 候选 算法 的 近况 ， 本文 简要 介绍 这些 算法 的 基本 设计 思想 和 最新 分析 结果 . 
+ 1   15 个 AES 候选 算法 
+ 1.1   CAST - 256 算法 
+ 　 　 CAST - 256 算法 是 加拿大 的 Carlisle   Adams 提交 的 一个 候选 算法 . 它 是 在 已有 的 CAST - 128 算法 ［ 2 ］ 的 基础 上 设计 的 ， 该 算法 采用 的 总体 结构 是 推广 的 Feistel 网络 ， 此 结构 最具 吸引力 的 特点 是 ： 它 能够 直接 重用 来自 （ 传统 的 ） Feistel 网络 的 轮 函数 . 众所周知 ， 增加 轮 函数 的 规模 一般 包括 增加 它 的 S - 盒 的 规模 或 增加 它 的 扩散 层 的 规模 . 而 增加 S - 盒 的 规模 及 增加 扩散 层 的 规模 往往 是 比较 困难 的 . 因此 ， 推广 的 Feistel 网络 无疑 会 给 设计者 带来 许多 方便 . 
+ CAST - 256 的 轮 函数 具有 如下 特点 ： 
+ 　 　 ( 1 )   S - 盒 的 设计 保证 它 具有 较 高 的 非线性 性 、 较 低 的 差分 均匀 性 、 良好 的 高阶 严格 雪崩 特性 以及 良好 的 高阶 （ 输出 ） 比特 独立 准则 . 
+ 　 　 ( 2 )   采用 “ 掩蔽 ” 密钥 和 “ 循环 移位 ” 密钥 ， 确保 每圈 中 密钥 熵 高于 数据 熵 ， 并且 可 使 差分 及 线性 密码 分析 变得 更加 困难 . 
+ 　 　 ( 3 )   来自 不同 群 运算 的 混合 似乎 可以 有效 地 减少 轮 差分 特征 的 概率 ， 同样 也 可以 减少 高阶差分 攻击 的 可能性 . 
+ 已有 的 分析 结果显示 ， CAST - 256 对 现有 的 分析方法 是 安全 的 . 用 线性 密码 分析攻击 ［ 3 ］ 它 所 需 的 已知 明文 大约 为 2174 ， 用 差分 密码 分析攻击 ［ 4 ］ 40 轮 CAST - 256 所 需 的 选择 明文 大约 为 2140 ［ 5 ］ ， 高阶差分 密码 分析 ［ 6 ］ 对 5 轮 以上 的 CAST - 256 就 无能为力 了 ［ 7 ］ . 
+ 1.2   CRYPTON 算法 
+ 　 　 CRYPTON 算法 是 韩国 的 Chae   Hoon   Lim 提交 的 一个 候选 算法 . 该 算法 采用 的 结构 是 代替 - 置换 网络 ， 它 的 设计 思想 和 SQUARE 算法 的 一样 ， 把 明文 输入 到 一个 4 × 4 的 字节 矩阵 ， 进行 字节 矩阵 的 并行 字节 代替 处理 ， 列 方式 的 比特 置换 ， 列到 行 的 转置 ， 然后 执行 密钥 加法 ， 实现 对 128 比特 数据 的 加密 . 
+ 　 　 在 CRYPTON 算法 中 主要 使用 了 以下 几种 变换 ： ( 1 )   非线性 替换 γ ,   ( 2 )   线性变换 π 和 τ , ( 3 )   密钥 加 变换 σ . 轮 变换 由 γ ， π ， τ 和 σ 共 4 种 变换 复合 而成 ， 且 奇数 轮 和 偶数 轮 的 轮 变换 稍 有 不同 ， 其中 采取 的 一些 技巧 主要 是 为了 保证 加解密 相同 . 非线性 替换 γ 是 为了 实现 “ 混淆 ” 而 设计 的 ， 它 使用 了 两个 8 × 8 的 S - 盒 S0 和 S1 . 这 两个 S - 盒 是从 3 个 4 × 4 的 S - 盒 使用 一个 3 轮 Feistel 结构 构 作出 来 的 ， 并 满足 ： 对 任何 8 比 特长 的 数 x ， 有 S0 ( S1 （ x ） ) = S1 ( S0 （ x ） ) = x . 线性变换 π 和 τ 是 为了 实现 “ 扩散 ” 而 设计 的 ， 且 它 的 扩散 特性 没有 SQUARE 算法 中 所用 的 扩散 层 的 性质 好 . 
+ 　 　 已有 的 分析 结果显示 ， CRYPTON 对 现有 的 分析方法 是 安全 的 . 用 线性 密码 分析攻击 它 所 需 的 已知 明文 不少 于 2128.8 轮 CRYPTON 的 最佳 差分 特征 的 概率 不会 比 2 - 160 大 . 高阶差分 密码 分析 及 多重 线性 密码 分析 对 CRYPTON 的 安全性 没有 造成 影响 . 
+ 1.3   DEAL 算法 
+ 　 　 DEAL 算法 是 加拿大 和 挪威 的 Richard   Outerbridge 等 人 提交 的 候选 算法 . 它 采用 的 总体 结构 是 一个 6 轮 的 Feistel 网络 ， 轮 函数 是 DES 算法 . 它 的 设计 思想 就是 重用 DES . 由于 所 选用 的 轮 函数 非常复杂 ， 考虑 到 速度 问题 ， 因此 ， DEAL 的 轮数 不能 多 ， 建议 用 6 轮 或 8 轮 . 对于 6 轮 的 Feistel 密码 ， 可以 找到 一个 概率 为 0 的 5 轮 差分 ， 利用 此 差分 攻击 DEAL 需 270 个 选择 明文 、 2121 次 加密 及 264 个 存储 字 . 
+ 1.4   DFC 算法 
+ 　 　 DFC 算法 是 基于 Vauenay ［ 8 , 9 ］ 的 抗 相关 攻击 技术 设计 的 . 它 采用 的 是 8 轮 的 Feistel 结构 . 函数 F 定义 如下 ： 
+ F ( a , b ) = CP ( ( ( aX + b ) mod   ( 264 + 13 ) ) mod264 ) . 
+ 其中 X 是 64 比特 输入 ， Ki = ( a , b ) 是子 密钥 . 
+ 　 　 CP 置换 定义 如下 ： 
+ CP ( Y ) = ( ( ( Yr ⊕ RT ( trunc6 ( Yl ) ) | ( Yr ⊕ KC ) ) + KD ) mod264 . 
+ 　 　 我们 已 证明 CP 置换 的 密码学 特性 非常 不好 . 因此 ， DFC 的 安全性 完全 依赖于 子 密钥 的 嵌入 方式 . 
+ 1.5   E2 算法 
+ 　 　 E2 算法 是 日本 NTT 公司 提交 的 一个 候选 算法 ， 它 采用 的 总体 结构 是 Feistel 网络 .   Feistel 网络 有 一点 不足之处 ， 即 只有 一半 明文 直接 输入 到 第 1 轮 的 轮 函数 ， 同时 ， 只有 一半 密文 直接 输入 到 最后 一轮 的 轮 函数 . 这 意味着 在 选择 明文 攻击 时 ， 攻击者 可以 控制 第 1 轮 和 最后 一轮 的 轮 函数 的 输入 ； 在 已知 明文 攻击 时 ， 攻击者 可以 知道 第 1 轮 和 最后 一轮 的 轮 函数 的 输入 . 根据 实际 经验 ， 攻击者 总是 可以 利用 这种 缺陷 去 攻击 Feistel 密码 第 1 轮 和 最后 一轮 的 子 密钥 . 为此 ， E2 算法 添加 了 初始 变换 和 最终 变换 ， 分别 为 IT 函数 和 FT 函数 ， 它们 依赖于 子 密钥 ， 并 含有 异或 运算 之外 的 运算 . 
+ 　 　 轮 函数 的 设计 采用 了 2 圈 SPN 结构 . 此 结构 由 3 层 组成 ， 第 1 层为 第 1 个 非线性 层 ， 第 2 层为 双 射线 性层 ， 第 3 层为 第 2 个 非线性 层 . 非线性 层 由 8 个 并行 的 S - 盒 构成 ， 所起 的 作用 是 “ 混淆 ” . 线性 层 是 一个 线性变换 P ， 所起 的 作用 是 “ 扩散 ” . 此种 构造 轮 函数 的 优点 是 可以 给出 轮 函数 的 最佳 差分 概率 和 线性 偏差 的 界 . 
+ 　 　 S - 盒 的 选取 使得 它 的 差分 均匀 性 和 最佳 线性 偏差 分别 为 2 - 4.67 和 2 - 3.19 ， 次数 为 7 . 线性变换 P 的 分支 数为 5 . 因此 ， 8 轮 E2 算法 的 最佳 差分 特征 概率 和 最佳 线性 逼近 偏差 分别 为 2 - 93.4 和 2 - 44.8 . 12 轮 E2 算法 的 最佳 差分 特征 概率 和 最佳 线性 逼近 偏差 分别 为 2 - 140 和 2 - 66.7 . 因此 可以 说 ， E2 算法 对 现有 的 分析方法 是 免疫 的 . 
+ 1.6   FROG 算法 
+ 　 　 FROG 算法 是 一种 非正规 结构 的 密码 算法 ， 其 基本 设计 思想 是 通过 内部 密钥 隐藏 大多数 计算 过程 ， 也 就是 尽可能 不 给 攻击者 对 实际 执行 过程 有 更 多 的 了解 ， 从而 挫败 任何 攻击 . FROG 的 密钥 长度 是 可变 的 ， 从 5 个 字节 到 125 个 字节 . 8 轮 FROG 需要 内部 密钥 包含 2   304 个 字节 ， 因此 ， FROG 的 密钥 编排 的 工作量 比较 大 . 
+ 关于 FROG 的 最新 分析 结果 有 ： 
+ 　 　 ( 1 )   对 大约 2 - 33 的 密钥 ， 用 差分 密码 分析 破译 FROG 所 需 的 选择 明文 为 258 个 . 
+ 　 　 ( 2 )   对 大约 2 - 31.8 的 密钥 ， 用 线性 密码 分析 破译 FROG 所 需 的 已知 明文 为 256 个 . 
+ 　 　 ( 3 )   对 大约 2 - 31.8 的 密钥 ， 存在 唯 密文 的 线性 密码 分析 破译 FROG 所 需 的 密文 为 264 个 . 
+ 　 　 ( 4 )   FROG 的 解密 函数 比 加密 函数 弱得 多 . 对 解密 函数 进行 差分 密码 分析 ， 大约 对 2 - 33 的 密钥 所 需 的 选择 明文 为 236 . 
+ 　 　 我们 断定 , FROG 算法 不会 入选 AES . 
+ 1.7   HPC 算法 
+ 　 　 HPC 算法 的 分组 长度 和 密钥 长度 都 是 任意 的 ， 0 比特 或 多个 比特 . HPC 有 512 比特 可选 的 二级 密钥 , 即 SPICE ， 一个 主 密钥 对 每个 二级 密钥 值 给出 一个 不同 的 加密 . HPC 由 5 个 不同 的 子 密码 组成 ， 究竟 采用 哪 一个 子 密码 由 所 需 加密 的 消息 的 长度 来 决定 . 每个 子 密码 使用 自己 的 密钥 扩展 表 ， 这些 密钥 扩展 表 通过 密钥 伪 随机 产生 ， 每个 表 共有 256 个 64 比特 字 . 所有 的 密钥 扩展 表都 使用 同一个 算法 ， 只有 初始值 不同 . 
+ 　 　 HPC 的 内部 使用 无 符号 的 64 比特 字 ， 任何 可变 的 值 ， 比如 密钥 长度 、 明文 长度 或 密文 长度 都 以 多个 64 比特 字 表示 ， 可能 后接 一个 适当 调整 的 零碎 字 . SPICE 由 8 个 字 的 数组 指定 . 主要 使用 的 操作 有 模加 、 模减 、 模乘 、 异或 和 移位 . 
+ 　 　 人们 认为 HPC 设计 得 非常 不好 ， 设计者 似乎 不 懂 密码 的 基本 原则 ， 没有 任何 可供参考 的 价值 ， 不 可能 充当 AES ， 我们 也 赞同 这种 观点 . 
+ 1.8   LOKI97 算法 
+ 　 　 LOKI97 算法 采用 的 是 Feistel 结构 ， 它 是 LOKI 系列 密码 的 最新 产品 . LOKI89 由 Biham 和 Shamir ［ 10 ］ 进行 了 分析 ， 结果表明 ， 虽然 LOKI89 减少 几轮 变体 可能 易受 差分 密码 分析 的 攻击 ， 但 全部 16 轮 的 LOKI89 却 经得起 差分 密码 分析 的 攻击 . Tokita   Sorimachi 和 Matsui ［ 11 ］ 进行 了 线性 密码 分析 ， 发现 12 轮 以上 的 LOKI91 对 线性 密码 分析 是 安全 的 . LOKI97 选取 的 S - 盒 的 非线性 非常 好 . 轮 函数 的 构作 如下 ： 
+ 　 　 轮 函数 f : F642 × F642 → F642 , 
+ f ( A , B ) = Sb ( P ( Sa ( E ( KP ( A , B ) ) ) , B ) . 
+ KP ( A , B ) 是 一个 简单 的 密钥 控制 置换 . E 是 一个 扩展 函数 ， E 从 64 个 输入 比特 中 产生 一个 96 比特 输出 值 . Sa 由盒 S1 和 盒 S2 并置 构成 ， Sa = ［ S1 , S2 , S1 , S2 , S2 , S1 , S2 , S1 ］ . P 是 一个 线性变换 . Sb 由盒 S1 和 盒 S2 并置 构成 ， Sb = ［ S2 , S2 , S1 , S1 , S2 , S2 , S1 , S1 ］ ， 其 输入 的 一部分 是子 密钥 比特 . 
+ 　 　 虽然 LOKI97 是 LOKI 系列 密码 的 最新 产品 ， 轮 函数 似乎 也 很 复杂 ， 但经 分析 发现 ， LOKI97 是 很 脆弱 的 . 用 差分 密码 分析攻击 它 所 需 的 选择 明文 为 256 个 . 对 某些 密钥 ， 用 线性 密码 分析攻击 它 所 需 的 已知 明文 为 250 个 . 
+ 1.9   MAGENTA 算法 
+ 　 　 MAGENTA 算法 的 核心 部分 是 以 快速 哈达 马 变换 为 基础 的 ， 算法 的 设计 思想 是 应用 一些 可 在 软件 和 硬件 中 有效 实现 的 简单 且 透明 的 技术 . MAGENTA 采用 的 是 6 轮 或 8 轮 的 Feistel 结构 . MAGENTA 算法 的 密钥 编排 太 简单 ， 把 种子 密钥 分成 64 比特 的 子块 ， 并 在 加密 过程 中 对称 使用 . 我们 认为 这是 MAGENTA 算法 的 缺陷 ， 利用 它 ， 可以 给出 攻击 MAGENTA 的 方法 ， 此 方法 所 需 的 选择 明文 为 264 个 . 
+ 1.10   MARS 算法 
+ 　 　 MARS 算法 是 IBM 公司 提供 的 一个 候选 算法 ， 它 的 特点 是 充分 使用 非 平衡 的 Feistel 网络 . 为了 保证 加密 和 解密 的 强度 相当 ， MARS 由 结构 类似 的 两 部分 组成 . MARS 的 加密算法 由 6 部分 组成 ， 第 1 部分 是 密钥 加 ， 第 2 部分 是 不受 密钥 控制 的 8 轮 前期 混合 运算 ， 第 3 部分 是 密钥 控制 下 的 8 轮 前期 加密 变换 ， 第 4 部分 是 密钥 控制 下 的 8 轮 后期 加密 变换 ， 第 5 部分 是 不受 密钥 控制 的 8 轮 后期 混合 运算 ， 第 6 部分 是 密钥 减 . 
+ 　 　 许多 密码 分析方法 对 第 1 和 最后 一轮 的 处理 方法 与 中间 轮 不 一样 ， 一般 都 是 首先 猜测 几 比特 密钥 ， 然后 剥去 密码 的 第 1 和 最后 一轮 ， 再 将 攻击 施加 于 剩下 的 轮 上 . 鉴于 此 ， MARS 使用 了 前期 混合 运算 和 后期 混合 运算 . 对 第 1 和 最后 一轮 特殊 对待 ， 我们 认为 这 是 很 有 必要 的 . 但是 , MARS 做 得 过于 复杂 ， 共用 了 16 轮 ， 这 可能 会 影响 其 速度 . 
+ 　 　 MARS 的 S - 盒 是 根据 公开 原理 设计 的 ， 即 采用 随机 方式 生成 并 检测 ， 使 其 具有 良好 的 差分 和 线性 特性 ， 这 可以 排除 预制 陷门 的 嫌疑 . 
+ E 函数 是 MARS 的 核心 ， 它 的 输入 是 32 比特 的 字 X ， 输出 是 3 个 32 比特 的 字 ( Y2 , Y1 , Y0 ) , 
+ Y2 = ROL ( ROL ( X , 13 ) * k ′ , 10 ) , 
+ Y1 = ROL ［ ( X + k ) , ROR ( Y2 , 5 ) ］ , 
+ Y0 = ROL ( S ( X + k ) ⊕ ROL ( Y2 , 5 ) ⊕ Y2 , Y2 ) , 
+ S 是 9 × 32 的 盒子 , k 和 k ′ 是子 密钥 ， ROR ( X , n ) 表示 X 右 旋转 n 比特 ， ROL ( X , n ) 表示 X 左 旋转 n 比特 . 
+ 　 　 E 函数 通过 使用 模 232 乘 和 数据 相依 旋转 来 获得 安全性 . 模 232 乘 的 主要 密码 强度 在 乘积 的 高次 比特 ， 因为 这些 比特 的 每 一个 几乎 都 以 非线性 方式 依赖 做域 的 所有 比特 ， 并且 这些 比 特有 极强 的 差分 特性 ， 所以 , 在 E 函数 中 用 乘积 的 高次 比特 作为 数据 相依 旋转 的 循环 次数 , 使得 MARS 具有 良好 的 抗 差分 分析 能力 . 值得注意 的 是 , 乘法 运算 的 代阶 比较 高 ， 它 的 运算 时间 是 其他 运算 时间 的 2 倍 ， 且 硬件 实现 代阶 更 高 . 而且 正是 使用 了 模 232 乘 ， 使得 MARS 有弱 密钥 . 
+ 　 　 从 现有 的 分析 结果 来看 ， MARS 对 现有 的 密码 分析方法 是 免疫 的 . 其 缺陷 是 有 弱 密钥 ， 且 速度 相对 较慢 . 
+ 1.11   RC6 算法 
+ 　 　 RC6 算法 是 在 RC5 算法 的 基础 上 设计 的 . 众所周知 ， RC5 是 一个 非常 简洁 的 算法 ， 它 的 特点 是 大量 使用 数据 依赖 循环 . RC6 继承 了 这些 优点 . 为了 满足 NIST 的 要求 ， 即 分组 长度 为 128 比特 ， RC6 使用 了 4 个 寄存器 ， 并 加进 32 比特 的 整数 乘法 ， 即 二次 函数 B × ( 2B + 1 ) ( 相应 为 D × ( 2D + 1 ) ) ， 用于 加强 扩散 特性 . 
+ 　 　 关于 RC6 的 分析 结果 可 归纳如下 ： 
+ 　 　 ( 1 )   对 RC6 的 最好 攻击 似乎 是 穷举 搜索 用户 的 密钥 . 
+ 　 　 ( 2 )   对 RC6 进行 差分 和 线性 密码 分析 ［ 12 ］ ， 所 需 的 数据 超过 现有 的 数据 . 
+ 　 　 值得注意 的 是 ， 由于 使用 了 32 比特 的 整数 乘法 ， RC6 的 速度 可能 受到 影响 .   
+ 1.12   Rijndael 算法 
+ 　 　 Rijndael 算法 是 比利时 的 Joan   Daemen 和 Vincent   Rijmen 提交 的 一个 候选 算法 . 该 算法 的 原形 是 Square 算法 ， 它 的 设计 策略 是 宽 轨迹 策略 ( wide   trail   strategy ) ［ 13 ］ . 宽 轨迹 策略 是 针对 差分 分析 和 线性 分析 提出 的 ［ 14 ］ ， 它 的 最大 优点 是 可以 给出 算法 的 最佳 差分 特征 的 概率 以及 最佳 线性 逼近 的 偏差 的 界 ； 由此 可以 分析 算法 抗击 差分 密码 分析 及 线性 密码 分析 的 能力 . 
+ 　 　 Rijndael 采用 的 是 代替 / 置换 网络 . 每 一轮 由 3 层 组成 ， 线性 混合 层 ： 确保 多轮 之上 的 高度 扩散 ； 非线性 层 ： 由 16 个 S - 盒 并 置 而 成 ， 起到 混淆 的 作用 ； 密钥 加层 ： 子 密钥 简单 的 异或 到 中间状态 上 . S - 盒 选取 的 是 有限 域 GF ( 28 ) 中 的 乘法 逆运算 ， 它 的 差分 均匀 性 和 线性 偏差 都 达到 了 最佳 . 
+ 　 　 Rijndael 的 安全性 如下 ： 
+ 4 轮 Rijndael 的 最佳 差分 特征 的 概率 及 最佳 线性 逼近 的 偏差 分别 为 2 - 150 和 2 - 76 ； 8 轮 Rijndael 的 最佳 差分 特征 的 概率 及 最佳 线性 逼近 的 偏差 分别 为 2 - 300 和 2 - 151 ； 
+ 　 　 “ Square ” 攻击 是 针对 Square 算法 提出 的 一种 攻击 方法 ， 它 对 Rijndael 也 是 适用 的 . 分析 结果显示 , 7 轮 以上 的 Rijndael 对 “ Square ” 攻击 是 免疫 的 . 
+ 1.13   SAFER + 算法 
+ 　 　 SAFER + 算法 是 基于 SAFER 系列 算法 ［ 15 ］ 提出 的 ， 因此 ， 它 的 安全性 可以 说 是 经过 了 时间 的 考验 . 另外 , SAFER + 算法 中仅 使用 了 字节 运算 ， 并且 所 需 的 内存 小 . 因此 ， 在 Smart 卡 等 方面 的 应用 是 很 有 优势 的 . SAFER + 算法 是 一个 代替 / 线性变换 密码 . 非线性 层 使用 指数 和 对数 运算 ， 选择 这 两个 函数 有 如下 理由 ： ( 1 )   使用 数学 中 的 常用 函数 ， 避免 了 设置 陷门 的 可能 ； ( 2 )   已 证明 这 两个 置换 的 分支 布尔 函数 与 随机 选取 的 布尔 函数 有 相同 的 非线性 阶 的 项数 分布 . SAFER + 对 以前 的 SAFER 系列 算法 ［ 16 ］ 的 主要 改进 之一 在于 可逆 线性变换 M 的 选取 上 ， 它 比 以前 的 PHT 好得多 ， 并且 M 的 选取 还 使得 SAFER + 可以 很 好 地 抗击 差分 分析 . 
+ 　 　 通过 对 SAFER + 的 穷尽 研究 表明 ， 所有 的 5 轮 特征 概率 小于 2 - 128 . 结论 是 6 轮 或 更 多轮 的 SAFER + 对 差分 密码 分析 是 免疫 的 . SAFER + 继承 了 SAFER 系列 算法 抵抗 线性 密码 分析 的 能力 ， 3 轮 SAFER + 就 可 抵抗 线性 密码 分析 . 
+ 　 　 不论 从 结构 、 速度 ， 还是 从 安全性 方面 来看 ，   SAFER + 算法 都 是 一个 很 好 的 算法 . 
+ 1.14   SERPENT 算法 
+ 　 　 SERPENT 算法 是 Anderson ， Biham 和 Kundsen 提交 的 一个 候选 算法 . 它 采用 的 是 代替 / 置换 网络 . 在 SERPENT 的 最初 版本 中 ［ 17 ］ ， 使用 了 DES 的 S - 盒 ， 目的 是 使 公众 相信 设计者 没有 设置 任何 陷门 . 对于 SERPENT 有 类似 的 保证 ， 这 是因为 S - 盒以 简单 的 、 确定 的 方式 生成 . SERPENT 的 加密算法 由 3 部分 组成 ： 第 1 部分 是 初始 置换 ； 第 2 部分 是 32 轮 的 加密 操作 ， 每 一轮 包含 密钥 混合 运算 、 S - 盒及 线性变换 ； 第 3 部分 是 末尾 置换 . 
+ 　 　 SERPENT 的 S - 盒 是 具有 以下 性质 的 4 比特 置换 ： 
+ 　 　 ( 1 )   每一 差分 特征 有 一个 接近 0.25 的 概率 ， 且 1 比特 输入 变换 绝对 不会 导致 一个 1 比特 的 输出 变换 . 
+ 　 　 ( 2 )   每个 线性 逼近 有 一个 在 范围 0.5 ± 0.25 内 的 概率 ， 且 单独 1 比特 输入 与 单独 1 比特 输出 间 的 线性关系 有 一个 在 范围 0.5 ± 0.125 内 的 概率 . 
+ 　 　 ( 3 )   每个 分支 布尔 函数 的 次数 为 3 . 
+ 线性变换 的 选取 原因 其一 是 为了 极大 化 雪崩 效果 ， 其二 是 为了 便于 分析 . 设计者 已 证明 SERPENT 能 抵抗 已知 的 所有 攻击 ， 并且 声称 SERPENT 比 三重 DES 更 安全 . 目前 还 没有 对 SERPENT 的 进一步 分析 结果 . 
+ 1.15   Twofish 算法 
+ 　 　 Twofish 算法 是 美国 的 Bruce   Schneier 等 人 提交 的 一个 候选 算法 . 它 的 总体 结构 是 一个 16 轮 的 Feistel 结构 ， 主要 特点 是 S - 盒 由密钥 控制 . Twofish 的 加密 分 3 部分 : 第 1 部分 是 初始 白化 ， 第 2 部分 是 16 轮 的 加密 ， 在 第 i 轮中 ， 令 Ri , 0 , Ri , 1 , Ri , 2 , Ri , 3 为 4 个 32 比特 的 输入 ， 4 个 32 比特 的 输出 Ri + 1 , 0 , Ri + ! , 1 , Ri + ! , 2 , Ri + 1 , 3 用 下列 式子 计算 ： 
+ Ri + 1 , 0 = ［ ( g ( Ri , 0 ) + g ( Ri , 1 < < < 8 ) + K2i + 8 ) ⊕ Ri , 2 ］ > > > 1 , 
+ Ri + 1 , 1 = ( g ( Ri , 0 ) + 2g ( Ri , 1 < < < 8 ) + K2i + 9 ) ⊕ ( Ri , 3 < < < 1 ) , 
+ Ri + 1 , 2 = Ri , 0 , 
+ Ri + 1 , 3 = Ri , 1 , 
+ 其中 , + 是模 232 加 ， < < < 1 表示 左 旋转 1 比特 ， > > > 1 表示 右 旋转 1 比特 . 第 3 部分 是 末尾 白化 . 
+ 函数 g 是 Twofish 的 核心 ， 在 g 的 构作 中 ， 用到 两个 固定 的 8 × 8 置换 q0 和 q1 . q0 和 q1 分别 利用 两组 4 个 4 × 4 置换 t0 , t1 , t2 , t3 , 用 固定 方法 构作 . 
+ 　 　 关于 Twofish 的 分析 结果 ， 目前 公开 的 最佳 攻击 是 用 222.5 个 选择 明文 和 251 的 计算 量 攻破 5 轮 Twofish . 
+ 2   结束语 
+ 　 　 从 AES 的 征稿 情况 来看 ， 目前 设计 分组 密码 仍然 离不开 旧 的 模式 ， 无论 在 理论 上 , 还是 在技术上 都 没有 什么 创新 . 关于 15 个 AES 候选 算法 的 讨论 在 1999 年 将 会 很 激烈 ， 感兴趣 的 读者 请 多 关注 有关 报道 . 
+ 　 　 本文 的 研究 得到 国家自然科学基金 资助 ， 此 项目编号 为 69673016 . 
+ 　 　 本文 研究 得到 国家自然科学基金 资助 . 作者 吴文玲 , 女 , 1966 年生 , 博士后 , 主要 研究 领域 为 密码 理论 和 应用 数学 . 冯登国 , 1965 年生 , 研究员 , 主要 研究 领域 为 信息安全 理论 和 技术 . 卿斯汉 , 1939 年生 , 研究员 ， 博士生 导师 ， 主要 研究 领域 为 信息安全 理论 和 技术 . 
+ 本文 通讯联系 人 : 卿斯汉 ， 北京 100080 , 中国科学院 软件 研究所 
+ 作者 单位 ： 中国科学院 软件 研究所 　 北京 　 100080 
+ 　 　 　 　 　 中国科学院 信息安全 技术 工程 研究 中心 　 北京 　 100080 
+ 参考文献 
+ ［ 1 ］ AES   Candidate   Algorithms .   http : ∥ csrc . nist . gov / encryption / aes / aes _ home . htm # candidates 
+ ［ 2 ］ Youssef   A ,   Chen   Z ,   Tavares   S .   Construction   of   highly   nonlinear   injective   S - boxes   with   application   to   CAST - like   encryption   algorithm .   In :   Proceedings   of   the   Canadian   Conference   on   Electrical   and   Computer   Engineering ( CCECE ' 97 ) ,   1997 .   330 ～ 333 
+ ［ 3 ］ Matsui   Mitsuru .   Linear   cryptanalysis   method   for   DES   cipher .   Lecture   Notes   in   Computer   Science ,   Springer - Verlag ,   1993 , 765 : 368 ～ 397 
+ ［ 4 ］ Biham   E ,   Shamir   A .   Differential   Cryptanalysis   of   Data   Encryption   Standard .   New   York :   Springer - Verlag ,   1993 
+ ［ 5 ］ Lee   J ,   Heys   H ,   Tavares   S .   Resistance   of   a   CAST - like   encryption   algorithm   to   linear   and   differential   cryptanalysis .   Designs ,   Codes   and   Cryptography ,   1997 , 12 ( 3 ) : 267 ～ 282 
+ ［ 6 ］ Knudsen   L   R .   Truncated   and   higher   order   differentials .   Fast   Software   Encryption ,   Lecture   Notes   in   Computer   Science ,   Springer - Verlag ,   1995 , 1008 : 196 ～ 211 
+ ［ 7 ］ Moriai   S ,   Shimoyama   T ,   Kaneko   T .   Higher   order   differential   attack   of   a   CAST   cipher .   Fast   Software   Encryption ,   Proceedings   of   5th   International   Workshop .   Springer - Verlag ,   1998 .   17 ～ 31 
+ ［ 8 ］ Vaudenay   S .   Provable   security   for   block   ciphers   by   decorrelation .   In :   STACS   98 ,   Paris ,   France ,   Lecture   Notes   in   Computer   Science ,   Springer - Verlag ,   1998 , 1373 : 249 ～ 275 
+ ［ 9 ］ Vaudenay   S .   The   Decorrelation   Technique   Homepage .   URL : http : ∥ www . dmi . ens . fr / vaudenay / decorrelation . html 
+ ［ 10 ］ Biham   E ,   Shamir   A .   Differential   Cryptanalysis   Snefru .   Kharfe ,   REDOC - II ,   LOKI   and   Lucifer .   Lecture   Notes   in   Computer   Science ,   Springer - Verlag ,   1991 , 576 : 156 ～ 171 
+ ［ 11 ］ Tokita   Toshio ,   Sorimachi   Tohru ,   Matsui   Mitsuru .   Linear   cryptanalysis   of   LOKI   and   S2DES .   Lecture   Notes   in   Computer   Science ,   Springer - Verlag ,   1994 , 917 : 363 ～ 366 
+ ［ 12 ］ Kaliski   B   S ,   Yin   Y   L .   On   differential   and   linear   cryptanalysis   of   the   RC5   encrytion   algorithm .   Advances   in   Cryptology - Crypto ' 95 .   Lecture   Notes   in   Computer   Science ,   1995 , 963 : 171 ～ 184 
+ ［ 13 ］ Daemen   J ,   Knudsen   L ,   Rijmen   V .   The   block   cipher   square ,   fast   software   encryption .   In :   Proceedings   of   the   4th   International   Workshop .   Springer - Verlag ,   1997 .   469 ～ 472 
+ ［ 14 ］ Daemen   J .   Cipher   and   hash   function   design   stategies   based   on   linear   and   differential   cryptanalysis ［ Ph . D .   Thesis ］ ,   K . U . Leuven ,   1995 
+ ［ 15 ］ Harpes   C ,   Massey   J .   Partitioning   cryptanalysis ,   fast   software   encryption .   In :   Proceedings   of   the   4th   International   Workshop .   Springer - Verlag ,   1997 .   13 ～ 27 
+ ［ 16 ］ Massey   J .   SAFER   K - 64 :   a   byte - oriented   block - ciphering   algorithm .   Fast   Software   Encryption ,   Lecture   Notes   in   Computer   Science .   1994 , 809 : 1 ～ 17 
+ ［ 17 ］ Jakobsen   T ,   Knudsen   L .   The   interpolation   attack   on   block   ciphers ,   fast   software   encryption .   In :   Proceedings   of   4th   International   Workshop .   Springer - Verlag ,   1997 .   28 ～ 40 
+ ( 1999 - 02 - 12 收稿 ) 

@@ -1,0 +1,129 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 2 期   No.2   1999 
+ 
+ 
+ 
+ 汉语 结构 优先 关系 的 自动 获取 * 
+ 周 　 强   黄 昌宁 
+ 　 　 摘要 　 提出 了 一种 用于 定量 描述 歧义 结构 分布 特点 的 知识 表示 机制 : 结构 优先 关系 SPR ( structure   preference   relation ) , 介绍 了 针对 不同 语料 文本 的 两种 SPR 获取 方法 : 树库 语料 的 自动 发现 和 原始 文本 的 自动 获取 , 并且 通过 不同 的 实验 证明 了 这些 方法 的 可行性 和 实用性 . 另外 , 还 介绍 了 SPR 的 若干 应用 前景 , 并 提出 进一步 的 研究 方向 . 
+ 　 　 关键词 　 结构 优先 关系 , 歧义 结构 , 知识 获取 , 语料库 . 
+ 　 　 中图法 分类号 　 TP18 
+ Automatic   Acquisition   for   Chinese   Structure   Preference   Relations 
+ ZHOU   Qiang   HUANG   Chang - ning 
+ 　 　 Abstract 　   A   new   ambiguity   representation   scheme   SPR ( structure   preference   relation )   is   proposed   in   this   paper ,   which   consists   of   useful   quantitative   distribution   information   for   ambiguous   structures .   Two   automatic   acquisition   algorithms ,   ( 1 )   acquired   from   treebank ,   ( 2 )   acquired   from   raw   texts ,   are   introduced ,   and   some   experimental   results   which   prove   the   availability   of   the   algorithms   are   also   given .   At   last ,   some   SPR   applications   in   linguistics   and   natural   language   processing   are   introduced   and   some   future   research   directions   are   proposed   in   this   paper . 
+ 　 　 Key   words 　 Structure   preference   relation ,   ambiguous   structure ,   knowledge   acquisition ,   corpus . 
+ 　 　 歧义 结构 的 识别 和 处理 是 自然语言 理解 的 重要 研究课题 . 针对 英语 中 最 常见 的 歧义 结构 : 介词 短语 连结 ( Prepositional   Phrase   Attachment ) 问题 , 许多 研究 人员 进行 了 不同 排歧 方法 的 探索 , 如 : Hindle 和 Rooth ［ 1 ］ 利用 从 自动 分析 的 语料库 中 获取 的 介词 与 中心动词 以及 中心 名词 的 不同 关联 强度 来 排除 歧义 . R . Basili 等 人 进一步 利用 了 语义 标记 信息 , 提高 了 排歧 能力 ［ 2 ］ . 而 Collins 和 Brooks ［ 3 ］ 则 采用 了 Backing - Off 方法 对此 问题 进行 了 处理 . 由于 抓住 了 英语 句法分析 中 的 重点 和 难点 , 因而 取得 了 事半功倍 的 效果 . 
+ 　 　 关于 汉语 的 句法 歧义 结构 , 朱德熙 先生 最早 进行 了 研究 , 提出 了 一个 有名 的 歧义 结构 实例 : “ 咬 死 了 猎人 的 狗 ” ［ 4 ］ . 在此之后 , 许多 语言学家 又 发现 了 大量 有趣 的 歧义 结构 实例 . 黄 国营 ［ 5 ］ 对 这些 研究成果 进行 了 概括 和 总结 , 形成 了 一个 常见 的 汉语 歧义 短语 表 . 但 这些 研究 基本上 还 局限于 结构 的 枚举 和 实例 的 罗列 , 缺乏 比较 客观 的 定量 分布 数据 , 如 : 在 真实 语料 中 , 各个 歧义 结构 出现 的 频度 有 多 大 ？ 哪 种 歧义 结构 最为 常见 ？ 对于 某个 特定 的 歧义 结构 , 各种 歧义 组合 出现 的 可能性 又 有 多 大 等等 . 因此 , 中文信息处理 的 研究 人员 往往 需要 为 大量 可能 的 歧义 结构 寻找 有效 的 排歧 方法 , 而 实际效果 常常 是 事倍功半 . 
+ 　 　 本文 就是 希望 对 汉语 歧义 结构 的 定量分析 方法 进行 一些 探索 . 它 将 汉语 歧义 结构 的 定量 信息 有效 地 集成 入 结构 优先 关系 SPR ( structure   preference   relation ) 的 描述 项中 , 然后 通过 对 真实 文本 句子 的 句法分析 树 的 完全 遍历 , 发现 所有 可能 的 SPR 实例 . 而 汉语 自动 句法分析 器 和 句法 规则 概率 参数 自动 训练 算法 的 开发 成功 和 有效 应用 , 又 使得 从 语料 原始 句子 中 自动 获取 SPR 的 信息 成为 可能 . 目前 , 初步 实验 结果 证明 了 这种 方法 的 可行性 和 实用性 . 
+ 1   结构 优先 关系 的 基本 内容 
+ 　 　 定义 1 .   词类 标记 集是 由 所有 词类 标记 组成 的 集合 , 简记 为 POST . 
+ 　 　 定义 2 .   句法 标记 集是 由 所有 句法 标记 组成 的 集合 , 简记 为 SynT . 
+ 　 　 定义 3 .   规则 右部 是 句法 规则 集中 表征 合理 的 句法结构 组合 的 标记 串 , 因 其 一般 在 规则 描述 体系 中 出现 在 规则 右部 , 故有 此 定义 . 简记 为 RHP , 且 有 RHP ∈ { POST ∪ SynT } * . 
+ 　 　 定义 4 .   交段 成分 是 一种 可以 在 RHP 的 首部 和 尾部 同时 出现 的 成分 标记 , 简记 为 IC . 若 它 处在 RHP 的 首部 , 则 RHP 的 其余 结构 统称 为 交段 后境 , 简记 为 SufIC . 若 它 处在 RHP 的 尾部 , 则 RHP 的 其余 结构 统称 为 交段 前境 , 简记 为 PreIC . 其中 IC ∈ { POST ∪ SynT } , PreIC ,   SufIC ∈ { POST ∪ SynT } * . 
+ 　 　 例如 , 若 规则 集中 存在 这样 两条 句法 规则 : P1 → AB 和 P2 → BC , 根据 其 RHP 内容 , 可以 得到 一个 交段 成分 B 和 交段 前境 A 及交段 后境 C . 
+ 　 　 定义 5 .   交段 结构 是 由 交段 前境 、 交段 成分 和 交段 后境 共同 组成 的 标记 串 , 简记 为 IS , 即 IS = { PreIC   IC   SufIC ,   ICPos } , 其中 ICPos 表示 交段 成分 IC 在 交段 结构 IS 中 的 位置 . 
+ 　 　 例如 , IS = { υ υ   n , 1 } * 就是 一个 常见 的 交段 结构 . 
+ 　 　 定义 6 .   交段 左向 组合 实例 描述 了 在 分析树 中 , 交段 结构 中 的 交段 成分 首先 和 左边 的 交段 前境 组合 而 形成 的 结构 实例 ; 而交段 右 向 组合 实例 则 描述 了 其中 的 交段 成分 首先 与 右边 的 交段 后境 组合 而 形成 的 结构 实例 . 
+ 　 　 定义 7 .   结构 优先 关系 ( SPR ) 是 一个 三元组 〈 IS , LF , RF 〉 , 其中 IS 是 交段 结构 , LF 和 RF 分别 表示 交段 左 向 和 右 向 组合 实例 在 真实 语料 中 出现 的 频度 . 
+ 　 　 根据 SPR 中 的 交段 结构 在 分析树 中 的 组合 方式 的 不同 , 可以 把 它 分成 两大类 . 
+ 　 　 ( 1 )   紧合 结构 SPR 
+ 　 　 SPR 中 的 交段 结构 最终 组合 形成 分析树 中 的 一个 句法 成分 , 如图 1 中 的 情况 ( a ) 和 ( c ) , 其中 图 1 ( a ) 为 交段 左向 组合 实例 , 图 1 ( c ) 为 交段 右 向 组合 实例 . 
+ 　 　 ( 2 )   松散 结构 SPR 
+ 　 　 SPR 中 的 交段 结构 的 交段 前境 、 交段 成分 和 交段 后境 分别 与其 相邻 左 成分 或右 成分 组合成 新 的 句法 成分 , 如图 1 的 情况 ( b ) 和 ( d ) , 其中 图 1 ( b ) 为 交段 左向 组合 实例 , 图 1 ( d ) 为 交段 右 向 组合 实例 . 
+ 
+ 图 1 　 结构 优先 关系 实例 的 分布 特点 
+ 　 　 SPR 的 这些 结构 特点 为 从 分析树 中 自动 发现 SPR 信息 提供 了 方向 . 
+ 2   分析树 的 SPR 发现 算法 
+ 　 　 如果 存在 树库 语料 , 即 语料 文本 的 每个 句子 都 标注 了 正确 的 句法结构 树 , 则 SPR 的 发现 就 变得 很 简单 了 , 只 需 遍历 分析树 , 在 每个 非 叶子 节点 上 发现 可能 的 交段 结构 实例 , 再 检查 SPR 交段 结构 的 合理性 并 设置 其 频度 信息 . 
+ 　 　 对 一棵 分析树 T 的 遍历 是从 它 的 根 节点 R 开始 , 自顶向下 进行 的 . 其 基本 处理函数 为 : 
+ 　 　 分析树 遍历 函数 TreeSearch ( R ) : 
+ 　 　 如果 树 节点 R 是非 叶子 节点 , 则 
+ 　 　 　 　 发现 紧合 结构 SPR ; 
+ 　 　 　 　 发现 松散 结构 SPR ; 
+ 　 　 　 　 对 每个 子 节点 Ni , 循环 调用 TreeSearch ( Ni ) ; 
+ 　 　 否则 , 返回 . 
+ 2.1   紧合 结构 SPR 的 发现 
+ 　 　 考虑 分析树 中 的 子 树结构 PH ( RP1   RP2 ... RPn ) , 其中 PH 为子 树根 节点 , RPi , i ∈ ［ 1 , n ］ 为 其子 节点 成分 . 如果 RP1 也 是 一个 非 叶子 节点 , 且 其子 树结构 为 RP1 ( RP11   RP12 ... RP1m ) , 则 句法 成分 串 : RP11   RP12 ... RP1m   RP2 ... RPn 就 组成 了 一个 可能 的 交段 左向 组合 实例 （ 如图 1 ( a ) 所示 ） , 其中 RP1m 为 交段 成分 . 同理 , 如果 RPn 是 一个 非 叶子 节点 , 且 其子 树结构 为 RPn ( RPn1   RPn2 ... RPnk ) , 则 句法 成分 串 : RP1   RP2 ... RPn - 1   RPn1   RPn2 ... RPnk 就 组成 了 一个 可能 的 交段 右 向 组合 实例 （ 如图 1 ( c ) 所示 ） , 其中 RPn1 为 交段 成分 . 
+ 2.2   松散 结构 SPR 的 发现 
+ 　 　 考虑 分析树 中 的 子 树结构 PH ( RP1   RP2 ... RPn ) , 其中 PH 为子 树根 节点 , RPi , i ∈ ［ 1 , n ］ 为 其子 节点 成分 . 在 分析树 中 搜索 得到 PH 所有 的 左 邻接 成分 Ai , 如果 ( Ai   PH ) 不是 分析树 中 某个 节点 成分 的 前缀 , 即 不 存在 这样 的 子 树结构 X ( Ai   PH ... ) , 则 Ai   RP1   RP2 ... RPn 就 组成 了 一个 可能 的 交段 右 向 组合 实例 （ 如图 1 ( d ) 所示 ） , 其中 RP1 为 交段 成分 ; 同理 , 在 分析树 中 搜索 得到 PH 所有 的 右 邻接 成分 Ci , 如果 ( PH   Ci ) 不是 分析树 中 某个 节点 成分 的 后缀 , 即 不 存在 这样 的 子 树结构 X ( ... PH   Ci ) , 则 RP1   RP2 ... RPn   Ci 就 组成 了 一个 可能 的 交段 左向 组合 实例 （ 如图 1 ( b ) 所示 ） , 其中 RPn 为 交段 成分 . 
+ 3   SPR 的 自动 获取 算法 
+ 　 　 上 一节 介绍 的 SPR 发现 算法 需要 利用 树库 语料 , 而 大规模 树库 的 构造 往往 需要 花费 大量 的 人力 和 物力 , 更何况 现在 还 没有 一个 较 大规模 的 汉语 树库 . 因此 , 进行 从 原始 文本 ( 即 经过 了 切分 和 词性 标注 处理 的 汉语 文本 ) 中 自动 获取 SPR 信息 的 研究 , 就 显得 很 有 必要 了 . 自动 获取 SPR 的 关键 是 如何 在 原始 句子 上 快速 构造 出 合理 的 句法结构 树 （ 或 森林 ） 以及 如何 准确 地 计算 不同 歧义 结构 在 分析树 （ 森林 ） 中 的 预期 分布 频度 . 对此 , 我们 进行 了 以下 处理 . 
+ 3.1   原始 文本 的 预处理 
+ 　 　 在 文献 ［ 6 , 7 ］ 中 , 作者 曾 提出 一种 基于 统计 的 汉语 自动 句法分析 方法 , 它 通过 成分 边界 预测 、 括号 匹配 和 分析树 排歧 等 阶段 的 处理 , 可以 自动 生成 原始 句子 的 最佳 分析树 . 在 此基础 上 , 文献 ［ 8 ］ 进一步 提出 可以 利用 一种 改进 的 Inside - Outside 算法 在 原始 文本 基础 上 自动 训练 得到 汉语 的 PCFG ( probabilistic   context - free   grammar ) 规则 . 利用 这些 研究成果 , 我们 构造 了 一个 原始 文本 预处理 工具 , 其 主要 特点 是 可以 自动 分析 产生 原始 句子 的 完整 分析树 （ 森林 ） , 它 以 Tomita 的 压缩 共享 森林 ( PSF ) ［ 9 ］ 形式 表示 出来 , 而 不仅仅 是 选取 其中 的 一棵 最佳 分析树 , 并且 分析树 （ 森林 ） 中 的 每个 成分 节点 上 都 带有 成分 内 概率 和 外 概率 ( 有关 内 概率 、 外 概率 以及 后面 的 成分 预期 分布 频度 的 详细 定义 和 计算方法 可 参阅 文献 ［ 8 ］ ) 信息 , 其 计算 利用 了 汉语 PCFG 规则 的 概率 信息 . 
+ 3.2   交段 结构 的 分布 频度 计算 
+ 　 　 对 正确 的 分析树 来说 , 其中 交段 结构 的 分布 频度 是 确定 的 . 而 对 PSF , 情况 就 不同 了 , 因为 我们 不 知道 其中 哪棵树 是 正确 的 分析树 . 在 这种 情况 下 , 唯一 可 利用 的 信息 就是 一个 句法 成分 A → λ 在 PSF 中 的 预期 分布 频度 E ( A → λ ) . 据此 , 可以 按照 如下 方法 计算 交段 结构 的 预期 分布 频度 . 
+ 　 　 ( 1 )   紧合 结构 SPR 中 的 交段 结构 . 其 分布 频度 是 由主 成分 和子 成分 的 预期 分布 频度 共同 确定 的 . 例如 , 对交段 左向 组合 实例 （ 如图 1 ( a ) 所示 ） , 有 : E ( { PreIC   IC   SufIC } ) = E ( A → PreIC   IC ) . E ( B → A   SufIC ) . 
+ 　 　 ( 2 )   松散 结构 SPR 中 的 交段 结构 . 其 分布 频度 是 由 交段 组合 成分 和 其 相邻 左 （ 右 ） 成分 的 预期 分布 频度 共同 确定 的 . 例如 , 对交段 左向 组合 实例 （ 如图 1 ( b ) 所示 ） , 有 : E ( { PreIC   IC   SufIC } ) = E ( A → PreIC   IC ) . E ( SufIC ) , 其中 E ( SufIC ) = E ( SufIC → λ ) . 
+ 4   实验 结果 分析 
+ 　 　 本 实验 采用 了 以下 语料 : ( 1 )   汉英 机器翻译 研究 的 测试 题库 , 规模 为 1434 个 汉语 句子 , 约 11821 个 词 , 汉字 总数 为 17058 , 平均 句长 为 8.243 词 / 句 . ( 2 )   新加坡 小学 语文课 本 语料 * * , 总 规模 为 4139 个 句子 , 约 52609 个 词 , 汉字 总数 为 72434 , 平均 句长 为 12.711 词 / 句 . 
+ 　 　 选用 这 两 部分 语料 的 主要 目的 是因为 它们 都 已标 上 了 正确 的 分析树 结构 ［ 6 ］ , 即为 树库 语料 , 从而 在 此基础 上 可以 方便 地 进行 两种 不同 方式 的 SPR 获取 实验 : 分析树 的 SPR 发现 实验 （ 实验 1 ） 和 原始 文本 的 SPR 自动 获取 实验 （ 实验 2 ） . 通过 对 两者 实验 结果 的 比较 , 可以 对 目前 的 SPR 自动 获取 算法 的 可行性 和 实用性 进行 比较 深入 的 分析 和 讨论 . 
+ 4.1   SPR 获取 实验 
+ 　 　 在 所有 5573 句 的 语料 文本 上 , 进行 两种 SPR 获取 实验 , 得到 以下 结果 . 实验 1 共 发现 4021 个 不同 的 SPR 项 , 它们 形成 SPR 表 A ; 实验 2 则 发现 了 6091 个 , 通过 设置 选择 阈值 μ = 0.25 , 将 总 频度 ( TF ) ( SPR 项 的 总 频度 ( TF ) 定义 为 它 的 交段 左向 组合 频度 ( LF ) 和 右 向 组合 频度 ( RF ) 之 和 , 即 TF = LF + PF ) 小于 μ 的 SPR 项 排除 掉 , 得到 3832 个 , 它们 形成 SPR 表 B . 
+ 　 　 根据 其 TF 值 的 不同 , 可 将 SPR 表 A 分成 3 个子 表 : ( 1 )   高频 SPR : TF ＞ 10 ; ( 2 )   中频 SPR : 1 ＜ TF ≤ 10 ; ( 3 )   低频 SPR : TF ≤ 1 . 然后 通过 检查 子表 中 的 每个 SPR 在 SPR 表 B 中 是否 出现 , 并 分别 记录 其 出现 的 总 项数 , 可以 计算 出 3 个子 表 的 SPR 自动 获取 召回 率 . 表 1 是 具体 的 实验 结果 . 从中 可以 看出 , 对于 树库 中 出现 的 高频 SPR , 98% 以上 都 可以 由 自动 算法 所 获取 , 对于 中频 SPR , 其 召回 率 也 达到 了 85% 以上 , 而 对于 低频 SPR , 虽然 其 召回 率 只有 61% 左右 （ μ = 0.25 ） , 但 这 与 实际 的 语言 事实 也 是 相符合 的 , 因为 这些 SPR 大多 是 一些 特例 结构 , 因此 , 在 PSF 中 的 预期 频度 必然 是 很小 的 , 这样 , 其中 的 大部分 就 会 由于 阈值 μ 的 设置 而 被 排除 掉 . 但 即使 在 μ = 0.25 的 条件 下 , SPR 自动 获取 算法 的 整体 召回 率 也 达到 了 84% , 这 表明 目前 的 自动 算法 所 获取 的 SPR 信息 总体 上 是 可信 的 . 
+ 表 1   SPR 表 A 的 不同 子表 的 自动 获取 召回 率   
+ 
+ 　 TF ＞ 101 ＜ TF ≤ 10TF ≤ 1 合计 
+ 表 A 的 SPR 项数 7851   8521   3844   021 
+ 表 B ( μ = 0.25 ) 中 出现 的 SPR 项数 
+ SPR 召回 率 ( μ = 0.25 ) 773 
+ 0.984   71   591 
+ 0.859   1840 
+ 0.606   93   204 
+ 0.836   1 
+ 表 B ( μ = 0 ) 中 出现 的 SPR 项数 
+ SPR 召回 率 ( μ = 0 ) 783 
+ 0.997   51   789 
+ 0.966   01   199 
+ 0.866   33   771 
+ 0.937   8 
+ 
+ 　 　 为了 进一步 分析 表 A 和表 B 中 不同 的 SPR 特例 的 分布 差异 情况 , 我们 从 两个 表中 分别 选择 了 总 频度 最高 的 前 10 个 SPR 项 , 并 计算 不同 SPR 项中 的 交段 左 向 和 右 向 组合概率 LP 和 RP , 得到 表 2 的 结果 . 从中 可以 看出 , 它们 基本上 是 汉语 中 常见 的 交段 歧义 现象 . 尽管 由于 两种 算法 在 频度 计算方法 上 的 不同 : 从 最佳 分析树 中 获取 绝对 频度 和 从 PSF 中 获取 预期 频度 , 而 造成 一定 的 LF 和 RF 差异 , 但 其 LP 和 RP 的 分布 却是 极为 相似 的 : 在 两者 共有 的 8 个 交段 结构 中 , 除了 “ υ ^ υ   n ” 外 , LP 和 RP 值 都 非常 接近 . 这 表明 自动 获取 的 数据 很 好 地 反映 了 树库 语料 中 实际 的 SPR 分布 情况 . 
+ 表 2   两个 SPR 表中 总 频度 最高 的 前 10 个 SPR 项 
+ 
+ SPR 表 ASPR 表 B 
+ 交段 结构 LFRFLPRP 交段 结构 LFRFLPRP 
+ d ^ vp   wD   vp487.003 . 000.990 . 01m ^ q   n469.070 . 001.000 . 00 
+ m ^ q   n476.000 . 001.000 . 00d ^ v   np0.08365 . 960.001 . 00 
+ r ^ vp   wD   vp441.003 . 000.990 . 01d ^ vp   wD   vp361.614 . 000.990 . 01 
+ v ^ v   n140.00292 . 000.320 . 68r ^ vp   wD   vp337.545 . 940.980 . 02 
+ d ^ v   vp24.00377 . 000.060 . 94v ^ v   n147.66134 . 240.520 . 48 
+ v ^ v   np203.00182 . 000.530 . 47v ^ v   np151.87128 . 950.540 . 46 
+ d ^ v   np3.00343 . 000.010 . 99d ^ v   n0.00272 . 220.001 . 00 
+ pp ^ v   v0.00326 . 000.001 . 00r ^ q   n272.290 . 001.000 . 00 
+ d ^ v   n2.00302 . 000.010 . 99d ^ v   vp17.03246 . 640.060 . 94 
+ d ^ v   v3.00300 . 000.010 . 99v ^ np   wD   vp243.190 . 031.000 . 00 
+ 
+ ( 在 以上 的 交段 结构 实例 中 , 以 ' ^ ' 标识 交段 成分 . 其中 有关 的 词类 标记 和 句法 标记 简单 说明 如下 : d — — 副词 , wD — — 句间 停顿 标点 , m — — 数词 , q — — 量词 , n — — 名词 , v — — 动词 , r — — 代词 ; vp — — 动词 短语 , np — — 名词 短语 , pp — — 介词 短语 . 具体内容 可 参阅 文献 ［ 6 ］ . ) 
+ 　 　 从 以上 的 分析 可以 看出 , 从 原始 文本 中 自动 获取 的 SPR 信息 , 无论是 从 其 总体 的 召回 率 数据 , 还是 从 其 局部 的 高频 交段 结构 的 分布 来看 , 都 很 好 地 反映 了 树库 中 实际 的 SPR 分布 特点 . 这 表明 目前 的 SPR 自动 获取 算法 具有 较 好 的 可行性 和 实用性 . 
+ 4.2   SPR 获取 的 收敛性 
+ 　 　 本节 的 实验 试图 回答 这样 的 问题 : 从 语料 中 获取 的 不同 SPR 数目 是否 随着 语料 规模 的 不断扩大 而 逐步 收敛 ？ 需要 提供 多少 训练 语料 才能 达到 收敛 ？ 
+ 　 　 通过 对 目前 的 实验 语料 的 均匀 抽样 , 我们 形成 了 11 个 测试 样本 , 平均 每个 样本 包含 约 507 个 汉语 句子 . 从 第 1 个 样本 开始 , 每次 增加 1 个 样本 , 记录 在 不同 的 样本 条件 下 获取 的 不同 SPR 的 项数 , 形成 了 图 2 的 SPR 项数 随 样本容量 不断扩大 的 变化 曲线 . 从图 中 可以 看出 , 随着 训练 语料 规模 的 不断扩大 , 发现 的 SPR 项数 也 在 不断 增大 , 但 其 增长速度 在 不断 减慢 , 显示 出 逐步 收敛 的 趋势 . 尽管 由于 目前 训练 语料 规模 的 限制 , 此 趋势 并 不是 很 明显 . 
+ 
+ 图 2 　 SPR 项数 与 测试 语料 规模 的 关系 
+ 5   结   语 
+ 　 　 本文 提出 了 结构 优先 关系 ( SPR ) 的 基本概念 , 它 能 对 汉语 歧义 结构 及其 分布 进行 定量 描述 , 并 可 通过 两种 不同 的 算法 从树库 语料 和 原始 文本 中 自动 获取 . 目前 的 实验 结果显示 , 它 在 歧义 结构 研究 方面 具有 一定 的 实用性 . 利用 SPR 信息 , 可以 自动 发现 典型 歧义 结构 , 从 大规模 语料库 中 自动 提取 不同 歧义 结构 的 组合 实例 以及 构造 基于 局部 优先 的 优化 分析器 等 . 这些 都 显示 出 它 在 语言学 研究 和 自然语言 处理 方面 所 具有 的 广阔 的 应用 前景 . 
+ 　 　 当然 , 目前 的 研究 还 只是 初步 的 , 没有 涉及 到 对 句法 组合 关系 歧义 （ 即 同一 结构 可以 组合 为 不同 句法 成分 的 歧义 现象 , 如 汉语 中 的 “ v + n ” 结构 既 可 组成 定中结构 的 np 短语 : 工作 时间 , 也 可 组成 述宾 结构 的 vp 短语 : 看 电影 ） 、 语义 组合 层次 歧义 和 语义 组合 关系 歧义 ［ 5 ］ 的 自动 获取 问题 . 另外 , 如何 对 自动 获取 的 SPR 进行 更 深入 的 语言学 分析 , 如 : 其中 哪些 是 “ 潜在 歧义 结构 ” ［ 10 ］ ？ 哪些 是 真 歧义 、 伪 歧义 和准 歧义 结构 ［ 11 ］ ？ 都 有待 进一步 的 探索 . 
+ 致谢   本文 的 研究 得到 国家自然科学基金 资助 , 此 项目编号 为 69705005 . 
+ 本文 研究 得到 国家自然科学基金 和 中国 博士后 科学基金 资助 . 
+ 作者 介绍 ： 周强 , 1967 年生 , 博士 , 助理 研究员 , 主要 研究 领域 为 计算 语言学 . 
+ 　 　 　 　 　 黄 昌宁 , 1937 年生 , 教授 ， 博士生 导师 , 主要 研究 领域 为 计算 语言学 . 
+ 本文 通讯联系 人 : 周强 ， 北京   100084 , 清华大学 计算机科学 与 技术 系 
+ 注释 ： * 　 交段 成分 在 交段 结构 中 的 位置 是 自 左向右 从 0 开始 记数 的 ， v - - 动词 n - - 名词 . 
+ 　 　 　 * * 　 此 语料 的 电子 版本 由 国立 新加坡 大学 赖 金定 博士 提供 ， 在 此 表示感谢 ． 
+ 作者 单位 ： 周 　 强 　 清华大学 计算机科学 与 技术 系   北京   100084 
+ 　 　 　 　 　 黄 昌宁 　 清华大学 智能 技术 与 系统 国家 重点 实验室   北京   100084 
+ E - mail :   zhouq @ s1000e . cs . tsinghua . edu . cn 
+ 参考文献 
+ 　 ［ 1 ］ Hindle   D ,   Rooth   M .   Structural   ambiguity   and   lexical   relations .   Computational   Linguistics ,   1993 , 19 ( 1 ) : 103 ～ 120 
+ 　 ［ 2 ］ Basili   R ,   Pazienza   M   T ,   Velardi   P .   Semi - automatic   extraction   of   linguistic   information   for   syntactic   disambiguation .   Applied   Artificial   Intelligence ,   1993 , 7 : 339 ～ 364 
+ 　 ［ 3 ］ Collins   M ,   Brooks   J .   Prepositional   phrase   attachment   through   a   backed - off   model .   In :   Yarowsky   D ,   Church   K   eds .   Proceedings   of   the   3rd   Workshop   on   Very   Large   Corpora .   Cambridge ,   Massachusetts :   Massachusetts   Insitute   of   Technology ,   1995 .   27 ～ 38 
+ 　 ［ 4 ］ 朱德熙 . 汉语 句法 中 的 歧义 现象 . 中国 语文 , 1980 , ( 2 ) : 81 ～ 92 （ Zhu   De - xi .   Ambiguous   phenomena   of   Chinese   syntax .   Chinese   Language ,   1980 , ( 2 ) : 81 ～ 90 ） 
+ 　 ［ 5 ］ 黄 国营 . 现代汉语 的 歧义 短语 . 语言 研究 , 1985 , ( 1 ) : 69 ～ 89 ( Huang   Guo - ying .   Ambiguous   phrases   in   contemporary   Chinese .   Language   Research ,   1985 , ( 1 ) : 69 ～ 89 ) 
+ 　 ［ 6 ］ 周强 . 汉语 语料库 的 短语 自动 划分 和 标注 研究 ［ 博士学位 论文 ］ . 北京大学 , 1996 ( Zhou   Qiang .   Phrase   bracketing   and   annotating   on   Chinese   language   corpus ［ Ph . D .   Thesis ］ .   Beijing   University ,   1996 ) 
+ 　 ［ 7 ］ Zhou   Qiang .   A   statistics - based   Chinese   parser .   In :   Zhou   Joe ,   Church   K   eds .   Proceedings   of   the   5th   Workshop   on   Very   Large   Corpora .   Tsinghua   University ,   Beijing ,   August   1997 .   4 ～ 15 
+ 　 ［ 8 ］ 周强 , 黄 昌宁 . 汉语 概率 型 上下文 无关 语法 的 自动 推导 . 技术 报告 TR97002 , 清华大学 计算机系 , 1997 ( Zhou   Qiang ,   Huang   Chang - ning .   An   inference   approach   for   Chinese   probabilistic   context - free   grammar .   Technical   Report   TR97002 ,   Department   of   Computer   Science ,   Tsinghua   University ,   1997 ) 
+ 　 ［ 9 ］ Tomita   M .   Efficient   Parsing   for   Natural   Language — — a   Fast   Algorithm   for   Practical   System .   Boston :   Kluwer   Academic   Publishers ,   1986 
+ 　 ［ 10 ］ 冯志伟 . 中文 科技 术语 的 结构 描述 及 潜在 歧义 . 中文信息 学报 , 1989 , 3 ( 2 ) : 1 ～ 15 ( Feng   Zhi - wei .   Structural   description   of   Chinese   scientific   terms   and   potential .   Journal   of   Chinese   Information   Processing ,   1989 , 3 ( 2 ) : 1 ～ 15 ) 
+ 　 ［ 11 ］ 詹 卫东 . 现代汉语 VP 的 结构 定界 和 结构 关系 判定 ［ 硕士学位 论文 ］ . 北京大学 , 1996 ( Zhan   Wei - dong .   Determining   boundaries   and   constructional   relations   of   verb   phrase   in   contemporary   Chinese ［ M . S .   Thesis ］ .   Beijing   University ,   1996 ) 
+ 本文 1997 - 10 - 22 收到 原稿 , 1998 - 02 - 27 收到 修改稿   

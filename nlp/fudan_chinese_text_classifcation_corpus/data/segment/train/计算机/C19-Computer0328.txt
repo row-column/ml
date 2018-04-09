@@ -1,0 +1,110 @@
+计算机 应用 
+ Computer   Applications 
+ 1999 年   第 19 卷 　 第 8 期   Vol.19 　 No.8   1999 
+ 
+ 
+ 
+ MS   V C++   永久 对象 恢复 的 一个 问题 
+ 黄 　 洪 
+ 　 　 摘 　 要 　 本文 提取 出 MS   V C++ 5.0 中 永久 对象 序列化 的 算法 机制 ， 对 其中 潜在 的 问题 进行 了 分析 ， 指出 了 一种 避免 问题 的 方法 。 
+ 　 　 关键词 　 序列化 ， 关联 ， 动态创建 
+ THE   PROBLEM   OF   
+ RETRIEVING   MS   V C++   PERSISTENT   OBJECTS 
+ Huang   Hong 
+ Department   of   Computer   Science ,   Jilin   University ,   Jilin ． Changchun   130023 
+ 　 　 Abstract 　 This   paper   extracts   the   persistent   object ′ s   serialization   algorithm   from   MS   V C++ 5.0 , analyses   its   problem   and   points   out   an   approach   to   avoid   it . 
+ 　 　 Keywords 　 Serialization , Association , Dinamically   create 
+ 1 　 永久 对象 和 V C++ 的 对象 序列化 
+ 　 　 永久 对象 （ persistent   object   ） 是 指 将来 运行 的 某个 程序 需要 的 对象 ， 它 必须 已 被 保存 在 永久 介质 中 ［ 1 ］ 。 序列化 ( serialization ) 指 程序 可以 把 对象 状态 存入 磁盘 文件 ， 当 程序 需要 时 从文件 中 恢复 对象 状态 ［ 2 ］ 。 许多 对象 相互 关联 就 构成 了 关联 对象 组 。 关联 对象 组 运行 时刻 状态 的 保存 和 恢复 以 永久 对象 和 序列化 为 基础 。 
+ 　 　 MS   V C++ 实现 了 对象 序列化 ， 但 对于 一些 复杂 的 情况 也 存在 问题 。 
+ 　 　 例如 ： 类 CTestDoc 有 三个 成员 变量 ： 
+ 　 　 CClient   Client — Obj1 ； 
+ 　 　 CClient   Client — Obj2 ； 
+ 　 　 CServer   Server — Obj 。 
+ 　 　 这 三个 对象 的 状态 和 相互 关联 情况 如图 1 所示 ： 
+ 
+ 
+ 图 1 　 关联 对象 组 存储 时 的 状态 
+ 序列化 的 部分 代码 如下 ： 
+ 　 　 void   CTestDoc   : :   Serialize   ( CArchive &   ar ) 
+ / / 文档 的 序列化 函数 
+ { … 
+ Client — Obj1 . Serialize   ( ar ) ;   
+ / / 客户 对象 1 的 序列化 
+ Client — Obj2 . Serialize   ( ar ) ;   
+ / / 客户 对象 2 的 序列化 
+ Server — Obj . Serialize   ( ar ) ;   
+ / / 服务器 对象 的 序列化 
+ … } 
+ void   CClient   : :   Serialize   ( CArchive &   ar ) 
+ / / 客户 对象 的 序列化 函数 
+ { if   ( ar . IsStoring ( ) )   ar   < 　 < … < 　 < m — pServer ;   
+ / / 存储 指针 成员 变量 
+ else   ar > 　 > … > 　 > m — pServer ;   } 
+ / / 恢复 指针 成员 变量 
+ void   CServer   : :   Serialize   ( CArchive &   ar )   
+ / / 服务器 对象 的 序列化 函数 
+ { if   ( ar . IsStoring ( ) )   ar < 　 < … < 　 < m — pClient ;   
+ / / 存储 指针 成员 变量 
+ else   ar > 　 > … > 　 > m — pClient ; } 
+ / / 恢复 指针 成员 变量 
+ 　 　 但 通过 文档 的 序列化 函数 后 恢复 的 关联 对象 组 状态 如图 2 所示 ， 不同于 存储 时即 图 1 的 状态 。 
+ 
+ 
+ 图 2 　 关联 对象 组 恢复 后 状态 
+ 
+ 2 　 永久 对象 存储 与 恢复 算法 
+ 　 　 通过 对 VC 中 MFC 库 的 分析 ［ 3 ］ ， 提取 出 永久 对象 存储 与 恢复 算法 机制 。 
+ 　 　 a )   永久 对象 存储 算法 ( 略 ) 。 
+ 　 　 若 要 存储 对象 为 : 
+ 　 　 基本 数据类型 　 则 把 数据 存入 到 文件 ； 
+ 　 　 对象 类型 　 将 各 成员 变量 分别 递归 调用 本 算法 存入 文件 中 ； 
+ 　 　 指针 类型 　 又 分 三种 情况 ： 
+ 　 　 若 指针 为 NULL ， 则 存 NULL 到 文件 中 ； 
+ 　 　 若 指针 所指 对象 未 存入 过 文件 ， 则 存入 新类 标志 ( FFFF ) ， 再 存入 类 信息 在 文件 中 。 在 数组 中 增加 此 对象 和 ID 的 映射 时 ， 递归 调用 本 算法 将 指针 存入 到 所指 对象 文件 中 ； 
+ 　 　 若 指针 所指 对象 已 存入 文件 ， 则 只 将 对象 对应 的 ID 存入 文件 。 
+ 　 　 b )   永久 对象 恢复 算法 ( 略 ) 。 
+ 　 　 若 要 恢复 对象 为 ： 
+ 　 　 基本 数据类型 ， 则 把 文件 中 对应 的 数据 值赋 给 对象 ； 
+ 　 　 若 为 对象 变量 ， 则 依次 递归 调用 本 算法 恢复 各 成员 变量 ； 
+ 　 　 若 为 对象 指针 ， 则 
+ 　 　 步骤 1 ： 读类 信息 。 
+ 　 　 若类 信息 前缀 有 新类 信息 标志 ( FFFF ) ， 继续 读入 新类 信息 ， 增加 一新 类 信息 映射 于 数组 ； 若 读入 信息 为类 信息 ID ， 则 利用 映射 数组 ， 由 ID 得 其 对应 类 信息 ； 若 读入 信息 为 一 已 恢复 对象 对应 ID ， 则 对应 类 信息 为 NULL 。 
+ 　 　 步骤 2 ： 恢复 对象 状态 。 
+ 　 　 若类 信息 为 NULL ， 则 由 对象 对应 ID 从 映射 数组 得 对象 地址 ， 赋给 要 恢复 的 指针 。 否则 ， 用类 信息 动态创建 一 对象 ， 把 新 对象 的 地址 赋给 要 恢复 的 指针 。 且 在 映射 数组 中 增加 本 对象 和 ID 的 映射 ， 再 递归 调用 本 算法 恢复 指针 所指 对象 。 
+ 　 　 注意 ： 读入 信息 为类 信息 对应 ID 还是 对象 对应 ID ， 由 ID 值 范围 决定 。 
+ 3 　 问题 的 分析 
+ 　 　 通过 对 算法 的 分析 ， 可以 看出 ： 
+ 　 　 ．   在 存储 永久 对象 时 ， 不用 区分 永久 对象 是 在 编译 时为 其 分配内存 ， 还是 在 运行 时 动态创建 ， 只 把 关联 对象 组 的 状态 存储 起来 。 而 在 恢复 指针 时 ， 不管 被 恢复 指针 所指 对象 的 内存 是否 已经 分配 ， 都 创建 一新 对象 （ 即 为 指针 所指 对象 分配内存 ） ， 从而 可能 使 一个 对象 有 两个 副本 。 
+ 　 　 如上 例中 ， 在 恢复 Client — Obj1 的 指针 成员 变量 m — pServer 时 ， 产生 了 新 对象 Server — Obj - 2 。 又 在 嵌套 恢复 对象 Server — Obj - 2 的 指针 成员 变量 m — pClient 时 ， 产生 了 新 对象 Client — Obj1 - 2 。 从图 1 来看 ， 它 实际 应为 对象 Client — Obj1 ， 从而 没 能 恢复 到 存储 前 的 状态 。 因为 程序 在 运行 中 不 可能 知道 对象 Server — Obj - 2 的 指针 成员 变量 m — pClient 实际 所指 对象 Client — Obj1 的 内存 已经 分配 ， 而是 要 另外 创建 一新 对象 Client — Obj1 - 2 ， 把 其 地址 赋给 m — pClient 。 
+ 　 　 ．   对 多个 对象 组成 的 关联 对象 组 的 序列化 ， 问题 更加 复杂 。 
+ 　 　 如上 例中 ， 在 恢复 Client — Obj1 的 指针 成员 变量 m — pServer 时 ， 产生 了 新 对象 Server — Obj - 2 。 从图 1 来看 ， 它 实际 应为 对象 Server — Obj ， 从而 没 能 恢复 到 存储 前 的 状态 。 因为 程序 在 运行 中 更加 不 可能 知道 对象 Client — Obj1 的 指针 成员 变量 m — pServer 实际 所指 对象 Server — Obj 的 内存 已经 分配 ， 而是 要 另外 创建 一新 对象 Server — Obj - 2 ， 把 其 地址 赋给 m — pServer 。 
+ 4 　 问题 的 避免 
+ 　 　 通过 以上 的 分析 ， 只要 恢复 时 关联 对象 组中 没有 对象 已经 分配 了 内存 就行 。 全部 采用 指针 成员 变量 能 避免 问题 的 发生 。 前例 改为 CTestDoc   类有 三个 指针 成员 变量 ： 
+ 　 　 CClient   *   m — pClient — Obj1 ； 
+ 　 　 CClient   *   m — pClient — Obj2 ； 
+ 　 　 CServer   *   m — pServer — Obj 。 
+ 　 　 这 三个 指针 的 状态 和 所指 对象 的 相互 关联 情况 如图 3 所示 。 
+ 
+ 
+ 图 3 　 关联 对象 组 状态 存储 前 和 恢复 后 状态 
+ 　 
+ 相应 代码 如下 ： 
+ void   CTestDoc   : :   Serialize ( CArchive &   ar ) 
+ { if   ( ar . IsStoring ( ) ) 
+ ar < 　 < m — pClientObj1 < 　 < m — pClientObj2 < 　 < m — pServerObj ; 
+ / / 保存 各 指向 对象 的 指针 
+ else   ar > 　 > m — pClientObj1 > 　 > m — pClientObj2 > 　 > m — pServerObj ; 
+ / / 恢复 各 指向 对象 的 指针 
+ } 
+ 　 　 通过 改写 后 程序 恢复 的 关联 对象 组如图 3 所示 。 保存 时 和 恢复 后 的 关联 对象 组是 一致 的 ， 且 对象 之间 的 关系 和 图 1 中 对象 之间 的 关系 一致 。 
+ 5 　 结束语 
+ 　 　 在 序列化 一个 对象 时 ， 若 被 序列化 对象 是 编译 时为 其 分配内存 ， 且 其 关联 （ 实现 为 成员 指针 指向 ） 对象 中 也 有 对象 关联 于 自己 ， 问题 便 出现 了 。 前述 方法 可 避免 问题 ， 但 使 程序设计 受限 。 通过 修改 恢复 算法 来 彻底解决 此 问题 相当 困难 ， 因为 对象 在 呈 递归 嵌套 的 恢复 过程 中 ， 程序 根本无法 静态 指出 对象 是否 需要 动态创建 （ 分配内存 ） 。 可能 要 改变 永久 对象 的 存储 和 恢复 机制 才能 很 好地解决 问题 。 
+ 　 　 永久 对象 及 对象 的 序列化 是 面向对象 的 重要 而 实用 的 技术 ， 比较复杂 ， 涉及 问题 较 多 。 把 对象 状态 存入 数据库 ［ 1 ］ ， 就 引发 了 对 面向对象 数据库 （ OODB ) 的 研究 。 
+ 作者简介 ： 黄 　 洪 　 硕士 。 研究 方向 ： 软件工程 、 面向对象 技术 。 
+ 作者 单位 ： 黄 　 洪 　 吉林大学 计算机科学 系 　 吉林 ． 长春 （ 130023 ） 
+ 参考文献 
+ 　 ［ 1 ］ 　 Daniel   Tkach , Walter   Fang , Andrew   So .   Visual   Modeling   Technique .   Addison   Wesley   Longman , Inc . ，   1996 
+ 　 ［ 2 ］ 　 David   J .   Kruglinski .   Inside   Visual   C++ .   Microsoft   Press , 1994 
+ 　 ［ 3 ］ 　 Microsoft   Corporation .   Microsoft   Foundation   Classes   Reference   and   Related   Electronic   Documentation ,   1992 - 1997 
+ 收稿 日期 : 1999 - 05 - 28 ( 修改稿 ) 

@@ -1,0 +1,96 @@
+计算机 应用 
+ COMPUTER   APPLICATIONS 
+ 1999 年   第 19 卷   第 6 期   Vol.19   No.6   1999 
+ 
+ 
+ 
+ 多线程 应用程序 的 同步 技术 
+ 冯美霞 
+ 　 　 摘 　 要 　 本文 描述 了 写 一个 多线程 应用程序 时 ， 如何 控制 对 全局变量 和 共享资源 的 访问 。 特别 是 在 大量 的 读写操作 且 读 ／ 写 比 很大 的 情况 下 ， 如何 通过 使用 复合 同步 对象 使 程序 性能 得到 很大 提高 。 本文 阐述 了 一种 算法 用以 实现 这种 提高 。 
+ 　 　 关键词 　 线程 ， 共享 ， 同步 ， 同步 对象 
+ SYNCHRONIZATION   TECHNIQUE   FOR   MULTITHREADED   APPLICATIONS 
+ Feng   Meixia 
+ Computer   Center   of   Industry   Developing   &   Training   Center ,   Southeast   University ,   Jiangsu . Nanjing   210018 
+ 　 　 Abstract 　 This   article   describes   how   to   control   the   access   to   the   global   variables   and   sharedresources   when   writing   a   multi - threaded   application   in   Windows   95   or   Windows   NTenvironment .   Especially   how   to   increase   performance   by   using   composite   synchronizationobject   when   the   ratio   of   read   to   write   is   very   high .   The   article   provides   an   algorithmto   achive   this . 
+ 　 　 Keywords 　 Thread ,   Share ,   Synchronization ,   Synchronization   object 
+ 1 　 前言 
+ 　 　 随着 Windows   95   和   Windows   NT   操作系统 的 流行 ， 32 位 应用软件 开始 逐渐 普及 ， 运用 Win32   API （ 应用 程序界面 ） 来 编写 32 位 软件 所 带来 的 一个 好处 ， 就是 可以 运用 多线程 来 提高 程序 的 性能 。 编写 一个 多线程 的 软件 ， 在于 如何 控制 对 各 线程 的 数据 和 资源 的 访问 。 因为 在 软件 中 的 每个 线程 都 有 对 全局变量 ， 函数 内部 静态 变量 ， 以及 其它 一些 进程 相关 的 资源 如 文件 句柄 等 的 相同 的 访问 权 。 不加区分 的 允许 对 这些 资源 的 访问 ， 会 导致 程序 失败 或 得到 错误 的 结果   。 解决 的 办法 ， 是 通过 对 线程 的 非对称 使用 ， 那 就是 分给 每个 线程 特定 的 、 不同 的 任务 ， 从而 把 对 特定 进程 资源 的 访问 限制 在 单个 线程 内 。 
+ 　 　 Win32   API 提供 了 许多 灵活 的 同步 对象 ， 它们 可以 使 程序 能 管理 对 在 同一个 或 不同 的 进程 中 的 线程 之间 共享 的 数据 和 资源 的 访问 。 使用 Win32 同步 对象 的 优点 就是 可以 不 通过 串行化 线程 来 控制 对 资源 的 访问 。 但 如果 同步 做 得 不 仔细 ， 性能 将 因为 线程 的 串行化 而 下降 ： 它们 将 被 阻塞 或 不必要 的 长期 等待 对 共享资源 的 访问 。 过度 的 串行化 将 导致 程序 实际上 只有 一个 线程 ， 那 就 失去 了 线程 的 优势 。 
+ 2 　 使用 Win32 同步 对象 技术 
+ 2.1 　 统一 的 方法 ： Mutexes 
+ 　 　 最 简单 也 是 最好 的 控制 访问共享 资源 的 方法 就是 使用 单个 的 Mutex 。 在 这里 , 用 单个 的 Mutex 来 表示 Win32   Mutex 对象 和 Win32 关键 段 对象 ， 因为 它们 服务 于 相似 的 目的 。 究竟 使用 那 一个 取决于 你 的 程序 ： 关键 段 对象 速度 快且 占用 的 系统资源 少 ， 但是 它 只 工作 于 一个 指定 的 进程 并且 不 支持 超时 机制 。 于是 , 当 你 想 控制程序 的 所有 代码 时 最好 让 它们 在 单个 进程 中 。 而 多 进程 的 情况 需要 Mutex ， 并且 也 是 DLL 程序 的 良好 选择 ， 特别 在 你 有 能力 使 请求 超时 ， 并且 不得不 跨 进程 共享资源 的 时候 。 对 每 一个 或 一组 共享 的 资源分配 一个 不同 的 Mutex ， 看起来 似乎 是 更好 的 办法 ， 但 它 面临 如何 避免 死锁 这个 问题 。 一个 经典 的 死锁 例子 是 ： 一个 线程 拥有 Mutex   A ， 然后 被 阻塞 ， 以 等待 Mutex   B ， 然而 另 一个 线程 拥有 Mutex   B ， 然后 被 阻塞 ， 以 等待 Mutex   A 。 
+ 　 　 尽管 这种 情况 似乎 不 可能 发生 ， 但 在 一个 模块化 程序 中 完全 有 可能 。 如果 两个 模块 都 使用 Mutex 来 保护 自己 的 数据 ， 则 每 一个 使用 这些 模块 的 组件 ， 都 将 不得不 按 相同 顺序 ， 访问 它们 以 避免 死锁 。 不幸 的 是 ， 这 需要 你 将 内部 的 具体 实现 暴露 给 其它 的 模块 。 
+ 　 　 每 一个 增加 的 Mutex ， 都 会 增加 死锁 的 可能性 ， 可以 用 设置 时间 限制 来 避免 这 一点 ， 但是 又 不得不 增加 许多 代码 ， 来 处理 得不到 所 需 的 Mutex 时 的 情况 。 因此 ， 通常 最 简单 的 办法 就是 只用 一个 Mutex ， 并且 避免 在 使用 Mutex 时 进行 耗时 的 操作 以 使 串行化 程度 最小 。 
+ 2.2 　 SYNCHRO 类 
+ 　 　 一个 提供 同步 功能 的 C++ 类 。 把 同步 对象 定义 为 C++ 的 类 ， （ 见 程序 1 ） 用 最 基本 的 Win32 同步 对象 ， 来 构造 复合 的 同步 对象 ， 按 需要 去 扩展 它们 。 同时 ， 提供 一个 一致 的 界面 ， 便 可 不必 修改 程序 ， 就 可以 演示 多个 不同 的 复合 同步 对象 。 
+ 程序 1 ： SYNCHRO   类 的 定义 
+ / *   SYNCHRO   -   C++   class   to   provide   synchronization   object   encapsulation * / 
+ typedef   enum   { SLC — WRITE ,   SLC — READWRITE , 
+ 　 　 　 　 SLC — READWRITEPROMOTE }   SYNCH — LOCK — CAPS ; 
+ typedef   enum   { SLT — READ ,   SLT — READPROMOTE , 
+ 　 　 　 　 　 　 　 SLT — WRITE }   SYNCH — LOCK — TYPE ; 
+ const   int   NUM — SYNCH — LOCK — TYPES   =   SLT — WRITE   +   1 ; 
+ class   SYNCHRO 
+ { 
+ private : 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / /   To   be   determined 
+ public : 
+ SYNCHRO ( void ) ; 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / /   Constructor 
+ ～ SYNCHRO ( void ) ;   　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / /   Destructor 
+ SYNCH — LOCK — CAPS   GetCaps ( void ) ;   　 　 　 　 / /   Return   the   implementation ′ s   capabilities 
+ BOOL   IsValid ( void ) ;   　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / /   Is   this   object   valid ? 
+ BOOL   Lock ( SYNCH — LOCK — TYPE ) ; 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / /   Lock   the   object 
+ BOOL   Unlock ( SYNCH — LOCK — TYPE ) ;   　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / /   Unlock   the   object 
+ BOOL   Promote ( void ) ;   　 　 　 　 　 　 　 　 　 　 　 　 / /   Promote   the   object   from   read   to   write   
+ } ; 
+ 2.3 　 相关 名词解释 
+ 　 　 同步 对象 　 就是 一个 句柄 可以 在 对应 于 多个 线程 的 等待 函数 中 定义 。 同步 对象 的 状态 有 ： “ Signaled ” 允许 等待 函数 返回 和 “ nonSignaled ” 可以 防止 函数 返回 。 多个 函数 可以 拥有 同一个 同步 ， 对象 从而 使 跨 进程同步 成为 可能 。 
+ 　 　 Mutex 对象 　 一个 Mutex 对象 就是 这样 一个 同步 对象 ： 当 它 不 属于 任何 一个 线程 时 它 的 状态 是 Signaled ， 反之 则 处于 nonSignaled 状态 。 一个 线程 在 同一 时刻 只能 拥有 一个 Mutex 。 
+ 　 　 事件 对象 　 一个 事件 对象 就是 一个 可以 被 SetEvent ( ) 或 PulseEvent ( ) 函数 显式 设定 状态 的 同步 对象 。 事件 对象 在 通知 线程 一个 特定 事件 发生 时 很 有用 。 
+ 　 　 关键 段 对象 　 关键 段 对象 提供 类似 于 Mutex 的 同步 机制 。 区别 在于 关键 段 对象 只能 被 同一个 进程 中 的 线程 使用 。 
+ 　 　 第一个 定义 是 一个 称作 SYNCH — LOCK — CAPS 的 枚举 类型 ， 其用 它 能 支持 的 锁 的 类型 来 描述 它 的 能力 ， 还有 一个 SYNCH — LOCK — TYPE 枚举 类型 描述 类所能 支持 的 锁 的 类型 。 
+ 　 　 接下来 有 一个 称作 GetCaps 的 函数 ， 它 使类 的 用户 知道 一个 特定 的 实现 具有 何种 功能 。 IsValid 成员 函数 确定 一个 特定 的 SYNCHRO 对象 是否 有效 。 最使 人 感兴趣 的 是 Lock 和 Unlock 函数 ， 它们 允许 类 的 用户 ， 按 需要 的 方式 声明 对 对象 的 访问 。 线程 根据 需要 和 类 的 支持 能力 ， 声明 所 需要 的 锁 的 类型 。 一经 声明 后 ， 线程 就 可以 访问共享 的 数据 和 资源 。 结束 时 ， 线程 释放 锁 ， 使 其 可以 被 其它 线程 使用 。 
+ 　 　 要 注意 的 是 ， 没有 在 类 中 定义 任何 私有 的 数据 ， 成员 函数 也 未定义 。 
+ 3 　 SYNCHRO 类 的 实现 
+ 3.1 　 SYNCHAPP 程序 
+ 　 　 SYNCHAPP 是 一个 用于 演示 SYNCHRO 类 的 Win32 控制台 程序 。 SYNCHAPP 是 一个 随机 产生 各种 同步 请求 的 程序 。 这 给出 了 一个 实时 的 对 SYNCHRO 类 的 各种 实现 的 估计 。 
+ 　 　 在 讨论 SYNCHAPP 的 实现 之前 ， 先 介绍 它 的 局限性 。 那 就是 它 不 基于 任何 一种 现实情况 。 通过 调整 线程 的 数目 和 不同 同步 请求 的 比例 ， 可以 产生 各种 “ 交通 ” 模式 。 
+ 　 　 因为 SYNCHAPP 是 一个 模拟程序 ， 它 并 不 代表 你 的 实际 应用程序 。 SYNCHAPP 中 的 锁 的 开关时间 间隔 比 实际 应用 要长 得 多 。 这样 做 使得 SYNCHAPP 的 输出 结果 比较 短 。 SYNCHAPP 中 最 令人 感兴趣 的 是 SynchroSimulation 函数 和 它 的 GetAction 辅助 函数 。 简要 的 介绍 一下 ： 主 函数调用 SYNCHRO 类 的 构造函数 ， 准备 控制台 ， 并 建立 工作 线程 以 实施 模拟 。 DisplayStatistics 和 DisplayStatus 函数 把 模拟 的 进行 情况 输出 到 控制台 。 
+ 　 　 每个 工作 线程 运行 SynchroSimulation 函数 ， 它 包含 一个 无限 循环 ， 该 循环 不定期 的 休息 ， 并 申请 SYNCHRO 类 支持 的 锁 。 
+ 3.2 　 读 ／ 写 同步 
+ 3.2 . 1 　 如何 合并 多个 Win32 同步 对象 
+ 　 　 设想 一下 如下 的 情况 ： 你 有 一个 管理 用户 帐号 和 密码 的 数据库 。 管理员 可以 增加 或 删除 一个 用户 ， 用户 能 修改 密码 。 但 在 实际操作 中 ， 访问 数据库 的 大部分 时间 都 花 在 验证 请求 上 ， 比如 这是 一个 有效 帐户 ？ 密码 正确 ？ 
+ 　 　 显然 ， 如果 允许 两个 线程 同时 读取 数据库 ， 或 一个 正在 读 但 另 一个 正在 写 。 由于 验证 请求 并不需要 修改 数据库 ， 没有 理由 不让 多个 验证 请求 同时 发生 。 如果 用 单个 Mutex ， 不 需要 串行化 验证 请求 。 只 需要 一个 同步 对象 ， 其 允许 多个 线程 同时 读 数据库 ， 或 允许 单个 线程 修改 数据库 ， 但 两者 不能 同时 发生 。 于是 就 把 这种 同步 对象 称作 “ 多读 或 单写 ” 同步 对象 。 
+ 　 　 当 提到 读 方式 或 写 方式 访问 资源 的 时候 ， 更 精确 的 提法 是 共享 和 独占 资源 。 这种 方式 的 访问 已经 在 很多 平台 上 为 I / O 实现 了 。 当 打开 一个 文件 用于 读 ， 禁止 写 ， 你 就是 一个 只 读者 ， 可以 同时 读 许多 个 文件 ； 当 打开 一个 文件 用于 读写 ， 则 一旦 文件 被 打开 ， 它 就 不能 被 其它 用户 访问 。 你 并 不想 把 这种 方式 应用 于 同步 ， 因为 这是 一种 低效率 的 资源 使用 方式 。 而且 它 不象 通常 同步 对象 那样 提供 自动 阻塞 和 释放 线程 的 功能 。 那么 你 如何 构造 一个 “ 多读 或 单写 ” 的 同步 对象 呢 ？ 可以 把 假设 的 多个 同时 读 ， 看成 是 虚拟 的 单个 写 ， 这种 模型 有点 象 已经 实现 的 单个 Mutex 的 情况 。 很 可惜 ， 不能 在 这里 使用 单个 Mutex ， 因为 对 Mutex 的 拥有 涉及 到 一个 特定 的 线程 ， 且 只有 Mutex 的 拥有者 才能 释放 它 。 这 对 虚拟 的 单个 写 不起作用 。 因为 在 这种 情况 中 ， Mutex 的 拥有者 不能 保证 是 其 释放者 。 但 幸运 的 是 ， 可以 用 Win32 自动 重置 事件 去 完成 它 。 Win32 自动 重置 事件 可以 被 任何 一个 线程 设置 。 它 一旦 被 设定 ， 则 恰好 只有 一个 等待 进程 （ 虚拟 写 ） 被 释放 ， 然后 事件 被 自动 重置 。 为了 完成 同步 对象 ， 你 需要 串行化 读 线程 对 自动 重置 事件 的 访问 ， 让 只有 一个 读 线程 认为 它 是 最后 一个 读 线程 。 所以 ， 仅 有 一个 读 线程 在 它 读完 之后 设置 自动 重置 事件 。 类似 的 ， 只有 一个 读 线程 认为 它 是 第一个 读 线程 ， 因此 如果 第一个 读 线程 被 阻塞 以 等待 写 线程 完成 ， 其它 的 读 线程 也 一样 。 
+ 　 　 hevExclusive 事件 保证 了 只 允许 一个 写 线程 在 任 一时间 通过 锁 函数 。 由于 hevExclusive 是 一个 自动 重置 事件 ， 当 它 被 设置 时 只有 一个 线程 被 释放 ， 接着 该 事件 被 系统 自动 的 重置 。 如果 该 事件 恰好 抓住 了 写 线程 锁 ， 那么 其余 的 读 和 写 线程 就 都 被 阻塞 了 。 写 线程 和 第一个 读 线程 被 阻塞 在 hevExclusive ， 其余 的 读 线程 被 阻塞 在 csReader 。 但是 只要 没有 读 线程 被 阻塞 在 hevExclusive 上 ， csReader 只能 被 任 一线 程 把持 一会儿 。 图 1 给出 了 多个 线程 试图 拥有 读 ／ 写锁 ， 以及 SYNCHRO 类中 针对 “ 多读 或 单写 ” 同步 对象 的 实现 细节 。 
+ 写 线程 1 　   读 线程 1 　   读 线程 2 　   写 线程 2 
+ 申请 hevExclusive 
+ 　 　 　 　 　 申请 cdReader 
+ 　 　 　 　 　 cReaders = 1 
+ 　 　 　 　 　 阻塞 在 hevExclusive 
+ 　 　 　 　 　 　 　 　 　 　 阻塞 在 cdReader 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 阻塞 在 hevExclusive 
+ 释放 hevExclusive 
+ 　 　 　 　 　 申请 hevExclusive 
+ 　 　 　 　 　 释放 cdReader 
+ 　 　 　 　 　 　 　 　 　 　 申请 cdReader 
+ 　 　 　 　 　 　 　 　 　 　 cReaders = 2 
+ 　 　 　 　 　 　 　 　 　 　 释放 cdReader 
+ 　 　 　 　 　 申请 cdReader 
+ 　 　 　 　 　 cReaders = 1 
+ 　 　 　 　 　 释放 cdReader 
+ 　 　 　 　 　 　 　 　 　 　 申请 cdReader 
+ 　 　 　 　 　 　 　 　 　 　 cReaders = 0 
+ 　 　 　 　 　 　 　 　 　 　 释放 hevExclusive 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 申请 hevExclusive 
+ 　 　 　 　 　 释放 cdReader 
+ 图 1 　 " 多读 或 单写 " 同步 对象 的 实际 运行 示例 
+ 3.2 . 2 　 SYNCHRO 类 对 SYNCHAPP 模拟程序 的 影响 
+ 　 　 SYNCHAPP 现在 以 4 : 1 的 比例 产生 读 和 写 请求 。 当读 ／ 写 请求 比例 加大 时 ， 一个 “ 多读 或 单写 ” 同步 对象 比 一个 Mutex 同步 对象 性能 好 ， 因为 它 允许 多个 读 请求 同时 进行 。 显然 ， 读 ／ 写 比例 随 程序 的 不同 而 不同 ， 不过 在 上述 的 数据库 的 例子 中 ， 当读 ／ 写 比例 加大 到 100 : 1 甚至 1000 : 1 时 ， 性能 的 改进 是 很 明显 的 。 
+ 4 　 小结 
+ 　 　 当写 一个 多线程 应用程序 的 时候 ， 控制 对 全局变量 和 资源 的 访问 是 很 必要 的 。 在 大多数 情况 下 ， 单个 的 Mutex 同步 对象 已经 足够 了 。 但 在 某些 情况 下 ， 特别 是 在 大量 的 且 读 ／ 写 比 很大 的 情况 下 ， 使用 复合 同步 对象 可以 在 性能 上 得到 很大 改进 。 本文 描述 了 一种 算法 用以 实现 这种 改进 。 当然 ， 这 不是 绝对 的 ， 读者 可以 在 实际 应用 中 根据 具体情况 运用 上述 算法 或 其它 的 算法 。 
+ 作者简介 ： 冯美霞 　 主要 从事 计算机管理 信息 研究 。 
+ 作者 单位 ： 东南大学 工业 发展 与 培训中心 　 江苏 . 南京 ( 210018 ) 
+ 参考文献 
+ ［ 1 ］ 　 李 　 霖 . SGI   IRIX 系统 中 的 多线程 引用 程序设计 . 软件世界 , 1995 ; ( 12 ) 
+ ［ 2 ］ 　 ( 美 ) Charles   Petzold .   Windows   95 程序设计 . 北京 ： 清华大学出版社 ， 1997 
+ 收稿 日期 : 1999 - 01 - 21 

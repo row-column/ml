@@ -1,0 +1,112 @@
+信息 与 控制 
+ Information   and   Control 
+ 1999 年 　 第 28 卷 　 第 4 期 　 Vol.28 　 No.4 　 1999 
+ 
+ 
+ 
+ 非线性 相似 组合 系统 的 半 全局 渐近 镇定 
+ 
+ 钱龙军 　 夏军利 　 夏靖波 
+ 
+ 　 　 摘 　 要 ： 利用 系统 的 结构 信息 ,   把 非线性 相似 组合 系统   通过 线性 状态 反馈 半 全局 渐近 镇定 的 问题 ,   转化 为 两个 与 子系统 同阶 的 Riccati 不等式 的 求   某种 对称 正定 解 的 问题 .   
+ 　 　 关键词 ： 相似 组合 系统 ,   半 全局 渐近 镇定 ,   Riccati 不等式 
+ 　 　 中 图 分类号 ： TP13 　 　 　 　 　 　 文献 标识码 ： B 
+ 
+ SEMI - GLOBAL   ASYMPTOTICAL   STABILIZATION   FOR   NONLINEAR 
+ SIMILAR   COMPOSITE   SYSTEMS 
+ QIAN   Longjun1   XIA   Junli2   XIA   Jingbo2 
+ ( 1 .   Automation   Department ,   Nanjing   University   Science   and   Technol   ogy ，   Nanjing   210094 ； 
+ 2 .   Department   of   wire   communication ,   Air   force   telecommunication   institute ，   Xi ’ an   710077 ) 
+ Abstract 　   Utilizing   the   structural   information ,   this   paper   reduces   the   problem   of   semi - gl   obal   asymptotical   stabilization   for   nonlinear   similar   composite   systems   to   solvi   ng   two   low   order   Riccati   inequalities   which   are   in   the   same   order   as   that   of   the   subsystems . 
+ 　 　 Key   words 　 nonlinear   similar   composite   system ,   semi - global   asym   ptotical   stabilization ,   Riccati   inequality 
+ 
+ 1 　 引言 
+ 　 　 最近 已有 许多 文章 研究 了 非线性 大 系统 的 全局 实用 稳定 和 局部 渐近 稳定 [ 1 ～ 3 ] ,   系统 中 的 耦合 项 全部 被 当做 不 确定 因素 处理 , 而且 仅 利用 到 了 它们 以 系统 状态 为 变量 的 界 函数 .   所 采取 的 控制器 大多 是 非线性 的 .   这 在 控制器 的 设计 和 实现 上 都 存在 很大 的 困难 ,   而且 具   有 很大 的 保守 性 . 
+ 　 　 在 非线性 大 系统 的 全局 渐近 镇定 的 研究 方面 ,   目前 能 见到 的 工作 很少 . 其中 重要 原因 是   非线性 系统 本身 的 全局 渐近 镇定 问题 就是 十分困难 的 [ 4 ] , 因此 半 全局 渐近 镇定 的 方   法才 应运而生 .   虽然 相对而言 这是 一个 较弱 的 概念 , 一般 非线性 系统 的 半 全局 渐近 镇定 问题   仍然 是 很 困难 的 .   所以 应该 设法 利用 大 系统 的 结构 性质 ,   以 使 问题 的 研究 得到 简化 . 
+ 　 　 我们 注意 到 许多 实际 的 非线性 大 系统 ,   通过 拟 线性化 可以 表示 为 非线性 相似 组合 系统 ,   即 系统 的 子系统 之间 的 耦合 矩阵 具有 相似 的 结构 .   在 某些 确定 的 位置 上 它们 的 元素 总是 取零值 .   大 系统 所 具有 的 这种 相似 结构 在 系统 性态 分析 和 控制 中 所 可能 带来 的 优越性 是 值得 深入研究 的 . 在 对称 组合 系统 的 研究 基础 上 [ 6 ] ,   利用 系统 的 相似 结构 信息 可以 把 该 问题   转化 为 两个 与 子系统 同阶 的 Riccati 不等式 的 某种 性质 的 对称 正定 解 的 求解 问题 .   虽然   在 处理过程 中 ,   耦合 矩阵 的 高次 项 仍 被 看作 不 确定 因素 ,   但 可以 依据 它们 在 耦合 矩阵 中 的 位置 ,   彼此 分开 处理 ,   因此 可以 降低 设计 的 保守 性 . 
+ 2 　 相似 系统 的 描述 
+ 　 　 非线性 相似 组合 系统 由 N 个 子系统 通过 相似 的 方式 内联 而成 , 
+ 　 　 　 ( 1 ) 
+ 其中 ,   xi ∈ Rn ,   ;   B0 ∈ R   n × m ; ui ∈ Rm ； A0 , H0 ∈ Rn × n , Hij ( t , x ) ∈ Rn × n , Ei ( t , x ) ∈ Rm × m , i , j = 1 , 2 , … , N 是 ( t , x ) 的 有界 函数 ;   Im 表示 m 阶 单位矩阵 .   
+ 　 　 定义 指标 集 Ω = { ( k ,   l ) | 某些 k , l = 1 , 2 , … , n } , 及 结构 矩阵 = { ( pkl ) n   × n ∈ Rn × n | pkl = 0 . 当 （ k , i ) Ω } , 当 ( k , l ) ∈ Ω , 称 pkl 是 的 结构 不为 零 的 元素 .   
+ 　 　 假设 1 　 Hij ( t , x ) ∈ ,   i , j = 1 , 2 , … , N . 
+ 　 　 假设 2 　 存在 ρ ＞ 0 ,   对于 x ∈ RnN × nN , t ∈ R , 下列 不等式 成立 
+ 　 　 　 　 　 　 　 ( 2 ) 
+ 其中 λ min ( . ) ( λ max ( . ) 表示 对称 矩阵 的 最小 ( 最大 ) 的 特征值 . 
+ 　 　 为 讨论 方便 ,   将 系统 ( 1 ) 写成 组合 方程 
+ 　 　 　 　 　 　 　 　 ( 3 ) 
+ 　 　 　 　 　 　 　 ( 4 ) 
+ B = INB0 ,   E ( t , x ) = diag [ E1 ( t , x ) … EN ( t , x ) ] ,   u ( t ) = uT1 ( t ) … uTN ( t ) ] T , 其中 表示 Kronecker 积 . 
+ 　 　 由 假设 1 ,   矩阵 Hij 可以 表示 成 Hij = ∑ ( k , l ) ∈ Ω pijkl ( t , x ) ekeTl , 其中 ek ,   k = 1 , 2 , … , A # n , A # ， 表示 n 维 向量 空间 的 第 k 个 标准 正交 基 .   设 集合 Ω 元素 的 基数 为 M , 并 将 其排 一个 序 ,   再 利用 性质 ekeTl = ( ekeTl   ) ( eleTl ) ( eleTl ) 矩阵 有 如下 表示 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 5 ) 
+ 其中 
+ 　 　 　 　 　 ( 6 ) 
+ 　 　 设 Ek 表示 n 阶 对角 阵 ,   如果 结构 矩阵 在 其 第 k 行 ,   有 q 个 结构 不为 零 的 元素 ,   则 Ek 的 第 k 个 对角 元素 为 q ,   其余 的 元素 为 零 .   
+ 　 　 设 El 表示 n × n 阶 对角 阵 ,   如果 结构 矩阵 在 其 第 l 列 ,   有 q 个 结构 不为 零 的 元素 ,   则 El 的 第 l 个 对角 元素 为 q ,   其余 的 元素 为 零 .   
+ 　 　 注 1   通过 ( Ek , El ) 能 基本 确定 结构 不为 零 的 元素 在 结构 矩阵 中 的 位置 ,   因此 它 带有 相似 系统 的 结构 信息 . 
+ 　 　 设 G = ( G1   G2   …   GM ) ,   K = ( K1   K2   …   KM ) , 经 直接 计算 易 见 
+ 　 　 　 　 　 　 　 　 　 　 ( 7 ) 
+ 　 　 定义   系统 ( 3 ) 称为 可半 全局 渐近 镇定 的 ,   如果 对于 包含 原点 的 任一 球域 D ∈ R   nN × nN , 存在 反馈 律 u = u ( x ) ,   u ( 0 ) = 0 使得 闭环 系统 的 零解 是 一致 渐近 稳定 的 ,   而且 D 在 其 吸引 域 内 . 
+ 从 上述 定义 可以 看出 ,   候选 的 控制 律 和 给定 的 球域 有关 . 对于 系统 的 不同 的 工作 区域 ,   要求 不同 的 控制 律 ,   以 达到 系统控制 的 目的 . 
+ ‖ . ‖ 表示 向量 的 欧氏 范数 ， 对于 任意 的 δ ＞ 0 , 定义 δ - 球域 D ( δ ) = { x ∈ RnN | ‖   x ‖ ＜ δ } ,   对于 ( t , x ) ∈ R × D ( δ ) ,   定义 
+ μ ( δ ) = maxmsup ( t , x ) { λ ( HTmkl ( t , x ) Hmkl ( t , x )   } 　 　 　 　 　 　 　 ( 8 ) 
+ 　 　 对于 ( 5 ) 和 ( 6 ) 所 定义 的 n 阶 方阵 , 可以 证明 ， 
+ 　 　 命题 1   如果 存在 μ ＞ 0 , 使 μ InN - LTmLm ≥ 0 , 当且 仅   当 μ In - HTmklHmkl ≥ 0 ,   m = 1 , 2 , … , M . 
+ 所以 ,   当 ( t , x ) ∈ R × D ( δ ) ,   m = 1 , 2 , … , M ,   有 μ ( σ ) Im - LTmLm ≥ 0 成立 . 
+ 3 　 主要 结论 
+ 　 　 利用 文 [ 3 ] [ 7 ] 对 不 确定 因素 的 处理 方法 ,   得到 本文 的 主要 结论 . 0 
+ 　 　 定理 1   如果 存在 常数 σ ＞ 0 和 ε 0 ＞ 0 , 对 任意 的 μ ＞ 0 , 存在 γ ＞   0 , 使 Riccati 不等式 
+ Y ( A , μ , γ ) = ATP + PA + μ PGGTP - 2 γ ρ PBBTP + FFT + ε 0I ≤ 0 　 　 　 　 　 　 ( 9 ) 
+ 具有 nN 阶 对称 正定 矩阵 解 P ＞ 0 , 并且 满足 λ max ( P ) / λ min ( P ) ≤ σ 2 ,   那么 系统 ( 1 ) 是 可半 全局 渐近 镇定 的 .   并且 D ( δ ) 属于 吸引 域 ,   相应 的 线性 反馈 控制 律为 u ( t )   = - γ ( δ ) BTPx ( t ) . 
+ 　 　 证明   由 定理 假设 ,   对于 任意 的 δ ＞ 0 考虑 球域 D ( δ ) D ( σ δ ) ,   由   式 ( 8 ) ,   相应 的 μ = μ ( σ δ ) , 存在 γ = γ ( σ δ ) , 使 ( 9 ) 存在 解 P ＞ 0 满足 λ max   ( P ) / λ min ( P ) ≤ σ 2 . 
+ 选取 Lyapunov 函数 为 V ( x ) = xTPx , 控制 律为 u = - γ ( σ δ ) BTPx .   从而 ( 3 )   的 闭环 系统 可 写成 
+ 　 　 　 　 　 　 　 　 　 　 ( 10 ) 
+ 　 　 设 系统 ( 10 ) 在 t0 = 0 时刻 ,   从 x0 ∈ D ( δ ) 出发 的 解为 x ( t ) = x ( t , x0 ) , 那么 必 存在 ＞ 0 ,   使 x ( t ) ∈ D ( σ δ ) , t ∈ [ 0 , ] . 利用 假设 2 ,   可见 
+ 
+ 　 　 当 t ∈ [ 0 , ) , 有 
+ 　 　 　 ( 11 ) 
+ 注意 式 ( 7 ) ,   所以 
+ 　 　 　 　 ( 12 ) 
+ 　 　 综合 式 ( 9 ) , ( 11 ) 和 ( 12 ) ,   当 t ∈ [ 0 , ) , 有 
+ ( x ) | ( 10 ) ≤ - ε 0 ‖ x ‖ 2 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 13 ) 
+ 故 系统 的 解 x ( t ) = x ( t , x0 ) ,   t ∈ [ 0 , ) , 满足 λ min ( P ) ‖ x ( t ) ‖ 2 ≤ V ( x   ) ≤ V ( x0 ) ≤ λ max ( P ) ‖ x0 ‖ 2 , 从而   这 说明 ( 10 ) 的 解 x ( t ) = x ( t ,   x0 )   ,   x0 ∈ D ( δ ) 的 存在 区间 为 t ∈ [ 0 , ∞ ) ， 且 x ( t ) ∈ D ( σ δ ) , 式 ( 13 ) 总是 成立 . 
+ 　 　 所以 闭环 系统 ( 3 ) 从球域 D ( δ ) 出发 的 解是 一致 渐近 稳定 的 , D ( δ ) 是 吸引 域 , 相应 的 线性 反馈 控制 律为 u ( t ) = - γ ( δ ) BTPx ( t ) . 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 证毕 . 
+ 　 　 下面 给出 定理 1 成立 的 一个 充分条件 ,   
+ 
+ 　 　 利用 变换 ,   和文 [ 5 ] 中 的 结果 ,   直接 计算 可以 验证 , 
+ 　 　 引理 1   矩阵 A 由 ( 4 ) 定义 .   设 J = INJ0 ,   其中 J0 ∈ Rn ×   n , 则 有 
+ 　 　 ( i )   T - 1AT = diag [ Am … AmAp ] ∈ RnN × nN 
+ 　 　 ( ii )   TTAT = diag [ Am … AmAp ] ∈ RnN × nN 
+ 　 　 ( iii )   T - 1J ( T - 1 ) T = TTJT = J 
+ 　 　 推论 1   如果 存在 常数 σ ＞ 0 和 ε 0 ＞ 0 , 对 任意 的 μ ＞ 0 ,   存在 γ   ＞ 0 , 使 Riccati 不等式 
+ Y ( Am , μ , γ ) = ATmPm + PmAm + μ PmEkPm - 2 γ ρ PmB   0BT0Pm + El + ε 0I0 ≤ 0 　 　 　 　 　 　 
+ Y ( Ap , μ , γ ) = ATpPp + PpAp + μ PpEkPp - 2 γ ρ PpB0BT0P   p + El + ε 0I0 ≤ 0 　 　 　 　 ( 14 ) 
+ 分别 具有 n 阶 矩阵 解 Pm 和 Pp ＞ 0 ,   使 ,   那么 定理 1 的 条件 成立 . 
+ 　 　 证明   利用 Riccati 不等式 ( 14 ) 的 n 阶 对称 正定 解 Pm 和 Pp 构造 一个 nN   阶 对称 矩阵 
+ 　 　 　 　 ( 15 ) 
+ 显然 矩阵 P 既 是 一个 nN 阶 的 对称 矩阵 ,   又 是 一个 N 阶 的 块 对称 阵 .   由 引理 1 ,   有 
+ TTPT = diag [ Pm … PmPp ] 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 16 ) 
+ 说明 P 经 对称 变换 后 是 一个 对称 的 正定 矩阵 ,   从而 其 本身 就是 正定 的 . 
+ 　 　 下面 证明 对称 的 正定 矩阵 P 是 Riccati 不等式 ( 9 ) 的 解 ,   等式 ( 9 ) 两端 左右 分别 乘以 TT 和 T ,   根据 引理 1 可验证 
+ TTY ( A , μ , γ ) T = diag [ Y ( Am , μ , γ ) … Y ( Am μ , γ ) y ( Ap μ , γ ) ] 　 　 　 　 ( 17 ) 
+ 式 ( 14 ) 和 ( 17 ) 说明 矩阵 P ＞ 0 是 Riccati 不等式 ( 9 ) 的 解 .   另一方面 ,   由于 矩阵 T 是 一   个 正交变换 ,   式 ( 16 ) 说明 nN 阶 矩阵 的 特征值 集合 等于 n 阶 矩阵 Am 及 Ap 特征值 集合 的 和 .   所以 有 
+ 　 　 　 　 　 　 　 　 　 　 ( 18 ) 
+ 总之 定理 1 的 全部 条件 满足 .   　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 证毕 . 
+ 　 　 如果 相似 系统 ( 1 ) 满足 匹配 条件 ,   并且 其 标称 系统 是 能控 的 ,   那么 定理 1 的 条件 总是 能够 满足 的 .   利用 本文 的 方法 可以 设计 分散 线性 控制器 使 由 两个 倒立 摆所 构成 的 非线性 相似 控制系统 [ 3 ] 是 可半 全局 镇定 的 . 
+ 4 　 结论 
+ 　 　 利用 大 系统 相似 结构 的确 能 使 系统 性态 的 分析 和 综合 问题 得到 大大的 简化 .   由 本文 的 结论 ,   直接 根据 子系统 及 耦合 项 的 结构 性质 就 可以 分析 非线性 相似 组合 系统 的 半 全局 渐近 镇定 问题 ， 因此 是 直观 的 ， 得到 的 线性 控制 律 更是 易于 实现 . 
+ 注释 ： 基金项目 ： 南京 理工大学 科研 基金 资助 
+ 作者简介 ： 钱龙军 ， 34 岁 ， 博士后 ． 研究 领域 为 相似 组合 非线性 系统结构 及 鲁棒控制 ． 
+ 　 　 　 　 　 夏军利 ， 45 岁 ， 讲师 ． 研究 领域 为 有线 通信 系统 测控 ． 
+ 　 　 　 　 　 夏靖波 ， 36 岁 ， 博士后 ． 研究 领域 为 多相 流 检测 与 控制 、 软 测量 ． 
+ 作者 单位 ： 钱龙军 : 南京 理工大学 自动化系   南京 210094 ; 　 
+ 　 　 　 　 　 夏军利 、 夏靖波 : 空军 电讯 工程学院 有线电   通信 系   西安 710077 
+ 参考文献 
+ 1 　 Chen   Y   H ,   Leitmann   G ,   Piong   Z   K .   Robust   Control   Design   for   Interconnected   Systems   with   Time - varying   Uncertainties .   INT .   J .   Control ,   1991 ,   54 : 1119 ～ 1142 
+ 2   Han   M   C ,   Chen   Y   H .   Decentralized   Control   Design :   Uncertain   Systems   with   Strong   Interconnections .   INT .   J .   Control ,   1995 ,   61 : 1363 ～ 1385 
+ 3   Shi   L ,   Singh   S   K .   Decentralized   Control   for   Interconnected   Uncertain   Sys   tems :   Extensions   to   Higher - order   Uncertainties .   INT .   J .   Control ,   1993 ,   57   : 1453 ～ 1468 
+ 4   陈彭年 , 韩正 之 , 张钟俊 .   非线性 控制系统 镇定 的 若干 进展 .   控制 理论 与 应用 ,   1995 ,   12 : 401 ～ 408 
+ 5   Yanghong   Y ,   Siying   Z .   Stabilizing   Controllers   for   Uncertain   Symmetric   Comp   osite   Systems .   Automatica ,   1995 ,   31 : 337 ～ 340 
+ 6   Sundareshan   M   K ,   Elbanna   R   M .   Qualitative   Analysis   and   Decentralized   Con   trollers   Synthesis   for   a   Class   of   Large - scale   Systems   with   Symmetrically   Interc   onnected   Subsystems .   Automatica ,   1991 , 27 : 383 ～ 388 
+ 7   Veillette   R   J ,   Medanic ′   J   V ,   Perkins   W   R .   Robust   Stabilization   and   Dist   Urbances   Rejection   for   Systems   with   Structured   Uncertainty ,   Proceedings   of   the   28th   CDC   Tampa , 1989 ,   Florida 
+ 收稿 日期 ： 1997 - 08 - 15 

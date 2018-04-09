@@ -1,0 +1,167 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 5 期   Vol.36   No.5   1999 
+ 
+ 
+ 
+ 大规模 并行处理 系统 及其 程序设计 方法 研究 
+ — — Cache 缺失 延迟 、 层次 算法 和 可定 域性 
+ 王 文义 　 董绍静 
+ 摘 　 要 　 实践 表明 ， 大规模 并行处理 系统 （ massively   parallel   processing   system ,   MPP ） 的 实际 有效 速度 与其 理论 峰值 速度 往往 存在 着 较大 差距 ， 有时 仅能 达到 峰值 速度 的 25% 左右 . 鉴于 目前 许多 领域 的 高性能 科学计算 都 要 把 MPP 系统 作为 主要 的 实现 工具 ， 因此 上述 问题 已 引起 国内外 专家 的 普遍 关注 . 文中 讨论 了 影响 大规模 并行处理 系统 有效 速度 主要 因素 之一 的 Cache 缺失 问题 ， 并 以 Exemplar   SPP1200 / XA 为例 , 在 层次 算法 和 可定 域性 两个 方面 实验 并 总结 了 提高 系统 应用 性能 的 若干 程序设计 方法 . 
+ 关键词 　 大规模 并行处理 ，   Cache 缺失 延迟 ， 有效 速度 ， 层次 算法 ， 可定 域性 
+ 中图法 分类号 　 TP311 
+ THE   STUDY   OF   AN   MPP   SYSTEM   AND   ITS   PROGRAMMING   METHODS 
+ WANG   Wen - Yi   and   DONG   Shao - Jing  
+ ( Department   of   Computer   Science   and   Technology ,   Zhengzhou   University   of   Technology , Zhengzhou 　 450002 ) 
+  ( Computing   Center ,   University   of   Kentucky ,   Lexington 　 40506 ) 
+ Abstract 　 Practice   shows   that   in   most   cases   the   effective   speed   of   a   massively   parallel   processing   system ( MPP )   is   much   lower   than   its   peak   speed , often   reaching   only   about   25%   of   the   latter . At   present   MPP   is   used   to   perform   high - performance   scientific   computation   in   many   research   fields , so   the   above - mentioned   problem   has   been   followed   with   interest   by   experts   both   at   home   and   abroad . Here   discussed   is   the   cache   missing   latency   problem , that   is   one   of   the   main   factors   influencing   MPP   system  s   effective   speed .   Taking   Exemplar   SPP1200 / XA   for   example ,   some   programming   methods   for   increasing   the   system  s   application   properties   are   tested   and   summarized   in   discussing   both   the   hierarchical   algorithm   and   localizability . 
+ Key   words 　 massively   parallel   processing ,   cache   missing   latency ,   effective   speed ,   hierarchical   algorithm ,   localizability 
+ 1 　 引 　 　 言 
+ 　 　 目前 世界 上 基于 超标 量 RISC 处理器 的 几种 主流 MPP 系统 ， 如 T3D ( 152Gflops ) ， CM - 5 ( 135.1 Gflops ) ，   SP2 ( 136Gflops ) ，   Paragon   XP / S ( 154Gflops ) 和 Exemplar   SPP 系列 等 ， 虽然 它们 都 有 很 高 的 理论 峰值 速度 , 但 在 应用 中 的 实际 有效 速度 却 往往 与 之 相差 甚远 . 考虑 到 基于 RISC 芯片 的 一般 工作站 ， 如 HP ， SUN ， RS / 6000 等 这些 国内 常用 机型 也 存在 类似 的 应用 效率 问题 ， 所以 对 MPP 系统 的 用户 性能 进行 研究 并 使 之 得到 改善 ， 将 具有 重要 的 实际意义 . 
+ 1.1 　 格点 量子 色 动态 计算 与 HP - Convex   Exemplar   SPP1200 / XA 系统 
+ 　 　 格点 （ quantum   chromodynamics ，   QCD ） 研究 的 关键 是 一个 高性能 科学计算 问题 ， 因为 即 是 使用 较 小 的 格点 尺寸 163  24 进行 计算 ， 其 Fermion 矩阵 也 是 一个 至少 有 500 兆个 非 零 元素 的 大型 稀疏 矩阵 ， 仅 此 一项 就 需要 4Gb 的 内存空间 ， 加之 它 还 必须 通过 相当 冗长 的 计算 才能 获得 结果 ， 所以 只有 使用 超级 并行 计算机 才能 满足 问题 对 时空 的 要求 . 
+ 　 　 HP - Convex   Exemplar   SPP1200 / XA ， 简称 SPP1200 ， 是 一种 新型 的 高性能 可 扩展 并行处理 系统 （ scalable   parallel   processing   system ， SPP ） ， 采用 分布式 共享 存储 结构 ， 其 可视化 系统分析 工具 CXPA （ Convex   x - Window   performance   analysis   tool ）   能以 图形 方式 显示 出对 用户 分析 和 改进 应用程序 性能 至关重要 的 许多 信息 ， 如 程序 并行度 、 Mflops 、 CPU 时间 、 挂钟 时间 （ wall   clock 时间 ， 即 生命 时间 ） 、 Cache 缺失 率 以及 各 处理器 间 的 通信 或 数据 延迟 等 [ 1 ] . 
+ 　 　 文中 所有格 点 QCD 代码 均 用 Fortran   90 程序编制 [ 2 ~ 4 ] . 因 篇幅 所 限 ， 全部 源程序 和 CXPA 测试 图形 略去 . 
+ 1.2 　 格点 QCD 代码 在 几种 主流 MPP 系统 上 的 运行 测试 
+ 　 　 在 SPP1200 系统 上 作格点 尺寸 为 163  24 的 Fermion 矩阵 求逆 计算 ， 发现 运行 格点 QCD 代码 的 速度 是 很 低 的 ， 仅 达到 峰值 速度 的 25.8% . 这 可 由 CXPA 所测 结果 （ 表 1 ） 中 看出 . 
+ 表 1 　 格点 QCD 代码 （ 矩阵 求逆 ） CXPA 测试 结果 （ real  8 ） 
+ 
+ 格点 尺寸 处理器 数 CPU 时间 挂钟 时间 峰值 速度 / 处理器 有效 速度 / 处理器 
+ 163  24   85322.8 秒 835.7 秒 120Mflops31Mflops 
+ 
+ 
+ 　 　 为了 证实 这 不是 发生 在 SPP1200 机型 上 的 个别现象 ， 我们 请 MILC （ multiple   institute   lattice   collaboration ） 格点 QCD 小组 专家 在 MetaCenter 其它 几种 主流 MPP 系统 上作 相同 的 全部 （ 或 部分 ） 格点 QCD 代码 但 采用 不同 格点 尺寸 的 有效 速度 实验 ， 全部 测试数据 列于 表 2 之中 .   
+ 表 2 　 MIMD   QCD 代码 在 MetaCenter   MPP 机器 上 的 有效 速度 测试数据 （ real  8 ） 
+ 
+ 机 　 　 　 　 型格点 尺寸 　 结点 数 　 峰值 速度 / 结点 （ Mflops ） 有效 速度 / 结点 （ Mflops ） 
+ Paragon   xp / s84 
+ 16 * 323 
+ 3241 
+ 128 
+ 25680   28 
+ 23 
+ 22 
+ CM - 5 （ 共轭 斜量 法 ） 
+ CM - 5 （ 全部 QCD 代码 ） 243 * 12 
+ 243 * 12128 
+ 12812840 
+ 23 
+ T3D162 * 322 
+ 16 * 32364 
+ 128146.531 
+ 30 
+ SP2123 * 6 
+ 122 * 242 
+ 12 * 243 
+ 2441 
+ 8 
+ 16 
+ 32265.636 
+ 34 
+ 32 
+ 30 
+ 
+ 
+ 　 　 由 上述 实验 结果 不难看出 ， 虽然 所用 的 几种 MPP 系统 在 体系结构 上 可以 有所不同 （ Paragon   xp / s ， CM - 5 ， SP2 是 分布式 存储 结构 ， T3D 和 SPP1200 是 分布式 共享 存储 结构 ） [ 1 , 5 , 6 ] ， 但 在 大型 科学计算 中 ， 它们 的 用户 有效 速度 与 机器 的 峰值 速度 大相径庭 却是 一个 共同 的 事实 .   
+ 2 　 Cache 延迟 （ Cache   latency ） 
+ 　 　 对于 MPP 系统 ， 其 有效 速度 主要 受到 Cache 缺失 延迟 、 消息传递 延迟 和 潜在 译码 延迟 等 因素 的 制约 . 大量 测试 结果表明 ， Cache 缺失 延迟 又 是 造成 有效 速度 远 小于 峰值 速度 的 主要 原因 ， 它 往往 占去 用户 所 消耗 CPU 时间 的 70% 以上 ！ 
+ 　 　 因 Cache 缺失 所 消耗 的 周期 个数 主要 取决于 存储器 带宽 （ 当然 与 程序设计 也 有 关系 ） ， 超标 量 RISC 机器 的 带宽 本来 就 低于 流水线 数据流 所 要求 的 指标 ， 而 存储器 的 层次结构 又 使 其 进一步 降低 ， 因为 分层 技术 使 各层 存储器 的 容量 相对 减少 ， 导致 速度 较 快 而 容量 较 小 的 存储器 无法 一下子 接纳 所有 的 运算 数 . 以 SPP1200 系统 为例 ， 处理器 的 峰速 要求 带宽 为 ： 
+ 120 * 8 = 960 （ Mb / 秒 ） 
+ 但 实际上 从 内存 到 CPU 的 数据 传输速度 却 只有 88Mb / 秒 ［ 1 ］ . 
+ 　 　 我们 认为 ， 可 从 两个 方面 来 缓解 上述 矛盾 . 一方面 ， 生产厂家 从 硬件 上 ： ①   增大 芯片 Cache 容量 . 如 HP 公司 最新 的 PA - 8500 微处理器 ， 片上 Cache 容量 已达 1.5 Mb ; ②   设置 多重 入口 , 现在 已经 达到 28 个 ; ③   设置 一 整数 处理器 以 增加 预取 （ prefetching ） 功能 ， 而 从总体上 增加 带宽 . 由于 实际上 主存 速度 的 增长 远远 跟不上 处理器 速度 的 增长 ， 使得 Cache 缺失 的 开销 仍 在 呈 增大 趋势 . 另一方面 ， 因为 MPP 的 复杂性 ， 用户 行为 中 的 程序设计 和 计算方法 也 会 直接 影响 到 机器 性能 的 充分发挥 . 所以 说 ， 从 用户 角度 出发 ， 寻找 新 的 算法 以及 采用 特殊 编程 技巧 来 减少 Cache 延迟时间 从而 提高 系统 的 应用 性能 ， 就 成 了 一个 可行 的 、 现实 的 做法 . 
+ 3 　 提高 Cache 利用率 ( cache   using   ratio ， CUR ) 和 增加 数据 可定 域性 ( localizability ) 
+ 3.1 　 尽量 使用 “ 层次 算法 ” ( hierarchical   algorithm ) 以 提高 Cache 利用率 
+ 　 　 “ 层次 算法 ” ， 这是 目前 世界 各国 算法 界 的 关注 热点 . 它 的 基本 思想 是 ， 尽可能 的 用 “ 块 ” 方法 取代 一般 的 传统 方法 . 通俗 的 说 ， 它 也 就是 一种 尽量 做到 “ 少 数据 ， 多 运算 ” 的 计算方法 . “ 层次 算法 ” 已 被 广泛应用 于 一些 最新 版本 的 数学 程序库 中 . 
+ 　 　 在 Cache 缺失 情况 下 ， 计算机 的 有效 速度 上限 可以 近似 地 ( 忽略 其它 相对 较 小 的 延迟 ） 表示 为 ： 
+ Ve ≤ Vp （ 1.0 - CMR ） = Vp * CUR 
+ 其中 Ve , Vp 分别 表示 有效 速度 和 峰值 速度 , 而 可量 测量 Cache 缺失 率 CMR （ cache   missing   ratio ） = （ Cache 缺失 延迟时间 / CPU 时间 ） * 100% . 
+ 　 　 众所周知 ， 当 计算机 的 运算 部件 工作 时 ， 数据 应 在 Cache 中 ， 故 CUR 可 简单 的 被 理解 为 ： Cache 中 平均 每个 数据 参加 运算 的 次数 ， 即 
+ CUR = 指令 执行 次数 / 引用 数据 个数 
+ 所以 ， 当 我们 选择 “ 引用 数据 少 ” 而 “ 指令 执行 次数 多 ” （ 即 运算 次数 多 ） 的 计算 模型 时 ， 就 可以 减少 从 内存 到 CPU 间 的 数据 需要量 ， 达到 提高 CUR 也 就是 提高 机器 有效 速度 的 目的 . 
+ 3.1 . 1 　 线性 计算 分类 
+ 　 　 线性 计算 问题 ， 一般 可 分为 表 3 所示 的 4 种 类型 . 由 上 面对 CUR 的 分析 可知 ， 每 一类 计算所 对应 的 CUR 应是 各不相同 的 ， 即 线性 计算 的 类 越 大 ， 则 CUR 也 越 高 . 表 3 中 列出 了 这种 对应 关系 . 
+ 表 3 　 线性 计算 分类 和 CUR 的 关系 （ ‘ ～ ’ ： 近似 号 ） 
+ 
+ 线性 计算 类 计算 功能 CUR = 指令 执行 次数 / 引用 数据 个数 
+ 0 向量 （ 或 矩阵 ） 赋值 ～ 1 / 2 
+ 1 向量 - 向量 运算 　 　 V = B + a * V ～ 3 / 3 
+ 2 向量 - 矩阵 乘 运算 　 　 V = M * V （ 2n2 + n ） / （ n2 + 2n ） 　 ～ 2 / 1 
+ 3 矩阵 - 矩阵 乘 运算 　 　 M = L * R2n3 / （ 2n2 ） 　 ～ n / 1 
+ 
+ 
+ 3.1 . 2 　 格点 QCD 代码 在 SPP1200 系统 上 的 测试 实验 
+ 　 　 在 SPP1200 系统 上取 矩阵 3000 * 3000 、 向量 3000 分别 运行 格点 QCD 代码 和 Convex 公司 关于 线性代数 通用 程序库 VECLIB 中 的 代码 ， 使用 软件工具 CXPA 可 得到 表 4 、 表 5 中 所示 的 应用 性能 .   
+ 表 4 　 格点 QCD 代码 有关 各 线性 计算 类 的 测试 结果 （ real * 8 ） 
+ 
+ 线性 计算 类 计算 功能 CMR 有效 速度 上限 / 处理器 （ Mflops ） 
+ 0 向量 赋值 　 V = 093.6%   7.7 
+ 1V = V + const * V180.0% 24.0 
+ 2V = M * V168.9%   37.3 
+ 3M1 = M2 * M315.8% 101.1 
+ 
+ 
+ 表 5 　 VECLIB 中 各 线性 计算 类 代码 的 测试 结果 （ 前 4 个 为 real * 8 ， 后 3 个 为 real * 4 ） 
+ 
+ 线性 计算 类 计算 功能 CMR 有效 速度 上限 / 处理器 （ Mflops ） 
+ 0V ( i ) = V1 ( ind ( i ) ) 79.9% 24.1 
+ 1V = a * V1 + V72.1%   33.5 
+ 2V = M * V144.8% 66.2 
+ 3M1 = M2 * M321.8% 93.8 
+ 1V = a * V1 + V74.5% 61.2 
+ 2V = M * V143.2%   136.3 
+ 3M1 = M2 * M316.7%   199.9 
+ 
+ 
+ 　 　 通过 对 测试 结果 的 分析 ， 在 程序设计 中要 注意 下述 3 点 ： 
+ 　 　 ( 1 )   尽量 使用 2 、 3 类 计算 ， 即 尽可能 的 使用 “ 块 ” 方法 . 
+ 　 　 ( 2 )   若 数据类型 相同 且 线性 计算 类 也 相同 ， 则 使用 VECLIB 代码 可 获得 较 高 的 有效 速度 ， 这 主要 是因为 VECLIB 中 的 代码 均 已经 过 良好 优化 的 缘故 . 现在 一般 MPP 系统 都 有 类似 的 库 程序 ， 建议 尽量 利用 它们 . 
+ 　 　 ( 3 )   凡 0 类 线性 计算 ， 其 有效 速度 都 是 很 低 的 ， 用户 应 尽量 避开 而 改用 其它 方法 .   
+ 3.2 　 增加 可定 域性 ， 减少 Cache 缺失 时间 
+ 3.2 . 1 　 人为 指定 存储器 层次 ［ 1 , 2 ］ ， 尽可能 让 数据 停留 在 速度 较 高 的 存储器 中 
+ 　 　 MPP 系统 多 采用 存储器 层次结构 ， 各层次 存储器 的 速度 也 不尽相同 ， 所以 在 程序 中 由 人工 指定 存储器 层次 （ 大多数 MPP   FORTRAN 具有 该 功能 ） 会 对 运算 速度 产生 很大 影响 . 
+ 　 　 SPP1200 系统 的 存储器 共 分为 6 层   , 它们 分别 是 ： 
+ 　 　 ①   Cache （ 0 ） ： 与 CPU 在 同 一块 板上 的 存储器 ； 
+ 　 　 ②   线程 私用 （ 1 ） ： 专用 于 一个 执行 线程 的 存储器 ； 
+ 　 　 ③   结点 私用 （ 2 ） ： 专用 于 一单 结点 所有 线程 的 存储器 ； 
+ 　 　 ④   CTI   Cache （ 3 ） ： 用于 CTI ( coherent   toroidal   interconnect ) 传输数据 的 存储器 ； 
+ 　 　 ⑤   近 共享 （ 4 ） ： 驻留 在 与 进程 请求 所 处 结点 相同 的 结点 上 的 全局 存储器 ； 
+ 　 　 ⑥   远 共享 （ 5 ） ： 驻留 在 与 进程 请求 所 处 结点 不同 的 结点 上 的 全局 存储器 . 其中 前 4 层 属于 局部 存储器 类型 ， 后 两层 为 全局 存储器 类型 . 
+ 　 　 在 SPP1200 系统 上 运行 格点 QCD 代码 中 的 向量 赋值 程序 ， 使用 上述 策略 由 CXPA 可 分别 测得表 6 中 所示 的 几个 不同 层次 存储器 的 Cache 缺失 率 . 由 这些 数据 不难看出 ， 存储器 层次 越低 ， 则 CMR 也 越 小 . 
+ 表 6 　 SPP1200 系统 中 使用 不同 存储器 的 CMR 测试 
+ 
+ 计算 功能 线程 私用 结点 私用 近 共享 远 共享 
+ 向量 赋值 　 V = 048.6% 86.9% 89.9% 91.2% 
+ 
+ 
+ 　 　 此外 , 我们 还 对 在 程序 中 指定 存储器 层次 与否 对系统 某些 主要 性能 的 影响 作 了 测试 ， 所用 程序 是 格点 QCD 代码 中 的 Fermion 矩阵 求逆 计算 . 测试 结果 （ 见表 7 ） 表明 ， 用户 若能 在 程序 中为 数据 指定 较 低层次 存储器 ， 它 将 是 缩短 Cache 延迟时间 的 一个 有效途径 . 同样 地 ， 把 这种 策略 应用 于 矩阵 乘 和 矩阵 （ 或 向量 ） 赋值 程序 中 ， 也 可 收到 类似 的 效果 （ 结果 从略 ） .   
+ 表 7 　 指定 存储器 层次 对 Cache 延迟 等 性能 的 影响 
+ 
+ 存储器 层次 迭代 次数 乘法 次数 CPU 时间 挂钟 时间 加速 比 延迟时间 CMR 
+ 缺省   1094496474.9 秒 935.7 秒 6.925142 . 6 秒 79.5% 
+ 指定 结点 私用 109   4495322.8 秒 835.7 秒 6.373994 . 9 秒 75.3% 
+ 
+ 
+ 3.2 . 2 　 划分 子 数据 空间 ， 增加 可定 域性 
+ 　 　 大型 科学计算 的 数据 集 往往 也 是 庞大 的 ， 仅 其中 一个 向量 可能 就 有 好几 兆 字长 . MPP 系统 通常 有 许多 较 短 的 Cache ， 而且 像 线程 私用 这样 速度 较 快 的 存储器 容量 也 不 可能 做 得 很大 ， 这 就 难以 保证 在 运算 开始 时 ， 它们 能够 容纳 下 全部 的 运算 数 （ 矩阵 、 向量 等 ） ， 其 结果 是 引起 Cache 延迟时间 的 增加 . 为此 ， 我们 可以 通过 把 参与 运算 的 大 数据 数组 分解成 尽可能 小 的 子 数组 以 让 每个 线程 只 对子 数组 进行 操作 的 方法 ， 来 达到 提高 系统 有效 速度 的 目的 . 因为 这样 作 ， 有助于 让 编译器 把 数据 地址 定位 到 Cache 或 其它 速度 较 快 的 存储器 上 ， 同时 也 有助于 发挥 系统 的 予取 功能 . 
+ 　 　 分别 使用 格点 QCD 代码 中 的 矩阵 - 向量 乘 程序 和 另外 一个 用 联立 超 松弛 算法 求解 160  160 二维 Navier   Stokes 方程组 CFD 代码 （ 流体 动力学 问题 ， FORTRAN   90 程序 ） ， 于 SPP1200 系统 上 利用 CXPA 工具 可 测出 数据 分解 与否 对 计算机 运行 时间 的 影响 效果 . 测试数据 见表 8 .   
+ 表 8 　 数据 分解 对 并行机 运行 时间 的 影响 
+ 
+ 计算 功能 数组 未 分解 CMR 数组 分解 后 CMR 
+ 矩阵 - 向量 乘 　 V = M * g420 秒 74.9% 273.6 秒 ( 4 个子 数组 ) 72.6% 
+ Navier   Stokes 方程 46.8 秒 28.8% 8.78 秒 ( 8 个子 数组 ) 9.2% 
+ 
+ 
+ 4 　 结束语   
+ 　 　 大规模 并行处理 机 的 应用 性能 不仅 取决于 系统 本身 ， 而且 也 与 使用者 的 软件设计 方法 直接 相关 . 本文 仅以 Exemplar   SPP1200 / XA 系统 为例 ， 讨论 了 MPP 系统 在 大型 科学计算 中 普遍存在 的 有效 速度 偏低 问题 及其 产生 的 主要 原因 ， 并 着重 在 层次 算法 和 可定 域性 两 方面 对 可以 缩短 Cache 延迟时间 从而 提高 系统 应用 速度 的 方法 进行 了 实验 探讨 . 如何 使 并行机 应用 行为 中 的 实际 性能 与 峰值 性能 达到 和谐一致 ， 是 个 相当 复杂 的 问题 ， 文中 所 做 工作 充其量 只能 算是 MPP 应用 技术 研究 的 一个 小 侧面 ， 但愿 这些 探讨 能 对 并行机 的 使用者 或 某些 工作站 的 使用者 产生 一点 有益 的 启示 . 
+ 作者简介 ： 王 文义 ， 男 ， 1947 年 2 月生 ， 副教授 ， 研究 方向 为 软件工程 和 算法 分析 . 董绍静 ， 男 ， 1946 年 2 月生 ， 教授 ， 旅美 学者 ， 主要 从事 理论物理 研究 . 
+ 作者 单位 ： 王 文义 　 郑州 工业 大学 计算机科学 与 技术 系 　 郑州 　 450002 
+ 　 　 　 　 　 董绍静 　 肯塔基 大学 计算中心 　 列克星顿 　 40506 
+ 参考文献 
+ 　 1 　 Exemplar   SPP   1200 / XA   Scalable   Computing   System .   Richardson ,   TX ：   Convex   Computer   Corporation ,   1995 .   3 ～ 27 ,   118 ～ 143 
+ 　 2 　 Convex   Users   Group   Presentation — — Fortran   90 .   In :   Proc   of   the   11th   Annual   Convex   User   Group   Worldwide   Conf .   Dallas ,   Texas ：   HP - Convex   Technology   Center ,   1996.1 ～ 44 
+ 　 3 　 Fortran   Optimization   Guide .   Richardson   TX :   Convex   Computer   Corporation ,   1990 
+ 　 4 　 Hillis   W   D ,   Steele   G   L .   Data   parallel   algorithms . Commun   ACM , 1986 ,   29 ( 12 ) : 1170 ～ 1179 
+ 　 5 　 Bonniger   T ,   Esser   R ,   Krekel   D .   CM - 5E ,   KSR2 ,   Paragon   XP / S :   A   comparative   description   of   massively   parallel   computers .   Parallel   Computing ,   1995 , 21 ( 2 ) : 199 ～ 232 
+ 　 6 　 Hwang   Kai .   Advanced   Computer   Architecture ： Parallelism   Scalability   Programmability .   New   York : McGraw - Hill   Inc ， 1993.20 ～ 23 
+ 原稿 收到 日期 ： 1997 - 11 - 18 
+ 修改稿 收到 日期 ： 1998 - 03 - 23 

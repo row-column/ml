@@ -1,0 +1,122 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 5 期   Vol.36   No.5   1999 
+ 
+ 
+ 
+ ATM 网络 中 基于 “ 转发 强度 ” 的 信元 丢弃 策略 研究 
+ 程东 年 　 刘增基 
+ 摘 　 要 　 信元 丢弃 机制 是 缓解 和 消除 ATM 网络 结点 拥塞 的 有效 方法 之一 ， 但 现有 的 信元 丢弃 策略 均 未 考虑 信元 丢弃 与 网络资源 利用率 之间 的 关系 ， 因而 导致 当有 信元 丢弃 时 ， 语义 敏感 型业务 的 网络资源 利用率 和 信元 丢失 率 等 指标 都 较差 . 着眼于 从 信元 到达 一个 ATM 网络 结点 时 已 耗费 网络资源 量 的 相对 大小 ， 文中 提出 了 一种 旨在 克服 传统 信元 丢弃 策略 诸 缺陷 的 新策略 ： 基于 “ 转发 强度 ” 的 信元 丢弃 策略 ， 对 该 策略 和 现有 的 两种 典型 信元 丢弃 策略 以 Markov 链为 工具 分析 了 网络资源 利用率 和 信元 丢失 率 指标 ， 结果表明 ： 由于 选择 对 网络资源 相对 消耗量 最小 的 信元 进行 丢弃 ， 该 策略 能够 提高 对 网络资源 的 利用率 ， 降低 信元 丢失 率 ， 同时 减少 因 丢弃 信元 而 造成 的 信元重 发量 ， 从而 最终 缓解 网络 拥塞 程度 及 减小 结点 再度 拥塞 的 可能性 . 
+ 关键词 　 异步 转移 模式 ( ATM ) ， 服务质量 ( QoS ) ,   信元 丢弃 ,   信元 丢失 率 ( CLR ) ,   信元 丢弃 优先级 ( CLP ) 
+ 中图法 分类号 　 TP393 
+ STUDY   OF   THE   “ FORWARDING - STRENGTH ”   BASED   CELL 
+ DISCARD   STRATEGY   IN   ATM   NETWORKS 
+ CHENG   Dong - Nian   and   LIU   Zeng - Ji 
+ ( State   Key   Laboratory   on   Theory   and   Chief   Technology   of   Integrated   Services   Networks ,   Xidian   University ,   Xi ' an 　 710071 ) 
+ Abstract 　 A   cell   discard   scheme   serves   as   an   effective   method   in   either   alleviating   or   eliminating   network   congestion   in   ATM   network   nodes .   Existing   cell   discard   strategies ,   however , do   not   consider   the   relationship   between   cell   discarding   and   network   utilization .   Consequently ,   they   lead   to   poor   measures   of   both   the   average   network   utilization   and   the   cell   loss   ratio   concerning   user   services   sensitive   to   semantics .   From   the   viewpoint   of   the   relative   volume   of   network   resources   having   been   consumed   by   a   cell   arriving   at   a   certain   ATM   network   node ,   a   new   cell   discard   strategy ,   the   “ forwarding - strength ” - based   one ,   is   proposed   in   the   paper   here ,   with   removal   of   the   above   defects   as   its   objective .   By   using   the   Markov   model ,   the   average   network   utilization   and   the   cell   loss   ratio   are   analyzed   with   respect   to   the   proposed   cell   discard   strategy   and   the   two   classical   ones   available .   The   results   show   that   by   discarding   cells   having   consumed   minimal   network   resources ,   this   new   strategy   can   improve   network   performance   through   increasing   the   network   utilization   ratio ,   decreasing   the   cell   loss   ratio   and   cell   retransmission   volumes ,   alleviating   network   congestion ,   and   reducing   the   possibility   of   recongestion   in   ATM   network   nodes . 
+ Key   words 　 asynchronous   transfer   mode ( ATM ) , quality   of   service   ( QoS ) , cell   discard , cell   loss   ratio   ( CLR ) , cell   loss   priority   ( CLP ) 
+ 1 　 引 　 　 言 
+ 　 　 向 用户 提供 确保 的 服务质量 ( quality   of   service , QoS ) ， 是 异步 转移 模式 ( asynchronous   transfer   mode , ATM ) 网络 的 重要 特征 之一 . 不同 类型 的 用户 业务 通常 因 敏感 于 不同 的 透明 属性 而 需要 不同 等级 的 QoS ， 如 ： 实时 型 和 非 实时 型 用户 业务 由于 分别 敏感 于 传输 时延 和 误码率 及 信元 丢失 率 而 分别 需要 时间 透明性 和 语义 透明性 . 表征 语义 透明性 的 一个 重要 QoS 参数 是 信元 丢失 率 ( cell   loss   ratio ,   CLR ) . 目前 ， 许多 研究 人员 已 对 信元 丢弃 的 模型 、 机制 ， 对 CLR 的 动态 监测 和 估计 都 做 了 许多 工作 ， 比如 ， Pushout   和 Expelling ( 排空 式 ) 信元 丢弃 策略 ［ 1 ， 2 ］ 、 基于 Geom / Geom / 1 / K 排队模型 的 CLR 分析 与 估计 ［ 3 ］ 、 基于 长期 相关 到达 过程 的 CLR 分析 与 优化 估计 技术 ［ 4 ］ 、 基于 超 指数分布 到达 过程 的 CLR 分析 ［ 5 ］ 及 基于 AAL 层 服务 数据 单元 的 尾 分组 丢弃 和 早期 分组 丢弃 ［ 6 ］ 等 . 对 随机 ( 如 Pushout ) 和 排空 式 两种 典型 的 信元 丢弃 策略 而言 ， 它们 在 对 信元 丢弃 时 只 考虑 各信元 的 CLP 位 是否 为 1 ， 而 不 考虑 CLP = 1 的 信元 对应 的 VCC 与 本 网络 结点 间 的 关系 ， 故 相应 的 网络资源 利用率 和 信元 丢失 率 等 指标 都 较差 ( 见 后面 分析 ) . 本文 注意 到 ： 恰恰 是 这种 关系 反映 出 经历 了 不同 相对 行程 的 信元 所 耗费 网络资源 量 的 不同 ， 换句话说 ， 若能 基于 这种 相对 量 有 选择地 丢弃 信元 ， 则 会 有 更 高 的 网络资源 利用率 和 网络 性能 ， 而 网络资源 利用率 的 提高 又 可 改善 CLR 和 时延 等 指标 . 信元 “ 已 耗费 网络资源 相对 量 ” 的 一个 具体 形式 可以 是 信元 已 经历 的 “ 相对 行程 ” δ ， δ 越大 ， 表明 信元 “ 已 耗费 网络资源 的 相对 量 ” 越大 ， 同时 也 表明 它 到 其 终点 的 相对 距离 越短 . 丢弃 信元 ， 虽 有助于 缓解 和 消除 拥塞 ［ 7 ～ 10 ］ ， 但 其 代价 却是 否定 网络 已为 信元 提供 的 各种 服务 ( 如 资源 的 分配 、 占用 ［ 11 ， 12 ］ ) ， 而 网络 已为 信元 提供 的 这些 服务 又 可能 是 以 降低 其它 虚通路 连接 ( VCC ) 的 QoS 为 代价 换来 的 . 显然 ， 丢弃 信元 又 是 对 这些 附加 代价 的 否定 . 不难理解 ， 高效 的 信元 丢弃 机制 应使 丢弃 信元 带来 的 这种 双重 否定 的 不良影响 最小 . 本 研究 的 目标 是 ： 基于 信元 “ 相对 行程 ” 的 概念 ， 丢弃 “ 相对 行程 ” 最短 的 信元 ， 以 提高 网络资源 利用率 ， 减小 因对 被 丢弃 信元 对应 信息 块 的 重发 而 导致 网络 持续 ( 或 再度 ) 拥塞 的 可能性 ， 从而 更 有效 地 支持 QoS . 从 以上 考虑 出发 ， 本文 提出 了 基于 “ 转发 强度 ” 的 信元 丢弃 策略 . 基于 Markov 链 的 性能 分析表明 ， 只要 满足 较 宽松 的 条件 ， 该 策略 就 能 在 网络资源 利用率 和 平均 信元 丢失 率上 优于 随机 和 排空 式 信元 丢弃 策略 . 
+ 2 　 基于 “ 转发 强度 ” 的 信元 丢弃 模型 
+ 　 　 本节 先 给出 基于 转发 强度 的 信元 丢弃 策略 ( 以下 简称 δ 策略 ) 的 3 个 基本 支撑 环境 的 模型 ： VCC 路径 、 转发 强度 和 VCC 结点 的 信元 输出 队列 ， 然后 给出 δ 策略 的 描述 . 
+ 　 　 ( 1 )   VCC 路径 与 VCC 交换 结点 
+ 　 　 设 一条 虚通路 连接 VCCJ 从 其 一个 端点 Ns 出发 ， 顺序 经过 D 个 网络 结点 N1 , N2 , … , Nr , … , ND 后 连 至 其 另 一个 端点 Nd , 仅 考虑 各 VCC 一个 传输 方向 的 情况 ， 每个 中间 连接点 Nr 都 采用 输出 排队 . 引入 以下 记号 ： 
+ 　 　 Qi — — Nr 中 的 第 i 条 输出 链路 所 对应 的 输出 队列 ( r = 1 , 2 , … , D ) ； 
+ 　 　 α i — — 当 Qi 被 信元 占 满时 ( 其中 CLP = 1 ) 的 信元数 ； 
+ 　 　 β i — — 当 Nr 的 Qi 发生 拥塞 时须 从 Qi 中 丢弃 的 信元数 ( 本文 中设 β i = 1 ) . 
+ 　 　 ( 2 )   转发 强度 
+ 　 　 定义 1 .   称 DJ 为 一条 VCCJ 的 “ VCC 距离 ” ， DJ ( ≥ 1 ) 是 VCCJ 所 包含 的 VCC 中间 连接 点数 . 
+ 　 　 定义 2 .   设 一条 VCCJ 包含 的 VCC 中间 连接点 序列 为 N1 , N2 , … ， Nr , … ， NDJ ， 则 称 δ J 为 VCCJ 的 任 一个 到达 Nr ( r = 1 , 2 , … , DJ ) 并 排入 其 输出 队列 Qi 的 信元 的 转发 强度 ： 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 　 　 其中 τ J 是 Nr 对 δ J 的 调节 参量 ， 本文 设其为 1 . 这里 采用 运算 简单 的 线性 形式 来 定义 转发 强度 δ J ， 当然 也 可以 用 其它 形式 ， 如 幂式 ： 
+ 
+ 这些 定义 形式 的 图形 如图 1 所示 . 不同 的 转发 强度 定义 可 作为 不同 的 QoS 参数 用于 具有 不同 “ 信元 行进 ” 特征 的 用户 业务 . 
+ 
+ 
+ 图 1 　 转发 强度 的 不同 定义 ( DJ = 20 ) 
+ 　 　 由 定义 知 ， 转发 强度 δ 表征 了 信元 到达某 一 VCC 结点 时 的 已 走过 的 相对 行程 ， 这样 ， 同一 结点 内 诸 信元 的 相对 行程 恰恰 是 它们 各自 耗费 且 可比 的 相对 网络资源 量 ， 从而 构成 了 δ 策略 的 信元 丢弃 准则 . 为了 支持 δ 策略 进行 信元 丢弃 ， 各 ATM 交换机 需要 存放 经过 它 的 每条 VCC 在 该 交换机 处 的 转发 强度 . 由于 一条 VCC 在 某 交换机 处 的 转发 强度 值 是 确定 的 ( 即 静态 的 ) ， 故可 在 各 VCC 的 建立 阶段 由 信令 过程 将 其 VCC 距离 及 各 中间 结点 序号 依次 填入 各 交换机 内 ( 如 存放 在 VPI / VCI 翻译 表中 ) ， 再 由 各 交换机 计算 出其 相应 的 转发 强度 值 . 
+ 　 　 ( 3 )   输出 排队模型 
+ 　 　 本文 采用 文献 [ 3 ] 给出 的 “ Geom / Geom / 1 / K ” 模型 作为 VCCJ 的 任一 中间 连接点 Nr 内 任一 信元 输出 队列 Qi 的 排队模型 ， 即 ， 信元 的 到达 和 服务 过程 是 相互 独立 的 Bernoulli 过程 ， 任 一个 信元 时隙 内 的 信元 到达 和 离开 Qi 的 概率 分别 是 λ 和 ν ， 输出 缓冲器 Qi 的 容量 为 K 个 信元 . 这样 ， 诸信元 的 到达 时间 间隔 Ta 和 离去 时间 间隔 Tb 相互 独立 且 都 服从 几何 分布 ： Ta ～ G ( λ ) ， Tb ～ G ( ν ) . 此时 ， 信元 丢失 率 CLR 就是 一个 信元 到达 Qi 时 ， Qi 的 所有 信元 位置 被 占 满 的 概率 ［ 3 ］ ， 即 ： 
+ 　 　 　 　 　 　 　 　 　 ( 2 ) 
+ 　 　 ( 4 )   信元 丢弃 模型 
+ 　 　 假设 网络 结点 不 改变 信元 的 CLP 位且 α i > 1 . 在 “ Geom / Geom / 1 / K ” 输出 排队模型 下 ， 本文 考虑 随机 、 排空 和 δ 三种 信元 丢弃 策略 . 当 一个 信元 到达 时若 Qi 已满 ， 可 进行 ： 
+ 　 　 ①   随机 式 信元 丢弃 — — 从 Qi 中 任选 一个 CLP = 1 的 信元 予以 丢弃 ， 或 
+ 　 　 ②   排空 式 信元 丢弃 — — 丢弃 Qi 队列 头 中 所有 连续 的 CLP = 1 的 信元 ； 若 Qi 队列 头 无 CLP = 1 的 信元 ， 则 从 Qi 中 任选 一个 CLP = 1 的 信元 予以 丢弃 ， 或 
+ 　 　 ③   基于 转发 强度 δ 的 信元 丢弃 — — 在 Qi 的 所有 α i 个 CLP = 1 的 信元 中 选择 具有 最小 转发 强度 值 的 一个 信元 予以 丢弃 . 
+ 3 　 性能 分析 
+ 　 　 本节 将 分别 考察 随机 、 排空 和 δ 策略 各自 的 网络资源 利用率 和 信元 丢失 率 . 假设 结点 Nr 的 Qi 发生 拥塞 期间 ， 与 Qi 相关 的 各 VCC 不 发生 状态 变化 ( 既 无 新建 的 也 无 被 撤除 的 VCC ) . 
+ 　 　 ( 1 )   网络资源 利用率 
+ 　 　 这里 ， 从 一个 信元应 经历 的 虚通路 链路 ( VCL ) 数 与 它 实际 经历 的 平均 VCL 数 这 一 角度 考察 一条 VCC 对 网络资源 的 利用率 . 
+ 　 　 定义 3 .   称 η J 为 “ VCCJ 对 网络资源 的 利用率 ” : 
+ 　 　 　 　 　 　 　 　 　 　 ( 3 ) 
+ 　 　 其中 μ 0 , DJ + 1 为 一信元 从 VCCJ 源 结点 到达 其 目的 结点 的 平均 时间 ( 即 平均 VCL 数 ) . 设 系统 状态 X 是 VCCJ 的 任一 信元 所处 的 VCC 结点 号 , 则 当前 X 的 值 仅 与 前 一 时刻 X 的 值 相关 ， 于是 ， X 构成 图 2 所示 的 有限 状态 马氏链 , 其中 , 状态 r ( r = 1 , 2 , … , DJ ) 向 状态 0 的 转移 意味着 网络 结点 Nr 对 信元 的 丢弃 . 考虑 到 实际 中 一条 VCCJ 沿途 各 中间 结点 同时 发生 拥塞 的 可能性 较 小 , 故 假设 仅 有 一个 结点 发生 拥塞 , 即 ,  r ∈ ｛ 1 , 2 , … ， DJ } 有 : 
+ 
+ 
+ 
+ 图 2 　 系统 状态 X : 有限 状态 马氏链 
+ 　 　 当 VCCJ 的 一个 结点 Nr ( r ∈ ｛ 1 ， 2 ， … ， DJ ｝ ) 发生 拥塞 时 ， 它 以 概率 pr 转发 VCCJ 的 信元 ， 而 以 概率 qr ( = 1 - pr ) 丢弃 信元 ， 此时 ， 一信元 从 状态 0 ( VCCJ 源 结点 ) 到达 状态 DJ + 1 ( VCCJ 目的 结点 ) 实际 经历 的 平均 时间 为 ： 
+ 
+ 式 中 f ( n ) 0 , DJ + 1 为 从 状态 0 到 DJ + 1 的 n 步首 达 概率 . 
+ 　 　 由于 
+  
+ 所以 　 　 　 　 　 　 　 　 　 　 　 　 　 　 
+ 因此 
+ 　 　 　 　 　 　 　 　 ( 4 ) 
+ 　 　 记 qRr , qEr , q δ r ( r ∈ { 1 , 2 , … ， DJ } ) 分别 为 网络 结点 Nr 拥塞 时 随机 、 排空 和 δ 三种 策略 下 对 VCCJ 中 CLP = 1 信元 的 丢弃 概率 ， 则 可 由 ( 4 ) 式 求出 各自 的 网络资源 利用率 η R , η E , η δ . 对 随机 策略 ， 
+ 　 　 　 　 　 　 　 　 　 　 　 ( 5 ) 
+ 　 　 对 排空 策略 ， 当 α i ≤ K / 2 时 ， 队列 头中 有 n 个 ( 1 ≤ n ≤ α i ) 连续 的 CLP = 1 信元 的 概率   p ≤ n 、 队头 中 CLP = 1 信元 的 平均数 m 、 平均 丢弃 的 信元数 M 及 队列 中 任一 CLP = 1 信元 被 丢弃 的 概率 qEr 分别 为 ： 
+ 
+ 其中 为队 头 中 无 CLP = 1 信元 的 概率 . 而 K / 2 < α i < K 时 ， 类似 地有 ： 
+ 
+ 即 ， 
+ 　 　 　 　 　 　 　 　 ( 6 ) 
+ 　 　 在 δ 策略 下 ， 设当 Qi 发生 拥塞 时 其中 的 α i 个 CLP = 1 的 信元 各自 的 转发 强度 分别 为 ： 
+ 
+ 　 　 若视 δ j 为 Qi 中 第 j 个 VCC ( VCCj ) 的 转发 强度 Δ j 在 Nr 中 的 样点 ， 则 可 假设 每个 Δ j 服从 参数 为 Dj 的 离散 均匀分布 j = ( 1 , 2 , … , α i ) ， 即 pjk = P { Δ j = k / Dj } = 1 / Dj ( k = 1 , 2 , … , Dj ) . 为 简化 分析 ， 假定 各 Δ s ， Δ t 相互 独立 ( s , t = 1 , 2 , … ， α i , s ≠ t ) ， Qi 中 α i 个 CLP = 1 的 信元 具有 相同 的 VCC 距离 D ， 且 丢弃 CLP = 1 的 信元 Cj 时 ， 有 ： , 因此 ： 
+ 　 　 ( 7 ) 
+ 　 　 由式 ( 5 ) , ( 6 ) 和 ( 7 ) 知 : qRr < qEr ， 因此 ， 当 q δ r < qRr 时 ， 必有 η δ > η R > η E . 
+ 　 　 由于 ：   
+ 　 　 所以 ， 只要 满足条件 ， δ 策略 就 比 随机 和 排空 策略 具有 更 高 的 网络资源 利用率 ( 不难 验证 ， 该 条件 很 容易 满足 ) . 
+ 　 　 ( 2 )   信元 丢失 率 
+ 　 　 设 W 为 一条 VCC 应 传送 的 信元 总数 ， T 是 该 VCC 的 持续时间 ， λ i 为 不 丢弃 信元时 VCCJ 的 每个 中间 结点 Ni 的 平均 信元 到达 率 ， 即 λ i = W / T ,   ( i = 1 , 2 , … , DJ ) . 当 丢弃 信元时 ， 必 导致 VCC 源 结点 对 包含 该 被 丢弃 信元 的 高层 数据 帧 的 重发 ( 如 数据业务 ) ， 在 T 不变 时 ， 这种 重 发 意味着 Ni 信元 到达 率 的 增大 ， 即 此时 的 到达 率 λ ′ i 为 ： 
+ 
+ 　 　 即 λ ′ 　 i ≥ λ i . 信元 到达 率 的 增大 直接 导致 Qi 业务 负荷 ρ ( = λ / ν ) 的 增大 ， 从而 使 相应 的 CLR 增大 . 在 VCCJ 上 至多 有 一个 中间 结点 发生 拥塞 的 前提 下 ， 设 系统 状态 Y 为 一个 信元 经过 传输 从 VCCJ 源 结点 到达 目的 结点 的 与否 ， 即 ， Y = 0 示未 到达 ， Y = 1 示 到达 . 这样 ， Y 构成 图 3 所示 的 有限 状态 马氏链 ： 
+ 
+ 
+ 图 3 　 系统 状态 Y ： 
+ 有限 状态 马氏链 
+ 　 　 这样 ， 从 状态 0 到 状态 1 的 平均 时间 μ 0 , 1 为 VCCJ 源 结点 发 一个 信元 所 对应 的 平均 实 发信 元数 ， 仅当 Nr 发生 拥塞 时 ， Q0 = qr ， P0 = pr ， r ∈ { 1 , 2 , … , DJ } . 对 包括 Nr 在内 的 每个 下游 结点 Ni ( i = 1 , 2 , … , r ) 来说 ， 有 ： , 由于 ： , 即 ： , 于是 ， 随机 、 排空 和 δ 三种 策略 各自 的 信元 到达 率 分别 为 ： 
+ 
+ 　 　 　 　 　 ( 8 ) 
+ 
+ 　 　 因此 ， 当 q δ r < qRr 时 ， 必有 λ δ i > λ Ri > λ Ei ( i = 1 , 2 , … , r ) . 
+ 　 　 设 q = 1 / α i , D = 2 ( 4 , 8 , 16 ) , α i / D = 5 / 4 ( 20 / 9 ) , K = 64 ( 16 ) , ν = 1 / 9.1 , ρ = λ / ν , 可 得到 “ Geom / Geom / 1 / K ” 模型 下无信 元 丢弃 、 随机 丢弃 、 排空 式 丢弃 和 基于 转发 强度 的 丢弃 策略 各自 的 CLR ～ ρ 曲线 族 ， 如图 4 所示 . 
+ 
+ 
+ 
+ 图 4 　 无信元 丢弃 、 随机 丢弃 、 排空 式 丢弃 和 基于 转发 强度 的 丢弃 策略 的 CLR ～ ρ 曲线 族 
+ 　 　 在 拥塞 结点 的 Qi 中 各 CLP = 1 信元 具有 相同 VCC 距离 的 条件 下 ， 可 得出 以下 3 个 主要 结论 ： ① 无论 K , D , 和 α i 的 值 如何 变化 ， δ 策略 的 信元 丢失 率 都 始终 低于 随机 和 排空 式 两种 策略 ； ② 3 种 策略 的 信元 丢失 率均 随 K 的 增大 而 明显 减小 ； 而 在 相同 的 业务 负荷 ρ 下 ， δ 策略 的 信元 丢失 率 也 随 K 的 增大 而 明显 小于 随机 和 排空 式 策略 ； ③ 当 K 和 α i 的 值 确定 而 D 由大变 小时 ， 随机 和 排空 式 策略 各自 的 信元 丢失 率及 二者 信元 丢失 率之差 的 变化 都 不大 ， 但 δ 策略 的 信元 丢失 率 相对 于 前 两种 策略 能 有 较 明显 的 减小 ； 当 K 和 D 的 值 确定 而 α i 增大 时 ， δ 策略 信元 丢失 率 减小 的 效果 比前 两种 策略 要 明显 . 这就是说 ， 当信元 缓冲器 容量 较大 、 缓冲器 中 CLP = 1 的 信元 较 多 或 各 CLP = 1 信元 的 VCC 距离 较 小时 ， δ 策略 的 信元 丢失 率 指标 能 较 明显 地 优于 随机 和 排空 两种 信元 丢弃 策略 . 
+ 　 　 此外 ， 相对 于 随机 和 排空 两种 策略 而言 ， δ 策略 减小 了 一个 信元 从源 到 宿 结点 所 经历 的 平均 结点 数 ， 因而 也 相应 地 减小 了 信元 的 平均 传输 时延 . 
+ 4 　 结 　 　 语 
+ 　 　 基于 信元 已 经历 的 相对 行程 ( 即 转发 强度 ) 的 概念 ， 本文 提出 了 一种 可 缓解 网络 结点 拥塞 从而 有效 支持 CLR - QoS 的 信元 丢弃 策略 ： 基于 “ 转发 强度 ” 的 策略 ， 在 给出 信元 转发 强度 的 定义 后 ， 文中 用 较 简单 的 模型 分析 了 δ 策略 的 网络资源 利用率 和 信元 丢失 率 ， 并 与 随机 和 排空 式 策略 作 了 比较 ， 在 各 VCC 的 距离 相同 的 条件 下 得到 结论 ： 在 满足 时 ， δ 策略 便 在 网络 利用率 和 信元 丢失 率 方面 优于 随机 和 排空 式 策略 ； 而 当 拥塞 结点 的 信元 缓冲器 容量 较大 、 其中 CLP = 1 的 信元数 较 多 或 各 CLP = 1 信元 的 VCC 距离 较 小时 ， δ 策略 的 信元 丢失 率 指标 能 较 明显 地 优于 随机 和 排空 式 策略 . 此外 ， δ 策略 对应 的 算法 也 不 复杂 ， 对 小 跨度 ATM 网络 及 单个 网络 结点 发生 一定 程度 的 拥塞 时 ， δ 策略 比 随机 和 排空 式 策略 更能 防止 该 网络 结点 拥塞 程度 的 加重 ， 从而 能 更 有效 地 支持 ( 或 确保 ) CLR - QoS ， 因而 它 能 适用 于 小型 ATM 网络 或 单一 网络 结点 拥塞 的 场合 . 
+ 　 　 虽然 有 VCC 的 调节 参量 τ j 可用 ， 但 δ 策略 的 公平性 问题 仍 值得 做 进一步 的 研究 . 
+ 本 课题 得到 电子 科学 研究院 电子 预研 基金 资助 . 
+ 作者简介 ： 程东 年 ， 男 ， 1957 年 7 月生 ， 博士 研究生 . 现 主要 研究 方向 ： 计算机 及 通信 网络 的 理论 及 技术 、 ATM 的 理论 及 技术 、 网络管理 . 刘增基 ， 男 ， 1937 年 12 月生 ， 教授 ， 博士生 导师 ， 国家 重点 实验室 主任 . 现 主要 研究 方向 为 通信 理论 、 宽带 综合 业务网 的 理论 及 关键技术 、 ATM 的 理论 、 技术 及 应用 . 
+ 作者 单位 ： 西安电子科技大学 综合 业务网 理论 和 关键技术 国家 重点 实验室 　 西安 　 710071 
+ 参考文献 
+ 　 1 　 Tassiulas   L ,   Hung   Y ,   Panwar   S   S .   Optimal   buffer   control   during   congestion   in   an   ATM   network   node . In :   Proc   of   IEEE   INFOCOM   ' 93 .   San   Francisco ,   1993.1059 ～ 1066 
+ 　 2 　 Chao   H   J ,   Cheng   H .   A   new   QoS - guarantee   cell   discarding   strategy :   Self - calibrating   pushout . In :   Proc   of   IEEE   GLOBECOM   ' 94 . San   Francisco ,   1994 .   929 ～ 934 
+ 　 3 　 Robertazzi   T   G .   Computer   Networks   and   Systems .   2nd   ed .   New   York :   Springer - Verlag ,   1994 
+ 　 4 　 Zhu   H ,   Forst   V   S .   In - service   monitoring   for   cell   loss   quality   of   service   violations   in   ATM   networks . IEEE / ACM   Trans   on   Networking ,   1996 ,   4 ( 2 ) :   240 ～ 248 
+ 　 5 　 Ga ī ti   D ,   Pujolle   G .   Performance   managemant   issues   in   ATM   networks :   Traffic   and   congestion   control .   IEEE / ACM   Trans   on   Networking ,   1996 ,   4 ( 2 ) :   249 ～ 257 
+ 　 6 　 Kawahara   K   et   al .   Performance   evaluation   and   selection   cell   discard   schemes   in   ATM   networks .   In : Proc   of   IEEE   INFOCOM   ' 96 . San   Francisco ,   1996 .   1054 ～ 1061 
+ 　 7 　 Adrian   E ,   Doshi   B   T ,   Zoccolillo   R .   Controlling   congestion   in   B - ISDN / ATM :   Issues   and   strategies .   IEEE   Commun   Magazine ,   1991 ,   29 ( 9 ) :   64 ～ 70 
+ 　 8 　 Prycker   M .   Asynchronous   Transfer   Mode :   Solution   for   Broadband   ISDN .   Hemel   Hempstead : Ellis   Horwook ,   1993 
+ 　 9 　 B - ISDN   ATM   Layer   Cell   Transfer   Performance ( Rec   I   356 ) .   Geneva :   ITU - T , 1993 
+ 　 10 　 Traffic   Control   and   Congestion   Control   in   B - ISDN ( Rec   I   371 ) .   Geneva :   ITU - T , 1993 
+ 　 11 　 程时 端 . 综合 业务 数字网 . 北京 ： 人民邮电出版社 ， 1993 
+ ( Cheng   Shiduan .   Integrated   Services   Digital   Network ( in   Chinese ) .   Beijing :   People ' s   Post   and   Telecommunications   Publishing   House ,   1993 ) 
+ 　 12 孙海荣 ， 李乐民 . ATM 技术 — — 概念 、 原理 和 应用 . 成都 ： 电子科技 大学 出版社 ， 1995 
+ ( Sun   Hairong ，   Li   Lemin .   ATM   Technology :   Concepts ,   Principles   and   Applications ( in   Chinese ) .   Chengdu :   Press   of   University   of   Electronic   Science   and   Technology   of   China ,   1995 ) 
+ 原稿 收到 日期 ： 1998 - 06 - 22 
+ 修改稿 收到 日期 ： 1998 - 12 - 28 

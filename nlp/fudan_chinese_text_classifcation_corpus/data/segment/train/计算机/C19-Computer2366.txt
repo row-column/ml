@@ -1,0 +1,79 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 8 期   Vol.36   No.8   1999 
+ 
+ 
+ 
+ 基于 移动 Agent 的 网络管理 框架 及 实现 
+ 张 　 松 　 阎 保平 
+ 摘 　 要 　 Internet / Intranet   的 迅速 发展 ， 促使 网络 日趋 复杂 ， 规模 不断扩大 ， 应用服务 数量 剧增 ， 网络管理 的 重要性 日益 提高 . 传统 上 作为 事实 工业 标准 的 SNMP 采取 集中 管理模式 和 功能 固定 的 代理 ( agent ) 机械 地 收集 大量 原始数据 ， 逐渐 无法 适应 网络 的 发展 现状 ， 大量 网管 信息 加重 了 网络 负载 ， 对 管理 对象 的 请求 响应 缓慢 . 
+ 　 　 文中 提出 采用 移动 代理 ( mobile   agent ) 的 网管 框架 ， 将 代理 支撑 环境 驻留 在 设备 上 ， 替代 功能 固定 的 代理 ， 网管 中心 根据 实际 网络 状态 选择 适当 功能 的 代理 程序 发送到 设备 ， 在 代理 运行 环境 中 生成 程序 实例 ( instance ) ， 完成 预期 功能 ， 移动 代理 不仅 收集 而且 能够 处理 数据 ， 从而 加快 响应速度 ， 减轻 网管 中心 负载 . 文中 阐述 了 移动 代理 的 结构 ， 控制 和 安全 问题 ， 以及 用于 网络管理 的 系统 框架 和 原型 的 实现 . 
+ 关键词 　 移动 代理 ， 网络管理 ， SNMP ， Java 
+ 中图法 分类号 　 TP393.07 
+ NETWORK   MANAGEMENT   BASED   ON   MOBILE   AGENT : ARCHITECTURE   AND   IMPLEMENTATION 
+ ZHANG   Song   and   YAN   Bao - Ping 
+ ( National   Research   Center   for   Intelligent   Computing   Systems ,   Beijing   100080 ) 
+ ( Computer   Network   Information   Center ,   Chinese   Academy   of   Sciences ,   Beijing   100080 ) 
+ Abstract 　 With   the   rapid   development   of   Internet / Intranet ,   network   is   becoming   larger   and   more   complex .   Traditional   SNMP - based   centric   network   management   can   no   longer   keep   up   with   these   trends .   In   the   paper   here ,   a   new   framework   is   put   forward ,   which   takes   advantage   of   the   mobile   agent   to   manage   network   more   quickly   and   more   flexibly .   In   the   new   framework ,   an   agent   execution   environment   resides   on   the   network   device ,   substituting   the   old   SNMP ' s   function - static   agent .   Network   management   center   selects   proper   agent   program   according   to   network   state   and   distributes   it   to   network   device   where   instance   is   generated   to   fulfill   the   expected   task .   Mobile   agent   not   only   can   collect   data ,   but   also   can   process   these   data   to   improve   the   response   and   relieve   NMS ' s   burden .   The   mobile   agent   structure   and   its   control   strategy   are   presented .   A   management   framework   with   its   prototype ,   which   can   integrate   with   SNMP ,   is   also   described . 
+ Key   words 　 mobile   agent ,   network   management ,   SNMP ,   Java 
+ 1 　 前 　 言 
+ 　 　 计算机网络 ( 尤其 是 Internet / Intranet ) 的 迅速 发展 和 广泛应用 ， 增强 了 对 网络管理 在 快速性 和 有效性 方面 的 要求 . 作为 事实 工业 标准 SNMP 采取 集中控制 模型 ， 包括 4 个 组成部分 ( 如图 1 所示 ) ： 网管 工作站 NMS ( network   management   station ) ， 分布 在 网络管理 对象 ( 设备 ) 上 的 代理 ( Agent ) ， 描述 被 管理 对象 状态 的 管理 信息 基 MIB ( management   information   base ) 以及 NMS 同 Agent 之间 通信 的 SNMP 协议 . MIB 由 一组 变量 构成 ， 每个 变量 表示 管理 对象 属性 的 一个 方面 . Agent 驻留 在 管理 对象 上 ， 收集 本地 有关 信息 ， 并 给 MIB 中 的 相应 变量 赋值 ， 在 接到 NMS 的 请求 时 将 这些 值回 传给 NMS . NMS 是 整个 网络 的 集中 控制点 ， 不停 地 通过 Get ,   GetNext 原语 从 Agent 中 依次 读取 被 管理 对象 MIB 中 每个 变量 的 值 ， 从而 综合 获得 当前 网络 的 状态 ， 并 确定 需要 的 控制 行为 . SNMP 结构 特别 适合 于 设备 自身 处理 能力 不足 而 网络流量 不大 的 情况 . 面对 网络 的 飞速发展 ， SNMP 网管 模型 暴露出 许多 缺陷 ： ①   NMS 负责 所有 网管 信息 的 处理 ， 当 网络 扩大 时 ， 有 可能 成为 系统 的 “ 瓶颈 ” ； ②   没有 定义 MIB 中 数据 的 处理 方式 ， 为了 能够 适应 各种 处理 和 监控 方式 ( 有些 可能 是 未知 的 ) ， MIB 定义 不得不 尽量 详尽 ， 传输 时 占用 较 多 带宽 资源 ； ③   NMS 只是 盲目 地 收集 原始数据 ， 实际 的 处理 往往 只用 到 部分 数据 ， 造成 资源 浪费 ； ④   SNMP 在 设计 时 的 一个 重要 考虑 就是 尽量减少 网络管理 给 设备 带来 的 额外 负载 ， 驻留 在 设备 上 的 Agent 没有 任何 处理 功能 ， 即使 最 简单 的 处理 ， 也 必须 将 数据 传送 到 NMS ， 等待 返回 的 结果 ； ⑤   Agent 的 功能 在 安装 之后 是 固定 的 ， 不能 按照 系统 状态 和 管理策略 变化 进行 调整 . 
+ 
+ 
+ 图 1 　 SNMP 的 结构 
+ 　 　 面对 网络管理 的 应用 现状 ， 很多 学者 对 改进 SNMP 、 完善 网管 功能 进行 了 大量 工作 ， 例如 利用 域 / 规则 的 集成化 网管 方案 ［ 1 ］ ， TMN 和 SNMP 两种 模型 集成 综合 管理 网管 信息 ［ 2 ］ 等 . 这些 方法 虽然 通过 划分 域 减少 了 每个 基本 管理 范围 ， 但 仍 无法 适应 网络 及其 应用 的 多样性 和 易变性 . 
+ 　 　 动态 网络 ［ 3 ］ 和 智能 代理 ［ 4 ］ 技术 的 出现 和 发展 为 我们 提供 了 新 的 思路 . 移动 代理 是 近年来 人工智能 、 分布式系统 的 研究 热点 之一 ， 它 被 抽象地 定义 为 能够 自动 完成 用户 任务 的 程序 ， 可以 不 固定 于 开始运行 的 系统 ， 具有 能 将 自身 在 网络 上 传输 并 在 目的 系统 上 继续执行 的 特性 . 目前 已有 一些 移动 代理 的 示范 系统 ， 如 agentTel ［ 5 ］ ,   Aglets ［ 6 ］ ,   Odyssey 和 telescript ［ 7 ］ . 虽然 移动 代理 的 出现 不是 为了 网络管理 ， 但是 我们 设想 如果 把 具有 一定 网管 功能 的 程序 动态 分布 到 设备 ， 这样 原始 网管 信息 只 需要 传递 到 最近 的 具有 网管 功能 的 设备 ( 往往 是 同一 设备 ) ， 在 本地 加以 处理 ， 产生 快速 响应 ， 并 将 处理 后 的 信息 传到 NMS ， 从而 减少 传到 NMS 的 网络流量 ， 避免 了 NMS 的 “ 瓶颈 ” ： 基于 移动 代理 的 网管 实际上 是 一种 动态 分布 网管 功能 的 机制 . 
+ 　 　 本文 首先 描述 了 适用 于 网管 的 移动 代理 模型 ， 然后 讨论 了 以 移动 代理 为 基础 构造 的 网络管理 框架 ， 这种 框架 简单易行 ， 并 保证 同 SNMP 的 互操作性 . 在 文章 的 最后 ， 作者 给出 一个 用 Java 实现 的 原型 系统 ， 验证 了 文中 提出 的 代理 结构 和 网管 框架 . 
+ 2 　 移动 Agent 结构 
+ 　 　 用于 网络管理 的 移动 代理 是 指 根据 网管 需求 动态 发布 到 远程 设备 ， 并 在 远程 设备 链接 执行 的 一段 程序 ， 其 目的 是 优化 管理 ， 其 行为 ( 启动 ， 挂 起 ， 终止 ， 删除 ) 完全 受控 于 发送 它 的 进程 . 用于 网管 的 移动 Agent 虽然 从 个体 上 讲 功能 是 固定 的 ， 但是 它 可以 动态 地 发布 到 网络 上 的 设备 ， 对于 设备 来讲 ， 驻留 于 其 上 的 代理 的 功能 是 可变 的 ， 而且 按 需而变 . 
+ 　 　 目前 存在 的 移动 代理 示范 系统 都 是 构建 通用 的 环境 ， 使 移动 代理 在 网络 上 移动 时 能够 与 周围环境 及其 他 代理 交换 信息 ， 从而 自主 地 完成 用户 任务 ， 显得 庞大 而 复杂 ， 根据 SNMP 的 经验 ， 简单易行 才 有 生命力 . 从 网络管理 的 角度 出发 ， 本文 提出 的 适用 于 网管 的 移动 Agent 的 模型 如图 2 所示 . 
+ 　 　 发布者 按照 移动 代理 控制协议 ( MACP ， mobile   agent   control   protocol ) 同 远程 设备 联系 ， 发送 移动 代理 程序 ， 并 根据 网络 状态 信息 控制 其 行为 . 远程 设备 对于 移动 代理 的 支撑 环境 包括 移动 代理 控制 接口 ( MACI ,   mobile   agent   control   interface ) 、 受限 运行 环境 ( LEE ,   limited   execution   environment ) 和 安全 管理器 ( security   manager ) 等 几 部分 . 
+ 
+ 
+ 图 2 　 移动 代理 的 结构 
+ 　 　 MACI 提供 设备 同 发布者 按照 MACP 通信 的 接口 ， 接受 发布者 送来 的 控制指令 ， 是 发布者 同 代理 环境 交互 的 界面 . MACI 检查 发布者 的 身份 ， 并 完成 对 移动 代理 程序 和 例程 的 管理 和 控制 . 从 发布者 传来 的 Agent 程序 在 MACI 控制 下 在 受限 运行 环境 中 生成 实例 ( instance ) 并 执行 . 
+ 　 　 受限 运行 环境 负责 在 本地 生成 移动 代理 的 例程 ， 是 使 代理 “ 动 ” 起来 的 关键 ， 它 能够 理解 并 执行 代理 程序段 . LEE 采用 的 技术 同 代理 的 代码 形式 密切相关 ： 当 移动 代理 采用 某种 语言 的 源码 时 ， 远程 设备 上 的 LEE 就是 该种 语言 的 解释器 ( safe \ | Tel ) ； 当 代理 使用 中间代码 时 ， LEE 就是 相应 的 中间代码 解释器 ( 如 Java ) ； 代理 也 可以 是 二进制 代码 ， 此时 LEE 将 提供 动态 链接 功能 . 
+ 　 　 安全 管理器 负责 验证 和 授权 Agent 对 本地 敏感数据 资源 的 访问 ( 如 文件系统 的 读写 权限 ) . 
+ 　 　 MACP 帮助 发布者 同 远程 设备 协商 、 分布 移动 代理 并 控制 其 行为 . 当 MACI 接收 移动 代理 程序 时 ， 向 发布者 返回 唯一 标识 agentID ， 从而 能够 对 代理 程序 进行 控制 . 当 受限 运行 环境 启动 一个 移动 代理 的 例程 时 ， 向 发布者 返回 另 一个 唯一 标识 agentInstanceID ， 以便 对 代理 实例 进行 控制 . MACP 中 的 主要 服务 原语 包括 Agent 程序代码 的 发送 ( send ) 、 删除 ( delete ) 、 启动 例程 ( initiate ) 和 例程 的 终止 ( terminate ) 、 挂 起 ( suspend ) 、 恢复 ( resume ) 以及 报警 ( trap ) 、 状态 查询 ( statusquery ) . 
+ 3 　 基于 移动 代理 的 网络管理 框架 
+ 　 　 基于 移动 代理 的 网管 框架 实际上 是 利用 移动 代理 运行 环境 替代 驻留 在 设备 上 的 传统 的 功能 固定 的 代理 ， 网管 中心 根据 具体 状态 和 网管 意图 ， 将 具有 一定 的 网管 功能 的 Agent 发送到 设备 上 . 这样 代理 的 功能 可以 随着 网络管理 中心 的 策略 而 及时 调整 . 
+ 　 　 本文 提出 的 网管 框架 ( 如图 3 所示 ) 由 以下 几 部分 组成 ： 
+ 　 　 ( 1 )   代理 数据库 ： 保存 网络 上 所有 可能 使用 的 代理 程序 以及 相应 的 MIB . ( 2 )   移动 代理服务器 ： 即 移动 Agent 的 发布者 ， 根据 NMS 的 要求 从 代理 数据库 中 提取 适合 的 代理 程序 ， 通过 MACP 协议 将 其 发送到 远程 设备 ， 同时 将 代理 程序 对应 的 MIB 发送到 NMS . ( 3 )   网管 工作站 NMS ： 根据 SNMP 协议 完成 网管 功能 ； 另外 可以 根据 网络 状态 和 管理策略 ， 向 移动 代理服务 提出 代理 发布 请求 ， 并 保存 远程 设备 代理 及其 MIB 的 对应 关系 . ( 4 )   移动 Agent ： 包含 了 原来 SNMP 协议 接口 功能 的 移动 代理 ， 能够 同时 接受 MACP 请求 和 SNMP 请求 ， 是 移动 代理 同 SNMP 网管 系统 整合 的 关键 . 
+ 　 　 同 SNMP 网络 模型 相 比较 ， 上述 网管 构架 具有 如下 特点 ： ①   Agent 不仅 能够 收集 数据 ， 而且 具有 灵活 的 计算能力 ， 对 收集 到 的 数据 进行 分析 加工 ， 产生 管理 动作 ； ②   Agent 只 将 NMS 所 关心 的 结果 用 SNMP 协议 传回 ， 减轻 了 NMS 的 负担 和 网络流量 负荷 ； ③   由于 Agent 具有 处理 功能 ， 当 网络故障 发生 时 ， 可以 在 距离 故障 点 最近 的 地方 产生 反应 ( 甚至 可以 是 故障 设备 本身 ) ， 形成 二级 控制 环 ( 见图 4 ) ， 提高 反应速度 ， 有效 防止 故障 蔓延 ； ④   基于 移动 代理 的 网管 可以 使得 管理所 需 计算 最大 程度 地 分布 于 整个 网络 ， 从而 适应 大 范围 的 网络 ， 并且 管理系统 的 性能 同 网络 范围 滑 直接 约束 关系 . 
+ 　 　 从 本质 上 讲 ， 基于 移动 代理 的 框架 是 将 处理 功能 移 向 原始数据 产生 的 地方 ， 而 传统 SNMP 框架 是 将 原始数据 移 向 处理 功能 . 虽然 增加 了 移动 代理服务器 和 代理 数据库 等 部件 ， 使得 结构 稍微 复杂 ， 但 带来 的 灵活性 能 可以 更好 地 适应 网络 多样化 的 发展 . 能够 灵活 地 调整 Agent 的 功能 是 这种 网管 框架 的 鲜明特点 ， 也 是 使 这种 框架 在 实际 中 成功 使用 的 关键 . 这同 网管 策略 回答 有 密切 的 关系 . 例如 Agent 的 功能 可以 计算 包 丢失 率 ， 也 可以 计算 出现 拥塞 的 概率 ， 并 当 拥塞 超出 一定 阈值 时 ， 采取相应 措施 . 
+ 
+ 
+ 图 3 　 基于 移动 代理 的 网管 框架 
+ 
+ 
+ 图 4 　 基于 移动 代理 的 网管 同 SNMP 的 控制 环 对比 
+ 4 　 实 　 例 
+ 　 　 我们 利用 Java 实现 了 上述 系统 的 一个 原型 系统 ， 采用 Java 的 原因 是 它 具有 良好 的 可移植性 ， 比较 容易 达到 同 操作 平台 的 无关 性 . 系统 的 环境 是 ： 一台 SGI   Indy   Cosmo 和 一台 Pentium   PC ,   Win95   Java   Workshop ,   通过 TCP / IP 相连 ， 整个 系统 在 Java 虚拟机 上 实现 . 原型 系统 的 结构 如图 5 所示 . 
+ 
+ 
+ 图 5 　 Java 实现 的 原型 系统 
+ 　 　 两端 利用 socket 实现 了 MACP 和 SNMP 的 通信 原型 ， 通过 MACP 端口 传输 和 控制 Java 程序 的 行为 ， 通过 SNMP 协议 获得 所 需 的 经 初步 处理 后 的 网管 信息 . 基本 的 工作 流程 描述 如下 . 
+ 　 　 首先 ， 发布者 通过 根据 管理策略 和 网络设备 状态 ， 确定 应 向 设备 发送 的 Agent 的 种类 与 功能 . 然后 发布者 的 高度 管理 模块 通过 MACP 向 设备 发送 Agent 类 的 Bytecode . 接收 方 设备 的 控制 接口 在 收到 Bytecode 之后 ， 将 它 存储 为 本地 的 一个 . class 文件 ， 并用 自己 定义 的 ClassLoader 试着 加载 Agent . 当 ClassLoader 的 方法 loadClass ( ) 返回 一个 Class 类型 的 对象 ， 否则 不予 接纳 . 然后 发布者 发送 启动 例程 的 MACP 消息 ， 远端 设备 只要 调用 该 Class 对象 的 方法 newInstance ( ) ， 就 可以 创建 一个 新 的 实例 ， 并 让 它 开始运行 . 我们 可以 为 每 一个 这样 的 实例 都 分配 一个 thread 来 控制 它 的 运行 ( suspend , resume , stop ) 等 . 一旦 该 网络设备 不再 需要 这种 Agent ， 就 可以 发送 MACP 命令 让 网络设备 终止 例程 运行 并 删除 响应 的 class 文件 . 
+ 　 　 移动 代理 的 流动性 带来 了 系统 的 安全性 问题 ： 比如 Agnet 程序 的 来源 和 发布者 身份 ， 运行 过程 中 对 本地 的 系统资源 的 使用 权限 等 . 为了 解决 这些 安全性 问题 ， 在 实现 中 借助 了 Java 中 的 分层 对策 . 低层 的 安全性 检查 是 Java 的 基本 特性 ， 借助于 Java 语言 规范 和 Java 虚拟机 的 约定 ， 在 Java   run - time 运行 系统 中 实现 . Java 底层 的 安全性 检查 内容 除 语言 定义 检查 外 ， 最 重要 的 是 由 verifier 执行 的 Bytecode 检查 ， 目的 是 消除 人为 直接 编写 Bytecode 的 可能 . 
+ 　 　 移动 Agent 在 更 高级别 上 的 安全性 利用 Java   Lang 程序包 中 提供 的 类 加载 器 ( security   manager ) 接口 实现 . 　 　 
+ 　 　 ClassLoader 用于 定义 在 将 Java 类 加载 到 运行 环境 中时 的 规则 . 这些 规则 包括 类 文件 的 存储 格式 ( 如 ： Bytecode , 压缩文件 zip 等 ) ， 类 文件 的 来源 ( 文件系统 ， 或 网络 ) ， 如何 从文件 来源 读入 类 文件 ( 如 应该 搜索 哪些 目录 ， 与 哪些 机器 通信 ) ， 以及 加载 类时 适用 的 条件 . 我们 在 ClassLoader 的 抽象 方法 loadClass 中 定义 自己 的 类 加载 规则 . 
+ 　 　 Security   Manager 严格 规定 一个 程序运行 时 必须 遵从 的 安全 规则 . 这些 规则 包括 是否 允许 程序 检查 运行 堆栈 ， 访问 本地 文件 ， 访问 网络 信息 ， 访问 系统 属性 ， 和 执行 系统命令 等 . 在 缺省 情况 下 ， Java 运行 系统 并 不 使用 Security   Manager , 即 对于 任何 的 操作 都 不作 安全检查 . 然而 ， 在 移动 Agent 环境 中 必须 定义 和 安装 Security   Manager , Java 规定 一旦 安装 了 Security   Manager , 就 不能 在 程序 中 替换 它 . 
+ 　 　 Security   Manager 根据 设定 的 方法 进行 有关 权限 检查 . 如果 被 检查 的 操作 违反 了 安全 规则 ， 除了 checkTopLevelWindows ( ) 之外 ， 所有 的 方法 在 缺省 情况 下 都 会 抛出 Security   Exception . 利用 Security   Manager 几乎 可以 在 任何 操作 时 触发 权限 检查 ， 例如 网络 socket 操作 ， 创建 一个 Class   Loader ， 文件 操作 等 . 
+ 　 　 进行 权限 检查 时 ， 考虑 的 依据 可以 有 ： 到 当前 的 运行 环境 信息 ( current   execution   context , 有时 称作 安全 环境 信息 security   context ) 和 运行 堆栈 信息 ( execution   stack   information ) .   CEC 是 系统 收集 的 有关 当前 运行 线程 的 信息 ( 包括 它 所属 的 thread   group , 运行 Java 程序 的 用户 身份 ， 运行 Java 程序 的 机器 等 ) . 运行 堆栈 信息 记录 了 从 主程序 到 当前 方法 之间 所 调用 的 方法 ， 即 所有 正在 运行 的 方法 堆栈 . 总的来说 ， Security   Manager 可以 根据 比较 详细 的 环境 信息 进行 提高 安全 的 准确性 . 
+ 5 　 结 　 论 
+ 　 　 本文 探讨 利用 移动 Agent 进行 网络管理 的 框架结构 并 通过 基于 Java 的 系统 加以 验证 . 本文 研究 了 适用 于 网络管理 的 移动 Agent 模型 ， 并 描述 了 可 与 SNMP 共存 的 网管 框架 ： 将 代理 支撑 环境 分布 于 网络设备 上 ， 每个 代理 的 功能 可以 根据 具体情况 改变 ， 并 具有 计算能力 . 通过 该 框架 可以 使 网管 控制 功能 靠近 故障 区域 ， 提高 了 响应速度 ， NMS 摆脱 了 收集 原始数据 的 束缚 ， 更 关注 于 某些 有 意义 的 计算结果 并 减少 了 网络通信 负载 . 　 　 
+ 　 　 文中 描述 的 原型 系统 基本 验证 了 这种 思路 的 可行性 ， 作者 认为 这种 方法 为 解决 传统 SNMP 的 缺陷 提供 了 途径 . 进一步 的 研究 将 着重于 增加 Agent 的 智能性 和 使 受限 运行 环境 与 代理 控制协议 通用化 . 
+ 基金项目 ： 本 课题 得到 “ 八 六三 ” 高技术 计划 306 主题 基金 资助 ( 项目编号 963 - 306 - ZD - 07 - 7 ) 
+ 作者简介 : 张松 ， 男 ， 1970 年 7 月生 ， 博士 研究生 ， 主要 研究 方向 为 多媒体通信 、 网络管理 、 高速 网络体系结构 、 ATM . 阎 保平 ， 女 ， 1950 年 7 月生 ， 博士 ， 研究员 ， 中国科学院 网络 中心 主任 ， 主要 研究 方向 为 高速 网络体系结构 、 大型 复杂 网络 性能 优化 与 管理 . 
+ 作者 单位 ： 张 　 松 　 中国科学院计算技术研究所 国家 智能机 研究 中心 　 北京 　 100080 
+ 　 　 　 　 　 阎 保平 　 中国科学院 网络 中心 　 北京 　 100080 
+ 参考文献 
+ 1 　 Ravon   J .   Towards   integration   of   service   and   network   management   in   TINA .   Journal   of   Network   and   System   Management ,   1996 ,   4 ( 3 ) :   299 ～ 317 
+ 2 　 Michael   T ,   Jane   H   et   al .   Information   aspects   and   future   directions   in   an   integrated   telecommunication   and   enterprise   management   environment .   Journal   of   Network   and   System   Management ,   1995 ,   3 ( 1 ) :   111 ～ 133 
+ 3 　 David   T ,   David   W .   Towards   an   active   network   architecture .   ACM   SIGCOMM ,   Computer   Communication   Review ,   1996 ,   26 ( 2 ) :   5 ～ 14 
+ 4 　 Intelligent   Agent   White   Book .   IBM ,   1995 .   http : / / www . software . ibm . com / sysmen 
+ 5 　 Kotz   D ,   Gray   R .   Agent   Tcl :   Targeting   the   needs   of   mobile   computers .   IEEE   Internet   Computing ,   1997 ,   1 ( 4 ) :   58 ～ 67 
+ 6 　 Aglets   Software   Development   Kit   ( ASDK ) .   http : / / aglets . trl . jbm . co . jp / 
+ 7 　 Mobile   Agent   White   Paper .   http : / / www . genmagic . com / technology / techwhitepaper . html 
+ 收到 日期 ： 1997 - 11 - 19 
+ 修改 日期 ： 1998 - 05 - 19 

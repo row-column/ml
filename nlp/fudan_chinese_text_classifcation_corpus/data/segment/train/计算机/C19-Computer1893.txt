@@ -1,0 +1,115 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000 　 Vol.19 　 No.4 　 P.58 - 59 
+ 
+ 
+ 
+ 优化 Ｖ ｉ ｓ ｕ ａ ｌ   Ｂ ａ ｓ ｉ ｃ 查询 的 方法 
+ 姚卫新 
+ 摘   要 ：   Ｖ ｉ ｓ ｕ ａ ｌ   Ｂ ａ ｓ ｉ ｃ 允许 用户 使用 结构化 语言  Ｓ Ｑ Ｌ  从 Ｊ ｅ ｔ   ｄ ａ ｔ ａ ｂ ａ ｓ ｅ ｓ  Ｍ Ｄ Ｂ 文件  中 取出 数据 ， 本文 提出 了 一些 优化 查询 操作 的 方法 。 
+ 关键词 ：   查询   Ｓ Ｑ Ｌ 语言   优化 设计 
+ 　 　 在 Visual   Basic 程序设计 中 不可避免 地要 用到 查询 。 本人 在 总结 了 多年 的 使用 心得 后 ， 全面 介绍 了 查询 优化 的 方法 。 
+ 1 　 表 设计 
+ 　 　 在 设计 表中字 段 时 ， 尽量 选择 长度 较 短 的 数据类型 ， 这样 可以 增加 每页 中 存放 的 记录 个数 。 连接 （ JOIN ） 使用 的 字 段 必须 有 相同 或 兼容 的 字 段 。 
+ 2 　 压缩 数据库 
+ 　 　 压缩 数据库 有 二点 好处 ： （ 1 ） 随着 数据库 中 数据量 的 增加 ， 原有 的 优化 方案 可能 不再 有效 ， 压缩 数据库 可以 最大 限度 地 克服 这个 缺点 。 （ 2 ） 随着 数据库 中 数据量 的 增加 ， 它 就 变得 比较 “ 零碎 ” ， 压缩 数据库 可以 把 1 个表 的 数据 集中 到 硬盘 的 连续 页 中 ， 提高 顺序 扫描 的 执行 速度 。 压缩 数据库 的 例子 如下 （ 它 将 保留 1 个 备份 ） ： 
+ 　 　 DBEngine ． CompactDatabase   ″ C  ＼ VB ＼ BIBLIO ． MDB ″ ， ″ C  ＼ VB ＼ BIBLIO2 ． MDB ″ 
+ 　 　 Kill   ″ C  ＼ VB ＼ BIBLIO ． BAK ″ 
+ 　 　 Name   ″ C  ＼ VB ＼ BIBLIO ． MDB ″   As   ″ C  ＼ VB ＼ BIBLIO ． BAK ″ 
+ 　 　 Name   ″ C  ＼ VB ＼ BIBLIO2 ． MDB ″   As   ″ C  ＼ VB ＼ BIBLIO ． MDB ″ 
+ 　 　 如果 数据库 被 频繁 更新 ， 最好 考虑 经常 压缩 数据库 。 
+ 3 　 查询 输出 中 尽量避免 表达式 
+ 　 　 某个 带有 表达式 的 查询 输出 作为 另 一个 查询 的 输入 时 ， 可能 会 产生 问题 。 如下 例 ， 查询 1 （ Query1 ） 是 第 2 个 SELECT 语句 的 输入 ： 
+ 　 　 Dim   DB   As   Database 
+ 　 　 Dim   RS   As   RecordSet 
+ 　 　 Set   DB ＝ DBEngine ． Workspaces （ 0 ） ． Opendatabase （ ″ Biblio ． MDB ″ ） 
+ 　 　 DB ． CreateQueryDef （ ″ Query1 ″ ， ″ SELECT   IIF （ Au ＿ ID ＝ 1 ， ′ Hello ′ ， ′ Goodbye ′ ）   AS   X   FROM   Authors ″ ） 
+ 　 　 Set   RS ＝ DB ． OpenRecordSet （ ″ SELECT   *   FROM   Query1   WHERE   X ＝ ′ Hello ′ ″ ） 
+ 　 　 查询 1 中 的 IIF （ ） 表示 式 不能 被 优化 ， 所以 第 2 个 SELECT 语句 中 的 WHERE 条件 也 不能 被 优化 ， 故 整个 查询 就 不能 优化 。 可以 合并 为 1 个 嵌套 的 SQL 语句 ： 
+ 　 　 Set   RS ＝ DB ． OpenRecordSet （ ″ SELECT *   FROM   Authors   WHERE   Au ＿ ID ＝ 1 ″ ） 
+ 　 　 对于 复杂 的 嵌套 查询 ， 把 字段名 直接 写 在 表达式 中 ： DB ． CreateQueryDef （ ″ Query1 ″ ， ″ SELECT   IIF （ Au ＿ ID ＝ 1 ， ′ Hello ′ ， ′ Goodbye ′ ）   AS   X ， Au ＿ ID ， FROM   Authors ″ ） Set   RS ＝ DB ． OpenRecordSet （ ″ SELECT   *   FROM   Query1   WHERE   Au ＿ ID ＝ 1 ″ ） 
+ 　 　 如果 在 查询 输出 中 无法 避免 计算 ， 可 把 计算 放在 上层 查询 中 ， 不要 放在 下层 查询 中 。 
+ 4 　 分组 、 连接 和 累计 
+ 　 　 连接 二个 表时 ， 如果 分组 和 累计 字段名 相同 ， 应 确保 分组 字段 与 累计 （ Sum ， Count 等 ） 字 段 来自 同一个 表 。 
+ 　 　 例 ： 下面 的 查询 效率 较 低 ， 因为 SUM 的 字 段 在 Ord 表中 ， 而 GROUP   BY 的 字 段 在 Cust 表中 。 
+ 　 　 SELECT   Cust ． CustID ， 
+ 　 　 　 　 　 　 FIRST （ Cust ． CustName ） AS   CustName ， 
+ 　 　 　 　 　 　 SUM （ Ord ． Price ） AS   Total 
+ 　 　 FROM   Cust   INNER   JOIN   Ord   ON   Cust ． CustID ＝ Ord ． CustID 
+ 　 　 GROUP   BY   Cust ． CustID 
+ 　 　 例 ： 下面 的 查询 效率 较 高 ， 因为 SUM 和 GROUP   BY 的 字 段 均 为 Ord ． CustID ， 它们 来自 同一个 表 。 
+ 　 　 SELECT   Ord ． CustID ， 
+ 　 　 　 　 　 　 FIRST （ Cust ． CustName ） AS   CustName ， 
+ 　 　 　 　 　 　 SUM （ Ord ． Price ） AS   Total 
+ 　 　 FROM   Cust   INNER   JOIN   Ord   ON   Cust ． CustID ＝ Ord ． CustID 
+ 　 　 GROUP   BY   Ord ． CustID 
+ 5 　 分组 字段 越少 越 好 
+ 　 　 GROUP   BY 中 的 字 段 越 多 ， 查询 花费 的 时间 越长 。 使用 FIRST （ ） 累计 函数 有助于 减少 GROUP   BY 语句 中字 段 的 个数 。 
+ 　 　 效率 低 的 例子 ： 
+ 　 　 SELECT   Cust ． CustID ， 
+ 　 　 　 　 　 Cust ． CustName ， 
+ 　 　 　 　 　 Cust ． Phone ， 
+ 　 　 　 　 　 SUM （ Ord ． Price ） AS   Total 
+ 　 　 FROM   Cust   INNER   JOIN   Ord   ON   Cust ． CustID ＝ Ord ． CustID ） 
+ 　 　 GROUP   BY   Cust ． CustID ， Cust ． CustName ， Cust ． Phone 
+ 　 　 效率高 的 例子 ： 
+ 　 　 SELECT   Ord ． CustID ） ， 
+ 　 　 　 　 　 　 FIRST （ Cust ． CustName ） AS   CustName ， 
+ 　 　 　 　 　 　 FIRST （ Cust ． Phone ） AS   Phone ， 
+ 　 　 　 　 　 　 SUM （ Ord ． Price ） AS   Total 
+ 　 　 FROM   Cust   INNER   JOIN   Ord   ON   Cust ． CustID ＝ Ord ． CustID ） 
+ 　 　 GROUP   BY   Ord ． CustID 
+ 6 　 在 连接 前 嵌套 GROUP   BY 语句 
+ 　 　 如果 连接 二个 表 并且 用 其中 1 个表中 的 字 段 进行 分组 ， 把 该 SELECT 语句 分解 为 2 个 查询 语句 更为 高效 。 把 带有 GROUP   BY 子句 的 SECECT 语句 作为 1 个 嵌套 查询 加入 到 上层 查询 的 非 分组 表中 。 
+ 　 　 低效 例子 ： 
+ 　 　 SELECT   Ord ． CustID ， 
+ 　 　 　 　 　 　 FIRST （ Cust ． CustName ） AS   CustName ， 
+ 　 　 　 　 　 　 FIRST （ Cust ． Phone ） AS   Phone ， 
+ 　 　 　 　 　 　 SUM （ Ord ． Price ） AS   Total 
+ 　 　 FROM   Cust   INNER   JOIN   Ord   ON   Cust ． CustID ＝ Ord ． CustID 
+ 　 　 GROUP   BY   Ord ． CustID 
+ 　 　 高效 例子 ： 
+ 　 　 查询 1 ： 
+ 　 　 SELECT   CustID ， SUM （ Price ） AS   Total 
+ 　 　 FROM   Ord 
+ 　 　 GROUP   BY   CustID 
+ 　 　 查询 2 ： 
+ 　 　 SELECT   Query1 ． CustID ， Cust ． CustName ， Cust ． Phone ， 查询 1 ． Total   FROM   Cust   INNER   JOIN   Ord   ON   Cust ． CustID ＝ Ord ． CustID 
+ 7 　 索引 JOIN 子句 中 的 字 段 
+ 　 　 用 JOIN 连接 表时 ， 索引 JOIN 子句 中 用到 的 字 段 后 ， 查询 优化 器 将 使用 比较 高级 的 内部 连接 策略 来 优化 查询 语句 。 
+ 　 　 然而 ， 如果 有 1 个表 相对 比较 小 （ 占 1 － 2 页面 ） ， 就 不必要 对 该表建 索引 。 这样 读 到 内存 中 的 页 比较 少 ， 所以 ， 是否 对表建 索引 要 看 情况 而定 。 
+ 8 　 使用 可 优化 的 表达式 
+ 　 　 尽量 建立 可以 使用 Rushmore 技术 进行 优化 的 查询 ， Rushmore 并 不会 自动 地 加速 所有 的 查询 。 
+ 9 　 用 COUNT （ * ） 代替 COUN （ ［ 字段名 ］ ） 
+ 　 　 微软 的 数据库 引擎 对 COUNT （ * ） 特别 关照 ， 使得 COUNT （ * ） 执行 时比 COUNT （ ［ 字段名 ］ ） 快得多 。 另外 ， 这 二个 操作 略有不同 ： COUNT （ * ） 计算 返回 的 所有 行 ， COUNT （ ［ 字段名 ］ ） 仅 计算 该 字段名 不为 NULL 的 行 。 
+ 10 　 参数 中 避免 LIKE 
+ 　 　 由于 查询 在 编译 时 参数 的 值 尚未 确定 ， 索引 不起作用 ， 最好 在 SQL 语句 中 写明 参数 的 值 。 
+ 11 　 避免 LIKE 中 的 通配符 在 开头 
+ 　 　 如果 使用 LIKE 操作符 来 寻找 匹配 的 行 ， 通配符 不能 在 开头 位置 ， 否则 索引 不起作用 。 下面 的 例子 索 引起 作用 ： 
+ 　 　 Like   ″ Smith ″ ， Like ″ Sm * ″ 
+ 　 　 而 下面 的 例子 索引 不起作用 ： 
+ 　 　 Like   ″ * sen ″ 
+ 　 　 Like   ″ * sen * ″ 
+ 12 　 使用 中间 结果 表 （ 临时 表 ） 
+ 　 　 使用 语句 建立 临时 表 ， 尤其 是 当 查询 结果 要 被 其它 的 查询 使用 时 ， 应 尽量 使用 临时 表 ， 其 效果 非常 显著 。 
+ 13 　 避免 NOT   IN 与子 查询 一起 使用 
+ 　 　 NOT   IN 与子 查询 一起 使用 效果 非常 差 ， 最好 将 其 转化成 嵌套 查询 或 使用 OUTER   JOIN 。 
+ 　 　 下面 的 例子 是 查找 没有 订过 货 的 客户 ： 
+ 　 　 低效 查询 ： 
+ 　 　 SELECT   Customers ． * 
+ 　 　 FROM   Customers 
+ 　 　 WHERE   Customers ． ［ Customer   ID ］ 
+ 　 　 　 NOT   IN （ SELECT ［ Customer   ID ］   FROM   Orders ） ； 
+ 　 　 高效 查询 ： 
+ 　 　 SELECT   Customers ． * 
+ 　 　 FROM   Customers   LEFT   JOIN   Orders 
+ 　 　 　 ON   Customers ． ［ Customer   ID ］ ＝ Orders ． ［ Customer   ID ］ WHERE （ （ Orders ． ［ Customer   ID ］ Is   Null ） ） ； 
+ 姚卫新 （ 中国 纺织 大学 无锡 校区  210463 ） 
+ 参考文献 
+ １ ， Ｍ ｃ Ｍ ａ ｎ ｕ ｓ   Ｊ ． 使用 Ｖ ｉ ｓ ｕ ａ ｌ   Ｂ ａ ｓ ｉ ｃ ５ ． ０ 编程 ． 北京 ： 电子 工业 出版社 ， １ ９ ９ ８ ， １ １ ０ ～ １ ２ １ 
+ ２ ， Ｂ ｒ ｉ ｅ ｒ ｌ ｅ ｙ   Ｅ ， Ｐ ｒ ｉ ｎ ｃ ｅ   Ａ ， Ｒ ｉ ｎ ａ ｌ ｄ   Ｄ ． Ｖ ｉ ｓ ｕ ａ ｌ   Ｂ ａ ｓ ｉ ｃ ６ ． ０ 开发人员 指南 ． 北京 ： 机械 工业 出版社 ， １ ９ ９ ９ ， ４ ４ ５ ～ ４ ６ ４ 
+ ３ ， Ｓ ｉ ｌ ｅ ｒ   Ｂ ， Ｓ ｐ ｏ ｔ ｔ ｓ   Ｊ ． Ｖ ｉ ｓ ｕ ａ ｌ   Ｂ ａ ｓ ｉ ｃ ６ ． ０ 开发 使用手册 ． 北京 ： 机械 工业 出版社 ， １ ９ ９ ９ 
+ ４ ， Ｇ ｏ ｒ ｅ ｎ   Ｃ ． Ｖ ｉ ｓ ｕ ａ ｌ   Ｂ ａ ｓ ｉ ｃ 客户 ／ 服务器 开发 指南 ． 北京 ： 清华大学出版社 ， １ ９ ９ ７ 
+ ５ ， Ｇ ｕ ｒ ｅ ｗ ｉ ｃ ｈ   Ｗ ， Ｃ ｕ ｒ ｅ ｗ ｉ ｃ ｈ   Ｏ ． Ｖ ｉ ｓ ｕ ａ ｌ   Ｂ ａ ｓ ｉ ｃ ３ 从 入门 到 精通 ． 北京 ： 学苑 出版社 ， １ ９ ９ ４ 
+ ６ ， 刘炳文 ， 张坤 ． Ｖ ｉ ｓ ｕ ａ ｌ   Ｂ ａ ｓ ｉ ｃ 程序设计 — 数据库 篇 ． 北京 ： 人民邮电出版社 ， １ ９ ９ ９ 
+  收稿 日期  １ ９ ９ ９ － １ ０ － １ ８ 

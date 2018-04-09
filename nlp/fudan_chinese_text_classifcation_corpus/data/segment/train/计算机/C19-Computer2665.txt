@@ -1,0 +1,95 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年 　 第 10 卷 　 第 9 期 　 Vol.10 　 No.9 　 1999 
+ 
+ 
+ 
+ p C++ 语言 中 数据 划分算法 的 研究 与 改进 * 
+ 石威 　 方滨兴 　 胡铭 曾 
+ 摘要 　 大规模 并行计算 是 当前 该 领域 研究 的 一大 热点 . 由于 大多数 应用 问题 是 数据 并行 问题 , 所以 人们 更多地 采用 数据 并行计算 方法 来 解决 实际 问题 . 在 数据 并行计算 中 , 影响 计算速度 的 一个 重要 因素 是 数据 的 划分 状况 . 该文 针对 一种 较为 流行 的 面向对象 数据 并行 语言 — — p C++ 的 数据 划分算法 进行 了 分析 , 并 指出 了 其 不足之处 , 同时 提出 了 一种 改进 的 数据 划分算法 . 实验 表明 , 此 算法 与 原有 算法 相比 具有 明显 的 优越性 . 
+ 关键词 　 大规模 并行计算 , 数据 并行 , 面向对象 , p C++ , 数据 划分算法 . 
+ 中图法 分类号 　 TP311 
+ Research   and   Improvement   on   the   Data   Distribution   Algorithm   of   p C++   Language 
+ SHI   Wei 　 FANG   Bin - xing   HU   Ming - zeng 
+ ( Department   of   Computer   Science   and   Engineering 　 Harbin   Institute   of   Technology 　 Harbin 　 150001 ) 
+ Abstract 　 Large - scale   parallel   computing   is   a   hot   spot   of   current   research .   Because   most   of   the   scientific   calculation   is   data   parallel   calculation ,   people   would   like   to   solve   real   problems   by   means   of   data   parallelism .   As   for   data   parallel   calculation ,   one   of   the   critical   factors   that   influence   the   running   performance   is   the   status   of   data   distribution .   In   this   paper ,   the   authors   analyze   the   data   distribution   algorithm   of   a   prevalent   object - oriented   data   parallel   language — — p C++   and   point   out   the   weaknesses   of   it .   Then   they   present   an   improved   algorithm .   The   results   of   the   experiment   show   that   it   is   superior   to   the   former   algorithm . 
+ Key   words 　 Large - scale   parallel   computing ,   data   parallel ,   object - oriented ,   p C++ ,   data   distribution   algorithm . 
+ 　 　 大规模 并行计算 主要 分为 任务 并行 和 数据 并行 两类 . 本文 主要 讨论 数据 并行计算 问题 . 
+ 　 　 数据 并行计算 的 特点 是 ， 首先 对 问题 的 数据 空间 进行 划分 , 然后 根据 数据 的 不同 位置 划分 计算 空间 , 各 处理机 针对 本机 的 数据 进行 类似 的 操作 . 因此 , 提高 数据 并行 问题 解决 速度 的 关键在于 尽可能 地 均匀 划分 数据 , 以使 各 处理机 负载 均衡 . 数据 划分算法 决定 了 数据 的 划分 情况 , 因此 将 直接 影响 并行程序 的 运行 性能 . 
+ 　 　 当前 流行 的 数据 并行 语言 主要 有 HPF ［ 1 ］ , p C++ ［ 2 ］ 等 , 它们 均 支持 BLOCK , CYCLIC , WHOLE 分布 . 由于 面向对象 技术 日益 广泛 的 应用 , p C++ 等 面向对象 的 数据 并行 语言 也 得到 了 更为 广泛 的 应用 , 现在 国内外 很多 科研机构 都 在 对 其 进行 进一步 的 研究 ［ 3 ］ . 我们 对 p C++ 语言 的 数据 划分算法 进行 了 分析 , 发现 它 能 较 好 地 处理 BLOCK , CYCLIC 划分 , 但 在 处理 WHOLE 划分 时 , 却 产生 了 严重 的 负载 不 均衡 问题 . 因此 ， 我们 提出 了 一种 数据 划分算法 , 它 对 WHOLE 分布 也 能 较 好 地 进行 处理 . 
+ 　 　 本文 第 1 节 简要 介绍 了 C++ 语言 的 一种 数据 并行 扩展 — — p C++ 语言 . 第 2 节 介绍 了 其 数据 划分算法 . 第 3 节 给出 了 我们 的 数据 划分算法 . 最后 给出 了 实验 结果 . 
+ 1 　 p C++ 语言 简介 
+ 　 　 p C++ 语言 在 C++ 语言 的 基础 上 增加 了 Collection 结构 . 简单 地说 , Collection 就是 同类 并发 对象 的 集合 . 这些 并发 对象 都 是 某 一个 类 的 实例 . 一个 Collection 包含 下面 两个 重要 结构 . 
+ 　 　 . 对准 对象 （ align   object ） 
+ 　 　 对准 对象 描述 了 Collection 内部 并发 对象 的 数据结构 , 并 把 Collection 中 的 元素 映射 到 一个 由 划分 对象 定义 的 数据 模板 上 . 
+ 　 　 . 划分 对象 （ distribution   object ） 
+ 　 　 划分 对象 定义 了 一个 数据 模板 , 并 把 该 模板 以 BLOCK , CYCLIC 或 WHOLE 的 方式 划分 到 处理机 上 . 
+ 　 　 在 p C++ 语言 中 , 数据 划分算法 主要 考虑 如何 将 集合 划分 到 各 处理机 上 . p C++ 语言 支持 3 种 划分 方式 : BLOCK , CYCLIC 和 WHOLE . BLOCK 划分 是 指 根据 处理机 的 个数 将 Collection 元素 划分 成 连续 的 块 , 然后 置于 各 处理机 上 . CYCLIC 划分 是 把 Collection 内 的 元素 逐个 依次 地 放置 到 各 处理机 上 . WHOLE 划分 表示 本维 不 参与 划分 . p C++ 的 数据 划分算法 在 处理 WHOLE 划分 时会 产生 数据 划分 不 均衡 问题 . 
+ 2 　 p C++ 语言 的 数据 划分算法 
+ 　 　 我们 以 二维 Collection 为 例来 说明 p C++ 的 数据 划分算法 . 
+ 　 　 输入 :   每 一维 的 分布 方式 、 大小 及 元素 下标 
+ 　 　 输出 :   被 分配 的 处理机 号 
+ 　 　 ( 1 ) 　 p = 处理机 总数 的 平方根 ; 
+ 　 　 ( 2 ) 　 switch   ( 第 1 维 的 分布 方式 ) { 
+ 　 　 ( 3 ) 　 case   BLOCK : 
+ 　 　 ( 4 ) 　 　 　 q = 第 1 维 的 大小 / p ; 
+ 　 　 ( 5 ) 　 　 　 index1 = 元素 的 第 1 维 下标 / q ; break ; 
+ 　 　 ( 6 ) 　 case   CYCLIC : 
+ 　 　 ( 7 ) 　 　 　 index1 = 元素 的 第 1 维 下标 % p ; break ; 
+ 　 　 ( 8 ) 　 case   WHOLE : 
+ 　 　 ( 9 ) 　 　 　 index1 = 0 ; } 
+ 　 　 ( 10 ) 　 　   switch ( 第 2 维 的 分布 方式 ) { 
+ 　 　 ( 11 )   case   BLOCK : 
+ 　 　 ( 12 ) 　 　   q = 第 2 维 的 大小 / p ; 
+ 　 　 ( 13 ) 　 　   index2 = 元素 的 第 2 维 下标 / q ; break ; 
+ 　 　 ( 14 )   case   CYCLIC : 
+ 　 　 ( 15 ) 　 　   index2 = 元素 的 第 2 维 下标 % p ; break ; 
+ 　 　 ( 16 )   case   WHOLE : 
+ 　 　 ( 17 ) 　 　   index2 = 0 ; } 
+ 　 　 ( 18 )   proc = index1 + index2 * p ; 
+ 　 　 ( 19 )   return   proc . 
+ 　 　 该 算法 以 Collection 中 某 元素 的 下 标值 、 各维 的 划分 方式 以及 各维 的 大小 作为 输入 , 其 输出 为 元素 被 分配 的 处理机 号 . 
+ 　 　 下面 我们 分析 一下 该 算法 . 它 首先 产生 一个二维 逻辑 处理器 , 其 每维 的 大小 是 处理机 总数 的 平方根 . 然后 ， 根据 每 一维 的 划分 情况 , 将 元素 的 下标 i 和 j 映射 到 逻辑 处理器 上 , 生成 对应 的 二维 下标 index1 和 index2 , 最后 将 逻辑 处理机 映射 到 物理 处理机 上 ， 并 返回 该 元素 所 被 分配 的 处理机 号 proc . 
+ 　 　 对于 BLOCK 和 CYCLIC 分布 , 此 函数 较 好 地 完成 了 数据 划分 , 但 对于 WHOLE 分布 却 产生 了 严重 的 负载 不 均衡 问题 . 我们 通过 下面 的 例子 来看 一下 p C++ 数据 划分算法 的 弊病 . 
+ 　 　 假设 Collection 第 1 维是 BLOCK 分布 , 第 2 维是 WHOLE 分布 , 处理机 的 个数 为 4 , Collection 元素 的 个数 为 8 * 8 = 64 , 则 p = 2 , 第 1 维 分布 方式 为 BLOCK , 第 2 维 分布 方式 为 WHOLE , 在 处理 第 1 维 分布 时 , 由 第 3 ～ 5 行 可知 , index1 的 可能 取值 是 0 或 1 , 而 在 处理 第 2 维 分布 时 , 由 第 16 ～ 17 行 可知 , index2 的 取值 始终 为 0 . 这样 , 由 第 20 行 可知 , proc 的 值 为 0 或 1 , 即 数据 只 被 划分 到 第 0 号 和 第 1 号 处理机 上 , 而 第 2 、 3 号 处理机 上 无 数据 . 
+ 3 　 改进 的 数据 划分算法 
+ 　 　 针对 p C++ 中 数据 划分算法 的 弊病 , 我们 对 它 进行 了 改进 , 如下 所示 : 
+ 　 　 输入 :   每 一维 的 分布 方式 、 大小 及 元素 下标 
+ 　 　 输出 :   被 分配 的 处理机 号 
+ 　 　 ( 1 ) 　 p = 处理机 总数 的 平方根 ; 
+ 　 　 ( 2 ) 　 if   ( 第 1 , 2 维均 为 非 WHOLE 分布 方式 ) 
+ 　 　 ( 3 ) 　 { ∥ 处理 方式 与 p C++ 相同 } 
+ 　 　 ( 4 ) 
+ 　 　 ( 5 ) 　 if   ( 第 1 维为 非 WHOLE 分布 , 第 2 维为 WHOLE 分布 ) 
+ 　 　 ( 6 ) 　 switch   ( 第 1 维 分布 方式 ) 
+ 　 　 ( 7 ) 　 { 
+ 　 　 ( 8 ) 　 case   BLOCK ; 
+ 　 　 ( 9 ) 　 　 　 q = 第 1 维 大小 / 处理机 总数 ; 
+ 　 　 ( 10 ) 　 　   proc = 第 1 维 下标 / q ; break ; 
+ 　 　 ( 11 )   case   CYCLIC : 
+ 　 　 ( 12 ) 　 　   proc = 第 1 维 大小 % 处理机 总数 ; 
+ 　 　 ( 13 )   } 
+ 　 　 ( 14 )   if   ( 第 1 维为 WHOLE 分布 , 第 2 维为 非 WHOLE 分布 ) 
+ 　 　 ( 15 ) 　 　   { ∥ 与 上 类似 } 
+ 　 　 ( 16 )   if   ( 第 1 , 2 维均 为 WHOLE 分布 方式 ) 
+ 　 　 ( 17 )   { proc = 0 ; } 
+ 　 　 ( 18 )   return   proc . 
+ 　 　 我们 的 数据 划分算法 的 主要 思想 是 , 将 WHOLE 分布 与 BLOCK , CYCLIC 分布 方式 区分 开来 加以 处理 , 对于 BLOCK 和 CYCLIC 的 处理 与 p C++ 的 处理 方法 相同 , 而 对于 WHOLE 分布 , 我们 则 通过 降低 逻辑 处理器 的 维数 , 并且 只 利用 具有 非 WHOLE 划分 方式 的 维来 对 Collection 进行 划分 , 从而 使 物理 处理机 的 负载 均衡 . 
+ 　 　 以 二维 Collection 为例 , 我们 首先 看其 是否 具有 WHOLE 分布 , 若 没有 , 则 按照 p C++ 的 划分 方式 在 二维 逻辑 处理机 上 进行 划分 ; 否则 , 若 只有 一维 是 WHOLE 分布 , 则 将 其 在 一维 逻辑 处理器 上 分布 , 若 两维 均 为 WHOLE 分布 , 则 不 对 数据 进行 划分 . 推广 开来 , 若 Collection 的 维数 为 n , 其中 有 i 维是 WHOLE 分布 , 则 我们 将 Collection 分布 到 n - i 维 逻辑 处理器 上 , 从而 避免 了 某些 处理机 上 无 数据 的 情况 . 本文 实现 了 二维 Collection 的 数据 划分 , 对于 更 高维 的 Collection 划分 , 可以 采用 同样 的 方法 加以 实现 . 
+ 　 　 根据 我们 的 数据 划分算法 , 我们 能够 对 第 2 节中 的 例子 进行 有效 的 划分 . 由于 第 2 维是 WHOLE 分布 , 我们 将 Collection 在 一维 逻辑 处理机 上 进行 划分 , 逻辑 处理机 的 大小 为 处理机 总数 , 见 改进 算法 的 第 9 行 . 划分 是 针对 Collection 的 第 1 维 进行 的 , 第 2 维并 不 参与 划分 . 本例 中 , 逻辑 处理机 与 物理 处理机 之间 是 一一对应 的 关系 , proc 的 取值 范围 为 ［ 0 , 3 ］ . 这样 , 通过 降低 逻辑 处理机 的 维数 , 我们 将 Collection 均匀 地 划分 到 了 各个 物理 处理机 上 . 
+ 4 　 实验 结果 
+ 　 　 在 4 台 通过 以太网 联结 的 IBM - POWERPC - AIX 工作站 上 , 我们 采用 矩阵 乘 运算 来 验证 我们 的 算法 , 矩阵 的 二维 分别 采用 BLOCK 和 WHOLE 划分 . 实验 结果 如图 1 所示 . 由图 1 可见 , 随着 问题 规模 的 增大 , 我们 的 数据 划分算法 与 原有 的 p C++ 算法 相比 显示 出 更好 的 性能 , 这是 由于 p C++ 的 数据 划分算法 在 计算 规模 增大 时 加重 了 各 处理机 间 的 负载 不 平衡 , 从而 使 运行 时间 急剧 增加 . 在 数据 规模较 小时 , 网络通信 延迟 对 总 的 运行 时间 有 较大 的 影响 , 而 由 p C++ 数据 划分算法 导致 的 负载 不 平衡 使得 通信 在 较 少 的 处理机 结点 间 进行 , 减少 了 通信 产生 的 额外 开销 , 因而 使得 运行 性能 略 好 于 我们 的 算法 . 当前 数据 并行计算 的 一个 主要 特点 是 数据量 大 , 因此 ， 我们 的 数据 划分算法 能够 更好 地 支持 数据 并行计算 . 
+ 
+ 图 1 
+ 　 　 尽管 我们 提出 的 算法 是 在 p C++ 语言 中 实现 的 , 但 它 并 不受 具体 语言 的 限制 , 可以 在 各种 语言 中 加以 应用 , 因此 对于 数据 并行计算 有着 普遍 的 意义 . 
+ * 　 本文 研究 得到 国防科工委 “ 九五 ” 预研 基金 资助 . 
+ 作者简介 ： 石威 , 1973 年生 , 博士生 , 主要 研究 领域 为 并行 编译 ， 分布式 并行 编程 环境 . 
+ 　 　 　 　 　 方滨兴 , 1960 年生 , 教授 ， 博士生 导师 , 主要 研究 领域 为 并行处理 ， 高性能 计算机系统 结构 ， 计算机网络 . 
+ 　 　 　 　 　 胡铭 曾 , 1935 年生 , 教授 ， 博士生 导师 , 主要 研究 领域 为 高性能 计算机系统 结构 ， 并行处理 . 
+ 本文 通讯联系 人 ： 石威 , 哈尔滨 150001 , 哈尔滨工业大学 计算机科学 与 工程系 
+ 作者 单位 ： 哈尔滨工业大学 计算机科学 与 工程系 　 哈尔滨 　 150001 ， E - mail :   sw @ pact97a . hit . edu . cn 
+ 参考文献 ： 
+ ［ 1 ］ Koelbel   C ,   Loveman   D ,   Schreiber   R   et   al .   The   High   Performance   Fortran   Handbook .   Cambridge ,   MA :   MIT   Press ,   1994 
+ ［ 2 ］ Gannon   D ,   Yang   S   X ,   Beckman   P .   User   guide   for   a   portable   parallel   C++   programming   system :   p C++ .   Technical   Report ,   Indiana   University ,   1994 
+ ［ 3 ］ HP C++   Working   Group .   HP C++   whitepapers   and   draft   working   document .   Indiana   University ,   http :   / / www . extreme . indiana . edu / 
+ 收稿 日期 ： 1998 - 07 - 14 ， 修改 日期 ： 1998 - 11 - 10 

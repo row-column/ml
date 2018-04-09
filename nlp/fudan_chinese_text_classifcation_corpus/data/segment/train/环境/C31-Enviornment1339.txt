@@ -1,0 +1,87 @@
+环境 科学 学报 
+ ACTA   SCIENTIAE   CIRCUMSTANTIAE 
+ 1999 年 　 第 19 卷 　 第 4 期 　 Vol.19 　 No.4 　 1999 
+ 
+ 
+ 
+ 水网 藻 ( Hydrodictyon   reticulatum ) 对 富营养化 水样 中 氮磷 去除 能力 的 研究 
+ 王朝 晖 　 江天 久 　 杞 　 桑 　 骆育敏 　 齐雨藻 
+ 摘要 　 研究 了 水网 藻 在 天然 水体 水样 中 的 生长 及 对 氮磷 ( N ， P ) 的 去除 能力 ， 结果表明 水网 藻 在 富营养化 水库 水及 重 营养 化 的 湖水 水样 中均 生长 良好 ； 富营养化 水库 水 ( 含 TN   3.34 — 5.15 mg / L 、 TP   0.10 — 0.19 mg / L ) 及重 营养 化 湖水 ( 含 TN33.86 mg / L 、 TP   1.939 mg / L ) 经 水网 藻 ( 1g / L ) 处理 2d 、 4d 、 6d 后 ， 对 氨氮 ( NH4N ) 、 总氮 、 总磷 去除率 均 在 70% 以上 . 
+ 关键词 　 水网 藻 ， 氮 ， 磷 ， 富营养化 . 
+ Studies   on   nitrogen   and   phosphorus   removal   capacity   of   Hydrodictyon   reticulatum   in   eutrophic   freshwater   samples 
+ WANG   Zhaohui , JIANG   Tianjiu , QI   Sang , LUO   Yumin , QI   Yuzao   
+ ( Institute   of   Aquatic   Ecoscience , Jinan   University , Guangzhou , 510632 ) 
+ Abstract 　 The   growth   and   nitrogen ( N ) , phosphorus ( P )   uptake   of   Hydrodictyon   reticulatum   in   eutrophic   freshwater   samples   were   studied   under   experimental   conditions . Results   showed   that   Hydrodictyon   reticulatum   can   grow   well   in   eutrophic   reservior   water   samples   ( with   TN   3.34 — 5.15 mg / L , TP   0.10 — 0.19 mg / L )   and   high   eutrophic   pond   water   samples   ( with   TN   33.68 mg / L , TP   1.94 mg / L ) . The   uptake   rates   of   ammonium   ( NH4N ) , total   N ( TN )   and   total   P ( TP )   in   the   samples   were   all   over   70% , and   the   uptake   rate   of   NH4N   was   up   to   90%   after   treated   by   Hydrodictyon   reticulatum   for   2 — 6   days . It   implicated   that   Hydrodictyon   reticulatum   can   grow   well   in   natural   water   with   different   range   of   N   and   P   concentration , and   may   be   served   as   a   means   to   control   water   eutrophication . 
+ Keywords 　 Hydrodictyon   reticulatum , eutrophication , nitrogen   uptake , phosphorus   uptake . 
+ 　 　 
+ 　 　 水体 富营养化 是 水 环境 面临 的 严重 问题 之一 ， 在 经济 发达 地区 水体 富营养化 问题 尤为 严重 ， 影响 了 饮水 卫生 和 水产 养殖业 . 目前 处理 水体 富营养化 已有 多种 途径 ， 利用 水生 高等植物 净化 富营养化 水体 是 重要途径 之一 . 研究 表明 ， 凤眼莲 、 芦苇 、 菱等 对 水体 中 的 氮磷 均 有 较 强 的 富集 能力 ， 可 降低 水体 中 的 氮磷 含量 ， 减轻 富营养化 程度 ［ 1 ］ . 有关 藻类 对 污水 中 氮磷 等 营养物 的 去除 作用 的 研究 也 有 大量 报道 ［ 2 — 4 ］ . 严格来说 ， 所有 水生 单细胞 藻类 及 高等植物 ， 其 生长 过程 需 吸收 外界 营养物质 ， 因而 均 对 水体 有 一定 的 净化 作用 . 
+ 　 　 水网 藻 是 一种 大型 的 网 片状 或 网袋 状 绿藻 ， 肉眼 可见 ， 广泛 分布 于 池塘 沟渠 等 处 . 其 繁殖 能力 很强 ， 在 生长 过程 中 ， 能 吸收 大量 的 NH4N 、 NO3N 及 无机 磷 等 ［ 5 , 6 ］ ， 从而 降低 富营养化 水体 中 的 氮磷 水平 . 而且 水网 藻藻体 较大 ， 可 通过 收获 而 间接 去除 水体 中 部分 氮磷 ， 同时 水网 藻 生长 的 温度 范围 较广 ［ 7 ］ . 但 利用 常见 的 水网 藻 治理 水体 富营养化 我国 至今 尚未 见 有 报道 . 本 研究 的 目的 在于 研究 水网 藻 对 富营养化 水体 中 氮磷 的 去除 能力 ， 以 探讨 水网 藻 在 我国 热带 、 亚热带 富营养化 水体 中 生长 及 作为 水体 富营养化 防治 植物 的 可能性 ， 从而 为 富营养化 的 防治 提供 一种 新 的 生物 手段 . 
+ 
+ 1 　 材料 方法 
+ 1.1 　 藻种 收集 及 培养 
+ 　 　 试验 用 的 水网 藻于 1996 年 3 — 5 月 采自 广州市 东郊 菜地 沟渠 中 ， 分离 纯化 后 进行 单种 培养 . 将 成熟 的 水网 藻 置入 新鲜 的 培养基 中 ， 在 7 天 之内 即 会长 出小 水网 藻 ， 4 天 之后 小 水网 藻 便 可 用于 试验 . 
+ 1.2 　 培养 条件 
+ 　 　 培养 温度 为 23 ℃ ± 1 ℃ ， 光照强度 为 5000Lx , 光暗 比为 12 ∶ 12 . 试验 用 培养基 为经 改良 的 BBM 培养基 ( mBBM ) [ 8 ] ， 培养基 中 的 N 、 P 浓度 分别 设定 为 41.25 mg / L   NaNO3N , 0.69 mg / L   K2HPO4P , 2.06 mg / L   KH2PO4P ， 其余 营养元素 与 BBM 培养基 相同 . 
+ 1.3 　 试验 水样 
+ 　 　   本 试验 水样 采自 广东省 某一 水库 和 暨南大学 南湖 ， 水样 经 滤膜 抽滤后 ， 便 可 用于 试验 ， 水样 中 的 N 、 P 含量 见表 1 . 
+ 表 1 　 试验 水样 中 的 N 、 P 含量 ( mg / L ) 
+ Table   1   Content   of   nitrogen   and   phosphorus   in   the   tested   water   samples 
+ 
+ 　 水库 水样 Ⅰ 水库 水样 Ⅱ 水库 水样 Ⅲ 湖水 水样 
+ NH4 ＋ N1.954 . 072.8826 . 48 
+ TN3.345 . 154.0333 . 85 
+ TP0.120 . 110.191 . 93 
+ N ∶ P27.8346 . 8221.2117 . 54 
+ 
+ 1.4 　 试验 设计 
+ 　 　 水网 藻小 集结 体 ( 0.95 — 1.05 g ( 湿重 ) ) 置于 含有 500mL 试验 液 的 1000mL 三角瓶 中 ， 试验 连续 进行 6 天 ， 每隔 2 天 测定 水网 藻湿 重及 水样 中 N 、 P 含量 . 每个 试验 组 设有 3 个 平行 组 ， 而且 设有 不 含 水网 藻 的 空白 水样 组 . 
+ 1.5 　 生长率 计算 
+ 　 　 特定 生长率 ( μ ) 由 以下 公式 计算 ［ 9 ］ ： 
+ μ ( % / d ) = [ ln ( Wt2 / Wt1 ) ] / ( t2 - t1 ) 
+ 　 　 其中 Wt2 和 Wt1 分别 为 t2 和 t1 时 的 湿重 . 
+ 1.6 　 N 和 P 的 测定 
+ 　 　 NH4 ＋ N 、 NO3 - N 、 TN 及 TP 分别 采用 纳式 比色法 、 酚二 磺酸 比色法 、 过 硫酸钾 硝 解法 及 钼 蓝 比色法 测定 . 
+ 
+ 2 　 结果 与 讨论 
+ 2.1 　 水网 藻 在 富营养化 水库 水样 及重 富营养化 湖水 水样 中 的 生长 　 　 
+ 
+ 
+ 图 1 　 水网 藻 在 富营养化 水库 水样 中 的 生长 
+ Fig.1   Special   growth   rate   of   Hydrodictyon   reticulatum   in   entrophic   water   samples 
+ 　 　 图 1 表明 ， 水网 藻 在 富营养化 水库 水样 和 重 富营养化 湖水 水样 中均 生长 良好 ， 并且 比 在 mBBM 培养基 中 长势 更好 ［ 10 ］ . 在 水库 水样 中 水网 藻 的 最大 生长率 均达 50% / d 以上 ， 而 在 湖水 水样 中则 接近 70% / d . 其 生长 曲线 一般 呈 二项式 曲线 ， 生长率 在 接种 的 第 4 天 达到 最大值 . 作者 在 水库 现场实验 的 结果 也 表明 ， 水网 藻 在 天然 水体 中 的 最大 生长率 可达 160% / d ， 而且 能 较长时间 保持 旺盛 的 长势 . 这是 由于 天然 水体 中 含有 较为 丰富 全面 的 营养成分 ， 更加 适合 植物 生长 的 需要 . 
+ 　 　 单细胞 浮游植物 的 生长 曲线 与 细菌 相似 ， 在 接种 的 4 — 5 天 生长率 达到 最大值 ， 然后 会 出现 一个 生长率 相对 稳定 的 平稳 期 . 而本 实验所 研究 的 水网 藻 的 生长 则 无 平稳 期 阶段 ， 在 接种 后 的 第 4 天 达到 最大 生长 ， 此后 生长 迅速 下降 . Laurie ［ 9 ］ 等 研究 石 莼 ( Ulva   fenestrata ) 的 生长 时 也 发现 ， 无论是 在 高 N 高 P 、 低 N 低 P 或者 是 其它 培养基 中 ， 石 莼 在 接种 后 的 第 5 天 生长率 达到 最大 ， 而 到 第 6 天后 生长 则 迅速 下降 . 这 说明 大型 藻类 与 单细胞 浮游 藻类 也许 有 不同 的 生长 趋势 . 水网 藻 属于 绿藻 门 ( Chlorophyta ) 绿球藻 目 ( Chlorococcaceae ) ， 为 定型 群体 ， 其 唯一 的 繁殖 方式 为动 孢子 繁殖 ， 水网 藻 幼体 的 生长 只是 由于 细胞 大小 的 加大 ， 而 不是 细胞 数目 的 增加 . 接种 后 的 4 — 5 天后 ， 由于 水样 中 的 营养物 的 消耗 ， 水网 藻 的 生长 受到限制 ， 有 的 则 停止 生长 ， 转为 动 孢子 繁殖 ， 因此 在 本 实验 中 水网 藻 的 生长 在 第 4 天后 也 出现 下降 的 趋势 . 
+ 　 　 在 水库 水样 中 ， 水网 藻 在 水样 Ⅲ ( 含 4.03 mg   ( N ) / L , 0.19 mg   ( P ) / L ) 中 生长 较 好 ， 最大 生长率 达 61.3% / d . 水样 Ⅲ 中 虽然 TN 含量 不高 ( 见表 1 ) ， 但 N ∶ P 为 21.2 ， 较 适合 藻类 生长 . 而 在 水样 Ⅱ 中 ， 虽然 水样 中 TN 含量 较 高 ( 5.15 mg   ( N ) / L ) ， 但 N ∶ P 达 46.8 ， 已 大大 超出 藻类 生长 的 N ∶ P . 对 浮游植物 来说 ， N ∶ P 在 10 — 20 之间 较 适合 于 生长 ， N ∶ P 小于 10 表明 N 限制 ， 大于 20 表明 P 限制 ［ 11 ］ . 
+ 2.2 　 水网 藻 对 水样 中 N 、 P 的 吸收能力 
+ 　 　 富营养化 的 水库 水及 重 营养 化 湖水 经过 水网 藻 处理 后 ， 其 NH4 ＋ - N 含量 迅速 下降 ， 6 天内 的 去除率 均 在 80% 以上 ( 图 2 ) ， 水库 水样 中 的 NH4 ＋ - N 含量 从 原来 的 1.95 — 4.07 mg / L 均 降至 0.5 mg / L 以下 ， 湖水 水样 中 的 NH4 ＋ - N 则 由 26.48 mg / L 降至 4.21 mg / L ， 而 水样 中 NH4 ＋ - N 的 自然 消失 率 大多 在 30% 以下 . 水网 藻 对 NO3 - N 的 吸收 则 无 一定 的 规律 ， 经 水网 藻 处理 后 ， 对 NH4 \ ++ N 吸收 较 好 的 水库 水样 Ⅰ 中 NO3 - N 含量 也 较 低 . 重 营养 化 湖水 经 水网 藻 处理 后 ， NH4 ＋ - N 含量 下降 较 快 ， NO3 - N 含量 却 下降 不 多 ， 特别 是 第 4 天 ， NNH4 ＋ - N 含量 下降 较 快 ， 而 此时 NO3 - N 含量 略有 回升 ， 原因 不明 ， 有待 进一步 研究 . Tam ［ 2 ］ 在 研究 小球藻 、 栅藻 对 污水 中 N 、 P 去除 能力 时 ， 也 观察 到 了 NO3 - - N 含量 回升 的 现象 . 水网 藻 对 水样 中 TN 、 TP ( 图 2 — 图 4 ) 也 有 较 强 吸收能力 ， 6 天内 的 吸收率 均达 75% 以上 . 水库 水 经 水网 藻 处理 6 天后 ， TN 、 TP 含量 已 分别 由 3.34 — 5.15 mg / L 、 0.11 — 0.19 mg / L 降至 1.0 mg / L 、 0.04 mg / L 以下 ， 重 富营养化 湖水 中 TN 、 TP 含量 也 分别 由 33.58 mg / L 、 1.93 mg / L 降至 8.94 mg / L 和 0664mg / L . 
+ 
+ 
+ 图 2 　 水网 藻 处理 后 水库 水样 Ⅰ 、 Ⅱ 、 Ⅲ 及 湖水 水样 中 N 的 现存 量 
+ Fig.2   Residua   of   nitrogen   in   reservoir   water   sample   Ⅰ 、 Ⅱ 、 Ⅲ   and   pond   water   sample   after   treated   by   Hydrodictyon   reticulatum 
+ 
+ 
+ 图 3 　 水网 藻 处理 后 水库 水样 中 P 的 现存 量 
+ Fig.3   Residua   of   phosphorus   in   reservoir   water   samples   after   treated   by   Hytrodiotycn   reticulatum 
+ 
+ 
+ 图 4 　 水网 藻 处理 后 湖水 水样 中 P 的 现存 量 
+ Fig.4   Residua   of   phosphorus   in   pond   water   sample   after   treatment   by   Hytrodictyon   reticulatum 
+ 　 　 许多 研究 报道 了 藻类 去除 氮 的 过程 和 机理 . Matusick 发现 藻类 可 优先 利用 NH4 ＋ - N 和 其它 还原 态氮 ［ 3 ］ ， 但 不论 以 NH4 ＋ - N 还是 以 NO3 - - N 为 氮源 ， 大部分 藻类 的 最大 生长 速率 相近 ， 水网 藻 也 同样 如此 ［ 12 ］ . 本 研究 也 发现 水网 藻 在 3 组 水库 水样 中 的 生长 与 水样 中 NH4 ＋ - N 含量 无 明显 的 相关 关系 ， 仅 与 水样 的 N ∶ P 有关 ( 图 1 ) ， 水库 水样 Ⅱ 中 NH4 ＋ - N 含量 虽达 77.8% ， 但 由于 水样 的 N ∶ P 已 超出 藻类 适合 生长 的 比值 ， 因此 水网 藻 的 生长 也 不及 含 N 量 相对 较少 而 N ∶ P 较 合适 的 其余 2 组 水样 . 本 研究 结果 同时 表明 水网 藻 对 水样 中 NH4 ＋ - N 的 去除率 较大 ， 而 对 NO3 - - N 的 去除 则 相对 较 小 ， 在 处理 的 第 4 天 还 略有 回升 ( 图 2 ) . 在 NH4 ＋ - N 含量 较少 的 水库 水样 Ⅰ ( 见表 1 ) ， 由于 水网 藻 对 水样 中 NH4 ＋ - N 的 去除 量 较大 ， 处理 6 天后 NNH4 ＋ - N 含量 已降 至 0.07 mg ( N ) / L ( 图 2 ) ， 因此 水网 藻 对 水样 中 NO3 - - N 的 利用率 也 较 高 ， 6 天内 NO3 - - N 的 现存 量 下降 了 80.9% ， 这 说明 水网 藻能 优先 利用 NH4 ＋ - N 
+ 　 　 Tam ［ 2 ］ 将 小球藻 、 栅藻 分别 培养 在 污水 一级 、 二级 出 水中 ， 发现 小球藻 对 氮磷 的 去除 效果 较 好 ， 对 N 、 P 的 去除率 在 培养 的 第一周 即达 70% 以上 . 本 试验 结果 也 表明 水网 藻 在 2 天内 对 N 、 P 的 去除 量 与 6 天内 的 去除 量 相差 不 大 ， 在 4 天内 可以 去除 大部分 N 、 P . 本 试验 中重 营养 化 湖水 的 TN 含量 与 Tam [ 2 ] 试验 所用 污水 一级 处理 出水 的 TN 含量 相近 ， TP 含量 略低 ， 而 水网 藻 对 湖水 中 N 、 P 的 去除 效果 均 大于 小球藻 和栅藻 等 对 污水 的 去除 效果 . 水网 藻 ( 1g / L ( 湿重 ) ) 处理 6 天后 ， 能 将 湖水 中 的 TN 含量 由 33.85 mg / L 降至 8.94 mg / L ， TP 含量 由 1.93 mg / L 降至 0.64 mg / L ； 而 小球藻 处理 7 天后 ， 将 污水 中 的 总 无机 N 含量 由 37.58 mg / L 降至 12.0 mg / L ， 对 总 无机 P 的 去除率 也 只有 50% 左右 . 这 说明 水网 藻 对 重 富营养化 水体 的 污水 一级 、 二级 处理 出水 仍 有 较 强 的 净化 作用 . 
+ 作者 单位 ： ( 暨南大学 水 生态 科学 研究所 　 广州 　 510632 ) 
+ 参考文献 
+ 　 1 　 金相灿 ， 屠清瑛 编 . 湖泊 富营养化 调查 规范 . 北京 ： 中国 环境 科学出版社 . 1990 
+ 　 2 　 Tam   N   F   Y , Wong   Y   S , Liong   E . Algal   growth   and   nutrient   removal   in   Hong   Kong   domestic   wastewater . Environ   Pollut , 1989 , 58 : 19 — 34 
+ 　 3 　 Matusiak   K , PrzytockaJusiak   M , LeszczynskGerula   K   et   al . Studies   on   the   purification   of   wastewater   from   the   nitrogen   fertlizer   industry   by   intensive   algal   cultures . Ⅱ . Removal   of   nitrogen   from   wastewater . Acta   Microbiol   Pul , 1976 , 25 : 361 — 374 
+ 　 4 　 PrzytockaJusialk   M   Duszota   M , Matusiak   K   et   al . Intensive   culture   of   Chlorella   vulgaris / AA   as   the   second   stage   of   biological   purification   of   nitrogen   industry   wastewaters . Wat   Res , 1984 , 18 : 1 — 7 
+ 　 5 　 Stary   J , Zeman   A , Kratzer   K . The   uptake   of   ammomium   nitrite   and   nitrate   ions   by   Hydrodictyon   reticulatum . Acta . Hydrochim . Hydrobiol , 1987 , 15 ( 2 ) : 193 — 198 
+ 　 6 　 Stary   J ,   Kratzer   K ,   Zeman   A .   The   uptake   of   phosphate   ions   by   the   algae   Hydrodictyon   reticulatum . Acta   Hydrochim   Hydrobiol , 1987 , 15 ( 3 ) : 275 — 280 
+ 　 7 　 Hawes   L , Smith   R . Influence   of   environmental   factors   on   the   growth   in   culture   of   a   New   Zealand   strain   of   the   fastspreading   algae   Hydrodictyon   reticulatum ( water   net ) . J   of   Applied   Phycology , 1992 , 5 : 437 — 445 
+ 　 8   Creed   I   F , Havas   M , Trick   C   G . Effects   on   absenate   on   growth   of   nitrogenand   phosphoruslimited   Chlorella   vulgaris ( Chlorophyceae )   isolates . J   Phycol , 1990 , 26 : 641 — 650 
+ 　 9 　 Laurie   D   S , Hoffmann   J   P , Cook   P   W . Seasonal   succesion   of   algal   periphyton   from   a   wastewater   treatment   facility . J   Phycol , 1990 , 26 : 611 — 617 
+ 　 10   王朝 晖 ， 骆育敏 ， 林秋奇 等 . 环境 条件 对 水网 藻 生长 的 影响 . 应用 生态学 报 ， 1999 ， 10 ( 3 ) ： 345 — 349 
+ 　 11   Rhee   G   Y , Gotham   I   J . Optimum   N ∶ P   ratios   and   coexistence   of   plankfonic   algae . J   Phycol , 1980 , 16 : 486 — 489 
+ 　 12   Stary   J , Kratzer   K . Radiochemical   determination   of   intracelluar   ionic   concentrations   in   algal   Hydrodictyon   reticulatum . Radional   Nucl   Chem   Letters , 1986 , 103 : 187 — 198 
+ 1998 - 01 - 19 收到 原稿 
+ 1998 - 05 - 13 收到 修改稿 
+ 
+  

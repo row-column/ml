@@ -1,0 +1,105 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000 　 Vol.19 　 No.6 　 P.36 - 37 
+ 
+ 
+ 
+ 
+ 标准 数据类型 的 JAVA 容错 解析 
+ 吕海莲 
+ 摘要 ： JAVA 语言 环境 中 标准 类型 数据 的 批量 输入 及 类型 自动 判定 功能 的 设计 思想 和 程序实现 。 
+ 关键词 ： 数据类型   容错 解析   Java 语言 
+ 1     问题 的 提出 
+ 　 　 JAVA 语言 是 一种 跨平台 的 网络 编程语言 ， 它 提供 了 极其丰富 的 接口 、 类 以及 相应 的 方法 ， 使 用户 能 实现 友好 界面 和 强大 的 程序 功能 。 但是 ， 它 没有 提供 直接 处理 从 键盘 上 输入 的 基本 数据类型 的 方法 ， 只是 把 所有 的 输入 信息 作为 流 来 处理 。 所以 ， 对于 用户 从 键盘 上 提供 的 非 字符 流 信息 ， 就 需要 自己 对 输入 流 进行 恰当 的 处理 。 而 JAVA 对 数据类型 之间 的 转换 没有 提供 容错 机制 ， 即 一旦 数据格式 不符 就 会 产生 例外 而 退出 ， 因此 对于 批量 数据 的 键盘输入 来说 ， 希望 程序 具有 能够 判断 类型 不符 并 提示 重新 输入 的 容错 机制 。 针对 这种 要求 ， 本文 结合 JAVA 语言 的 编程 环境 ， 提供 了 一种 实现 这种 功能 的 程序 模型 ， 采用 流 处理 的 方式 加上 一些 处理 技巧 ， 使 程序 能够 实现 以下 功能 ： 
+ 　 　 ( 1 ) 接收 从 键盘 上 输入 的 多个 数据 行 ， 1 行中 可含 多个 基本 数据类型 。 
+ 　 　 ( 2 ) 对 数据 行 信息 进行 类型 解析 。 
+ 　 　 ( 3 ) 根据 解析 结果 ， 提供 容错 机制 ， 多余 的 数据 自动 舍去 ， 屏蔽 运行 时 例外 。 
+ 　 　 ( 4 ) 以 当前 输入 的 合法 数据 为 新 的 数据源 保存 到 一个 随机 文件 中 ， 以备 重复 运用 。 
+ 　 　 对于 不同 的 应用程序 ， 数据 行中 的 数据 个数 及其 类型 都 不 相同 ， 这里 设定 行 数据 中 包含 3 个 基本 类型 ： int   number ， String   name ， double   score 。 同时 对 数据 的 输入 做 如下 的 要求 ： 用 “ ＠ ” 字符 作为 流 结束 标志 ； 用 空格 作为 数据 间 的 分隔符 ； 字符串 必须 用 双引号 括 起来 ， 以 允许 串中 含有 空格 。 
+ 2     关键问题 的 解决 
+ 　 　 在 进行 数据 的 合法 处理过程 中 ， 需要 解决 的 关键问题 有 ： 行 数据 的 正确 接收 ； 行 数据 中 包含 的 数据 分量 及其 类型 的 判定 ； 解析 结果 与 要求 格式 的 比较 ； 正确 数据 的 文件 写入 等 。 
+ 　 　 ( 1 ) 键盘 行 数据 的 输入 和 接收 
+ 　 　 从 键盘 上 输入 的 信息 ， 系统 都 是 以 字符 流 的 形式 进行 接收 ， 程序 通过 FileDescriptor . in 在 标准 输入 流 上 建立 文件 输入 流 FileInputStream   fin ， 然后 读取 键盘 的 数据 并 写入 一个 保存 行 数据 的 辅助 I ／ O 流 文件 temp . dat ， 并 把 它 作为 类 StreamTokenizer 解析 的 对象 ， 而 正确 的 数据 行则 保存 到 一个 随机 文件 filerd . dat 中 。 同时 采用 行 序号 提示 的 方式 便于 数据 行 的 准确 录入 。 当 用户 输入 ＠ 字符 时 系统 自行 退出 。 
+ 　 　 ( 2 ) 行 数据 的 解析 
+ 　 　 类 StreamTokenizer 提供 了 强大 的 流 解析 功能 ， 它 把 输入 流 解析 为 记号 ， 并 通过 维护 一张 语法 表来 进行 解析 。 结合 程序 的 目标 及 约定 ， 用 QuoteChar （ ′ ＼ ″ ′ ） 方法 定义 双引号 为 串 引用 字符 以 辨别 字符串 ； 用 成员 变量 st . ttype 的 值 为 TT ＿ NUMBER 或者 ′ ＼ ″ ′  来 确认 数据 是 数字型 或者 串型 ； 用 系统 的 默认 记号 分隔符 空格 来 区别 不同 的 数据 ； 在 数值 类型 上 运用 强制 转换 的 方式 实现 了 类型 的 容错 处理 ； 同时 ， 结合 数据 出现 的 序号 变量值 及 状态 标志 确认 数据格式 的 合法性 。 对 格式 不符 的 数据系统 提示 重输 信息 ， 屏蔽 了 错误 数据格式 引起 的 运行 时 例外 而 导致 程序 非正常 退出 的 情况 。 
+ 　 　 ( 3 ) 正确 行 数据 的 安全 保存 
+ 　 　 用 建立 随机 文件 的 方法 达到 行 数据 的 重复性 利用 ， 类 RandomAccessFile 直接 继承 Object 并 实现 了 接口 DataInput 和 Dataoutput ， 所以 对 其 对象 可以 直接 进行 基本 类型 的 读写操作 ， 程序 中 运用 类 RandomAccessFile 提供 的 writeInt （ ） 、 writeDouble （ ） 、 writeUTF （ ） 方法 实现 数据 的 保存 ， 并 在 数据 之间 加入 了 必要 的 数据 分隔符 “ ′ ＼ t ′ ” 及行 结束符 “ ′ ＼ n ′ ” 。 同时 在 程序 中 对 所有 的 文件 都 要 进行 FileNotFoundException 和 IOException 例外 的 捕获 。 
+ 3     程序设计 主要 流程 
+ 　 　 根据 程序 的 设计 功能 目标 ， 图 1 对 程序 流程图 进行 了 简单 描述 。 
+ 
+ 图 1     程序设计 的 主要 流程 
+ 4     程序实现 
+ import   java . io . * ； 
+ public   class   Jx { 
+ public   static   void   main ( String   args [ ] ) 
+ 　 { int   numrec ＝ 1 ；     ／ ／ 行 数据 序号 
+ 　 　 　 try {   ／ ／ 定义 输入 流及 随机 文件 
+ 　 　 FileInputStream   fin ＝ new   FileInputStream ( FileDescrip － 
+ 　 　 　 tor . in ） ； 
+ 　 　 File   file ＝ new   File （ ″ filerd   dat ″ ） ； 
+ 　 　 If （ file . exists （ ） ） file . delete （ ） ； ／ ／ 重建 文件 
+ 　 　 RandomAccessFile   rfile ＝ new   RandomAccessFile （ ″ fil － 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 erd . dat ″ ， ″ rw ″ ） ； 
+ 　 　 int   data ； data ＝ fin . read （ ） ； 
+ 　 　 System . out . print （ ″ record ″ ＋ numrec ＋ ″ ： ″ ） ；       ／ ／ 正确 数据 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ／ ／ 的 行号 提示 
+ 　 　 data ＝ fin . read （ ） ； 
+ 　 　 while （ data ! ＝ ′ ＠ ′ ） 
+ 　 　 ｛ try ｛ 
+ 　 　 　 ／ ／ 定义 存放 行 数据 的 临时文件 
+ 　 　 　 FileOutputStream   temp ＝ new   FileOutputStream 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 new   File ( ″ temp . dat ″ ) ) ； 
+ 　 　 while （ data ! ′ ＼ n ′ ） 
+ 　 　 ｛ temp . write （ data ） ； data ＝ fin . read （ ） ； ｝ 
+ 　 　 temp . write （ data ） ； temp . close （ ） ； 
+ 　 　 ｝ catch （ FileNotFoundException   e ） ｝ 
+  　 ｝ catch （ IOException   e ） ｛ ｝ ； 
+ 　 　 try ｛   ／ ／ 对行 数据 进行 解析 ， 刚 建立 的 文件 作为 输入 流 
+ 　 　 FileInputStream   temp ＝ new   FileInputStream （ new   File 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 （ ″ temp . dat ″ ） ） ； 
+ 　 　 StreamTokenizer   st ＝ new   StreamTokenizer ） temp ） ； 
+ 　 　 int   ch ＝ ′ ＼ ″ ′ ； st . quoteChar （ ch ） ； ／ ／ 定义 串 分隔符 “ ″ ” 
+ 　 　 int   count ＝ 0 ；   ／ ／ 用于 辨别 数据 的 顺序 
+ 　 　 ／ ／ 存放 结果 的 变量 及 正 次序 正确 标记 
+ 　 　 boolean   flagn ＝ false ， flags ＝ false ， flagd ＝ false ； 
+ 　 　 int   nn ＝ 0 ； double   dd ＝ 0 ； String   ss ＝ new   String （ ″ ″ ） ； 
+ 　 　 while   （ st . nextToken （ ） ！ ＝ st . TT ＿ EOF ） 
+ 　 　 ｛ count ＋ ＋ ； 
+ 　 　 switch （ st . ttype ） 
+ 　 　 　 　 ｛ case   st . TT ＿ NUMBER ： if （ count ＝ ＝ 1 ） （ nn ＝ （ int ） 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 st . nval ； flagn ＝ true ； ｝ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 else   if （ count ＝ ＝ 3 ） 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ｛ dd ＝ st . nval ； flagd ＝ true ； ｝ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 break ； 
+ 　 　 　 　 case （ int ） ′ ＼ ″ ′ ： if （ count ＝ ＝ 2 ） ｛ ss ＝ st . sval ； flags ＝ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 true ； ｝ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 break ； 
+ 　 　 　 　 default  break ； 
+  　 ｝ 
+  ｝ 
+ 　 if （ count ＞ ＝ 3   ＆   flagn   ＆ ＆ flags   ＆ ＆ flagd ） ／ ／ 建立 1 个 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ／ ／ 数据 行 
+ 　 　 ｛ numrec ＋ ＋ ； 
+ 　 　 　 　 rfile . writeInt （ nn ） ；       rfile . writeChar （ ′ ＼ t ′ ） ； 
+ 　 　 　 　 rfile . writeUTF （ ss ） ；       rfile . writeChar （ ′ ＼ t ′ ） ； 
+ 　 　 　 　 rfile . writeDouble （ dd ） ；   rfile . writeChar （ ′ ＼ n ′ ） ； ｝ 
+ 　 　 else   System . out . println （ ″ error ， repeat   input ： ″ ） ； 
+ 　 　 temp . close （ ） ； 
+ 　 　 ｝ catch （ FileNotFoundException   e ） ｛ 
+ 　 　 ｝ catch （ IOException   e ） ｛ ｝ ； 
+ 　 　 System . out . print （ ″ record ″ ＋ numrec ＋ ″ ： ″ ） ； ／ ／ 接收 下 1 个 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ／ ／ 行 数据 
+ 　 　 data ＝ fin . read ( ) ； 
+ 　 　 ｝ ／ ／ 与 第 1 个 try 配对 
+ 　 　 ｝ catch （ FileNotFoundException   e ） ｛ 
+  　 ｝ catch （ IOException   e ） ｛ ｝ ； 
+  ｝ 
+  ｝ 
+ 　 　 该文 只是 针对 固定 的 数据格式 的 解析 对 其 解决 方法 进行 了 比较 详细 的 分析 ， 在 具体 的 程序设计 中 ， 会 有 多种 基本 数据类型 以及 复合 数据类型 的 需要 。 因此 ， 对于 更 复杂 的 数据类型 组合 的 解析 实现 有待 进一步 的 讨论 。 
+ 吕海莲 （ 河南 平顶山 师专 计算机系 467000 ） 
+ 参考文献 
+ 1 ， 王克宏 ． JAVA 语言 编程技术 ． 北京 ： 清华大学出版社 ， 1997 
+ 2 ， 王克宏 ． JAVA2 核心 类库 详解 ． 北京 ： 清华大学出版社 ， 1999 
+ 3 ， 美 Heller   P ， Roberts   S 著 ． 邱仲 潘译 ． JAVA2 高级 开发 指南 ．   北京 ： 电子 工业 出版社 ， 1998 
+ 4 ， 美 Walsh   A ， Fronckowiak   J ． JAVA 宝典 ． 北京 ： 电子 工业   出版社 ， 1998 
+ 收稿 日期 ： 2000 － 01 － 04 

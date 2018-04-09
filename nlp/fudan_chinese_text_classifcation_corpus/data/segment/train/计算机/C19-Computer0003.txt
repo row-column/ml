@@ -1,0 +1,127 @@
+计算机 应用 
+ COMPUTER   APPLICATIONS 
+ 1999 年   第 19 卷   第 6 期   Vol.19   No.6   1999 
+ 
+ 
+ 
+ 一种 基于 智能 Agent 的 协同工作 模型 
+ 朱晓芸 　 何钦铭 　 王申康 
+ 　 　 摘 　 要 　 计算机 支持 的 协同工作 （ CSCW ） 需要 研究 出 适应 各种 协同工作 方式 的 灵活 、 开放 、 可 扩充 的 模型 结构 。 本文 以 分布式 人工智能 研究 中 的 智能 Agent 为 系统 基本 单元 ， 提出 一种 基于 智能 Agent 的 协同工作 模型 ， 给出 了 它 的 具体 实现 。 
+ 　 　 关键词 　 计算机 支持 的 协同工作 ， 智能 Agent ， 分布式 人工智能 
+ AN   INTELLIGENT   AGENT   BASED   COLLABORATIVE   WORK   MODEL 
+ Zhu   Xiaoyun 　 He   Qinming 　 Wang   Shenkang 
+ Department   of   Computer   Science   and   Engineering ,   Zhejiang   University ,   Zhejiang . Hangzhou   310027 
+ 　 　 Abstract 　 For   computer   supported   collaborative   work ,   a   flexible ,   open   and   extendible   model   structure   which   fits   in   with   the   needs   of   various   collaborative   work   patterns   is   required .   In   this   paper ,   a   collaborative   work   model   based   on   intelligent   agent   is   presented ,   where   the   agent   is   the   basic   unit   of   the   system .   The   implementation   of   the   model   is   given   in   detail   and   an   example   is   introduced . 
+ 　 　 Keywords 　 Computer   supported   collaborative   work ,   Intelligent   agent ,   Distributed   artificial   intelligence 
+ 1 　 引言 
+ 　 　 计算机 支持 的 协同工作 （ CSCW — Computer   Supported   Collaborative   Work ） 技术 产生 于 80 年代 中期 ， 其 目的 是 研究 协同工作 的 本质 和 特征 ， 探讨 如何 利用 各种 计算机技术 设计 出 支持 协同工作 的 信息系统 。 CSCW 的 模型 或 体系结构 的 研究 始终 是 该 领域 的 核心 问题 。 
+ 　 　 人类 社会 进行 循同 工作 的 方式 多种多样 ， 但 已有 的 研究 中 提出 的 CSCW 模型 都 比较 注重 专门 的 协同工作 方式 下 系统 的 特征 ， 较 少 考虑 实际 应用 中 协同 方式 的 多样性 和 可变性 ， 这样 的 协同 模型 应用 面 较窄 ， 不能 成为 集成化 的 CSCW 的 支持 技术 。 正如 Gunnar   Teege ［ 1 ］ 所说 的 ： CSCW 的 涉及面 很广 ， 很难 设计 出 一种 涵盖 所有 协同工作 方式 的 集成 支持系统 ， 因而 作为 集成化 CSCW 的 支持 技术 ， 必须 具备 很 好 的 可扩充性 （ Extendibility ） ， 能够 比较 容易 地 支持 新 的 协同工作 方式 。 从 另 一个 角度 说 ， 作为 CSCW 的 支持 技术 （ 模型 ） ， 对 协同工作 的 方式 是 开放 的 ， 可以 根据 实际 的 需要 ， 采纳 合适 的 协同工作 方式 。 
+ 　 　 另外 ， 人类 社会 进行 协同工作 的 操作 基本 单位 是 人 ， 作为 个体 的 人 是 群体 内 进行 协同工作 的 基础 。 个体 能力 的 完善 及 高度 智能化 才 是 群体 进行 有效 的 协同工作 的 保证 。 因而 ， 在 CSCW 的 系统 模型 中 ， 有 必要 统一 和 完善 个体 的 组织 机构 ， 提高 个体 的 自 组织 和 自 适应能力 ， 使 个体 的 行为 智能化 。 结合 分布式 人工智能 研究 的 新 成果 ， 我们 采用 了 智能 Agent 为 基本 的 个体 组织 ， 来 构造 集成化 的 CSCW 系统 模型 。 
+ 2 　 基于 智能 Agent 的 CSCW 模型 
+ 　 　 基于 智能 Agent 的 CSCW 模型 ， 以 智能 Agent 为 基本 的 组织 单位 ， 通过 多个 智能 Agent 的 协同工作 来 完成 共同 的 任务 。 在 这 一 CSCW 模型 中有 两个 要 解决 的 问题 ： （ 1 ） 智能 Agent 的 组织 结构 及 工作 方式 ； （ 2 ） 多 智能   Agent 构成 的 CSCW 环境 的 组织 及 运行 方式 。 
+ 　 　 首先 ， 我们 来 定义 智能 Agent 的 组织 结构 及其 工作 方式 。 在 分布式 人工智能 ( Distributed   Artificial   Intelligence ) 领域 ， 智能 Agent 通常 是 指 在 一定 环境 下 持续 自主 运行 的 实体 。 1990 年 Yoav   Shoham 等 人 更进一步 提出 了 面向 智能 Agent 的 程序设计 方法 ( AOP ) ［ 2 ］ ［ 3 ］ 。 通常 情况 下 ， 一个 智能 Agent 应有 以下 一些 特征 ［ 4 ］ ： 
+ 　 　 ( 1 )   智能 Agent 由 知识 状态 和 知识 处理 方法 两 部分 组成 ； 
+ 　 　 ( 2 )   智能 Agent 的 知识 状态 被 分割 为 若干 一致 的 知识 单元 ； 
+ 　 　 ( 3 )   知识 单元 是 智能 Agent 自身 可以 改变 的 部分 ， 知识 处理 方法 是 其 自身 不可 改变 的 部分 ； 
+ 　 　 ( 4 )   智能 Agent 以 通信 的 方式 与 外界 环境 建立联系 。 
+ 　 　 以 分布式 人工智能 中 智能 Agent 的 研究 为 基础 ， 结合 CSCW 领域 的 研究 特征 ， 我们 认为 CSCW 环境 中 的 智能 Agent 的 组织 结构 还应 具有 如下 的 特征 ： 
+ 　 　 ( 1 )   智能   Agent 的 知识 单元 包含 两 部分 的 内容 ： 有关 协同工作 方式 的 知识 和 有关 其 自身 能力 的 知识 ； 
+ 　 　 ( 2 )   与 知识 单元 相应 的 知识 处理 方法 也 应 体现 两种 情况 ： 确定 协同工作 方式 的 协议 推理 和 反映 自身 智能 行为 的 认知 推理 ； 
+ 　 　 ( 3 )   支持 CSCW 环境 下 的 多种 媒体 信息 的 表现 能力 ， 或 称为 多媒体信息 的 表现 接口 。 
+ 　 　 以 这种 智能   Agent 构成 的 CSCW 环境 从 物理 拓扑 结构 上 呈现 网状结构 ， 也就是说 ， 在 环境 中 任意 两个 Agent 之间 都 能 直接 通信 ， 协同工作 。 但是 人类 社会 的 组织 结构 及 工作 方式 证明 ： 对 等 的 网状结构 并 不是 有效 的 管理 及 协同工作 方式 。 因此 ， 在 设计 基于 智能 Agent 的 CSCW 环境 中 ， Agent 们 根据 任务 的 不同 从而 采用 不同 的 协同工作 方式 ， 在 不同 的 协同工作 方式 下 ， Agent 们 形成 不同 的 工作 群体 。 群体 间 也 以 某种 协同 方式 进行 工作 ， 此时 群体 可以 看 作为 一种 虚拟 的 Agent ， 它 具备 智能 Agent 的 全部 功能 ， 因而 在 具体 实现 时 可以 在 群体 中 依据 任务 的 性质 及 协同 方式 选定 一个 Agent 的 作为 这个 群体 的 代表 ， 参与 群体 间 的 协同工作 。 如此 ， 整个 CSCW 环境 中 智能 Agent 的 逻辑 组织 呈现 多级 的 层次结构 。 如图 1 所示 ： 
+ 
+ 图 1 　 多 智能 Agent 构成 的 CSCW 环境 的 组织 结构 
+ 　 　 在 这样 的 CSCW 环境 中 ， 一个 大 的 任务 ， 依据 协同 方式 不同 被 分解成 多个 小 的 任务 ， 这些 小 的 任务 按照 具体情况 ， 既 可以 由 底层 的 智能 Agent 来 实现 ， 也 可以 由 多个 Agent 构成 的 Agent 群体 来 完成 。 这种 将 网状 拓扑 结构 映射 成 树状 层次结构 的 管理 方式 ， 也 正是 人类 社会 组织 管理 的 成果 。 
+ 3 　 智能 Agent 的 内部 实现 
+ 3.1 　 智能 Agent 的 体系结构 
+ 　 　 我们 设计 的 智能 Agent 的 总体 结构 如图 2 所示 ： 
+ 
+ 图 2 　 智能 Agent 的 总体 结构 及 层次性 
+ 　 　 智能 Agent 具有 统一 的 结构特征 ， 依据 内部 功能 的 不同 可以 分成 四个 层次 ： 通讯 层 、 协同 控制 层 、 自定义 层 与 表现 层 。 其中 通讯 层 由 通信 管理器 组成 ， 协同 控制 层 由 协议 推理机 与 协同 知识库 组成 ， 自定义 层 由 认知 推理机 与 能力 知识库 组成 ， 而 表现 层 通过 Agent 的 多媒体信息 表现 接口 来 实现 。 Agent 的 内部 状态 集合 是 它 的 内部 黑板 组织 ， 用于 在 Agent 的 各层次 之间 传递信息 。 这样 一个 智能 Agent 的 内部 行为表现 为 ： 通信 管理器 接受 外部环境 的 信息 （ 来自 其他 Agent 的 消息 与 请求 ） ， 由 推理 控制机 （ 含 ： 协议 推理机 和 认知 推理机 ） 根据 这些 消息 、 请求 以及 Agent 的 状态 ， 进行 分析 、 理解 、 推理 后 ， 形成 合适 的 与 其他 Agent 的 协同工作 方式 ， 进一步 地 按 此 方式 并 根据 Agent 的 自身 能力 ， 执行 相关 的 动作 ， 形成 Agent 的 新 状态 ， 由此 可能 引起 更进一步 的 Agent 推理 活动 （ 如 ： 按 协同 方式 通知 其它 Agent 的 请求 结果 ， 向 其它 Agent 发出请求 ， 等等 ） 。 必须 指明 的 是 ： 智能 Agent 的 活动 行为 不是 被动 的 ， 而是 主动 进行 的 ， Agent 的 推理 控制机 每隔 一个 时间 片 都 要 检测 通信 状态 和 自身 的 状态 ， 完成 一次 推理 活动 。 
+ 3.2 　 通信 管理 机 
+ 　 　 通信 管理器 是 整个 智能 Agent 与 外部环境 进行 信息 交互 的 接口 ， 其 组织 结构 如图 3 。 其中 ： 
+ 
+ 图 3 　 通信 管理器 的 组织 结构 
+ 　 　 .   接收器 　 接收 来自 外部环境 中 其它 Agent 的 信息 （ 通知 、 请求 等 ） ， 进行 初步 的 通信 语法 检查 后 ， 排队 到入 通信 队列 。 
+ 　 　 .   发送器 　 根据 出 通信 队列 中 的 相应 的 通信 内容 ， 将 该 信息 发 往 指定 的 外部环境 中 的 智能 Agent 。 
+ 　 　 .   群体 成员 表 　 是 智能 Agent 活动 环境 的 成员 清单 ， 它 规定 了 Agent 的 通信 活动 范围 。 环境 中 每个 能 与 Agent 进行 通信 交互 的 成员 （ 其它 的 Agent ） 都 将 登记 到 群体 成员 表中 ， 而 Agent 也 只能 与 群体 成员 表中 的 Agent 进行 通信 。 具体 结构 如下 ： 
+ 
+ Agent — TypeAgent — NameAgent — Address 
+ 
+ 　 　 其中 ： 
+ 　 　 Agent — Type 　 标明 环境 中 不同 Agent 的 种类 ， 如 ： 管理者 ， 一般 职员 等 ， 可 用于 标识 CSCW 环境 中该 Agent 所在 的 群体 。 
+ 　 　 Agent — Name 　 在 整个 CSCW 环境 中 识别 该 Agent 的 唯一 标志 。 
+ 　 　 Agent — Address 　 Agent 的 地址 ， 表示 Agent 在 CSCW 环境 中所处 的 位置 。 如 ： 在 构成 CSCW 的 网络系统 中 ， 可 采用 IP地址 或 名字 服务 地址 来 表示 Agent 的 地址 。 
+ 　 　 一个 Agent 可以 同时 加入 CSCW 环境 中 的 多个 群体 ， 因而 一个 Agent 中 可以 有 多个 群体 成员 表 。 
+ 　 　 .   出 通信 队列 与 入 通信 队列 　 出 / 入 通信 队列 是 Agent 内部 进行 通信 流量 控制 的 组织 。 为 适应 CSCW 模型 中 大量 的 多媒体 数据通信 的 要求 ， 以及 媒体 数据 在 表现 与 时空 同步 上 的 特性 ， 我们 采用 先进先出 与 信元 响应 优先级 相结合 的 处理 方法 来 处理 队列 中 的 每个 通信 单元 ， 这些 通信 单元 必须 满足 Agent 间 的 通信协议 约定   –   通信 语法 。 通信 语法 定义 了 Agent 间通信 的 三种 方式 ： 
+ INFORM   < agent >   < time >   < fact >   < priority > 
+ 　 　 通知 某个 Agent 在 某时 time 的 某个 事实 fact ， 响应 优先级 为 priority 。 
+ REQUEST   < agent >   < time >   < action >   < priority > 
+ 　 　 请求 某个 Agent 在 某时 time 执行 某个 动作 action ， 响应 优先级 为 priority 。 
+ INVOKE   < agent >   < time >   < action >   < priority > 
+ 　 　 取消 某个 Agent 在 某时 time 执行 某个 动作 action ， 响应 优先级 为 priority 。 
+ 　 　 优先级 priority 的 取值 范围 以及 每级值 的 含义 ， 可以 根据 具体 的 应用 进行 约定 。 我们 在 调度 处理 时 认为 取值 越大 优先级 越高 。 
+ 3.3 　 推理 控制机 
+ 　 　 推理 控制机 有 两 部分 ， 分别 在 协同 控制 层 和 自定义 层中 实现 ， 是 智能 Agent 进行 协同工作 和 智能化 行为 的 控制中心 ， 采用 特定 的 推理 控制算法 控制 Agent 的 层次 内部 活动 。 组织 结构 如图 4 所示 ： 
+ 
+ 图 4 　 推理 控制机 的 组织 结构 
+ 　 　 其中 ： 
+ 　 　 . 通信 生成器 　 根据 推理 控制中心 的 要求 生成 相应 的 通信 请求 单元 ， 通过 通信 管理 机 发给 环境 中 其它 的 Agent 。 
+ 　 　 . 通信 解释器 　 解释 、 分析 通信 管理 机 收到 的 外界 信息 ， 将 结果 传给 推理 控制中心 执行 。 
+ 　 　 . 推理 控制中心 　 是 Agent 活动 的 控制中心 ， 由 一种 或 多种 通用 的 推理 算法 组成 。 如 ： 数据 驱动 （ 前向 ） 、 目标 制导 （ 逆向 ） 、 双向 推理 等等 。 
+ 3.4 　 Agent 的 内部 状态 集合 
+ 　 　 内部 状态 集合 是 类似 于 黑板 结构 ， 是 智能 Agent 的 进行 内部 层次 间 信息 传递 的 中间 机构 。 其 结构 ： 
+ 
+ Status — TypeStatus — NameStatus — ValueTimestamp 
+ 
+ 　 　 其中 ： 
+ 　 　 Status — Type 　 Agent 状态 种类 ， 用以 区分 Agent 状态 的 不同 侧面 。 
+ 　 　 Status — Name 　 状态 名称 ， 唯一 表示 Agent 的 一个 状态 。 
+ 　 　 Status — Value 　 状态值 ， 反映 状态 的 当前 水平 。 
+ 　 　 Timestamp 　 状态 时标 ， 记录 状态 的 设定 时间 。 
+ 　 　 通过 定义 不同 类型 的 状态 ， 可以 表示 Agent 的 不同 状态 特征 ， 如 ： 信念 、 选择 、 承诺 等等 。 由于 状态 的 变迁 具有 时序 特征 ， 因而 在 状态栏 中 加入 时标 是 必要 的 。 
+ 3.5 　 Agent 知识库 
+ 　 　 Agent 的 知识库 既 是 指导 Agent 与 其它 群体 成员 进行 协同工作 的 核心 ， 也 是 Agent 智能 活动 行为 的 依据 ， 是 其 向 外界 承诺 的 基础 。 我们 采用 产生 式 规则 作为 知识 的 基本 表示 形式 ， 提供 对元级 知识 — 方法 的 调用 手段 。 Agent 知识库 的 定义 必须 符合 Agent 规则 语法 ： 
+ 　 　 RULE   ( ( < messages > )   ( < status > )   ( < action - list > ) ) 
+ 　 　 表示 ： 当 得到 通信 单元 messages ， 并且 满足 Agent 状态 status 时 ， 启动 并 执行 动作 列表 action - list 中 的 各项 动作 。 
+ 　 　 其中 ： 
+ 　 　 messages 　 是 符合 通信 语法 的 通信 单元 的 逻辑 组合 ， 以 AND 和 OR 连接 。 
+ 　 　 Status 　 是 Agent 的 状态 的 逻辑 组合 ， 以 AND 和 OR 连接 。 
+ 　 　 Action - list 　 是 动作 列表 ， 一个 动作 可以 是 一个 通信 单元 ， 也 可以 是 对 知识库 元 知识 — 方法 的 调用 或 对 Agent 内部 状态 集合 的 刷新 。 
+ 　 　 元 知识 调用 语法 ： 
+ 　 　 CALL   < time >   < method > 
+ 　 　 状态 集合 的 刷新 语法 ： 
+ 　 　 REFLASH   < time >   < status - type > 
+ < status - name >   < status - value > 
+ 3.6 　 Agent 的 定义 语法 
+ 　 　 通过 前面 的 描述 ， 我们 为 一个 智能 Agent 定义 下列 部件 ： 
+ 　 　 ( 1 )   Agent 的 类型 ， 名称 ； 类型 可 用于 确定 Agent 在 群体 中 的 地位 与 角色 。 
+ 　 　 ( 2 )   Agent 所在 环境 的 群体 成员 ； 一个 Agent 获得 其 所在 群体 成员 的 方法 有 两种 ： 在 生成 时先 加入 已有 的 成员 ， 其后 加入 的 成员 通过 广播 的 方式 通知 其它 Agent 。 另 一种 方法 是 所有 新 加入 的 Agent 必须 向 群体 管理者 ( 某个 Agent ) 注册 ， 群体 中 的 Agent 定期 从 管理者 处 得到 最新 的 群体 成员名单 。 一个 Agent 可以 同时 加入 多个 群体 。 
+ 　 　 ( 3 )   Agent 状态 的 各个 侧面 ； 
+ 　 　 ( 4 )   Agent 协同 能力 与 智能 能力 基础 的 知识 规则 库 （ 协同 知识 与 能力 知识 ） ， 元 知识 — 方法 库 ； 
+ 　 　 我们 对 Agent 的 语法 形式 定义 如下 ： 
+ 　 　 I — AGENT   < agent - name >   : :   < agent - type > 
+ {   
+ GROUPS   {   < group - list >   ； } 
+ STATUS   {   < status - list >   ； } 
+ COMM - KBASE   { RULE   < rule - list > ； 
+ METHOD   < method - list >   ； } 
+ SELF - KBASE   { RULE   < rule - list > ； 
+ METHOD   < method - list >   ； }   
+ } 
+ 4 　 讨论 
+ 　 　 根据 本文 提出 的 基于 智能 Agent 的 CSCW 模型 ， 利用 我校 的 校园 网络 环境 实现 了 基本 的 多 智能 Agent 系统 （ 基于 Unix 操作系统 的 进程 方式 ） ， 构造 了 原型 CSCW 的 实验 环境 ， 通过 测试表明 ： 在 我们 构造 的 CSCW 环境 中 ， 智能 Agent 具备 了 有关 网络 成员 监控 和 文件传输 的 知识 ， 表现 出对 协同 方式 的 自适应性 和 可扩展性 。 
+ 　 　 今后 工作 的 重点 之一 是 对 此类 协议 知识 的 研究 与 提炼 。 我们 认为 有关 协同工作 方式 的 协议 知识 主要 体现 在 对 任务 的 分解 上 ， 而 在 知识 表达 时 ， 则 需 从 执行者 如何 更好 地 完成 任务 的 角度 来 形成 协议 知识 。 关于 Agent 组织 结构 和 能力 知识 的 进一步 完善 与 丰富 也 是 我们 今后 工作 的 重点 。 随着 CSCW 环境 中 应用 的 扩展 ， Agent 的 智能 能力 ， 自身 的 组织 以及 两种 推理 机制 的 处理 效率 将会 面临 新 的 问题 。 尤其 ， CSCW 环境 是 多媒体 化 的 信息 环境 ， 基于 多媒体信息 的 智能 Agent 的 知识 表达 及 推理 机制 是 实现 CSCW 环境 多媒体 化 的 关键 。 
+ 注 ： 本文 受到 国家自然科学基金 的 资助 ( NO.69673031 ) 。 
+ 作者简介 ： 朱晓芸 　 博士 , 讲师 。 
+ 何钦铭 　 副教授 。 
+ 王申康 　 博士生 导师 ， 教授 。 
+ 作者 单位 ： 浙江大学 计算机科学 与 工程学系 　 浙江 . 杭州 （ 310027 ） 
+ 参考文献 
+ ［ 1 ］ 　 Gunnar   Teege .   Object - Oriented   Activity   Support :   A   Model   for   Integrated   CSCW   Systems ,   CSCW :   The   Journal   of   Collaborative   Computing ， 1996 ； 5 : 93 - 124 
+ ［ 2 ］ 　 Shoham   Y .   Agent - oriented   Programming .   Artificial   Intelligence , 1993 ； 60 : 51 - 92 
+ ［ 3 ］ 　 Thoma   B ,   Shoham   Y ,   Schwarta   A ,   Kraus   S .   Preliminary   thoughts   on   an   agent   description   language .   International   Journal   of   Intelligent   System ,   1991 ；   6 : 497 - 508 
+ ［ 4 ］ 　 王怀民 , 陈 火旺 , 高洪奎 .   面向 智能 主体 的 程序设计 .   计算机 学报 , 1994 ； 17 ( 5 ) : 367 - 375 
+ ［ 5 ］ 　 ISO   7498   Part4 .   Management   framework .   1989 
+ ［ 6 ］ 　 杨 　 枨 ， 朱晓芸 ， 俞瑞钊 . 基于 智能 Agent 的 网络管理 ， 通信 学报 ， 1998 ； ( 1 ) 
+ 收稿 日期 : 1998 - 12 - 28 

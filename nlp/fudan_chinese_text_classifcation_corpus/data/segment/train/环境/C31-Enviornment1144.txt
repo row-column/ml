@@ -1,0 +1,34 @@
+环境 科学研究 
+ RESEARCH   OF   ENVIRONMENTAL   SCIENCES 
+ 2001   Vol.14   No.1   P.4 - 8 
+ 
+ 
+ 
+ 
+ 北京 、 东京 、 筑波 大气 中 有机 污染物 组成 研究 
+ 黄业茹 　   狄一安 　   施钧慧 　   西川 雅高 　   
+ 摘 　 要 ： 用 低 流量 采样器 及 双层 采样 滤膜 ( 石英 及 固相 萃取 用 C18 膜 ) 采集 了 北京 、 东京 和 筑波 三 城市 冬季 ( 1999 年 1 月 ) 大气 颗粒物 和 大气 气相 物质 ， 3 个 城市 的 共同 特点 是 大气 气相 物质 中 含有 很 高浓度 的 苯环 数 2 ～ 4 的 多环 芳烃 及 碳数 小于 20 的 正构 烷烃 ， 大气 颗粒物 中以 5 ～ 6 个 苯环 多环 芳烃 为主 。 冬季 正构 烷烃 没有 明显 的 偶数 碳数 和 奇数 的 区别 。 但是 ， 北京 大气 气相 物质 和 颗粒物 中多环 芳烃 浓度 明显 高于 东京 和 筑波 ， 而且 各正构 烷烃 及多环 芳烃 的 浓度 分布 也 与 东京 和 筑波 的 不同 ， 表明 冬季 大气 中 有机 污染物 来源 不同 。 
+ 关键词 ： 城市 空气 ； 　 有机 污染物 ；   多环 芳烃 ；   正构 烷烃 ；   大气 颗粒物 ；   大气 气相 物质 
+ 分类号 ： X513 　 文献 标识码 ： A 
+ 文章 编号 ： 1001 - 6929 ( 2001 ) 01 - 0004 - 05 
+ PAHs   and   Normal - Alkanes   in   Urban   Air   of   Beijing , Tokyo   and   Tsukuba 
+ HUANG   Ye - ru （ Sino - Japan   Friendship   Center   for   Environmental   Protection ,   Beijing 　 100029 , 　 China ） 　 
+ DI   Yi - an （ Sino - Japan   Friendship   Center   for   Environmental   Protection ,   Beijing 　 100029 , 　 China ） 　 
+ SHI   Jun - hui （ Sino - Japan   Friendship   Center   for   Environmental   Protection ,   Beijing 　 100029 , 　 China ） 　 
+ NISHIKAWA   Masataka （ National   Institute   of   Environmental   Studies ,   Tsukuba 　 305 ，   Japan ） 　 
+ Abstract ： Low   volume   sampler   and   two   layer   filters , in   which   one   was   a   quartz   filter   and   another   C18   membrane   disk   commonly   used   for   solid   phase   extraction , were   used   to   collect   urban   air   samples   in   Beijing , Tokyo   and   Tsukuba . The   common   feature   was   that   PAHs   with   two   to   four   benzene   rings   and   alkanes   with   carbon   number   less   than   20   were   predominantly   gaseous , four   benzene   ring   PAHs   a   mixture   of   both   phase   and   five   and   six   benzene   rig   PAHs   primarily   particulate . There   was   no   significant   difference   of   odd   and   even   carbon   number . Higher   concentrations   of   PAHs   were   found   in   both   particulate   and   gas   phases   in   Beijing   samples   than   those   in   Tokyo   and   Tsukuba . Meanwhile   the   concentration   distribution   of   each   normal - alkanes   and   PAHs   in   Beijing   was   also   different   with   those   in   Tokyo   and   Tskuba . 
+ Keywords ： urban   air ;   organic   pollutants ;   polycyclic   aromatic   hydrocarbons   ( PAHs ) ;   normal   alkanes ;   particulate ;   gas   phase 
+ 作者简介 ： 黄业茹 ( 1963 - ) ， 女 ， 山东 蓬莱县 人 ， 研究员 ， 博士后 .   
+ 作者 单位 ： 黄业茹 （ 中日 友好 环境保护 中心 ，   北京 　 100029 ） 　 
+ 　 　 　 　 　 狄一安 （ 中日 友好 环境保护 中心 ，   北京 　 100029 ） 　 
+ 　 　 　 　 　 施钧慧 （ 中日 友好 环境保护 中心 ，   北京 　 100029 ） 　 
+ 　 　 　 　 　 西川 雅高 （ 日本 国立 环境 研究所 ，   筑波 　 305 ） 　 
+ 参考文献 ： 
+ ［ 1 ］ Mazurek   M   A , Dass   G   R , Simoneit   B   R   T . Interpretation   of   high - resolution   gas   chromatography   and   high - resolution   gas   chromatography / mass   spectrometry   data   acquired   from   atmospheric   organic   aerosol   samples ［ J ］ . Aerosol   Sci   Technol , 1989 , 10 : 408 ～ 420 . 
+ ［ 2 ］ Simoneit   B   R   T , Staandley   L   J , Cox   R   E . Organic   matter   of   the   troposphere - Ⅳ . Lipids   in   Harmattan   aerosols   of   Nigeria ［ J ］ . Atmos   Environ , 1988 , 22 : 983 . 
+ ［ 3 ］ Sicre   M   A , Marty   J   C , Ssaliot   A , et   al . Aliphatic   and   aromatic   hydrocarbons   in   different   sized   aerosols   over   the   Mediterranean   Sea : Occurrence   and   origin ［ J ］ . Atmos   Environ , 1987 , 21 : 2247 . 
+ ［ 4 ］ Simoneit   B   R   T , Mzirek   M   A . Organic   matter   of   the   troposphere - Ⅱ . Natural   background   of   biogenic   lipid   matter   in   aerosols   over   the   rural   western   Unite   States ［ J ］ . Atmos   Environ , 1982 , 16 : 2139 . 
+ ［ 5 ］ 田边 子 . GC / MS   に よ ゐ 浮游 粉 じ ん 中 の 多环 芳香族 炭化 水素 类及 び n - ァ ル カ ン 类 の 分析 一 超音波 抽出 溶媒 の 检讨 と 环境 试料 ヘ の 适用 ［ J ］ . 环境 化学 ， 1997 ， 7 ： 841 . 
+ ［ 6 ］ Baker   J   E , Eisenreich   S   J . Environ   Sci   Technol , 1990 , 24 : 342 . 
+ 收稿 日期 ： 2000 年 1 月 27 日 
+ 出版日期 ： 2001 年 1 月 30 日 

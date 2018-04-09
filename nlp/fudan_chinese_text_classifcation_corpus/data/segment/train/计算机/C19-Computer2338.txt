@@ -1,0 +1,123 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 　 Vol.36 　 No.7 　 P.830 - 835 
+ 
+ 
+ 
+ 新型 并行 I / O 服务 模型 : IDDIO 
+ 卢凯 　 金士尧 　 卢锡城 
+ 摘 　 要 ： 并行 I / O 服务 模型 是 将 并行 I / O 子系统 提供 的 大 物理 I / O 带宽 高效 地 转化 为 用户 实际 I / O 带宽 的 关键 . 文中 针对 DDIO 服务 模型 对 小 尺寸 I / O 访问 的 服务 性能 改善 较 小 和 通信 开销 过大 的 局限性 ， 提出 了 新 的 IDDIO 服务 模型 . IDDIO 模型 针对 并行 科学计算 应用 中 同步 请求 和 独立 请求 的 特点 采用 了 统一 的 集成式 界面 , 同时 对大 尺寸 、 小 尺寸 I / O 访问 提供 了 较 好 的 优化 ; 并 采用 打包 、 流水 等 技术 降低 了 通信 开销 , 在 一定 程度 上 消除 了 DDIO 模型 中 的 通信 瓶颈 ， 克服 了 原 DDIO 模型 仅 适合 于 大 数据量 请求 、 通信 开销 过大 等 缺陷 ， 较 DDIO 提供 了 较 高 的 有效 I / O 带宽 . 
+ 关键词 ： 并行 文件系统 ，   操作系统 
+ 分类号 ： TP316 
+ IDDIO :   A   NEW   PARALLEL   I / O   SERVICE   MODEL 
+ LU   Kai 
+ ( Department   of   Computer   Science ,   National   University   of   Defence   Technology ,   Changsha   410073 ) 
+ JIN   Shi - Yao 
+ ( Department   of   Computer   Science ,   National   University   of   Defence   Technology ,   Changsha   410073 ) 
+ LU   Xi - Cheng 
+ ( Department   of   Computer   Science ,   National   University   of   Defence   Technology ,   Changsha   410073 ) 
+ Abstract ： A   proper   parallel   I / O   service   model   plays   an   important   role   in   making   an   efficient   use   of   the   high   I / O   bandwidth   provided   by   an   I / O   subsystem .   It   is   pointed   out   in   this   paper ,   that   the   original   DDIO   makes   little   improvement   of   performance   in   the   small   size   and   fine - grained   access   mode ,   since   the   high   communication   overhead   causes   a   new   bottleneck .   Then ,   a   new   I / O   service   model — — IDDIO   is   proposed ,   which   fits   small - size   and   fine - grained   as   well   as   large - size   access .   IDDIO   combines   the   packing   and   pipelining   technology   to   reduce   the   communication   overhead .   The   simulation   shows   that   the   IDDIO   provides   a   higher   bandwidth   than   the   DDIO . 
+ Key   words ： parallel   file   system ，   operating   system ▲ 
+ 1 　 引言 
+ 　 　 大规模 并行 计算机 处理 系统 （ MPP ） 面对 科学计算 对 I / O 的 巨量 需求 ， 广泛 采用 并行 I / O 技术 . 在 硬件 上 通过 多 I / O 通道 、 并行 化 的 磁盘 服务 来 提供 高带宽 的 I / O 服务 . 在 软件 上 利用 并行 文件系统 技术 将 硬件 系统 提供 的 高带宽 转化 为 用户 的 实际 带宽 . 并行 文件系统 是 一项 正在 发展 的 技术 ， 由于 用户 的 I / O 访问 模式 差别 很大 ， 不同 应用环境 下 用户 所 能 获得 的 实际 I / O 带宽 与 系统 提供 的 差距 甚远 . 因此 ， 针对 不同 应用 研究 合适 的 I / O 服务 模型 成为 人们 研究 的 热点 . 
+ 　 　 目前 主要 有 3 种 并行 I / O 服务 模型 ： 传统 cache 模型 、 两 阶段 模型 和 DDIO 模型 ［ 1 ］ . 
+ 　 　 传统 cache 模型 中 ， I / O 请求 首先 访问 计算 节点 和 I / O 节点 的 cache ， 未 命中 再 访问 磁盘 . 由于 科学计算 I / O 请求 尺寸 一般 较大 ， cache 的 命中率 往往 较 低 ［ 2 ］ ， I / O 服务 时间 较长 . 两 阶段 模型 将 I / O 服务 过程 分为 两个 阶段 ： I / O 节点 的 顺序 I / O 阶段 和 计算 节点 间 的 数据 重 分布 阶段 . 两 阶段 模型 较 好 地 利用 了 磁盘 顺序 访问速度 快 的 特性 获得 了 较大 的 磁盘 带宽 ， 但 浪费 了 宝贵 的 计算 节点 内存 ， 并且 在 数据 重 分布 阶段 易 产生 信息 阻塞 . 　 　 
+ 　 　 Kotz 针对 SPMD 编程 模式 中 I / O 的 同步性 提出 了 DDIO 服务 模型 以及 相应 的 界面 ［ 1 ］ . DDIO 利用 同步 I / O 请求 尺寸 大 的 特点 ， 根据 数据 在 磁盘 上 的 物理 分布 调度 请求 ， 获得 了 较 高 的 磁盘 带宽 . 目前 ， DDIO 是 一种 较 好 的 服务 模型 . PANDA ［ 3 ］ ， Galley ［ 4 ］ 等 并行 文件系统 都 采用 了 该 模型 .   但 DDIO 依然 有 许多 局限 ， 主要 体现 在 ： 
+ 　 　 ( 1 )   DDIO 模型 仅 对 大 尺寸 访问 提供 了 大 带宽 服务 ， 但 对 小 尺寸 访问 的 延迟 特性 改善 不大 . 减少 应用 执行 时间 是 根本 目的 ， 低 延迟 、 大 带宽 是 我们 要 兼顾 的 两个 目标 ； 
+ 　 　 ( 2 )   DDIO 及其 界面 不 提供 对 不同 文件 不同 访问 模式 的 优化 . DDIO 仅 支持 SPMD 编程 方式 ， 无法 支持 MPMD 方式 ； 
+ 　 　 ( 3 )   DDIO 产生 的 消息 量 较大 . 目前 磁盘 性能 有 了 很大 提高 ， 磁盘 速度 与 互联网 性能 已 相近 . 如果 处理不当 二者 的 关系 ， 网络通信 将 很 可能 成为 新 的 瓶颈 ［ 5 ］ . 
+ 　 　 针对 DDIO 的 局限 ， 我们 提出 了 一种 新型 的 并行 I / O 服务 模型 — — 集成式 DDIO （ IDDIO ） .   IDDIO 兼顾 了 I / O 请求 对 带宽 和 延迟 的 要求 ， 并 大大减少 了 消息 量 ， 降低 了 通信 开销 ， 使 通信 和 磁盘 访问 开销 相互 覆盖 ， 从而 减少 了 整体 I / O 执行 时间 . 
+ 2 　 DDIO 原理 
+ 　 　 Kotz 基于 SPMD 的 集束 式 I / O 请求 （ Collective - I / O ） 提出 了 DDIO 服务 模型 以及 相关 界面 ［ 1 ］ . DDIO 模型 的 核心思想 是 利用 集束 式 I / O （ CIO ） 请求 界面 提供 的 丰富 信息 ， 根据 数据 在 磁盘 上 的 物理 分布 调度 I / O 请求 ， 优化 服务 顺序 ， 从而 改善 磁盘 I / O 性能 . 
+ 　 　 DDIO 的 服务 模型 如图 1 所示 . MPP 的 处理 节点 可 按 功能 分为 处理 节点 （ PN ） 和 I / O 节点 （ ION ） . PN 方 和 ION 方 分别 有 一个 主 PN 和 主 ION . 一次 CIO 是 由主 PN 发起 的 . DDIO 的 一次 CIO 服务 过程 分为 3 个 阶段 ： 建立 阶段 、 磁盘 服务 阶段 和 结束 阶段 . 在 建立 阶段 ， 主 PN 和 主 ION 以及 PN 间 、 ION 间 有 多次 多 对 多 广播 通信 . 第 2 阶段 是 磁盘 服务 阶段 . 各 PN 将 请求 广播 至 所有 ION ， 各 ION 再 根据 数据 的 磁盘 分布 调度 I / O 请求 . 显而易见 ， 当 节点 较多时 ， 消息 量会 大大增加 . 由于 一次 CIO 请求 的 数据量 往往 较大 ， 为 防止 大 数据量 请求 时 cache 失效 的 开销 ， DDIO 在 ION 方无 cache .   DDIO 采用 了 双 缓冲区 机制 ， 当 一块 缓冲区 用于 磁盘操作 时 ， 另 一块 缓冲区 可 并行 地 进行 网络 传输 . 当 磁盘操作 时间 大于 网络 传输 时间 时 ， 网络 传输 开销 被 磁盘 I / O 所 掩盖 . 在 结束 阶段 ， 主 ION 节点 通知 各 ION 和 PN 节点 退出 本次 CIO 操作 . 此时 同样 存在 大量 的 广播 通信 . 
+ 
+ 　 　 　 
+ 图 1 　 DDIO 模型 结构 
+ 　 　 DDIO 的 CIO 界面 是 基于 SPMD 方式 的 ， 因此 无法 满足 对 不同 文件 不同 方式 的 访问 . 
+ 　 　 从 DDIO 工作 过程 可以 看出 DDIO 充分利用 了 互联网 与 磁盘 间 传输速率 的 差距 ， 以 通信 开销 换取 磁盘 开销 ， 获得 了 较 好 的 I / O 性能 . 
+ 　 　 DDIO 模型 对大 数据量 请求 提供 了 较 高 的 有效 带宽 ， 但 由于 无 cache ， 对 小 尺寸 I / O 请求 的 优化 效果 不佳 ， 尤其 是 不能 对 延迟 敏感 的 独立 I / O 请求 提供 低 延迟 的 服务 . 
+ 　 　 DDIO 模型 的 控制 信息 通信量 较大 ， 在 请求 建立 和 结束 阶段 都 有 大量 的 广播 型 短消息 . 当 数据 在 PN 节点 以 细粒度 方式 间隔 分布 时 ， DDIO 将 分别 发送 每个 PN 的 数据 . 近年来 磁盘 技术 发展 迅猛 ， 磁盘 的 访问速度 已 与 互联网 的 有效 带宽 接近 ( 例如 ST34520W 磁盘 顺序 读取 8K 数据 的 时间 约 0.9 ms ； 而 MPI 通信 库 的 通信 建立 时间 为 0.05 ms ， 峰值 带宽 为 800MB ) . 大量 的 消息 将 使 网络通信 很 可能 成为 新 的 瓶颈 . 在 对 PANDA 并行 文件系统 进行 性能 评价 时 已 暴露出 该 问题 ［ 5 ］ . 
+ 3 　 集成式 DDIO ( IDDIO ) 模型 
+ 　 　 针对 DDIO 的 局限性 ， 我们 提出 了 一种 新型 并行 I / O 服务 模型 ： 集成式 DDIO 模型 （ IDDIO ） . IDDIO 模型 的 用户界面 和 模型 结构 同时 提供 了 对 大 尺寸 和 小 尺寸 两类 I / O 请求 的 优化 ， 并 支持 对 不同 文件 和 不同 I / O 方式 的 CIO 请求 ； 减少 了 建立 和 结束 阶段 的 消息 量 ， 并 通过 打包 、 流水 等 机制 减少 消息 量 ， 隐蔽 通信 开销 ， 获得 了 较 高 的 整体 性能 . 
+ 3.1 　 IDDIO 模型 结构 
+ 　 　 通过 分析 并行 科学计算 应用 的 I / O 模式 ， 我们 发现 I / O 请求 可 分为 两类 ： 同步 I / O 请求 和 独立 I / O 请求 ［ 6 ］ . 同步 I / O 请求 的 数据量 大 ， 易于 通过 磁盘 调度 获得 较大 的 I / O 带宽 ； 独立 I / O 请求 的 数据量 小 ， 对 延迟 敏感 . 针对 此 特性 ， IDDIO 扩展 了 DDIO   的 CIO 界面 和 服务 功能 . IDDIO 服务 模型 结构 如图 2 所示 . 
+ 
+ 　 　 　 
+ 图 2 　 IDDIO 模型 结构 
+ 　 　 IDDIO 模型 由 PN 节点 、 ION 节点 和 Master 节点 构成 . PN 节点 运行 有 客户 方 接口 库 ，   提供 了 用户 访问 并行 文件系统 的 接口 . IDDIO 的 用户界面 同时 支持 SPMD 和 MPMD 的 编程 方式 ： IDDIO 通过 group ( ) 操作 允许 用户 根据 需求 自行 组织 同步 I / O 组 ， 持有 相同 组 标识 的 I / O 请求 将 视为 同组 请求 同步 处理 ， 因此 可 实现 对 不同 文件 的 同步 I / O 请求 的 成组 处理 . ION 方 具体 执行 请求 的 调度 和 数据 访问 . IDDIO 模型 的 核心 为 Master 节点 ， 该 节点 主要 实现 对 同步 I / O 请求 的 同步 和 对 独立 I / O 请求 的 低 延迟 服务 . 并且 并行 文件系统 的 名字 服务器 也 可 位于 该 节点 ， 提供 统一 的 目录 树结构 . 
+ 3.2 　 IDDIO 的 处理过程 
+ 　 　 IDDIO 模型 根据 同步 、 独立 等 不同 请求 类型 分别 处理 ， 其 处理过程 简述 如下 ： 
+ 　 　 ( 1 )   对 同步 I / O 请求 ， 各个 PN 将 请求 直接 发往 Master 节点 ， 由 Master 节点 负责 同步 .   Master 节点 在 检测 到 同组 PN 请求 全部 到达 后 将 各 PN 的 请求 合成 一个 数据包 广播 给 所有 ION .   IDDIO 利用 消息 打包 技术 避免 了 DDIO 中 的 多 对 多 广播 ， 减少 了 网络通信 量 ， 并且 有 良好 的 扩展性 . ION 节点 根据 数据 的 物理 分布 调度 请求 ， 并 将 数据 直接 返回 相应 PN . 由于 同步 请求 的 数据量 一般 较大 ， 文件 cache 难以获得 较大 的 命中率 ， IDDIO 在 ION 上 同样 未 使用 cache ； 
+ 　 　 ( 2 )   对 独立 I / O 请求 ， PN 也 将 请求 直接 发往 Master 节点 . 在 Master 节点 处 设置 有 较大 的 cache . 由于 科学计算 应用 中 文件 访问 有 明显 的 规律性 ， 我们 设计 了 “ 适度 贪婪 的 cache 预取 、 淘汰 一体化 算法 ” ， 获得 了 较 高 的 cache 命中率 ， 服务 延迟 较 低 .   cache 数据 的 读写 也 采用 与 同步 请求 相同 的 实现 方式 . IDDIO 的 Master 节点 仅 负责 同步 、 传输 请求 和 服务 小 尺寸 的 独立 I / O 请求 ， 因此 不会 成为 瓶颈 . 并且 该 集中式 结构 可 提供 DDIO 模型 所 无法 提供 的 共享 访问 方式 ， 即 各个 节点 通过 共享 文件 指针 访问 文件 ， 很 好 地 支持 了 各 PN 节点 间 的 动态 负载平衡 . 而 在 DDIO 模型 中 ， PN 节点 的 数据 仅能 静态 分配 . 
+ 　 　 当 数据 在 PN 间 以 细粒度 方式 不 连续 间隔 分布 时 ， DDIO 将 产生 多个 消息 分别 发送 . 此时 DDIO 的 双 缓冲区 机制 将 无法 掩盖 通信 开销 （ 例如 8K 的 数据 在 PN 处 按 16B 间隔 分布 ， 产生 的 消息 量 为 512 个 ， 通信 开销 为 25.64 ms ， 而 磁盘 顺序 读取 8K 数据 仅 需 0.9 ms ） ， 通信 将 严重 成为 瓶颈 . IDDIO 采用 了 先 将 分散 数据 打包 后 再 发送 的 块 服务 方式 （ block _ mode ） . BM 方式 将 属于 同一 PN 的 数据 打包 后 再 发送 ， 大大减少 了 消息 量 ， 降低 了 通信 开销 . 
+ 　 　 采用 BM 方式 虽然 大大减少 了 消息 量 ， 但 其 打包 、 传输 、 解包 时间 过长 ， 通信 仍为 主要矛盾 . IDDIO 又 进一步 采用 了 流水 技术 ： 根据 数据分布 方式 将 PN   节点 分为 若干组 ， 各组 先后 进入 I / O 请求 的 磁盘 服务 、 数据 打包 、 传输 、 解包 等 流水 站 ， 各站 间 并发 执行 ， 进一步 掩盖 通信 、 磁盘 开销 ， 整体 上 减少 了 I / O 服务 时间 . 在 流水 服务 方式 ( pipeline _ mode ) 中 ， ION 节点 有 3 块 缓冲区 ， 分别 用于 同时 接收 磁盘 数据 、 打包 和 网络 传输 . PN 节点 同样 存在 两块 缓冲区 ， 分别 用于 同时 接收 网络 数据 和解 包 . 采用 PM 方式 后 ， IDDIO 的 磁盘 I / O 、 通信 负载 均衡 ， 基本上 消除 了 通信 瓶颈 ， 获得 了 较 高 的 I / O 性能 . 
+ 　 　 IDDIO 服务 模型 有机 地集 BM 和 PM 服务 方式 为 一体 ， 获得 了 整体性 优化 ， 有效 地 减少 了 I / O 访问 的 服务 时间 . 
+ 4 　 性能 评价 模型 
+ 　 　 我们 分别 针对 DDIO 和 IDDIO 模型 中 的 BM 和 PM 服务 方式 的 服务 时间 进行 了 建模 和 模拟 测试 . 
+ 　 　 设 T ( i , j ) 表示 i 个 节点 向 j 个 节点 广播 的 时间 . Ti _ j _ k 则 表示 i 类 节点 向 j 类 节点 发送 k 类 消息 的 时间 （ 例如 Tpn _ ion _ req 表示 PN 节点 向 ION 节点 发送 请求 的 时间 ） .   S 为 数据 的 间隔 分布 尺寸 ， B 为 PN 和 ION 上 的 缓冲区 大小 ， 故 DDIO 中 一块 缓冲区 数据 产生 的 消息 数 Nmsg ＝ B / S .   Taccess 为 磁盘 的 寻道 时间 ， 其 数据 访问 带宽 为 Bdisk .   MPI 通信 库 的 通信 建立 延迟 为 Tdelay ， 其 传输 带宽 为 Bnet .   BLOCK 为 一个 I / O 请求 所 读取 的 数据 块数 . 
+ 　 　 DDIO 服务 模型 的 I / O 服务 时间 由 建立 时间 、 执行 时间 和 结束 时间 组成 ， 如式 ( 1 ) 所示 .   执行 时间 由 请求 的 发送 时间 和 磁盘 访问 时间 TIO 组成 ， 当 磁盘 的 访问 开销 大于 通信 时 ， DDIO 的 I / O 执行 时间 TIO 表现 为 TIO _ disk ， 如式 ( 2 ) 所示 .   当 通信 开销 大于 磁盘 访问 时间 时 ， 磁盘 访问 将 被 通信 所 掩盖 ， 故其 I / O 执行 时间 为 TIO - network ， 如式 ( 3 ) 所示 . 
+ TDDIO = Tsetupt + Texec + Tend 
+ Tsetup = Twait + Tpn ＿ ion ＿ req ( 1 ， 1 ) + Tion ＿ ion ＿ req ( 1 , m ) ( 1 ) 
+ Texec = Tpn ＿ ion ＿ req ( n , m ) + TIO 
+ Tend = Tion ＿ pn ＿ quit ( 1 , 1 ) + Tpn ＿ pn ＿ quit ( 1 , n ) 
+ TIO ＿ disk = ( Taccess + B / Bdisk ) × BLOCK + ( Tdelay + S / Bnet ) × B / S ( 2 ) 
+ TIO ＿ network = ( Taccess + B / Bdisk ) + ( Tdelay + S / Bnet ) × BLOCK × B / S ( 3 ) 
+ 
+ 　 　 IDDIO 中 同步 请求 在 Master 节点 处 汇集 ， 当 所有 同组 人 到达 后 进入 执行 阶段 . 因此 IDDIO 的 建立 阶段 仅 有 先到 者 的 等待 开销 ， 无 任何 PN 和 ION 间 的 通信 过程 ， 如式 ( 4 ) 所示 .   IDDIO 的 同步 请求 服务 时间 Texec ＿ IDDIO ＿ CIO 为式 ( 5 ) ， 其 一对 多 的 请求 传输 开销 大大 小于 DDIO 的 多 对 多 传输 开销 . IDDIO 的 独立 请求 服务 时间 Texec ＿ IDDIO ＿ independent 为式 ( 6 ) ， Tcache 为 cache 命中 时 的 服务 时间 ， Tdisk 为 未 命中 时 的 磁盘 访问 时间 . 当 cache 命中率 P 较 高时 ， 独立 请求 的 平均 总体 服务 延迟 相当 短 . 
+ Tsetup ＿ IDDIO = Twait ( 4 ) 
+ Texec ＿ IDDIO ＿ CIO = Tpn ＿ ion ＿ req ( 1 , m ) + TIO ＿ disk ( 5 ) 
+ Texec ＿ IDDIO ＿ independent = Tpn ＿ ion ＿ req ( 1 , 1 ) + Tcache × p + Tdisk × ( 1 - p ) + Tmaster ＿ pn ＿ data ( 6 ) 
+ 
+ 　 　 IDDIO 的 BM 方式 将 属于 同一 PN 的 分散 数据 打包 后 再 发送 减少 了 消息 数量 ( N ′ msg < Nmsg ) ， 但 增加 了 数据 的 打包 时间 Tpack 和解 包 时间 Tunpack ， 其 执行 时间 为式 ( 7 ) . 式 ( 7 ) 中 的 消息 量 N ′ msg 最大 为 参加 I / O 的 PN 节点 数 . 
+ TIOI _ DDIO _ BM = ( Taccess + B / Bdisk ) + ( Tpack + Tion _ pn _ data + Tunpack ) × N ′ msg × BLOCK 　 　 ( 7 ) 
+ 　 　 IDDIO 的 PM 方式 时间 为式 ( 8 ) . PN 节点 分为 若干 I / O 组 先后 进入 流水线 ， PM 方式 将 属于 同一 PN 节点 的 数据 打包 发送至 PN 处 再 解包 .   由于 采用 了 磁盘 服务 、 数据 打包 、 互联网 传输 、 解包 等 4 站 流水线 ， 并且 节点 组 的 划分 减少 了 一次 服务 的 PN 数 ， 减少 了 通信 开销 . 虽然 在 一定 程度 上 降低 了 磁盘 的 服务 带宽 ， 但 通过 减少 通信 开销 ， 基本上 平衡 了 磁盘 和 通信 负载 ， 减少 了 I / O 请求 的 整体 服务 时间 . 式 ( 8 ) 中 的 max (   ) 表示 流水 站 中 磁盘 服务 时间 Tdisk _ io 、 打包 时间 Tpack 、 数据传输 时间 Tion _ pn _ data 和解 包 时间 Tunpack 中 最长 的 站点 时间 开销 ， 它 是 流水线 中 的 瓶颈 部分 . 
+ TIO _ IDDIO _ PM = ( Taccess + B / Bdisk ) + Tpack + Tion _ pn _ data × N ″ msg + Tunpack + 
+ max ( Tdisk _ io , Tpack ， Tion _ pn _ data × B ″ msg ， Tunpack ) × BLOCK 　 　 　 ( 8 ) 
+ 5 　 性能 模拟 
+ 　 　 通过 在 国产 某型 巨型机 环境 下 对 IDDIO 和 DDIO 的 性能 测试 ， 表明 IDDIO 较 DDIO 提供 了 较 高 的 I / O 服务 性能 . 测试 环境参数 如表 1 所示 . 
+ 表 1 　 测试 环境参数 
+ 
+ 　 　 PN 数目 　 　 128 　 　 ION   数目 　 　 16 
+ CPUAlpha21164 , RISC 磁盘 型号 ST34520W 
+ 内存 拷贝 带宽 100MB / s 转速 7200RPM   
+ MPI   建立 延迟 52us 尺寸 / 块 512Byte 
+ 互联网 传输 带宽 800MB 平均 寻 道 时间 7.4 ms 
+ 路由 方式 Wormhole 磁盘 容量 4.3 G 
+ IDDIO 文件 块 尺寸 8KB / 块 磁盘 数 / 节点 4 个 / 节点 
+ 
+ 
+ 　 　 IDDIO 方式 减少 了 建立 阶段 和 消息 广播 的 消息 数目 ， 防止 了 网络 拥塞 ， 减少 了 同步 式 I / O 请求 服务 的 系统 开销 （ 包括 建立 时间 和 请求 发送 时间 ） . 图 3 显示 了 在 PN 和 ION 比 ( P / I ) 分别 为 4 、 8 时 不同 ION 节点 数下 IDDIO 和 DDIO 模型 的 系统 开销 时间 . 从图 3 可见 ， IDDIO 的 系统 开销 远远 小于 DDIO . 当 用户 访问 尺寸 较 小时 ， IDDIO 可 提供 较 短 的 服务 延迟 . 
+ 
+ 　 　 　 　 
+ 图 3 　 IDDIO 和 DDIO   系统 时间 ( ms ) 开销 对比 
+ 　 　 图 4 显示 了 IDDIO 的 BM 方式 和 DDIO 在 服务 64MB 读 请求 的 I / O 带宽 对比 图 . 用户 数据 按 16B 循环 分布 于 各个 PN 上 ； 逻辑文件 块 尺寸 为 8KB ， 循环 分布 于 各 ION .   由于 不 连续 数据 多 ， BM 方式 的 打包 机制 大大减少 了 消息 数 ， 降低 了 通信 开销 . 
+ 
+ 　 　 　 　 
+ 图 4 　 IDDIO _ BM 方式 和 DDIO 的 I / O 带宽 ( MB / s ) 对比 
+ 　 　 在 BM 方式 中 ， 通信 时间 虽然 大大减少 ， 但 仍 为 瓶颈 . 在 改进 的 PM 方式 中 ， 通过 划分 流水 组 减少 了 一次 I / O 数据 所 覆盖 的 节点 数 ， 增加 流水 站点 平衡 了 磁盘 和 通信 负载 ， 提高 了 服务 性能 . 图 5 显示 了 PM 方式 中 P / N ＝ 8 时 不同 工作组 数目 时 的 I / O 带宽 对比 图 . 
+ 　 　 在 PM 方式 下 ， 当 节点 数较 少时 ， 增加 组数 不但 不能 提高 I / O 服务 带宽 ， 反而 因为 减少 了 磁盘 调度 的 信息量 ， 增加 了 磁盘 寻 道 时间 ， 降低 了 整体 性能 . 随着 节点 数 的 增加 ， 加大 组数 可以 有效 地 降低 通信 开销 ， 实现 各 流水 站点 间 的 覆盖 ， 提高 I / O 带宽 . 但 组数 过 大 ， 同样 因 磁盘 调度 信息 的 减少 而 导致 I / O 带宽 的 降低 . 通过 测试表明 ， 一般 情况 下 6 至 8 个 工作组 能 带来 较大 的 I / O 带宽 . 
+ 
+ 
+ 图 5 　 IDDIO 的 PM 不同 工作组 数时 的 I / O 带宽 ( MB / s ) 
+ 　 　 图 6 显示 了 IDDIO 的 BM ， PM 方式 和 DDIO 在 128 个 PN 和 16 个 ION 下 不同 数据 间隔 尺寸 时 的 性能 对比 . 随着 数据 间隔 尺寸 增大 ， DDIO 的 消息 量减少 ， I / O 带宽 迅速 增大 . 而 IDDIO _ BM 由于 消息 量 的 减少 ， 打包 所 带来 的 好处 迅速 消失 ， 并且 由于 打包 、 解包 开销 ， 性能 较 DDIO 反而 略有 所 降低 . 而 IDDIOPM 方式 因为 采用 流水 技术 ， 通过 调节 合适 的 分组 ， 其 有效 I / O 带宽 受 间隔 尺寸 影响 较 小 ， 总体 性能 远高于 DDIO 模型 . 从图 6 可以 看出 ， 随着 间隔 尺寸 的 增大 ， IDDIO 和 DDIO 的 性能 将 趋近 . 
+ 
+ 
+ 图 6 　 IDDIO _ BM ， PM 方式 和 DDIO 在 不同 请求 尺寸 下 的 带宽 ( MB / s ) 对比 图 
+ 6 　 结语 
+ 　 　 IDDIO 模型 集 BM 和 PM 为 一体 ， 可 同时 针对 同步 I / O 请求 和 独立 I / O 请求 提供 低 延迟 的 I / O 访问 ； 对于 DDIO 中 消息 量 多 的 缺陷 ， 通过 BM 和 PM 方式 合并 多个 小 消息 ， 并 采用 了 分割 瓶颈 段 的 流水 技术 ， 平衡 了 负载 ， 大大提高 了 I / O 服务 带宽 . 并且 ， 随着 数据 间隔 尺寸 的 增大 、 消息 数 的 减少 ， 性能 并未 降低 . 因此 IDDIO 是 一种 在 当前 磁盘 和 高速 互联网 性能 条件 下 一种 有效 的 并行 I / O 服务 模型 . ■ 
+ 作者简介 ： 卢凯 ， 男 ， 1973 年 7 月生 ，   博士 研究生 ， 主要 研究 方向 为 大规模 分布 与 并行处理 技 　 　 　 　 　 　 术 . 
+ 　 　 　 　 　 金士尧 ， 男 ， 1936 年 6 月生 ， 博士生 导师 ， 教授 ， 主要 研究 方向 为 大规模 分布 与 并 　 　 　 　 　 　 行 处理 . 
+ 　 　 　 　 　 卢锡城 ， 男 ， 1946 年 11 月生 ， 博士生 导师 ， 教授 ， 主要 研究 方向 为 大规模 分布 与 并 　 　 　 　 　 　 行 处理 . 
+ 作者 单位 ： 卢凯 ( 国防科学技术大学 计算机科学 系 　 长沙 　 410073 ） 
+ 　 　 　 　 　 金士尧 ( 国防科学技术大学 计算机科学 系 　 长沙 　 410073 ） 
+ 　 　 　 　 　 卢锡城 ( 国防科学技术大学 计算机科学 系 　 长沙 　 410073 ） 
+ 参考文献 ： 
+ ［ 1 ］ Kotz   D .   Disk - directed   I / O   for   MIMD   multiprocessors .   In :   Proc   of   1994   Symp   on   Operating   System   Design   and   Implementation ,   1994 .   61 ～ 74 
+ ［ 2 ］ Kotz   D ,   Nieuwejaar   N .   Dynamic   file - access   characteristics   of   a   production   parallel   scientific   workload .   In :   Proc   of   Supercomputing   ' 94 ,   1994 .   640 ～ 649 
+ ［ 3 ］ Seamons   K   E .   Server - directed   collective   I / O   in   Panda .   http : / / bunny . cs . uiuc . edu / CDR / panda . html 
+ ［ 4 ］ Nieuwejaar   N .   Galley :   A   new   parallel   file   system   for   scientific   workloads .   ftp : / /   ftp . cs .   dartmouth .   edu   / TR / TR ～ 300 . ps . Z 
+ ［ 5 ］ Chen   Y .   Performance   modeling   for   the   Panda   array   I / O   library .   http : / / www . supercomp . org /   sc96 / proceedings   / SC98PROC   / YING   / INDEX .   HTM 
+ ［ 6 ］ 卢凯 .   面向 小 尺寸 独立 请求 的 服务 模型 — — EDDIO .   计算机 体系结构 年会 ,   1997 .   34 ～ 41 
+ 　 　 　 ( Lu   Kai .   EDDIO :   A   server   model   facing   the   small   size   independent   access .   Annual   Meeting   of   Computer   Structures   ( in   Chinese ) ,   1997 .   34 ～ 41 ) 
+ 收稿 日期 ： 1998 - 09 - 14 
+ 修稿 日期 ： 1998 - 09 - 14 

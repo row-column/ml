@@ -1,0 +1,77 @@
+自动化 学报 
+ ACTA   AUTOMATICA   SINICA 
+ 1999 年 　 第 25 卷 　 第 5 期 　 Vol.25   No.5   1999 
+ 
+ 
+ 
+ 一种 新 的 线性规划 问题 的 神经网络 解法 
+ 田大钢 　 费 　 奇 
+ 关键词 　 线性规划 ， 神经网络 ， 熵 障碍 对偶 法 . 
+ NEW   ALGORITHM   FOR   LINEAR   PROGRAMMING   WITH   NEURAL   NETWORKS 
+ TIAN   Dagang 　 　 FEI   Qi 
+ ( Institute   of   System   Engineering ,   Huazhong   University   of   Science   and   Technology ,   Wuhan 　 430074 ) 
+ Key   words 　 Linear   programming ,   neural   network ,   entropic   perturbation . 
+ 1 　 引 　 言 
+ 　 　 单纯形法 是 解 线性规划 问题 的 最 常用 方法 ， 可 它 不是 一种 多项式 算法 ［ 1 ］ . 椭圆 算法 ［ 2 ］ 的 提出 ， 使 人们 认识 到 线性规划 问题 存在 多项式 解法 . 但 椭圆 算法 本身 在 实际 中 的 应用 却 并 不 成功 . 内点法 ［ 3 - 5 ］ 是 新 的 一类 多项式 算法 ， 尽管 它 在 求解 大规模 线性规划 问题 方面 显示 了 相当 的 潜力 ， 其 算法 的 精度 和 软件 的 开发 都 有待 完善 和 发展 . 
+ 　 　 神经网络 方法 展示 了 一种 新 的 计算 思想 . 由于 固有 的 并行性 和 学习 、 联想 能力 ， 其 应用 和 发展前景 未 可 估量 . 对 线性规划 问题 而言 ， Hopfield 和 Tank 提出 的 TH 算法 ［ 6 ］ 是 这种 方法 的 代表 ， 然而 ， TH 算法 所 提供 的 能量 函数 以及 沿着 同样 方法 构造 的 能量 函数 只 保证 网络 收敛 到 局部 极小 （ 不是 全局 最小 ） 点 ， 有时 甚至 不 收敛 ， 或者 解不 可行 ［ 7 ］ . 这些 缺陷 的 不良影响 当然 不仅仅 限制 在 TH 方法 本身 . 
+ 　 　 本文 详细 讨论 了 熵 障碍 对偶 方法 ［ 8 ］ 的 目标 函数 . 指出 利用 此 函数 作为 能量 函数 建立 的 神经网络 具有 良好 的 收敛 性质 ， 是 一种 求解 线性规划 问题 的 令人 放心 的 算法 . 
+ 2 　 线性规划 问题 的 熵 障碍 对偶 方法 及其 收敛性 
+ 　 　 考虑 标准 形式 的 线性规划 问题 P ： min   CTX ， X 满足 约束条件 AX = b ， X ≥ 0 ， 以及 P 的 对偶 Q ： max   bTW ， W 满足条件 ATW ≤ C ， 这里 A 是 m × n 约束矩阵 . 不 直接 进行 P , Q 的 求解 ， 而是 讨论 P 的 熵 扰动 形式 
+ 
+ 重要 的 是 P μ 有 无约束 对偶 ［ 8 ］ ： 
+ 
+ 这里 μ > 0 . D μ 的 完全 无 约束性 以及 目标 函数 的 良好 性质 使得 可以 用 各种 无约束 方法 对 其 进行 求解 ， 这 是 熵 扰动 与 传统 障碍 法 的 主要 区别 . 
+ 　 　 在 某些 “ 标准 ” 条件 下 （ 例如 内点 条件 ） ， P μ 有 唯一 最优 解 X * ( μ ) ， 满足 lim μ → 0   X * ( μ ) = x * ， x * 是 P 的 最优 解 . 同样 的 D μ 有 唯一 最优 解 W * ( μ ) ， 满足 W * ( μ ) = w * , w * 是 D 的 最优 解 . 这样 ， 将 LP 问题 转化 为求 无约束 问题 D μ 的 最优 解 . 
+ 　 　 讨论 D μ 的 求解 . 对 任意 ε > 0 ， μ > 0 ， 设 
+ 
+ 显然 ， 当 ε 趋于 零时 ， 只要 w ( μ , ε ) 有 界 ， f ( w , μ , ε ) 的 极小 点 w ( μ , ε ) 趋于 D μ 的 解 w ( μ ) . 
+ 　 　 考虑 梯度 系统 
+ 　 ( 1 ) 
+ 　 　 由 梯度 系统 的 性质 ［ 9 ］ 知 ， 式 ( 1 ) 若有 平衡点 ， 则 必定 是 渐近 稳定 的 . 而 本文 有 如下 的 定理 . 
+ 　 　 定理 1 . 对 任何 μ > 0 ， ε > 0 ， 式 ( 1 ) 存在 唯一 的 平衡点 w ( μ , ε ) ， 它 是 全局 指数 型 渐进 稳定 的 . 而 当 A 行满 秩时 ， 对于 ε = 0 ， 式 ( 1 ) 的 平衡点 w ( μ ) （ 若 存在 ） 是 唯一 的 且 指数 型 渐进 稳定 的 . 
+ 　 　 证 . 取 f ( w , μ , ε ) 作为 式 ( 1 ) 的 Liapunov 函数 ， 应用 文献 ［ 10 ］ 中 定理 8.7 和 文献 ［ 9 ］ 中 定理 3 . 证毕 . 
+ 　 　 从 自动 计算 的 角度 考虑 ， 下面 讨论 ε 随 时间 t 变化 的 情况 . 考虑 
+ 　 ( 2 ) 
+ 　 　 定理 2 . 设 w ( μ ) 是 ε = 0 时 ， ( 1 ) 的 平衡点 . 若 ε ( t ) 满足 ( t ) = 0 ， ∫ ∞ 1 ε ( τ ) d τ = ∞ ， 则 式 ( 2 ) 的 任意 解都 趋于 w ( μ ) . 
+ 　 　 证 . 应用 文献 ［ 10 ］ 中 定理 10.1 . 证毕 . 
+ 3 　 熵 障碍 对偶 法 的 神经网络 求解 
+ 　 　 将式 ( 1 ) 写成 标量 形式 
+ 　 ( 3 ) 
+ 　 　 图 1 为式 （ 3 ） 的 神经网络 求解 框图 ， 包括 加法器 、 积分器 和 函数 产生器 . 其中 
+ ri ( w ) = akiwk - ci , i = 1 , 2 , … , n . 与 用 一般 障碍 法 实现 的 神经网络 比较 , 式 （ 3 ） 的 性态 更好 . 
+ 
+ 
+ 图 1 　 系统 ( 1 ) 的 神经网络 实现 
+ 4 　 仿真 和 结论 
+ 　 　 例 1 ． min   z = 3x1 + 2x2 + x3 + 4x4 　 　 , 
+ 　 　 　 　 　 s . t 　 2x1 + 4x2 + 5x3 + x4 - x5 　 　 = 230 ， 
+ 　 　 　 　 　 　 　 3x1 - x2 + 7x3 - 2x4 　 　 - x6 　 　 = 46 ， 
+ 　 　 　 　 　 　 　 5x2 + 2x2 + x3 + 6x4 　 　 - x7 = 345 , 
+ 　 　 　 　 　 　 　 x1 ,   x2 ,   x3 ,   x4 ,   x5 ,   x6 ,   x7 ≥ 0 . 
+ 　 　 例 2 ． 病态 问题 
+ 　 　 　 　 　 　 　 　 　 min   z = x1 + x2 , 
+ 　 　 s . t   2x1 - 2x2 + x3 + x4 + 0.5 x5 = 2 ， 
+ x1 + x2 + x3 　 + 0.5 x5 = 1 ， 3x1 - x2 + 2x3 + x4 + x5 = 3 , x1 , x2 , x3 , x4 , x5 ≥ 0 , 
+ 计算机 仿真 结果 如图 2 . μ , ε 从 0.000   1 变到 1.0 e - 10 . 例 1 的 最优 值为 251.0002 ， 其中 ： 
+ w1 = 0.086   957   51 , w2 = - 0.000   000   67 ,   w3 = 0.565   217   50 . 
+ 例 2 的 最优 值 和解 向量 均 为 零 . 计算 采用 龙格 - 库塔 法 ， 且 进行 了 步长 减半 矫正 . 由于 exp 函数 的 存在 ， 计算精度 要求 较 高 （ 否则 容易 产生 溢出 ） ， 本文 将 矫正 精度 定 在 1.0 e - 15 . 基 步长 定为 0.000   1 , 最后 的 时间 长度 分别 为 0.008   33 , 0.002   37 . 
+ 
+ 
+ 图 2 　 例 1 ， 例 2 的 仿真 曲线 
+ 　 　 对 任何 ε > 0 ， μ > 0 ， 式 ( 1 ) 的 全局 收敛性 使得 最优 解 的 计算 不必 从 内点 进行 ； 式 ( 1 ) 的 良好 性质 ， 也 使得 我们 可以 采取 其它 优化 方法 ， 例如 牛顿 法 ， 求解 线性规划 问题 ， 可以 得到 二阶 收敛 . 还 可以 通过 ε > 0 时 ， 式 ( 1 ) 的 计算结果 来 判断 问题 D μ 解 的 存在 性 ； 在 Hopfield 型 网络 的 计算 中 ， 也 不必 考虑 初态 的 选取 和 可行性 验证 ， 且 原 问题 和 对偶 问题 的 解 可以 同时 得到 ［ 8 ］ . 定理 2 和 例 2 表明 病态 并 不 影响 计算 . 进一步 研究 表明 ， 扰动 不必 取 exp 函数 ， 这 将 极大地提高 计算 效率 ， 关于 这 一点 将 另文 发表 . 
+ 作者简介 ： 田大钢 　 40 岁 ， 博士生 . 研究 方向 ： 神经网络 理论 及其 应用 、 决策 和 决策支持系统 、 反应 扩散 方程 、 分形 理论 在 决策 中 的 应用 等 . 
+ 　 　 　 　 　 费 　 奇 　 59 岁 ， 博士生 导师 . 研究 方向 ： 决策支持系统 理论 、 建模 支持 、 知识 处理 、 不确定性 分析 、 分布式 环境 下 的 群 决策 、 分形 理论 在 决策 中 的 应用 等 . 
+ 作者 单位 ： 华中理工大学 系统工程 研究所 　 武汉 　 430074 
+ 参考文献 
+ 1 　 Klee   V ,   Minty   G   J .   How   good   is   the   simplex   algorithm ?   In   Inequalities   III ( Edited   by   Shisha   O ) ,   New   York ： Academic   Press ,   1972 ,   159 — 175 
+ 2 　 Bland   R   G ,   Goldfarb   D ,   Todd   M   J .   The   ellipsoid   method :   a   survey .   Oper . Res ,   1981 ,   29 : 1039 — 1091 
+ 3 　 Karmarkar   N   K .   A   new   polynomial - time   algorithm   for   linear   programming .   Combinatorica ,   1984 ,   4 ( 4 ) : 375 — 395 
+ 4 　 Hooker   J   N .   Karmarkar ' s   linear   programming   algorithm .   Interfaces ,   1986 , 14 ( 1 ) : 75 — 90 
+ 5 　 Ghellinck   G   de ,   Vial   J   P .   A   polynomial   Newton   method   for   linear   programming .   Algorithmica ,   1986 , 1 ( 3 ) :   425 — 453 
+ 6 　 Tank   D   W ,   Hopfield   J   J .   Simple   neural   optimization   networks :   an   A / D   converter ,   signal   decision   circuit ,   and   a   linear   programming   circuit .   IEEE   Trans .   Circuits   Syst . ,   1986 ,   33 ( 4 ) : 533 — 541 
+ 7 　 Jun   W ,   Vira   C .   Recurrent   neural   networks   for   linear   programming :   analysis   and   design   principles .   Computers   Ops . Res . ,   1992 ,   19 ( 3 - 4 ) :   297 — 311 
+ 8 　 Fang   S - C ,   Tsao   H - S   T .   Linear   programming   with   entropic   perturbation .   ZOR . , 1993 ,   37 ( 2 ) ： 171 — 186 
+ 9 　 张锦炎 .   常 微分方程 几何 理论 与 分支 问题 .   北京 ： 北京大学出版社 ， 1981 ， 179 — 183 
+ 10 　 Yoshizawa   T 著 ,   郑祖 庥 等 译 .   稳定性 理论 与 周期 解和概 周期 解 的 存在 性 .   南宁 ： 广西 人民出版社 ， 1985 ,   36 — 136 
+ 收稿 日期 ： 1998 - 02 - 17 
+ 修稿 日期 ： 1998 - 10 - 25 

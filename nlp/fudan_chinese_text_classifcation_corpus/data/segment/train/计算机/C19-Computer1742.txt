@@ -1,0 +1,131 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 2 期   No.2   1999 
+ 
+ 
+ 
+ 一种 面向 汉语 语音 识别 的 口形 形状 识别方法 * 
+ 钟 　 晓 1 　 周 昌乐 2 　 俞瑞钊 1 
+ 　 　 摘要 　 借助 汉语 发音 口形 的 生理特点 , 在 音素 识别 这一 水平 上 进行 汉语 语音 的 辅助 识别 , 具体 给出 了 一种 口形 形状 识别 和 灰度 的 统计 方法 及其 具体 实现 . 实验 结果 基本 与 理论 估算 相吻合 , 对 5 个 元音 的 口形 区别 正确率 在 80% 以上 , 为 语言 的 声波 识别 提供 了 一种 有利 的 辅助 手段 . 
+ 　 　 关键词 　 汉语 语音 识别 , 口形 特征提取 , 口语 看话 , 统计 模式识别 . 
+ 　 　 中图法 分类号 　 O235 
+ A   Method   of   Mouth - shape ' s   Shape   Recognition   Forward   to   Chinese   Speech   Recognition   
+ ZHONG   Xiao1 　 ZHOU   Chang - le2 　 YU   Rui - zhao1   
+ 　 　 Abstract 　 　 This   paper   presents   in   detail   a   statistical   method   and   implementation   of   mouth - shape ' s   shape   recognition   and   gray   level   based   on   perfect   image   features   of   mouth   shapes   at   the   level   of   vowels   recognition .   The   results   of   the   recognition   experiments   approximately   accord   with   the   reasoning   evaluations .   The   recognition   rate   is   over   80%   for   five   vowels '   mouth - shapes .   It   proposes   a   beneficial   associate   approach   for   language ' s   voice   wave   recognition . 
+ 　 　 Key   words 　 Chinese   speech   recognition ,   mouth - shape   features   abstracting ,   lip - reading ,   statistical   pattern   recognition . 
+ 　 　 人类 进行 语言 交流 时 , 特别 是 在 环境噪声 非常 强 的 情况 下 , 不仅 使用 声学 言语 信号 来 理解 语言 , 通常 还 利用 其他 信息源 , 如 口语 看话 （ Lip - reading ） , 面部 表情 （ Facial - expression ） , 手势 （ Hand - gesture ） 和 身体语言 （ Body - language ） 等 来 识别 语言 . 对于 有 听力 障碍 的 聋哑人 , 口语 看话 更是 一种 高水平 的 语言 交流 手段 . 语言学 的 研究 表明 , 仅靠 看 口形 , 聋哑人 就 可以 理解 一个 句子 的 70% ～ 80% 的 内容 . 口形 及其 动态变化 在 言语 理解 中 的 重要性 由此可见 . 实际上 , 通过 口形 序列 来 识别 语言 音节 , 更 有利于 某些 特殊 领域 的 应用 , 如 在 隔音 或 远距离 条件 下 的 视觉 “ 窃听 ” 自动装置 的 研制 、 聋哑人 的 助听 辅助工具 的 研制 、 言语 的 辅助 识别 和 理解 以及 面部 表情 分析 的 临床 应用 等 . 
+ 　 　 口形 识别 及其 序列 分析 的 研究 是 属于 面孔 自动识别 和 面部 表情 分析 的 研究 范围 . 从能 查阅 到 的 资料 来看 , 根据 口形 来 进行 语音 识别 的 研究 , 国内 尚无先例 , 国外 则 主要 是 一些 初步 的 研究 ［ 1 ～ 7 ］ , 其 大体 思想 都 是 根据 单幅 口形 图像 , 通过 一定 的 形状 特征提取 , 用于 语言 （ 特别 是 元音 ） 的 辅助 识别 或者 作为 语音 识别 的 后处理 , 以便 提高 语音 识别系统 的 识别率 . 就 报道 的 结果 看 , 尽管 利用 的 信息 是 粗略 简单 的 , 但 提高 的 语音 识别率 却 相当可观 . 令人 惋惜 的 是 , 这些 研究 由于 只 停留 在 单幅 图像 和 简单 特征 的 利用 上 , 还 存在 许多 遗憾 . 为此 , 我们 对口 形 语音 的 变化 进行 了 较为 系统 的 研究 , 提出 了 一种 基于 形状 拟合 之上 的 统计 模式识别 方法 , 较为 有效 地 解决 了 这 一 问题 . 
+ 1 　 口形 语音 音素 分析 
+ 　 　 语音 口形 , 顾名思义 就是 人类 语言 交流 中 口形 形态 变化 , 它 属于 生理 语音学 的 范畴 . 但 由于 一直 以来 人们 在 生理 语音学 上 的 研究 主要 是从 听音 、 记音 入手 来 研究 的 , 也 就是 凭 耳朵 听辨 语音 进行 分析 研究 , 语音 口形 的 研究 一直 处于 未 开发 状态 , 但 前人 还是 为 我们 留下 了 几个 典型 的 语音 口形 ［ 8 ～ 10 ］ 和 一些 系统 的 研究成果 . 
+ 　 　 研究 表明 , 人类 在 言语 交流 中 形成 的 语音 起码 在 4 个 方面 直接 或 间接 地 与 口形 及其 序列 变化 有关 : 
+ 　 　 ( 1 )   嘴唇 的 开口 、 动静 、 前 撮 等 形状 与 音素 音位 有关 ； 
+ 　 　 ( 2 )   口形 大小 、 持续时间 与 音长 和 重音 有关 ； 
+ 　 　 ( 3 )   口形 过渡 形变 与 音渡 有关 ； 
+ 　 　 ( 4 )   序列 口形 组合 与 音节 结构 有关 . 
+ 　 　 根据 我们 的 分析 , 对于 语音 音素 的 口形 特点 , 可以 归纳 成表 1 的 情况 , 这 也 是 我们 进行 口形 音素 识别 的 主要 依据 , 其中 音素 是 指 元音 和 辅音 . 
+ 表 1 　 音素 口形 描述 表   
+ 
+ 音素 口形 代码 图示 （ 手绘 ） 音素 总和 
+ Aa1 
+ Bo1 
+ Ce1 
+ Dj   q   x   i   n   ng   l   z   c   s10 
+ Eu1 
+ F ? / TD >   1 
+ Ger   r2 
+ HD → Cd   t   g   k   h5 
+ IJ → Cb   p2 
+ J 双唇 紧闭 m1 
+ K 上齿 咬 下唇 f1 
+ L 上齿 咬 下齿 zh   ch   sh3 
+ 总计 　 29 
+ 
+ 2 　 口形 特征选择 和 提取 
+ 　 　 我们 知道 , 特征选择 的 目的 在于 对 误差 概率 无 不利 影响 时 , 减少 所用 特征 的 数目 . 在 实际 应用 中 , 特征 的 提取 或 选择 基于 已知 的 有限 样本 集 S 所 供给 的 信息 . 而 在 大多数 视觉 检验 的 应用 方面 , 则 是 把 图像 数据 与 采用 缺陷 的 特性 或 部件 的 量纲 所 进行 的 描述 联系 起来 , 即 把 图像 数据 映射 为 与 检验 有关 的 信息 的 表达式 , 而 这种 表达式 能 直接 而 容易 地 推导 出来 ［ 11 ］ . 
+ 　 　 根据 以上 所 述及 语音学 的 知识 、 口形 图像 实例 分析 , 我们 选择 圆唇度 、 展唇度 、 开口 度 和 口形 面积 作为 口形 语音 识别 的 基本特征 . 其中 各 特征 的 确定 和 提取 分述 如下 ： 
+ 　 　 ( 1 )   圆唇度 ： 指唇 的 前 撮度 . 首先 对 所 获取 的 口形 图像 进行 预处理 , 得到 边缘 特征 明显 的 新 图像 , 再 采用 双目 检测 技术 对 其 进行 空间 检测 , 提取 圆唇度 这 一 特征 . 
+ 　 　 ( 2 )   展唇度 ： 指唇 的 宽度 . 与 上 类似 , 先 进行 口形 图像 预处理 , 再 对 新 图像 进行 扫描 , 提取 展唇度 这 一 特征 . 
+ 　 　 ( 3 )   开口 度 ： 指唇 的 垂直 高度 . 与 上 类似 , 对 经过 预处理 的 新 图像 进行 列 扫描 , 提取 开口 度 这 一 特征 . 
+ 　 　 ( 4 )   口形 面积 ： 指唇 内 区域 的 面积 . 经过 实践 检验 , 我们 决定 通过 计算 新 图像 边界 内 像素点 的 个数 来 提取 口形 面积 这一 特征 . 
+ 　 　 这 就是 口形 特征选择 和 提取 的 基本 思想 , 详见 第 4 节 .   
+ 3 　 基于 统计 方法 的 口形 识别 原理 
+ 　 　 模式识别 就是 研究 一种 自动 技术 , 依靠 这种 技术 , 机器 将 自动 把 待 识别模式 分配 到 各自 的 模式 类中 去 . 统计 模式识别 的 传统 内容 包括 ： 几何 分类法 、 概率 分类法 和 聚类 ［ 12 ］ . 我们 经过 具体分析 和 实践 检验 , 决定 选用 聚类 法 进行 口形 识别 . 
+ 　 　 聚类 是 一种 无 教师 的 分类法 . 采用 这种 方法 , 从 原理 上 讲 , 我们 可以 选用 误差 平方和 准则 来 评价 聚类 的 优劣 . 为了 得到 最佳 分类 , 本文 选择 基于 最 邻近 规则 的 试探法 这一 具体 算法 . 
+ 　 　 1 .   首先 我们 假设 ： 
+ 　 　 ( 1 )   5 个 元音 音素 / a / o / e / i / u / 的 标准 口形 图像 （ 已经 过 预处理 ） , 即 5 个 样本 的 特征向量 依次 为 S1 , S2 , S3 , S4 , S5 ； 
+ 　 　 ( 2 )   输入 一 任意 口形 图像 , 经 预处理 后 , 得到 待 识别 的 新 图像 , 其 特征向量 为 X ； 
+ 　 　 ( 3 )   选取 非负 阈值 T 为 5 个 样本 特征向量 之间 平均 距离 的 三分之一 . 
+ 　 　 2 .   然后 , 按照 下面 的 公式 分别 计算 X 与 S1 , S2 , S3 , S4 , S5 之间 的 距离 D ( X , Sj ) , j = 1 , 2 , 3 , 4 , 5 . 
+ 
+ 其中 ( 1 )   X 为 待 识别 的 特征向量 , S 为 样本 的 特征向量 ； 
+ 　 　 ( 2 )   ω i 为 加权 系数 , 它 的 取值 由 各种 特征 在 识别 过程 中所起 的 作用 而定 , 对于 较 重要 的 特征 , 其 加权 系数 就 较大 ； 反之 , 其 加权 系数 就 较 小 . 但 必须 满足 ω i = 1 ; 
+ 　 　 ( 3 )   以上 各式 中 , n 都 表示 特征 个数 , 或 特征 分量 的 个数 . 
+ 　 　 3 .   计算 完毕 , 进行 比较 . 若 | D ( X , S ) | < T , 且 D ( X , Sk ) = minD ( X , Sj ) , 其中 j = 1 , 2 , 3 , 4 , 5 , k ∈ { 1 , 2 , 3 , 4 , 5 } , 则 判定 X 属于 Sk 类 , 即 输入 音素 是 Sk 所 代表 的 元音 音素 ； 否则 , 判定 输入 音素 不是 元音 音素 . 
+ 　 　 在 上述 过程 中 , 如 遇到 边缘 特征 不 明显 、 较 模糊 和 难于 识别 的 口形 图像 , 则 运用 歧义 图形 理解 技术 进行 处理 , 详见 文献 ［ 13 ］ . 
+ 4 　 算法 实现 
+ 　 　 下面 详细 叙述 本 算法 的 具体 实现 , 并 对 实验 结果 加以分析 . 
+ 　 　 1 .   存储 标准 口形 并 接收 口形 图像 ： 固定 摄像机 与 说话 人 之间 的 距离 , 在 一般 条件 下 （ 既 未 采取 隔音 措施 , 也 无 特殊 光 照射 ） , 用 摄像机 从 左右 两侧 同时 对准 说话 人 录像 , 获取 5 个 元音 音素 的 标准 口形 图像 , 共 10 幅 , 并 采用 . tiff 文件格式 和 读写 模块 . 将 标准 口形 依次 标注 为 al , ar , ol , or , el , er , il , ir , ul , ur . 然后 , 对 实时 说话 人 , 再次 通过 摄像机 摄取 其 单个 口形 图像 , 也 存入 . tiff 文件 中 . 
+ 　 　 2 .   图像 预处理 ： 现在 我们 已 得到 了 口形 的 信息 , 为了 更好 地 进行 特征提取 , 首先 通过 低通 空间 滤波器 减少 图像 中 的 随机 噪音 , 再 利用 拉普拉斯 边缘增强 的 方法 增强 边缘 , 进行 边缘 检测 预处理 . 
+ 　 　 3 .   特征提取 ： 根据 前面 所 讲述 的 特征选择 和 提取 的 基本 思想 , 现在 开始 进行 特征提取 . 
+ 　 　 ( 1 )   从 新 图像 坐标 原点 开始 , 行 扫描 , 记录 每行 像素 灰度 值 最大 两点 位置 （ i , j1 ） , （ i , j2 ） , 计算 | j1 － j2 | , 则 max （ | j1 － j2 | ） 即为 展唇度 , 记 作 β ； 
+ 　 　 ( 2 )   从 新 图像 坐标 原点 开始 , 列 扫描 , 记录 每列 像素 灰度 值 最大 两点 位置 （ i1 , j ） , （ i2 , j ） 计算 | i1 － i2 | , 则 max （ | i1 － i2 | ） 就是 开口 度 , 记 作 γ ； 
+ 　 　 ( 3 )   计算 新 图像 边缘 内 像素点 的 个数 , 将 其 作为 口形 面积 S , 则 
+ S = ( ｜ ji1 ｜ - ｜ ji2 ｜ ) ,   且 jm1 - jm2 = jn1 - jn2 = 0 ,   n ＞ m .   
+ 采用 双目 检测 技术 中 由 Levine ［ 14 ］ 提出 的 模板 窗口 方法 , 对 新 图像 进行 空间 检测 , 分别 提取 5 个 元音 的 圆唇度 , 记 作 α . 
+ 　 　 具体方法 为 : 设 Fl 和 Fr 分别 表示 某一 元音 的 左右 两幅 灰度 图像 , fl ( i , j ) 和 fr ( i , j ) 为 其 对应 的 灰度 函数 , 则 以 ( i , j ) 为 中心 , 取 ( 2u + 1 ) × ( 2 υ + 1 ) 窗口 作为 对应点 匹配 的 基本 数据 , 并 在 其 上作 如下 相关 测度 计算 : 
+   
+ 其中 Δ d 为 估计 的 位移 视差 , 主要 是 沿着 观察点 联线 方向 取值 ; μ l , μ r , δ l , δ r 分别 为 
+   
+   
+ 有 了 ρ ( Δ d ) 的 计算 , 然后 取 Δ d * , 使得 
+ ρ ( Δ d * ) = { ｜ ρ ( Δ d ) ｜ } ,   
+ 则 Δ d * 就是 该 元音 的 圆唇度 . 
+ 　 　 4 .   根据 统计 模式识别 中 基于 试探 的 聚类 算法 , 对 输入 口形 进行 聚类分析 ； 由 分析 结果 判定 是否 元音 , 是 何 元音 . 算法 框图 如图 1 所示 . 
+ 
+ 图 1 　 算法 示意图 
+ 5 　 实验 结果 分析 
+ 　 　 识别 程序 采用 C语言 , 在 PC586 机器 上 运行 该 程序 . 从 实验 结果 我们 不难看出 , 用 拉普拉斯 边缘增强 法 可以 很 好 地 进行 边缘增强 , 双目 检测 技术 较 成熟 , 而 基于 最 邻近 规则 的 试探法 计算 简单 , 可以 较 快 地 获得 合理 的 聚类 结果 . 用此 算法 进行 单个 口形 的 元音 音素 识别 , 成功率 可达 80% . 具体情况 见表 2 、 3 . 
+ 表 2 　 运行 程序 所得 标准 口形 知识库   
+ 
+ 特征 名 音素 名 aoeiu 
+ 圆唇度 14112 
+ 展唇度 ( 左 ) 7227818030 
+ 展唇度 ( 右 ) 7629878535 
+ 开口 度 ( 左 ) 421320107 
+ 开口 度 ( 右 ) 451523129 
+ 口形 面积 ( 左 ) 2   3252601   225650180 
+ 口形 面积 ( 右 ) 2   4802961   487776236 
+ 
+ 表 3 　 实验 数据分析 统计表   
+ 
+ 测试 序号 测试 口形 数 每 一口 形所取 特征 数 识别 出口 形数 识别率 ( % ) 
+ 12071785 
+ 22071680 
+ 32071575 
+ 42071785 
+ 
+ 6 　 结 　 论 
+ 　 　   本 课题 在 语音学 的 研究 基础 上 , 按照 图像 分析 技术 、 模式识别 技术 和 歧义 图形 理解 技术 , 对 单个 口形 图像 进行 形状 识别 , 特别 是 对 5 个 元音 音素 的 口形 进行 了 识别 , 实验 正确率 达 80% 以上 . 这 无疑 为 语音 识别 提供 了 一种 有用 的 辅助 方法 和 技术 . 当然 , 如何 识别 口形 序列 、 如何 在 音节 水平 上 确认 音节 语音 则 是 有待于 进一步 深入研究 的 课题 .   
+ 本文 研究 得到 浙江省 自然科学 基金 和 北京大学 视觉 与 听觉 国家 实验室 基金 资助 . 
+ 作者 介绍 ： 钟晓 , 女 , 1973 年生 , 博士生 , 主要 研究 领域 为 智能 软件 . 
+ 　 　 　 　 　 周 昌乐 , 1959 年生 , 博士 , 教授 , 主要 研究 领域 为 计算 语言学 ， 认知 逻辑学 ， 多媒体 艺术 . 
+ 　 　 　 　 　 俞瑞钊 , 1937 年生 , 教授 , 博士生 导师 , 主要 研究 领域 为 智能 软件 . 
+ 本文 通讯联系 人 ： 钟晓 , 杭州   310027 , 浙江大学 243 信箱 
+ 作者 单位 ： 钟 　 晓 　 俞瑞钊 　 浙江大学 计算机系 智能 软件 实验室 　 杭州 　 310027 
+ 　 　 　 　 　 周 昌乐 　 杭州大学 计算机系 视听 实验室 　 杭州 　 310028 
+ 参考文献 
+ 　 ［ 1 ］ Lewis   J   P ,   Parke   F   I .   Automated   lip - synch   and   speech   synthesis   for   character   animation .   In :   Proceedings   of   Human   Factors   Computer   System   Graphics   Interface ' 87 .   Toronto ,   Canada ,   1987 .   143 ～ 147 
+ 　 ［ 2 ］ Wu   Jian - tong ,   Tamura   S ,   Mitsumoto   H   et   al .   Neural   network   vowel - recognition   jointly   using   voice   features   and   mouth   shape   image .   Pattern   Recognition ,   1991 , 24 ( 10 ) : 921 ～ 927 
+ 　 ［ 3 ］ Hight   R   L .   Lip - reader   trainer .   Tohns - Hopkins   Apl .   Technical   Digest ,   1982 , 10 ( 3 ) : 213 ～ 237 
+ 　 ［ 4 ］ Petajan   E   D .   Automatic   lip - reading   to   enhance   speech   recognition .   Procedure   IEEE   Computer   Association   Conference   Computer   Vision   Pattern   Recognition ,   1985 , 12 ( 3 ) : 44 ～ 47 
+ 　 ［ 5 ］ Matsuoka   K ,   Furuya   T ,   Kurosu   K .   Speech   recognition   by   image   processing   of   lip   movements .   Journal   of   Association   Instrument   Control   Engineers ,   1986 , 22 ( 10 ) : 67 ～ 74 
+ 　 ［ 6 ］ Uchimura   K ,   Michida   J ,   Tokou   M   et   al .   Discrimination   of   Japanese   vowels   by   image   analysis .   Transactions   of   Institute   of   Electronics ,   Information   Communication ,   Engineers   J   71 － D ,   1988 , 12 ( 12 ) : 2700 ～ 2702 
+ 　 ［ 7 ］ Kurosu   K ,   Furuya   T ,   Matsuoka   K   et   al .   Word - recognition   by   mouth   shape   and   voice .   In :   Proceedings   of   the   1st   Symptom   Advanced   Man - Uech .   Interface   Through   Spoken   Language .   Tokyo ,   Japan ,   1988 .   205 ～ 206 
+ 　 ［ 8 ］ 徐世荣 . 普通话 语音 发音 示意图 解 . 上海 : 上海 教育 出版社 , 1979 ( Xu   Shi - rong .   An   Illustration   of   Chinese   Speech   Pronunciation   Schematic   Diagram .   Shanghai :   Shanghai   Education   Press ,   1979 ) 
+ 　 ［ 9 ］ 邓斯   P   B , 平森   E   N . 言语 链 — — 说 和 听 的 科学 . 北京 : 中国社会科学出版社 , 1983 ( Dense   P   B ,   Pingson   E   N .   The   Language   Link — — Speaking   and   Listening ' s   Science .   Beijing :   Chinese   Social   Science   Press ,   1983 ) 
+ 　 ［ 10 ］ 林焘 , 王理 嘉 . 语音学 教程 . 北京 : 北京大学出版社 , 1992 ( Lin   Tao ,   Wang   Li - jia .   Phonetics   Lectures .   Beijing :   Beijing   University   Press ,   1992 ) 
+ 　 ［ 11 ］ 徐 建华 . 图像处理 与 分析 . 北京 : 科学出版社 , 1992 ( Xu   Jian - hua .   Image   Processing   and   Analyzing .   Beijing :   Science   Press ,   1992 ) 
+ 　 ［ 12 ］ 沈清 , 汤霖 . 模式识别 导论 . 长沙 : 国防科技大学 出版社 , 1992 ( Shen   Qing ,   Tang   Lin .   Introduction   of   Pattern   Recognition .   Changsha :   National   University   of   Defense   Technology   Press ,   1992 ) 
+ 　 ［ 13 ］ 周 昌乐 , 施项 君 . 歧义 图形 机器 理解 初步 . 计算机软件 与 应用 , 1996 , 13 ( 2 ) : 36 ～ 41 ( Zhou   Chang - le ,   Shi   Xiang - jun .   An   introduction   of   understanding   different   meanings '   graph   with   machine .   Computer   Software   and   Application ,   1996 , 13 ( 2 ) : 36 ～ 41 
+ 　 ［ 14 ］ Levine   M   D ,   O ' Handley   D   A ,   Yagi   G   M .   Computer   determination   of   depth   maps .   Computer   Graphics   and   Image   Processing ,   1973 , 13 ( 2 ) : 134 ～ 150 
+ 本文 1997 - 10 - 23 收到 原稿 , 1998 - 01 - 23 收到 修改稿 

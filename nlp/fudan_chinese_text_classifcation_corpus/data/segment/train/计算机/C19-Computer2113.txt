@@ -1,0 +1,103 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 12 期   vol.25   No.12   1999 
+ 
+ 
+ 
+ 基于 OpenGL 的 运动 视而不见 景 仿真 的 实现 
+ 董笑 菊 　 刘 竞宇 　 顾国昌 
+ 1   OpenGL 功能 简介 
+ 　 　 OpenGL 提供 了 强大 的 功能 ， 包括 ： 环境 建模 、 变换 及 双 缓存 动画 等 。 
+ 　 　 ( 1 )   环境 建模 
+ 　 　 OpenGL 提供 了 大量 绘制 各种 类型图 原 的 方法 ， 辅助 库 还 提供 了 许多 描述 复杂 三维 图形 的 函数 。 利用 这些 函数 可以 绘制 出 客观 世界 的 物体 ， 并 由此 构成 了 仿真 物理 世界 。 
+ 　 　 ( 2 ) 双 缓存 机制 
+ 　 　 OpenGL 提供 双 缓存 - - 前台 缓存 和 后台 缓存 ， 可用 来 制作 动画 。 绘制 操作 先 在 后台 缓存 区内 完成 ， 然后 再 将 后台 缓存 区中 的 内容 拷贝到 前台 缓存 区内 ， 这样 循环反复 ， 则 屏幕 上 显示 的 总是 已经 画好 的 图形 ， 因此 获得 平滑 的 动画 效果 ， 并 增强 了 三维动画 显示 的 连续性 和 运动感 。 
+ 　 　 ( 3 ) 图形 变换 
+ 　 　 OpenGL 提供 了 多种 图形 变换 ： 视点 变换 、 模型 变换 、 投影变换 和 视口 变换 。 
+ 　 　 透视 投影 是 根据 人 的 心理 习惯 而 设置 的 ， 即离 视点 近 的 物体 大 ， 离 视点 远 的 物体 小 ， 远 到极点 即 消失 。 这个 变换 通常 用来 进行 动画设计 、 视觉 仿真 。 gluPerspective ( ) 是 OpenGL 提供 的 透视 投影 函数 之一 。 
+ 2   运动 视景 仿真 的 实现 
+ 　 　 ( 1 )   链接 设置 
+ 　 　 将 V C++ 5.0 目录 下 LIB 子目录 中 的 opengl32 . lib 、 glu32 . lib 、 glaux . lib   3 个 OpenGL 库 添加 到 工程 中 。 
+ 　 　 ( 2 )   创建 图形操作 描述 表 - - Windows   NT / 95 与 OpenGL 的 接口 
+ 　 　 OpenGL   for   Windows   NT / 95 的 程序 必须 处理 特殊 的 设备描述 表 - - 图形操作 描述 表 。 图形操作 描述 表 包含 了 OpenGL 与 Windows   NT / 95 窗口 系统 相关 的 各种 信息 。 因此 ， 应用 OpenGL 首先 应 创建 一个 图形操作 描述 表 ， 然后 再 启用 它 ， 最后 在 所 定义 的 窗口 内 按 常规 方式 调用 OpenGL 函数 绘制 图形 。 但是 在 创建 一个 图形操作 描述 表 之前 ， 还 必须 先 设置 象素 格式 。 象素 格式 含有 设备 绘图 界面 的 属性 ， 一般 用 PIXELFORMATDESCRIPTOR 结构 来 表示 某种 特殊 的 象素 格式 。 
+ 　 　 图形操作 描述 表是 在 WM _ CREATE 消息 响应函数 CAUVView : : OnCreate ( ) 中 创建 的 。 添入 代码 如下 ： 
+ 　 　 / / 根据 用户 的 需要 初始化 象素 格式 结构 
+ 　 　 PIXELFORMATDESCRIPTOR   pfd = 
+ 　 　 { 
+ 　 　 sizeof ( PIXELFORMATDESCRIPTOR ) , 　 　 　 / / 结构 尺寸 
+ 　 　 1 , 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　     / / 结构 版本 
+ 　 　 PFD _ DRAW _ TO _ WINDOW | PFD _ SUPPORT _ OPENGL | PFD _ DOUBLEBUFFER 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 特性 标志 
+ 　 　 PFD _ TYPE _ RGBA , 　 　 　 　 　 　 　 　 　 　 / / RGBA 模式 
+ 　 　 24 , 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　   / / 24 位 颜色 
+ 　 　 0 , 0 , 0 , 0 , 0 , 0 , 　 　 　 　 　 　 　 　 　 　 　 / / 不 涉及 这些 属性 
+ 　 　 0 , 0 , 0 , 0 , 0 , 0 , 　 　 　 　 　 　 　 　 　 　 　 / / 没有 alpha 缓存 和 累积 缓存 
+ 　 　 32 , 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　   / / 32 位 深度 缓存 
+ 　 　 0 , 0 , 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 没有 模板 缓存 和 辅助 缓存 
+ 　 　 PFD _ MAIN _ PLANE , 　 　 　 　 　 　 　 　 　   / / 主层 类型 
+ 　 　 0 , 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / / 保持 结构 数 
+ 　 　 0 , 0 , 0 　 　 　 　 　 　 　 　 　 　 　 　 　 　   / / 不 支持 结构 数 
+ 　 　 } ; 
+ 　 　 / / 设置 象素 格式 
+ 　 　 CClientDC   clientDC ( this ) ;   / / 得到 一个 应用 窗口 客户 区 的 设备描述 表 
+ 　 　 int   pixelFormat   =   ChoosePixelFormat ( clientDC . m _ hDC ,   & pfd ) ;   
+ 　 　 BOOL   success   =   SetPixelFormat ( clientDC .   m _ hDC ,   pixelFormat ,   & pfd ) ;   
+ 　 　 / / 创建 图形操作 描述 表 
+ 　 　 m _ hRC   =   wglCreateContext ( clientDC . m _ hDC ) ; 
+ 　 　 　 　 / / m _ hRC 是 OpenGL 图形操作 描述 表 的 句柄 , 其 定义 类型 为 HGLRC 
+ 　 　 ( 3 )   启用 图形操作 描述 表 
+ 　 　 在 WM _ PAINT 消息 响应函数 CAUVView : : OnPaint ( ) 中 添入 代码 ： 
+ 　 　 wglMakeCurrent ( dc . m _ hDC ,   m _ hRC ) ； / / 启用 图形操作 描述 表 
+ 　 　 ...... 　 　 　 　 　 　 　 　 　 　 　 　 / / 调用 OpenGL 函数 绘制 三维 图形 
+ 　 　 wglMakeCurrent ( dc . m _ hDC ,   NULL ) ； / / 释放 图形操作 描述 表 
+ 　 　 ( 4 )   删除 图形操作 描述 表 
+ 　 　 在 WM _ DESTORY 消息 响应函数 CAUVView : : OnDestory ( ) 中 添入 代码 ： wglDeleteCurrent ( m _ hRC ) ; 
+ 　 　 完成 上述 接口 操作 后 ， 就 可 在 启用 图形操作 描述 表 之后 ， 并 在 释放 其 之前 调用 OpenGL 函数 绘制 三维 图形 了 。 
+ 　 　 ( 5 )   OpenGL 关键 函数 的 具体 应用 
+ 　 　 1 ) gluLookAt ( ) 封装 了 glTranslatef ( ) ( 平移 ) 和 glRotatef ( ) ( 旋转 ) 等 命令 
+ 　 　 gluLookAt ( ) 函数 原型 为 ： 
+ 　 　 void   gluLookAt ( GLdouble   eyex ,   GLdouble   eyey ,   GLdouble   eyez , GLdouble   centerx ,   GLdouble   centery ,   GLdouble   centerz ,   GLdouble   upx ,   GLdouble   upy ,   GLdouble   upz )   
+ 　 　 其中 ： { eyex ， eyey ， eyez }   定义 视点 的 位置 ( 从 哪一点 看 ) ； { centerx ， centery ， centerz }   定义 摄象机 所 瞄准 的 参考点 ( 向 哪个 方向 看 ) ； { upx ， upy ， upz }   标识 向上 矢量 的 方向 ( 视景 体 底部 到 顶部 的 方向 ) 。 
+ 　 　 通过 改变 { eyex ， eyey ， eyez } 坐标 中 任何 一维 的 值 ， 可以 模仿 人 在 实际 环境 中 的 " 向前走 " 、 " 向 后退 " 等 基本 动作 ； 改变 { centerx ， centery ， centerz } 坐标 中 任何 两维 的 值 ， 可以 模仿 人 在 实际 环境 中 的 " 左转 " 、 " 右转 " 等 基本 动作 ； 改变 { centerx ， centery ， centerz } 及 { upx ， upy ， upz } 坐标 中 的 值 ， 可以 模仿 人 在 实际 环境 中 的 " 俯视 " 、 " 仰视 " 等 基本 动作 。 利用 这些 " 人 " 的 基本 " 动作 " 就 可以 实现 在 环境 中 的 运动 仿真 。 
+ 　 　 2 ) 在 调用 gluLookAt ( ) 之前 ， 必须 将 投影变换 方式 设置 为 透视 投影 。 
+ 　 　 gluPerspective ( ) 的 函数 原型 为 ： 
+ 　 　 void   gluPerspective ( GLdouble   fovy ,   GLdouble   aspect , GLdouble   zNear ,   GLdouble   zFar ) 
+ 　 　 gluPerspective 函数 创建 了 一个 透视 投影 矩阵 ， 其 参数 fovy 定义 视角 在 y 方向 上 的 范围 ； 参数 aspect 确定 了 x 方向 上 视野 的 范围 ， 是 投影 平面 宽度 ( x ) 与 高度 ( y ) ( 一般 x 和 y 的 取值 为 客户 区 的 宽 和 高 ) 的 比率 ； 参数 zNear 和 zFar 分别 是 远近 剪取 面到 视点 的 距离 ， 它们 总是 正值 。 
+ 　 　 ( 6 )   视景 运动 的 实现 
+ 　 　 要 实现 连续 运动 ， 还 必须 不断 改变 gluLookAt ( ) 函数 中 几个 参数 的 值 。 根据 开发 经验 ， 要 得到 平滑 、 连续 且 稳定 的 动画 效果 ， 可 在 虚 函数 OnIdle 中 改变 gluLookAt ( ) 的 参数 。 
+ 3   在 V C++ 5.0 平台 上用 OpenGL 实现 运动 视景 的 程序代码 实例 
+ 　 　 以下 给出 用 OpenGL 实现 " AUV 运动 视景 仿真 " 的 部分 程序代码 。 
+ 　 　 void   CAUVView : : OnPaint ( )   / / 视 的 重构 函数 
+ 　 　 { 
+ 　 　 　 　 　 　 CPaintDC   dc ( this ) ;   
+ 　 　 　 　 　 　 wglMakeCurrent ( dc . m _ hDC ,   m _ hRC ) ;   
+ 　 　 　 　 　 　 myinit ( ) ; 　 / / 完成 场景 的 初始化 工作   
+ 　 　 　 　 　 　 display ( ) ;   / / 定义 投影 方式 ， 进行 视点 变换 ， 绘制 三维   物体 
+ 　 　 SwapBuffers ( dc . m _ hDC ) ;   / / 交换 前后 台 缓存 内容   
+ 　 　 　 　 　 　 wglMakeCurrent ( dc . m _ hDC ,   NULL ) ; 
+ 　 　 } 
+ 　 　 void   CAUVView : : display ( ) 
+ 　 　 { 
+ 　 　 　 　 　 　 glPushMatrix ( ) ; 
+ 　 　 　 　 　 　 glMatrixMode ( GL _ PROJECTION ) ;   / / 定义 投影 方式 
+ 　 　 　 　 　 　 glLoadIdentity ( ) ;   
+ 　 　 　 　 　 　 gluPerspective ( 60.0   ,   ( GLfloat ) w / ( GLfloat ) h ,   0.5 ,   200 .   0 ) ;   
+ 　 　 　 　 　 　 glMatrixMode ( GL _ MODELVIEW ) ;   
+ 　 　 　 　 　 　 glLoadIdentity ( ) ;   
+ 　 　 　 　 　 　 gluLookAt ( eyex ,   eyey ,   eyez ,   centerx ,   centery ,   centerz ,   upx ,   upy ,   upz ) ; 
+ 　 　 　 　 　 　   .   .   .   .   .   .   . 　 　 　 　 　 　 / / 绘制 三维 物体   
+ 　 　 　 　 　 　 glPopMatrix ( ) ;   
+ 　 　 　 　 　 　 glFlush ( ) ; 
+ 　 　 } 
+ 4   AUV 运动 视景 仿真 效果 示例 
+ 　 　 为了 更好 地 说明 使用 OpenGL 实现 AUV 运动 视景 仿真 所 得到 的 逼真 效果 ， 给出 如图 1 的 示例 。 
+ 
+ 图 1   AUV 运动 视景 仿真 图 示例 
+ 　 　 OpenGL 在 PC机 上 的 广泛应用 为 计算机 图形 开发者 提供 了 更为 广阔 的 天地 。 
+ 作者 单位 ： 哈尔滨工程大学 计算机 与 信息 科学系 ， 哈尔滨 150001 
+ 参考文献 
+ 1   廖 朵朵 , 张华军 . OpenGL 三维 图形 程序设计 . 北京 ： 星球 地图 出版   社 , 1996 
+ 2   廖 朵朵 , 张华军 . OpenGL 三维 图形 程序设计 系列讲座 . PCWORLD   CHINA , 1996 , 10 : 152 - 155 
+ 3   徐   力 , 陈佳海 . Visual   C++   程序开发 指南 . 北京 : 科学出版社 , 1997 
+ 4   Ezzell   B , Blaney   J . Windows   NT4 / Windows   9 
+ 5   高级 开发 指南 . 北   京 : 电子 工业 出版社 , 1997 

@@ -1,0 +1,127 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 　 Vol.36 　 No.7 　 P.769 - 775 
+ 
+ 
+ 
+ 多 Agent 系统 的 非 终止 主动 合作 计算 模型 
+ 毛 新军 　 王怀民 　 陈 火旺 　 刘风歧 
+ 摘 　 要 ： 在 多 Agent 系统 中 ,   由于 资源 、 能力 的 有限性 和 分布 性 ， 因而 合作 是 多 Agent 系统 的 一个 重要 特征 . 当前 ， 随着 Internet ， Intranet 技术 的 不断 发展 以及 应用 的 不断深入 ， 传统 合作 计算 模型 已 不能 满足用户 需求 ， 主动 合作 计算 正 成为 一个 新 的 应用 需求 点 . 文中 提出 了 一个 非 终止 的 主动 合作 计算 模型 . 基于 言语 行为 理论 以及 多 Agent 系统 计算 的 理论 框架 ， 文中 讨论 了 该 合作 计算 模型 所 涉及 的 Agent 通信 行为 ， 分析 了 Agent 如何 响应 这些 通信 行为 来 完成 非 终止 主动 合作 计算 ， 并 进一步 给出 了 非 终止 主动 合作 计算 模型 的 定义 ， 最后 讨论 了 研究 工作 的 意义 . 
+ 关键词 ： 多 Agent 系统 ， 合作 ， 通信 ， 全 心 满足 语义 
+ 分类号 ： TP18 
+ A   NON - TERMINATING   ACTIVE   COMPUTING   MODEL 
+ IN   MULTI - AGENT   SYSTEMS 
+ MAO   Xin - Jun 
+ ( Department   of   Computer   Science ,   National   University   of   Defense   Technology ,   Changsha   410073 ) 
+ WANG   Huai - Min 
+ ( Department   of   Computer   Science ,   National   University   of   Defense   Technology ,   Changsha   410073 ) 
+ CHEN   Huo - Wang 
+ ( Department   of   Computer   Science ,   National   University   of   Defense   Technology ,   Changsha   410073 ) 
+ LIU   Feng - Qi 
+ ( Department   of   Computer   Science ,   National   University   of   Defense   Technology ,   Changsha   410073 ) 
+ Abstract ： Because   of   the   limitation   and   distribution   of   the   resources   and   capabilities ,   cooperation   is   one   of   the   important   characteristics   in   a   multi - agent   system .   Nowadays   with   the   further   development   of   the   technology   and   the   deeper   application   of   the   Internet   and   Intranet ,   traditional   cooperation   computing   model   can   not   meet   requirements   and   active   cooperation   computing   has   become   a   new   and   full   potential   application .   A   non - terminating   active   computing   model   is   put   forward   in   this   paper .   Based   on   the   speech   act   theory   and   the   theoretical   framework   of   multi - agent   computing   presented   in   the   paper ,   the   communication   acts   associated   are   discussed   and   identified .   How   agents   respond   to   communication   acts   is   investigated .   The   rigorous   whole - hearted   satisfactory   semantics   of   the   communication   acts   and   the   non - terminating   active   computing   model   are   defined   and   the   senses   of   the   research   are   concluded . 
+ Key   words 　 multi - agent   system ,   cooperation ,   communication ,   whole - hearted   satisfactory   semantics ▲ 
+ 1 　 引言 
+ 　 　 Agent 是 近年来 计算机科学 领域 中 的 一个 重要 概念 ， 它 是 指 在 某 一 环境 下 具有 自主性 、 社会性 、 主动性 等 特征 的 计算 实体 . 多 Agent   系统 由 一组 具有 一定 资源 和 能力 、 相对 独立 且 相互作用 的 Agent 组成 ［ 1 ］ . 现实 系统 如 空中 交通管制 系统 、 异构 信息处理系统 等等 大多 属于 多 Agent 系统 . 由于 Agent 概念 自然 、 贴切 、 直观 地 刻画 了 现实 系统 ， 因而 有关 Agent 理论 、 技术 的 发展 和 应用 引起 了 人们 的 高度重视 和 关注 ［ 2 , 3 ］ . 
+ 　 　 在 多 Agent 系统 中 ， 由于 资源 、 能力 的 有限性 和 分布 性 ， 合作 是 多 Agent 系统 的 一个 重要 特征 . 多 Agent   系统 的 合作 方式 多种多样 . 其中 请求 / 服务 是 多 Agent 系统 中 一类 典型 的 合作 方式 . 一个多 Agent 系统 被 称为 具有 请求 / 服务 合作 方式 的 多 Agent 系统 ， 如果 Agent 间 的 合作 关系 仅仅 是 请求 和 服务 关系 即 或者 是 一个 Agent 向 另 一个 Agent 提出 服务 请求 ， 或者 是 一个 Agent 向 另 一个 Agent 提供 服务 . 其 计算 模型 Client / Server 计算 已 被 广泛应用 于 分布式 信息 服务 系统 的 开发 ， 并 成为 当前 分布 计算 领域 的 一种 主要 计算 模型 . 例如 在 异构 信息处理系统 中 ， Agent1 请求 Agent2 为 它 提供 某种 信息 ， 在 接到 请求 后 ， Agent2 在 其 数据库 中 查询 相关 信息 ， 并 将 结果 返回 给 Agent1 . 
+ 　 　 当前 ， 随着 Internet ， Intranet 技术 的 不断 发展 以及 应用 的 不断深入 ， 传统 合作 计算 模型 已 不能 满足 现有 的 用户 需求 并 正 面临 着 新 的 应用 问题 的 挑战 ， 主动 合作 计算 正 成为 一个 新 的 应用 需求 点 . 例如 机票代理 Agent 请求 拥有 飞机 航班信息 的 Agent ： 一旦 飞机 航班信息 发生 改变 ， 就 主动 地为 它 提供 新 的 飞机 航班信息 . 对于 某些 重要 电子邮件 ， 邮件 发送 方 Agent 要求 接受方 Agent 在 确认 用户 已经 阅读 了 邮件 后 ， 主动 地 返回 一个 “ 确认 阅读 ” 邮件 等 . 
+ 　 　 为了 促进 多 Agent 系统 的 开发 、 推动 Agent 间 的 主动 合作 计算 以及 相关 问题 的 解决 ， 有 必要 严格 、 形式化 地 分析 和 讨论 Agent 间 的 主动 合作 关系 ， 构造 多 Agent 系统 的 主动 合作 计算 模型 ， 并 进一步 规范 和 描述 主动 合作 计算 模型 所 涉及 的 Agent 通信 行为 的 语义 . 
+ 2 　 基本 通信 行为 
+ 　 　 Agent 间 进行 合作 的 基础 是 交互 ， 而 通信 是 实现 Agent 交互 的 一种 重要 方式 和 手段 . 为了 研究 多 Agent 系统 的 非 终止 主动 合作 计算 模型 ， 有 必要 首先 研究 非 终止 主动 合作 计算 模型 所 涉及 的 Agent 通信 行为 . 
+ 　 　 Agent 间 的 通信 行为 是 一类 特殊 的 行为 ， 因为 它 将 对 交互 双方 Agent 的 内部 状态 产生 影响 . 言语 行为 理论 是 研究 Agent 交互 行为 的 一个 重要 理论 . 言语 理论 认为 ： 人类 交际 的 语言 不仅仅 是 为了 描述 某种 状态 ， 而是 为了 完成 一定 的 行为 . 例如 ， “ 请求 ” ， “ 通知 ” ， “ 询问 ” ， “ 允诺 ” 等等 . 言语 行为 的 特点 是言者 通过 说 一句 话 或 若干 句 话 来 执行 一个 或 若干个 上述 所 列举 的 行为 ， 这些 言语 行为 的 实现 可能 给言者 或者 听者 带来 某些 后果 . 我们 注意 到 ， 逻辑 上 这种 言语 行为 不能 被 简单 地 赋予 真值 ， 它 的 满足 涉及 到 言语 行为主体 的 状态 ， 言语 行为 是否 正确 地 发出 等等 . 为了 研究 言语 行为 ， 人们 提出 了 言语 行为 理论 三分 说 即 任何 规范 的 会 话 活动 实际上 产生 了 3 个 概念 互 有 区别 的 活动 ： 
+ 　 　 ①   以言 指事 ( locution ) ， 指会 话 的 物理 动作 ； 
+ 　 　 ②   以 言行 事 ( illocution ) ， 指言者 传递 给 听者 的 意图 ； 
+ 　 　 ③   以言 成事 ( perlocution ) ， 指 言语 行为 的 结果 ， 即以 言行 事 之后 言者 或 听者 所 采取 的 动作 . 
+ 　 　 以 言行 事由 两 部分 构成 ： 以 言行 事 强度 和 公式 . 以 言行 事 强度 用于 区分 一个 言语 行为 是 请求 还是 允诺 等等 . 公式 是 以 言行 事 的 受体 ， 用于 描述 系统 状态 . 一个 言语 行为 的 满足 取决于 以 言行 事 强度 和 公式 两 方面 的 满足 . 根据 言语 行为 理论 的 思想 以及 对 主动 合作 计算 的 研究 和 分析 ， 我们 提取 出 “ 条件 非 终止 请求 ” ， “ 条件 非 终止 允诺 ” ， “ 通知 ” 3 种 言语 行为 作为 Agent 间 实现 非 终止 主动 合作 计算所 需 的 基本 通信 行为 . 
+ 　 　 （ 1 ）   条件 非 终止 请求 ( Requestcn ) ： 言 者 要求 听者 当 约束条件 满足 时 主动 地为 它 提供 相应 的 服务 . 不同于 文献 ［ 1 ］ 中 所 提出 的 条件 请求 通信 行为 ， 在 条件 非 终止 请求 通信 行为 中 服务 的 完成 并 不 意味着 合作 的 终止 ， 一旦 约束条件 再次 满足 ( 如 获取 更新 的 飞机 航班信息 ) 仍 需 听者 提供 相应 的 服务 . 
+ 　 　 （ 2 ）   条件 非 终止 允诺   ( Promisecn ) ： Agent1 向 Agent2 作出 条件 允诺 Promisecn 是 指 如果 约束条件 满足 ， Agent1 将 为 Agent2 主动 地 提供 相应 的 服务 ， 不同于 文献 ［ 1 ］ 、 ［ 2 ］ 中 所 提出 的 条件 允诺 通信 行为 ， 在 条件 非 终止 允诺 通信 行为 中 服务 的 完成 并 不 预示 着 Agent1 实现 了 它 所 作出 的 允诺 ， 一旦 约束条件 再次 满足 Agent1 将 继续 提供 相应 的 服务 . 
+ 　 　 （ 3 ）   通知 ( Inform ) . Agent 通过 inform 通信 行为 把 相关 信息 通知 给 其它 Agent . 
+ 　 　 设 为 基本 通信 行为 集合 即 = ｛ Requestcn ,   Promisecn ,   Inform ｝ . 下面 我们 简单 、 直观 地 描述 一下 多 Agent 系统 基于 上述 基本 通信 行为 的 非 终止 主动 合作 计算 过程 . Agent1 ( 消息 发送 方 ) 通过 条件 非 终止 请求 Requestcn 首先 向 Agent2 ( 消息 接受方 ) 提出 条件 非 终止 服务 请求 ， 要求 Agent2 在 条件 满足 时 主动 地为 它 提供 相应 的 服务 . Agent2 在 接到 条件 非 终止 请求 之后 向 消息 发送 方 Agent 作出 条件 非 终止 允诺 Promisecn ， 允诺 一旦 条件 满足 它 将 主动 地为 Agent1 提供 相应 的 服务 ， 并 通过 通知 言语 行为 Inform 将 结果 返回 给 Agent1 ( 见图 1 ) . 
+ 
+ 　 　 　 　 
+ 图 1 　 多 Agent 系统 的 非 终止 主动 合作 计算 示意图 
+ 　 　 上文 介绍 了 非 终止 主动 合作 计算 模型 所 需 的 基本 通信 行为 ， 那么 Agent 如何 基于 并 通过 对 这些 通信 行为 作出 响应 以 实现 非 终止 主动 合作 计算 ？ 在 什么 条件 下 我们 可以 称 一个 言语 行为 被 满足 ？ 在 什么 情形 下 我们 可以 说 一个多 Agent 系统 内 存在 非 终止 主动 合作 计算 关系 ？ 下面 我们 将 基于 在 文献 ［ 1 ］ 、 ［ 2 ］ 中 所 提出 的 多 Agent 系统 计算 的 理论 框架 来 解决 上述 问题 . 
+ 3 　 理论 框架 
+ 　 　 我们 注意 到 Agent 间 由于 消息传递 而 导致 的 交互 特性 不仅 需要 关心 消息传递 行为 的 发生 ， 还应 关心 消息 发送者 所 传递 的 意图 ( 如 “ 通知 ” ， “ 请求 ” ， “ 允诺 ” 等等 ) 以及 消息 接收者 和 发送者 可能 采取 的 行动 以及 这些 行动 所 产生 的 效果 . Agent 间 的 通信 行为 是 一种 有 意图 的 行为 ， 其 效果 主要 作用 于 通信 双方 的 内部 状态 上 ， 对 物理 世界 不 产生 影响 . 言语 行为 理论 三分 说 有助于 我们 全面 、 准确 地 认识 和 分析 Agent 间 的 通信 行为 ， 而 文献 ［ 1 ］ 、 ［ 2 ］ 中 提出 的 多 Agent 计算 的 理论 框架 则 可以 帮助 我们 进一步 理解 和 认识 上述 交互 行为 对 Agent 内部 状态 的 影响 ， 有助于 我们 定义 言语 行为 的 满足 语义 . 　 　 
+ 　 　 在 文献 ［ 1 ］ 中 我们 提出 了 多 Agent 系统 中 Agent 计算 的 理论 框架 . 理论 框架 认为 Agent 基于 BICC 体系结构 进行 计算 ， 即 Agent 是 由 信念 ( belief ) 、 意愿 ( intention ) 、 能力 ( capability ) 、 承诺 ( commitment ) 4 个 成份 所 构成 的 意向系统 ( intentional   system ) . Agent 的 信念 是 Agent 进行 计算 的 基础 ， 它 刻画 了 Agent 对 自身 以及 外界 环境 的 认识 . Agent 的 意愿 对应 于 Agent 的 任务 和 目标 ， 它 是 Agent 计算 的 起因 . Agent 的 能力 是 Agent 进行 计算 的 前提 ， 也 是 Agent 成功 地 实现 其 意愿 的 一个 重要 条件 . Agent 的 承诺 则 体现 了 计算 本身 ， 它 刻画 了 Agent 对 其 未来 行为 的 一种 决策 . 为了 严格 、 形式化 地 介绍 多 Agent 系统 计算 的 理论 框架 、 研究 和 描述 多 Agent 系统 主动 合作 计算 模型 ， 下面 我们 将 首先 提出 多 Agent 系统 计算 的 逻辑 框架 . 该 逻辑 框架 主要 包括 3 个 部分 ： 语法 、 模型 和 语义 . 
+ 　 　 语法 部分 是 一个 一阶 的 分枝 时序 逻辑 L . L 的 公式 集由 状态 公式 集 Lt 和 路径 公式 集 Ls 二 部分 组成 . 为 简化 说明 ， 文中 具有 下列 符号 约定 ： ①   常数 符号 集合 Const ， 包括 Agent 符号 集合 ConstAg ； 原子 动作 符号 集合 ConstAc ； 规划 符号 集合 ConstP ； 其它 常数 集合 ConstObj ； ②   变量 符号 集合 Var ， 包括 Agent 符号 集合 VarAg ； 原子 动作 符号 集合 VarAc ； 规划 符号 集合 VarP ； 其它 变量 集合 VarObj ； ③   可 枚举 的 谓词 符号 集合 Φ . 对于 任意 q ∈ Φ 都 对应 有 一个 常数 arity ( q ) 称为 q 的 元 . 上述 符号 集合 均 非空 、 可 枚举 且 互不 相交 . 设 p ， q ， …   表示 谓词 符号 ； φ ， ψ ， ν ， …   表示 公式 符号 ； i ， j ， …   表示 Agent 符号 ； a ， b ， …   表示 原子 动作 符号 ； α ， …   表示 规划 符号 ； x ， …   表示 变量 符号 . 
+ 　 　 定义 1 .   语言 L 的 语法 形成 规则 定义 如下 ： 
+ 　 　 R1 ： p ∈ Lt 
+ 　 　 R2 ： 如 ψ ， φ ∈ Lt   且 α 为 规划 表达式 ， 则 φ ， ψ ∧ φ ， λ 　 x φ , W ( φ ) ， Cani ( α ， φ ) ， Committeds ( α ， φ ) ∈ Lt 
+ 　 　 R3 ： 如果 φ ∈ Ls ， 则 A φ ,   R φ ∈ Lt 
+ 　 　 R4 ： 如果 ψ ， φ ∈ Ls   ， 则 φ ， ψ ∧ φ ， ψ U φ ∈ L - s 
+ 　 　 R5 ： LtLs 
+ 其中 ， 规划 表达式 定义 如下 ： 
+ 　 　 R6 ： 如果 φ ∈ Lt   ， 则 confirm ( φ ) ， a 是 规划 表达式 ; 
+ 　 　 R7 ： 如果 α , β 是 规划 表达式 ， 则 α ； β ， α | β 也 是 规划 表达式 . 
+ 　 　 除了 通常 的 命题 连接词 ， 形式化 语言 L 还 引进 了 其它 算子 如 ： “ until ” 时序 算子 U ， 全称 路径 算子 A ， 实际 路径 算子 R ， 以及 其它 一系列 算子 分别 表示 Agent 的 信念 、 能力 、 承诺 等等 . 语言 L 中 的 一个 项 或者 是 一个 常数 或者 是 一个 变量 . 
+ 　 　 定义 2 .   语言 L 的 一个 模型 M 是 一 结构 < T ， U , π , Act , R , C > . 
+ 　 　 T 是 时刻 集 ， T 中 的 每 一 时刻 对应 于 世界 的 一个 状态 . < T × T 是 T 上 的 偏序 关系 且 满足 过去 线性 ， 因而 整个 模型 呈图 2 所示 的 树形 结构 . U = UAg ∪ UAc ∪ Up ∪ UObj ， 其中 UAg 是 Agent 集合 ； UAc 是 原子 动作 集合 ； Up 是 规划 集合 ； UObj 是 其它 对象 集合 . π ： Φ × T → powerset ( Un ) 是 对 谓词 符号 的 解释 且 满足 ： p ∈ Φ ;   t ∈ T ; n ∈ N :   ( arity ( p ) = n ) ( π ( p ,   t ) ∈ powerset ( Un )   ) . 时刻 t 的 一条 路径 是 指 始于 该 时刻 ， 由 t 的 将来 时刻 构成 的 一条 线性 分枝 ， 在 形式化 模型 中 ， 不同 的 路径 对应 于 不同 的 Agent 动作 执行 事件 与 环境 事件 的 组合 ， 反映 了 世界 的 不同 发展 轨迹 . 
+ 
+ 　 　 　 　 　 
+ 图 2 　 形式化 模型 示意图 
+ 　 　 定义 3 .   设 t ≤ t ′ ， 则 ［ t ,   t ′ ］   =   { t ″ | t ≤ t ″ ≤ t ′ } 为 一 路径 子 区间 . 
+ 　 　 设 St 表示 时刻 t 的 所有 路径 的 集合 ， S Σ 是 所有 路径 的 集合 . Act ： UAg × UAc → powerset ( T × T ) 定义 了 原子 动作 的 发生 ， ［ t ,   t ′ ］ ∈ Act ( i ,   a )   表示 Agenti 在 ［ t ,   t ′ ］ 路径 子 区间 中 执行 原子 动作 a . C ： Const → U 是 对 常数 符号 的 解释 . R ： T → S Σ ， 对于 任一 时刻 t ， R ( t ) 定义 了 在 该 时刻 的 实际 路径 即 世界 在 该 时刻 的 实际 发展 轨迹 ( 如图 2 粗线条 所示 ) . 在 形式化 模型 中 ， 任一 时刻 世界 有 多种 发展 轨迹 ， 在 这些 发展 轨迹 中 我们 可以 标识 出 一条 实际 路径 以 描述 模型 在 该 时刻 的 实际 发展 轨迹 . 变量 的 一个 指派 V 是 映射 V ： Var → U . 
+ 　 　 多 Agent 系统 是 个 动态 、 不 确定 的 系统 . 系统 中 各个 Agent 的 动作 并发 、 异步 地 发生 . 在 任一 时刻 Agent 可能 执行 各种 动作 并 通过 动作 的 执行 来 影响 和 控制 世界 的 发展 ， 然而 这种 影响 和 控制 是 有限 的 ， 世界 发展 轨迹 还 受 其他 Agent 动作 执行 事件 和 环境 事件 的 影响 ， 所有 Agent 动作 执行 事件 和 环境 事件 共同 确定 世界 的 发展 . 考虑 图 2 所示 由 两个 Agent 构成 的 多 Agent 系统 计算 的 形式化 模型 . 图中 的 结点 表示 时刻 ， 边 表示 多个 Agent 的 动作 并发 地 发生 . 我们 假定 “ ‖ ” 左侧 符号 表示 Agent1 的 动作 ， 右侧 符号 表示 Agent2 的 动作 . 在 t0 时刻 Agent1 通过 执行 动作 a 使得 世界 沿 t1 或 t2 方向 发展 ， 但 世界 发展 的 将来 时刻 是 t1 还是 t2 还 取决于 Agent2 的 动作 . 当 Agent2 执行 动作 c 时则 世界 沿 t1 方向 发展 ， 当 Agent2 执行 动作 d 时则 世界 沿 t2 方向 发展 . 因而 上述 形式化 模型 刻画 了 多 Agent 系统 中 多个 Agent 行为 的 并发 发生 ， Agent 行为 对 世界 发展 的 影响 和 控制 以及 这种 影响 和 控制 的 有限性 . 
+ 　 　 定义 4 .   一个 项 的 解释 定义 如下 ： 如果 τ ∈ Const   则 ［ τ ］ V   =   C ( τ ) 否则 V ( τ ) . 
+ 　 　 状态 公式 的 可 满足 语义 定义 由 模型 M 、 指派 V 和 时刻 t 给出 . M ,   V | = t φ 表示 在 指派 V 下 公式 φ 在 模型 M 的 t 时刻 被 满足 . 路径 公式 的 可 满足 语义 由 模型 M 、 指派 V 、 路径 S 和 时刻 t 加以 定义 . M ,   V | = s ,   t ψ 表示 在 指派 V 下 公式 ψ 在 模型 M 的 路径 S 的 时刻 t 被 满足 . 
+ 　 　 定义 5 .   语言 L 的 语义 定义 如下 ： 
+ 　 　 ( 1 )   M , V | = tp ( τ 1 , … , τ n ) 　 iff 　 ( ［ τ 1 ］ V , … ［ τ n ］ V ) ∈ π ( p , t ) ; 
+ 　 　 ( 2 )   M , V | = tA φ 　 iff 　 S ∈ St : M , V | = s , t φ ； 
+ 　 　 ( 3 )   M , V | = tR φ 　 iff 　 M , V | = R ( t ) , t φ ； 
+ 　 　 ( 4 )   M , V | = s , t ψ U φ 　 iff 　 t ′ ∈ S : M , V | = s , t ′ φ 且 ( t ″ : t ≤ t ″ ≤ t ′ M , V | = s , t ″ ψ ) ； 
+ 　 　 ( 5 )   M , V | = s , t φ 　 iff 　 M , V = t φ ， 其中 φ ∈ Lt . 
+ 　 　 根据上述 语义 定义 我们 可以 派 生出 其它 算子 . F φ = trueU φ 是 “ 必然 ” 时序 算子 . G φ = F ( φ ) 是 “ always ”   时序 算子 . A 是 全称 路径 算子 . E φ = A φ 是 存在 路径 算子 . 
+ 4 　 多 Agent 系统 的 非 终止 主动 合作 计算 模型 
+ 　 　 定义 6 .   设 “ Says - to ( i ,   j ,   < if ,   cond ,   m > ) ” 是 一个 参数 化 的 言语 行为 . 其中 ， i 是 消息 发送 方 Agent ， j 是 消息 接收 方 Agent ， if ∈ 表示 以 言行 事 强度 ( 如 “ 条件 非 终止 请求 ” ， “ 通知 ” 等等 ) ， cond 是 一 条件 ( 如 “ 飞机 航班信息 发生变化 ” ) ， 对于 通知 通信 行为 而言 ， cond 部分 为空 Null ， m 是 消息 的 内容 ( 如 “ 提供 新 的 飞机 航班信息 ” ) . 
+ 　 　 根据 言语 行为 理论 的 思想 ， Agent 间 的 通信 行为 是 一 动作 ， 因而 它 必定 在 某 一 路径 子 区间 上 发生 . ［ t ,   t ′ ］ ∈ Act ( ［ i ］ V , ［ Says - to ( i ,   j ,   < if ,   cond ,   m > ］ V ) 是 指 Agenti 在 路径 子 区间 ［ t ,   t ′ ］ 中 执行 并 完成 言语 行为 “ Says - to ( i ,   j ,   < if ,   cond ,   m > ) ” . 由于 “ Says - to ” 是 一 动作 描述符 ， 为了 在 公式 中 描述 Agent 间 的 通信 行为 ， 我们 引进 了 一个 特定 谓词 comm ， 公式 comm ( i ,   j ,   < if ,   cond ,   m > ) 表示 言语 行为 “ Say - to ( i ,   j ,   < if ,   cond ,   m > ) ” 的 发生 ， 其 语义 定义 如下 ： 
+ 　 　 定义 7 .   M ,   V | = s , tcomm ( i , j , < if , cond , m > ) 　 iff 
+  t ′ ∈ S : ［ t ,   t ′ ］ ∈ Act ( ［ i ］ V , ［ Says - to ( i , j , < if , cond , m > ］ V ) 
+ 　 　 为了 便于 定义 和 描述 Agent 所 需 的 服务 ， 我们 引入 了 λ - 表达式 . 同时 我们 引进 一个 特定 的 算子 answer ( λ x φ ,   Ans )   以 表示 Agent 提供 服务 的 结果 . 
+ 　 　 定义 8 .   谓词 answer ( λ x φ ,   Ans ) 是 指 Ans 为 λ x φ 的 结果 ， 其 语义 定义 如下 ： 
+ M , V | = tanswer ( λ x φ , Ans ) 　 iff 　 ( r : ( r ∈ Ans )  M , V | = t φ | xr ) 
+ 　 　 基于 上述 多 Agent 系统 计算 的 逻辑 框架 ， 我们 在 文献 ［ 1 ］ 中 着重 研究 了 构成 Agent 体系结构 的 4 个 成分 之间 的 相互 关系 ， 分析 了 Agent 是 如何 基于 其 内部 状态 进行 计算 的 . 我们 得到 一个 重要 结论 ： Committedi ( α , φ ) ∧ Cani ( α , φ ) → RF φ 即 如果 Agent 承诺 执行 某一 规划 α 以 实现 φ 并且 Agent 具有 能力 通过 规划 α 的 执行 以 实现 φ ， 则 φ 必将 在 系统 实际 发展 轨迹 的 某 一 将来 时刻 被 满足 . 在 这种 情况 下 我们 称 Agent 全身心 地 实现 了 φ . 在 本文 中 ， 言语 行为 的 语义 被 解释 为 该 言语 行为 被 满足 的 条件 . 这些 条件 的 满足 并 不是 偶然 的 ， 而是 相关 Agent 具有 相应 的 认知 状态 、 采取 了 某些 行为 而 实现 的 ， 因而是 全心 的 . 下面 我们 将 基于 承诺 和 能力 两个 抽象概念 来 给出 言语 行为 的 全心 满足 语义 定义 . 为了 描述 言语 行为 对 Agent 产生 的 影响 ， 我们 引入 两个 算子 ： ①   Cani ( α , φ ) 表示 Agenti 具有 能力 通过 规划 α 的 执行 以 实现 φ ； ②   Committedi ( α , φ ) 表示 Agenti 承诺 执行 某一 规划 α 以 实现 φ ［ 1 ， 2 ］ . 
+ 　 　 根据 言语 行为 理论 三分 说 ， 我们 认为 通信 行为 的 全心 满足 包括 三 方面 的 内容 ： ①   通信 行为 的 发生 ； ②   通信 行为 对言者 或者 听者 产生 的 影响 ； ③   言 者 或者 听者 所 采取 的 动作 . 公式 comm ( i ,   j ,   < if ,   cond ,   m > ) 仅 描述 通信 行为 的 发生 ， 为了 描述 通信 行为 是否 被 满足 ， 我们 通过 引入 算子 W 来 定义 通信 行为 的 全心 满足 语义 . 算子 W 应用 于 形如 comm ( i ,   j ,   < if ,   cond ,   m > ) 的 公式 . M ,   V ( | tW ( comm ( i ,   j , < if ,   cond ,   m > ) ) 是 指 在 t 时刻 “ Says - to ( i ,   j ,   < if ,   cond ,   m > ) ” 通信 行为 被 全心 满足 . 
+ 　 　 在 非 终止 主动 合作 计算 模型 中 ， 消息 发送 方 Agent 首先 向 消息 接收 方 Agent 发出 条件 非 终止 服务 请求 . 该 请求 要求 接收 方 Agent 一旦 条件 满足 ， 即 为 发送 方 Agent 提供 相应 的 服务 . 接收 方 Agent 接收 到 发送 方 Agent 的 条件 非 终止 服务 请求 之后 向 消息 发送 方 Agent 作出 非 终止 允诺 ， 即 一旦 条件 满足 ， 它 将 给 消息 发送 方 提供 相应 的 服务 . 由于 多 Agent 系统 中 Agent 的 行为 以及 环境 事件 的 发生 ， 当 约束条件 被 满足 时 ， 消息 接收 方 Agent 根据 其 作出 的 非 终止 允诺 主动 地为 消息 发送 方 Agent 提供 服务 并 将 相应 的 结果 返回 给 消息 发送 方 Agent ， 服务 的 完成 并 不 意味着 合作 的 终止 . 如果 约束条件 再次 满足 ， 消息 接收 方 Agent 应 再次 为 消息 发送 方 Agent 提供 服务 ( 见图 1 ) . 
+ 　 　 在 非 终止 主动 合作 计算 模型 中 ， Agent 间 的 交互 涉及 三种 不同 性质 的 通信 行为 ： 条件 非 终止 请求 通信 行为 、 条件 非 终止 允诺 通信 行为 和 通知 通信 行为 . 下面 我们 给出 上述 3 种 通信 行为 的 全心 满足 语义 ， 分析 Agent 是 如何 基于 上述 通信 行为 并 通过 对 这些 通信 行为 的 响应 来 实现 非 终止 主动 合作 计算 的 ， 在 此基础 上 我们 给出 多 Agent 非 终止 主动 合作 计算 模型 的 定义 . 
+ 　 　 定义 9 .   如 Requestcn 通信 行为 的 语义 定义 
+ 　 　 M ,   V | = t   W ( comm ( i ,   j ,   < Requestcn ,   cond ,   λ x φ > ) ) 　 iff 
+ 　 　 　 　  te ∈ R ( t ) : ［ t , te ］ ∈ ActV ( ［ i ］ V , ［ Says - to ( i , j , < Requestcn , cond , λ x φ > ) ］ V ) 
+ 　 　 　 　 　 　 　 　 　 ∧ ( t ′ ∈ R ( t ) : te ≤ t ′ 且 M , V | = t ′ W ( comm ( j , i , < Promisecn , cond , λ x φ > ) ) ) 
+ 　 　 一个 条件 非 终止 请求 通信 行为 Requestcn 被 全心 满足 ， 如果 ： ①   言 者 成功 地 完成 了 该 通信 行为 ； ②   听者 在 Requestcn 动作 完成 之后 的 某 一 将来 时刻 作出 条件 非 终止 允诺   Promisecn 且 听者 全 心地 满足 了 其 允诺 . 在 此处 ， 我们 将 条件 非 终止 允诺 ( Promisecn ) 通信 行为 称为 条件 非 终止 请求 Requestcn 的 伴随 通信 行为 . 
+ 　 　 定义 10 .   Promisecn 通信 行为 的 语义 定义 
+ 　 　 M , V | = tW ( comm ( j , i , < Promisecn , cond , λ x φ > ) ) 　 iff 
+ 　 　  te ∈ R ( t ) : [ t , te ] ∈ ActV ( [ j ] V , [ Says - to ( Promisecn , cond , λ x φ ) ] V ) 
+ 　 　 　 ∧ ( t ′ ∈ R ( t ) ) :   ( te ≤ t ′ 且 M , V | = t ′ cond ) 
+ 　 　 　 　 ∧ ( [ α ] V : M , V | = t ′ Committedi ( α ， λ x φ ) ∧ Cani ( α x φ ) ) 
+ 　 　 　 　 ∧ ( [ Ans ] V , t ″ ∈ R ( t ) : t ′ ≤ t ″ 且 M , V | = t ″ answer ( λ x φ , Ans ) 
+ 　 　 　 　 　 　 ∧ M , V | = t ″ W ( comm ( j , i , < Inform , null , answer ( λ x φ , Ans ) > ) ) 
+ 　 　 一个 条件 非 终止 允诺 通信 行为 Promisecn 被 全心 满足 ， 如果 ①   言 者 成功 地 执行 了 该 通信 行为 ； ②   动作 发生 之后 ， 对于 任意 时刻 t ′ ， 如果 约束条件 在 时刻 t ′ 被 满足 ， 则 在 t ′ 时刻 言 者 承诺 执行 某一 规划 来 实现 ( λ x φ ) 且言者 具有 能力 通过 该 规划 的 执行 来 实现 ( λ x φ ) ； ③   在 t ′ 时刻 的 某个 将来 时刻 t ′ ， 言 者 实现 ( λ x φ ) 且 将 结果 通知 给 听者 . 在 此处 ， 我们 将 通知 通信 行为 称为 Promisecn 通信 行为 的 伴随 通信 行为 . 
+ 　 　 定义 11 .   Inform 通信 行为 的 语义 定义 
+ 　 　 M , V | = tW ( comm ( i , j , < Inform , null , φ > ) ) 　 iff 
+ 　 　 　 　  te ∈ R ( t ) :   [ t , te ] ∈ Act ( [ i ] V , [ Says - to ( i , j , < Inform , nullm , φ > ) ] V ) 且 M , V | = te φ 
+ 　 　 通知 通信 行为 Inform 被 全心 满足 ， 如果 ： ( 1 )   言 者 成功 地 执行 了 该 通信 行为 ； ( 2 ) 在 该 通信 行为 完成 之 时 φ 被 满足 . 
+ 　 　 定义 12 .   一个多 Agent 系统 具有 非 终止 主动 合作 计算 模型 ， 如果 ： 
+ 　 　 ( 1 )   M ,   V ｜ = t   comm ( i , j , < if ,   cond , m > ) if ∈ { Requestcn , Promisecn , Inform } ， 即 Agent 间 的 通信 行为 只能 为 条件 非 终止 请求 、 条件 非 终止 允诺 或者 通知 通信 行为 ； 
+ 　 　 ( 2 )   存在 某一 时刻 t ， 使得   M ,   V | = tW ( comm ( i , j , < Requestcn , cond , λ x φ > ) ) ； 
+ 　 　 ( 3 )   存在 某一 时刻 t ， 使得 M ,   V | = tW ( comm ( j , i , < Promisecn , cond , λ x φ > ) ) ， 并且 Agentj 向 Agenti 发出 的 条件 非 终止 允诺 通信 行为 是 Agenti 的 条件 非 终止 请求 通信 行为 的 伴随 通信 行为 ； 
+ 　 　 ( 4 )   对于 某一 时刻 t ， 使得 M , V | = tW ( comm ( j , i , < Inform ,   null , φ > ) ) ， 并且 Agentj 向 Agenti 发出 的 通知 通信 行为 是 Agentj 的 条件 非 终止 允诺 通信 行为 的 伴随 通信 行为 . 
+ 5 　 结论 
+ 　 　 在 多 Agent 系统 中 ,   由于 资源 、 能力 的 有限性 和 分布 性 ， 因而 合作 是 多 Agent 系统 的 一个 重要 特征 . 当前 随着 计算机技术 的 不断 发展 以及 Internet ， Intranet 应用 的 不断深入 ， 传统 计算 模型 已 不能 满足 现有 需求 ， 主动 合作 计算 正 成为 一个 新 的 应用 需求 点 . 本文 提出 了 一个 非 终止 主动 合作 计算 模型 ， 基于 言语 行为 理论 以及 我们 所 提出 的 多 Agent 系统 计算 的 理论 框架 ， 本文 讨论 了 该 合作 计算 模型 所 涉及 的 Agent 通信 行为 ， 分析 了 Agent 如何 响应 这些 通信 行为 来 完成 非 终止 的 主动 合作 计算 ， 并 进一步 给出 了 该 合作 计算 模型 的 定义 . 
+ 　 　 多 Agent 系统 的 非 终止 主动 合作 计算 模型 的 提出 ， 有助于 我们 进一步 理解 和 认识 多 Agent 系统 的 主动 合作 关系 和 主动 合作 计算 ， 分析 和 评估 多 Agent 系统 中 的 不同 合作 计算 模型 ； 同时 有关 交互 行为 的 全心 满足 语义 的 定义 可以 帮助 我们 深层次 地 理解 和 分析 Agent 如何 参与 合作 、 如何 对 各种 通信 行为 作出 响应 以 指导 Agent   的 设计 ， 并 给 我们 提供 了 一种 有效 的 方法 和 手段 用于 规范 和 描述 复杂 、 庞大 的 多 Agent 系统 . ■ 
+ 基金项目 ： 本 课题 得到 国家自然科学基金 ( 项目编号 N069503002 ) 和 国防 预研 基金项目 的 资助 . 
+ 作者简介 ： 毛 新军 ， 男 ， 1970 年 9 月生 ， 博士 ， 主要 研究 方向 为 分布式 人工智能 、 软件 重用 等 . 
+ 　 　 　 　 　 王怀民 ， 男 ， 1962 年生 ， 博士 ， 研究 方向 为 分布 计算 、 Agent 理论 . 
+ 　 　 　 　 　 陈 火旺 ， 男 ， 1936 年生 ， 教授 ， 研究 领域 为 计算机科学 理论 、 人工智能 等 . 
+ 　 　 　 　 　 刘风歧 ， 男 ， 1938 年生 ， 教授 ， 研究 方向 为 人工智能 等 . 
+ 作者 单位 ： 毛 新军 （ 国防科学技术大学 计算机科学 系 　 长沙 　 410073 ） 
+ 　 　 　 　 　 王怀民 （ 国防科学技术大学 计算机科学 系 　 长沙 　 410073 ） 
+ 　 　 　 　 　 陈 火旺 （ 国防科学技术大学 计算机科学 系 　 长沙 　 410073 ） 
+ 　 　 　 　 　 刘风歧 （ 国防科学技术大学 计算机科学 系 　 长沙 　 410073 ） 
+ 参考文献 ： 
+ ［ 1 ］ 毛 新军 .   多 Agent 系统 中 Agent 计算 的 理论 框架 ［ 博士学位 论文 ］ . 长沙 工学院 ， 长沙 ， 1998 
+ 　 　 　 ( Mao   Xinjun .   The   Theoretical   Framework   of   Agent   Computing   in   Multi - Agent   System   ［ Ph   D   dissertation ］ ( in   Chinese ) .   Changsha   Institute   of   Technology ,   Changsha ,   1998 . ) 
+ ［ 2 ］ Haddadi   A .   Communication   and   Cooperation   in   Agent   Systems :   A   Pragmatic   Theory .   Berlin :   Springer - Verlag ,   1996 
+ ［ 3 ］ Singh   M   P .   Multi - Agent   System :   A   Theoretical   Framework   for   Intentions ,   Know - How ,   and   Communications .   Berlin :   Springer - Verlag ,   1994 
+ 收稿 日期 ： 1998 - 11 - 30 
+ 修稿 日期 ： 1999 - 03 - 22 

@@ -1,0 +1,112 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 10 卷   第 12 期     Vol.10   No.12   1999 
+ 
+ 
+ 
+ 基于 神经网络 的 汉语 口语 多义 选择 
+ 王 海峰 　 高文 　 李生 
+ 摘要 　 汉语 口语 分析 是 交互式 话语 处理 中 的 重要环节 . 在 汉语 中 ， 有 意义 的 最小 单位 是 词 ， 因此 多义 选择 是 口语 分析 系统 必须 首先 解决 的 问题 . 该文 提出 了 一种 基于 精简 循环 网络 的 汉语 口语 多义 选择 方法 , 并 从 词汇 的 语法 、 语义 分类 所 固有 的 内在联系 出发 , 给出 了 语法 、 语义 的 一致 化 处理 策略 . 通过 使用 会面 安排 领域 的 口语 语料 进行 实验 , 多义 选择 的 开放 测试 的 正确率 为 96.9% . 
+ 关键词 　 神经网络 , 精简 循环 网络 , 口语 分析 , 汉语 口语 , 多义 选择 . 
+ 中图法 分类号 　 TP18 
+ Word   Sense   Disambiguation   of   Spoken   Chinese   Using   Neural   Network 
+ WANG   Hai - feng 　 GAO   Wen 　 LI   Sheng 
+ ( Department   of   Computer   Science   and   Engineering   Harbin   Institute   of   Technology   Harbin   150001 ) 
+ Abstract 　 Spoken   Chinese   analysis   lies   in   the   center   of   interactive   speech   processing   system . The   smallest   meaningful   unit   in   Chinese   language   is   the   word , so   word   sense   disambiguation   is   the   basis   of   spoken   Chinese   analysis . In   this   paper ,   the   authors   propose   a   novel   method   for   spoken   Chinese   word   sense   disambiguation   based   on   a   simple   recurrent   network .   This   method   provides   a   consistent   processing   strategy   for   syntax   and   semantics   according   to   the   internal   logic   between   the   word   syntactic   classification   and   semantic   classification .   Applied   in   the   corpus   for   meeting   schedule ,   this   method   achieves   an   accuracy   of   96.9%   in   an   open   testing   of   word   sense   disambiguation . 
+ Key   words 　 Neural   network ,   simple   recurrent   network ,   spoken   language   analysis ,   spoken   Chinese ,   word   sense   disambiguation . 
+ 　 　 口语 分析 是 口语 的 计算机 处理 中 的 重要环节 之一 . 口语 具有 许多 不同于 书面语 的 特点 , 比如 ， 口语 中 的 不连贯 现象 （ 包括 迟疑 、 支吾 、 重复 、 更正 、 语气词 插入 等 ） 、 语法 约束 相对 较弱 、 没有 明确 的 句子 边界 等 ［ 1 , 2 ］ . 另外 , 口语 分析 还 必须 容忍 和 处理 语音 识别 错误 . 因此 , 口语 分析方法 必须 具有 更强 的 容错 能力 和 鲁棒性 . 
+ 　 　 同一 词汇 在 不同 的 上下文 环境 中 可能 具有 不同 的 语法 和 语义 属性 , 这 就是 词 的 多义 现象 . 一个 多义词 的 语法 、 语义 属性 在 一定 的 上下文 环境 中是 唯一 确定 的 , 多义 选择 任务 就是 在 特定 语境 中为 多义词 选择 唯一 正确 的 义项 . 词 的 语法 和 语义 属性 是 构成 语言 结构 和 意义 的 基础 , 词汇 级 多义 选择 的 准确 程度 直接 关系 到 整个 口语 分析 的 成败 . 
+ 　 　 为了 满足 口语 分析 的 需要 , 各国 研究者 在 借鉴 书面语 分析方法 的 同时 , 也 对 其 进行 了 必要 的 改造 ［ 3 ， 4 ］ . 神经网络 方法 因其 较 强 的 学习 能力 和 良好 的 鲁棒性 而 受到 众多 口语 分析 研究者 的 重视 ［ 4 ］ . 精简 循环 网络 ( simple   recurrent   network , 简记 为 SRN ) ［ 5 ］ 通过 上下文 单元 ( context   units ) 的 引入 而 使 网络 具备 了 记忆 和 利用 上下文 的 能力 . Wermter 等 人 将 SRN 用于 德语 口语 分析 ， 取得 了 良好 的 结果 ［ 4 ］ . 但 Wermter 等 人 对 语法 和 语义 类 的 选择 各自 独立 , 忽视 了 语法 和 语义 的 内在联系 , 没有 考虑 它们 的 一致性 问题 . 
+ 　 　 本文 首先 介绍 SRN , 然后 给出 基于 SRN 的 汉语 口语 多义 选择 方法 , 并 提出 一种 语法 和 语义 的 一致 化理 策略 , 最后 分析 实验 结果 并 得出结论 . 
+ 1 　 精简 循环 网络 
+ 　 　 SRN 由 Elman 首先 提出 , 并 用于 时间 序列 预测 问题 ［ 5 ］ . 之后 , 很多 学者 对 SRN 的 能力 和 应用 做过 研究 ［ 4 , 6 , 7 ］ . 此 网络结构 如图 1 所示 . 
+ 
+ 图 1 　 精简 徨 网络 
+ 　 　 在 网络 运算 和 训练 中 , 输入 层 和 上下文 层 组成 网络 的 联合 输入 层 . 这样 , 就 可以 把 网络 作为 一个 k + m 个 输入 神经元 的 3 层 前馈 网络 来 处理 了 , 只是 其 输入 层 的 前 k 个 单元 把 网络 隐藏 层 的 前 一组 输出 作为 自己 的 输入 . 通常 , SRN 采用 BP 算法 进行 网络 参数 训练 . 
+ 通过 上下文 层 的 引入 , SRN 可以 使用 较大 范围 的 上下文 作为 当前 运算 的 依据 ［ 5 ］ . 
+ 2 　 基于 精简 循环 网络 的 多义 选择 
+ 2.1 　 基本知识 集 
+ 　 　   鉴于 话语 处理 存在 突出 的 困难 , 目前 各国 学者 在 从事 这方面 的 研究 时 , 都 将 其 限定 在 一个 明确 的 应用领域 内 , 这样 既 降低 了 难度 , 又 有 明确 的 应用 价值 . 本文 所述 方法 用于 面向 会面 安排 ( meeting   schedule ) 的 汉英 口语翻译 ［ 8 ］ ， 共 录制 了 关于 会面 安排 的 对话 150 段 , 然后 人工 逐音 、 逐字 地 听写 、 誊录 获得 与 语音 材料 完全 对应 的 文本 语料库 约 20   000 字 ( 包含 对话 中 各种 人为 错误 和 非人 为 噪声 ) . 经过 分词 处理 , 得到 839 个 词 的 汉语 词表 . 将 通常 语法 书上 的 词类 进行 细化 , 确定 了 与 领域 无关 的 语法 类 26 个 . 语义 描述 的 是 语言 的 意义 , 而 话语 的 意义 与其 领域 背景 有关 , 因此 , 在 限定 领域 的 口语 分析 中 , 语义 分类 的 确定 也 都 是 与 领域 相关 的 . 本文 从 会面 安排 领域 口语 对话 的 特点 出发 , 建立 了 包括 37 个 语义 类 的 领域 相关 语义 集 . 最后 , 为 词表 中 的 词 逐个 添加 语法 语义 分类 , 得到 口语 分析 用 词典 . 
+ 一个 词条 可能 有 多个 义项 , 每个 义项 都 有 自己 的 语法 和 语义 类 . 同一 词条 的 任意 两个 义项 的 语法 和 语义 类 不 同时 相等 . 义项 数 大于 1 的 为 多义词 . 多义 现象 的 静态 和 动态 分布 特征 见表 1 . 
+ 表 1 　 多义 现象 的 分布 特征 
+ 
+ 　 静态 特征 ( 对 词典 统计 结果 ) 动态 特征 ( 对 语料 统计 结果 ) 
+ 个 　 数 百分比 ( % ) 个 　 数 百分比 ( % ) 
+ 总 词数 839 — 10   838 — 
+ 多义词 627.42   58023.8 
+ 语法 兼类 词 404.81   72115.9 
+ 语义 兼类 词 546.42   23420.6 
+ 
+ 　 　 由表 1 可以 看出 , 多义词 的 比例 虽然 不 大 , 但 使用 频度 却 较 高 , 多义 选择 很 有 必要 . 值得 指出 的 是 , 这一 比例 低于 通用 词典 和 普通 文本 语料库 是因为 我们 所 使用 的 词典 是 限定 领域 的 .   
+ 2.2 　 语法 类 选择 
+ 　 　 口语 中 没有 逗号 、 句号 等 明显 的 分隔 标志 , 因而 无法 像 书面语 那样 以 句子 为 单位 进行 分析 . 为此 , 我们 引入 了 话 轮 ( dialog   turn ) ［ 9 ］ 的 概念 . 一个 话 轮 是 指 一个 说话 人 不 被 打断 地 、 连续 说出 的 一段话 . 本文 所 实现 的 选择 算法 以话 轮 为 单位 , 选择 时 只 使用 话 轮 内 上下文 信息 . 
+ 　 　 令 网络 在 接收 第 p 个 输入 Ap = ap1 , ap2 , ... , apm 时 , 相应 各层 的 输出 为 : 隐藏 层 Hp = hp1 , hp2 , ... , hpk , 上下文 层 Bp = bp1 , bp2 , ... , bpk , 输出 层 Op = op1 , op2 , ... , opn . 若 网络 处在 学习 阶段 , 与 Ap 相应 的 理想 输出 Tp = tp1 , tp2 , ... , tpn . 
+ 　 　 上下文 层 的 值 等于 网络 处理 前面 一个 样本 时 隐藏 层 的 值 , 所以 ， 当 p ≥ 2 时 , 有 Bp = Hp - 1 . 而 当 p = 1 时 , b1i 被 赋予 ( - 1 , + 1 ) 区间 内 的 初始值 . 
+ 　 　 网络 的 输入 层 和 上下文 层 组成 有 k + m 个 神经元 的 联合 输入 层 , 当 接收 第 p 个 输入 时 , 联合 输入 层 的 网络 总 输入 为 Cp = ［ Bp , Ap ］ = ［ bp1 , bp2 , ... , bpk , ap1 , ap2 , ... , apm ］ = ［ cp1 , cp2 , ... , cpk + m ］ . 
+ 　 　 对于 f 个 元素 的 语法 类 集合 W = ｛ w1 , w2 , ... , wf ｝ ( 本 系统 中 f = 26 ) , 有 m = f , n = m , 输入 层 和 输出 层 神经元 分别 与 语法 类 集合 W 中 的 元素 一一对应 . 隐藏 层 和 上下文 层 神经元 数目 k 根据 经验 确定 . 
+ 对于 有 q 个 词 的话 轮 S = ［ s1 , s2 , ... , sq ］ , 设 S 的 正确 标记 串为 R = ［ r1 , r2 , ... , rq ］ , 其中 rp ∈ W ( p = 1 , 2 , ... , q ) . 对于 词 sp ( 1 ≤ p ≤ q ) , 其 所有 可能 标记 的 集合 Wp = ｛ Wd1 , Wd2 , ... , Wdh ｝ , Wp ∈ 2W 且 Wp ≠  , Wp 中 的 元素 是 由 词典 中 该词 的 所有 词类 确定 的 . 在 话 轮 中 , 词 sp 的 正确 标记 为 rp . 
+ 　 　 当 系统 接收 sp 时 , 与 之 对应 的 网络 输入 向量 Ap = ［ ap1 , ap2 , ... , apm ］ 的 分量 api 按 如下 方法 构造 . 若 词典 中 sp 有 语法 类 wi ( 即 wi ∈ Wp ) , 则 api = 1 , 否则 api = 0 . 此时 , 网络 理想 输出 Tp = ［ tp1 , tp2 , ... , tpm ］ 的 分量 tpi , 按 如下 方法 构造 . 若 sp 的 正确 标记 为 wi ( 即 wi = rp ) , 则 tpi = 1 , 否则 tpi = 0 . 
+ 　 　 系统 的 运行 分为 学习 过程 和 选择 过程 . 在 学习 过程 , 采用 引入 动量 项 的 BP 算法 ［ 10 ］ 作为 基本 学习 算法 , 训练 集由 经过 人工 标注 和 校对 的 汉语 口语 对话 组成 . 在 选择 过程 , 网络 使用 学习 过程 得到 的 网络 参数 . 第 p 个 词 sp 产生 网络 输入 Ap , 经过 计算 得到 相应 的 网络 输出 Xp = ［ xp1 , xp2 , ... , xpf ］ . 若 只 单独 考虑 语法 类 选择 , 令 i = 则 sp 的 语法 类为 wi . 
+ 2.3 　 语义 类 选择 
+ 　 　 语义 类 选择 的 过程 与 语法 类 选择 类似 , 但 其中 各层 神经元 的 个数 需作 相应 调整 . 对于 g 个 语义 类 的 集合 V = ｛ v1 , v2 , ... , vg ｝ ( 本 系统 中 的 g = 37 ) , 有 m = g , n = m . 
+ 　 　 采用 训练 好 的 网络 进行 语义 类 选择 时 , 第 p 个 词 sp 输入 时 得到 网络 输出 Yp = ［ yp1 , yp2 , ... , pyg ］ . 若 只 单独 考虑 语义 类 选择 , 令则 sp 的 语义 类为 vj . 
+ 2.4   语法 、 语义 的 一致 化 处理 
+ 　 　 分别 用 两个 SRN 对 语法 、 语义 独立 进行 选择 , 难免会 出现 不 一致 问题 . 由于 同一 词条 的 任意 两个 义项 的 语法 和 语义 分类 值 不 同时 相等 , 所以 可 由 语法 语义 对 ( wi , vj ) 来 唯一 标志 词条 的 每 一个 义项 . 词 sp 的 u 个 义项 组成 义项 集 : Zsp = ｛ ( wd1 , ve1 ) , ( wd2 , ve2 ) , ... , ( wdu , veu ) ｝ . 其中 对于 任意 1 ≤ i ≤ u , 有 1 ≤ di ≤ f , 1 ≤ ei ≤ g . 且 对于 任意 i ≠ j , 1 ≤ i , j ≤ u , 有 wdi = wdjvei ≠ vej . 对 任意 1 ≤ i ≤ f , 1 ≤ j ≤ g , 若 语法 语义 对 ( wi , vj ) ∈ Zsp , 则 ( wi , vj ) 对于 词 sp 是 一致 的 , 若则 ( wi , vj ) 对于 词 sp 是 不 一致 的 . 在 词典 填写 无误 时 , 若为 词 sp 选择 的 语法 语义 对 ( wi , vj ) 对于 sp 是 不 一致 的 , 则 意味着 语法 和 语义 的 选择 至少 有 一个 是 错误 的 , 需 一致 化 处理 . 
+ 　 　 一个 正确 选择 , 必须 首先 保证 语法 语义 对 是 一致 的 . 为 确保 一致性 , 决定 综合 语法 选择 输出 向量 Xp 和 语义 选择 输出 向量 Yp 来 为 词 sp 的 每 一 义项 ( wdi , vei ) ∈ Zsp 构造 评价 函数 . 与 wdi 对应 的 语法 选择 的 网络 输出 为 xpdi , 与 vei 对应 的 语法 选择 的 网络 输出 为 ypei , 求 它们 的 加权 和 ， 得 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 　 　 加权 系数 α 根据 经验 确定 . 令 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 2 ) 
+ 则 选定 ( wdi , vei ) 为 sp 的 义项 . 由于 ( wdi , vei ) ∈ Zsp , 所以 它 对于 词 sp 必然 是 一致 的 . 
+ 2.5 　 实验 
+ 　 　 对 第 2.1 节 所述 的 口语 对话 进行 人工 标注 , 得到 训练 和 测试 用语 料 . 从中 随机 抽取 80 段 作为 训练 集 , 其余 70 段 作为 开放 测试 集 . 先用 训练 集 分别 训练 用于 语法 和 语义 选择 的 两个 网络 . 然后 分别 用 训练 好 的 两个 网络 对 语法 选择 和 语义 选择 进行 测试 , 并 在 确定 加权 系数 α 后 , 对 多义 选择 的 综合 结果 进行 测试 . 测试 时 , 分别 用 训练 集 和 开放 测试 集 得到 封闭 和 开放 测试 结果 . 测试 结果 包括 消歧率 和 准确率 . 
+ 
+ 　 　 其中 , “ 语料 中 需要 选择 的 总 词数 ” 在 语法 、 语义 和 多义 选择 中 分别 指 语料 中 语法 兼类 的 总 词数 、 语义 兼类 的 总 词数 和 多义词 总数 . 表 2 列出 了 单独 语法 、 语义 选择 及 最终 的 多义 选择 3 种 结果 . 
+ 表 2 　 多义 选择 实验 结果 
+ 
+ 　 封闭 测试 开放 测试 
+ 消歧率 ( % ) 准确率 ( % ) 消歧率 ( % ) 准确率 ( % ) 
+ 语法 选择 89.498 . 384.097 . 5 
+ 语义 选择 91.598 . 285.797 . 1 
+ 多义 选择 93.098 . 387.396 . 9 
+ 
+ 　 　 在 实验 中 , 用于 语法 类 选择 的 网络 隐藏 层 神经元 数目 为 39 , 用于 语义 类 选择 的 网络 隐藏 层 神经元 数目 为 50 . 在 奔腾 MMX166 ( 32M 内存 ) 机器 上 , 多义 选择 速度 约 为 650 词 / s . 
+ 　 　 在 进行 多义 选择 时 , 加权 系数 α 的 确定 过程 如下 : 
+ ①   α 将 的 初始值 置 为 0.2 , 置 当前 加权 系数 β = α , 当前 准确率 γ = 0 , α 的 变化 步长 δ = 0.01 ； 
+ 　 　 ②   根据 当前 的 α 值 进行 多义 选择 , 并 计算 准确率 μ ； 
+ 　 　 ③   若 μ > γ , 则 β = α , γ = μ ； 
+ 　 　 ④   α = α + δ ； 
+ 　 　 ⑤   如果 α ≤ 0.8 ， 转 ② ； 
+ 　 　 ⑥   α = β , 结束 . 
+ 　 　 将 上述 过程 用于 封闭 集 和 开放 集 , 分别 得到 α 值为 0.42 和 0.41 , 相应 的 准确率 见表 2 . 
+ 3 　 结论 
+ 　 　 通过观察 和 分析 实验 结果 , 发现 口语 分析 有 如下 几个 特点 . 
+ 　 　 ( 1 )   在 表 2 中 , 鉴于 需要 选择 的 总 词数 不同 , 准确率 可比性 不 强 ， 而 消歧率 则 可 较 好 地 反映 算法 能力 . 语义 选择 的 消歧率 高于 语法 选择 , 说明 口语 分析 的 特有 困难 对 语义 分析 的 影响 较 小 , 语法 上 不 完整 的 话语 在 语义上 往往 是 完整 的 . 多义 选择 整体 消歧率 好 于 语法 、 语义 各自 独立 选择 的 消歧率 , 这 说明 一致 化 处理 策略 切实有效 , 它 不但 保证 了 语法 和 语义 的 一致 , 还 使 消歧率 有所提高 . 
+ 　 　 ( 2 )   α 值 小于 0.5 表明 , 当 语法 语义 选择 结果 不 一致 , 需 加权 求和 时 , 语义 权重 更大 , 这 也 从 另 一 侧面 说明 了 口语 中 语义 分析 的 结果 比 语法分析 更 可靠 . 
+ ( 3 )   使用 本文 的 方法 取得 了 良好 的 效果 可以 归结为 如下 原因 : 具有 良好 鲁棒性 和 容错 能力 的 神经网络 方法 确实 能 较 好 地 处理 包含 大量 不连贯 现象 和 不 符合 语法 现象 的 口语 ； 限定 明确 的 应用领域 效果显著 . 
+ ( 4 )   本文 的 研究 是 在 限定 应用领域 的 条件 下 展开 的 . 目前 , 无 限制 的 、 任意 内容 的 口语 分析 还 无法 实现 ［ 1 , 2 , 4 ］ . 但 神经网络 较强 的 学习 能力 保证 了 本文 的 方法 很 容易 向 其他 领域 扩展 , 扩展 时 只 需 收集 、 加工 相应 的 口语 语料 ， 重新 定义 与 领域 相关 的 语义 集 并 填写 词典 即可 . 
+ 　 　 关于 本文 的 方法 , 尚有 如下 几个 问题 需要 说明 : 
+ 　 　 ( 1 )   标准 的 SRN 只 记忆 和 使用 上文 信息 （ 当前 输入 之前 的 所有 输入 信息 ） , 而 未 使用 下文 信息 , 为了 能 使用 下文 信息 , 一些 学者 提出 了 改进 措施 ［ 7 ］ . 本文 没有 采用 改进 措施 是 基于 如下 原因 : 利用 下文 信息 将 使 时空 开销 大大增加 , 如 文献 ［ 7 ］ 中 的 方法 使 输入 层 神经元 个数 增加 了 7 倍 ； 利用 下文 信息 将 影响 实时性 . 实验 结果表明 , 即使 未 使用 下文 信息 , 准确率 相当 高 , 可以 满足 口语 分析 的 需要 . 
+ 　 　 ( 2 )   在 网络 训练 和 运算 中 不但 要 处理 多义词 , 而且 无需 选择 的 非 多义词 也 要 逐一 处理 , 增加 了 系统 开销 . 但 由于 上文 的 非 多义词 构成 了 多义 选择 的 根据 , 而 上文 信息 记忆 于 神经网络 内部 状态 ( 上下文 层 ) . 因此 , 非 多义词 参加 训练 和 运算 是 必要 的 . 好 在 系统 的 多义 选择 速度 是 完全 可以 接受 的 . 
+ 　 　 本文 提出 的 基于 SRN 的 汉语 口语 多义 选择 方法 已 应用 于 面向 会面 安排 的 汉英 口语翻译 系统 , 效果 令人满意 . 
+ * 本文 研究 得到 国家自然科学基金 、 国家 863 高科技 项目 基金 、 国家教育部 跨世纪 人才 基金 和 中国科学院 “ 百 人 计划 ” 基金 资助 . 
+ 作者简介 ： 王 海峰 , 1971 年生 , 博士生 , 主要 研究 领域 为 机器翻译 , 计算 语言学 ， 人工神经网络 . 
+ 　 　 　 　 　 高文 , 1956 年生 , 博士 ， 教授 , 博士生 导师 , 主要 研究 领域 为 人工智能 ， 多媒体技术 . 
+ 　 　 　 　 　 李生 , 1943 年生 , 教授 , 博士生 导师 , 主要 研究 领域 为 机器翻译 , 计算 语言学 ， 人工智能 . 
+ 本文 通讯联系 人 : 王 海峰 , 北京 100080 , 北京市 海淀区 知春路 49 号 希格玛 中心 五层 
+ 作者 单位 ： 哈尔滨工业大学 计算机科学 与 工程系 　 哈尔滨 　 150001 
+ E - mail :   i - haiwan @ microsoft . com 
+ 参考文献 
+ 　 　 1 　 Waibel   Alex .   Interactive   translation   of   conversational   speech .   IEEE   Computer ,   1996 , 29 ( 7 ) : 41 ～ 48 
+ 　 　 2 　 Kitano   Hiroaki .   Speech - to - Speech   Translation :   A   Massively   Parallel   Memory - based   Approach .   Hingham ,   MA ,   Kluwer   Academic   Publishers ,   1994 
+ 　 　 3 　 Lavie   A .   GLR * :   a   robust   grammar - focused   parser   for   spontaneously   spoken   language   ［ Ph . D .   Thesis ］ .   Pittsburgh ,   PA :   Carnegie   Mellon   University ,   1996 
+ 　 　 4 　 Wermter   S ,   Weber   V .   SCREEN :   learning   a   flat   syntactic   and   semantic   spontaneous   language   analysis   using   artificial   neural   networks .   Journal   of   Artificial   Intelligence   Research ,   1997 , 6 ( 1 ) : 35 ～ 85 
+ 　 　 5 　 Elman   Jeffery   L .   Finding   structure   in   time .   Cognitive   Science ,   1990 , 14 ( 2 ) : 179 ～ 211 
+ 　 　 6 　 Servan - Schrieber   D ,   Cleeremans   A ,   McClelland   L .   Graded   state   machines :   the   representation   of   temporal   contingencies   in   simple   recurrent   networks .   Machine   Learning ,   1991 , 7 ( 2 ～ 3 ) : 161 ～ 194 
+ 　 　 7 　 刘伟权 , 钟义信 . 基于 SRNN 神经网络 的 汉语 文本 词类 标注 方法 . 计算机 研究 与 发展 , 1997 , 34 ( 6 ) : 421 ～ 426 
+ ( Liu   Wei - quan ,   Zhong   Yi - xin .   Part - of - speech   tagging   with   simple   recurrent   neural   network .   Computer   Research   and   Development ,   1997 , 34 ( 6 ) : 421 ～ 426 ) 
+ 　 　 8 　 王 海峰 , 高文 , 李生 . 面向 受限 领域 的 汉英 口语翻译 . 见 : 陈力 为 , 袁琦编 . 语言 工程 . 北京 : 清华大学出版社 , 1997.219 ～ 224 
+ ( Wang   Hai - feng ,   Gao   Wen ,   Li   Sheng .   Chinese - English   spoken   language   translation   in   limited   domain .   In :   Chen   Li - wei ,   Yuan   Qi   eds .   Language   Engineering .   Beijing :   Tsinghua   University   Press ,   1997 .   219 ～ 224 ) 
+ 　 　 9 　 何 自然 . 语用 学 概论 . 长沙 : 湖南 教育 出版社 , 1988 
+ ( He   Zi - ran .   A   Survey   of   Pragmatics .   Changsha :   Hu ' nan   Education   Press ,   1988 ) 
+ 　 10 　 Rumelhart   D   E ,   McClelland   J   L .   Parallel   Distributed   Processing ,   Ⅰ :   Foundations .   Cambridge ,   MA :   MIT   Press ,   1986 
+ 本文 1998 - 09 - 11 收到 原稿 , 1998 - 12 - 01 收到 修改稿 

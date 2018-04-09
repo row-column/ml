@@ -1,0 +1,88 @@
+宇航学 报 
+ JOURNAL   OF   ASTRONAUTICS   
+ 1999 年 　 第 20 卷 　 第 4 期 　 vol20 　 No.4 　 1999 
+ 
+ 
+ 
+ 
+ 竞争 学习 模糊 神经网络 及 在 导弹 
+ 故障诊断 中 的 应用 
+ 胡昌华 　 王青 　 陈 新海 
+ 　 　 摘 　 要 　 尽管 基于 解析 冗余 的 故障诊断 方法 有 许多 突出 的 优点 而 越来越 多地 得到 研究 和 应用 ， 但 它 依赖于 系统 的 模型 ， 当 系统 存在 非线性 或 不确定性 时 ， 存在 难以 建模 的 困难 ， 模糊 神经网络 可以 通过 学习 建立 系统 的 模型 ， 且 模型 参数 有 明确 的 物理 意义 ， 初始 参数 易于 选择 ， 成为 解决 这一 问题 的 优选 途径 ， 作者 通过 把 模糊 神经网络 的 学习 转化 为 竞争 聚类 和 线性 优化 问题 ， 基于 竞争 聚类 和 最小 二乘 原理 ， 提出 了 一种 模糊 神经网络 学习 算法 ， 并 在 某 伺服机构 上 进行 了 学习 和 故障诊断 的 实验 ， 获得 了 良好 的 实验 结果 。 
+ 　 　 主题词 　 故障诊断 　 竞争 学习 　 模糊 神经网络 
+ FUZZY   NEURAL   NETWORK   BASED   ON   COMPETITIVE   
+ LEARNING   AND   ITS   APPLICATION   TO   
+ FAULT   DIAGNOSIS   OF   MISSILE 
+ Hu   Changhua 
+ ( Section   302 , Xian   Inst . Of   Hi - tech , Hongqing   town   .   Xi ' an   .   710025 ) 
+ Wang   Qing 
+ ( Department   of   Automation , Beijng   University   of   Aeronautics   and   Astronautics   .   Beijing   .   100084 ) 
+ Chen   Xinhai 
+ ( College   of   Aeronautic , Northwest   Polytechnical   University   .   Xi ' an   .   710072 ) 
+ 　 　 Abstract 　 The   fault   Diagnosis   based   on   analytical   redundancy   depends   on   system ' s   model , while   it   is   difficult   to   get   the   system ' s   model   when   the   system   is   non - linear   or   uncertain   time - varying , there   are   some   difficulties   to   put   this   method   into   application   of   non - linear   system . The   fuzzy   neural   network   can   build   the   system ' s   model   by   learning , and   the   model ' s   parameter   established   by   this   method   has   clear   mean , it   provide   an   effective   way   to   solve   the   above   problem . The   key   of   the   Application   of   the   fuzzy   neural   network   is   the   determination   of   its   parameters . Different   from   the   other   researchers , the   authors   convert   the   learning   process   to   cluster   and   linear   optimum , based   on   competitive   learning   and   least - square   error   criterion , suggest   a   learning   algorithm   for   the   fuzzy   neural   network   system , the   experiment   in   certain   servo - mechanism   get   very   good   result . 
+ 　 　 Key   words 　 Fault   diagnosis   Competitive   learning 　 Fuzzy   neural   network 
+ 1 　 引言 
+ 　 　 对于 导弹 等 大型 复杂 系统 ， 对 其 可靠性 提出 了 极 高 的 要求 ， 系统 应 具有 故障诊断 和 容错 能力 ， 美国 NASA 就 曾 规定 空间 机器人 应有 一个 故障诊断 系统 。 基于 解析 冗余 的 故障诊断 方法 不 需要 增加 硬件 ， 利于 减小 系统 的 体积 和 重量 ， 在 航天器 控制系统 故障诊断 和 容错 控制 中 得到 了 越来越 多 的 研究 和 应用 。 问题 是 基于 解析 冗余 的 故障诊断 和 容错 控制 方法 需要 系统 的 精确 数学模型 ， 而 对于 具有 不 确定 时变 的 系统 或 非线性 系统 ， 很 难用 机理 分析 的 方法 建立 系统 的 数学模型 ， 近年来 ， 模糊 神经网络 的 任意 非线性 函数 逼近 能力 得到 了 广泛 研究 和 证实 ， 而 与 人工神经网络 相比 ， 模糊 神经网络 的 参数 有 明确 的 物理 意义 ， 初始 参数 的 选择 有 一定 的 依据 ， 显示 出 更 大 的 优越性 。 本文 基于 竞争 学习 的 原理 提出 了 一种 模糊 神经网络 的 学习 算法 ， 以该 模糊 神经网络 作为 系统 的 建模 工具 ， 实现 导弹 伺服机构 故障诊断 ， 并 进行 了 实际 实验 验证 ， 实验 获得 了 较 好 的 结果 。 
+ 2 　 自 适应 模糊 逻辑系统 — — 一种 模糊 神经网络 
+ 　 　 模糊 神经网络 由 四 部分 组成 ： 模糊化 ， 模糊 规则 库 ， 模糊推理 机和反 模糊化 。 
+ 　 　 模糊化 完成 从 输入 空间 U 到 定义 在 U 上 的 模糊集 的 映射 。 
+ 　 　 　 ( 其中 σ 2 为 ( x ) 的 形状 特征参数 ) 。 
+ 　 　 模糊 规则 库由 一组 模糊 规则 构成 ， 模糊 规则 是 通过 ( 如果 一则 / IF - THEN ) 语言 描述 的 ， 即 ： 
+ 
+ 　 　 其中 隶属 函数 式 中 ★ 表示 T 算子 ， 经常 采用 的 T 算子 有 “ 模糊 交 ” 和 “ 代数 乘 ” 。 
+ 　 　 模糊推理 机是 利用 模糊 规则 库中 的 模糊 规则 来 完成 由 输入 空间 上 的 模糊集 到 输出 空间 的 模糊集 上 的 映射 ， 设是 输入 空间 上 的 任一 模糊集 ， 则 每个 模糊 规则 Rk 确定 了 一个 定义 于 输出 空间 的 模糊集 CA   .   Rk ， 其 隶属 函数 为 ： 
+ CA   .   Rk = sup { A ( X ) ★ Rk ( X , Y ) } 　 　 　 　 　 　 　 　 　 　 　 　 ( 1 ) 
+ 　 　 反 模糊化 完成 从 输出 空间 上 的 模糊集 到 输出 空间 上 的 确定 值 的 映射 ， 反 模糊化 中 比较 多 采用 的 方法 为 “ 中心 平均 ” 反 模糊化 方法 ， 即 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 2 ) 
+ 　 　 隶属 函数 常用 的 形式 有 三角形 、 梯形 、 高斯型 等 几种 形式 ， 如果 隶属 函数 为 高斯型 的 隶属 函数 ， 则 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 3 ) 
+ 　 　 如果 隶属 函数 取为 高斯型 的 隶属 函数 ， 推理 规则 中 的 T 算子 取代 数积 ， 反 模糊化 取 “ 中心 平均 ” 的 方法 ， 则 得 模糊 神经网络 的 描述 
+ 　 　 　 　 　 　 　 　 　 　 　 ( 4 ) 
+ 　 　 ( 4 ) 式 的 模糊 逻辑系统 与 归化 的 径向 基 网络 ( 隶属 函数 为 高斯型 非常 相似 ， 因此 可 把 ( 4 ) 式 描述 的 系统 看成 一种 模糊 神经网络 。 
+ 3 　 模糊 神经网络 的 竞争 学习 算法 
+ 　 　 类似 文 ［ 1 ］ ， 易证 ( 4 ) 式 的 模糊 神经网络 可以 以 任意 精度 逼近 任意 非线性 函数 。 ( 4 ) 式 的 模糊 神经网络 用 一条 规则 对应 一组 数据 ， Xjk 为 该组 数据 对应 的 输入 模式 的 中心 ， 如果 固定 σ jk ， 则 问题 归结为 如何 确定 Yk 和 Xjk ， Xjk 可 由 竞争 学习 方法 确定 。 
+ 聚类 中心 的 竞争 学习 算法 ： 
+ 　 　 Step1 　 从 第一个 数据 对 开始 ， 在 X1 上 建立 一个 聚类 中心 ， 且 令 X1 = X1 , Y1 = Y1 ， 并 选择 一个 聚类 半径 r 。 
+ 　 　 Step2 　 对于 第 j 对 数据 ( Xj , Yj ) ( j = 2 , 3 ， … ) 假定 此时 已有 M 个 聚类 ， 其聚类 中心 分别 为 Xk ( k = 1 , 2 , … ， M ) ， 若 ‖ Xj - Xl ‖ = mink ‖ Xj - Xl ‖ , 则 
+ 　 　 ( 1 ) 若 ‖ Xj - Xl ‖ ＞ r ， 则 增加 一新 聚类 XM + 1 = Xj , M = M + 1 , Yk = Yj 。 
+ 　 　 ( 2 ) 若 ‖ Xj - Xl ‖ ≤ r ， 则 用 竞争 学习 算法 确定 Xj 属于 的 聚类 ， 并 调整 聚类 中心 的 参数 。 
+ 　 　 ( a ) 计算 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 5 ) 
+ 　 　 　 　 　 　 　 　 　 　 ( 6 ) 
+ 　 　 pt 表示 中心点 Xt 附近 样本 的 密集 程度 ， ni 为 Xi 被 选 最近 点 的 次数 。 
+ 　 　 ( b ) 修正 Xc 
+ 　 　 　 　 　 　 　 　 　 ( 7 ) 
+ 　 　 使用 pt ‖ X - Xt ‖ 进行 比较 可使 pt 参与 竞争 ， 从而 避免 一般 竞争 学习 算法 中 的 死点 问题 ， 因为 作为 死 点 ， 它 被选为 中心 Xt 的 次数 几乎 为 零 ， 引入 pt 后 ， 意味着 nt 参与 比较 ， 使死点 有 机会 参与 竞争 。 
+ 　 　 用 竞争 学习 方法 确定 聚类 中心 后 ， 剩下 的 问题 是 如何 确定 Yk 
+ 　 　 令 
+ 　 　 　 　 　 　 　 　 　 　 则 ( 4 ) 式 变为 ( 8 ) 式 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 8 ) 
+ hT ( k ) = ［ R1 , R2 , … , RM ］ , θ = ［ Y1 , Y2 , … , YM ］ T 
+ 　 　 取 性能指标 为 极小 化 J 确定 Yk ， 得 
+ ］ 
+ 4 　 基于 模糊 神经网络 的 非线性 系统 故障诊断 
+ 　 　 文 ［ 5 ］ 对 基于 观测器 的 故障诊断 方法 进行 了 深入 的 分析 ， 由文 ［ 5 ］ 易得 图 1 所示 的 用 模糊 神经网络 作为 观测器 的 故障诊断 系统 。 
+ 
+ 图 1 　 基于 模糊 神经网络 的 非线性 系统 故障诊断 原理图 
+ 　 　 利用 系统 正常 工作 的 输入输出 数据 ， 用 竞争 学习 算法 建立 模糊 神经网络 ， 使 之 与 实际 系统 并行 工作 ， 当 系统 正常 工作 时 ， 二者 的 残差 比较 小 ， 一旦 系统 偏离 正常 工作 状态 或 故障 时 ， 则 二者 的 残差 就 比较 大 ， 据此 借助 一定 的 故障 分离 策略 就 可 实现 故障诊断 ， 
+ 5 　 基于 模糊 神经网络 的 某 导弹 伺服机构 故障诊断 实验 及 结果 分析 
+ 　 　 导弹 伺服机构 是 一个 具有 严重 非线性 的 部件 ， 采用 机理 建模 的 方法 得到 的 模型 很 复杂 而 失去 使用 的 价值 ， 因此 我们 根据 伺服机构 的 正常 工作 数据 利用 本文 的 方法 建立 模糊 神经网络 ， 并 构造 图 1 所示 的 诊断系统 ， 考察 这种 模糊 神经网络 的 非线性 逼近 能力 和 基于 模型 的 故障诊断 能力 。 
+ 　 　 实验 方法 ： 根据 导弹 的 幅 相 频率特性 和 阶跃 响应 曲线 选择 合适 的 激励 信号 ( 本 试验 中 激励 信号 选择 为 长度 为 64 的 逆 M 序列 ， Δ t = 0.01 ) ， 用该 激励 信号 分别 激励 系统 ， 我们 共 进行 了 伺服机构 正常 和 存在 反馈 电位 计 接触不良 故障 等 8 种 初始状态 的 实验 ， 每种 初始状态 进行 了 5 ～ 10 组 实验 。 利用 正常 系统 的 输入输出 测量 数据 建立 模糊 神经网络 ， 以该 模糊 神经网络 作为 伺服机构 的 观测器 ， 构造 图 1 所示 的 基于 模糊 神经网络 的 故障诊断 系统 ， 观测 残差 的 输出 情况 。 
+ 　 　 实验 结果 及 结果 分析 ： 从 实验 结果 中 选择 两个 比较 有 代表性 的 结果 来 说明 问题 ， 图 2 和 图 3 分别 为 伺服机构 正常 和 存在 反馈 电位 计 接触不良 故障 情况 下 残差 输出 随 时间 变化 曲线 ， 图中 横坐标 为 时间 ， 纵坐标 为 残差 幅值 ， 从图 2 可以 看出 当 系统 处于 正常 工作 状态 时 残差 很小 ， 表明 模糊 神经系统 以较 高精度 逼近 系统 ， 由图 3 见 ， 当 系统 发生 故障 时 ， 残差 的 值 较大 ， 残差 能够 真实 的 反映 系统 的 故障 状态 ， 依据 残差 可以 实现 故障诊断 。 
+ 
+ 图 2 　 伺服机构 正常 残差 输出 随 时间 变化 曲线 
+ 
+ 图 3 　 存在 反馈 电位 计 接触不良 故障 情况 下 残差 输出 随 时间 变化 曲线 
+ 　 　 实验 表明 ， 基于 竞争 学习 的 模糊 神经网络 能以 较 高精度 逼近 具有 严重 非线性 的 系统 ， 据此 构造 的 故障诊断 系统 可以 有效 地 进行 故障 检测 与 诊断 。 
+ * 国家自然科学基金 重点 课题 和 国防 基础科学 基金 课题 资助 项目 
+ 作者 单位 ： 胡昌华 ： 解放军 二炮 工程学院 302 教研室   .   西安   .   710025 
+ 　 　 　 　 　 王青 ： 北京航空航天大学 自动控制 系   .   北京   .   100084 
+ 　 　 　 　 　 陈 新海 ： 西北工业大学 航天 工程学院   .   西安   .   710072 
+ 参考文献 
+ 1 　 毛志宠 ， 张雪枫 ， 李衍达 . 模糊 系统 作为 通用 函数 逼近 器 的 研究 . 中国 科学 ( E ) ， 1997 ， 27 ( 4 ) ： 362 - 367 
+ 2 　 胡昌华 . 控制系统 故障诊断 与 容错 控制 的 分析 与 设计 . 北京 ： 国防工业 出版社 ， 1999 
+ 3 　 陈 建勤 ， 席裕庆 ， 张剑俊 . 模糊 规则 的 学习 及其 在 非线性 系统 建模 中 的 应用 . 自动化 学报 ， 1997 ， 123 ( 4 ) : 533 - 537 
+ 4 　 Wang   Lixin . Adaptive   Fuzzy   Systems   and   Control . Prentice - Hall   International . Inc , 1992 
+ 5 　 Paul   M   Frank . Fault   Diagnosis   Using   Analytical   and   Knowledge - based   Redundancy - A   Survey   and   some   New   Results . Automatica , 1990 , 26 ( 3 ) , 459 - 474 
+ 收稿 日期 : 1998 年 6 月 15 日 
+ 修回 日期 : 1999 年 1 月 10 日 

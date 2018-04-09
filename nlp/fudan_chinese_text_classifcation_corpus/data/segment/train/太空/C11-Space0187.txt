@@ -1,0 +1,160 @@
+宇航学 报   
+ JOURNAL   OF   ASTRONAUTICS 
+ 1998 年   第 19 卷   第 1 期   No1   Vol.9   1998 科技期刊 
+ 
+ 最   优   偏   置   比   例   导   引 
+ 李君龙 
+ ( 航天工业 总公司 二院 二部 * 北京 * 100854 ) 
+ 胡恒章 
+ ( 哈尔滨工业大学 * 哈尔滨 * 150001 ) 
+ 　 　 摘 　 要 　 本文 研究 了 偏置 比例 导引 的 解析 解 , 并 根据 能量 最小 准则 优化 了 偏置 参数 。 最优 偏置 参数 能 用 一个 易于 求解 的 代数方程 表示 。 由于 该 制导 律 控制 效率高 , 因而 它 特别 适合 于 大气层 外 拦截 。 
+ 　 　 主题词 　 偏置 比例 导引 　 累积 速度 增量 　 视线 角速度 
+ OPTIMAL   BIASED   PROPORTIONAL   NAVIGATION 
+ Li   Junlong 
+ ( The   Second   Department   of   the   Second   Academy , CASC * Beijing * 100854 ) 
+ Hu   Hengzhang 
+ ( Harbin   Institute   of   Technology * Harbin * 150001 ) 
+ 　 　 Abstract 　 In   the   paper , the   analytical   solution   of   the   biased   proportional   navigation   is   investigated , and   bias   parameter   is   optimized   in   the   view   of   minimized   control   effort . Optimum   bias   is   expressed   through   a   simple   algebraic   equation . The   higher   control   efficiency   of   the   law   is   especialy   useful   in   extra - atmospheric   interception . 
+ 　 　 Key   words 　 Biased   proportional   navigation 　 Cumulative   velocity   increment 　 Bearing - rate 
+ 1 　 引 　 言 
+ 　 　 比例 导引 通常 用于 制导 导弹 的 追踪 。 在 比例 导引 中 , 导弹 的 转弯 率 和 视线 角速度 成正比 。 尽管 比例 导引 能 在 各种各样 条件 下 进行 拦截 , 但是 它 的 控制 效率 在 许多 情况 下 , 特别 是 目标 机动 时 不是 最优 的 。 在 偏置 比例 导引 中 , 由于 引入 了 偏置 项 , 所以 它 能 在 减少 控制 能量 的 同时 进行 拦截 。 在 大气层 外 , 侧向 控制力 是 由 控制 火箭 产生 的 , 因而 在 大气层 外 偏置 比例 导引 更 具有 优越性 。 为了 利用 偏置 比例 导引 的 优点 , 必须 通过 偏置 项来 优化 偏置 比例 导引 的 性能 。 优化 是 通过 解析 方法 进行 的 , 能 获得 最优 偏置 参数 的 简单 代数方程 。 
+ 2 　 偏置 比例 导引 
+ 　 　 
+ 
+ 
+ 图 1 　 导弹 与 目标 
+ 相对运动 关系 
+ 如图 1 所示 , 导弹 M 、 目标 T 分别 以 速度 VM 、 VT 在 一个 平面 内 运动 。 从 导弹 M 到 目标 T 的 连线 称为 视线 。 视线 和 惯性 参考 线 之间 的 夹角 θ 称为 视线 角 。 VM 、 VT 和 参考 线 之间 的 夹角 分别 为  φ , β 。 在 纯 比例 导引 中 , 
+ 
+ ( 1 ) 
+ 其中 N 为 导航 常数 。 在 偏置 比例 导引 中 , 
+  
+ ( 2 ) 
+ 是 视线 角速度 的 偏置 项 。 当 = 0 时 , 偏置 比例 导引 就 变成 了 比例 导引 。 只 考虑 平面 运动 , 导弹 与 目标 的 相对运动 方程 为 
+ 
+ ( 3 ) 
+ 
+ ( 4 ) 
+ 其中 β = kt , k = AT / VT 代表 目标 的 转弯 率 。 
+ 　 　 方程 ( 3 ) 、 ( 4 ) 无 闭环 形式 解 。 这里 将 方程 线性化 进行 解析 处理 。 在 末 制导 中 , 可 认为 寻 的 轨线 是 由 碰撞 线 摄动 形成 的 。 
+  φ =  φ C + Δ  φ 
+ ( 5 ) 
+ 　 　 假定 θ 、 Δ  φ 比较 小 , 目标 具有 小 的 机动 。 这样 在 末 制导 中 , 、 β 变化 不 大 , 可 认为 
+ 
+ ( 6 ) 
+ β = β i 
+ ( 7 ) 
+ Vri 为 初始 时刻 导弹 与 目标 相对 距离 变化率 。 tf 为 导弹 与 目标 碰撞 时刻 。 β i 为 β 的 初始值 。 将 方程 ( 4 ) 微分 并 代入 方程 ( 3 ) 得 
+ 
+ ( 8 ) 
+ 将 ( 2 ) 、 ( 6 ) 代入 ( 8 ) 整理 得 
+ 
+ ( 9 ) 
+ 其中 　 
+ 方程 ( 9 ) 的 解为 ] 
+ 
+ ( 10 ) 
+ 从 ( 10 ) 式 可见 为了 保证 有效 拦截 N ′ 必须 大于 2 。 
+ 3 　 导弹 的 侧向 加速度 
+ 　 　 在 BPN 中 , 导弹 的 侧向 加速度 为 
+ 
+ ( 11 ) 
+ 将 ( 10 ) 代入 ( 11 ) 得 
+ 
+ ( 12 ) 
+ 其中 
+ 　 
+ ( 13 ) 
+ 
+ ( 14 ) 
+ 
+ ( 15 ) 
+ 根据 ( 13 ) 、 ( 14 ) 、 ( 15 ) , 能 表示 为 
+ 
+ ( 16 ) 
+ 4 　 累积 速度 增量 
+ 　 　 累积 速度 增量 决定 了 总 的 控制 能量 。 
+ Δ V = ∫ Ti0 ｜ AMB ｜ dT 
+ ( 17 ) 
+ 为了 计算 Δ V 必须 考虑 如下 两种 情况 
+ 4.1 　 0 ≤ p ≤ 1 
+ 　 　 在 此 情况 , AMB 在 区间 ［ 0 , Ti ］ 内 改变 一次 符号 。 这 可 从 方程 ( 12 ) 中 明显 观察 到 。 因为 p 是 0 和 1 之间 的 小数 , 而 ( ( T ) / ( Ti ) )  N ′ - 2 从 1 单调 减小 到 0 ( 当 N ′ ＞ 2 时 ) 。 加速度 变号 点 为 
+ 
+ ( 18 ) 
+ 
+ ( 19 ) 
+ 
+ ( 20 ) 
+ 
+ 
+ ( 21 ) 
+ 将 ( 21 ) 代入 ( 20 ) 整理 得 
+ 
+ ( 22 ) 
+ 其中 
+ 令 F = 1 + ( N ′ - 2 ) p ( N ′ - 1 ) / ( N ′ - 2 ) - ( N ′ - 1 ) p 
+ p = 0 时 , F = 1 ; p = 1 时 , F = 0 。 
+ 
+ 当 N ′ ＞ 2 时 , ＜ 0 , 因而 F ≥ 0 。 
+ ( 22 ) 式 可简化 为 
+ 
+ ( 23 ) 
+ 4.2 　 p ＜ 0 或 p ＞ 1 
+ 　 　 由于 T / Ti 最大值 为 1 , 最小值 为 0 , 所以 如果 N ′ ＞ 2 , 在 拦截 期间 ( 12 ) 式 的 右边 不变 号 。 
+ 
+ ( 24 ) 
+ 5 　 偏置 参数 的 优化 
+ 5.1 　 0 ≤ p ≤ 1 
+ 　 　 令 
+ 
+ ( 25 ) 
+ 　 　 令 , 则 
+ 
+ ( 26 ) 
+ 方程 ( 26 ) 包含 p 的 小数 幂 , 但 它 仍然 很 简单 , 能 在 弹载 计算机 上 实时 求解 , 一旦 求出 p , 可 通过 ( 16 ) 式 决定 。 
+ 令 
+ 
+ ( 27 ) 
+ 令 , 则 
+ 因 p = 0 时 , R = ( N ′ - 2 ) / ( 2N ′ ) ＞ 0 ; p = 1 时 , R = - ＜ 0 ; 并且 , 当 p ＞ 2 / N ′ 时 , ＞ 0 , 所以 R = 0 的 解 在 ( 0 , 2 / N ′ ) 内 , 并且 R 在 ( 0 , 2 / N ′ ) 内 单调 减小 。 由于 R 在 ( 0 , 2 / N ′ ) 内 是 单调 函数 , 因而 可 通过 二分 搜索 法 求取 R = 0 之根 。 首先 设 p1 = 0 , p2 = 2 / N 。 取 p = ( p1 + p2 ) / 2 , 若 R ( p ) ＞ 0 , 取 p1 = p ; 若 R ( p ) ＜ 0 时 , 取 p2 = p 。 上述 过程 进行 n 次 满足 求解 精度 后 即可 求 出 方程 ( 26 ) 的 解 , 该解 即 为 最佳 偏置 比例 参数 。 
+ 5.2 　 p ≤ 0 或 p ≥ 1 
+ 　 　 累积 速度 增量 由 ( 24 ) 式 给出 
+ 
+ ( 28 ) 
+ 　 　 当 N ′ ＞ 2 时 , , 因而 Δ VB 是 单调 函数 没有 明显 最优 。 但是 ( 28 ) 式 表明 当 p → ± ∞ 时 , Δ VB 存在 渐进 稳定 点 , 此时 Δ VB → 2Mi / Ti 。 
+ 5.3 　 全局 最优 法 
+ 　 　 因在 p ≤ 0 或 p ≥ 1 时 , 因而 当 p ＜ 0 时 Δ VB ＞ Δ VB ｜ p = 0 , 当 p ≥ 1 时 , Δ VB ≥ 2Mi / Ti 。 
+ 
+ ( 29 ) 
+ 当 N ′ ＞ 2 时 , , 因而 Δ VB 的 最小值 在 ( 0 , 1 ) 域 内 。 
+ 6 　 数字 仿真 算例 
+ 　 　 假设 导弹 与 目标 在 大气层 外 飞行 , 导弹 与 目标 的 相对速度 Vri = - 6000m / s , 相对 距离 ri = 120km , θ i = π / 3rad , , 仿真 结果 如下 　 　 
+ 
+ 
+ 图 2 　 N ′ = 3 , AT = 1g , 偏置 比例 导引 累积 
+ 速度 增量 全局 优化 仿真 曲线 
+ 
+ 
+ 图 3 　 最优 偏置 参数 p 与 N ′ 的 关系 曲线 
+ 
+ 
+ 图 4 　 最优 偏置 项 与 N ′ 的 关系 曲线 
+ 
+ 
+ 图 5 　 AT = 0.5 g 时 最优 BPN 和 
+ PN 的 累积 速度 增量 曲线 
+ 
+ 
+ 图 6 　 AT = 1.5 g 时 最优 BPN 和 
+ PN 的 累积 速度 增量 曲线 
+ 
+ 
+ 图 7 　 AT = 2.5 g 时 最优 BPN 和 
+ PN 的 累积 速度 增量 曲线 
+ 7 　 结 　 论 
+ 　 　 本文 从 控制 能量 的 观点 研究 了 BPN 导引 律 , 通过 偏置 参数 优化 获得 了 最优 偏置 比例 导引 。 仿真 结果表明 最优 偏置 比例 导引 的 累积 速度 增量 比 比例 导引 的 累积 速度 增量 小 , 这 在 N ′ 不是 很大 时 特别 明显 。 该 导引 律 特别 适合 于 导弹 在 大气层 外 飞行 , 因为 它 可以 减少 火箭 发动机 的 燃料 消耗 。 
+ 参考文献 
+ 1 　 Guelman   M . A   Qualitative   Study   of   Proportional   Navigation . IEEE   Trans . On   Aerospace   and   Electronic   Systems , 1971 , 7 ( 4 ) : 637 - 643 
+ 2 　 Guelman   M . Proportional   Navigation   with   a   Maneuvering   Target . IEEE   Trans . On   Aerospace   and   Electronic   Systems , 1972 , 8 ( 3 ) : 364 - 371 
+ 3 　 Shukla   US   and   Mahapatra   PR . Optimization   of   Biased   Proportional   Navigation . IEEE   Trans . On   Aerospace   and   Electronic   Systems , 1989 , 25 ( 1 ) : 73 - 79 
+ 本文 于 1996 年 10 月 12 日 收到 

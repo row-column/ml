@@ -1,0 +1,120 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000 　 No.19 　 No.1 　 P.37 - 38 
+ 
+ 
+ 
+ 
+ 用 Java 语言 实现 Internet 远程 考试 
+ 刘志明 
+ 摘   要 ：   一个 用 Java 语言 编写 的 、 可 在 因特网 上 运行 的 考试 程序 ， 可以 实现 实时 在线 的 网上 考试 。 
+ 关键词 ：   Java 语言   远程 考试 
+ 　 　 随着 Internet 的 迅速 发展 ， 人们 开始 更多地 利用网络 来 取代 原有 的 工作 模式 。 能 不能 将 考试 也 移植 到 Internet 上 ， 用 网络 来 完成 传统 考试 繁琐 的 全过程 已 成为 人们 所 思考 的 问题 。 本文 介绍 了 一个 用 Java 语言 编写 的 可 在 因特网 上 运行 的 考试 程序 ， 通过 这个 程序 ， 无论 在 哪个 国家 或 地区 ， 只要 有 1 台能 接入 Internet 的 电脑 ， 就 可以 实现 实时 在线 的 网上 考试 。 文章 对此 程序 的 一些 重要 的 编程 细节 做 一 简要 介绍 ， 希望 能 对 从事 这方面 的 工作者 有所 裨益 。 
+ 1   编程 思想 
+ 　 　 此 程序 是 一个 可以 模拟 GRE （ 美国 研究生 入学考试 ） 的 程序 ， 其 考试 界面 完全 按照 ETS 的 标准 界面 绘制 而成 ， 操作 流程 也 完全 按照 真正 的 考试 过程 设计 。 为了 适应 网上 教学 的 需要 ， 软件设计 了 2 个 版本 ， 1 个 为 在线 考试 版 ， 用于 模拟 真实 考试 ； 另 1 个 为 测试 练习 版 ， 带有 答案 校验 、 复习 改错 功能 。 
+ 1.1   题库 的 建立 
+ 　 　 面对 题库 所 需 的 庞大 的 题量 ， 如何 快速 地 制作 题目 及 输入输出 直接 影响 到 了 程序 的 工作量 和 运行 速度 。 笔者 采用 了 图片 式 建立 题库 的 方法 ， 这样 做 的 好处 在于 可以 很 方便 地 将 大量 的 书面材料 通过 扫描仪 快速 输入 计算机 ， 再 经过 简单 的 编辑 制成 图片 题库 。 由于 Java 支持 GIF 格式 的 图片 ， 故 每道题 可以 做 得 很小 ， 仅 2KB 左右 。 将 图片 按 顺序 编号 no1 ． gif ， no2 ． gif … 后 ， 可 随时 扩充 新 的 题目 而 无需 对 原有 题库 修改 ， 同时 也 便于 随机 调取 题目 。 
+ 　 　 程序段 举例 如下 ： 
+ 　 　 / / 随机 调取 5 道 句子 填空题 
+ 　 　 for ( number ＝ 1 ； number ＜ ＝ 5 ； number ＋ ＋ ) 
+ 　 　 { 
+ 　 　 　 　 while ( equal ) 
+ 　 　 　 　 { 
+ 　 　 　 　 　 　 current ＿ number ＝ ( int ) ( Math ． random ( ) * 1000 ) ； 
+ 　 　 　 　 　 　 / / 产生 1 个 随机数 ， 为 题库 中 1000 道题 中 的 / / 某一 图片 题号 
+ 　 　 　 　 for ( i ＝ 1 ； i ＜ ＝ 5 ； i ＋ ＋ ) 
+ 　 　 　 　 { 
+ 　 　 　 　 　 　 if ( current ＿ number ＝ ＝ compare [ i ] ) 
+ 　 　 　 　 　 　 { 
+ 　 　 　 　 　 　 　 equal ＝ true ； / / 比较 已 调用 题号 ， 检验 是否 有 / / 重复 调用 
+ 　 　 　 　 　 　 　 break ； 
+ 　 　 　 　 　 　 } 
+ 　 　 　 　 　 　 else 
+ 　 　 　 　 　 　 equal ＝ false ； 
+ 　 　 　 　 } 
+ 　 　 } 
+ 　 　 problem [ number ] ＝ getImage ( getCodeBase ( ) ， ″ lib / Verbal /   Sentence / no ″ ＋ current ＿ number ＋ ″ ． gif ″ ) ； / / 从 题库 中 调出 题目 图片 
+ 　 　 equal ＝ true ； 
+ 　 　 compare [ number ] ＝ current ＿ number ； 
+ 　 　 ranswer [ number ] ＝ sentence ＿ rightanswer ． charAt ( cur －   rent ＿ number － 1 ) ； 
+ } 
+ 　 　 此 段程序 为 从 “ C ： / … / lib / Verbal / Sentence / ” 目录 中 调出 5 道 句子 填空题 ， 调出 的 题目 保存 在 problem [ number ] 图片 数组 中 ， 对应 的 正确 答案 保存 在 ranswer [ number ] 数组 中 。 读者 可以 从中 看出 这 段程序 很 方便 地 实现 了 从 题库 中 随机 调取 题目 的 功能 。 将来 只 需 再 将 已调 的 题目 图片 用 g ． drawImage ( ) 方法 显示 在 题目 区中 即可 。 
+ 1.2   分数 的 统计 
+ 　 　 将 正确 答案 保存 在 ranswer [ number ] 数组 的 过程 正是 通过 使用 Java 中 的 HTML 参数 实现 的 。 编程 时 预先 将 正确 答案 放在 HTML 文件 中 ， 在 做题 过程 中 ， 根据 所调 题目 的 编号 从 HTML 参数 中 获得 相应 的 正确 答案 ， 再 通过 对照 应试者 所 选 答案 即可 实现 分数 统计 。 将来 题库 扩充 时 也 仅 需 将 新题 答案 依次 加在 原 题库 答案 之后 ， 而 无需 改动 源程序 。 程序段 如下 。 
+ HTML 文件 中 ： 
+ 　 　 ＜ param   name ＝ sentence ＿ rightanswer   value ＝ ″ AEEADEDEBB … ″ ＞ 
+ 源程序 中 ： 
+ 　 　 parameter ＝ getParameter ( ″ sentence ＿ rightanswer ″ ) ； / / 获   / / 取 答案 参数 
+ 　 　 if ( parameter ! ＝ null ) 
+ 　 　 sentence ＿ rightanswer ＝ parameter ； 
+ 　 　 ranswer [ number ] ＝ sentence ＿ rightanswer ． charAt ( cur － rent ＿ number － 1 ) ； 
+ / / 根据 随机 调取 的 题号 从 HTML 参数 中 获得 相应 的 正确 答案 
+ 　 　 if ( answer [ problem ＿ number ] ! ＝ ranswer [ problem ＿ number ] )   mistake ＿ count ＋ ＋ ； 
+ 　 　 final ＿ score ＝ 800 － mistake ＿ count * 20 － ( 30 － problem ＿ num －   ber ＋ 1 ) * 20 ； / / 比较 应试者 所 选 答案 进行 分数 统计 
+ 1.3   考试 时间 的 监控 
+ 　 　 既然 是 正式 考试 ， 就要 有 严格 的 时间 控制 。 通过 Java 的 Runnable 接口 可以 很 容易 地 控制 考试 的 全部 进程 ， 不仅 可以 随时 知晓 考试 的 时间 ， 而且 能 做到 准时 开始 ， 准时 结束 ， 没有 监考 老师 也 同样 能 严格 把握 考试 。 程序段 为 ： / / 时间 显示 线程 
+ 　 　 public   void   start ( ) 
+ 　 　 { 
+ 　 　 　 　 if ( time ＿ thread ＝ ＝ null )   { 
+ 　 　 　 　 time ＿ thread ＝ new   Thread ( this ) ； 
+ 　 　 　 　 time ＿ thread ． start ( ) ； 　 / / 开始 考试 
+ 　 　 　 　 } 
+ 　 　 } 
+ 　 　 public   void   run ( ) 　 　 　 / / 线程 运行 
+ 　 　 { 
+ 　 　 　 　 while ( time ＿ thread ! ＝ null )   { 
+ 　 　 　 　 　 　 draw ＿ time ( g ) ； 　 / / 时间 显示 
+ 　 　 　 　 　 　 try 　 { 
+ 　 　 　 　 　 　 Thread ． sleep ( 1000 ) ； 
+ 　 　 　 　 　 　 } 
+ 　 　 　 　 　 　 catch ( InterruptedException   e ) 
+ 　 　 　 　 　 　 { 　 } 
+ 　 　 　 　 } 
+ 　 　 } 
+ 　 　 public   void   stop ( ) 　 　 / / 线程 停止 
+ 　 　 { 
+ 　 　 　 　 time ＿ thread ． stop ( ) ； 
+ 　 　 　 　 time ＿ thread ＝ null ； 
+ 　 　 } 
+ 　 　 public   void   draw ＿ time ( Graphics   g ) 
+ 　 　 { 
+ 　 　 　 　 … … 　 / / 显示 时间 ( 略 ) 
+ 　 　 　 　 if ( minute ＝ ＝ 0   ＆ ＆   second ＝ ＝ 0 ) 　 { 
+ 　 　 　 　 end ＿ bool ＝ true ； 　 / / 时间 到达 ， 强制 结束 考试 
+ 　 　 　 　 g ． setColor ( blue   1 ) ； 
+ 　 　 　 　 g ． fillRect ( iconx [ 3 ] ＋ 165 ， icony [ 3 ] ， 200 ， 50 ) ； 
+ 　 　 　 　 final ＿ score ＝ 800 － mistake ＿ count * 10 － ( 30 － prob － lem ＿ number ＋ 1 ) * 20 ； 
+ 　 　 　 　 g ． setColor ( Color ． black ) ； 
+ 　 　 　 　 g ． setFont ( answer ＿ font ) ； 
+ 　 　 　 　 g ． drawString ( ″ Final   Score ： ″ ＋ final ＿ score ， iconx   [ 3 ] ＋ 140 ， icony [ 3 ] ＋ 10 ) ； 
+ 　 　 　 　 update ( g ) ； 　 / / 显示 最终 分数 
+ 　 　 　 　 stop ( ) ； 
+ 　 　 　 } 
+ 　 　 　 second － － ； 
+ 　 　 } 
+ 　 　 在 这 段程序 中 可以 看到 ， 在 程序 一 启动 start ( ) 方法 时 考试 便 自动 开始 ， 考试 过程 中 通过 draw ＿ time ( ) 方法 考生 可 随时 看到 考试 时间 ， 而 当 考试 时间 到达 后 ， 程序 利用 1 个 逻辑 变量 end ＿ bool 强制 结束 考试 ， 从而 实现 了 对 考试 全过程 的 监控 。 
+ 1.4   答案 的 记录 与 报送 
+ 　 　 若 为 正式 考试 ， 可 将 考生 所 选 答案 和 正确 答案 一同 输出 保存 在 文件 中 ， 待 考试 结束 后 由 专人 将 文件 通过 Internet 传送 回 考试 中心 ， 考试 中心 审核 后 再 将 官方 成绩 送 至 各个 地区 的 各个 考点 。 其中 ， 答案 的 记录 可 通过 输出 流 完成 ： 
+ 　 　 public   void   output ＿ record ( ) 
+ 　 　 { 　 　 try 
+ 　 　 　 　 { 
+ 　 　 　 　 answer ＿ record ＿ file ＝ new   DataOutputStream ( new   FileOutputStream ( ″ 
+ 　 　 　 　 Record ． Txt ″ ) ) ； / / 创建 记录 文件 
+ 　 　 　 　 for ( i ＝ 1 ； i ＜ ＝ 35 ； i ＋ ＋ ) 
+ 　 　 　 　 { 
+ 　 　 　 　 answer ＿ record ＿ file ． writeChars ( ″ Right   Answer ″ ＋   i ＋ ″ Is ： ″ ＋ ranswer [ i ] 
+ 　 　 　 　 ＋ ″ ＼ n ″ ) ； 
+ 　 　 　 　 answer ＿ record ＿ file ． writeChars ( ″ Your   Answer ″ ＋ i ＋ ″   Is ： ″ ＋ answer [ i ] ＋ ″ 
+ 　 　 　 　 ＼ n ″ ) ；   / / 将 答案 写入 文件 
+ 　 　 　 　 } 
+ 　 　 　 　 answer ＿ record ＿ file ． close ( ) ； 
+ 　 　 　 　 } 
+ 　 　 　 　 catch   ( IOException   e ) 
+ 　 　 　 　 { 　 } 
+ 　 　 　 　 catch   ( SecurityException   se ) 
+ 　 　 　 　 { 　 } 
+ 　 　 } 
+ 2   结束语 
+ 　 　 从 上述 介绍 读者 可以 看到 ， 采用 Internet 进行 远程 考试 可以 大大缩短 考试 时间 ， 节省 人力物力 ， 具有 事半功倍 的 效果 。 由于 篇幅 所 限 ， 还有 许多 编程 技巧 和 细节 不能 一一 介绍 。 
+ 刘志明 （ 北京信息工程学院 96 通信 系  100101 ） 
+ 收稿 日期 ： 1999 － 08 － 25 

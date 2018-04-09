@@ -1,0 +1,58 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000 　 No.19 　 No.1 　 P.57 - 59 
+ 
+ 
+ 
+ 
+ 56K   MODEM 拨号 联接 Internet 知识 问答 
+ 范咏 
+ 　 　 随着 国内 越来越 多 的 Internet 上网 用户 和 ISP 使用 V.90 的 接入 服务 ， 56K （ 即 56Kb / s ， 俗称 56K ） MODEM 的 选购 与 使用 给 许多 互联网 用户 带来 了 困惑 。 本文 将 帮助 使用 56K   MODEM 拨号上网 的 用户 解答 和 澄清 这方面 的 许多 常见问题 及 概念 ， 相信 对 准备 购买 MODEM 上网 的 用户 来说 也 会 有 实际 的 帮助 。 
+ 　 　 问 ： 我 使用 56K   MODEM 时 ， 为何 只能 连接 到 33.6 K ﹖ 如何 才能 达到 56K ﹖ 
+ 　 　 答 ： 56K   MODEM 只能 连接 到 33.6 K 的 原因 很多 ， 但 大致 是 由 以下 5 种 情况 造成 的 。 
+ 　 　 1 ． 本地 ISP 接入 设备 不 具备 56K 能力 。 不要 盲目 地 相信 ISP 的 宣传 ， 亲自 打个 电话 咨询 一下 当地 的 ISP ， 了解 其 是否 已经 真正 开通 了 56K 接入 业务 。 有些 时候 ， 也许 你 的 ISP 只是 刚刚 准备 开通 56K ， 一切 还 只是 在 宣传 而已 。 而 最 普遍 的 情况 是 只有 部分 接入 设备 开通 了 56K 接入 ， 而 另 一部分 甚至 大部分 还是 在 使用 原先 的 33.6 K 接入 设备 。 在 这种 情况 下 ， 你 能 做 的 除了 期望 ISP 能够 尽早 全面 将 接入 设备 升级 到 56K 外 ， 剩下 的 就 只有 换 另一家 确定 有 全面 支持 56K 接入 设备 的 ISP 了 。 
+ 　 　 2 ． 所 使用 的 56K   MODEM 与 ISP 的 接入 设备 在 56K 标准协议 上 不 兼容 。 因此 要 实现 连接 到 56K 的 目标 ， 首先 就要 确认 自己 的 56K   MODEM 采用 了 何种 56K 协议 ， 这点 可以 通过 查阅 MODEM 的 附带 资料 或是 咨询 经销商 、 生产商 来 得知 。 然后 再 咨询 当地 的 ISP ， 了解 本地 ISP 的 56K 接入 设备 是 采用 的 哪种 56K 协议 。 如果 二者 的 56K 协议 确实 存在 不同 ， 最 方便 的 方法 当然 是 另 买 一只 与 ISP 的 56K 协议 相同 的 MODEM ， 而 更 现实 的 方法 是 期望 ISP 已经 或是 即将 升级 到 V.90 。 这样 ， 只 需 将 自己 的 56K   MODEM 也 升级 到 V.90 就 可以 了 。 
+ 　 　 3 ． 电话 线路 质量 较差 。 其实 笔者 的 56K   MODEM 曾经 也 遇到 过 只能 连接 到 9600b / s 的 情况 ， 而 原因 就是 电话 线路 室外 接头 有 问题 ， 经 电信 部门 修理 后 就 又 可以 正常 连接 到 52K 了 。 但 如果 你 是 使用 内部 分机电话 线路 ， 由于 中间 受到 内部 线路 上 的 交换机 影响 ， 要 改善 连接 速率 将会 十分困难 。 
+ 　 　 4 ． 在 软件 设置 上 存在 错误 。 这种 问题 大多 会 发生 在 初学者 身上 。 许多 软件 都 可 对 MODEM   通信 速率 进行 选择 设置 ， 如果 将 56K 的 MODEM 设置 为 强制 连接 速率 33600b / s ， 那 将 会 发生 什么 就 不用 我 说 了 。 同样 的 ， 如果 使用 了 与 你 的 MODEM 不 兼容 的 驱动程序 ， 连接 速率 也 一样 有 可能 出现 问题 。 而 这些 情况 的 解决 方法 自然 是 太 明显 不过 了 。 
+ 　 　 5 ． 56K   MODEM 与 ISP 接入 设备 存在 硬件 兼容 上 的 问题 ， 而且 客观 地说 ， 这 主要 也 是 由于 你 的 MODEM 本身 在 硬件 质量 上 不是 非常 过硬 造成 的 。 这种 情况 下换 一只 56K   MODEM 是 唯一 的 选择 。 
+ 　 　 关于 这个 问题 最后 要 申明 的 是 ， 56K   MODEM 与 电脑 的 硬件 配置 性能 高低 没有 太大 的 关系 。 在 AMD486 上 照样 可 联接 到 52000b / s 。 所以 大家 根本 不必 担心 CPU 不够 快 、 内存 不够 大会 导致 56K   MODEM 使用 不利 。 
+ 　 　 问 ： 升级 V.90 的 下载 网址 在 哪 ？ 
+ 　 　 答 ： 以下 是 几个 常见 品牌 的 56K   MODEM 厂家 网址 ， 大多 有 提供 V.90 的 软件 升级 程序 ， 大家 可以 到 上面 去 查找 对应 自己 MODEM 型号 的 升级 程序 。 
+ 　 　 U ． S ． Robotics ： www ． 3com ． com ； www ． 3com ． com ． cn 
+ 　 　 贺氏 Hayes ： www ． hayes ． com ； www ． hayes ． com ． cn 
+ 　 　 立基 花王 ： www ． addonics ． com ． tw 
+ 　 　 motorola ： www ． mot ． com ； www ． motorola ． com ． cn 
+ 　 　 Rockwell ： www ． nb ． rockwell ． com 
+ 　 　 Cirrus   Logic ： www ． cirrus ． com 
+ 　 　 Multi － Tech ： www ． multitech ． com 
+ 　 　 Diamond ： www ． diamondmm ． com 
+ 　 　 致福 GVC ： www ． gvc ． com ． tw 
+ 　 　 合勤 Zyxel ： www ． zyxel ． com 
+ 　 　 Zoltrix ： www ． zoltrix ． com 
+ 　 　 启亨   triplex ： driver ． triplex ． com ． tw 
+ 　 　 台康 TAICOM ： www ． taicom ． com ． tw 
+ 　 　 Creative ： www ． creat ． com 
+ 　 　 实达 STAR ： www ． star ． com ． cn 
+ 　 　 Wisecom ： www ． wisecominc ． com 
+ 　 　 问 ： 为什么 我 的 56K   MODEM 升级 到 V.90 后 连接 速率 反而 不如 以前 使用 X2 协议 时高 ？ 
+ 　 　 答 ： 确实 是 这样 ， 很多 实例 表明 ， U ． S ． Robotics 的 56K   MODEM 从 X2 协议 升级 到 V.90 后 ， 连接 速率 下降 。 江苏 电信 169 原先 使用 的 是 X2   56K 接入 ， 我 开始 使用 U ． S ． Robotics   56K   MODEM 时 也 一直 使用 的 是 X2 协议 ， 一般 都 可以 连接 到 52000b / s ， 在 得知 169 接入 已经 升级 为 V.90 后 ， 也 从 3COM 公司 的 网址 下载 升级 程序 并 将 MODEM 升级 至 V.90 协议 。 此后 ， 其 最高 的 接入 速率 也 只能 达到 50666b / s ， 很 明显 连接 速率 确实 是 下降 了 。 这样 的 情况 想必 也 是 3COM 公司 不愿 看到 的 ， 所以 3COM 公司 也 在 其 发布 的 56K   MODEM   AT 指令 集中 包含 了 1 条 关闭 V.90 协议 的 功能 指令 ， 使用 U ． S ． Robotics   56K   MODEM 的 用户 使用 ： ATS32 ＝ 66 ＆ W ， 就 可以 屏蔽掉 V.90 协议 ， 回到 原来 的 X2   56K 协议 。 
+ 　 　 问 ： 为什么 有时 56K   MODEM 连接 速率 显示 为 115200b / s 、 57600b / s ， 而 不是 52000b / s ？ 这个 数值 表示 什么 ？ 
+ 　 　 答 ： 当 MODEM 连接 后 显示 115200b / s 或是 57600b / s 时 ， 其 代表 的 其实 是 DTE （ 数据终端 设备 ） 的 速率 ， 这个 速率 是 PC 与 你 的 Modem 通信 的 速率 ， 即 MODEM 与 计算机 串口 间 的 速率 。 而 我们 所 希望 看到 的 52000b / s 则 是 DCE （ 数据通信 设备 ） 的 连接 速率 。 DCE 速率 是 指 2 个 MODEM 之间 连接 时 的 速率 ， 即 本地 MODEM 与 远程 MODEM 的 通信 速率 。 导致 只能 显示 DTE 速率 的 原因 是 用户 在 Windows95 / 98 中 没有 使用 与 MODEM 配套 的 正确 的 inf 文件 。 inf 文件 中将 会 列表 出 MODEM 所有 的 连接 信息 。 如果 拥有 的 是 1 个 过时 的 文件 ， 并且 里面 没有 包含 与 当前 使用 的 MODEM 配套 的 连接 信息 ， Windows95 / 98 就 无法 确定 DCE 速率 。 在 很多 时候 用户 在 Windows95 / 98 里 ， 都 是 没有 使用 MODEM 配套 的 驱动程序 ， 而 最 常见 的 情况 是 使用 的 MODEM 驱动程序 为 “ 标准 调制解调器 ” ， 虽然 这 对 数据传输 不会 有 大 的 影响 ， 但会 出现 Windows95 / 98 无法 正确 显示 DCE 速率 ， 而 显示 DTE 速率 的 情况 。 当然 ， 解决 这个 问题 的 最好 办法 就是 在 Windows95 / 98 中 使用 MODEM 当前 最新 的 驱动程序 。 下面 以 U ． S ． Robotics   Sporster   56K   MODEM 为例 ， 介绍 具体 的 操作步骤 。 
+ 　 　 1 ． 首先 从 3COM 公司 的 Web 页 上 下载 最新 的 USR   SPORSTER   56K   MODEM 驱动 ， 进入 下面 的 网址 ： http ： / / www ． usr ． com / home / online / under   inf / driver   files 。 
+ 　 　 2 ． 然后 找到 并 下载 以下 这 3 个 文件 ： MDM3COM ． INF － Windows   9x / NT   INF   file   for   U ． S ． Robotics   56K   modems ； MDM3COMV ． INF － Windows   9x / NT   INF   file   for   U ． S ． Robotics   Voice   56K   modems ； 3COMWAVE ． INF － Windows   9x   INF   file   for   enabling   TAPI   features   of   U ． S ． Robotics   Voice   modems 。 
+ 　 　 3 ． 从 MODEM 控制面板 里面 清除 先前 在 COM 口上 安装 的 MODEM 。 
+ 　 　 4 ． 然后 再 从 \ Windows \ INF 目录 （ 此 目录 为 隐含 目录 ） 下 删除 下列 2 个 文件 ： DRVIDX ． BIN 、 DRVDATA ． BIN 。 
+ 　 　 5 ． 此时 可以 将 下载 的 INF 文件 复制到 c ： \ Windows \ inf 目录 中 。 
+ 　 　 6 ． 在 Windows 的 控制面板 中 选择 添加 新 硬件 选项 ， windows 将 检测 并 安装 U ． S ． Robotics   56K   MODEM 。 
+ 　 　 如果 没有 办法 找到 最新 的 MODEM 驱动 ， 还 可以 试用 简单 的 AT 命令 ″ W2 ″ 来 强制 MODEM 在 连接 时 显示 DCE 速率 。 在 Windows95 / 98 下 的 设置 方法 也 非常简单 ， 只 需 进入 控制面板 ， 并 在 调制解调器 属性 设置 中 的 附加 设置 里 加入 “ ATW2 ” 即可 。 很 显然 ， 直接 “ ATW2 ” 是 简单 许多 ， 但 它 并 不是 在 所有 的 时候 都 管用 ， 在 我 的 U ． S ． Robotics   56K   MODEM 上 就 无法 使用 。 所以 还是 第一种 方法 值得 向 大家 推荐 。 最后 ， 即使 使用 33.6 K 的 MODEM ， 同样 会 出现 115   200b / s 、 57   600b / s 的 DTE 速率 显示 ， 而 以上 的 2 种 方法 也 都 可以 针对 非 56K   MODEM 来 使用 。 
+ 　 　 问 ： 有人 说 ， 有 的 56K   MODEM 内存 只有 1M （ 位 ） ， 而 有 的 更好 的 MODEM 内存 却 有 2M （ 位 ） 甚至 更 多 ， 这 与 升级 V.90 有 联系 吗 ？ 
+ 　 　 答 ： 其实 这里 所 讲 的 MODEM “ 内存 ” 就是指 MODEM 的 FLASH   ROM （ 即 EPRM ） ， 而 所谓 的 软件 升级 V.90 ， 其实 就是 更新 了 保存 在 FLASH   ROM 中 的 56K 通信协议 。 从 原理 上 讲 ， 与 现今 的 主板 升级 BIOS 没有 多大 的 区别 。 至于 内存 的 大小 ， 如果 用 AT17 命令 看 ， 屏幕 上 显示 的 MODEM   EPROM 大小 等于 256KB ， 就 表示 你 的 FLASH   ROM 等于 2M ， 因为 这里 是 以 位计 的 。 从 升级 V.90 的 角度 来讲 ， 许多 厂商 采用 2Mb 的 FLASH   ROM 后 ， 就 可以 存储 更 多 的 数据量 ， 最 常见 的 作法 就是 在 FLASH   ROM 中 升级 V.90 协议 后 ， 仍然 保留 原有 的 X2 或是 K56flex   56K 协议 。 这样的话 ， 如果 有 必要 还 可以 通过 调用 AT 命令 等 方法 重新 使用 原有 的 56K 协议 。 上面 讲到 的 U ． S ． Robotics   56K   MODEM 其实 就是 最 明显 的 1 个 例子 。 MODEM 的 “ 内存 ” FLASH   ROM 与 PC 的 内存 不是 一 回事 ， 同样 MODEM   FLASH   ROM 也 不 像 PC 的 内存 那样 越大越 好 。 虽然 已经 有 MODEM 厂商 号称 拥有 4Mb 即 512KB   FLASH   ROM 的 56K 产品 ， 但 在 大多数 的 情况 下 ， 这种 产品 根本 不会 在 连接 速率 上 拥有 4M ： 2M 那样 2 倍 的 优势 ， 你 甚至 完全 就 感觉 不到 有 任何 差别 。 拥有 2Mb 即 256KB   FLASH   ROM 的 56K   MODEM 就 可以 确保 使用 双 协议 了 。 
+ 　 　 问 ： 外置 56K   MODEM 一定 比 内置 56K   MODEM 快 吗 ？ 
+ 　 　 答 ： 其实 这个 问题 不仅仅 是 与 56K   MODEM 有关 ， 当 你 第一次 购买 MODEM 并 面对 33.6 K 、 28.8 K 、 甚至 14 ． 4K 的 内 、 外置 MODEM 时 ， 都 会 为 到底 孰快 孰慢 而 头痛 。 因为 即使 是 现在 也 还有 不少 人 说 外置 MODEM 比 内置 的 快 ， 更有甚者 还会 说 内置 MODEM 其实 要 比 外置 的 快 。 其实 答案 很 简单 ， 就 MODEM 工作 原理 来讲 ， 内 、 外置 基本上 没有 区别 ， 所以 二者 在 通信 速率 方面 没有 根本 上 的 快 、 慢之分 。 而 就 实际 使用 效果 而言 ， 外置 MODEM 由于 在 制作 工艺 上 具有 一些 优势 ， 所以 相比 内置 MODEM 在 通信线路 的 抗噪性 方面 有 一定 的 优势 。 这样 ， 如果 在 线路 质量 不是太好 的 条件 下 ， 外置 MODEM 的 连接 速率 及 稳定性 要 比 内置 MODEM 更高 。 同时 ， 也 正是 因为 国内 大多数 的 通信线路 质量 已经 有 不错 的 改善 ， 而 内 、 外置 MODEM 在 实际 连接 时所 产生 的 这种 差异 一般 都 非常 小 ， 所以 在 很多 时候 往往 可以 忽略不计 的 。 但 这里 要 注意 的 是 ， 这种 比较 主要 是 针对 同一 厂家 同一 品牌 的 内 、 外置 MODEM 而言 。 如果 是 不同 厂家 不同 品牌 的 内 、 外置 MODEM 相比 ， 则 有 可能 出现 相反 的 情况 。 
+ 　 　 最后 谈谈 读者 在 购买 56K   MODEM 时 需要 掌握 的 几个 要点 ： 
+ 　 　 1 ． 首先 确认 本地 ISP 所 使用 的 是 哪种 56K 协议 、 是否 已经 升级 到 V.90 。 
+ 　 　 2 ． 购买 56K   MODEM 前要 经销商 明确 此 产品 使用 的 是 何种 56K 协议 ， 是否 免费 升级 V.90 。 前者 最好 要 保持 与 本地 ISP 的 56K 协议 一致 ， 后者 最好 要求 经销商 提供 升级 的 驱动程序 及 上门 升级 服务 ， 因为 很多 经销商 会以 让 用户 自己 在 Internet 上 查找 升级 程序 来 搪塞 你 ， 而 很多 的 廉价 品牌 的 56K   MODEM 在 Internet 上 找 不到 相应 的 升级 网站 。 
+ 　 　 3 ． 要 确认 购买 的 56K   MODEM 在 实际 使用 时有 良好 的 接入 速率 ， 最好 的 确认 方法 是 在 购买 时 就 进行 现场 的 连接 测试 。 
+ 　 　 4 ． 由于 全国 各地 ISP 的 接入 设备 、 线路 状况 各不相同 ， 所以 在 判断 一只 56K   MODEM 的 实际 连接 质量 时 ， 应 尽量 以 用户 自己 本地 的 连接 速率 为准 。 
+ 范咏 （ 江苏 仪化 股份公司 信息中心  211900 ） 
+ 收稿 日期 ： 1999 － 08 － 11 

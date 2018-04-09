@@ -1,0 +1,106 @@
+计算机 应用 研究 
+ APPLICATION   RESEARCH   OF   COMPUTERS 
+ 2000   Vol.17   No.3   P.66 - 68 
+ 
+ 
+ 
+ 
+ 基于 OpenGL 的 场景 管理 、 三维 交互 与 用户界面 设计 
+ 林锐 　 石教英 
+ 摘 　 要 ： Intra3D   是 基于 OpenGL 的 交互式 三维 图形 软件 开发工具 ， 其 核心 是 集成 了 场景 数据结构 、 图形 对象 、 三维 交互 算法 和 图形用户界面 的 C++ 类库 与 COM 对象 库 。 着重 论述 ： ( 1 ) 对象 引用 计数 的 内存 管理 技术 ； ( 2 ) 场景 节点 的 三维 交互 设计 ； ( 3 ) 用户界面 设计 。 
+ 关键词 ： 开发工具   三维 交互   用户界面 
+ 1 　 前言 
+ 　 　 OpenGL 是 国际 上 公认 的 3D 图形 工业 标准 ， 在 Unix 与 PC 平台 得到 广泛 的 应用 [ 1 ] 。 OpenGL 提供 了 数百个 库函数 ， 可 方便 地 绘制 具有 真实感 的 3D 图形 。 但 开发 交互式 的 3D 图形 应用软件 ， 图形 绘制 只是 一部分 ， 更 多 的 工作 集中 在 场景 数据结构 、 图形 对象 、 三维 交互 算法 和 图形用户界面 的 设计 上 。 由于 OpenGL 与 窗口 系统 无关 ， 不 提供 任何 交互 手段 ， 必须 由 程序员 自己 编写 所有 的 交互 功能 。 并且 OpenGL   的 编程 接口 是 低级 的 C 函数 ， 不 提供 可 复用 ( Reuse ) 的 对象 库 或者 应用程序 框架 ， 开发 效率 不高 [ 2 ～ 4 ] 。 
+ 　 　 我们 多方面 分析 了 3D 需求 及 软硬件 条件 [ 1 , 5 ～ 8 ] ， 研制 完成 基于 OpenGL 的 交互式 三维 图形 软件 开发工具 Intra3D   2.0 。 Intra3D 的 核心 是 集成 了 场景 数据结构 、 图形 对象 、 三维 交互 算法 和 图形用户界面 的 C++ 类库 与 COM ( Component   Object   Model ) 对象 库 ， 支持 Visual   C++ 、 Visual   Basic 、 Delphi 等 语言 的 应用 编程 。 Intra3D 的 核心 库分 四层 创建 ： 第一层 为 “ 基础 对象 与 函数 ” ( Basic   Objects   and   Functions ) ； 第二层 为 “ 图形 对象 ” ( Graphical   Objects ) ； 第三层 为 “ 场景 的 图 与 节点 ” ( Scene   Graph   and   Nodes ) ； 第四层 为 “ 绘制 与 交互 ” ( Rendering   and   Interaction ) 。 体系结构 如图 1 所示 ， 其中 高层 构件 可以 引用 低层 构件 ， 但 低层 构件 不能引用 高层 构件 。 Intra3D 是 免费软件 ， 2.0 标准版 约 25 兆 ， 核心 库 7 万多行 C++ 代码 全部 公开 ， 用户 可以 方便 地 修改 内核 以 适应 不同 的 需求 。 Intra3D 弥补 了 OpenGL 的 不足 ， 可 用于 快速 开发 PC 平台 的 交互式 3D 应用程序 。 
+ 
+ 图 1 　 Intra3K2.0 核心 库 的 体系结构 
+ 2 　 Intra3D   核心 库 的 主要 内容 与 功能 
+ 2.1 　 基础 对象 与 函数 层 
+ 　 　 该层 的 主要 内容 与 功能 ： ( 1 ) 定义 了 用于 对象 引用 计数 的 内存 管理 基类 ； ( 2 ) 矢量 、 矩阵 与 四元组 运算 ， 鼠标 跟踪 球 算法 ； ( 3 ) 点阵 字体 与 三维 矢量 字体 输出 ， 常用 于 数据 可视化 图形 的 数据 标注 ； ( 4 ) 图象 输入输出 以及 纹理 映射 ， 支持 BMP 、 GIF 、 JPEG 、 SGI 、 TGA 等 图象 格式 ； ( 5 ) 常用 几何 图元 的 绘制 ， 如锥 、 柱 、 球 、 环等 ， 并 支持 Swept 形体 ， 螺旋体 的 绘制 ； ( 6 ) 提供 450 余种 材质 。 在 第四层 中 可以 交互式 编辑 这些 材质 。 
+ 2.2 　 图形 对象 层 
+ 　 　 图形 对象 能 将 数据 转化 为 几何 模型 并 可以 绘制 出来 [ 9 ] 。 Intra3D   2.0 版 提供 了 三类 图形 对象 ： ( 1 ) 常用 几何 对象 ， 如 长方体 、 锥体 、 圆柱体 、 球体 、 圆环 体 、 Swept 形体 等 ； ( 2 ) 多边形 模型 对象 ， 可 用于 绘制 Autodesk 公司 . 3ds 模型 和 Wavefront 公司 的 . obj 模型 ； ( 3 ) 常用 数值 图形 对象 ， 如 柱形图 、 带状 图 、 条形图 、 折线图 、 面积 图 、 饼 图 、 塔形 图 、 曲线图 、 曲面 图 等 。 图形 对象 的 开发 与 应用 问题 密切相关 ， 用户 可以 使用 继承 方法 扩充 新 的 图形 对象 ， 而 不会 影响 到 其它 三层 的 构件 。 
+ 2.3 　 场景 的 图 与 节点 
+ 　 　 场景 的 图 ( Scene   Graph ) 是 有 向 无 环图 ， Scene   Graph 的 主要 节点 有 ： ( 1 ) SceneNode 是 所有 节点 的 基类 。 在 SceneNode 中 定义 了 局部 坐标系 以及 相应 的 图形 变换 ， 这样 便于 第四层 以 同样 的 操作 方式 实现 三维 交互 ； ( 2 ) 相机 节点 ( CameraNode ) 支持 平行投影 与 透视 投影 ， 支持 多个 相机 切换 ； ( 3 ) 光源 节点 有 三种 ： 平行 光源 节点 ( DirLightNode ) 、 点光源 节点 ( PointLightNode ) 和 锥 光源 节点 ( SpotLightNode ) ； ( 4 ) 形体 节点 ( ShapeNode ) 用于 引用 图形 对象 。 有关 图形 对象 的 三维 交互 均 由 ShapeNode 处理 。 
+ 2.4 　 绘制 与 交互 层 
+ 　 　 Intra3D 的 交互 分 两类 ： 一类 是 对 形体 、 光源 和 相机 的 直接 操作 ； 另一类 是 真实感 属性 的 编辑 。 Intra3D 的 场景 视窗 构件 ( SceneView ) 封装 了 交互式 绘制 的 所有 细节 ， 如 消息 处理 、 场景 节点 的 遍历 绘制 、 多重 采样 消 锯齿 、 鼠标 交互 等 。 为了 便于 编辑 真实感 属性 ， Intra3D 定制 了 一些 常用 对话 ： 矢量 字体 对话 ( FontDialog ) 、 颜色 对话 ( ColorDialog ) 、 材质库 对话 ( MaterialLibDialog ) 、 材质 对话 ( MaterialDialog ) 与 光源 对话 ( DirLightDialog ,   PointLightDialog ,   SpotLight   Dialog ) 。 
+ 3 　 对象 引用 计数 的 内存 管理 技术 
+ 　 　 当 场景 中 的 一些 对象 存在 复杂 的 引用 关系 时 ， 正确 释放 对象 的 内存 将 变得 很 困难 。 最 安全 的 方法 是 让 对象 自己 判断 何时 该 释放 内存 。 Intra3D   的 Container 类 提供 “ 对象 引用 计数 ” 的 内存 管理 技术 。 基本原理 是 ： 让 对象 保存 一个 计数器 ， 当该 对象 被 其它 对象 引用 时 ， 将 计数器 增加 1 ； 当 引用 关系 被 消除 时 ， 将 计数器 减去 1 ； 若 计数器 为 0 ， 则 表明 该 对象 不再 被 外界 任何 对象 引用 ， 此时 该 对象 就 可以 删除 自己 ； Intra3D 的 图形 对象 基类 ( GraphicalObject ) 与 场景 节点 基类 ( SceneNode ) 都 是 Container 的 派生类 。 Container 的 定义 如下 ： 
+ class   Container 
+ { 
+ public :   
+ 　 　 Container ( void ) {   m _ cRefrenceCount = 1 ;   } 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　   / /   对象 被 创建 时 ， 计数器 为   1   
+ 　 　 void   AddRef ( void ) {   m _ cRefrenceCount ++ ;   } 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　   / /   对象 被 引用 时 ， 计数器 增加 1   
+ 　 　 void   Release ( void ) {   m _ cRefrenceCount - - ;   
+ 　 　 　 　 　 if ( m _ cRefrenceCount   < =   0 )   
+ 　 　 　 　 　 {   FinalRelease ( ) ;   
+ 　 　 　 　 　 delete   this ;   　 　 / /   如果 计数器 为 0 ， 则 删除 自身   
+ 　 　 　 　 　 } 
+ 　 　 　 } 
+ protected : 
+ 　 　 virtual   void   FinalRelease ( void ) {   }   / /   由 派生类 定义 具体 行为 
+ 　 　 int   m _ cRefrenceCount ;   / /   计数器 
+ } ； 
+ 　 　 当 对象 A 被 对象 B 引用 时 ， 应 调用 A 的 AddRef 函数 。 当 此 引用 关系 被 消除 时 ， 应 调用 A 的 Release 函数 。 一个 对象 在 删除 自身 之前 ， 还应 消除 对 其它 对象 的 应用 ， 此 工作 由 FinalRelease 函数 完成 。 FinalRelease 是   Protected   类型 的 虚 函数 ， 具体 行为 由 派生类 定义 。 
+ 4 　 场景 节点 的 三维 交互 设计 
+ 　 　 在 图形学 中 ， 常用 矩阵 运算 来 实现 图形 变换 。 采用 4 × 4 的 齐次 矩阵 就 可以 用 统一 的 矩阵 相乘 来 表示 平移 、 比例 与 旋转变换 。 但是 矩阵 难以 表示 图形 变换 的 状态 与 过程 ， 例如 给出 前后 两个 矩阵 ， 就 无法 判断 平移 量 、 缩 放量 、 旋转 量 各 是 多少 。 可见 仅 使用 矩阵 运算 并 不 满足 交互式 3D 图形系统 的 需求 。 
+ 　 　 Intra3D 用 四元组 ( Quaternion ) 运算 实现 旋转 变   换 [ 10 , 11 ] 。 四元组 是 复数 的 一种 扩展 。 记 q 为 一 四元组 ， q 可以 表示 如下 ： 
+ q = w + xi + yj + zk = [ x   y   z   w ] = ( s , v ) 
+ s = w 
+ v = [ x   y   z ] 
+ 　 　 设一 旋转变换 的 旋转轴 为 u ( 单位 矢量 ) ， 旋转 角度 为 θ 。 则 与 此 旋转变换 等价 的 四元组 q 为 ： 
+ q = ( s ,   v ) 
+ s = cos ( θ / 2 ) 
+ v = u   sin ( θ / 2 ) 
+ 　 　 两个 旋转变换 的 合成 可用 两个 四元组 相乘 来 表示 ， 程序设计 非常 简洁 。 由于 四元组 的 ( x , y , z , w ) 变量 并 不 直观 ， Intra3D   提供 更加 简明 的 旋转 结构 ROTATION 来 表示 旋转变换 。 矢量 、 旋转 结构 、 四元组 的 数据结构 VECTOR 、 ROTATION 、 QUATERNION 定义 如下 ： 
+ 
+ 　 　 Intra3D   的 场景 节点 基类 SceneNode 使用 旋转 结构 表示 旋转变换 的 状态 ， 用 两个 矢量 分别 表示 平移变换 与 比例变换 的 状态 。 即 共用 10 个 浮点 变量 就 可以 完全 确定 图形 变换 的 状态 。 SceneNode 的 数据结构 如下 所示 ： 
+ / /   数据 成员 
+ protected : 
+ 　 SceneNode 　 　 * m _ pParent ； 　 　 / /   父 节点 
+ 　 Trackball 　 　 m _ trackball ； 　 　 / /   跟踪 球 
+ 　 VECTOR 　 　 　 m _ position , 　 　 　 　 m _ oldPosition ； 
+ 　 VECTOR 　 　 　 m _ scale , 　 　 　 　 　 m _ oldScale ； 
+ 　 ROTATION 　 　 m _ rotation , 　 　 　 m _ oldRotation ； 
+ ... 
+ Public :   / /   图形 变换 函数 
+ 　 Void   SetPosition ( float   x ,   float   y ,   float   z ) ； 
+ 　 Void   SetRotation ( float   angle ,   float   nx ,   float   ny ,   float   nz ) ； 
+ 　 Void   SetScale ( float   sx ,   float   sy ,   float   sz ) ； 
+ 　 Void   Translate ( VECTOR   trans ) ； 
+ 　 Void   Rotate ( float   angle ,   VECTOR   axis ) ； 
+ 　 Void   Scale ( float   sx ,   float   sy ,   float   sz ) ； 
+ 　 Void   ResetTransform ( void ) ； 
+ 　 Void   TranslateInCamera ( VECTOR   trans ) ； 
+ 　 Void   RotateInCamera ( float   angle ,   VECTOR   axis ) 
+ ... 
+ 　 　 m _ position 、 m _ rotation 与 m _ scale 三个 量 分别 表示 该 节点 在 父 节点 坐标系 中 的 位置 量 、 旋转 量 与 比例 量 。 m _ oldPosition 、   m _ oldRotation 与 m _ oldScale 用于 记录 原始 状态 ， 便于 恢复原状 。 SceneNode 定义 了 十余个 图形 变换 函数 ， 用户 可用 鼠标 对 场景 节点 进行 直接 拖动 、 旋转 等 操作 。 
+ 5 　 用户界面 设计 
+ 　 　 Intra3D 的 场景 视窗 构件 SceneView 用于 快速 创建 交互式 3D 应用程序 的 主 界面 。 SceneView 支持 Selecting 、 Scaling 、 Rotating 、 Translating 、 Creating 、 Deleting 等 三十余种 操作 ， 并 提供 工具条 方便 于 交互 ， 如图 2 所示 。 3D 应用程序 主 界面 的 风格 如图 3 所示 。 Intra3D   COM 库中 的 SceneView 是 一个 ActiveX 控件 ， Visual   Basic 、 Delphi 等 编程语言 能以 可视化 的 方式 创建 3D 应用程序 的 框架 。 
+ 
+ 图 2 　 用于 直接 操作 的 三维 交互 工具条 
+ 
+ 图 3 　 Intra3D 的 应用程序 主 界面 示例 
+ 　 　 为了 编辑 真实感 属性 ， 常需 在 对话框 中 绘制 3D   图形 。 Microsoft 的 窗口 系统 不 提供 3D 的 对话 窗口 。 使用 Intra3D 的 Window3D 构件 可 在 对话框 中 创建 多个 3D 视窗 ， 图 4 的 材质 对话 和 图 5 的 材质库 对话 都 使用 了 Window3D 构件 。 颜色 编辑 是 3D 图形 程序 中 最 常用 的 交互 ， 材质 与 光源 的 编辑 实际上 是 通过 改变 颜色 分量 来 实现 的 。 需要 进行 颜色 编辑 的 交互 均 涉及 HSV 与 RGB 模式 的 颜色 转换 。 Int 的 “ 绘制 与 交互 层 ” 实现 了 这些 计算 ， 并且 提供 彩色 的 滑动 条 用于 鼠标 交互 。 图 6 、 图 7 示例 了 “ 点光源 对话 ” 和 “ 颜色 对话 ” 。 
+ 　 　 　 　 
+ 图 4 　 材质 对话 　 　 　 图 5 　 材 制裁 库 对话 
+ 　 　 　 　 　 　 　 
+ 图 6 　 点光源 对话 　 　 　 　 图 7 　 颜色 对话 
+ 6 　 小结 
+ 　 　 Intra3D   是 切合 国情 ， 面向 PC 应用 的 交互式 三维 图形 软件 开发工具 ， 2.0 版 已经 可以 使用 。 Intra3D2.0 标准版 软件 含 配套 书籍 《 交互式 三维 图形 技术 与 程序设计 》 的 电子 文档 。 可用 电子邮件   Intra3D @   hotmail . com   ,   Intra3D @ 163 . net   与 作者 联系 ， 免费 索取 软件 。 
+ 林锐 ( 浙江大学 CAD & CG 国家 重点 实验室   杭州   310027 ) 
+ 石教英 ( 浙江大学 CAD & CG 国家 重点 实验室   杭州   310027 ) 
+ 参考文献 
+ 1   Andries   Van   Dam   and   Dick   Puk .   The   History   of   Computer   Graphics   Standards   Development , Computer   Graphics ,   pp34 ～ 38 ,   February   1998 
+ 2   Mark   J . Kilgard .   OpenGL   Programming   for   the   X   Window   System ,   Addison - Wesley ,   1996 
+ 3   Tom   McReynolds   and   David   Blythe .   Advanced   Graphics   Programming   Techniques   Using   OpenGL ,   SIGGRAPH   ` 98   Course 
+ 4   Brian   Paul ,   OpenGL   and   Window   System   Integration ,   Siggraph ' 97   Course   24 ,   August   6 ,   1997 
+ 5   D .   Wang ,   I .   Herman   and   G . J . Reynolds ,   The   Open   Inventor   Toolkit   and   the   PREMO   Standard ,   Computer   Graphics   Forum ,   Vol.16 ,   No.4 ,   pp159 - 175 , 1997 
+ 6   David   B .   Kirk .   Interactive   3D   Graphics   for   the   Masses ,   Computer   Graphics ,   pp62 ～ 64 , February   1998 
+ 7   Edward   Angel .   Teaching   a   Three - Dimensional   Computer   Graphics   Course   Using   OpenGL ,   Computer   Graphics ,   pp54 ～ 55 ,   August   1997 
+ 8   Chris   Hand .   A   Survey   of   3D   Interaction   Techniques ,   Computer   Graphics   Forum ,   Vol.16 ,   No.5 ,   pp269 ～ 281 , 1997 
+ 9   Jonas   Gomes ,   Bruno   Costa   and   Lucia   Darsa ,   Graphical   Objects ,   The   Visual   Computer   ( 1996 ) 12 : 269 ～ 282 
+ 10   Loaura   Downs ,   Using   Quaternions   to   Represent   Rotation ,   http : / / www . cs . berkeley . edu / ～ laura ,   1998 
+ 11   Donald   Hearn   and   M .   Pauline   Baker ,   Computer   Graphics   C   Version   ,   Prentice   Hall ,   1997 
+ 收稿 日期 ： 1999 年 10 月 25 日 

@@ -1,0 +1,176 @@
+自动化 学报 
+ ACTA   AUTOMATICA   SINICA 
+ 1997 年   第 23 卷   第 1 期   Vol.23   No.1   1997 
+ 
+ 
+ 
+ 参数 不 确定 系统 的 H ∞ 估计 问题 的 显式 解 和 中心 解 
+ 王正志 　 周宗潭 　 张良起 
+ 摘 　 要 　 研究 在 连续 时间 情形 下 的 具有 部分 参数 不确定性 的 系统 的 H ∞ 状态 估计 问题 ， 它 可以 被 化简 为 带有 一个 自由 可调 参数 对象 的 H ∞ 状态 估计 ， 由此 可 得到 滤波器 的 简洁 通解 显式 . 并 进一步 研究 了 H ∞ 估计 的 中心 解 ， 以及 它 与 卡尔曼滤波 器 的 关系 . 实例 计算 表明 ， 对于 参数 具有 不确定性 的 系统 ， H ∞ 滤波器 的 性能 明显 地 优于 卡尔曼滤波 器 . 
+ 关键词 　 鲁棒性 ， H ∞ 估计 ， 卡尔曼滤波 . 
+ THE   EXPLICIT   SOLUTIONS   AND   CENTRAL   
+ SOLUTION   OF   H ∞   ESTIMATION   PROBLEM   FOR 
+ UNCERTAIN   PARAMETER   SYSTEMS 
+ WANG   ZHENGZHI 　   ZHOU   ZONGTAN   　 ZHANG   LIANGQI 
+ ( Dept .   of   Automatic   Control ,   National   Univ .   of   Defense   science   and   Technology ,   Changsha   410073 ) 
+ Abstract 　 This   paper   is   concerned   with   the   H ∞   estimation   problem   for   linear   continuous - time   systems   with   part   of   parameters   uncertainty .   It   can   be   simplified   as   a   H ∞   estimation   problem   for   a   plant   with   a   free   rejustable   parameter .   Thus   the   filter   expressions   are   given   in   simple   and   explicit   way .   This   paper   is   further   concerned   with   the   central   filter   of   H ∞   estimation ,   and   its   relations   to   Kalman   filter .   Simulation   results   show   that   the   performance   of   H ∞   filter   is   much   better   than   Kalman   filter   for   the   systems   with   uncertain   parameters .   
+ Key   words 　 Robustness ,   H ∞   estimation ,   Kalman   filter 
+ 1 　 问题 的 提法 
+ 　 　 若 线性系统 的 全部 参数 能 准确 知道 ， 在 已知 谱 密度 的 高斯 噪声 作用 下 ， 要 从 输出 测量 估计 线性系统 的 内部 状态 ， 已 由 卡尔曼滤波 方法 解决 . 但 在 许多 工程 实际 问题 中 ， 各 噪声源 的 统计 特性 难以确定 ， 甚至 不是 高斯 噪声 ， 而是 有 界 能量 噪声 ， 这时 可以 采用 H ∞ 方法 估计 其 内部 状态 . 如果 进一步 考虑 到 对象 模型 参数 具有 不确定性 ， 而仅 知道 它们 各自 在 一定 的 区间 内 变动 ， 问题 就 变得 更为 复杂 . 对于 部分 参数 不 确定 的 对象 ， 在 有界 能量 噪声 影响 下 ， 如何 进行 状态 估计 ， 是 此文 的 研究 内容 . 
+ 　 　 考虑 连续 时间 域 上 的 对象 P 的 模型 
+ = ( A + Δ A ) x + Bw , 　 　 ( 1a ) 
+ y = ( C + Δ C ) x + Dw , 　 　 ( 1b ) 
+ z = Lx 　 　 ( 1c ) 
+ 其中 x ∈ Rn 是 状态 ， w ∈ Rm 是 噪声 ， y ∈ Rr 是 输出 测量 ， z ∈ Rp 是 要 估计 的 状态 组合 . A ， B ， C ， D   和 L   是 已知 的 实数 矩阵 ， 各为 n × n , n × m , r × n , r × m   和 p × n 维 ， 它们 是 标称 对象 的 全部 参数 . 假设 A 是 稳定 矩阵 ， ( 1 ) 式 中 Δ A 和 Δ C 表示 对象 参数 的 不确定性 . 假设 
+ 　 　 　 ( 2 ) 
+ 其中 H1 , H2   和 E 分别 为 n × b1 , r × b1 , b2 × n 维 的 已知 矩阵 ， 它们 反映 不 确定 参数 所处 的 位置 和 变化 幅度 . 而 b1 × b2 维 的 未知 实矩阵 F 在 单位 球 FTF ≤ I 中 变动 ， 从而 引起 Δ Α 和 Δ C 的 变化 . 
+ 　 　 设计 估计 状态 组合 z 的 滤波器 Q ： 
+ e = Aexe + Key , 　 　 ( 3a ) 
+ ze = Lexe 　 　 　 ( 3b ) 
+ 其 估计 误差 为 e = z - ze . 对象 P 和 滤波器 Q 组成 的 系统 ， 其 状态方程 可 紧凑 地写 为 
+ = ( Ac + HcFEc ) ξ + Bcw , 　 　 　 ( 4a ) 
+ e = Cc ξ . 　 　 ( 4b ) 
+ 其中 
+ 
+ 
+ 　 　 　 ( 5 ) 
+ 于是 从 噪声 w 到 估计 误差 e 的 传递函数 为 
+ T ( S ) = Cc ［ SI - ( Ac + HcFEc ) ］ - 1Bc . 　 　 　 ( 6 ) 
+ 对于 小 正数 γ ， 定义 H ∞ 估计 问题 
+ ‖ T ( S ) ‖ ∞ ＜ γ , 　 　 　 ( 7 ) 
+ 即 要 设计 滤波器 Q ， 使得 对于 各种 有 界 噪声 w ， 均 有 较 小 的 估计 误差 e . 
+ 　 　 由于 T ( S ) 中 含有 未知 矩阵 F ， 造成 处理 上 的 困难 ， 为了 克服 此 困难 ， 考虑 带有 正 参数 δ 的 对象 P δ ： 
+ 　 　 　 ( 8a ) 
+ 　 　 　 ( 8b ) 
+ 　 　 　 ( 8c ) 
+ 其中 新 的 有界 噪声 ∈ Rm + b1 , 输出 ∈ Rp + b2 , 采用 ( 3 ) 式 的 滤波器 Q ， 并且 用 
+ 　 　 ( 9 ) 
+ 来 估计 的 输出 , 所 产生 的 估计 误差 为 
+ 　 　 　 ( 10 ) 
+ 带 参数 δ 的 对象 P δ 和 滤波器 Q 组成 的 系统 ， 可 紧凑 地 写成 
+ 　 　 ( 11a ) 
+ 　 　 ( 11b ) 
+ 其中 
+ 　 　 　 ( 12 ) 
+ 从 有界 能量 噪声 到 估计 误差 的 传递函数 为 
+ 　 　 　 ( 13 ) 
+ 采用 类似 于 文献 ［ 9 ］ 定理 1 的 证明 思路 ， 有 如下 定理 . 
+ 　 　 定理 1 . 若 存在 一个 正数 δ ， 使得 P δ 被 滤波器 Q 估计 的 误差传递 函数 T δ （ S ） 满足 
+ 　 　 　 　 ( 14 ) 
+ 则 对于 原来 的 参数 不 确定 对象 P ， 该 滤波器 Q 产生 的 估计 误差传递 函数 T ( S ) 满足 ( 7 ) 式 . 
+ 2 　 问题 的 通解 
+ 　 　 定理 1 表明 ， 解决 了 带有 正 参数 δ 的 对象 P δ 的 H ∞ 估计 问题 ( 14 ) ， 就 可以 保证 原来 的 参数 不 确定 对象 P 的 H ∞ 估计 精度 ( 7 ) . ( 14 ) 式 可 在 H ∞ 标准 控制 问题 的 框架 中 求解 . H ∞ 标准 控制 问题 一直 是 H ∞ 控制 的 核心 问题 ， 经过 许多 控制 学者 的 努力 ， 已有 多种 解法 ［ 1 － 4 ］ ， 但 多数 解法 步骤 复杂 ， 解式 与 对象 的 状态 空间 表示 矩阵 的 关系 不 直观 . 此文 采用 我们 近年来 推导 的 公式 写出 通解 ， 十分 简洁 ， 与 对象 的 原始 表达式 的 关系 非常 直观 . 由于 推导 过程 比较复杂 ， 本文 仅 在 下述 引理 中 直接 给出 结果 ， 其 推导 过程 可 参阅 文献 ［ 8 ］ ． 
+ 　 　 引理 　 广义 对象 
+ 　 　 　 ( 15 ) 
+ 的 H ∞ 标准 控制 问题 ， 在 D11 = 0 , D22 = 0 ， 以及 D12 满列 秩 ， D21 满行 秩 的 情形 下 ， 可 按 如下 步骤 求解 . 首先 分别 求出 Riccati 方程 
+ 　 ( 16 ) 
+ 　 ( 17 ) 
+ 的 镇定 解 X ≥ 0 ， Y ≥ 0 . 再设 
+ 　 　 ( 18a ) 
+ 　 　 ( 18b ) 
+ 　 　 ( 18c ) 
+ 　 　 ( 18d ) 
+ 　 　 ( 19 ) 
+ 由此 可以 写出 H ∞ 标准 控制 问题 的 通解 
+ 　 　 　 ( 20 ) 
+ ( 14 ) 式 所 对应 的 广义 对象 ( 15 ) 式 为 
+ B1 ＝ ［ γ - 1B 　 δ － 1H1 ］ ， B2 ＝ 0 ， 
+ 　 　 　 　 　 　 C2 ＝ C ， 
+ D11 ＝ 0 ， 　 　 　 　 　 　 　 　 　 
+ D21 ＝ ［ γ － 1D 　 δ － 1H2 ］ ， D22 ＝ 0 ． 
+ 把 以上 诸式 代入 引理 的 ( 16 ) — ( 20 ) 式 ， 得出 下面 的 主要 结果 . 
+ 　 　 定理 2 . 对于 参数 不 确定 对象 P ， 若 在 ( 1 ) 和 ( 2 ) 式 中 ， A 是 稳定 矩阵 ， ［ γ － 1D 　 δ － 1H2 ］ 具有 满行 秩 . 分别 求 出 如下 两个 Riccati 方程 ： 
+ 　 　 ( 21 ) 
+ 
+ 
+ 
+ 
+ 　 　 ( 22 ) 
+ 的 镇定 解 X ≥   0 , Y ≥ 0 . 如果 有 
+ 　 　 ( 23 ) 
+ 则 带有 正 参数 δ 的 对象 P δ 的 H ∞ 估计 问题 ( 14 ) 有解 ， 从而 参数 不 确定 的 对象 P 的 H ∞ 估计 问题 ( 7 ) 也 有解 ， 其 H ∞ 滤波器 的 通解 为 
+ 　 　 ( 20 ) 
+ 其中 
+ 　 　 
+ 　 　 　 　 ( 24 ) 
+ 而 BHp × γ ∞ 是 Hp × γ ∞ 空间 中 的 单位 球 . 
+ 3 　 中心 滤波器 及其 与 卡尔曼滤波 器 的 比较 
+ 　 　 ( 24 ) 式 中 ， 对于 所有 在 BHp × γ ∞ 中 的 Φ ， 得到 的 滤波器 Q 都 满足 H ∞ 估计 精度 要求 ( 7 ) . 在 所有 这些 滤波器 中 ， 中心 解 给出 的 中心 滤波器 Q0 最 值得注意 . 令 ( 24 ) 式 中 Φ ＝ 0 ， 得到 中心 解 ， 由此 得到 H ∞ 中心 滤波器 Q0 为 
+ 
+ 
+ 
+ 　 　 　 　 ( 25 ) 
+ 特别 对于 参数 确定 的 对象 ， 在 ( 2 ) 式 中 有 
+ H1 = 0 , 　 H2 = 0 , 　 E = 0 
+ 于是 Riccati 方程 ( 21 ) 的 解为 X = 0 ， 而 Riccati 方程 ( 22 ) 为 
+ 
+ 0 ． 　 　 ( 26 ) 
+ 所以 参数 确定 的 对象 的 H ∞ 中心 滤波器 为 
+ 
+ 　 　 　 　 ( 27 ) 
+ 　 　 为了 把 H ∞ 中心 滤波器 与 卡尔曼滤波 器 进行 比较 ， 在 参数 确定 的 对象 模型 ( 1 ) 中 ， Δ A = 0 , Δ C = 0 ， 假设 w 为 零 均值 高斯 白 噪声 ， 其 协方差 阵为 
+ E ［ w ( t ) wT ( τ ) ］ = R δ ( t - τ ) , 　 　 　 ( 28 ) 
+ 其 卡尔曼滤波 器为 
+ 
+ 　 　 　 　 ( 29 ) 
+ 其中 Y1 满足 Riccati 方程 
+ 
+ 　 　 　 ( 30 ) 
+ 把 参数 准确 的 对象 的 H ∞ 中心 滤波器 ( 27 ) 与 卡尔曼滤波 器 ( 29 ) 相 比较 发现 ： 若 认为 
+ R = γ － 2I ， 　 　 　 ( 31 ) 
+ 两者 就 非常 相似 . 唯一 的 差别 是 Riccati 方程 ( 26 ) 比 Riccati 方程 ( 30 ) 多 了 一项 YLTLY . 不难看出 Y ≥ Y1 . 在 γ 充分 大时 ， ( 26 ) 式 中 CT ( D γ － 2DT ） － 1C > > LTL . 这时 可以 略去 LTL ， 从而 ( 26 ) 式 变为 ( 30 ) 式 . 故 在 γ 充分 大时 ， H ∞ 中心 滤波器 就 变为 卡尔曼滤波 器 . 
+ 表 1 　 H ∞ 中心 滤波器 与 卡尔曼滤波 器 的 比较 
+ 
+ 　 卡尔曼滤波 器 
+ ( 对象 参数 准确 ) H ∞ 中心 滤波器 
+ ( 对象 参数 准确 ) H ∞ 中心 滤波器 
+ ( 对象 参数 具有 不 准确性 ) 
+ 外 推率 AA ( A + ( γ - 2BBT + δ － 2H1HT1 ) X ) 
+ 新息 Y - CY - CY - ( C + γ - 2DBTX + δ － 2H2HT1X ) 
+ 新息 增益 ( BRDT + Y1CT ） （ DRDT ） - 1 ( B γ － 2D + YCT ） ( D γ － 2DT ） - 1 ( I - YX ) - 1 ( γ - 2BDT + δ － 2H1HT2 + YCT ） 
+ ( γ - 2DDT + δ － 2H2HT2 ) － 1 
+ 
+ 
+ 4 　 实例 与 结论 
+ 　 　 用 一个 实例 ， 比较 H ∞ 滤波器 与 卡尔曼滤波 器 的 性能 . 若 参数 不 准确 对象 为 
+ 
+ 
+ 
+ 若 我们 希望 H ∞ 滤波器 的 精度 ( 7 ) 达到 γ = 0.1 ， 取 自由 参数 δ = 1 ， 由 Riccati 方程 ( 21 ) 和 ( 22 ) 解 出 
+ 
+ 
+ 由 ( 25 ) 式 给出 H ∞ 中心 滤波器 为 
+ 
+ 而 由 ( 30 ) 和 ( 29 ) 得到 卡尔曼滤波 器为 
+ 
+ 　 　 在 常值 干扰 下 ( 即 w 为 单位 阶跃 ) ， 比较 二者 的 滤波 估计 性能 . 图 1 表示 对象 参数 完全 准确 的 情形 ( F = 0 ) ， 这时 卡尔曼滤波 器是 最优 滤波器 ， 估出 的 曲线 ( c ) 几乎 与 真实 状态 ( a ) 完全 重合 ； 而 H ∞ 中心 滤波器 的 估计 ( b ) 与 真实 状态 ( a ) 略有 差别 ， 但 估计 误差 小于 γ = 0.1 . 
+ 
+ 
+ 
+ 图 1 　 对象 参数 完全 准确 的 情形 ( F = 0.0 ) 
+ ( a )   真实 状态 　 ( b )   H ∞ 中心 滤波器 的 估计 　 ( c )   Kalman 滤波器 的 估计 
+ 　 　 图 2 表示 对象 的 部分 参数 不 准确 的 情形 ( F = 1.0 ) ， 这里 a11 由 - 1.0   变为 - 0.6 ， C1   由 1.0   变为 1.4 . 这时 卡尔曼滤波 器 的 估值 曲线 ( c ) 与 真实 状态 ( a ) 之间 发生 巨大 的 偏差 ； 而 H ∞ 中心 滤波器 的 估值 曲线 ( b ) 则 与 真实 状态 ( a ) 几乎 重 合在一起 ， 估计 误差 小于 γ = 0.1 . 
+ 
+ 
+ 
+ 图 2 　 对象 的 部分 参数 不 准确 的 情形 ( F = 1.0 ) 
+ 　 　 图 3 表示 对象 的 部分 参数 不 准确 的 另 一种 情形 ( F = - 1.0 ) ， 这里 a11 由 - 1.0 变为 - 1.4 ， c1 由 1.0 变为 0.6 . 这时 卡尔曼滤波 器 的 估值 曲线 ( c ) 与 真实 状态 ( a ) 也 发生 很大 偏差 ； 而 H ∞ 中心 滤波器 的 估值 曲线 ( b ) 与 真实 状态 ( a ) 相当 接近 ， 估计 误差 小于 γ = 0.1 . 
+ 
+ 
+ 图 3 　 对象 的 部分 参数 不 准确 的 另 一种 情形 ( F = - 1.0 ) 
+ 　 　 总之 ， 在 对象 参数 具有 不 确实性 时 ， 本文 给出 的 H ∞ 滤波器 的 性能 明显 优于 卡尔曼滤波 器 . 本文 推导 的 H ∞ 中心 滤波器 ， 形式 简洁 ， 性能优越 ， 可望 在 实际 控制工程 中 得到 广泛应用 . 
+ 作者简介 ： 王正志 　 1967 年 毕业 于 哈尔滨军事工程学院 自动控制 专业 . 1981 年 至 1984 年 在 美国 Rice 大学 电气工程 系 进修 ， 并 获得 博士学位 . 现任 国防科技大学 教授 和 博士 导师 . 研究 领域 为 飞行器 控制 ， 智能 控制 和 遥感技术 . 
+ 　 　 周宗潭 　 26 岁 . 1994 年 毕业 于 国防科技大学 自控 系 ， 获得 硕士学位 . 现为 国防科技大学 自动控制 系 博士 研究生 ， 攻读 博士学位 . 
+ 　 　 张良起 　 毕业 于 上海交通大学 电机系 ， 曾任 国防科技大学 校长 ， 现为 国防科技大学 自控 系 教授 和 博士 导师 . 研究 领域 为 飞行器 控制 ， 武器装备 自动化 和 智能 机器人 等 . 
+ 作者 单位 ： 国防科技大学 自控 系 　 长沙 　 410073 
+ 参考文献 
+ ［ 1 ］ 　 Doyle   J   C ,   Glover   K ,   Khargonekar   P , Francis   B   A .   State - space   Solution   to   Standard   H2   and   H ∞   Control   Problem . IEEE   Trans .   Automatic   Control ,   1989 ,   34 ( 8 ) : 831 - 847 . 
+ ［ 2 ］ 　 Glover   K ,   Doyle   J   C .   State - space   formulae   for   all   stabilizing   controllers   that   Satisfy   an   H ∞   norm   bound   and   relations   to   risk   sensitivity .   System   and   Control   Letters ,   1988 ,   11 : 167   - 172 . 
+ ［ 3 ］ 　 Kimura   H ,   Lu   Y ,   Kawatani   R .   On   the   Structure   of   H ∞   control   systems   and   related   extensions .   IEEE   Trans .   Automatic   Control ,   1991 ,   36 ( 6 ) : 653 - 667 . 
+ ［ 4 ］ 　 Francis   B   A .   A   Course   in   H ∞   Control   Theory .   Springer   Verlag .   1987 .   
+ ［ 5 ］ 　 Nagpal   K ,   M ,   Khargonekar   P .   Filtering   and   smoothing   in   an   H ∞   setting   .   IEEE   Trans .   Automatic   Control ,   1991 ,   36 ( 2 ) : 152 - 166 . 
+ ［ 6 ］ 　 Shaked   U .   H ∞   minmum   error   state   estimation   of   Linear   Stationary   Processes .   IEEE   Trans .   Automatic   control ,   1990 ,   35 ( 5 ) : 554 - 558 . 
+ ［ 7 ］ 　 Xie   L ,   De   Souza   C   E ,   Fu   M .   H ∞   Estimation   for   discrete - time   linear   uncertain   systems .   International   Journal   of   Roboust   and   Nonlinear   Control ,   1991 , 1 ( 2 ) : 111 - 123 . 
+ ［ 8 ］ 　 王正志 ， 周宗潭 . 状态 空间 中 标准   H ∞ 问题 的 直接 求解 公式 . 中国 控制 会议 论文集 ， 1994 ， 146 - 150 . 
+ ［ 9 ］ 　 王正志 ， 部分 参数 不 准确 的 线性系统 的 鲁棒性 控制 ， 自动化 学报 ， 1995 ， 21 ( 4 ) ： 455 - 459 . 
+ 收稿 日期 ： 1994 - 10 - 17 

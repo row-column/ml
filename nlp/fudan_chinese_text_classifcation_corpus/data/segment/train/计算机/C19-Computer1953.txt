@@ -1,0 +1,102 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 1999 年   第 18 卷   第 1 期   Vol.18   No.1   1999 
+ 
+ 
+ 
+ 用 Email 获得 Archie 服务 及 FTP 服务 
+ 刘根贤 　 张玉祥 　 张炜 
+ 　 　 摘 　 要 ： 介绍 使用 Email 获得 Archie 查询 服务 及 FTP 服务 的 方法 。 
+ 　 　 关键词 ： Internet 　 Email 　 Archie 服务 　 FTP 服务 
+ 　 　 现在 许多 网络 用户 上网 大多 是 使用 IE 或 Netscape 等 浏览器 进行 浏览 ， 也 常用 Email 收发 电子邮件 。 Email 虽然 貌 不 出众 ， 但 利用 它 还 可以 获得 其它 网络服务 ， 其中 最 常见 的 就是 利用 Email 获得 FTP 服务 来 下载 软件 。 另外 ， 利用 它 还 可以 获得 Archie 、 Gopher 、 新闻组 、 广域 信息 服务器 查寻 服务 ， 几乎 涵盖 了 整个 Internet 服务 。 而且 使用 email 有二大 好处 ， 既 节约 信用 点 ， 又 不会 耽误 工作 。 由于 国内 ISP 的 速度 实在 不快 ， 上网 时间 中 经常 是 处于 等待 状态 ， 而 使用 Email 则 无此 缺点 ， 先写 好 信 再 连 上网 ， 发出 去 后 就 可以 断线 。 本文 介绍 使用 Email 获得 Archie 及 FTP 服务 的 方法 ， 这种 方法 在 需要 查询 或 下载 文件 而 不 急于 或 暂时 没有 时间 查看 结果 时 非常 有用 。 
+ 1 　 利用 Email 获得 Archie 服务 
+ 　 　 匿名 FTP 为 我们 提供 了 一个 不断 积蓄 起来 的 、 全世界 最大 的 公众 信息 和 知识 的 文件 库 ， 如果 想要 通过 匿名 FTP 来 下载 某个 文件 ， 首先 必须 知道 存放 文件 的 匿名 FTP 主机 的 地址 和 包含 有 该 文件 的 路径 或 目录名 ， 这 就 需要 使用 文档 服务器 Archie 。 
+ 　 　 在 通过 Email 使用 Archie 服务器时 ， 需要 给 该 Archie 服务器发送 1 个 Email ， 邮件 目的 地址 的 用户名 要用 Archie ， 而 域名 就是 Archie 服务器 的 地址 。 如 ： 
+ 　 　 archie @ archie . ncu . edu . tw 
+ 　 　 在 写 邮件 时 ， 主题 Subject 行 留空 ， 邮件 正文 写入 要求 Archie 服务器 要 执行 的 所有 命令 ， 1 行 1 条 命令 ， 除了 少数 与 邮件 无关 的 命令 以外 ， 邮件 中 可以 使用 绝大多数 Archie 命令 。 Archie 服务器 在 收到 邮件 后 就 会 执行 邮件 正文 中 的 命令 ， 并 将 结果 通过 Email 返回 。 
+ 　 　 第 1 条 命令 是 set   mailto ， 这 条 命令 可以 确保 Archie 服务器 知道 你 的 Email 地址 ， 以便 将 查询 结果 通过 Email 发送给 你 。 最后 1 条是 quit ， 它 通知 Archie 服务器 结束 执行命令 ， 忽略 邮件 正文 中 的 后续 内容 。 
+ 　 　 如果 不 清楚 该 Archie 服务器 所用 的 命令 ， 可以 给 它 发送 1 个 邮件 寻求 帮助 ， 邮件 正文 命令 如下 ： 
+ 　 　 set   mailto   lgx @ ihw . com . cn 
+ 　 　 help 
+ 　 　 quit 
+ 　 　 为了 使 查询 结果 便于 阅读 ， 可以 进行 一些 格式 设置 及 查询 设置 ， 这些 设置 和 直接 使用 Archie 服务 一样 ， 如 ： 
+ 　 　 set   mailto   email 地址 　 确定 archie 服务器发送 邮件 的 地址 
+ 　 　 set   maxhits 　 　 设置 搜索 的 最大 条目 数 
+ 　 　 set   output - format   terse 　 用 短 格式 显示 输出 
+ 　 　 set   output - format   verbose 　 用长 格式 显示 输出 
+ 　 　 set   sortby   filename 　 按 文件名 字母 顺序 分类 排序 
+ 　 　 set   sortby   hostname 　 按 主机名 字母 顺序 分类 排序 
+ 　 　 set   sortby   size 　 按 文件大小 顺序 ， 从大到 小 分类 排序 
+ 　 　 set   sortby   time 　 按 文件 的 日期 和 时间 顺序 ， 从 新 到 旧 分类 排序 
+ 　 　 set   match - domain   域名 　 　 设置 搜索 FTP 站点 的 范围 
+ 　 　 set   search   exact 　 严格 模板 匹配 搜索 
+ 　 　 set   search   regex 　 常规 表达方式 搜索 
+ 　 　 set   search   sub 　 搜索 任何 包含 模板 的 条目 
+ 　 　 set   search   subcase   搜索 任何 包含 模板 的 条目 ， 并 区分 大小写 
+ 　 　 set   search   exact - regex 　 先 按照 严格 模板 匹配 搜索 ， 若 无 结果 ， 再 按照 常规 表达方法 搜索 
+ 　 　 set   search   exact - sub 　 先 按照 严格 模板 匹配 搜索 ， 若 无 结果 ， 再 搜索 任何 包含 模板 的 条目 
+ 　 　 set   search   exact - subcase 　 先 按照 严格 模板 匹配 搜索 ， 若 无 结果 ， 再 搜索 任何 包含 模板 的 条目 ， 并 区分 大小写 
+ 　 　 特别 是 为了 防止 查询 结果 过大 ， 必须 限制 搜索 的 最大 条目 数 。 例如 ， 查询 1 个 RFC 文件 rfcll18 . txt ， 邮件 中 命令 如下 ： 
+ 　 　 set   mailto   lgx @ ihw . com . cn 
+ 　 　 set   maxhits   25 
+ 　 　 set   output - format   verbose 
+ 　 　 set   search   exact 
+ 　 　 set   sortby   time 
+ 　 　 find   rfcll18 . txt 
+ 　 　 quit 
+ 　 　 收到 Archie 服务器发送 的 答复 邮件 后 ， 就 可以 根据 查询 结果 ， 使用 匿名 FTP 下载 所 需 文件 。 
+ 2 　 利用 Email 获得 FTP 服务 
+ 　 　 FTP 文件传输 协议 是 由 支持 Internet 文件传输 的 各种 规程 所 组成 的 集合 。 基于 安全 考虑 ， 大部分 匿名 FTP 主机 只能 允许 下载 文件 。 
+ 　 　 FTP 是 网友 常 使用 的 服务 ， 可以 下载 一些 实用工具 或 游戏 。 现在 已有 许多 很 好 的 FTP 软件 ， 支持 断点续传 ， 而且 速度 也 比较 快 ， 但 仍然 要求 在 传输 时 必须 是 联机 的 ， 而 使用 Email 来 实现 FTP 服务 无此 缺点 。 使用 Email 来 实现 FTP 服务 和 直接 利用 FTP 命令 下载 软件 的 不同之处 ， 在于 它 将 FTP 命令 组 作为 电子邮件 内容 ， 发给 “ ftpmail ” 服务器 ， 而 不是 FTP 服务器 ， 在 Internet 中 存在 许多 ftpmail 服务器 ， 如 ： 
+ 　 　 ftpmail @ sunsite . une . edu 　 　 　 美国 
+ 　 　 bieftp @ pucc . princeton . edu 美国 
+ 　 　 bieftp @ vm . gmd . dce 德国 
+ 　 　 bitftp @ plearn . edu . pl 波兰 
+ 　 　 ftpmail @ doc . ic . ac . uk 英国 
+ 　 　 ftpmail @ cs . uow . edu . au 澳大利亚 
+ 　 　 ftpmail @ decwrl . dec . conm 美国 
+ 　 　 ftpmail @ grasp . insa . lyon . fr 法国 
+ 　 　 ftpmail @ ieunet . ie 爱尔兰 
+ 　 　 为了 使用 ftpmail ， 可 向 上面 任意 1 个 ftpmail 服务器发送 1 个 邮件 ， 在 这个 邮件 中 需要 写入 你 想要 进行 匿名 ftp 联机 的 全部 命令 ， 每行 只能 写 1 个 命令 。 ftpmail 服务器 一旦 收到 你 的 邮件 就 会 执行 邮件 中 的 那些 命令 ， 并 将 这个 匿名 ftp 会晤 的 结果 自动 地以 Email 的 形式 发回 给 你 。 
+ 　 　 下面 是 常用 的 FTP 命令 ： 
+ 　 　 命 　 令 　 　 　 　 　 　 功 　 能 
+ 　 　 ascii 　 　 　 　 　 被 传递 的 邮件 是 文本文件 时 的 设置 
+ 　 　 binary 被 传递 的 邮件 是 2 进制 文件 时 的 设置 
+ 　 　 btoa 　 　 　 　 　 　 把 2 进制 文件 变换 成 文本文件 
+ 　 　 chdir / cd 目录名 转换 到 指定 的 目录 
+ 　 　 connect   ftp 服务器 地址 　 与 指定 的 匿名 FTP 主机 进行 连接 
+ 　 　 dir 目录名 发送 目录 的 长 列表 
+ 　 　 get 文件名 请求 传输 ， 发送 指定 文件 
+ 　 　 help 发送 如何 使用 ftpmail 的 简介 
+ 　 　 ls 目录 发送 目录 的 短 列表 
+ 　 　 open 主机 地址 与 指定 的 匿名 FTP 主机 进行 连接 
+ 　 　 quit 停止 会晤 ， 忽略 邮件 的 剩余 内容 
+ 　 　 reply   Email 地址 确定 你 的 响应 邮件 Email 的 地址 
+ 　 　 uuencode 把 2 进制 文件 转换成 文本文件 
+ 　 　 一般说来 ， ftpmail 服务器 的 工作 方式 大多 相同 ， 但是 它们 所 使用 的 命令 的 细节 可能 稍 有 差别 。 因此 ， 为了 确保 无误 ， 在 使用 某个 ftpmail 服务器 之前 ， 最好 先给 它 发送 1 个 邮件 ， 请 它 发送给 你 1 个 如何 使用 ftpemail 的 简介 。 
+ 　 　 例如 ， 给 ftpmail @ sunsite . une . edu 发 1 个 Email ( 下面 的 例子 中 ， 邮件 均 发送给 ftpmail @ sunsite . une . edu ) ， 在 邮件 中 只 需要 1 条 命令 “ help ” 。 
+ 　 　 如果 知道 所 需 下载 的 文件 所在 目录 位置 ， 可以 直接 使用 Email 下载 ， 否则 还须 先 发送 1 个 获取 关于 给 主机 中 目录 的 列表 清单 。 邮件 中 命令 如下 ： 
+ 　 　 reply 　 lgx @ ihw . com . cn 
+ 　 　 connect 　 freesoft . cei . gov . cn 
+ 　 　 ascii 
+ 　 　 dir 
+ 　 　 quit 
+ 　 　 知道 文件 确切 位置 ， 就 可以 利用 它 来 下载 文件 ， 例如 从 国家信息中心 的 自由软件 库 ( http : / / freesoft . cei . gov . cn ) 中 下载 1 个 文本文件 readme , 邮件 中 命令 如下 ： 
+ 　 　 reply 　 lgx @ ihw . com . cn 
+ 　 　 connect 　 freesoft . cei . gov . cn 
+ 　 　 ascii 
+ 　 　 chdir 　 / pub / minix 
+ 　 　 get 　 readme 
+ 　 　 quit 
+ 　 　 由于 一般 电子邮件 只能 传递 文本文件 ， 要 传输 2 进制 文件 如 zip 文件 时 ， 先要 把 它 编成 文本文件 才能 利用 Email 进行 传输 。 在 另一端 被 传输 的 文本文件 还 需 解码 成 原来 的 2 进制 文件 才能 使用 。 如果 需要 通过 ftpmail 来 下载 一个 2 进制 文件 ， 那么 在 邮件 的 命令 中 就要 加入 1 条 binary 及 1 条 uuencode 或 btoa 命令 。 这 条 编码 命令 最好 放在 binary 命令 之后 ， 如果 指定 传输 2 进制 文件 时 没有 指定 用 什么 办法 对 2 进制 文件 进行 变换 ， ftpmail 服务器 就 采用 它 默认 的 办法 ， 即 使用 btoa 命令 。 例如 从 国家信息中心 的 自由软件 库 下载 netscape   5.0 , windows 版 源代码 ， 全部 文件 压缩 在 windows . zip 内 ： 
+ 　 　 reply 　 lgx @ ihw . com . cn 
+ 　 　 connect 　 freesoft . cei . gov . cn 
+ 　 　 binary 
+ 　 　 uuencode 
+ 　 　 cd 　 / pub / netscape 
+ 　 　 get 　 windows . zip 
+ 　 　 quit 
+ 　 　 如果 下载 的 文件 较大 ， ftpmail 服务器 就 会 自动 把 它 分割 成小 文件 并 标上 序号 ， 然后 再 分别 利用 Email 发送给 你 ， 此时 所 做 的 工作 就是 把 它们 重新组合 起来 ， 恢复 成 原来 的 大 文件 。 
+ 　 　 利用 Email 来 获得 Archie 查询 服务 及 FTP 服务 ， 可以 有效 地 节约 时间 ， 也 不必 在线 等待 ， 是 一种 较 好 的 方法 。 另外 利用 Email 还 可以 获得 其它 Internet 服务 。 
+ 作者 单位 ： 西安 第二炮兵 工程学院 201 教研室 ( 710025 ) 
+ ( 收稿 日期 ： 1998 - 07 - 01 ) 

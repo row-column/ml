@@ -1,0 +1,82 @@
+自动化 学报 
+ ACTA   AUTOMATICA   SINICA 
+ 1999 年 　 第 25 卷 　 第 5 期 　 Vol.25   No.5   1999 
+ 
+ 
+ 
+ 
+ 连续 非线性 系统 预测 控制 的 次优 性 分析 1 ) 
+ 席裕庚 　 耿晓军 
+ 摘 　 要 　 针对 一般 连续 非线性 系统 ， 研究 了 有 终端 约束 的 稳定 预测 控制策略 相对 传统 最优控制 的 次优 性 问题 . 通过 分析 预测 控制 的 有限 时域 滚动 优化 性质 ， 得到 了 预测 控制 次优 性 的 上界 ， 并且 将 该 结果 应用 于 连续 线性系统 ， 得到 了 一个 量化 的 次优 性 评价 指标 . 
+ 关键词 　 有限 时域 控制 ， 预测 控制 ， 最优控制 ， 次优 性 ， 连续 非线性 系统 . 
+ THE   SUBOPTIMALITY   ANALYSIS   OF   PREDICTIVE   CONTROL 
+ FOR   CONTINUOUS   NONLINEAR   SYSTEMS 
+ XI   Yugeng 　 GENG   Xiaojun 
+ ( Institute   of   Automation , Shanghai   Jiao   Tong   University , Shanghai 　 200030 ) 
+ Abstract 　 Considering   the   general   continuous   nonlinear   systems , the   suboptimality   of   stable   predictive   control   with   terminal   constraints   is   studied   and   compared   with   the   traditional   optimal   control . By   analyzing   the   property   of   receding   finite - horizon   optimization , the   upper   bound   of   suboptimality   is   obtained . The   result   is   applied   to   linear   systems , and   a   suboptimality   quantized   index   is   proposed . 
+ Key   words 　 Receding   horizon   control , predictive   control , optimal   control ,   suboptimality ,   continuous   nonlinear   system . 
+ 1 　 引 　 言 
+ 　 　 滚动 时域 控制 RHC ( Receding   Horizon   Control ) ， 作为 预测 控制 的 一种 形式 ， 采用 有限 时域 滚动 优化 ， 能够 实现 在线 求解 控制 律 ， 多年 来 一直 受到 控制 界 的 关注 . 早 在 七十年代 Kwon 和 Pearson ［ 1 ， 2 ］ 就 对 线性 时变 系统 的 RHC 进行 了 研究 ， 证明 了 有 终端 约束 的 RHC 系统 的 稳定性 ， 并 根据 Riccati 方程解 的 性质 推出 了 RHC 和 最优控制 的 性能指标 之间 的 关系 ， 即 RHC 的 次优 性 问题 . Mayne 等 人 ［ 3 ， 4 ］ 将 终端 约束 引入 非线性 系统 ， 研究 了 连续 时间 非线性 系统 的 RHC 策略 ， 得到 了 其 稳定性 的 充分条件 ， 但 没有 分析 其次 优性 . 本文 在 此基础 上 分析 了 连续 非线性 系统 RHC 相对 于 无穷 时域 最优控制 的 次优 性 ， 并 将 这 一 结果 应用 于 线性系统 ， 得到 了 更 量化 的 结论 ， 覆盖 了 Kwon ［ 1 ］ 的 结果 . 
+ 2 　 问题 描述 
+ 　 　 给定 连续 非线性 系统 
+ 　 ( 1 ) 
+ x ( 0 ) 已知 ， x ( t ) ∈ Rn , u ( t ) ∈ Rm ， f ( 0 , 0 ) = 0 . f ( , ) 是 连续 的 ， 且 关于 x 是 Lipschitz 连续 的 . 下面 分别 给出 该 系统 的 最优控制 策略 和 有 终端 约束 的 RHC 策略 ， 它们 均 使 系统 稳定 . 
+ 　 　 1 ) 无穷 时域 最优控制 策略 
+ 　 　 系统 ( 1 ) 的 无穷 时域 最优控制 律 u ( t ) : ［ 0 , ∞ ) → Rm 为 下面 问题 的 最优 解 ： 
+ 　 ( 2 ) 
+ 其中 L 满足 如下 条件 ： L ( 0 , 0 ) = 0 , 且 存在 一 非减 函数 γ : ［ 0 , ∞ ) → ［ 0 , ∞ ) , γ ( 0 ) = 0 ， 使得 对于 所有 ( x , u ) ≠ ( 0 , 0 ) , 0 ≤ γ ( ‖ x , u ‖ ) ≤ L ( x , u ) 成立 . ( ‖ . ， . ‖ ) 为 Rn × Rm 上 的 范数 ) . 显然 可以 推知 L ( x , u ) = 0 ， 当且 仅 当 ( x , u ) = ( 0 , 0 ) ， 且 有 . 
+ 　 　 2 ) 有 终端 约束 的 RHC 策略 
+ 　 　 在 t 时刻 ， 已知 系统 状态 量 x ( t ) , 求解 如下 有限 时域 优化 问题 ： 
+ 
+ 　 ( 3 ) 
+ 得到 最优控制 解为 ｛ v * ( τ ; x ( t ) , t ) , 0 ≤ τ ≤ T ｝ . 而 该 时刻 真正 实施 于 系统 的 控制 量 为 
+ 　 ( 4 ) 
+ 显然 ， t 时刻 的 最优性 能 指标 J * 1 ( t ) 取决于 x ( t ) ， 可以 表示 为 Rn → R 的 映射 
+ J * 1 ( t ) = g ( x ( t ) ) . 　 ( 5 ) 
+ 　 　 可以 看到 ， RHC 得到 的 控制 律 和 最优控制 律 不同 ， 虽然 其 每 一 时刻 的 控制 量 都 是 有限 时域 问题 ( 3 ) 的 最优 解 ， 但 从 全局 性能指标 ( 2 ) 来看 却 不是 最优 的 . 
+ 3 　 非线性 系统 RHC 的 次优 性 
+ 　 　 在下文 中 ， 假设 性能指标 表达式 ( 2 ) 中 L 为 连续函数 ， 式 ( 5 ) 中 的 J * 1 ( t ) 是 连续 、 可微 的 次 优胜 结果 如下 ： 
+ 　 　 定理 1 . 对于 一般 形式 的 连续 非线性 系统 ( 1 ) ， 有 终端 约束 的 RHC 系统 对应 于 无穷 时域 最优控制 性能指标 ( 2 ) 存在 上 界 ， 其值 为 第一步 滚动 优化 的 有限 时域 最优性 能 指标 . 
+ 　 　 证明 . 如前所述 ， 在 RHC 系统 中 ， t 时刻 的 最优控制 律为 ｛ v * ( τ , x ( t ) , t ) , 0 ≤ τ ≤ T ｝ ， 相应 的 状态 轨迹 记 为 ｛ z * ( τ ) , 0 ≤ τ ≤ T ｝ ， 对应 的 性能指标 为 
+ J * 1 ( t ) = L ( z * ( τ ) , v * ( τ ) ) d τ , 且 z * ( 0 ) = x ( t ) , z * ( T ) = 0 . 
+ 考虑 t + Δ t 时刻 下述 控制 律 ： 
+ 
+ 该 控制 律 在 τ ∈ ［ 0 , T - Δ t ］ 时间 内即 为 t 时刻 控制 律 的 延续 ， 故有 z ( T - Δ t ) = 0 ， 而 在 τ ∈ ［ T - Δ t , T ］ 时 ， 因 u ( τ ) = 0 ， 由 f 的 性质 可知 ， z ( τ ) = 0 , τ ∈ ［ T - Δ t , T ］ ， 特别 z ( T ) = 0 表示 该 控制 律 满足 t + Δ t 时刻 的 终端 约束条件 ， 故为 该 时刻 的 可行 控制 ， 且 其 对应 性能指标 为 
+ 
+ 记 t + Δ t 时刻 最优性 能 指标 为 J * 1 ( t + Δ t ) ， 则 有 
+ 
+ 　 ( 6 ) 
+ 不等式 ( 6 ) 右 端的 x ( t ) , u ( t ) 分别 对应 于 RHC 系统 在 t 时刻 真实 的 状态 量 和 控制 量 ； 左端 根据 假设 条件 可微 ， 因此 极限 存在 . 将式 ( 6 ) 两端 分别 从 t = 0 到 t = ∞ 积分 ， 得到 
+ 
+ 上 式 积分 项为 RHC 策略 作用 于 系统 后 对应 于 最优控制 性能指标 形式 ( 2 ) 的 全局 指标 项 ， 记为 J * 10 ； J * 1 ( 0 ) 为 初始 时刻 有限 时域 最优性 能 指标 . 又 因 RHC 的 稳定性 ［ 3 ］ ， J * 1 ( ∞ ) = 0 ， 因此 
+ 　 ( 7 ) 
+ 　 　 注释 . 实际 控制系统 的 设计 常常 不仅 要求 闭环 系统 稳定 ， 而且 要求 闭环 系统 满足 某些 性能指标 要求 . 文献 ［ 4 ］ 中 针对 不确定性 线性系统 ， 可以 设计 所谓 保 成本 控制 律 ， 使 闭环 性能指标 J ≤ xT0Px0 , x0 为 系统 初值 ， P 为 满足 一定 条件 的 正定 阵 ， 而 该式 和 本文 得出 的 预测 控制 全局 性能指标 的 次优 性关系 相似 . 从 这个 角度 也 可以 认为 ， 预测 控制 实际上 实现 了 一种 状态 反馈 保 成本 控制 ， 使 闭环 成本 值 也 就是 全局 性能指标 不 超过 某个 确定 的 界 . 
+ 　 　 记 系统 ( 1 ) 的 最优控制 性能指标 ( 2 ) 为 J * 0 ， 则 结合 式 ( 7 ) ， 应有 
+ J * 0 ≤ J * 10 ≤ J * 1 ( 0 ) . 　 ( 8 ) 
+ 下面 两个 推论 给出 了 J * 10 与 J * 0 的 关系 . 
+ 　 　 推论 1 . 有 终端 约束 RHC 的 次优 性 和 优化 时域 T 的 选取 有关 ， T 越大则 次优 性越 佳 . 
+ 　 　 推论 2 . 有 终端 约束 的 RHC 对于 全局 优化 控制 有 充分 的 逼近 能力 . 
+ 　 　 以上 推论 不难 证得 . 它们 表明 ， 增大 优化 时域 T ， 有 终端 约束 的 RHC 控制 律 可 充分 接近 最优控制 ， 而 定理 1 给出 的 上界 正是 其 接近 程度 的 定量 反映 ， 因而 可 通过 调整 T 得到 相应 的 上界 ， 据此 来 设计 满意 的 RHC 系统 . 
+ 　 　 将 定理 1 应用 于 线性 连续 系统 ， 可以 得到 下面 的 结果 . 
+ 　 　 推论 3 . 对于 线性 连续 系统 有 终端 约束 的 RHC 策略 ， 对应 于 最优控制 的 性能指标 存在 上 界 ， 即 
+ J * 10 ≤ xT0P ( 0 ) x0 , 
+ 其中 P ( 0 ) 为 Riccati 方程 
+ 　 ( 9 ) 
+ 的 逆向 积分 结果 . 
+ 　 　 上述 线性系统 有 终端 约束 RHC 的 次优 性 结果 与 Kwon 等 人 早 在 1977 年 利用 Riccati 方程解 的 性质 推出 的 结果 是 一致 的 ［ 1 ］ ， 但 后者 的 方法 只 适用 于 线性系统 . 因此 ， 本文 的 定理 1 具有 更 广泛 的 覆盖性 . 
+ 　 　 根据 Riccati 方程解 的 单调 性 ， 优化 时域 T 越大 ， 积分 Riccati 方程 ( 9 ) 得到 的 P ( 0 ) 值越 小 ， 当 T 趋于 ∞ 时 ， P ( 0 ) 的 值 递减 为 代数 Riccati 方程 的 解 P . 因此 ， 线性系统 带 终端 约束 的 RHC 策略 的 次优 性 可用 比值 
+ J0 ( x0 ) / J * 0 ( x0 ) ≤ ‖ x0 ‖ 2P ( 0 ) / ‖ x0 ‖ 2P 
+ 进行 评价 . 其值 越 小 ， 则 次优 性越 佳 . 
+ 4 　 结束语 
+ 　 　 最优控制 求得 的 控制策略 是 全局 最优 的 ， 而 预测 控制 是 有限 时域 的 滚动 优化 ， 其 得到 的 控制 律 相对 于 全局 的 最优控制 是 次优 的 . 本文 在 此 意义 下 针对 一般 形式 的 连续 非线性 系统 ， 给出 了 有限 时域 滚动 控制 次优 性 的 上界 ， 并 得出 优化 时域 和 次优 性 的 关系 . 然后 将 上述 结果 应用 于 线性系统 ， 得到 了 评价 次优 性 的 量化 表达式 . 这些 结果 对 预测 控制 的 理论 和 实践 都 具有 一定 的 意义 . 
+ 1 )   国家自然科学基金 资助 项目 ( 69774004 ) . 
+ 作者简介 ： 席裕庚 　 1946 年 出生 ， 1968 年 毕业 于 哈尔滨军事工程学院 ， 1984 年 在 德国 获工学 博士学位 . 现为 上海交通大学 自动化系 教授 、 博士生 导师 . 著有 《 动态 大 系统 方法 导论 》 ， 《 预测 控制 》 等 书 . 主要 从事 复杂 系统控制 理论 的 研究 . 目前 主要 研究 领域 是 复杂 工业 过程 的 优化 控制 及 智能 机器人 控制 . 
+ 　 　 　 　 　 耿晓军 　 1972 年生 . 1996 年于 西北工业大学 获 硕士学位 ， 现为 上海交通大学 自动化系 博士 研究生 . 主要 从事 非线性 预测 控制 的 研究 . 
+ 作者 单位 ： 上海交通大学 自动化 研究所 　 上海 　 200030 
+ 参考文献 
+ 1 　 Kwon   W   H , Pearson   A   E . A   modified   quadratic   cost   problem   and   feedback   stabilization   of   a   linear   system . IEEE   Trans . Automat . Contr . , 1977 , 22 ( 5 ) : 838 － 842 
+ 2 　 Kwon   W   H , Pearson   A   E . On   feedback   stabilization   of   time - varying   discrete   linear   systems . IEEE   Trans . Automat . Contr . , 1978 , 23 ( 3 ) : 479 － 481 
+ 3 　 Mayne   D   Q , Michalska   H . Receding   horizon   control   of   nonlinear   systems . IEEE   Trans . on   Automa . Contr . , 1990 , 35 ( 7 ) : 814 － 824 
+ 4   　 Petersen   I   R , Mcfarlane   D   C . Optimal   guaranteed   cost   control   and   filtering   for   uncertain   linear   systems . IEEE   Trans . on   Automa . Contr . , 1994 , 39 ( 9 ) : 1971 － 1977 
+ 收稿 日期 ： 1998 - 02 - 16 
+ 修稿 日期 ： 1998 - 05 - 13 

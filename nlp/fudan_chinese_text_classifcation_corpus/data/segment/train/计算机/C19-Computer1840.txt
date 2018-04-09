@@ -1,0 +1,50 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000   Vol.19   No.2   P.40 - 42 
+ 
+ 
+ 
+ 
+ 在 Windows   NT 网络 中 实现 电话 语音 通信 
+ 张淮 中 
+ 摘   要 ：   应用 程序接口 TAPI 以及 在 Windows   NT 网络 中 进行 电话 语音 通信 的 方法 ， 通过 编程 实例 说明 了 实现 过程 。 
+ 关键词 ：   语音 通信   TAPI  电话 应用 程序接口    Windows   NT 平台 
+ 　 　 Windows   NT 是 当前 的 主流 网络操作系统 ， 目前 广泛应用 于 各种 网络 环境 中 ； 在 Windows   NT 网络 中 集成 电话 功能 ， 实现 网络 上 的 语音 传送 ， 能 增强 网络 的 多媒体 应用 能力 ， 拓展 网络 的 服务 功能 。 
+ 　 　 在 Windows   NT 中 ， 微软 提供 了 许多 语言 编译器 和 集成 开发 环境 以 支持 程序开发 ， 典型 的 有 ： VC ＋ ＋ 、 VB 、 HTML ， Visual   J ＋ ＋ 等 ， 本 课题 的 开发 平台 以 VC ＋ ＋ 为主 ， 应用 Windows   NT 的 应用 程序接口 Win32   API ， 通过 MFC 构造 网络 中 电话 功能 的 应用程序 框架 。 
+ 1   扩展 的 应用 程序接口 TAPI 
+ 　 　 微软 扩展 了 标准 API 的 功能 构成 电话 应用 程序接口 Telephony   API  TAPI  ， Windows   NT 操作系统 包含 TAPI 作为 1 个 部分 ， TAPI 包括 将 电话 功能 集成 到 应用程序 中 的 API ， 有关 部件 为 ： Tapi32 ． dll 、 Tapisrv ． exe 、 Tapi ． h 、 Tapi32 ． lib 。 Tapi 的 基本 调用 过程 就是 开发 的 应用程序 使用 Tapi32 ． dll ， 它 运行 于 应用程序 的 地址 空间 ， 与 Windows   NT 的 服务程序 Tapisrv ． exe 进行 通信 ， 实现 在 NT 网络 中 的 电话 语音 通信 ； 若 进行 远程 电话 语音 通信 ， 即 Tapisrv ． exe 与 服务提供者 的 dll 进行 通信 ， 以 服务提供者 提供 的 dll 的 驱动程序 与 外接 的 设备 进行 通信 ， 接入 公用电话 网 。 
+ 　 　 通过 TAPI 开发 的 电话 应用程序 对于 底层 的 通信 网络 和 服务 是 透明 的 ， 它 可以 在 不同 的 通信 网络 上 工作 。 开发 的 应用 非常 广泛 ， 支持 简单 的 拨号 和 接收 语音 呼叫 ； 可以 处理 数据传输 ； 支持 各种 连接 ， 如 ： 串口 连接 、 通过 局域网 的 连接 、 Modem ／ Fax 连接 等 ； 还 可 开设 语音 邮件 、 召开 电话会议 等 。 
+ 　 　 TAPI 提供 一些 基本功能 函数 ， 以 完成 从 简单 的 拨号 到 高级 的 呼叫 中心 等 各种 功能 ， 包括 lineOpen 、 lineClose 、 lineAnswer 、 lineDial 等 用于 呼叫 建立 和 终止 ， lineAddToConference 、 lineRemoveFromConference 用于 会议 功能 ， lineSetMediaControl 、 lineSetNumRings 、 lineForward 、 lineHold 等 用于 相关 线路 功能 ， phoneOpen 、 phoneClose 、 phoneGetStatusMessages 等 用于 电话 功能 ， 它们 一般 都 是 异步 函数 ， 即 调用函数 的 功能 是 在 程序 进行 其它 工作 时 异步 完成 的 。 
+ 　 　 TAPI 还 提供 一些 消息 以 对 应用程序 的 请求 进行 响应 ， 应用程序 可以 通过 相应 消息 采取行动 。 如 ： LINE ＿ CALLSTATE 表示 呼叫 的 状态 改变 、 LINE ＿ CLOSE 表示 线路 设备 已 关闭 、 LINE ＿ LINEDEVSTATE 表示 设备 状态 已 改变 、 LINE ＿ CREATE 表示 创建 新 设备 标识符 。 在 TAPI 中 ， 主要 管理 二种 设备 ： 线路 设备 （ 包括 MODEM 、 ISDN   Adapter 、 Fax   Card 等 ） 和 电话设备 （ 包括 Microphone 、 Earphone 、 Sound   Card 等 ） ； 对 网络 传输 的 数据 ， TAPI 能够 控制 处理 信号 数据 ， 如 ： 拨号 数据字 、 呼叫 代号 等 ， 而 对 实际 的 数据 ， 如 ： 保留 的 语音 或 传真 数据 等 ， 只有 对 其 传输 进行 管理 的 功能 ， 没有 处理 的 功能 。 
+ 2   Windows   NT 中 的 电话 语音 服务 
+ 　 　 Windows   NT 提供 的 电话 语音 服务 有 4 类 ， 可 根据 不同 情况 利用 TAPI 开发 相应 的 应用程序 。 
+ 　 　 （ 1 ） Assisted 服务 。 由 系统 的 Assisted 函数 为 应用程序 提供 了 一种 进行 呼叫 的 简单 方法 ： 通过 应用程序 调用函数 tapiRequestMakeCall 并 提供 呼叫 号码 ， 由 Windows   NT 的 呼叫 控制程序 进行 实际 的 呼叫 过程 ， 无需 进行 更 多 的 开发 工作 ， 若 要 得到 用户 在 当前 地点 参数 里 设置 的 区 号 ， 可 使用 函数 tapiGetLocationInfo 。 
+ 　 　 （ 2 ） Basic 服务 。 该 服务 是 由 与 PSTN 提供 的话 务 服务 功能 对应 的 1 组 函数 构成 。 Basic 服务 是 电话 服务 中 的 基本 服务 ， 每个 TAPI 兼容 线路 设备 和 TAPI 服务提供者 必须 支持 所有 的 Basic 服务 。 若 应用程序 只用 TAPI 的 Basic 函数 编程 ， 就 会 在 各种 TAPI 环境中工作 ， 而 不管 其是 什么 线路 设备 和 TAPI 服务提供者 。 
+ 　 　 （ 3 ） Supplemental 服务 。 此 服务 提供 的 函数 支持 呼叫 保持 、 多方 通话 等 比较 高级 的 特性 ， 这些 功能 是 可选 的 ， 服务提供者 可以 选择 要 实现 的 功能 。 因此 ， 只有 网络 中 的 TAPI 服务提供者 支持 应用程序 中 使用 的 Supplemental 服务 功能 ， 应用程序 才能 在 相应 环境 中 移植 。 一般 可以 用 函数 lineGetDevCaps 和 lineGetAddressCape 查询 线路 和 电话 提供 的 Supplemental 服务 功能 。 
+ 　 　 （ 4 ） Extended 服务 。 Extended 服务 函数 中 包含 的 功能 由 TAPI 服务提供者 决定 ， 它 可以 提供 Basic 服务 和 Supplemental 服务 功能 中 没有 的 服务 。 通过 在 枚举 类型 和 标志 位中 设置 新 的 值 ， 或 在 数据结构 中 加入 新 的 成员 数据 ， TAPI 服务提供者 可以 提供 特别 服务 。 
+ 　 　 可以 由 TAPI 构造 的 高级 电话 服务 功能 有 ： 支持 延迟 拨号 ， 建立 振铃 列表 ， 保密 呼叫 ， 处理 多种 计算机 和 电话 的 连接 配置 等 。 
+ 3   使用 TAPI 构造 电话 语音 应用程序 的 方法 
+ 　 　 在 Windows   NT 网络 中 ， 第一次 建立 电话 环境 时 ， 应 在 进程 中 执行 1 个 初始化 调用 来 设置 TAPI 环境 ， 包括 ： 加载 Tapi32 ． dll 、 执行 TAPI 服务 Tapisrv ． exe 以及 加载 注册 库中 有关 的 电话设备 驱动程序 。 
+ 　 　   编制 电话 语音 应用程序 大致 需要 经过 如下 的 过程 ：   
+ 　 　 （ 1 ） 初始化 TAPI 。 通过 lineInitialize 函数 在 应用程序 中 完成 TAPI 的 初始化 。 lineInitialize 函数 给出 了 应用程序 的 回调 函数 ， 用来 通知 应用程序 的 各种 事件 ； lineInitialize 函数 返回 1 个 TAPI 使用 句柄 ， 并 指明 TAPI 使用 的 通信 机制 。 
+ 　 　 （ 2 ） 协调 TAPI 的 版本 。 应用程序 使用 lineNegotiateAPIVersion 函数 把 API 使用 版本 通知 给 TAPI ， 返回 与 TAPI 通信 所 能 使用 的 版本 ， 同时 获得 线路 设备 支持 的 扩展 功能 。 
+ 　 　 （ 3 ） 检查 设备 。 调用 lineGetDevCaps 函数 询问 设备 的 能力 ， 返回 1 个 LINEDEVCAPS 类型 的 数据结构 。 设备 的 能力 包括 如下 信息 ： TAPI 服务提供者 、 交换机 信息 、 字符串 格式 、 载波 方式 、 数据 传输率 等 。 
+ 　 　 （ 4 ） 应用程序 注册 。 利用 函数 lineRegisterRequestRecipient 将 应用程序 进行 注册 。 
+ 　 　 （ 5 ） 拨号 。 启动 拨号 按钮 ， 应用程序 提取 用户 的 输入 数据 ， 然后 调用 ResolveNumber 函数 修改 用户 的 输入 数据 ， 修改 后 的 号码 用于 拨号 。 
+ 　 　 （ 6 ） 启用 线路 设备 。 调用函数 lineOpen 打开 1 条 线路 设备 ， lineOpen 返回 线路 设备 的 句柄 ， 用以 完成 以后 对此 设备 的 各种 操作 。 当然 在 1 个 应用程序 中 可以 打开 多个 线路 。 
+ 　 　 （ 7 ） 号码 转换 。 调用函数 lineTranslateAddress 将要 拨 的 号码 转变成 可以 直接 在 电话 上 拨 的 号码 。 转换 好 的 号码 返回 给 LINETRANSLATEOUTPUT 结构 ， 在 转换 后 ， 返回 2 个 号码 ： 1 个 在 线路 设备 上 用于 拨号 ， 另 1 个 显示 给 用户 。 
+ 　 　 （ 8 ） 呼叫 。 随后 使用 函数 lineMakeCall 进行 呼叫 ， lineMakeCall 使用 lineOpen 返回 的 线路 句柄 ， 返回 1 个 带有 拥有者 特权 的 当前 呼叫 的 句柄 ， 用于 对 本次 呼叫 进行 以后 的 操作 。 若 函数 lineMakeCall 返回 呼叫 有 问题 ， 由 LINE ＿ REPLY 消息 提供 呼叫 的 状态 。 
+ 　 　 （ 9 ） 结束 呼叫 。 通信 完成 后 ， 调用 lineDrop 函数 结束 呼叫 ， 但 其 并 不 释放 呼叫 的 句柄 ， 可以 通过 调用 lineDeallocateCall 来 释放 句柄 。 
+ 　 　 （ 10 ） 关闭 线路 。 通过 lineClose 函数 关闭 线路 ， 使 其 可以 被 其它 应用程序 使用 ， 同时 释放 了 呼叫 的 句柄 。 
+ 　 　 （ 11 ） 终止 TAPI 调用 。 调用 lineShutdown 函数 关闭 TAPI 的 使用 。 
+ 4   实例 介绍 
+ 　 　 下面 的 例子 是 通过 线路 进行 呼叫 ， 使用 Modem 实现 Windows   NT 网络 中 的 电话 功能 。 其 主要 程序 简介 如下 。 首先 在 VC ＋ ＋ 编程 环境 中 ， 利用 MFC 构造 1 个 用户 拨号 对话框 ， 由 对话框 类 CphDialDlg 实现 ， 在 应用程序 中 提供 保存 TAPI 句柄 、 线路 句柄 、 协商 版本 、 当前 呼叫 句柄 等 数据 的 成员 变量 ， 此 部分 程序 略 。 随后 ， 主程序 进行 相应 的 电话 功能 处理 。 下面 的 函数 进行 TAPI 应用程序 初始化 。 
+ 
+ 
+ 
+ 　 　 以上 为 实现 1 个 基本 电话 呼叫 及 通话 过程 的 主要 编程 过程 ， 若 要 支持 延迟 拨号 、 建立 振铃 列表 、 保密 呼叫 等 高级 电话 功能 ， 可以 利用 TAPI 的 函数 对 程序 进行 扩展 。 
+ 张淮 中 （ 南京师范大学 计算机系  210097 ） 
+ 参考文献 
+ 1 ， Rajagopal   R ． Windows   NT 高级 程序设计 ． 北京 ： 机械 工业 出版社 ， 1998 
+ 2 ， Gregory   K ． Visual   C ＋ ＋ 5 开发 使用手册 ． 北京 ： 机械 工业 出版社 ， 1998 
+ 收稿 日期 ： 1999 － 08 － 21 

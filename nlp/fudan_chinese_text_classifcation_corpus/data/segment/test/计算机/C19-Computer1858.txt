@@ -1,0 +1,121 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000   Vol.19   No.3   P.17 - 18 , 37 
+ 
+ 
+ 
+ Web 环境 中 的 HTTP 状态 管理 
+ 王华火 　 罗键 
+ 　 　 摘 　 要 ： 如何 在 ASP 中 利用 Application 和 Session 对象 管理 HTTP 的 状态 , 跟踪 用户 在 Web 环境 中 的 工作 期 , 并 给出 了 一个 应用 实例 。 
+ 　 　 关键词 ： Application 对象   Session 对象   Cookie 文件 
+ 　 　 在 桌面环境 下 , 操作系统 在 一个 应用程序 从 启动 至 结束 这 段时间 内为 它 管理 内存空间 , 该 应用程序 的 状态 是 明确 的 。 在 Client / Server 环境 中 , 客户端 应用程序 负责管理 用户 的 状态 、 工作 流程 以及 与 用户 的 交互 , 与 Server 的 对话 只 在 执行 特定 的 操作 （ 例如 查询 ） 时 发生 , 且 在 客户机 的 严格控制 下 进行 , 不 存在 状态 和 流程 的 紊乱 问题 。 而 在 Web 中 , HTTP 事务 是 随机 、 独立 、 不 确定 的 , 用户 经常 在 页面 间 、 站点 间 跳转 , 浏览器 无法 保持一致 连续性 和 连接 的 状态 。 如果 服务器 一 提交 完 浏览器 请求 的 Web 页面 后 就 将 用户 遗忘 , 则 当 用户 请求 下 一个 页面 时 , 上 一个 页面 的 信息 便 不可 用 。 而 当 用户 返回 原先 的 页面 时 , 又 需 重新 初始化 该 页面 。 所以 在 Web 中 一个 重要 的 问题 就是 如何 有效 地 管理 HTTP 的 状态 , 使得 在 Web 中 的 畅游 有序 、 轻松 而且 高效 。 Microsoft 利用 ASP 很 好地解决 了 这 一 问题 , 通过 引入 Application 和 Session 对象 , Web 的 状态 由 这 二个 对象 在 服务器端 统一 管理 , 并且 和 服务器程序 运行 于 同一 进程 空间 , 取得 了 安全 上 和 效率 上 的 双重 改善 。 
+ 1   传统 的 解决方案 
+ 　 　 早期 的 服务器 方 脚本 是 CGI 。 CGI 利用 Cookie 来 管理 HTTP 状态 和 跟踪 用户 。 Cookie 是 1 个 存储 于 浏览器 目录 中 的 文本文件 , 由 Netscape 开发 并 将 其 作为 持续 保存 状态 信息 和 其它 信息 的 一种 方式 。 当 服务器 向 浏览器 返回 Web 页 时 , 同时 将 用户 在 当前 服务器 上 的 状态 和 环境 作为 1 个 Cookie 写入 客户机 。 Cookie 内 包含 其 自身 的 生命期 信息 , 当 用户 下次 重新 请求 该 页面 时 , 浏览器 首先 检查 Cookie 是否 超出 其 生命期 , 若 是 , 忽略 Cookie , 将 对 该 页面 的 请求 当成 第一次 请求 ; 若 尚未 超出 生命期 , 浏览器 把 Cookie 一起 提交 服务器 , 以便 服务器 记忆 起 用户 上次 请求 时 的 状态 信息 。 例如 可以 用 Cookie 来 支持 1 个 基于 CGI 的 购物 系统 , 其中 顾客 选中 的 货物 放进 1 个 虚拟 的 购物 卡片 , 购物 卡片 存储 在 Cookie 中 。 
+ 　 　 HTTP   Cookie 通过 HTTP 头部 来 实现 , 由 服务器 通过 HTTP 头部 的 Set - Cookie 传送 给 客户机 , 其 语法 如下 : 
+ 　 　 Set - Cookie :   Name = VALUE 　 ;   Expires = DATE 　 ; 
+ 　 　 　 　 Env = ENV _ INFO 　 ;   URL = PATH 　 ; 
+ 　 　 　 　 Domain = DOMAIN 　 ;   Secure 
+ 　 　 其中 : 
+ 　 　 （ 1 ） Name = VALUE   标识 Cookie 的 名字 
+ 　 　 （ 2 ） Expires = DATE 　 Cookie 的 生存期 
+ 　 　 （ 3 ） Env = ENV _ INFO 　 用户 在 服务器 上 的 环境 信息 句柄 
+ 　 　 （ 4 ） URL = PATH 　 申明 URL 在 哪个 URL 中 有效 
+ 　 　 （ 5 ） Domain = DOMAIN 　 Cookie 有效 的 全部 Internet 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 域名 子集 
+ 　 　 （ 6 ） Secure 　 限制 Cookie 由 HTTPS 服务器 传送 
+ 　 　 由于 Cookie 在 硬盘 上 保存 了 客户 的 信息 , 因而 存在 安全 方面 的 隐患 。 Web 站点 管理员 可以 利用 Cookie 建立 关于 用户 及其 浏览 特性 的 详细资料 。 当 用户 登录 到 1 个 Web 站点 后 , 在 任一 设置 了 Cookie 的 网页 上 的 点击 操作 信息 都 会 被 加到 该 档案 中 , 档案 中 的 这些 信息 暂时 用于 站点 的 维护 , 但 也 容易 被 其他人 窃取 。 Cookie 的 安全性 问题 引起 了 广泛 的 关注 , 目前 主要 的 浏览器 均 提供 了 限制 Cookie 使用 的 方法 。 
+ 2   ASP 中 的 Application 和 Session 对象 
+ 　 　 Microsoft 提出 了 管理 HTTP 状态 的 全新 方法 , 即 基于 IIS 和 ASP 的 对象 和 组件 模型 。 它 的 宗旨 是 在 Web 服务器 上 保存 用户 的 状态 和 环境 信息 。 这一 动作 由 用户 对 页面 的 申请 触发 , 且 在 一定 的 时间 内 持续 有效 。 在 这 一 模型 中 , Application 和 Session 是 管理 HTTP 状态 的 2 个 主要 对象 。 
+ 　 　 Application 和 Session 对象 具有 事件 OnStart 和 OnEnd , 它们 的 代码 以 global . asa 文件 的 脚本 的 形式 保存 在 ASP 定义 的 虚拟目录 中 , 在 该 目录 中 还有 Web 页面 （ . asp ） 。 IIS 管理 虚拟目录 , 并且 虚拟目录 是 可 执行 的 。 每当 第一个 用户 请求 页面 时 , IIS 中 的 ISAPI 过滤器 处理 请求 的 页面 , 执行 其中 的 服务器端 脚本 , 结果 以 标准 HTML 的 形式 返回 给 浏览器 , 同时 激活 global . asa 中 的 Application _ OnStart 事件 和 Session _ OnStart 事件 。 Application _ OnStart 事件 初始化 应用 的 一系列 公共 变量 , 保存 必要 的 公共 环境 信息 , 以备 在 本 Application 对象 生存期 的 其它 Session 对象 使用 。 例如 页面 的 用户 请求 计数 、 应用 的 背景 设置 、 数据库 的 公共 连接 对象 等 。 而 Session _ OnStart 事件 则 保存 了 每个 用户 的 私人 环境 , 提供 了 识别 新 用户 的 第一次 操作 的 功能 , 并且 可 用于 初始化 那些 用于 管理 用户 工作 期 的 用户 信息 。 Session 对象 以 少量 的 事件 和 方法 完成 管理 用户 流程 , 系统 级 的 用户 跟踪 和 控制 等 状态 管理 任务 。 
+ 2.1   Application 和 Session 对象 的 工作 期 
+ 　 　 第一个 用户 请求 某个 Web 页 时 , 激活 Application _ OnStart 和 Session _ OnStart 事件 , 只要 Application 对象 没有 终止 , 即 Application _ OnEnd 事件 没有 被 激活 , 后续 的 客户 请求 均 只 激活 Session _ OnStart 事件 。 如果 用户 在 该 应用 中 停留 的 时间 超过 Session 对象 Timeout 属性 规定 的 值 , Session _ OnEnd 事件 自动 激活 , 清除 该 用户 的 私人 状态 及 环境 信息 。 而 当 最后 一个 用户 超时 结束 会话 时 , Application _ OnEnd 激活 , 清除 应用 的 公共 环境 , 释放 占用 的 服务器资源 。 
+ 2.2   Application 和 Session 对象 的 属性   方法   事件 
+ 　 　 Lock 和 Unlock   Application 对象 的 锁定 和 解锁 方 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 法 , 用于 避免 多个 用户 同时 修改 同 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 一 公共 属性 造成 冲突 , 锁定 后 只 允 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 许 单个 用户 作 修改 操作 。 
+ 　 　 SessionID   标识 当前 用户 会话 的 ID 号 。 
+ 　 　 Timeout   Session 对象 属性 , 设置 会话 生存 
+ 　 　 　 　 　 　 期 , 缺省 为 20 分钟 。 
+ 　 　 Abandon   Session 对象 方法 , 立即 终止 会话 。 
+ 　 　 OnStart 和 OnEnd   Application 和 Session 对象 装载 
+ 　 　 　 　 　 　 　 　 　 　 和 终止 时 触发 的 事件 
+ 　 　 以上 是 标准 属性 、 方法 和 事件 , Application 和 Session 对象 允许 自定义 属性 、 方法 和 事件 来 管理 复杂 的 HTTP 状态 。 
+ 3   应用 举例 
+ 　 　 以下 例子 简要 说明 1 个 在线 阅读 服务 的 HTTP 状态 管理 情况 , 一些 与 本文 无关 的 细节 没有 给出 。 
+ 　 　 1 . Application _ OnStart 事件 
+ 　 　 作为 应用 的 初始 装载 事件 , 生成 ADO （ Active   Data   Object ） 连接 对象 , 并 将 连接 对象 定义 为 Application 的 属性 , 以备 以后 每个 用户 的 Session 对象 使用 , 最后 利用 连接 对象 打开 文献数据库 和 用户 信息 数据库 , 同时 保存 其它 一些 公共 状态 信息 。 
+ 　 　 < SCRIPT   LANGUAGE = VBScript   RUNAT = Server > 
+ 　 　 SUB         Application _ OnStart 
+ 　 　 　 　 Set   bookConnect = Server . CreateObject （ ″ ADODB . 
+ 　 　 　 　 　 　 　 　 　 　 　 　 Connection ″ ） 
+ 　 　 　 　 bookConnect . Open （ ″ BOOKS ″ ） 
+ 　 　 　 　 Application （ ″ bookConnect ″ ） = bookConnect 
+ 　 　 　 　 Set   userConnect = Server . CreateObject （ ″ ADODB . 
+ 　 　 　 　 　 　 　 　 　 　 　 　 Connection ″ ） 
+ 　 　 　 　 UserConnect . Open （ ″ USERS ″ ） 
+ 　 　 　 　 Application （ ″ userConnect ″ ） = userConnect 
+ 　 　 　 　 Application . Lock 
+ 　 　 　 　 Application （ ″ Counter ″ ） = 0 
+ 　 　 　 　 Application （ ″ Date ″ ） = Date （ ） 
+ 　 　 　 　 Application （ ″ Time ″ ） = Time （ ） 
+ 　 　 　 　 Application . Unlock 
+ 　 　 END   SUB 
+ 　 　 < / SCRIPT > 
+ 　 　 2 . Session _ OnStart 事件 
+ 　 　 该 事件 首先 使 Application 对象 的 计数器 加 1 , 然后 将 用户 的 状态 信息 保存 到 用户 信息 数据库 , 最后 利用 Application 对象 建立 的 连接 对象 和 用户 请求 的 书 号 从 文献数据库 中 提取 请求 的 书目 。 由于 用户 数据库 中 存储 了 用户 的 信息 , 包括 请求 的 书 号 , 当 用户 暂时 离开 且 在 Session 对象 的 工作 期内 返回 该页 时 , IIS 检索 数据库 即知 用户 请求 了 哪 本书 , 而 无需 用户 重新 请求 。 
+ 　 　 < SCRIPT   LANGUAGE = VBScript   RUNAT = Server > 
+ 　 　 SUB         Session _ OnStart 
+ 　 　 　 　 　 Application . Lock 
+ 　 　 　 　 　 Application （ ″ Counter ″ ） = Application （ ″ Counter ″ ） + 1 
+ 　 　 　 　 　 Application . Unlock 
+ 　 　 　 　 　 SessionID = Request . Form （ ″ userid ″ ） 
+ 　 　 　 　 　 Set   userConnect = Application （ ″ userConnect ″ ） 
+ 　 　 　 　 　 SQL = ″ UPDATE   tblUser ″ 
+ 　 　 　 　 　 SQL = SQL   &   ″ SET ″   &   ″ userid = ″   &   Request . Form 
+ 　 　 　 　 　 　 　 （ ″ userid ″ ） 
+ 　 　 　 　 　 SQL = SQL   &   ″ SET ″   &   ″ password = ″   &   Request . Form 
+ 　 　 　 　 　 　 　 （ ″ password ″ ） 
+ 　 　 　 　 　 SQL = SQL   &   ″ SET ″   &   ″ bookid = ″   &   Request . Form 
+ 　 　 　 　 　 　 　 （ ″ bookid ″ ） 
+ 　 　 　 　 　 SQL = SQL   &   ″ SET ″   &   ″ logondate = # ″   &   Date （ ）   
+ 　 　 　 　 　 　 　 &   ″ # ″ 
+ 　 　 　 　 　 userConnect . Executer （ SQL ） 
+ 　 　 　 　 　 Set   bookConnect = Application （ ″ bookConnect ″ ） 
+ 　 　 　 　 　 SQL = ″ SELECT ″   &   Request . Form （ ″ bookid ″ ）   & 
+ 　 　 　 　 　 　 　 ″ FROM   tblBook ″ 
+ 　 　 　 　 　 RecordSet = bookConnect . Execute （ SQL ） 
+ 　 　 END   SUB 
+ 　 　 < / SCRIPT > 
+ 　 　 3 . Session _ OnEnd 事件 
+ 　 　 当 用户 超时 时 触发 , 使 Application 对象 的 计数器 减 1 , 同时 删除 用户 数据库 中 的 相应 记录 , 释放 系统资源 。 
+ 　 　 < SCRIPT   LANGUAGE = VBScript   RUNAT = Server > 
+ SUB   Session _ OnEnd 
+ 　 　 　 　 　 Application . Lock 
+ 　 　 　 　 　 Application （ ″ Counter ″ ） = Application （ ″ Counter ″ ） - 1 
+ 　 　 　 　 　 Application . Unlock 
+ 　 　 　 　 　 Set   userConnect = Application （ ″ userConnect ″ ） 
+ 　 　 　 　 　 SQL = ″ DELETE   FROM   tblUser ″ 
+ 　 　 　 　 　 SQL = SQL   &   ″ WHERE   userid = ″   &   Session . Ses - 
+ 　 　 　 　 　 　 　 sionID   & ″ ; ″ 
+ 　 　 　 　 　 userConnect . Execute （ SQL ） 
+ 　 　 END   SUB 
+ 　 　 < / SCRIPT > 
+ 　 　 4 . Application _ OnEnd 事件 
+ 　 　 最后 1 个 用户 超时 时 退出 应用 并 关闭 数据库 连接 。 
+ 　 　 < SCTIPT   LANGUAGE = VBScript   RUNAT = Server > 
+ 　 　 SUB   Application _ OnEnd 
+ 　 　 　 　 bookConnect . Close 
+ 　 　 　 　 userConnect . Close 
+         　 END   SUB 
+ 　 　 < / SCRIPT > 
+ 4   结束语 
+ 　 　 ASP 中 Application 和 Session 对象 把 对 HTTP 状态 的 管理 集中 到 服务器端 , 通过 对象 和 组件 的 技术 , 采用 事件驱动 的 方法 , 使得 Web 中 状态 的 管理 简单 、 明晰 且 高效 , 克服 了 传统 方法 的 复杂性 和 不 安全性 , 使得 用户 的 HTTP 状态 清晰 、 连续 , 从而 大大 改善 了 Web 的 性能 。 
+ 王华火 （ 厦门大学 自动化系  361005 ） 
+ 罗键 （ 厦门大学 自动化系  361005 ） 
+ 参考文献 
+ 1 ， Chapman   D . Visual   Basic   5   Web 开发人员 指南 . 北京 : 机械 工业 出版社 , 1998 
+ 2 ， S ． 希 利尔 . Active   Server   Pages 编程 指南 . 北京 : 宇航 出版社 , 1998 
+ 3 ， Berlin   D . 精通 CGI 编程 . 北京 : 清华大学出版社 , 1998 
+ 4 ， 张林 . Cookie 的 安全性 及 拒绝 方法 讨论 . 微型机 与 应用 , 1999 ; ( 3 ) 
+ 收稿 日期 ： 1999 - 09 - 27 

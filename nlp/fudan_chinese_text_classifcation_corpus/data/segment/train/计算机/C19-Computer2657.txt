@@ -1,0 +1,316 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年 　 第 10 卷 　 第 9 期 　 Vol.10 　 No.9 　 1999 
+ 
+ 
+ 
+ 对象 演算 Ⅰ * 
+ 黄涛   钱军   周桓 
+ 摘要 　 对象 演算 是 一个 面向对象 的 逻辑 演算 系统 , 它 建立 在 描述 具有 内部 状态 的 动态 演变 实体 的 Trace 演算 之上 . 对象 比 一般 意义 下 的 动态 实体 具有 更 多 和 更好 的 特性 , 特别 是 封装 性 . 为此 , 文章 引入 有效 动作 的 概念 , 通过 对象 的 有效 动作 来 刻画 对象 的 封装 性 , 即 只有 对象 的 有效 动作 才能 访问 或 修改 对象 的 属性 值 , 从而 对 Trace 演算 的 语义 模型 加以 限制 , 得到 对象 语义 解释 模型 . 作为 逻辑系统 , 文章 还 讨论 了 对象 演算 的 公理化 , 它 是 Trace 演算 公理 系统 的 扩充 . 作为 应用 , 文章 结合 实例 给出 了 对象 语义 的 描述 及 特性 推理 . 
+ 关键词 　 对象 演算 , 有效 动作 , 公理化 , 对象 语义 描述 , 特性 推理 . 
+ 中图法 分类号 　 TP311 
+ Object   Calculus   Ⅰ 
+ HUANG   Tao , QIAN   Jun , ZHOU   Huan 
+ ( Laboratory   of   Computer   Science   Institute   of   Software   The   Chinese   Academy   of   Sciences   Beijing   100080 ) 
+ ( Object   Technology   Center   Institute   of   Software   The   Chinese   Academy   of   Sciences 　 Beijing   100080 ) 
+ Abstract 　 An   object - based   logic   calculus   is   outlined   in   this   paper ,   which   is   built   on   the   trace   calculus   based   on   dynamic   entities   with   local   states .   Compared   with   dynamic   entities ,   objects   have   more   good   properties ,   such   as   encapsulation .   To   formalize   the   concept   of   encapsulation ,   a   new   concept   of   valid   action   is   introduced .   It   is   only   through   these   valid   actions   declared   by   the   very   object   that   the   state   of   the   object   can   be   accessed   or   modified .   An   axiomatization   of   the   object   calculus   as   an   extension   of   the   axiom   system   of   the   trace   calculus   is   also   contributed   in   this   paper .   Finally ,   the   object   semantics   description   and   property   deduction   are   shown . 
+ Key   words 　 Object   calculus ,   valid   action ,   axiomatization ,   object   semantics   description ,   property   deduction . 
+ 　 　 在 文献 ［ 1 ］ 中 , 我们 讨论 了 Trace 演算 . Trace 演算 中 的 “ 对象 ” 是 具有 内部 状态 的 动态 演变 的 实体 , 使用 Trace 演算 既 可以 描述 这样 的 动态 实体 的 结构 和 行为 , 还 可以 对 这些 动态 实体 的 行为 特征 进行 推理 和 验证 . 但 Trace 演算 没有 考虑 到 面向对象 概念 中 所指 对象 的 一项 重要 特性 — — 封装 性 , 因此 , Trace 演算 并 不是 一个 对象 演算 . 我们 希望 建立 面向对象 的 逻辑 演算 系统 . 由于 对象 比 一般 意义 下 的 动态 实体 具有 更 多 的 特性 , 特别 是 封装 性 , 因此 我们 必须 对 Trace 演算 所 允许 的 模型 加以 限制 . 为此 , 我们 引入 有效 动作 的 概念 , 只有 通过 对象 的 有效 动作 才能 访问 或 修改 对象 的 属性 值 , 而 非 有效 动作 的 执行 则 对 对象 的 状态 无 任何 影响 . 
+ 　 　 本文 第 1 节 讨论 对象 的 封装 性 , 引入 有效 动作 的 概念 , 并 定义 对象 语义 解释 结构 . 第 2 节在 Trace 演算 的 可靠性 公理 系统 之上 , 增加 对象 封装 性 公理 , 得到 对象 演算 的 公理 系统 . 第 3 节 结合 具体 实例 给出 对象 语义 描述 的 概念 及 应用 . 第 4 、 5 节 作为 应用 , 给出 有关 对象 语义 的 特性 描述 及 推理 . 
+ 1 　 对象 封装 性 
+ 　 　 众所周知 , 对象 具有 一种 重要 的 特性 , 即 封装 性 ( encapsulation ) . 封装 性所 阐述 的 是 ： 只有 在 对象 中 声明 的 动作 可以 修改 对象 属性 的 值 . 而 我们 前面 所 讨论 的 语义 结构 和 演算 并 没有 考虑 对象 的 封装 性 . 为了 讨论 对象 封装 性 , 我们 首先 引入 有效 动作 的 概念 . 
+ 　 　 定义 1 ( 有效 动作 ) .   给定 对象 标记 Ω = ( S , F , A , E ) , 一个 Ω - 语义 解释 结构 和 一个 g ∈ E 〈 s1 , ... , sn 〉 , ai ∈ si , 1 ≤ i ≤ n , 我们 称为 有效 动作 . 
+ 　 　 我们 记 为 有效 动作 的 集合 , 即 
+ 
+ 　 　 定义 2 ( 有效 动作 项 ) .   给定 对象 标记 Ω = ( S , F , A , E ) , 一个 变量 簇 X 和 一个 g ∈ E 〈 s1 , ... , sn 〉 , 我们 称 g ( t1 , ... , tn ) 为 有效 动作 项 , 其中 ti ∈ T ( Ω , X ) si , 1 ≤ i ≤ n . 记 有效 动作 项集 为 GT . 
+ 　 　 非 有效 动作 不 改变 对象 属性 的 值 . 显然 , 对仅 包含 属性 的 合式公式 , 我们 可以 通过 证明 其 在 任意 有效 动作 下 不变 而 推出 其 不变 特性 . 
+ 　 　 定义 3 ( Ω - 对象 语义 解释 结构 ) .   给定 对象 标记 Ω = ( S , F , A , E ) , 一个 Ω - 语义 解释 结构 称为 Ω - 对象 语义 解释 结构 当且 仅 当 对 任意 属性 符号 f ∈ A 〈 s1 × ... × sn 〉 , s , 任意 动作 , 任意 , 有 ( f ) ( ω 1e ω 2 ) = ( f ) ( ω 1 ω 2 ) . 
+ 　 　 与 Trace 演算 类似 , 我们 可以 定义 Ψ 结构 . 
+ 　 　 定义 4 ( Ψ 结构 ) .   给定 一个 对象 标记 Ω = ( S , F , A , E ) , 一个 Ψ 结构 包含 ： 
+ 　 　 . Ω - 对象 语义 解释 结构 ； 
+ 　 　 . 赋值 函数 簇 v = { vs } s ∈ SE , vs ： Xs → s ； 
+ 　 　 . 踪迹 ω . 
+ 　 　 同样 地 , 我们 可以 定义 项 和 公式 在 Ψ 结构 上 的 解释 , 这 与 Trace 演算 完全相同 . 为 方便 以后 的 处理 , 我们 定义 一类 新 的 项 和 一类 新 的 公式 , 即 静态 项 和 静态 公式 , 作为 项 和 公式 的 子集 . 
+ 　 　 定义 5 ( 静态 项 ) .   给定 对象 标记 Ω 和 变量 簇 X , 对 s ∈ S , 静态 项集 ST ( Ω , X ) s 归纳定义 如下 ： 
+ 　 　 . x ∈ Xs , x ∈ ST ( Ω , X ) s ； 
+ 　 　 . f ∈ FE 〈 s1 × ... × sn 〉 , s ∪ A 〈 s1 × ... × sn 〉 , s , 且 ti ∈ T ( Ω , X ) si , 0 ≤ i ≤ n , 则 f ( t1 , ... , tn ) ∈ ST ( Ω , X ) s ； 
+ 　 　 . t ∈ T ( Ω , X ) s , 则 ［ Init ］ t ∈ T ( Ω , X ) s , 
+ 即 静态 项中 不 含 时序 运算符 ( X , X － ) 和 动作 运算符 ( ［ a ］ ) , 类似 地 , 我们 有 以下 静态 公式 . 
+ 　 　 定义 6 ( 静态 公式 ) .   给定 对象 标记 Ω 和 变量 簇 X , 对 s ∈ S , 静态 公式 集 SF ( Ω , X ) 归纳定义 如下 ： 
+ 　 　 . t1 , t2 ∈ ST ( Ω , X ) s , 则 t1 = t2 ∈ SF ( Ω , X ) ； 
+ 　 　 . p , q ∈ SF ( Ω , X ) , 则 p , p → q ∈ SF ( Ω , X ) ； 
+ 　 　 . p ∈ SF ( Ω , X ) , x ∈ Xs , 且 x 在 p 中 自由 出现 , 则 x ： sp ∈ SF ( Ω , X ) . 
+ 　 　 由 有效 动作 的 定义 可知 , 非 有效 动作 应 保持 静态 项 和 静态 公式 不变 , 即非 有效 动作 的 执行 与 没 执行 该 动作 的 效果 一样 . 这 一点 由 以下 引理 保证 . 
+ 　 　 引理 1 .   给定 对象 标记 Ω , Ω - 对象 语义 解释 结构 , 赋值 v , 非 有效 动作 和 踪迹 ω 1 , ω 2 , 则 
+ 　 　 ( 1 )   v * i ( t ) = v * ′ i ( t ) 　 　 　 　 　 　 0 ≤ i ≤ | ω 1 | 
+ 　 　 　 　 v * i ( t ) = v * ′ i - 1 ( t ) | ω 1 | ＜ i ≤ | ω 1 | + | ω 2 | + 1 
+ 　 　 ( 2 ) i ( p ) = ′ i ( p ) 0 ≤ i ≤ | ω 1 | 
+ 　 　 　 　 i ( p ) = ′ i - 1 ( p ) | ω 1 | ＜ i ≤ | | ω 1 | + | ω 2 | + 1 
+ 其中 t ∈ ST ( Ω , X ) s , p ∈ SF ( Ω , X ) , ω = ω 1e ω 2 , ω ′ = ω 1 ω 2 , = ( O , v , ω ) , ′ = ( , v , w ′ ) , v * i 是 v 在 踪迹 ω 上 的 自然 扩充 , v ′ * i 是 v 在 踪迹 ω ′ 上 的 自然 扩充 . 
+ 　 　 证明 ： 1 .   对 t 的 层次 进行 归纳 
+ 　 　 　 　 　 ( 1 )   t ≡ x , x ∈ Xs , 
+ 　 　 　 　 　 　 　 　 v * i ( t ) = v * i ( x ) = v ( x ) = v * ′ j ( x ) = v * ′ j ( t ) , 
+ 　 　 　 　 　 　 　 　 0 ≤ i ≤ | ω 1 | + | ω 2 | + 1 , 0 ≤ j ≤ | ω 1 | + | ω 2 | . 
+ 　 　 　 　 　 ( 2 )   t ≡ f ( t1 , ... , tn ) , f ∈ FE 〈 s1 × ... × sn 〉 , s , ti ∈ T ( Ω , X ) si , i , 1 ≤ i ≤ n , 根据 归纳 假设 , 
+ 
+ 　 　 　 　 　 ( 3 )   t ≡ f ( t1 , ... , tn ) , f ∈ A 〈 s1 × ... × sn 〉 , s , ti ∈ T ( Ω , X ) si , i , 1 ≤ i ≤ n , 根据 归纳 假设 , 
+ 
+ 　 　 　 　 　 ( 4 )   t ≡ ［ Init ］ t ′ , t ′ ∈ T ( Ω , X ) s , 根据 归纳 假设 , 
+ 　 　 　 　 　 　 　 v * i ( t ) = v * i ( ［ Init ］ t ′ ) = v * 0 ( t ′ ) = v * ′ 0 ( t ′ ) = v * ′ j ( ［ Init ］ t ′ ) = v * ′ j ( t ) ， 
+ 　 　 　 　 　 　 　 0 ≤ i ≤ | ω 1 | + | ω 2 | + 1 , 0 ≤ j ≤ | ω 1 | + | ω 2 | ． 
+ 　 　 　 　 　 2 .   对 p 的 语法结构 进行 归纳 
+ 　 　 　 　 　 ( 1 )   p ≡ t1 = t2 , t1 , t2 ∈ T ( Ω , X ) s ， 
+ 
+ 　 　 　 　 　 ( 2 )   p ≡ ［ Init ］ q , t1 , t2 ∈ T ( Ω , X ) s , 根据 归纳 假设 , 
+ 
+ 　 　 推论 1 .   给定 对象 标记 Ω , Ω - 对象 语义 解释 结构 , 赋值 v , 非 有效 动作 和 踪迹 ω 1 , ω 2 , 则 , 其中 p ∈ SF ( Ω , X ) , ω = ω 1e ω 2 , ω ′ = ω 1 ω 2 , = ( , v , ω ) , ′ = ( , v , ω ′ ) . 
+ 　 　 推论 2 .   给定 对象 标记 Ω , Ω - 对象 语义 解释 结构 , 赋值 v 和 踪迹 ω , 则 , 其中 p ∈ SF ( Ω , X ) , ω = ω 1e ω 2 , ω ′ = ω 1 ω 2 , = ( , v , ω ) , ′ = ( , v , ω ′ ) , ω ′ 为 相应 于 ω 而仅 含 其中 有效 动作 的 踪迹 . 
+ 　 　 由此可见 , 要 证明 Ψ 结构 = ( , v , ω ) 是 一个 静态 公式 的 模型 , 只要 证明 其 相应 的 仅 含有 有效 动作 的 结构 ′ = ( , v , ω ′ ) 是 该 公式 的 模型 即可 . 
+ 　 　 相应 于 有效 动作 , 我们 可以 定义 一个 新 变量 xG , 其 值域 为 ； 并 定义 一个 新 变量 簇 XG , 若 g ∈ E 〈 s1 , ... , sn 〉 , 则 xg ∈ XG , 其 值域 为 { | ai ∈ si , 1 ≤ i ≤ n } . 
+ 　 　 定理 1 .   若 p 为 静态 公式 , 即 p ∈ SF ( Ω , X ) , 则 xG ［ xG ］ p ［ a ］ p , 其中 , a 不 在 p 中 自由 出现 . 
+ 　 　 定理 2 .   ( 1 )   p ∨ g ∈ EpxG ( xg ) , ( 2 )   ∧ g ∈ ExgpxG ( xg ) p . 
+ 　 　 证明 略 . 
+ 2 　 公理化 
+ 　 　 我们 在 文献 ［ 1 ］ 中 已经 讨论 了 Trace 演算 的 公理化 . 正如 本文 引言 中 所说 , 我们 希望 建立 的 是 一个 面向对象 的 逻辑 演算 系统 . 由于 对象 比 一般 意义 下 的 动态 实体 具有 更 多 的 特性 , 如 封装 性 , 因此 我们 必须 对 Trace 演算 所 允许 的 模型 加以 限制 . 
+ 　 　 定理 3 .   若 p 为 静态 公式 , 即 p ∈ SF ( Ω , X ) , 则 xG ［ xG ］ p → Xp . 
+ 　 　 定理 4 .   若 t 为 静态 项 , 即 t ∈ SF ( Ω , X ) , 则 xGpx ( ［ xG ］ t ) → px ( Xt ) . 其中 x ∈ Xs , p 中 x 不 在 时序 运算符 和 动作 运算符 作用域 内 出现 . 
+ 　 　 这样 , 我们 又 得到 一个 新 的 公理 , 它 使 我们 可以 将 项 中 的 动作 运算符 替换 为 时序 运算符 . 
+ 　 　 定理 5 .   ( a = xG ) → p , ∧ 1 ≤ i ≤ n ( ［ a ］ ti = ti ) → pp . 其中 p ∈ F ( Ω , X ) , e ∈ T ( Ω , X ) E , ti ∈ ST ( Ω , X ) si , 1 ≤ i ≤ n , 且 xG 不 在 p 中 自由 出现 . 
+ 　 　 由 这个 定理 可知 , 要 证明 一个 含 动作 运算符 的 公式 , 我们 可以 通过 证明 动作 是 有效 动作 ( 且 这时 公式 成立 ) 或者 动作 保持 静态 项 不变 ( 且 这时 公式 成立 ) 来 完成 . 限于 篇幅 , 我们 省略 了 以上 定理 的 证明 . 详见 文献 ［ 2 ］ . 
+ 　 　 我们 可以 将 定理 3 、 4 和 5 作为 新 的 公理 和 规则 , 从而 扩充 了 Trace 演算 ， 得到 包含 对象 封装 性 的 对象 演算 . 即 我们 有 如下 增加 的 公理 和 规则 . 
+ 　 　 ( enc1 ) 　 xG ［ xG ］ p → Xp , 　 　 　 　 p ∈ SF ( Ω , X ) , 
+ 　 　 ( enc2 )  xGpx ( ［ xG ］ t ) → px ( Xt ) , t ∈ ST ( Ω , X ) s , x ∈ Xs , 
+ 　 　 　 　 　 　 p 中 x 不 在 时序 运算符 和 动作 运算符 作用域 内 出现 , 
+ 　 　 ( enc ) 　 ( a = xG ) → p , ∧ 1 ≤ i ≤ n ( ［ a ］ ti = ti ) → pp , 
+ 　 　 　 　 　 　 其中 ti ∈ SF ( Ω , X ) si , 1 ≤ i ≤ n , 且 xG 不 在 p 中 自由 出现 . 
+ 3 　 对象 语义 描述 
+ 　 　 前面 我们 已经 讨论 了 对象 演算 的 语法 和 语义 , 下面 我们 以 生产 消费 问题 为例 , 应用 对象 演算 来 描述 对象 及其 验证 . 
+ 　 　 定义 7 ( 对象 语义 描述 ) .   一个 对象 语义 描述 是 一个二元 组 ( Ω , D ) , 其中 
+ 　 　 . Ω 是 一个 对象 标记 
+ 　 　 . D = { p | p ∈ F ( Ω , X ) } , X 是 一 变量 簇 
+ 　 　 对象 语义 描述 的 公式 集 F 给出 了 一群 程序 公理 , 通常 这些 公理 可 分为 ： 描述 动作 作用 的 公理 ( 相应 于 程序 的 后 断言 post - condition ) ； 描述 初始条件 的 公理 ； 描述 动作 执行 的 必要条件 的 公理 ( 相应 于 程序 的 前 断言 pre - condition ) 以及 一些 描述 动态 约束 的 公理 等 部分 . 另外 , 还有 一部分 公理 是 关于 数据 部分 的 , 它们 是 通常 代数 规范 意义 下 的 公理 , 这里 我们 直接 加以 引用 . 
+ 　 　 在 对象 语义 描述 中 我们 并 没有 直接 给出 对象 行为 的 描述 , 而是 给出 对象 行为 所 必须 满足 的 特性 ( 也 称为 约束 ) , 包括 静态 特性 和 动态 / 时序 特性 . 
+ 　 　 我们 用 一个 例子 , 即 生产 消费 问题 来 加以 说明 . 在 这里 , 生产者 和 消费者 共享 一个 缓存 . 我们 用 3 个 对象 PRODUCER , CONSUMER 和 BUFFER 来 刻画 相应 的 结构 和 行为 . 
+ 　 　 ObjectSingature   PRODUCER = 
+ 　 　 　 Sorts ：   ITEM , BOOL 
+ 　 　 　 Functions ： 
+ 　 　 　 　 true , false ：   BOOL 
+ 　 　 　 　 其他 布尔 函数 
+ 　 　 　 Attributes ： 
+ 　 　 　 　 item ：   ITEM 
+ 　 　 　 　 waiting ：   BOOL 
+ 　 　 　 Actions ： 
+ 　 　 　 　 produce ( ITEM ) 
+ 　 　 　 　 put ( ITEM ) 
+ 　 　 End 
+ 　 　 这里 的 item 是 生产者 正在 处理 的 项 , waiting 则 指出 生产者 是否 在 等待 存放 已 处理 好 的 项 . 这些 属性 的 值 将 随着 生产者 的 动作 行为 而 改变 . 
+ 　 　 下面 为 方便 描述 , 我们 仿照 代数 规范 方法 引入 + , 即 如果 对象 标记 Ω 1 是 由 对象 标记 Ω 加上 一些 类型 S1 , 函数 符号 F1 , 属性 符号 A1 和 动作 符号 E1 组成 ， 我们 可写 为 
+ Ω 1 = Ω + ( S1 , F1 , A1 , E1 ) ， 
+ 其中 ( S1 , F1 , A1 , E1 ) 本身 不 一定 是 个 对象 标记 . 如果 Ω = ( S , F , A , E ) , 则 Ω 1 = ( S + S1 , F + F1 , A + A1 , E + E1 ) , 其中 “ + ” 表示 不 相交 并集 . 
+ 　 　 ObjectSignature   CONSUMER = ITEM + BOOL + 
+ 　 　 　 Sorts ： 
+ 　 　 　 Attributes ： 
+ 　 　 　 　 item ：   ITEM 
+ 　 　 　 　 waiting ：   BOOL 
+ 　 　 　 Actions ： 
+ 　 　 　 　 consume ( ITEM ) 
+ 　 　 　 　 get ( ITEM ) 
+ 　 　 End 
+ 　 　 值得 指出 的 是 , 对象 标记 中 的 动作 , 属性 符号 等 的 名字 的 涵义 是 局部 于 对象 标记 的 . 
+ 　 　 ObjectSignature   BUFFER = ITEM + INT + 
+ 　 　 　 Sorts ： 
+ 　 　 　 Attributes ： 
+ 　 　 　 　 count ：   INT 
+ 　 　 　 Actions ： 
+ 　 　 　 　 put ( ITEM ) 
+ 　 　 　 　 get ( ITEM ) 
+ 　 　 End 
+ 　 　 我们 给出 的 是 一个 “ 抽象 的 ” BUFFER , 可以 用 数组 或 队列 等 更 “ 具体 的 ” 对象 来 “ 精化 ” 这一 “ 抽象 的 ” BUFFER . 
+ 　 　 对象 PRODUCER 的 公理 集 为 ： 
+ 　 　 动作 produce ( i ) 的 作用 效果 
+ 　 　 p1 ： ［ produce ( i ) ］ item = i 
+ 　 　 p2 ： ［ produce ( i ) ］ waiting = t 
+ 　 　 　 　 动作 put ( i ) 的 作用 效果 
+ 　 　 p3 ： ［ put ( i ) ］ waiting = f 
+ 　 　 　 　 初始条件 
+ 　 　 p4 ： ［ Init ］ waiting = f 
+ 　 　 　 　 动作 produce ( i ) 执行 的 必要条件 
+ 　 　 p5 ： enabled ( produce ( i ) ) → waiting = f 
+ 　 　 p6 ： enabled ( put ( i ) ) → ( item = i ) ∧ ( waiting = t ) 
+ 　 　 p7 ： waiting = t → Fput ( item ) 
+ 　 　 注意 , 上述 公理 , 如 p1 ： ［ produce ( i ) ］ item = i , 事实上 应 描述 为 
+ enabled ( produce ( i ) ) → ( ［ produce ( i ) ］ item = i ) , 
+ 然而 , 由于 通常 我们 只 关心 合法 行为 , 因此 我们 可以 只 刻画 合法 行为 所 需 满足 的 约束 , 在 描述 时 我们 假设 相应 的 动作 在 相应 的 状态 均 是 允许 的 , 从而 作如上 缩写 . 至于 例外情况 , 我们 可以 通过 增加 新 公理 来 描述 相应 的 例外 处理 , 从而 达到 模块化 的 要求 . 
+ 　 　 另外 , 为 描述 方便 起 见 , 我们 引入 一类 新 公式 ： a ∈ T ( Ω , X ) E , 公式 a 描述 了 动作 a 的 执行 , 即 a 的 前 条件 得到 满足 , 且 动作 的 所有 后 条件 满足 . 形式化 地 , 我们 有 
+ aenabled ( a ) ∧ { q | q 为 形如 ［ a ］ p 或 ［ a ］ t1 = t2 的 程序 公理 } . 
+ 　 　 对于 一个 Ψ 结构 = ( I , v , ω ) , i ( a ) = t 当且 仅 当 ( i ω , v * i ( a ) ) ∈ 且 v * i ( a ) = ω i + 1 , 即 公式 a 为 真 当且 仅 当 在 当前 状态 执行 了 相应 的 动作 . 
+ 　 　 对象 CONSUMER 的 公理 集 为 ： 
+ 　 　 动作 consume ( i ) 的 作用 效果 
+ c1 ： ［ consume ( i ) ］ waiting = f 
+ 　 　   动作 get ( i ) 的 作用 效果 
+ c2 ： ［ get ( i ) ］ item = i 
+ c3 ： ［ get ( i ) ］ waiting = t 
+ 　 　   初始条件 
+ c4 ： ［ Init ］ waiting = f 
+ 　 　   动作 consume ( i ) 执行 的 必要条件 
+ c5 ：   enabled ( consume ( i ) ) → ( item = i ) ∧ waiting = t 
+ 　 　   动作 get ( i ) 执行 的 必要条件 
+ c6 ：   enabled ( get ( i ) ) → waiting = f 
+ 　 　   动态 约束 
+ c7 ：   waiting = t → Fcconsume ( item ) 
+ 对象 BUFFER 的 公理 集 为 ： 
+ 动作 put ( i ) 的 作用 效果 
+ b1 ： ［ put ( i ) ］ count = count + 1 
+ 　 　   动作 put ( i ) 的 作用 效果 
+ b2 ： ［ get ( i ) ］ count = count - 1 
+ 　 　   初始条件 
+ b3 ： ［ Init ］ count = 0 
+ 　 　   动作 put ( i ) 执行 的 必要条件 
+ b4 ：   enabled ( put ( i ) ) → ( count ＜ size ) 
+ 　 　   动作 get ( i ) 执行 的 必要条件 
+ b5 ：   enabled ( get ( i ) ) → ( count ＞ 0 ) 
+ 　 　   动态 约束 
+ b6 ：   put ( i ) → Fget ( i ) 
+ 　 　 值得 指出 的 是 , 我们 仅 描述 了 动作 执行 的 必要条件 , 这 是因为 我们 描述 并发 的 同步 通信 是 基于 动作 名 的 共享 , 也就是说 , 不同 对象 可能 共享 相同 的 动作 名 . 如果 我们 描述 动作 的 执行 条件 时 使用 很强 的 条件 , 那么 当 我们 将 多个 对象 放在 一 起来 构造 新 对象 时 , 就 可能 导致 描述 的 不 一致 . 所以 我们 在 描述 一个 对象 时 , 假设 对象 动作 执行 的 所有 外部 条件 均 已 满足 , 且 仅 描述 有关 该 对象 的 必要条件 , 从而 满足 结构化 描述 的 要求 . 通常 , 我们 将 动作 a 执行 的 必要条件 描述 为 
+ enabled ( a ) → pre ( a ) 
+ 其中 pre ( a ) ∧ { q | enabled ( a ) → q } . 
+ 　 　 当 我们 用 对象 ob1 , ... , obn 构造 新 对象 时 , 我们 有 
+ enabled ( a ) ∧ 1 ≤ i ≤ nprei ( a ) ∧ p ( ob1 , ... , obn ) 
+ 其中 p ( ob1 , ... , obn ) 描述 了 各 对象 的 动作 a 在 相应 时刻 同步 ( 一个 对象 的 某 一 动作 能够 得以 执行 , 当且 仅 当 所有 与 之 同步 通信 的 对象 已 进入 相应 的 状态 , 即 各 参与 同步 的 动作 的 前 条件 均 满足 , 这时 ， 所有 参与 同步 的 对象 执行 各自 相应 的 动作 ) . 
+ 　 　 此外 , 这些 对象 语义 描述 都 隐含 封装 性 程序 公理 , 只有 本 对象 定义 的 动作 可以 修改 对象 属性 . 
+ 4 　 并发 特性 描述 
+ 　 　 我们 将 Ψ 公式 作为 描述 对象 行为 的 约束 ( constraints ) 公式 , 用 它们 来 刻画 对象 的 特性 . 我们 想要 描述 的 并发 特性 有 很多 , 这些 特性 可以 分为 安全性 ( safety ) / 不变性 ( invariance ) 特性 和 活动性 ( liveness ) 特性 两大类 . 
+ 4.1 　 安全性 
+ 　 　 直观 上 讲 , 安全性 指 的 是 “ 坏 事件 不会 发生 ” . 确切 地说 , 安全性 特性 描述 了 计算 ( 可能 是 无限 的 ) 的 任意 有限 前缀 满足 一定 要求 . 
+ 　 　 安全性 特性 可 表示 为 p → Gq . 
+ 　 　 若 p = t , 上述 公式 可 表示 为 Gq . 
+ 　 　 注意 , 我们 所 采用 的 是 全局 语义 , Gqq . 
+ 　 　 从 所 涉及 的 对象 状态 来分 , 安全性 又 可 分为 静态 安全性 和 动态 安全性 . 
+ 　 　 静态 安全性 约束 只 涉及 一个 对象 状态 , 如 “ 缓冲 指针 非负 ” 即 是 一个 静态 安全性 约束 , 表示 为 count ≥ 0 . 通常 , 静态 安全性 约束 中 不 包含 动作 运算符 和 时序 运算符 . 
+ 　 　 动态 安全性 约束 涉及 多个 对象 状态 , 如 对于 仅 含 如下 3 个 公理 的 对象 语义 描述 INC ： 
+ 　 　 ( 1 ) ［ add1 ］ i = i + 1 
+ 　 　 ( 2 ) ［ add2 ］ i = i + 2 
+ 　 　 ( 3 ) ［ Init ］ i = 0 
+ a ( ［ a ］ i ≥ 0 ) 是 一个 动态 安全性 约束 , 它 涉及 两个 对象 状态 , 即 动作 a 执行 前 属性 i 的 值 和 a 执行 后 属性 i 的 值 . 
+ 4.1 . 1   部分 正确性 ( partial   correctness ) 
+ 　 　 部分 正确性 是 指 ： 若 一 动作 a 是 允许 的 ( enabled ) , 即 动作 a 的 前 断言 和 外部 条件 均 满足 , 且 动作 a 的 执行 终止 , 则 动作 a 的 后 断言 亦 满足 . 在 我们 的 对象 语义 描述 中 , 前 断言 和 后 断言 都 是 作为 公理 或 公理 的 一部分 出现 的 , 而 动作 亦 具有 原子 性 . 在 对象 实现 中将 给出 动作 的 具体 实现 , 也就是说 , 对象 实现 将 保证 部分 正确性 . 
+ 4.1 . 2   互斥 ( mutual   exclusion ) 
+ 　 　 互斥 是 固有 的 , 即 一 对象 的 任意 两个 相关 动作 ( 同一 动作 符号 名 或 对 同一 属性 有 修改 , 即 它们 之间 有 数据 依赖 ) 除非 在 对象 语义 描述 中 显示 给出 可以 并发 执行 的 有关 公理 , 我们 都 认为 它们 是 互斥 的 . 不 相关 的 动作 我们 认为 是 可 并发 执行 的 . 如对 BUFFER , 若想 使 put ( i ) 和 get ( i ) 以 并发 执行 , 则 相应 公理 集需 改为 ： 
+ 　 　 b1 ′ ： ［ put ( i ) ］ count = count + 1 
+ 　 　 b2 ′ ： ［ get ( i ) ］ count = count - 1 
+ 　 　 b3 ′ ： ［ put ( i ) , get ( j ) ］ count = count 
+ 　 　 b4 ′ ： ［ Init ］ count = 0 
+ 　 　 b5 ′ ：   enabled ( put ( i ) ) → ( count ＜ sizen ) 
+ 　 　 b6 ′ ：   enabled ( get ( i ) ) → ( count ＞ 0 ) 
+ 　 　 可 并发 执行 的 两个 或 多个 动作 , 我们 可 将 它们 的 任意 组合 看成 一个 原子 动作 ( 相对 于 相应 的 抽象层次 ) . 原子 动作 或者 不 执行 ( 这时 相应 的 事件 不 发生 ) , 或者 执行 完 ( 这时 相应 的 事件 发生 ) . 
+ 4.1 . 3   不 死锁 ( deadlock   freedom ) 
+ 　 　 对象 死锁 即 是 没有 动作 可 执行 , 可以 表示 为 enabled ( xa1 ) ∧ ... ∧ enabled ( xan ) , 其中 a1 , ... , an 为 该 对象 的 所有 动作 符号 . 而 对象 不 死锁 特性 可 表示 为 pre ( xa1 ) ∨ ... ∨ pre ( xan ) . 注意 , 这里 我们 使用 pre ( xai ) , 而 不用 enabled ( xai ) , 这是 出于 结构化 描述 的 需要 , 不管 对象 的 外部 特性 如何 . 
+ 4.2 　 活动性 
+ 　 　 活动性 指 的 是 “ 某个 事件 最终 会 发生 ” . 在 一定 程度 上 , 活动性 可 作 安全性 的 对偶 , 它们 要求 某些 前提 特性 在 某处 可以 得到 满足 . 
+ 　 　 活动性 特性 可 表示 为 p → Fq . 
+ 　 　 如 , 特性 “ 动作 a 执行 以后 动作 b 将 在 以后 某一 时刻 执行 ” 可 表示 为 a → Fb . 
+ 4.3 　 公平性 
+ 　 　 公平性 ( fairness ) 也 是 一种 活动性 . 公平性 意味着 若 动作 a 可以 执行 , 那么 它 将 在 以后 某一 时刻 执行 . 公平性 又 可 分为 弱 公平性 ( weak   fairness ) 和 强 公平性 ( strong   fairness ) . 
+ 　 　 弱 公平性 是 指 ， 若 动作 a 在 它 执行 前 一直 是 可以 执行 的 , 则 它 将 执行 . 表示 为 
+ ( Fa ) ∨ ( Fpre ( a ) ) . 
+ 　 　 强 公平性 是 指 , 若 动作 a 在 它 执行 前 多次 可以 执行 , 则 它 将 执行 . 表示 为 
+ ( Fca ) ∨ ( FGcpre ( a ) ) . 
+ 5 　 特性 推理 
+ 　 　 使用 对象 演算 进行 推理 时 , 通常 首先 使用 含 动作 运算符 的 公理 和 规则 , 然后 再 使用 一阶 时序 演算 . 这 是因为 通常 我们 所 给出 的 对象 语义 描述 中 的 公理 集 主要 包含 的 是 含 动作 运算符 的 公理 . 
+ 　 　 到 目前为止 , 我们 并 没有 使用 原子公式 enabled ( a ) 和 a 进行 推理 . 下面 我们 将 讨论 如何 使用 它们 进行 特性 推理 . 为此 , 我们 需 增加 一条 新 的 公理 和 规则 . 
+ 5.1 　 安全性 推理 
+ 　 　 前面 列出 的 公理 和 推导 规则 并 没有 考虑 到 其中 的 动作 运算符 的 相应 动作 是否 可 执行 ( 即 允许 的 ( enabled ) ) . 要 满足 安全性 , 则 要求 其中 的 每个 动作 都 必须 是 允许 的 , 即 相应 的 踪迹 是 安全 踪迹 ( safe   trace ) . 
+ 　 　 定义 8 ( 安全 踪迹 ) .   给定 对象 标记 Ω , Ω - 语义 解释 结构 , 踪迹 ω 称为 安全 踪迹 当且 仅 当 对 任意 i , ( i ω , ω i + 1 ) ∈ ε . 
+ 　 　 也就是说 , ω 中 的 任意 动作 均 是 允许 发生 的 ( enabled ) . 
+ 　 　 由于 以上 列出 的 公理 和 推导 规则 所 推导 出 的 结论 适用 于 所有 踪迹 , 因此 所 推导 出 的 结论 同样 适用 于 安全 踪迹 . 
+ 　 　 由于 对 安全 踪迹 , 对象 到达某 一 状态 只有 在 允许 相应 动作 的 时候 才 可 发生 , 因此 我们 可以 假定 每个 动作 执行 前 都 是 允许 的 , 从而 弱化 推理 的 前提 而 得到 更 多 结论 . 即 我们 有 如下 的 规则 ： 
+ 　 　 ( safe1 )   a ( enabled ( a ) ∧ ［ a ］ p → Xp , 
+ 　 　 ( safe2 ) ［ Init ］ p , a ( enabled ( a ) ∧ p → ［ a ］ p ) p , 
+ 　 　 ( safe3 )   a ( enabled ( a ) ∧ px ［ a ］ t ) ) → px ( Xt ) , 　 　 t ∈ ST ( Ω , X ) s , x ∈ Xs , 
+ p 中 x 不 在 时序 运算符 和 动作 运算符 作用域 内 出现 . 
+ 　 　 如果 我们 再 考虑 到 对象 封装 性 , 则 有 
+ 　 　 ( safe4 )   xG ( enabled ( xG ) ∧ ［ xG ］ p ) → Xp , 　 　 　 　 p ∈ SF ( Ω , X ) , 
+ 　 　 ( safe5 )   ［ Init ］ p , xG ( enabled ( xG ) ∧ p → ［ xG ］ p ) p , 
+ 　 　 ( safe6 )   xG ( enabled ( xG ) ∧ px ［ xG ］ t ) ) → px ( Xt ) , 　 t ∈ ST ( Ω , X ) s , x ∈ Xs , 
+ p 中 x 不 在 时序 运算符 和 动作 运算符 作用域 内 出现 , 
+ 　 　 ( safe7 )   ( a = xG ) → p , ∧ 1 ≤ i ≤ n ( enabled ( a ) ∧ ［ a ］ ti = ti ) → pp . ti ∈ ST ( Ω , X ) si , 1 ≤ i ≤ n , 且 xG 不 在 p 中 自由 出现 . 
+ 　 　 这些 规则 的 可靠性 是 显然 的 , 其中 enabled ( a ) 和 enabled ( xG ) 对 允许 的 模型 加以 限制 . 
+ 　 　 例 1 ： BUFFERcount ≥ 0 . 
+ 　 　 证明 ： 由 ( safe5 ) , 只 需证 ： 
+ 　 　 〈 1 〉 ［ Init ］ ( count ≥ 0 ) 
+ 　 　 〈 2 〉   enabled ( put ( i ) ) ∧ count ≥ 0 → ［ put ( i ) ］ ( count ≥ 0 ) 
+ 　 　 〈 3 〉   enabled ( get ( i ) ) ∧ count ≥ 0 → ［ get ( i ) ］ ( count ≥ 0 ) 
+ 　 　 关于 〈 1 〉 , 有 　 ( 1 ) ［ Init ］ count ≥ 0 　 　 　 　 　 　 　 　 　 　 　 ( b3 ) 
+ 　 　 　 　 　 　 　 　 　 ( 2 ) ［ Init ］ ( count ≥ 0 ) 　 　 　 　 　 　 　 　 　 　 ( 1 ) , 及 “ 0 ” , “ ≥ ” 是 rigid 
+ 　 　 关于 〈 2 〉 , 有 　 ( 1 ) ［ put ( i ) ］ ( count ≥ 0 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 ［ put ( i ) ］ ( count ≥ 0 ) 　 　 　 　 　 　 　   “ 0 ” , “ ≥ ” 是 rigid 
+ 　 　 　 　 　 　 　 　 　 　 　 count + 1 ≥ 0 　 　 　 　 　 　 　 　 　 　 　 　   ( b1 , 替换 ) 
+ 　 　 　 　 　 　 　 　 　 ( 2 ) count ≥ 0 → count + 1 ≥ 0 
+ 　 　 　 　 　 　 　 　 　 ( 3 ) count ≥ 0 → ［ put ( i ) ］ ( count ≥ 0 ) 　 　 　 　 ( 1 ) , ( 2 ) 
+ 　 　 关于 〈 3 〉 , 有 ( 1 ) ［ get ( i ) ］ ( count ≥ 0 ) 
+ 　 　 　 　 　 　 　 　 　 　 ［ get ( i ) ］ count ≥ 0 　 　 　 　 　 　 　 　 　   “ 0 ” , “ ≥ ” 是 rigid 
+ 　 　 　 　 　 　 　 　 　 　 count - 1 ≥ 0 　 　 　 　 　 　 　 　 　 　 　 　 　 　 b2 , 替换 
+ 　 　 　 　 　 　 　 　 ( 2 ) count ＞ 0 → count - 1 ≥ 0 
+ 　 　 　 　 　 　 　 　 ( 3 ) count ＞ 0 → ［ get ( i ) ］ ( count ≥ 0 ) 　 　 　 　 　   ( 1 ) , ( 2 ) 
+ 　 　 　 　 　 　 　 　 ( 4 ) enabled ( get ( i ) ) → count ＞ 0 ( b5 ) 
+ 　 　 　 　 　 　 　 　 ( 5 ) enabled ( get ( i ) ) → ［ get ( i ) ］ ( count ≥ 0 ) 　 　 ( 3 ) , ( 4 ) 
+ 5.2 　 活动性 推理 
+ 　 　 通常 , 我们 所 讨论 的 活动性 是 在 满足 安全性 条件 下 的 活动性 . 因此 , 我们 可 在 安全 踪迹 中 讨论 活动性 , 有关 安全性 推理 的 规则 仍然 适用 . 另外 , 根据 公式 a 的 语度 , 有 以下 定理 ， 这些 定理 可 作为 活动性 推理 的 公理 和 规则 . 
+ 　 　 定理 6 .   ( live1 )   a → enabled ( a ) . 
+ 　 　 定理 7 .   ( live2 )   a → ( ［ a ］ pXp ) . 
+ 　 　 定理 8 .   ( live3 )   a → ( px ( ［ a ］ t ) px ( Xt ) ) , 其中 t ∈ ST ( Ω , X ) s , x ∈ Xs , p 中 x 不 在 时序 运算符 和 动作 运算符 作用域 内 出现 . 
+ 　 　 定理 9 .   ( live4 )   p → Fa , ［ a ］ qp → Fq . 
+ 　 　 例 2 ： PRODUCERwaiting = t → F ( waiting = f ) . 
+ 　 　 证明 ： ( 1 )   ［ put ( i ) ］ waiting = f 　 　 　 　 　 　 　 　 p3 
+ 　 　 　 　 　 ( 2 )   ［ put ( i ) ］ ( waiting = f ) 　 　 　 　 　 　 　 ( 1 ) , 及 “ = ” , “ f ” 是 严格 的 
+ 　 　 　 　 　 ( 3 )   ［ put ( item ) ］ ( waiting = f ) 　 　 　 　 　   ( 2 ) , ( prep ) , ( a7 ) 
+ 　 　 　 　 　 ( 4 )   waiting = t → F   put ( item ) 　 　 　 　 　 　   p7 
+ 　 　 　 　 　 ( 5 )   waiting = t → F ( waiting = f ) 　 　 　 　 　 　 ( 3 ) , ( 4 ) , ( live4 ) 
+ 　 　 例 3 ： PRODUCERproduce ( i ) → F   put ( i ) . 
+ 　 　 证明 ： ( 1 )   produce ( i ) → ［ produce ( i ) ］ waiting = t 　 　 　 　 　 　 　 公式 produce ( i ) 的 定义 
+ 　 　 　 　 　 ( 2 ) ［ produce ( i ) ］ waiting = t ［ produce ( i ) ］ ( waiting = t )   “ = ” , “ t ” 是 严格 的 
+ 　 　 　 　 　 ( 3 )   produce ( i ) → ［ produce ( i ) ］ ( waiting = t ) 　 　 　 　 　 　   ( 1 ) , ( 2 ) , cut 
+ 　 　 　 　 　 ( 4 )   produce ( i ) → X ( waiting = t ) 　 　 　 　 　 　 　 　 　 　 　 　 　 ( live2 ) 
+ 　 　 　 　 　 ( 5 )   produce ( i ) → X ( item = i ) 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 与 ( 4 ) 类似 推导 
+ 　 　 　 　 　 ( 6 ) a ( ［ a ］ item = item ∧ ［ a ］ waiting = waiting ) ∨ kput ( k ) ∨ lproduce ( l ) 封装 性 
+ 　 　 　 　 　 ( 7 )   waiting = t ∧ item = i → 
+ 　 　   　 　 　 　 a ( ［ a ］ waiting = t ∧ ［ a ］ item = i ) ∨ kput ( k ) ∨ lproduce ( l ) ( 6 ) , ( eq2 ) , ( prep ) 
+ 　 　 　 　 　 ( 8 )   waiting = t ∧ item = i → 
+ 　 　 　 　 　 　 　 X ( waiting = t ∧ item = i ) ∨ kput ( k ) ∨ lproduce ( l ) 　 　 　 ( l ) ( 7 ) , ( a9 ) , ( prep ) 
+ 　 　 　 　 　 ( 9 )   produce ( l ) → waiting = f 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( live1 ) , p5 
+ 　 　 　 　 　 ( 10 )   waiting = t → lproduce ( l ) 　 　 　 　 　 　 　 　 　 　 　 　 ( 7 ) , ( gen ) , ( prep ) 
+ 　 　 　 　 　 ( 11 )   k ( put ( k ) → k = item ) 　 　 　 　 　 　 　 　 　 　 　 　 　 ( live2 ) , p6 , ( gen ) , ( prep ) 
+ 　 　 　 　 　 ( 12 )   waiting = t → item = i → X ( waiting = t ∧ item = i ) ∨ put ( item ) ( 8 ) , ( 10 ) , ( 11 ) , ( prep ) 
+ 　 　 　 　 　 ( 13 )   waiting = t → Fput ( item ) 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 p7 
+ 　 　 　 　 　 ( 14 )   waiting = t ∧ item = i → ( waiting = t ∧ item = i ) Uput ( item ) 　 ( 12 ) , ( 13 ) , ( prep ) 
+ 　 　 　 　 　 ( 15 )   waiting = t ∧ item = i → Fput ( i ) 　 　 　 　 　 　 　 　 　 　 　 　 ( 14 ) , ( prep ) 
+ 　 　 　 　 　 ( 16 )   produce ( i ) → Fput ( i ) 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 4 ) , ( 5 ) , ( 15 ) , ( prep ) 
+ 　 　 我们 发现 , 这个 证明 是 冗长 的 . 为此 , 我们 可以 增加 如下 规则 来 缩短 证明 长度 . 
+ 　 　 定理 10 . 
+ 　 　 ( live5 )   ( p ∧ enabled ( a ) → ［ a ］ t = t ∧ ［ a ］ p ) ∧ xb ( x ) , p → Fbx ( t ) p ∧ t = u → ( ( p ∧ t = u ) 
+ 　 　 　 　 　 　 Ubx ( u ) ) . 
+ 　 　 推论 3 . 
+ 　 　 ( live6 )   ( p ∧ enabled ( a ) → ［ a ］ t = t ∧ ［ a ］ p ) ∧ xb ( x ) , c → ［ c ］ t = u ∧ ［ c ］ p , p → Fbx ( t ) 
+ 　 　 　 　 　 　 c → X ( ( p ∧ t = u ) Ubx ( u ) ) . 
+ 结论 是 显然 的 . 
+ 6 　 结   论 
+ 　 　 本文 结合 代数 语义 ［ 3 ］ 和 时序 逻辑 ［ 4 ］ 方法 , 围绕 对象 的 封装 性 , 在 对象 形式 语义 理论 方面 作 了 一些 研究 . 主要 结果 如下 ： 
+ 　 　 ( 1 )   引入 有效 动作 和 有效 动作 项 的 概念 . 只有 相应 对象 所 提供 的 动作 才 是 有效 动作 . 
+ 　 　 ( 2 )   引入 对象 语义 解释 结构 . 只有 对象 的 有效 动作 可以 修改 对象 的 属性 , 从 语义 解释 结构 上 反映 出 对象 的 封装 特性 . 
+ 　 　 ( 3 )   引入 对象 语义 描述 概念 . 
+ 　 　 ( 4 )   将 系统 特征描述 为 约束 公式 , 并 讨论 了 系统 的 安全性 和 活动性 推理 及其 推导 规则 . 
+ * 　 本文 研究 得到 国家自然科学基金 和 国家 863 高科技 项目 基金 资助 . 
+ 本文 通讯联系 人 ： 黄涛 , 北京   100080 , 中国科学院 软件 研究所 计算机科学 开放 研究 实验室 
+ 作者简介 ： 黄涛 , 1965 年生 , 博士 ， 研究员 , 主要 研究 领域 为 软件工程 , 对象 技术 , 分布 计算 , 程序设计 语言 及 环境 . 
+ 　 　 　 　 　 钱军 , 1966 年生 , 博士生 , 主要 研究 领域 为 面向对象 的 理论 和 技术 , 分布 对象 计算 , 形式化 方法 . 
+ 　 　 　 　 　 周桓 , 1976 年生 , 博士生 , 主要 研究 领域 为 面向对象 的 理论 和 技术 , 分布 对象 计算 . 
+ 作者 单位 ： 黄涛 ， 钱军 ， 周桓 （ 中国科学院 软件 研究所 计算机科学 开放 研究 实验室 　 北京 　 100080 ） 
+ 　 　 　 　 　 黄涛 ， 钱军 ， 周桓 （ 中国科学院 软件 研究所 对象 技术 中心   北京   100080 ） 
+ 参考文献 ： 
+ ［ 1 ］ 黄涛 , 钱军 , 倪彬 . Trace 演算 . 软件 学报 , 1999 , 10 ( 8 ) : 790 ～ 799 
+ ( Huang   Tao ,   Qian   Jun ,   Ni   Bin .   Trace   calculus .   Journal   of   Software ,   1999 , 10 ( 8 ) : 790 ～ 799 ) 
+ ［ 2 ］ 黄涛 . 对象 形式 语义 理论 研究 ［ 博士学位 论文 ］ . 合肥 : 中国科技大学 , 1994 
+ ( Huang   Tao .   Theoretical   research   on   object   formal   semantics   ［ Ph . D .   Thesis ］ .   Hefei :   University   of   Science   and   Technology   of   China ,   1994 ) 
+ ［ 3 ］ Ehrig   H ,   Mahr   B .   Fundamentals   of   Algebraic   Specifications   1 :   Equations   and   Initial   Semantics .   Berlin :   Springer - Verlag ,   1985 
+ ［ 4 ］ Kroger   Fred .   Temporal   Logic   of   Programs .   Berlin : Springer - Verlag ,   1987 
+ 收稿 日期 ： 1997 - 12 - 12 ， 修改 日期 ： 1998 - 09 - 04 

@@ -1,0 +1,143 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 　 Vol.36 　 No.7 　 P.882 - 887 
+ 
+ 
+ 
+ 电路 行为 仿真 编辑器 的 设计 与 实现 
+ 陈定 君 　 郭晓东 　 徐征 　 刘积仁 
+ 摘 　 要 ： 为了 给 嵌入式软件 开发者 提供 了 一个 调试 与 测试 嵌入式软件 运行 情况 的 软 运行 环境 ， 我们 开发 了 一种 电路 行为 仿真 编辑器 . 它 除了 提供 电路图 设计 功能 外 ， 还 自动 寻找 并 尽可能 生成 电路 最优 EHDL 语言 描述 源程序 ， 从而 得到 较 好 的 仿真 电路 . 文中 主要 介绍 了 电路 行为 仿真 编辑器 系统 设计 的 基本 思想 ， 包括 电路 高层次 仿真 模型 及 仿真 算法 的 基本 思想 、 系统 功能模块 划分 、 遗传 优化 机制 等 ， 同时 介绍 了 系统 采用 的 主要 实现 技术 遗传 程序 搜索 的 初步 实现 方案 . 
+ 关键词 ： 高层次 仿真 模型 ,   基于 进程 的 事件 表 驱动 算法 ,   “ 胚胎 ” 电路 ,   遗传 程序设计 
+ 分类号 ： TP391 
+ THE   DESIGN   AND   IMPLEMENTATION   OF   A   CIRCUITS 
+ BEHAVIOR   SIMULATION   EDITOR   
+ CHEN   Ding - Jun 
+ ( Software   Center   of   Northeastern   University ,   Shenyang   110006 ) 
+ GUO   Xiao - Dong 
+ ( Software   Center   of   Northeastern   University ,   Shenyang   110006 ) 
+ XU   Zheng ,   and   LIU   Ji - Ren 
+ ( Software   Center   of   Northeastern   University ,   Shenyang   110006 ) 
+ CHEN   Ding - Jun 
+ ( National   Engineering   Research   Center   for   Computer   Software ,   Northeastern   University ,   Shenyang   110006 ) 
+ GUO   Xiao - Dong 
+ ( National   Engineering   Research   Center   for   Computer   Software ,   Northeastern   University ,   Shenyang   110006 ) 
+ XU   Zheng ,   and   LIU   Ji - Ren 
+ ( National   Engineering   Research   Center   for   Computer   Software ,   Northeastern   University ,   Shenyang   110006 ) 
+ Abstract ： In   order   to   provide   a   software   workbench   for   software   developer   to   debug   embedded   software ,   a   circuits   behavior   simulation   editor   is   developed .   It   not   only   offers   circuits   schematic   design   workbench ,   but   also   can   find   the   best   circuits   EHDL   description   program   to   get   the   best   simulation   circuits .   This   paper   mainly   discusses   the   basic   idea   of   the   circuits   behavior   simulation   editor   system ,   including   circuits   high - level   simulation   model   and   simulation   algorithm ， system   function   module   partition ,   genetic   optimization   mechanism ,   etc ..   At   the   same   time ,   it   introduces   the   main   implementation   technology   of   the   system . 
+ Key   words ： high - level   simulation   model ,   event   driven   algorithm   based   on   process ,   embryonic   circuit ,   genetic   programming ▲ 
+ 1 　 引言 
+ 　 　 嵌入式软件 的 应用 与 开发 是 当今 计算机软件 发展 的 一个 热点 ， 然而 嵌入式软件 开发周期 长是 一个 令 开发者 长期 头痛 的 事 . 其 主要 原因 是 嵌入式软件 赖以 运行 的 电路 环境 是 不 确定 的 ， 为 调试 嵌入式软件 而 搭建 的 实验 板 开销 较大 . 况且 在 电路 规模 较大 、 功能 较 复杂 的 情况 下 ， 用 试验 板 进行 测试 已 越来越 难 了 ， 因为 开发者 总 要 循环往复 地 对 嵌入式软件 和 电路 实验 板 进行 修改 . 经过 多年 的 研究 ， 我们 开发 了 嵌入式软件 仿真 开发 集成 环境 . 它 主要 是 为 嵌入式软件 开发者 提供 一种 仿真 开发 与 调试 的 软 平台 . 它 不但 可以 缩短 嵌入式软件 开发周期 、 降低 开发成本 ， 而且 还 可 带来 开发者 工作 方式 的 变革 . 嵌入式软件 开发人员 并不一定 必须 限制 在 办公室 进行 研究 与 开发 ， 从而 提高 了 嵌入式软件 并发 开发 程度 . 数字电路 行为 仿真 编辑器 是 该项 研究 中 的 一个 非常 关键 子课题 ， 它 主要 完成 嵌入式软件 所 需 运行 电路 环境 的 仿真 构造 与 生成 . 本文 主要 介绍 电路 行为 仿真 编辑器 的 设计 思想 与 主要 实现 技术 . 
+ 2 　 设计 思想 
+ 2.1 　 电路 高层次 仿真 模型 及 描述语言 
+ 　 　 高层次 仿真 模型 以 行为 算法 和 结构 的 混合 描述 为 对象 ， 主要 着眼于 系统 功能 和 内部 的 运行 过程 . 其 基本 元素 是 操作 和 过程 . 各 操作 之间 主要 考虑 其 数据传输 、 时序 配合 、 操作 流程 和 状态 转换 . 高层次 仿真 的 方法 一般 是 对 描述 的 解释 执行 ， 或者 将 硬件 描述语言 的 描述 编译成 一般 软件 语言 如 C / C++ 语言 、 汇编语言 ， 然后 执行 . 高层次 描述 和 仿真 也 可以 实现 寄存器 传输 级 的 描述 和 仿真 ［ 1 ］ . 
+ 　 　 硬件 描述语言 是 高层次 仿真 的 主要 描述 方法 . VHDL 是 覆盖 多个 级别 的 多级 混合 的 硬件 描述语言 ， 我们 对 VHDL 进行 改进 而 设计 了 EHDL ( extension   hardware   description   language ) 语言 . 构造 EHDL 语言 的 设计 流程 ［ 2 ］ ， 如图 1 所示 . 
+ 
+ 
+ 图 1 　 EHDL 语言 设计 流程图 
+ 　 　 设计 EHDL 语言 主要 目的 之一 是 为了 最终 能够 产生 C ＋ ＋ 源代码 ， 以便 利用 现有 AT ＆ T   C ＋ ＋ 编译器 . 
+ 2.2 　 基于 进程 的 事件 表 驱动 算法 
+ 　 　 由 编辑器 最终 生成 的 电路 描述 程序 实质 上 是 进程 的 集合 . 每个 进程 定义 一个 完整 的 独立 操作 ， 它 是 由 一组 顺序 语句 组成 的 过程 ， 相当于 一段 程序 ， 它 有 挂 起 与 激活 两种 状态 . 信号 是 协调 各 进程 之间 通信 机制 的 数据通路 ， 由 信号 的 值 控制 各 进程 的 运行 ， 得到 各 信号 的 新 状态值 ， 即 得到 新 的 信号 事件 . 以 进程 为 基础 建立 ， 各个 进程 按 语句 自然 顺序 链接 在 一起 的 模型 称为 纯 行为 的 进程 模型 . 
+ 　 　 进程 模型 是 EHDL 描述 的 基本 模型 . 在 纯 行为 模型 中 ， 整个 电路 的 行为 用 进程 的 集合 来 表示 . 进程 之间 是 并行执行 的 ， 对 进程 模型 的 仿真 算法 ， 用 顺序 执行 各 进程 来 模拟 其 并行性 . 保证 并行性 的 方法 是 采用 基于 时间 顺序 的 时间 映射 的 以 进程 为 驱动 对象 的 事件 表 方法 .   
+ 　 　 文中 嵌入式软件 仿真 开发 系统 运行 于 一台 SUN 工作站 ， 为了 同步 它们 的 仿真 运行 ， 把 时间 划分 为 一个个 细小 时隙 Δ t ， 且 认为 在 一个 Δ t 时隙 之内 发生 的 事件 都 是 并行 事件 ， Δ t 一般 比较 小 ， 这个 Δ t 即为 仿真 周期 ， 本 系统 的 仿真 周期 定为 1   ns . 
+ 　 　 基于 进程 的 事件 表 驱动 同步 仿真 算法 核心 部分 描述 如下 ： 
+ While   （ （ 仿真 时间   <   仿真 结束 时间 ） & （ 非 终止 条件 ） ） 
+ 　 　 　 　 { For   每 一个 时隙 
+ 　 　 　 　 　 { 　 / / 修改 阶段 
+ For 在 当前 时隙 内 仿真 电路 的 每个 元器件 
+ 　 　 　 　 If （ 元器件 输出 值 ≠ 相应 的 前 输出 值 ） 
+ 　 　 　 　 　 修改 其 所有 扇出 元器件 的 输入 值 并 设置 重新 计算 标志 ； 
+ 　 　 　 　 / / 调度 阶段 
+ 　 For 在 当前 时隙 内 仿真 电路 的 每个 元器件 
+ 　 { 　 If （ 元器件 输出 值 ≠ 相应 的 前 输出 值 ） 
+ 　 { 　 元器件 的 输出 值 = 当前 元器件 输出 值 ； 
+ 　 由 已 设置 的 需 重新 计算 元器件 的 标志 ， 根据 其扇 出 元器件 延迟 特性 ， 
+ 　 重新 计算 其扇 出 元器件 的 输出 值 ， 并 将 其 输出 值 插入 将来 的 时隙 中 ； 
+ 　 清除 当前 元器件 标志 ； 
+ 　 } 
+ 　 　 } 
+ 　 　 递增 仿真 时间 ， 进入 下 一个 时隙 ； 
+ 　 　 } 
+ } 
+ 　 　 如果 在 当前 时隙 内 某 一 元器件 的 输入 值 多次 被 修改 ， 那么 该 元器件 的 第一个 输出 事件 将 出现 “ 早熟 ” 现象 . 上述 算法 在 修改 阶段 汇聚 了 所有 到达 元器件 的 输入 值 ， 在 调度 阶段 再 对 元器件 输出 值 进行 计算 ， 这样 就 避免 了 “ 早熟 ” 现象 . 
+ 2.3 　 电路 行为 编辑器 系统 的 设计 流程 
+ 　 　 电路 行为 编辑器 系统 设计 流程 如图 2 所示 ： 
+ 
+ 
+ 图 2 　 编辑器 系统 设计 流程 
+ 　 　 首先 ， 用 EHDL 语言 对 每 一个 器件 ( 诸如 TTL 库中 74LS138 ） 进行 描述 ， 并用 器件 编辑器 对 分立 的 数字 器件 或 具有 某一 功能 的 功能块 元件 进行 编辑 ， 并 支持 器件 的 图形 描述 转化 为用 EHDL 语言 的 形式化 描述 . 构造 较为 完备 的 元器件 库 或 功能块 元件库 ， 是 该 系统 功能 能否 实现 的 前提 ， 这 将 直接 影响 遗传 优化 机制 的 运行 . 然后 ， 用 构造 元器件 库来 搭建 所 要 仿真 的 “ 胚胎 ” 电路 ， 并 支持 电路 的 图形 描述 转化 为用 EHDL 语言 的 形式化 描述 . 再 通过 遗传 优化 机制 寻找 最优 仿真 电路 描述 程序 ， 最后 将 EHDL 语言 程序 翻译 成功 能 相同 的 C++ 程序 及 可 执行 代码 . 
+ 2.4 　 电路 行为 编辑器 的 功能 级 模块 模型 
+ 　 　 电路 行为 编辑器 的 功能 级 模块 模型 如图 3 所示 . 
+ 
+ 
+ 图 3 　 电路 行为 仿真 编辑器 系统 功能 级 模块 模型 
+ 　 　 初始化 模块 负责 完成 Display ， Screen ， Colormap ， Font 等 的 初始化 工作 . GUI 模块 主要 用于 实现 Openwin 界面 操作 . 字体 操作 模块 用于 完成 编辑器 中 元器件 文本 标注 操作 ， 因为 这些 标注 需 根据 电路图 中 适当 的 或者 可用 的 位置 ， 字体 作 左转 、 右转 、 垂直 向下 、 垂直 向上 等 转换 操作 ， 以利于 更好 地 标明 . 元器件 库 操作 模块 完成 对 元器件 的 搜索 、 读取 等 操作 . 编辑器 的 基本 目的 之一 就是 构造 “ 胚胎 ” 电路图 ， 这部分 工作 由 绘图 操作 模块 来 完成 . 对 “ 胚胎 ” 电路 的 进化 操作 由 遗传 优化 模块 和 电路仿真 运行 模块 来 完成 ， 电路仿真 运行 模块 反馈 每一 “ 代 ” 生成 的 电路 EHDL 描述 程序 仿真 运行 时间 ， 以 用于 评估 电路 好坏 程度 . 需要 指出 的 是 ， 电路仿真 运行 模块 调用 的 均 是 相同 的 短小 的 嵌入式软件 . 事件处理 模块 完成 Xview   事件 与 GUI 的 连接 . 
+ 2.5 　 电路 描述 程序 生成 的 优化 机制 
+ 　 　 Holland （ 1975 ） 提出 的 遗传算法 已 成功 应用 于 解决 电路 综合 领域 的 某些 问题 ［ 3 ， 4 ］ ， Koza （ 1992 ） 对 遗传算法 进行 了 延伸 ， 将 遗传算法 与 程序设计 自动化 有机 结合 ， 提出 了 一种 自动 编程技术 — — 遗传 程序设计 GP （ genetic   programming ） ［ 5 ］ . 
+ 　 　 对于 许多 问题 来说 ， 作为 解 的 最 自然 的 表示 是 计算机程序 ， 即 软件 是 问题 求解 的 一种 较 好 表述 形式 . 求解 问题 的 过程 等价 于 在 可能 的 计算机程序 空间 中 进行 搜索 ， 以 找到 适应性 最好 的 计算机程序 . 在 遗传 程序设计 中 ， 计算机程序 的 群体 为了 解决问题 不断 进行 遗传 繁衍 ， 由 遗传 程序设计 产生 的 解 就是 作为 它们 进行 自然选择 和 遗传 杂交 的 一个 结果 . 这个 过程 由 一个 适应 值来 推动 ， 适应 值 度量 把 问题 的 性质 传递 到 计算机 和 它 的 学习 模式 中 . 
+ 　 　 嵌入式软件 运行 于用 硬件 描述语言 描述 的 仿真 电路 ， 仿真 电路 自身 运行 快慢 将会 严重 影响 系统 的 运行 速度 ， 而 在 程序设计 空间 搜索 最优 的 仿真 电路 描述 程序 是 个 NP 完全 问题 . 为此 将 遗传 程序设计 应用 于 硬件 描述语言 描述 的 仿真 电路 源程序 生成 系统 中 ， 力求 寻找 最优 或近 优 的 仿真 电路 描述 源程序 . 
+ 3 　 系统 实现 概述 
+ 　 　 数字电路 行为 仿真 编辑器 系统 的 功能 级 模块 的 实现 均 采用 了 面向对象 技术 ， 在 SUN   SPARCE10 ,   SUN   OS   4.1 . 4 ,   64M 内存 平台 上 采用 AT&T   C++ 、 X - Window 和 XView 完成 的 . 
+ 　 　 整个 系统 定义 两大 基类 ： BaseClass   和 BaseObject . BaseClass 主要 用于 描述 编辑器 系统 操作 类 ， 它 的 派生类 包含 了 FrameClass ， CommandClass ， CanvasClass ， ListClass ， FileOperatorClass ， AddStringClass   等 . BaseObject   用于 描述 元器件 外部 属性 操作 类 ， 它 的 派生类 包含 了 JoinObject ， AreaObject ， RootObject ， PinObject ， InterfaceObject ， NetObject ， ButtonObject ， ChoiceObject 等 . 限于 篇幅 ， 图 4 仅 给出 了 基于 BaseObject 的 类 层次 图 . 
+ 
+ 
+ 图 4 　 元器件 外部 属性 描述 类 层次 图 
+ 　 　 电路 行为 仿真 编辑器 系统 是 基于 X - Windows 的 . X - Windows 是 一个 操作系统 独立 及 网络 透明 的 系统 ， 可 将 窗口 管理程序 及 窗口 服务器 分开 . 从 微机 Window   95 访问 SUN 工作站 运行 系统 ， 工作 主 窗口 如图 5 所示 . 
+ 
+ 图 5 　 电路 行为 仿真 编辑器 系统 工作 窗口 
+ 4 　 遗传 优化 的 主要 实现 机制 
+ 4.1 　 构造 电路 程序 树 
+ 　 　 电路 程序 可以 看作 是 一棵 有根 的 、 结点 带 标记 的 且 具有 有序 分支 的 树 ， 遗传 程序设计 应用 于 电路 领域 前提 是 需 实现 构造 电路 程序 树 与 电路图 之间 的 映射 . 整个 程序设计 起点 是 一个 非常简单 的 我们 称之为 “ 胚胎 ” 电路 程序 树 . “ 胚胎 ” 的 电路 程序 树是 “ 胚胎 ” 电路图 的 中部 表示 式 . “ 胚胎 ” 电路 包含 适合 于 问题 的 某些 固定 部分 和 某些 后来 可以 修改 的 连线 . 通过 应用 电路 程序 树中 某些 函数 来 修改 器件 连线 和 后继 电路 中 元器件 或 功能块 元件 ， 从而 完成 电路 的 设计 ， 最终 生成 电路 的 描述 程序 . 
+ 　 　 在 构造 电路 程序 树中 ， 函数 可以 划分 为 四大 类 ： 
+ 　 　 （ 1 ）   修改 电路 拓扑 结构 的 连接 修改 函数 ； 
+ 　 　 （ 2 ）   在 电路 中 插入 器件 的 器件 创建 函数 ； 
+ 　 　 （ 3 ）   算法 执行 子树 函数 ； 
+ 　 　 （ 4 ）   使 某种 子结构 （ 子树 ） 能 被 重用 的 自动 定义 子树 函数 . 
+ 　 　 在 群体 中 ， 每个 构造 电路 程序 树 包含 器件 创建 函数 和 连接 修改 函数 . 每个 连接 修改 函数 修改 当前 加亮 突出 的 器件 并 修改 当前 电路 拓扑 结构 . 器件 创建 函数 插入 器件 到 当前 的 电路 拓扑 中 ， 并 将 器件 参数值 赋于 器件 . 每个 器件 创建 函数 有 一个 指向 当前 电路 加亮 突出 的 器件 ， 并 能 按 指定 方式 修改 该 加亮 器件 的 指针 . 
+ 4.2 　 应用 GP 前 的 预备 步骤 
+ 　 　 将 遗传 程序设计 应用 于 电路 综合 前 ， 需做 以下 准备 工作 ： 
+ 　 　 （ 1 ）   确定 适于 特定 问题 的 “ 胚胎 ” 电路 ； 
+ 　 　 （ 2 ）   确定 构造 电路 程序 树 的 体系结构 ； 
+ 　 　 （ 3 ）   确定 特定 问题 的 端点 集 ； 
+ 　 　 （ 4 ）   确定 蕴藏 于 特定 问题 中 的 基本 函数 集 ； 
+ 　 　 （ 5 ）   建立 适应 值 度量 方法 ； 
+ 　 　 （ 6 ）   选择 用户 控制参数 （ 如 群体 规模 N 、 最大 运行 “ 代 ” 数 MaxGen 等等 ） ； 
+ 　 　 （ 7 ）   确定 停止 准则 . 
+ 　 　 在 应用 遗传 程序设计 时 ， 必须 提供 适合 于 特定 问题 的 端点 集 和 基本 函数 集 ， 端点 集 和 函数 集 的 选择 应该 使 其 满足 闭包性 和 充分性 ， 以 保证 它们 的 某个 组合 可以 表示 问题 的 一个 解 . 
+ 4.3 　 遗传 程序 适应 值及 选择 概率 
+ 　 　 适应 值 用来 衡量 程序设计 空间 群体 中 个体 的 相对 优势 ， 是 选择 的 基本 依据 . 没有 选择 ， 进化 便 不会 产生 . 但是 适应 值 的 计算 依赖 具体 的 任务 ， 它 因 程序 空间 的 不同 而 不同 . 基于 适应 值越 大越 好 的 原则 ， 我们 定义 了 一个 较为 通用 的 适应 值 表达方法 . 
+ 　 　 每个 电路 程序 树 的 适应 值 函数 表示 如下 ： 
+ 
+ 其中 
+ 
+ N 为 群体 规模 ， T （ k ） i 表示 第 k “ 代 ” 中 第 i 个 电路 程序 树 对应 的 仿真 电路 描述 程序 的 运行 时间 开销 ， max ｛ T （ k ） i ｝ 和 min ｛ T （ k ） i ｝ 分别 表示 第 k “ 代 ” 中 电路 程序 树 群体 对应 的 仿真 电路 描述 程序 的 运行 时间 开销 的 最大值 和 最小值 . γ 表示 适应 值 函数 的 选择 度 ， 它 是 用来 平衡 程序设计 空间 遗传 程序 多样性 与 遗传 程序设计 算法 收敛性 ， 其 合理 取值 范围 1 ≤ γ ≤ 5 . 
+ 选择 概率 定义 为 ： 
+ 
+ 很 显然 ： 
+ 
+ 　 　 在 每 一 “ 代 ” 中 ， 电路 程序 树 对应 的 仿真 电路 描述 程序 的 运行 时间 开销 越小 ， 其 适应 值 就 会 越 大 ， 因此 被 选中 的 机会 也 就 越 多 . 
+ 5 　 结束语 
+ 　 　 电路 行为 仿真 编辑器 系统 已 基本上 完成   ， 我们 目前 在 对 该 系统 元器件 库 和 功能块 元件库 完备 性 ， 以及 遗传 优化 机制 进行 进一步 完善 . 该 系统 为 嵌入式软件 开发者 提供 了 较为 便利 的 “ 软 ” 电路 编辑 与 生成 环境 ， 对 嵌入式软件 开发 将会 起到 巨大 的 推动 作用 ， 同时 它 也 蕴藏 了 较为 广阔 的 应用 前景 . ■ 
+ 基金项目 ： 本 课题 得到 国家 “ 八 六三 ” 计划 基金项目 资助 ( 项目编号 863 - 306 - 01 - 05 ) . 
+ 作者简介 ： 陈定 君 ， 男 ， 1969 年生 ， 博士 研究生 ， 主要 研究 方向 为 嵌入式软件 仿真 开发 、 分布 　 　 　 　 　 　 式 计算 、 遗传 程序设计 . 
+ 　 　 　 　 　 郭晓东 ， 男 ， 1968 年生 ， 博士 研究生 ， 主要 研究 方向 为 分布式 多媒体 、 遗传 程序 设 　 　 　 　 　 　 计 . 
+ 　 　 　 　 　 徐征 ， 男 ， 1973 年生 ， 硕士 研究生 ， 主要 研究 方向 为 进化 计算 、 软件工程 . 
+ 　 　 　 　 　 刘积仁 ， 男 ， 1955 年生 ， 教授 ， 博士生 导师 ， 主要 研究 方向 为 分布式 多媒体 、 　 　 　 　 　 　 CSCW 、 协议 工程 . 
+ 作者 单位 ： 陈定 君 （ 东北大学 软件 中心 　 沈阳 　 110006 ） 
+ 　 　 　 　 　 郭晓东 （ 东北大学 软件 中心 　 沈阳 　 110006 ） 
+ 　 　 　 　 　 徐征 （ 东北大学 软件 中心 　 沈阳 　 110006 ） 
+ 　 　 　 　 　 刘积仁 （ 东北大学 软件 中心 　 沈阳 　 110006 ） 
+ 　 　 　 　 　 陈定 君 ( 东北大学 计算机软件 国家 工程 研究 中心 　 沈阳 　 110006 ) 
+ 　 　 　 　 　 郭晓东 ( 东北大学 计算机软件 国家 工程 研究 中心 　 沈阳 　 110006 ) 
+ 　 　 　 　 　 徐征 ( 东北大学 计算机软件 国家 工程 研究 中心 　 沈阳 　 110006 ) 
+ 　 　 　 　 　 刘积仁 ( 东北大学 计算机软件 国家 工程 研究 中心 　 沈阳 　 110006 ) 
+ 参考文献 ： 
+ ［ 1 ］ 薛宏熙 ， 边计 年 ， 苏明 等 . 数字 系统 设计 自动化 . 北京 ： 清华大学出版社 , 1996 
+ 　 　 　 ( Xue   Hongxi ,   Bian   Jinian ,   Su   Ming   et   al .   The   Automatic   Design   for   Digital   System ( in   Chinese ) .   Beijing :   Tsinghua   University   Press ,   1996 ) 
+ ［ 2 ］ 陈定 君 ,   郭晓东 ,   刘积仁 等 . 嵌入式软件 前端 开发工具 的 设计 与 实现 . 东北大学 学报 ( 自然科学 ) ， 1998 ， 19 ( 4 ) ：   346 ～ 348 
+ 　 　 　 ( Chen   Dingjun ,   Guo   Xiaodong ,   Liu   Jiren   et   al .   Design   and   implemention   of   front   end   development   tool   in   embedded   system .   Journal   of   Northeastern   University   ( Natural   Science ) ,   1998 ,   19 ( 4 ) :   346 ～ 348 ) 
+ ［ 3 ］ Koza   J   R ,   Andre ,   David ,   Bennett   III   et   al .   Automated   WYWIWYG   design   of   both   the   topology   and   component   values   of   analog   electrical   circuits   using   genetic   programming .   In :   Koza   J   R ,   Goldberg   David   E ,   fogel   David   B   et   al   eds .   Genetic   Programming   1996 :   Proceedings   of   the   First   Annual   Conference ,   Stanford   University .   Cambridge ,   MA :   The   MIT   Press ,   1996 
+ ［ 4 ］ Koza ,   J   R ,   Bennett   III ,   Forrest   H   et   al .   Automated   design   of   circuits   using   genetic   programming .   In :   Gero ,   John   S ,   Sudweeks ,   Fay   eds .   Artificial   Intelligence   in   Design   ' 96 .   Dordrecht :   Kluwer .   1996 ,   151 ～ 170 
+ ［ 5 ］ 刘勇 . 非 数值 并行算法 — — 遗传算法 . 北京 ： 科学出版社 ， 1995 
+ 　 　 　 ( Liu   Yong .   Non - Numerical   Parallel   Algorithm   ( in   Chinese ) .   Beijing :   Science   Press ,   1995 ) 
+ 收稿 日期 ： 1998 - 09 - 14 
+ 修稿 日期 ： 1999 - 03 - 15 

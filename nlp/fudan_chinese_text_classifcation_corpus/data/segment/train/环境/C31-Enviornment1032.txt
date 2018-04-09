@@ -1,0 +1,30 @@
+环境 科学研究 
+ RESEARCH   OF   ENUIRONMENTAL   SCIENCES 
+ 2001   Vol.14   No.2   P.54 - 56 
+ 
+ 
+ 
+ 
+ 含 聚合物 污水 回注 时 污染 地层 的 主要 物质 分析 
+ 刘晓冬 　   徐景祯 　   
+ 摘 　 要 ： 笔者 系统分析 了 大庆油田 南 三区 东部 聚合物 驱 产出 水 处理 前后 原油 、 聚合物 、 固体 悬浮物 、 无机 离子 和 细菌 等 成分 的 含量 及其 固体 悬浮物 颗粒 直径 大小 与 分布 ， 并且 对 该区 聚合物 驱 产出 水 主要 特征 进行 了 总结 ， 在 此基础 上 ， 根据 油层 损害 机理 并且 结合 该区 油层 的 孔渗 特征 ， 研究 和 确定 了 污染 物质 。 得出结论 ： 聚合物 驱 产出 水中 硫酸盐 还原 菌 是 主要 污染 物质 ， 此外 ， 向萨 葡 油层 的 低 、 中 渗层 及 高台 子 油层 回注 时 ， 固体 悬浮物 和 原油 也 是 主要 污染 物质 ， 而 聚合物 仅 对 低 渗层 造成 损害 ； 常规 处理 方法 对 污水 中 原油 处理 效果 最好 ， 而 对 PAM 和 固体 悬浮物 处理 不太 理想 。 
+ 关键词 ： 聚合物 ； 　 聚合物 驱 产出 水 ； 　 回注 ； 　 污染 物质 
+ 分类号 ： X703.1 　 文献 标识码 ： A 
+ 文章 编号 ： 1001 - 6929 ( 2001 ) 02 - 0054 - 03 
+ Analysis   of   Contaminants   in   Water   Produced   from   Formation   with   Polymer   Flooding   and   Its   Possibility   for   Recycling 
+ LIU   Xiao - dong （ Petroleum   Department   ,   Daqing   Petroleum   Institute ,   Anda 　 151400 ,   China ） 　 
+ XU   Jing - zhen （ Petroleum   Department   ,   Daqing   Petroleum   Institute ,   Anda 　 151400 ,   China ） 　 
+ 
+ Abstract ： The   contents   of   oil ,   polymers ,   solid   particles ,   inorganic   ions   and   bacteria   in   water   with   or   without   pretreatment   were   analyzed   respectively   by   means   of   various   chemical   and   physical   methods ,   which   was   produced   from   formation   with   PAM   flooding   in   Nanshan   Area ,   Daqing   oilfield .   The   diameters   and   their   distribution   of   solids   were   also   measured   by   laser   granularity   equipment .   According   to   the   chemical   and   physical   properties   of   these   materials   and   their   damage   mechanism   to   oil   formation ,   the   damage   contents   were   determined .   The   sulphate - deoxidized   bacteria   are   main   damage   contents   for   the   rejecting   of   water   into   formation .   Solid   particles   and   oil   can   damage   formation   with   medium   or   low   permeability ,   and   PAM   can   damage   formation   with   low   permeability .   The   usual   pretreatment   of   water   can   remove   oil   significantly ,   but   have   some   effects   for   removing   PAM   and   particles . 
+ Keywords ： PAM ; 　 water   from   PAM   flooding ; 　 recycle ; 　 contaminant 
+ 作者简介 ： 刘晓冬 ( 1964 - ) ， 女 ， 辽宁 北宁 人 ， 讲师 ， 硕士 .   
+ 作者 单位 ： 刘晓冬 （ 大庆 石油学院   勘探 系 ， 黑龙江   安达 　 151400 ） 　 
+ 　 　 　 　 　 徐景祯 （ 大庆 石油学院   勘探 系 ， 黑龙江   安达 　 151400 ） 　 
+ 
+ 参考文献 ： 
+ ［ 1 ］ 　 王克亮 ， 王 风兰 ， 李群 ， 等 . 改善 聚合物 驱油 技术 研究 [ M ] . 北京 ： 石油工业 出版社 ， 1997.1 ～ 73 . 
+ ［ 2 ］ 　 裘怿楠 ， 刘雨芬 . 低 渗透 砂岩 油藏 开发 模式 [ M ] . 北京 ： 石油工业 出版社 ， 1998.134 ～ 145 . 
+ ［ 3 ］ 　 张绍槐 ， 罗平 亚 . 保护 储集层 技术 [ M ] . 北京 ： 石油工业 出版社 ， 1993.155 ～ 199 . 
+ 
+ 收稿 日期 ： 1999 年 6 月 5 日 
+ 出版日期 ： 2001 年 3 月 30 日 

@@ -1,0 +1,120 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 10 卷   第 8 期   Vol.10   No.8   1999 
+ 
+ 
+ 
+ 分层 自治 的 Multicast 地址 管理 和 连接 控制 
+ 王箭 　 张福炎 
+ 摘要 　 Multicast 动态 地址 管理 和 连接 控制 是 多点 会话 中 的 重要 问题 . 基于 分层 自治 结构 , 文章 提出 了 Multicast 地址 分配 管理机制 、 主从 结构 连接 管理体系 和 一种 简单 多点 连接 建立 算法 , 简述 了 它们 的 工作 过程 , 并 通过 模拟实验 比较 了 3 种 地址 分配 方式 , 即 集中管理 方式 、 分布 方式 （ 由 Eleftheriadis 提出 ） 与 分层 自治 方式 . 分层 自治 结构 与 Internet 自 组织 拓扑 结构 一致 , 分层 自治 地址 分配机制 结合 了 集中 方式 和 分布 方式 的 优点 , 具有 较 高 的 整体 效率 , 主从 结构 连接 管理体系 也 具有 较 高 控制 效率 , 它们 都 具有 较 高 的 鲁棒性 、 柔韧性 和 伸缩性 . 
+ 关键词 　 自治 系统 , Multicast 地址 管理 , 连接 控制 , 多点 应用 , Multicast 通信 , 图 , Steiner 树 , 递归 算法 , 阻塞 概率 , time - out 周期 . 
+ 中图法 分类号 　 TP 
+ Hierarchical   Multicast   Address   Management   and   Connection   Control 
+ WANG   Jian   ZHANG   Fu - yan 
+ ( Department   of   Computer   Science   and   Technology   Nanjing   University   210093 ) 
+ Abstract 　   Multicast   capability   at   the   network   layer   is   necessary   in   order   to   reduce   the   bandwidth   requirements   of   multiparty ,   multicast   applications .   Integral   to   such   a   capability   are   multicast   address   management   and   multicast   routing   mechanisms .   Multicast   address   management   and   connection   control   are   two   essential   components   needing   to   be   solved   in   the   Multipoint   applications .   Based   on   hierarchical   autonomous   structure   in   accordance   with   the   self - organization   topologies   of   INTERNET ,   this   paper   puts   forward   a   multicast   address   management   scheme   which   sets   up   the   hierarchical   partition ,   which   is   dynamic ,   of   Multicast   address   space   in   order   to   reduce   the   blocking   probability .   Only   MAM   ( multicast   address   management )   in   the   bottom - layer   domain   may   allocate   directly   the   addresses   to   multipoint   session   so   that   the   session   acquire   the   address   more   rapidly   in   average .   And ,   a   connection   control   hierarchy   ( CCH )   based   on   master / slave   relationship   and   a   simple   efficient   building   algorithm   of   multi - point   connection   are   also   advanced .   The   paper   also   describes   the   normal   operations   of   multicast   address   management   and   multi - point   connections   controller .   With   simulation   experiment ,   three   of   multicast   address   allocation   modes ,   hierarchical   autonomous   mode   ( HAM ) ,   central   mode   ( CM )   and   network - divided   mode   ( NDM )   ( Eleftheriadis   proposed ) ,   are   compared .   The   result   shows   that   hierarchical   autonomous   mode   integrates   the   merits   of   central   mode   and   network - divided   mode ,   owns   high   efficiency   in   the   whole .   Connection   control   hierarchy   also   is   efficient   in   the   connection   control .   They   are   shown   to   be   highly   robust ,   flexible   and   scalable . 
+ Key   words 　 Autonomous   system ,   multicast   address   management ,   connection   control ,   multipoint   application ,   multicast   communication ,   graph ,   sterner   tree ,   recursive   algorithm ,   blocking   probability ,   time - out   periods . 
+ 　 　 多点 会话 须 定义 Multicast 地址 ［ 1 ］ . 与 Unicast 网络地址 不同 , 它 可 动态分配 . 一个 Multicast 地址 不能 分配 给 两个 并发 会话 , 否则 将 互相 干扰 引起 混乱 . IP 环境 目前 还 没有 具有 鲁棒性 和 伸缩性 的 动态分配 策略 , 为 建立 会话 , 用户 必须 预先 交换 所有 相关 参数 , 这些 阻碍 了 多点 会话 的 应用 和 开发 , 也 增加 了 用户 网络管理 负担 . 多点 会话 的 增长 要求 有效 的 动态 地址 分配 策略 . 
+ 　 　 Multicast 传输 协议 , 如 XTP ［ 2 ］ , ST - II ［ 2 ］ , MTP 和 RTP ［ 2 ］ 等 , 都 假定 存在 一个 分配 与 管理 Multicast 地址 的 独立 实体 . Braudes ［ 3 ］ 提出 了 Multicast 地址 管理 框架 , 地址 由 分层 的 MGA ( multicast   group   authority ) 进行 管理 , 中心 控制器 作为 管理 树 的 根 结点 , 靠近 根 的 结点 将 承担 大量 的 控制 负载 , 且 中间 结点 或 链接 失效 上下 两边 结点 就 不能 交换 Multicast 地址 . Eleftheriadis ［ 4 ］ 提出 基于 网络 的 分布 Multicast 地址 分配 （ network - divided   mode , 简称 NDM ） 和 连接 管理机制 , 没有 利用 网间 结构 关系 有效 地 解决 阻塞 概率 与会 话 建立 延迟 之间 矛盾 , 且 Multicast 地址 空间 划分 不 完备 . Pejhan   ［ 5 ］ 基于 主机 的 地址 分配机制 , 阻塞 概率 和 会 话 建立 延迟 大大降低 , 但 难于 实现 有效 的 连接 控制 , 并 需 调整 路由 和 传输 协议 , 消除 干扰 需 耗费 大量 计算资源 也 将 大大增加 网络 负载 . 
+ 　 　 广播 型 应用 不需 连接 控制 , 用户 之间 松散 耦合 , 称为 开式 多点通信 . 闭式 多点通信 是 指高 交互 应用 , 用户 之间 紧密 耦合 . 地址 分配 应 满足 这种 需要 , 为 实时 管理 多点 连接 , 需要 连接 控制 , 它 负责 与会 方 之间 连接 建立 和 管理 . 
+ 　 　 本文 第 1 节 介绍 分层 自治 域 结构 . 第 2 节是 Multicast 地址 分配 . 第 3 节是 连接 控制 和 time - out 机制 . 第 4 节是 简单 的 多点 连接 建立 算法 . 第 5 节是 失效 处理 与 性能 分析 . 第 6 节是 模拟实验 . 最后 是 总结 . 
+ 1   分层 自治 结构 
+ 　 　 INTERNET 是 由 若干 网络 组成 的 全球性 网络 , 可 看成 由 分层 自治 域 构成 , 如 CERNet 由 8 个 区域 网络 组成 , 区域 网络 包含 本 地区 若干 高校 , 又 通过 国际 线路 与 INTERNET 连接 , CERNet 看成 一个 自治 域 , 区域 网络 是子 自治 域 , 校园网 是 更 低 一层 的 自治 域 . 自治 域 是 个 整体 , 知其 接口 就 可与域 内 主机 通信 . 它 应 包括 一个 IPAM ( IP   address   manager ) 、 一个 MAM ( multicast   address   manager ) 、 若干 CCs ( connection   controller ) 、 一个 ICM ( inter - domain   connection   manager ) 以及 若干 路由 结点 . IPAM 记录 IP地址 范围 并 检测 IP地址 是否 在 本域 内 . MAM 负责 Multicast 地址 管理 , 每个 MAM 都 有 一个 MAS ( multicast   address   set ) . 子域 MAS 是 父域 的 子集 , 同父 的 任 两 子域 MAS 不 相交 . 只有 底层 域 ( bottom - layer   domain , 简称 BLD ) MAM 向 用户 分配 Multicast 地址 , 并 负责 回收 . BLD 可是 网段 、 LAN 或 ISP 管理 域 等 . ICM 动态 或 静态 管理 本域 与 其他 域 的 连接 , 它 构成 了 INTERNET 的 连接 框架 . 分层 自治 结构 如图 1 所示 . 
+ 
+ 图 1 　 分层 自治 结构 
+ 　 　 多点 会话 在 最小 包容 域 ( minimal   magnanimous   domain , 简称 MMD ) 中 进行 , MMD 是 指 包含 所有 与会 点 的 最小 自治 域 , 不 一定 是 BLD , 地址 由 BLD 分配 给 用户 , 需 建立 多点 连接 ( multipoint   connection , 简称 MC ) , MC 跨越 相关 域 并 将 包含 与会 点 的 所有 BLD 连接起来 . 
+ 2   Multicast 地址 分配 
+ 　 　 Eleftheriadis ［ 4 ］ 按照 网络地址 来 划分 Multicast 地址 空间 , 若 网络 或 子网 地址 是 A1 . A2 . A3 , 则 地址 范围 ［ 224 ～ 239 ］ . A1 . A2 . A3 , 若为 A1 . A2 , 则 地址 范围 为 ［ 224 ～ 239 ］ . A1 . A2 . X , X = ［ 0 , 255 ］ . 这种 方式 实现 简单 , 但 存在 一些 不足 . 
+ 　 　 * 划分 不 完备 . 由于 网络地址 第 1 字节 的 特殊 规定 及 它们 没有 都 被 使用 , 使得 大量 Multicast 地址 被 遗漏 . 
+ 　 　 * 地址 不能 被 充分 使用 . 静态 划分 既 不能 充分 有效 地 使用 地址 资源 , 也 不能 满足用户 的 需要 . 
+ 本文 按域 划分 地址 , 建立 分层 域 之间 划分 关系 , 即 子域 MAS 是 对 父域 MAS 的 划分 , 大大提高 了 伸缩性 和 柔韧性 . 但 划分 策略 还有 待 进一步 研究 . BLD 的 MAM 向 多点 会话 分配 Multicast 地址 , 上层 域 MAM 负责 MAS 的 静态 与 动态 管理 . 预先 设定 各 子域 MAS , 子域 地址 用尽 且 有 请求 时 , 父域 MAM 可 将 直接 管理 的 或 其他 子域 的 空闲 地址 借 与 该 子域 , 会话 结束 时 借用 地址 需 归还 . MAM 记录本 域 Multicast 地址 使用 情况 , 若 借用 频率 大于 预定 门限 , 则 向 父域 MAM 申请 增加 Multicast 地址 , 父域 根据 一定 策略 选择 直接 管理 的 或 其他 子域 富余 地址 授权 给 该 子域 . 
+ 　 　 Multicast 地址 分配 的 大致 过程 （ 如图 2 所示 ） 如下 . 
+ 
+ 图 2 　 地址 分配 
+ 　 　 ( 1 )   若 BLD 的 MAM 有 空闲 地址 , 分配 之 并 转 ( 3 ) ; 否则 , 设 BLD 为 当前 域 ; 
+ 　 　 ( 2 )   若 向 父域 MAM 借用 地址 成功 , 分配 之 并 转 ( 3 ) ; 否则 , 设 父域 为 当前 域 并 转 ( 2 ) ; 
+ 　 　 ( 3 )   在 BLD 中 选择 一个 CC , 将 Multicast 地址 和 与会 方 地址 等 传送 给 CC ; 
+ 　 　 ( 4 )   CC 建立 多点 连接 与 连接 控制 的 分层 结构 ; 
+ 　 　 ( 5 )   MAM 收到 CC 确认 信息 后 , 将 Multicast 地址 等 会 话 信息 通知 用户 . 
+ 3   多点 连接 控制 
+ 3.1   连接 控制 体系 
+ 　 　 CC 建立 、 管理 和 维护 会话 的 多点 连接 , 交换 状态 信息 , 管理 与会 结点 的 进入 和 退出 等 . 将 地址 管理 与 连接 控制 分开 , 主机 分布 操作 , 进程 和 主机 失效 处理 的 鲁棒性 获得 显著 提高 . 在 BLD 中 由 SCC ( secondary   connection   controller ) 承担 局部 连接 控制 功能 以 实现 分布 管理 , 有效 地 处理 连接 状态 和 拓扑 的 变化 . 
+ 　 　 MAM 在 该 BLD 中 选择 一个 CC . 该 CC 根据 与会 点 地址 建立 多点 连接 , 并 在 MMD 中 选择 一个 CC 作为 MCC ( master   connection   controller ) , 而后 MCC 在 含有 与会 点 的 BLD 中 选择 SCC （ MAM 选择 的 CC 成为 所在 域 的 SCC ） , 就 建立 了 连接 控制 的 主从 结构 . CCs 都 包含 所有 会话 相关 信息 , 如 连接 、 会话 状态 以及 MAM 地址 等 , 并 始终保持 一致 . MAM 需 包含 MCC 和 所在 BLD 的 SCC 地址 . 
+ 　 　 主从 结构 连接 控制 的 优点 是 , ( 1 )   与 分层 自治 结构 一致 ; ( 2 )   与会 点 可 较 快 获得 会话 信息 ; ( 3 )   较 高 的 鲁棒性 , 少数 CC 失效 不 影响 会话 正常 进行 并 可 较 快 恢复 ; ( 4 )   MCC 到 SCCs 的 hop 数 大致 相等 , 简化 time - out 估算 ; ( 5 )   可 利用 建立 的 多点 连接 来 交换 信息 . 
+ 　 　 当 用户 加入 时 , 若该 BLD 中有 属于 该会 话 的 SCC , 则 该 SCC 连接 操作 后 通知 MCC , 否则 , 由 MCC 建立 该 BLD 的 SCC , 然后 由 MCC 通知 其他 SCC . 当 用户 退出 时 由 相连 的 SCC 进行 处理 , 若 SCC 管理 的 用户数 为 0 , 则 该 SCC 从会 话 中 退出 , 卸下 会话 数据 , 并 通知 MCC . MMD 改变 时 , 有 两种 处理 方法 : ①   MCC 不变 , 使 time - out 估算 变得复杂 , 但 CCs 和 MAM 会话 数据 只作 较 小 调整 ; ②   在 MMD 中 重新 选择 MCC , time - out 估算 简单 , 但 使 CCs 和 MAM 的 会 话 数据 作 较大 调整 , 不 适合 MMD 频繁 变动 情况 . 折衷 办法 是 建立 门限 , 使 相连 前后 两次 MCC 变动 的 时间 间隔 大于 该 门限 . 
+ 3.2   Time - out 机制 
+ 　 　 为 实现 系统 鲁棒性 , MCC 与 SCCs 之间 和 SCC 与 用户 之间 定期 交换 Keep - alive 信息 . 首先 由 MCC 发出 消息 , SCCs 收到 后 附上 本地 信息 传给 用户 , SCCs 开始 收集 用户 响应 , 收齐 后 就 向 MCC 传送 响应 （ 如图 3 所示 ） . 为 避免 冲突 , 将 消息 编号 . MCC 与 MAM 之间 也 定期 交换 信息 只是 频率 较 低 . 
+ 
+ 图 3 　 Time - out 机制 
+ 　 　 MCC 与 SCCs 之间 hop 数 相等 , MCC 与 与会 点 之间 hop 数 也 大致 相等 , 使 RTTc 值 大致 相等 , MCC 对 每 一会 话 维持 一个 μ RTTc （ RTTc 平滑 估计值 ） 和 σ RTTc （ RTTc 方差 ） 值 . time - out 值 初始 设为 Ti = μ RTTc + 2 σ RTTc , 超过 这个 值 , 响应 仍 未 收到 , time - out 值 就 增加一倍 . 达到 预定 补偿 次数 L 或 最大值 T  max 时 , 没有响应 的 SCC 可 看作 失效 . 为 便于 CCs 和 MAM 从 失效 中 恢复 , 设置 time - out 上限 是 必要 的 , time - out 下限 也 须 设置 以使 小 RTT 会话 保持 较 低 控制 通信量 . 
+ 　 　 SCC 端 也 设置 一个 time - outc 值 , 在 此 时间 内 没有 再次 收到 MCC 的 消息 可 认为 MCC 失效 . 该值 设为 TLOSTi = min { Tmax , ∑ Li = 02i ( μ RTTc ＋ 2 σ RTTc ) } . 同时 , SCCs 还应 设置 一个 time - outcu 值 , 以 判断 用户 是否 失效 . 当 收到 MCC 信息 , 时间 计数器 启动 . 该值 设为 Tui = μ ′ RTTc + 2 σ ′ RTTc , 当 超过 这个 值 , 用户 响应 仍 未 收到 , 该值 就 增加一倍 . 达到 预定 补偿 次数 L ′ 或 最大值 T ′ max 时 , 没有响应 的 用户 可 看做 失效 . 
+ 　 　 为 判断 SCC 是否 失败 , 用户端 也 应 建立 一个 time - outu 值 , 在 此 时间 内 没有 再次 收到 SCC 的 信息 可 认为 SCC 失效 . 这个 值设 为 TLOSTui = min { Tmax + T ′ max , ∑ Li = 02i ( μ RTTc + 2 σ RTTc ) + ∑ L ′ i = 02i ( μ ′ RTTc + 2 σ ′ RTTc ) } . 
+ 4   多点 连接 ( MC ) 建立 算法 
+ 　 　 视频会议 是 一种 闭式 多点 会话 , 由于 与会 方 之间 实时 交互 的 需求 , 需要 有效 地 建立 MC , 连接 本身 应是 高效 柔韧 的 , 连接 建立 算法 应 简单 快速 . 基于 分层 自治 结构 , 本文 提出 一个 简单 高效 MC 构成 算法 , 如图 4 所示 . 
+ 1 .   寻找 MMD 
+ 　 　 查询 本 BLD 的 IPAM , 
+ 　 　 看 所有 与会 点 的 IP地址 是否 在 本域 内 ; 
+ 　 　 若 是 , 则 本域 即 为 MMD ; 
+ 　 　 否则 , 则 将 上级 域 指定 为 当前 域 ; 
+ 　 　 while   ( 当前 域 不 包含 所有 与会 结点 ) 
+ 　 　 　 　 　 { 当前 域 的 上级 域 指定 为 当前 域 ; 
+ 　 　 查询 当前 域 的 IPAM ; } 
+ 　 　 当前 域 即 为 MMD . 
+ 　 　 记 MMD 为 W0 , 联接 各 子域 的 路由 结点 为 r0 . 
+ 　 　 IF   ( MMD 是 BLD ) ,   THEN   RETURN . 
+ 2 .   建立 MC 
+ 　 　 ( 1 )   将 与会 结点 集 分成 若干 子集 , 分别 记为 A1 , A2 , ... , Ak ( 0 ) , Ai ≠ , Ai ∩ Aj = , 使 Ai ∈ Wi ( W0 子域 ) . 记 Wi 中 与 r0 直接 相连 的 路由 结点 ri , 并 建立 r0 与 ri 之间 的 连接 . 
+ 　 　 ( 2 )   再 分别 将 Ai 分成 子集 为 Ai1 , Ai2 , ... , Aik ( i ) , Aij ≠ , Ai1 ∩ Aij = , 使 Aij ∈ Wij ( Wi 子域 ) . 记 Wij 中 与 ri 直接 相连 的 路由 结点 rij , 并 建立 ri 与 rij 之间 的 连接 . 
+ 　 　 ( 3 )   如此 往复 直至 BLD , 这样 就 建立 了 具有 中心 路由 结点 的 多点 连接 . 
+ 
+ 图 4 　 基于 分层 结构 的 MC 建立 算法 
+ 　 　 查询 相应 域 IPAM 确定 是否 有 与会 点 并 查询 ICM 以 建立 包含 与会 点 的 域 间连接 以及 与会 点 之间 的 MC . 由于 BLD 通常 是 局域网 , 无需 考虑 MC 问题 . 
+ 5   失效 处理 与 性能 分析 
+ 5.1   失效 处理 
+ 　 　 ( 1 )   MCC 失效 . 当 SCCs 超过 预定 时间 ( time - outc ) 没收 到 MCC 消息 , 就 向 分配 Multicast 地址 的 MAM 发送 “ MCC 不 响应 ” 消息 , MAM 通知 同 BLD 的 SCC 卸下 MCC 地址 , 在 MMD 中 寻找 一个 CC 作为 MCC , 将会话 数据 拷贝到 新 MCC , 将 新 MCC 地址 等 会 话 数据 传给 SCCs , 建立 MCC 与 SCCs 之间 连接 . 若 MAM 检测 到 MCC 失效 , 采用 同样 方法 恢复 连接 控制 . 选择 新 MCC 并 恢复 状态 , 对 应用 是 透明 的 , 并 不 引起 任何 通信 的 混乱 . 当 MCC 失效 , 用户 可以 离开 , 有时 也 可以 加入 （ 当新 加入者 BLD 有 该会 话 的 SCC ） . 
+ 　 　 ( 2 )   SCC 失效 . 当 用户 或 MCC 超过 预定 时间 （ time - out ） 没收 到 SCC 的 信息 , 就 向 MCC 发送 “ SCC 不 响应 ”   消息 , MCC 在 相应 BLD 中 寻找 一个 CC 作为 该会 话 的 SCC . 
+ 　 　 ( 3 )   MAM 失效 . BLD 的 MAM 失效 , 会话 继续 进行 , 因为 只有 CCs 负责 连接 控制 . 但 对 Multicast 地址 请求 将 不会 响应 . 该 MAM 重新起动 后 , 向 父域 MAM 注册 并 查询 本域 所有 CC , 得到 回答 后 , MAM 将 相应 CC 标为 在 用 , 并 将 Multicast 地址 和 MCC 地址 相 联系 . 非 BLD 的 MAM 失效 不 影响 Multicast 地址 分配 , 但 对 子域 地址 借用 请求 不 响应 , 重新启动 后 , 向 父域 MAM 注册 并 查询 子域 MAM . 
+ 5.2   性能 分析 
+ 　 　 基于 分层 自治 结构 地址 分配机制 , 既有 集中处理 的 低 阻塞 概率 , 也 有 分布 处理 的 较 小会话 建立 延迟 , 结合 了 集中 和 分布 机制 两者 之长 . 地址 请求 由 整个 Multicast 地址 空间 来 服务 , 其 阻塞 概率 相当于 集中 方式 . 地址 请求 首先 由 BLD 服务 , 只当 本域 地址 用尽 时 , 才 向 上层 域 请求 , 会话 建立 平均 延迟 接近 于 分布 机制 . 
+ 　 　 分层 自治 结构 , 不但 较 好地解决 了 地址 动态分配 问题 , 而且 使得 多点 连接 较易 建立 . 通过 查询 相应 域 IPAM   和 ICM 可以 很 方便 地 将 相应 的 BLD 连接起来 . 域 有 外界 接口 , 通过 分层 结构 组织 起来 , 可以 通过 少量 数据 表达 全局 信息 . 
+ 　 　 主从 结构 连接 控制 体系 具有 较 高 控制 效率 和 鲁棒性 . BLD 往往 是 采用 同一 网络协议 的 局域网 , 用户 与 SCC 之间 的 消息 交换 是 快速 高效 的 , 连接 控制 的 分布 管理 提高 了 控制 效率 . 主从 结构 使得 多点 会话 在 广域 环境 中 可 实现 高效 连接 控制 . 少数 CC 失效 不会 影响 整个 会话 的 进行 , 只 影响 局部 用户 , 只当 大部分 CCs 失效 时才 会 严重 影响 会话 . 
+ 6   模拟实验 
+ 　 　 本文 通过 模拟实验 , 比较 了 3 种 Multicast 地址 分配 方式 , 即 集中管理 方式 （ central   mode , 简称 CM ） 、 Eleftheriadis ［ 4 ］ 的 NDM （ network - divided   mode ） 和 分层 自治 方式 （ hierarchical   autonomous   mode , 简称 HAM ） . 
+ 　 　 令 s ( 0 ) = r0 ( 0 ) 且 s ( t ) = s ( t - 1 ) + r0 ( t ) . 以 随机 函数 s ( t ) 来 模拟 Multicast 地址 请求 , 若 s ( t ) ＞ a ( a ≥ 1 ) , 则 申请 Multicast 地址 且 令 s ( t ) = 0 . 同时 用 gi = 100 * r1 ( t ) 来 模拟 多点 会话 持续时间 . 设定 一个 网络 , 包含 3 个子 网 . CM 只有 一个 MAM , NDM 有 3 个 MAM 分别 在 3 个子 网中 , HAM 建立 两层 域 , 顶层 域 和 3 个子 域 , 每个 域 都 有 个 MAM . 为 简化 对会话 建立 时间 的 模拟 , 对 网络 和 子网 范围 分别 设定 会话 建立 时间 t1 和 t2 （ t1 ＞ t2 ） . 令 t1 = 0.2 , t2 = 0.1 . 令 h = 3 * r2 ( t ) , 若 i - 1 ＜ h ＜ i ( i = 1 , 2 , 3 ) , 则 在 第 i 个子 网中 . 结点 总数 为 600 , 每个 子网 200 结点 , 可用 地址 数为 42 , a = 1 . r0 , r1 与 r2 是 随机 函数 . 
+ 　 　 每次 实验 持续 一 小时 , 每秒 做 一次 计算 判断 是否 有 地址 请求 和 会 话 终止 , 会话 持续时间 以 秒 为 单位 . 记录 每个 MAM 的 地址 请求 数 和 成功 分配 数 并 相加 得 总 请求 数 n0 和 成功 会话数 n1 , 则 阻塞 概率 PB = 1 - n1 / n0 , 平均 会话 建立 时间 Ts , CM 为 t1 , NDM 为 t2 , HAM 需 区分 n1 中 借用 与 没有 借用 地址 的 数目 , 设 分别 为 n2 与 n3 , 则 HAM 为 ( n2 * t1 + n3 * t2 ) / n1 . 每种 方式 分别 进行 6 次 实验 , 实验 结果 如表 1 和表 2 所示 . PB 单位 为 % , Ts 单位 为 秒 ( s ) . 
+ 　 　 结果显示 , 阻塞 概率 CM 最小 , 平均 会话 建立 时间 NDM 最小 , 这 两个 指标 HAM 都 接近 最小值 , 若 选择 适当 地址 划分算法 则 几乎 等于 最小值 , 因此 总体 性能 最好 . 
+ 表 1 　 实验 数据 
+ 
+ 　 HAMCMNDM 
+ N0N1N1N3N0N1N0N0 
+ 13   0113   0083012   7072   8692   8673   0022   987 
+ 22   7032   7005402   1603   3003   2982   8812   868 
+ 33   3023   2992973   0022   8572   8552   9092   983 
+ 42   7302   7271912   5363   3103   3082   9982   986 
+ 53   0053   0022402   7622   0052   0042   8882   875 
+ 62   7052   7022702   4322   8502   8483   0092   997 
+ 
+ N0 : 总 请求 数 , N1 : 成功 会话数 , N2 : 借用 地址 数 , N3 : 没有 借用 地址 数 
+ 表 2 　 实验 结果 
+ 
+ 　 123456A 
+ PBTsPBTsPBTsPBTsPBTsPBTsPBTs 
+ HAM0.10 . 110.110 . 120.090 . 1090.110 . 1070.10 . 1080.110 . 110.1030 . 117 
+ CM0.070 . 20.060 . 20.070 . 20.060 . 20.050 . 20.070 . 20.0630 . 2 
+ NDM0.50 . 10.450 . 10.550 . 10.40 . 10.450 . 10.40 . 10.4580 . 1 
+ 
+ PB 阻塞 概率 , Ts 平均 会话 建立 时间 , A 平均值 
+ 7   总   结 
+ 　 　 分层 自治 结构 与 INTERNET 网络 的 体系结构 较为 接近 , 基于 分层 自治 结构 , 本文 提出 了 一种 Multicast 地址 分布 管理 和 分配 策略 , 有效 地 降低 地址 分配 阻塞 概率 并 减少 了 平均 会话 建立 延迟 , 充分 结合 了 集中 和 分布 两种 方式 之 长 , 是 高效 可 伸缩 的 且 具有 鲁棒性 . 极端 情况 最小 包容 域 可以 达到 整个 INTERNET , 并 不 影响 地址 分配 阻塞 概率 , 而 只是 使 连接 建立 时间 增加 , 与 其他 方式 相比 依然 具有 较 高效率 . 主从 结构 连接 控制 解决 广域 环境 多点 会话 的 广域 连接 控制 与 局部 地址 分配 之间 的 矛盾 . 并且 充分利用 分层 自治 结构 特性 , 提出 了 一个 简单 高效 的 多点 连接 建立 算法 . 
+ 本文 通讯联系 人 : 王箭 ， 南京   210093 , 南京大学 计算机科学 与 技术 系 
+ 作者简介 ： 王箭 , 1968 年生 , 博士 , 助教 , 主要 研究 领域 为 多媒体通信 , CSCW , 视频会议 . 
+ 张福炎 , 1939 年生 , 教授 ， 博士生 导师 , 主要 研究 领域 为 多媒体技术 , 计算机 图形学 . 
+ 作者 单位 ： 南京大学 计算机科学 与 技术 系   南京   210093 
+ E - mail :   wangjian @ graphics . nju . edu . cn 
+ 参考文献 
+ 1   Deering   S .   Host   Extensions   for   IP   Multicasting .   RFC1112 ,   Stanford   University ,   1989 
+ 2   Steinmetz   R ,   Nahrstedt   K .   Multimedia   Computing ,   Communications   &   Applications .   Beijing :   Tsinghua   University   Press ,   1997 
+ 3   Braudes   R ,   Zabele   S .   Requirements   for   Multicast   Protocol .   RFC1458 ,   TASC ,   Reading ,   MA ,   May   1993 
+ 4   Eleftheriadis   A ,   Pejhan   S ,   Anastassiou   D .   Address   management   and   connection   control   for   multicast   communication   application .   In :   Proceedings   of   the   14th   IEEE   INFOCOM ' 95   Conference   on   Computer   Communications .   Boston :   Computer   Society   Press ,   April   1995 .   386 ～ 393 
+ 5   Pejhan   S ,   Eleftheriadis   A ,   Anastassiou   D .   Distributed   multicast   address   management   in   the   global   internet .   IEEE   Journal   on   Selected   Areas   in   Communications   ( Special   Issue   on   the   Global   Internet ) ,   1995 , 13 ( 8 ) : 1445 ～ 1456 
+ 本文 1997 - 12 - 23 收到 原稿 , 1998 - 09 - 07 收到 修改稿 

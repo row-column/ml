@@ -1,0 +1,41 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000   Vol.19   No.2   P.6 , 25 
+ 
+ 
+ 
+ 
+ Borland   Delphi   5 - - 电子商务 与 Internet 的 有效 开发工具 
+ 北京 中软 融保 信息技术 有限公司 （ 100081 ） 
+ 　 　 根据 “ Forrester   Research 顾问公司 所作 的 调查 ， 估计 到 公元 2000 年 全球 电子商务 市场 规模 将 达到 66 亿美元 。 电子商务 的 广泛应用 ， 使 顾客 和 企业 、 企业 与 企业 之间 可以 通过 网络 进行 数据交换 和 商业 交易 。 delphi   5   Enterprise 版能 帮助 企业 开发 电子商务 应用 系统 ， 在 公元 2000 年 后 保持 强大 的 竞争 优势 并 掌握 市场 先机 。 
+ 1   电子商务 数据交换 的 标准 XML 
+ 　 　 XML 是 由 W3C 组织 于 1997 年 制定 的 标准 ， 并 获得 IBM 、 Microsoft 、 Sun 、 Microsystems 、 HP 、 Adobe 等 厂商 的 共同 支持 ， XML 是 一种 “ 可 扩展 的 标识语言 ” （ eXtensible   Markup   Language ） ， 有别于 目前 广泛 使用 的 HTML ， XML 可 自行 定义 “ 标识 ” （ Tag ） ， 各 行业 都 可 运用 XML 自行 定义 所 使用 的 文件类型 。 正 由于 这 一点 ， XML 在 电子商务 B2B （ Business   to   Business ） 应用 中 成为 企业 和 企业 之间 开放性 的 数据交换 标准 。 
+ 2   运用 XML 的 InternetExpress 技术 
+ 　 　 Delphi   5   Enterprise 的 InternetExpress 技术 帮助 用户 建立 基于 Web 浏览器 的 瘦 客户端 应用程序 ， 全新 HTML ／ XML   Web   Page 编辑器 以 可视化 方式 设计 客户端 应用程序 ， 并 将 运用 标准 XML 传送数据 ， 与 符合 业界 标准 COM 、 CORBA 、 MTS 的 MIDAS 多级 分布式 构架 相结合 ， 使 现有 系统 平滑 地 导入 电子商务 和 Internet 相关 应用 。 
+ 3   集成 Internet 应用 的 能力 
+ 　 　 Delphi   5   Enterprise 所 采用 的 WebBridge 技术 可以 让 单一 的 原代码 同时 支持 CGI 、 WIN － CGI 、 ISAPI 及 NSAPI 标准 ， 并 能够 生成 在 Microsoft   ASP 中 使用 的 Active   Server   Object 。 ActiveForms 技术 可以 把 Delphi 窗体 很 方便 地 转化成 ActiveX 组件 ， 将 现有 的 应用程序 快速 转化 为 基于 Web 浏览器 的 应用 模式 。 Delphi   5 中 超过 25 个 纯 VCL 支持 TCP ／ IP   nternet 通信协议 的 相关 组件 ， 帮助 将 收发 电子邮件 、 传送 文件 、 读取 新闻组 等 Internet 应用 与 用户 的 信息系统 集成 在 一起 。 
+ 4   One － Step   CORBA 创建 可 重用 组件 
+ 　 　 Delphi 是 第一个 支持 CORBA 分布式 组件 规范 的 快速 开发工具 。 CORBA 是 由 800 多个 软硬件 厂商 组成 的 OMG （ Object   Management   Group ） 组织 所 制定 的 开放 的 、 支持 多种 操作 平台 的 分布式 组件 规范 。 Delphi   5   Enterprise 包含 VisiBroker   CORBA   ORB   3 ． 3 ． 2 版 ， 并 提供 可视化 编辑 工具 ， 使 开发人员 不 需要 学习 CORBA   IDL ， 便 能 快速 建立 供 多种 平台 下 C ＋ ＋ 、 Java 、 Smalltalk 、 COBOL 等 程序语言 使用 的 CORBA 应用 组件 。 Delphi   5   Enterprise 支持 CORBA 特性 ， 也 能 使 Delphi 和 众多 基于 Java 的 电子商务 解决方案 顺利 集成 。 
+ 5 　   开放 并 具有 弹性 的 数据库 连接 能力 
+ 　 　 从 单机 个人 数据库 到 企业级 数据库 ， Delphi   5   Enterprise 提供 可扩展性 和 开发性 兼具 的 数据库 连接 方案 。 高性能 的 Borland   SQL   Link 驱动程序 提供 访问 Oracle   8i 、 Sybase   11 ． 5 、 Informix   9 、 Microsoft   SQL   Server   7 、 DB ／ 2   Universal   Server 和 InterBase 的 能力 ， 而 Borland   DataBase   Engine 提供 快速访问 Micrisoft   Access 、 FoxPro 、 dBASE 、 Paradox 等 单机 个人 数据库 或 任何 支持 ODBC 规范 的 数据库 。 此外 ， Delphi   5   Enterprise 提供 InterBase   Express 系列 组件 ， 能够 不 通过 Borland   Database   Engine 和 SQL   Link 驱动程序 ， 直接 、 快速访问 InterBase 数据库 ， 帮助 InterBase 用户 简化 分发 过程 ， 并 将 InterBase 应用程序 执行 效率 发挥 到 极致 。 
+ 6   访问 不同 类型 数据 资源 
+ 　 　 今天 IT 部门 所 面临 的 数据 来源 已 不仅仅 是 关系 型 数据库 。 Delphi   5   Enterprise 中 提供 了 ADOExpress 以 支持 Microsoft   Universal   Data   Access 构架 ， 能够 运用 Microsoft   ActiveX   Data   Object （ ADO ） 以及 OLEDB 驱动程序 ， 配合 Delphi   5 各种 便利 的 数据 感知 组件 访问 传统 的 关系 型 数据 和 非 关系 型 数据 ， 例如 电子邮件系统 和 文件系统 等 多样化 数据 ， 此外 Delphi   5   Enterprise 中 也 支持 Micrisoft   Remote   Data   Services （ RDS ） ， 以 建立 不 需要 状态 设置 的 瘦 客户端 应用程序 。 
+ 7   全面 支持 Oracle   8 对象 关联 扩展 功能 
+ 　 　 Delphi   5   Enterprise 针对 Oracle   8 对象 关联 扩展 功能 ， 如 Abstract   Data   Types 、 Nested   Tables 、 Variable   Length   Arrays 、 Object   Pointers （ REFs ） 和 External   File   References 等 提供 最 全面 的 支持 。 
+ 8   运用 MIDAS 开发 多级 分布式应用 系统 
+ 　 　 IT 部门 所 面临 的 最具 挑战性 的 课题 便是 开发 能够 保持 原有 系统 并 符合 未来 需求 的 新式 多级 分布式应用 系统 ， Delphi   5   Enterprise 所 提供 的 MIDAS 技术 可以 运用 现有 的 数据 感知 组件 ， 快速 开发 复杂 的 多级 应用程序 。 MIDAS 同时 支持 CORBAIIOP 、 DCOM 、 DCERPC 以及 TCP ／ IP 等 多种 连接 方式 。 新 版本 的 MIDAS   DataBroker 使用 无 状态  Stateless  设计 思想 ， 以 更好 地 配合 Microsoft   Transaction   Server 适应 低 带宽 环境 下 的 多级 分布式应用 。 全新 的 WebConnection 组件 可 利用 HTTP 通信协议 ， 访问 企业 防火墙 内 的 MIDAS 应用程序 服务器 ， 并 能 使用 SSL 加密 传送 的 数据 。 
+ 9   MIDAS 技术 
+ 　 　 MIDAS 技术 让 前端 应用程序 无需 作 任何 状态 设置 即可 执行 ， 节省 项目 维护 、 程序 分发 以及 在 主从 架构 进行 状态 设置 上 花费 的 成本 。 SimpleObjectBroker 提供 各种 组件 错误 恢复 和 负载平衡 的 能力 ， 确保 7 × 24 小时 商业 关键性 系统 的 顺利 运行 。 MIDAS 多级 应用 完全 遵循 业界 标准 分布式 组件 规范 CORBA 、 COM 、 MTS ， 不 参杂 任何 专有 的 解决方案 。 
+ 10   远端 调试 能力 
+ 　 　 针对 分布式系统 开发人员 对 多级 分布式 开发 环境 的 需求 ， Delphi 提供 了 远端 调试 能力 ， 让 开发人员 透过 网络 直接 对远 端的 CORBA 、 COM 组件 进行 调试 ， 使 复杂 的 多级 应用 系统 调试 变得 容易 。 
+ 11   将 企业 数据 转化 为 决策 信息 
+ 　 　 BusinessInsight 技术 ， 包括 DecisionCube 提供 交叉 分析 表 ， 帮助 用户 分析 多维 数据 。 Quick   Report   3 ． 0 版 让 用户 可以 轻松 地 建立 图文并茂 、 可 预览 和 打印 的 报表 。 TeeChart   4 ． 0 版 应用 图表 组件 ， 让 文字 资料 转化 为 可视化 信息 。 BusinessInsight 技术 完全 使用 Delphi 纯 VCL 组件 组成 。 
+ 12   对 Windows 环境 的 支持 
+ 　 　 Delphi   5 完全 支持 Windows   95 、 Windows   98 和 Windows   NT 的 各种 标准 ， 包括 Win32   API 、 COM 、 DCOM 、 ActiveX 、 OLE   Automation 、 DirectX 等 ， 并 能 建立 多线程 应用程序 及 NT   Services 、 Windows 控制面板 （ Control   Panel ） 组件 ， Delphi   5 还 提供 封装 Microsoft   Office   Automation 的 VCL 组件 ， 强化 了 和 Microsoft   Office 系列 套装 软件 的 集成 能力 。 
+ 13   TeamSource 强化 团队 开发 效率 
+ 　 　 Delphi   5   Enterprise 提供 全新 的 Team   Source 版本 管理系统 。 针对 分布 于 不同 地点 的 大型 开发 团队 ， 提供 更 有效 的 源代码 管理机制 。 Team   Source 版本 管理系统 也 可以 支持 PVCS 及其 它 源代码 管理系统 引擎 ， 帮助 用户 精确 控制 开发 团队 的 程序代码 版本 。 
+ 14   Borland   Translation   Suite 开发 国际化 应用 系统 
+ 　 　 Delphi   5   Enterprise 内建 的 Borland   Translation   Suite 帮助 用户 开发 适应 国际化 需求 、 能够 在 不同 语种 的 Windows 环境 下 执行 的 应用 系统 ， Borland   Translation   Suite 包含 多种 便利 工具 ， 用于 管理 可 重用 、 已经 翻译 过 的 文字 内容 ， 并 帮助 Delphi 界面 、 Windows 资源 （ Windows   Resource ） 内容 的 翻译 工作 。 
+ 15   结束语 
+ 　 　 Borland   Delphi   5 是 Inprise （ 原 Borland ） 公司 的 产品 ， 该 公司 以 Delphi 、 Borland   C ＋ ＋   Builder 及 JBuilder 等 开发工具 类产品 著称 于世 。 近年来 又 跻身于 企业级 市场 ， 为 企业 分布式 环境 提供 全方位 解决方案 ， 特别 在 CORBA 领域 居 领导 厂商 地位 。 欲 获得 Delphi   5 的 更 详细信息 ， 可拨打 电话  010  68915794 ／ 95 ／ 96 ／ 97 。  
+ 收稿 日期 ： 1999 － 11 － 25 

@@ -1,0 +1,103 @@
+环境 科学 学报 
+ ACTA   SCIENTIAE   CIRCUMASTANTIAE 
+ 1999 年   第 19 卷   第 3 期   Vol.19     No.3   1999 
+ 
+ 
+ 
+ 　 　 酸性 溶液 中铝 - 氟 反应 动力学 * 
+ 徐仁扣 　 季国亮 　 
+ 摘要 　 研究 了 酸性 溶液 中铝 - 氟 反应 的 动力学 ， 结果表明 ， 铝 - 氟 之间 的 反应 速率 随 温度 和 pH 的   升高 而 增加 . 低 pH 下以 Al3 ++ F - = AlF2 + 反应 为主 ， 较 高 pH 下 由于 AlOH2 + 参与 反应 及 OH - 的 催化作用 ， 反应 速率 加快 . 在 铝 的 浓度 比 氟 过量 10 倍 的 情况 下 ， 铝 - 氟 之间 的 反应 可以 用 一级 反应 动力学 方程 来 拟合 ， 即 为 假 一级 反应 . 当 pH ＜ 3.8 时 ， 柠檬酸 和 草酸 的 存在 使 反应速度 加快 ， 而 当 pH ＞ 3.8 时 ， 有机酸 使 铝 - 氟 反应速度 变慢 . 有机酸 在 不同 的 pH 下 存在 不同 的 作用 机制 . 
+ 关键词 　 酸性 溶液 ； 铝 - 氟 络合 反应 ； 动力学 . 
+ Kinetics   of   aluminum - fluoride   complexation   in   acid   solution 
+ XU   Renkou ,   JI   Guoliang   
+ The   Institute   of   Soil   Science ,   Chinese   Academy   of   Sciences ,   Nanjing   210008 
+ Abstract 　 The   results   of   a   study   on   the   kinetic   of   aluminum   fluoride   complexation   in   acid   solution   indicated   that   the   rate   of   the   reactions   increased   with   an   increase   of   pH   and   a   rise   in   temperature .   At   lower   pH ,   the   reaction ,   Al3 ++ F - = AlF   2 + ,   was   of   predominant .   At   higher   pH ,   the   rate   increasesd   due   to   the   involveme   nt   of   Al - OH   complexes   and   catalysis   of   OH - .   When   the   initial   concentration   of   aluminum   was   10   times   higher   than   that   of   fluoride ,   the   reaction   rate   followed   the   kinetic   equation   of   the   first   order   reaction .   The   aluminum - fluoride   complex   ation   was   influenced   by   organic - acids . When   pH   was   lower   than   3.8 , citric   acid   a   nd   oxalic   acid   accelerated   the   aluminum - fluoride   comple - xation , but   when   pH   was   higher   t   han   3.8 ,   they   slowed   down   the   complexation .   A   possible   mechanism   was   discussed . 
+ Keywords 　 acid   solution ,   aluminum - fluoride   complexation ,   kineti   cs . 
+ 　 　 随着 工业化 的 发展 ， 酸性 沉降 物 的 量 不断 增加 ［ 1 ］ ， 这 导致 土壤 和 地表水 的 酸化 速度 加快 ， 有毒 元素 铝 的 活动性 增加 ［ 2 ， 3 ］ . 土壤 和 地表水 均 为 开放 体系 ， 其 组成 及其 中 所 发生 的 化学反应 均 随着 环境 条件 的 改变 而 不断 发生变化 . 溶液 中铝 - 氟 之间 有 很 强 的 络合作用 ， 铝 - 氟 络合 反应 对 铝 的 溶解 、 铝 离子 的 形态 分布 及 铝 的 迁移 和 转化 都 具有 重要 的 影响 ， 研究 铝 - 氟 之间 的 络合 反应 动力学 对 改良 酸性 土壤 、 减轻 土壤 和 地表水 中 的 铝毒 及 保护环境 具有 重要 意义 . 
+ 1 　 材料 和 方法 
+ 1.1 　 溶液 的 配制 
+ 　 　 铝 溶液 ： 准确 称取 纯 铝箔 ( 含量 不少 于 99.5% ) 0.2698   g ， 在 20   mL 浓 HCl 中 完全 溶解 后 移入 1   L 容量瓶 中 ， 并用 去离子水 定容 至 刻线 ， 此 溶液 为 0.01   mol / L 的 铝 标准溶液 . 实验 中 所用 的 10 - 4   mol / L 铝 溶液 是 由 铝 标准溶液 稀释 配制 而成 ， 并用 稀 NaOH 溶液 小心 将 溶液 pH 调至 所 需 的 值 . 在 有机酸 对 铝 - 氟 反应 的 影响 的 实验 中 所用 的 溶液 ， 由 一定量 的 铝 标准溶液 和 有机酸 的 标准溶液 配制 而成 ( 除 特别 说明 外 ， 有机酸 浓度 均 为 0.1 mmol / L ) ， 用稀 NaOH 溶液 小心 将 溶液 pH 调至 所 需 的 值 ， 并 放置 2h ， 让 反应 达到 平衡 . 
+ 1.2 　 实验 方法 
+ 　 　 动力学 实验 中 游离 F - 的 活度 用 氟 电极 测定 . 除 温度 影响 实验 外 ， 所有 实验 都 在 12 - 13 ℃ 下 进行 . 虽然 在 此 温度 下 ， 氟 电极 从 空白 溶液 至 一定 浓度 的 响应 时间 较长 ， 一般 在 20 - 30s 之间 ， 但 氟 电极 对 F - 浓度 的 改变 的 响应 较 快 ( 图 1 ) ， 当 F - 浓度 从 4 μ mol / L 增加 至 7   μ mol / L 或 由 7 μ mol / L 增至 10 μ mol / L 时 ， 氟 电极 的 响应 时间 均 在 5   s 左右 . 因此 ， 如果 将 动力学 实验 中 的 第一点 的 读数 时间 定 在 20   s 之后 ， 则 用 氟 电极 测定 铝 - 氟 反应 过程 中 F - 的 活度 是 可行 的 . 
+ 　 　 进行 动力学 实验 时 ， 在 50   mL 的 塑料 烧杯 中 加入 50   mL ( 10 - 4   mol / L ) 的 铝 溶液 ， 用 磁力 搅拌器 搅拌 ， 将 氟 电极 和 甘汞 电极 浸入 溶液 ， 用 毫伏 计 测量 二 电极 的 电位差 ( 本 实验 用 ORION720 型 毫伏 计 ) . 用 微量 加液 器 加入 50 μ L ( 0.01   mol / L ) 氟 标准溶液 ， 使 氟 的 初始 浓度 为 10 - 5   mol / L ， 同时 按动 秒表 记 时 ， 定时 读取 电位差 值 ， 并 根据 标准 曲线 换算 成 F - 活度 值 . 由于 溶液 离子 强度 很 低 ， 可以 认为 溶液 中 离子 的 浓度 与 活度 相等 . 
+ 
+ 
+ 图 1 　 氟 电极 的 响应 特性 曲线 
+ Fig.1   Response   time   curves   of   a   fluoride   electrode 
+ 1.3 　 溶液 组成 的 计算 
+ 　 　 反应 开始 时 ， 铝 、 氟 的 浓度 分别 为 10 - 4   mol / L 和 10 - 5   mol / L ， 铝 离子 的 浓度 为 氟 离子 的 10 倍 ， 因此 可以 认为 反应 产物 仅为 AlF2 +. 假定 溶液 中 HF 的 离解 反应 的 速度 很快 ， 能 迅速 达到 平衡 ， 这样 就 可以 根据 某一 时刻 测定 的 游离 F - 的 活度 和 溶液 pH 计算 出 反应 产物 AlF2 + 的 浓度 ： 
+ ［ ALF2 + ] = [ F ] 总 - [ HF ] - [ F - ] = [ F ] 总 - [ F - ] - [ H + ] [ F - ] / KHF 
+ KHF 为 HF 的 离解 常数 ， 25 ℃ 下其值 为 6.8 × 10 - 4 ， 根据 反应 的 生成 热 的 数据 ［ 4 ］ 推算 的 平衡常数 与 温度 的 关系 为 ： logK = - 757.658 / T - 0.6288 ， T 为 绝对温度 . 
+ 2 　 结果 和 讨论 
+ 2.1 　 温度 和 pH 对 反应 速率 的 影响 
+ 　 　 铝 - 氟 之间 的 反应 速率 明显 受 温度 和 溶液 pH 的 影响 ， 如图 2 和 图 3 所示 . 
+ 
+ 
+ 图 2 　 pH 对 铝 - 氟 反应 速率 的 影响 ( 12 ℃ ) 
+ Fig.2   Effect   of   pH   on   the   rate   of   reaction   between   aluminum   and   fluoride   ( 12 ℃ ) 
+ 
+ 
+ 图 3 　 温度 对 铝 - 氟 反应 速率 的 影响 ( pH   3.44 ) 
+ Fig.3   Effect   of   temperature   on   the   rate   of   reaction   betw   een   aluminum   and   fluoride   ( pH3.44 ) 
+ 　 低 pH 下 反应 速率 很 慢   ， 当 温度 为 12   ℃ ， pH 为 3.75 时 ， 10   min 后仅 有 60% 的 氟 与 铝 反应 . 随着 pH 升高 ， 反应 速率 加快 ， 当 pH 增加 至 4.2 时 ， 在 2min 内 ， 几乎 所有 的 氟 均 与 铝 形成 了 络合物 . 当 pH 增至 4.31 时 ， 反应 几乎 在 1min 内 完成 ( 图 2 ) . 温度 的 增加 使 反应 活化能 降低 ， 反应 速率 加快 . 在 pH3.44 的 溶液 中 ， 13   ℃ 反应 8min 仅 有 28% 的 氟 与 铝 反应 ， 而 22 ℃ 时 形成 AlF2 + 络合物 的 氟 占 总 氟 的 91% ( 图 3 ) . 因此 ， 低温 和 低 pH 均 不利于 铝 - 氟 之间 的 络合 反应 . 
+ 2.2 　 络合 反应 对 一级 动力学 方程 的 拟合 及 反应 机制 
+ 　 　 溶液 中铝 - 氟 之间 有 如下 4 种 可能 的 反应 途径 ［ 5 ］ ： 
+ Al3 ++ F - = AlF2 + 
+ ( 1 ) 
+ AlOH2 ++ F - + H + = AlF2 ++ H2O 
+ ( 2 ) 
+ Al3 ++ HF = AlF2 ++ H + 
+ ( 3 ) 
+ AlOH2 ++ HF = AlF2 ++ H2O 
+ ( 4 ) 
+ 假定 反应 以式 ( 1 ) 、 ( 3 ) 为主 ， 由于 铝 的 初始 浓度 是 氟 的 10 倍 ， 可以 认为 其 浓度 在 反应 过程 中 基本 不变 ， 如果 反应 符合 一级 反应 ( 假 一级 反应 ) ， 则 有 ： 
+ d [ AIF2 + ] t / dt = K1 [ F - ] t + K2 [ HF ] t = K1 [ F - ] t + K2 [ H + ] [ F - ] t / KHF 
+ = ( K1 + K2 [ H + ] / KHF ) [ F - ] t 
+ ( 5 ) 
+ 又 有 
+ [ F ] 总 = [ AIF2 + ] + [ F - ] + [ HF ] = [ AIF2 + ] + [ F - ] + K2 [ H + ] [ F - ] t / KHF 
+ [ F - ] = (   [ F ] 总 - [ AIF2 + ]   ) KHF / ( KHF + [ H + ] ) 
+ ( 6   ) 
+ 将式 ( 6 ) 代入 式 ( 5 ) 得 
+ d [ AIF2 + ] t / dt = ｛ ( K1KHF + K2 [ H + ] ) / ( KHF + [ H + ]   ) ｝ ( [ F + ] 总 - [ AIF2 + ] t ) 
+ ( 7 ) 
+ 将式 ( 7 ) 积分 并取 [ AIF2 + ] 0 = 0 得 
+ ln (   [ F ] 总 - [ AIF2 + ]   ) t = -   Kt 
+ ( 8 ) 
+ 其中 K 为 表观 速率 常数 ， K = ( K1KHF + K2 [ H + ] ) / ( KHF + [ H + ] ) . 
+ 　 　 根据 不同 pH 下 铝 - 氟 反应 的 动力学 数据 ， 以 log ( [ F ] 总 - [ AIF2 + ] t ) 对 时间 t 作图 结果 见图 4 . 由图 可见 ， 在 pH3.44 - pH4.30 的 范围 内 log ( [ F ] 总 - [ AIF2 + ] t ) 与 时间 t 呈 直线 相关 ， 与 上述 推导 的 结果 相一致 . 说明 在 铝 过量 的 酸性 条件 下 ， 铝 - 氟 之间 的 络合 反应 符合 一级 反应 动力学 方程 . 从图 中 直线 的 斜率 可以 求 出 反应 的 表观 速率 常数 ( 表 1 ) . 随 pH 升高 ， 表观 反应 速率 常数 增大 ， 说明 铝 - 氟 之间 的 反应 速率 随 pH 升高 而 增加 . 根据 计算 出 的 表观 速率 常 数值 可 对 K1 和 K2 的 值 进行 比较 ， 结果表明 4 个 不同 pH 下 K1 均 大于 K2 ， 说明 在 酸性 条件 下 上述 反应 ( 1 ) 是 主要 反应 . 随着 pH 的 升高 ， 反应 速率 加快 ， 有人 认为 是 AlOH2 + 参与 反应 的 缘故 . 因为 OH - 和 F - 电荷 相同 ， 离子半径 相近 ， F - 取代 AlOH2 + 中 的 OH - 比 取代 Al ( H2O ) 63 + 中 的 H2O 容易 ［ 6 ］ . Ares ( 1986 ) 用 连续 加入 法 研究 铝 - 氟 之间 的 反应 时 发现 ， 每 加入 一次 氟 ， 溶液 pH 会 有 一个 迅速 升高 的 过程 ， 随后 则 变化 很小 ［ 7 ］ . 说明 上述 反应 机理 的 存在 . 在 本 实验 中 也 观察 到 这 一 现象 ， 即 加入 氟后 ， 溶液 pH 会 迅速 有 一 微小 的 升高 . 但 即使 在 比较 低 的 pH 范围 内 ， pH 的 改变 也 会 使 铝 - 氟 反应 速率 发生 明显 的 变化 ( 图 2 ) . 在 pH3.38 的 铝 溶液 中 ， 12   ℃ 时 AlOH2 + 仅 占 溶液 中 总 铝 的 1% 左右 ， 而 此时 铝 - 氟 反应 速率 比 pH2.89 时 已有 明显 的 增加 . 因此 ， 作者 认为 ， 在 铝 - 氟 反应 中 ， OH - 起 了 类似 催化剂 的 作用 ， 即 加入 的 F - 优先 与 AlOH2 + 反应 并 置换 出 的 OH - ， 置换 出 的 OH - 再 与 Al3 + 迅速 反应 形成 AlOH2 + ， 这样 即使 AlOH2 + 的 浓度 很 低 也 能 使 反应 速率 加快 . 
+ 表 1 　 不同 pH 时 铝 - 氟 反应 的 表观 速率 常数 
+ Table   1   Apparent   rate   constants   of   reaction   between   aluminum   and   fluoride   at   various   pH 
+ 
+ pH 速率 常数 ， s - 1 
+ 3.448 . 45 × 10 - 4 
+ 3.802 . 43 × 10 - 3 
+ 4.142 . 10 × 10 - 2 
+ 4.305 . 25 × 10 - 2 
+ 
+ 
+ 图 4 　 铝 - 氟 反应 对 一级 动力学 方程 的 拟合 
+ Fig.4   Fitting   of   the   reaction   between   aluminum   and   fluro   ide   to   the   first - order   kinetic   equation 
+ 2.3 　 有机酸 对 反应 速率 的 影响 
+ 　 　 有机酸 对 铝 - 氟 反应速度 的 影响 在 不同 的 pH 下有 不同 的 表现 ， 图 5 所示 为 柠檬酸 和 草酸 对 铝 - 氟 反应 速率 的 影响 . 
+ 
+ 
+ 图 5 　 柠檬酸 和 草酸 对 铝 - 氟 反应 速率 的 影响 
+ Fig.5   Effects   of   citric   and   oxalic   acids   on   the   rat   e   of   reaction   between   aluminum   and   fluoride 
+ 　 　 在 pH3.8 的 溶液 中 ， 两种 酸 的 存在 对 反应 速率 没有 明显 的 影响 ； 当 pH 小于 3.8 时 ， 柠檬酸 和 草酸 均 使 反应 速率 加快 ； 但 当 pH 大于 3.8 时 ， 有机酸 的 存在 使 反应 速率 降低 . 从 有机酸 的 浓度 对 铝 - 氟 反应 速率 的 影响 来看 ， 低 pH 下 ， 不同 浓度 有机酸 的 存在 ， 铝 - 氟 反应 速率 差别 不 大 ， 如图 6 所示 . 在 pH2.89 ， 草酸 浓度 分别 为 0.1   mmol / L 、 0.5   mmol / L 和 1.0   mmol / L 的 条件 下 ， 铝 - 氟 之间 的 反应 速率 无 明显 差别 . 但 在 较 高 pH 下 ， 随着 有机酸 浓度 的 增加 ， 铝 - 氟 反应 速率 逐渐 降低 ， 且 在 高浓度 下 ， 这种 差别 更 明显 ( 图 6 ) . 　 　 
+ 
+ 
+ 图 6 　 草酸 浓度 对 铝 - 氟 反应 速率 的 影响 
+ Fig.6   Effect   of   the   concentration   of   oxalic   acid   on   the   rate   of   reaction   between   aluminum   and   fluoride 
+ 不同 pH 下 有机酸 的 不同 表现 说明 存在 不同 的 反应 机制 ， 在 低 pH 下 ， 有机酸 以 分子 形态 与 铝 形成 弱键合 的 络合物 ( 外圈 型 ) ， 此时 有机 配体 比 H2O 更易 为 F - 所 置换 ， 所以 有机酸 的 存在 使 反应 速率 加快 . 但 在 pH 较 高 的 情况 下 ， 有机酸 的 离解 度 增加 ， 此时 有机酸 以 酸根 形态 与 铝 形成 强键合 的 络合物 ( 内圈 型 ) ， 有机 配体 不 容易 为 F - 所 置换 ， 铝 - 氟 反应 速率 变慢 ， 且 随 有机酸 浓度 增加 ， 有机 配体 与 F - 对 铝 的 竞争 作用 加强 ， 所以 在 较 高 pH 下 ， 随 有机酸 浓度 增加 ， 铝 - 氟 反应 速率 明显 减小 . 
+ * 国家自然科学基金 资助 的 研究课题 ( 49401009 ， 49471041 )   
+ 作者 单位 ： 中国科学院 南京 土壤 研究所 ， 南京 　 210008 
+ 参考文献 
+ ［ 1 ］ 　 丁 国安 等 . 中国 酸雨 现状及 发展趋势 . 科学 通报 ， 1997 ， 42 ( 2 ) ： 169   
+ ［ 2 ］ 　 Binkley   D   et   al .   Acid   deposition   and   forest   soil .   Ecological   Studies   72 .   Springer - Verlag   New   York   Inc .   1989.12 , 65 
+ [ 3 ]   Tamm   C   O ,   Hallbacken   L .   Changes   in   soil   pH   over   a   50 - year   period   under   diffe   rent   forest   canopies   in   SW   sweden .   Water   air   and   Soil   Pollut ,   1986 , 31 : 337 
+ [ 4 ]   Schecher   W   D ,   Driscoll   C   T .   ALCHEMI : a   chemical   equilibrium   model   to   assess   th   e   acid - base   chemistry   and   speciation   of   aluminum   in   dilute   solutions .   In   “ Chemi   cal   Equilibrium   and   Reaction   Models ”   Soil   Sci   Soc   of   Am ,   Am   Soc   of   Agron .   1995 .   325 
+ [ 5 ]   Plankey   B   J ,   Patterson   H   H . Kinetics   of   aluminum   fluoride   complexation   in   ac   idic   waters .   Environ   Sci   Technol ,   1986 , 20 : 160 
+ [ 6 ]   Ares   J .   Identification   of   aluminum   species   in   acid   forest   soil   solution   on   ba   sis   of   Al : F   reaction   kinetics :   1 . reaction   paths   in   pure   solution .   Soil   Sci ,   1986   , 141 : 399 
+ [ 7 ]   Ares   J . Identification   of   hydrolysis   products   of   aluminum   in   natural   water :   I .   n   - dimensional   calibration   of   Al / F   kinetic   pathways .   Anal   Chim   Acta ,   1986 , 187 : 181   
+ 1997 - 09 - 01 收到 原稿 　 1997 - 12 - 29 收到 修改稿 

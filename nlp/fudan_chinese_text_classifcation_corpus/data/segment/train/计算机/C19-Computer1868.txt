@@ -1,0 +1,121 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000   Vol.19   No.3   P.41 - 42 
+ 
+ 
+ 
+ Java   MPI 的 实现 
+ 张晓军 　 杨灿群 　 黄春 
+ 　 　 摘 　 要 ： 用 Java 编写 MPI 应用程序 , 则 应用程序 不仅 更 易于 在 各种 异构 网络 环境 下 运行 , 而且 能 充分发挥 现有 的 网络资源 的 能力 。 本文 主要 介绍 如何 实现 Java 语言 的 MPI 。 
+ 　 　 关键词 ： MPI 机制   Java 语言   网络 并行   JNI 
+ 　 　 MPI 是 Message - Passing   Interface 的 缩写 , 它 是 一种 在 多个 计算机 中 的 进程 之间 进行 通信 的 机制 。 通过 MPI , 不同 子 任务 间 可以 进行 通信 , 从而 达到 并行计算 的 目的 。 
+ 　 　 MPI 与 其它 并行 编程 环境 （ 如 PVM , express 等 ） 相比 , 使用 简单 、 编程 方便 。 它 具有 以下 主要 特点 : 
+ 　 　 （ 1 ） 通用性 强 , 即 适于 TCP / IP 网络 , 又 适于 MPP 大规模 并行 系统 ; 
+ 　 　 （ 2 ） 系统 规模 小 （ 约 几兆 字节 ） ; 
+ 　 　 （ 3 ） 所有 的 现有 并行机 厂商 都 宣布 支持 MPI ; 
+ 　 　 （ 4 ） 成熟度 高 ; 
+ 　 　 （ 5 ） 使用 简单 , 编程 方便 。 
+ 　 　 由于 以上 原因 , MPI 已 成为 目前 比较 流行 的 网络 并行 编程 环境 。 然而 MPI 只 支持 C 、 Fortran 和 C++ 语言 的 网络 分布 并行计算 环境 , 这 就 存在 MPI 应用程序 在 不同 系统 之间 的 二进制 兼容 的 问题 。 从而 导致 它们 不能 很 好 地 适应 用户 的 各种 异构 型 网络 , 特别 是 Internet 网络 。 
+ 　 　 Java 是 一种 新 的 面向对象 的 编程语言 , 它 只有 简单 、 面向对象 、 解释 执行 、 坚固 性 、 安全性 等 特色 。 特别 是 它 支持 网络 的 极具 吸引力 的 特征 。 首先 Java 的 源代码 可以 被 编译成 与 机器 平台 无关 的 字节 码 形式 , 字节 码对 平台 的 独立性 可以 保证 运行 过程 与 平台 的 独立 ; 其次 , Java 广泛 的 应用环境 。 如 Java   Applet 可以 嵌 在 HTML 主页 中 , 由 支持 Java 的 浏览器 自动 下载 和 执行 。 这种 特性 为 将 可 执行 软件包 传输 给 网络 上 的 每个 用户 提供 了 一个 简单 、 直接 的 方法 。 
+ 　 　 如果 把 Java 语言 和 MPI 结合 起来 , 提供 MPI 对 Java 语言 的 支持 。 使用 Java 语言 编写 MPI 应用程序 将 解决 原有 MPI 应用程序 的 平台 兼容问题 。 因而 可 充分利用 Internet 网络 上 的 现有 计算机 资源 , 进行 网络 并行计算 解决 大型 问题 。 
+ 　 　 本文 将 主要 介绍 怎样 在 MPI 中 提供 对 Java 语言 的 支持 , 最后 给出 1 个 Java   MPI 应用程序 的 例子 。 
+ 1   实现 原理 
+ 　 　 MPI 系统 使用 非常简单 , 它 提供 给 用户 的 只是 一组 库 程序 （ libmpi . a , libampi . a , libmpich . a 等 ） 。 程序员 通过 使用 这些 库中 的 库函数 来 编写 MPI 并行程序 。 以下 是 一个 简单 的 用 C语言 编写 的 例子 : 
+ 　 　 # include   ″ mpi . h ″ 
+ 　 　 main （ argc , argv ） 
+ 　 　 int   argc ; 
+ 　 　 char   ＊ ＊ argv ; 
+ 　 　 ｛ 
+ 　 　 　 　 　 char   message  20  ; 
+ 　 　 　 　 　 int   myrank ; 
+ 　 　 　 　 　 MPI _ Status   status ; 
+ 
+ 　 　 　 　 　 MPI _ Init （ & argc , & argv ） ; 
+ 　 　 　 　 　 MPI _ Comm _ rank （ MPI _ COMM _ WORLD , & myrank ） ; 
+ 　 　 　 　 　 if （ myrank = = 0 ） ｛   / ＊   code   for   process   zero   ＊ / 
+ 　 　 　 　 　 　 　 　 strcpy （ message , ″ Hello , there ″ ） ; 
+ 　 　 　 　 　 　 　 　 　 　 　 MPI _ Send （ message , strlen （ message ） , 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 MPI _ CHAR , 1 , 99 , 
+ 　 　 　 　 ″ MPI _ COMM _ WORLD ） ; 
+ 　 　 　 　 ｝ else   ｛ 　 　 　 / ＊ code   for   process   one ＊ / 
+ 　 　 　 　 　 　 MPI _ Recv （ message , 20 , MPI _ CHAR , 0 , 99 , 
+ 　 　 　 　 　 　 　 　 　 　 　 MPI _ COMM _ WORLD , & status ） ; 
+ 　 　 　 　 　 　 printf （ ″ received : % s ： \ n ″ , message ） ; 
+ 　 　 　 　 ｝ 
+ 　 　 　 　 MPI _ Finalize （ ） ; 
+ 　 　 ｝ 
+ 　 　 在 本例 中 , 进程 0   （ rank = 0 ） 向 进程 1 （ rank = 1 ） 发消息 串 “ Hello   there ” , 进程 1 从 进程 0 收 消息 , 消息 由 消息 信封 标识 。 在 编写 MPI 程序 时 , 首先 必须 要 调用 MPI _ Init 库函数 初始化 , 然后 才 可以 调用 MPI 库函数 MPI _ Comm _ rank 获得 进程 标识 , 并 通过 MPI 库函数 MPI _ Send 和 MPI _ Recv 发送 和 接收 消息 , 程序 的 结束 必须 调用 MPI _ Finalize 库函数 。 
+ 　 　 为了 使 MPI 能够 支持 Java 语言 , 必须 在 MPI 系统 中 提供 这些 库函数 的 Java 语言 接口类 （ 简称 jMPI ） 。 然而 , 从头到尾 用 Java 来 编写 1 个 jMPI 类 是 没有 必要 的 , 可以 利用 Java 的 JNI 技术 , 在 编写 jMPI 的 方法 时 通过 调用 相应 的 MPI   C 函数库 来 完成 对应 的 Java   MPI 功能 。 
+ 　 　 JNI （ Java   Native   Interface ） 是 1 个 本地 编程 接口 , 它 定义 了 一个 标准 的 命名 和 调用 协定 , 以 允许 运行 在 Java 虚拟机 中 的 Java 代码 与 用 其它 语言 （ C , C++ 和 汇编 ） 写 的 应用程序 和 库 进行 交互 。 
+ 2   具体 实现 
+ 　 　 jMPI 接口类 中 必须 实现 表 1 中所列 的 本地 方法 。 
+ 表 1   jMPI 接口类 中 实现 的 接口 方法 
+ 分类 本地 方法 名 
+ 消息 的 发送 和 接收 MPI _ Send ( ) , MPI _ Recv ( ) , MPI _ sendrecv ( ) , MPI _ 1send ( ) , MPI _ 1recv ( ) , 
+ MPI _ Prob ( ) , MPI _ Wait ( ) , MPI _ Test ( ) , MPI _ Cancel 
+ 用户 自定义 类型 MPI _ Type _ contiguous ( ) , MPI _ Type _ vector ( ) , MPI _ Type _ hvector ( ) , 
+ MPI _ Type _ indexed ( ) , MPI _ Type _ hindexed ( ) , MPI _ Type _ struct ( ) 
+ 使用 用户 自定义 类型 MPI _ Type _ commit ( ) , MPI _ Type _ free ( ) , MPI _ Get _ element ( ) , 
+ MPI _ Address ( ) , MPI _ Type _ lb ( ) , MPI _ Type _ ub ( ) 
+ 打包 和解 包 MPI _ Pack ( ) , MPI _ Unpack ( ) , MPI _ Pack _ Size ( ) , 
+ 通信 和 组 操作 MPI _ Group _ size ( ) , MPI _ Group _ rank ( ) , MPI _ Group _ incl ( ) , 
+ MPI _ Group _ excl ( ) , MPI _ Comm _ size ( ) , MPI _ Comm _ rank ( ) , MPI _ Comm _ dup ( ) 
+ 环境 管理 MPI _ Get _ processor _ name ( ) , MPI _ Wtime ( ) , MPI _ Init ( ) , MPI _ Finalize ( ) . 
+ MPI _ Initialized ( ) , MPI _ Abort ( ) 
+ 错误 信息处理 MPI _ Errhandler _ create ( ) , MPI _ Errhandler _ set , MPI _ Errhandler _ free ( ) , 
+ MPI _ Error _ string ( ) 
+ 
+ 　 　 下面 是 用 Java   JNI 编写 jMPI 类 的 过程 。 
+ 　 　 1 . 在 C语言 端 , 用 C 编写程序 jMPIInterface . c , 在 程序 中 实现 表 1 中 的 jMPI 本地 方法 , 该组 本地 方法 通过 调用 相应 的 MPI   C 库函数 来 完成 对应 MPI 系统 接口 的 功能 。 下面 列出 在 jMPIInterface . c 中 jMPI 的 spawn 本地 方法 的 实现 代码 。 
+ 　 　 JNIEXPORT   jint   JNICALL   Java _ jMPI _ Get _ processor 
+ 　 　 _ name （ JNIEnv    env , jobject   obj , jstring   jname , jint   jlen ） 
+ 　 　 ｛ 
+ 　 　 　 　 char ＊ cName ; 
+ 　 　 　 　 jint ＊ jval ; 
+ 　 　 　 　 / ＊ Get   string   information ＊ / 
+ 　 　 　 　 cName = （ char ＊ ） getJavaString （ jName ） ; 
+ 　 　 　 / ＊ Call   MPI   routine ＊ / 
+ 　 　 　 jval = （ jint ） MPI _ Get _ processor _ name （ cName , jlen ） ; 
+ 　 　 / ＊ Free   memory ＊ / 
+ 　 　 releaseJavaString （ jName , cName ） ; 
+ 　 　 return   jval ; 
+ 　 　 2 . 在 Java 端 , 编写 Java 程序 jMPI . java 实现 jMPI 类 。 在 该 程序 中用 native 关键字 来 声明 在 jMPIInterface . c 中 实现 的 本地 方法 。 以下 列出 jMPI . java 的 部分 代码 : 
+ 　 　 public   abstract   class   jMPI 
+ 　 　 ｛ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ┇ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ┇ 
+ 　 　 　 　 public   static   native   int   MPI _ Get _ processor _ name 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 （ char   ＊ name , int   ＊ len ） ; 
+ 　 　 　 　 public   static   native   int   MPI _ Init （ int   ＊ argc , char 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ＊ ＊ argv ） 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ┇ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ┇ 
+ 　 　 ｝ 
+ 　 　 3 . 建立 jMPI . h 文件 。 在 该 头文件 中 声明 了 jMPI 本地 方法 的 原型 , 该 文件 不用 手工 编写 , 只 需用 javah 工具 生成 。 过程 如下 : 
+ 　 　 javac   jMPI . java 
+ 　 　 javah - jni   jMPI 
+ 　 　 4 . 编译 jMPIInterface . c 文件 并 把 它 生成 动态链接库 libjMPI . so 。 
+ 3   编程 实例 
+ 　 　 以下 是 在 2 台 联网 的 ALPHA 工作站 上 （ 装有 UNIX 操作系统 , MPI1.1 , Java   JDK1.1 ） 运行 通过 的 Java   MPI 应用程序 实例 。 
+     / * * * * * * * * * * 文件名 : test . java * * * * * * * * * * / 
+     class   test    
+     static   public   void   main （ String [ ] args ） 
+ 　 　 char   buf [ ] = new   char ［ 128 ］ ; 
+ 　 　 　 　 int   i , j , id , np ; 
+ 　 　 　 　 Status   stat ; 
+ 　 　 　 　 String   host ; 
+ 　 　 　 　 　 MPI . Init （ args ） ; 
+ 　 　 　 　 　 host = MPI . Get _ processor _ name （ ） ; 
+ 　 　 　 　 　 np = MPI . COMM _ WORLD . Size （ ） ; 
+ 　 　 　 　 　 id = MPI . COMM _ WORLD . Rank （ ） ; 
+ 　 　 　 　 　 System . out . println （ ″ Process ″ + id + ″ / ″ + np + 
+ 　 　 　 　 　 　 　 ″ on ″ + host ） ; 
+ 　 　 　 　 　 MPI . Finalize （ ） ; 
+ 　 　 　 　 ｝ 
+ 　 　 ｝ 
+ 4   结束语 
+ 　 　 Java 与 MPI 的 结合 即能 发挥 Java 语言 可移植性 强 的 优势 , 又 能 通过 MPI 充分利用 网上 的 计算机 资源 , 实现 大型 问题 的 网络 并行计算 。 目前 , 基于 消息传递 的 网络 并行 编程 环境 除了 MPI 支持 Java 语言 编程 外 , PVM 也 支持 Java 语言 编程 , 不久 的 将来 , Express 、 Linda 、 P4 、 Zipcode 、 PARMACS 等 网络 并行 编程 环境 也 将 支持 Java 语言 编程 。 
+ 张晓军 （ 长沙 国防科技大学 计算机系  410073 ） 
+ 杨灿群 （ 长沙 国防科技大学 计算机系  410073 ） 
+ 黄春 （ 长沙 国防科技大学 计算机系  410073 ） 
+ 收稿 日期 ： 1999 - 09 - 20 

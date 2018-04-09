@@ -1,0 +1,204 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 2000 　 Vol.19 　 No.6 　 P.55 - 58 
+ 
+ 
+ 
+ 
+ 利用 RDS 实现 浏览器 环境 下 的 批量 数据 修改 
+ 彭 江平 　 谢勇 
+ 摘要 ： RDS 的 工作 原理 及 利用 RDS 实现 基于 浏览器 的 批量 数据 修改 的 具体 实现 方法 。 
+ 关键词 ： Remote   Data   Service （ RDS ） 　 浏览器 　 批量 数据 修改 
+ 　 　 在 因特网 日益 流行 的 今天 ， 如何 利用 浏览器 发布 已有 的 管理系统 收集 的 信息 ， 如何 实现 基于 浏览器 的 新型 管理系统 ， 如何 让 原本 在 单机 或 局域网 中 使用 的 数据库 应用 移植 到 因特网 中 ， 都 成为 亟待解决 的 问题 。 
+ 　 　 传统 的 数据库 应用 主要 完成 数据 维护 、 数据 查询 、 数据分析 决策 三个 方面 的 功能 。 为了 开发 基于 浏览器 的 数据库 应用 ， 就 需要 探讨 这三类 功能 在 新 的 环境 下 的 具体 实现 方法 。 本文 仅 就 与 数据 维护 功能 有关 的 数据 批量 修改 的 具体 实现 展开讨论 。 
+ 1     RDS 及其 工作 原理 
+ 　 　 RDS ( Remote   Data   Service ) 是 由 Microsoft 公司 开发 的 基于 浏览器 的 快速 而 高效 的 数据 连接 与 发布 的 基本 框架 ， 它 的 前身 V1.0 是 Advanced   Data   Connector ( 简称 ADC ) ， 到 V1.5 后 才 改名 为 RDS 。 它 是 基于 HTTP ， HTTPS ( HTTP   over   Secure   Sockets   layer ) 和 DCOM 应用 协议 的 客户 ／ 服务器 分布式应用 技术 。 通过 使用 具有 数据 感知 功能 的 ActiveX 控件 ， RDS 使得 开发 因特网 上 的 数据库 应用 可用 类似 开发 一般 客户 ／ 服务器 数据库 应用 的 方式 进行 。 要 了解 RDS 技术 ， 最 关键 的 是 了解 其 工作 模式 ， 如图 1 所示 。 
+ 
+ 图 1     RDS 的 工作 模式 
+ 　 　 从图 中 可知 ， 客户端 应用程序 通过 ActiveX   Data   Object ( ADO ) 访问 数据库 需要 通过 RDS ， RDS 就 好象 一个 帮助 ADO 对象 访问 数据 的 代理 。 这一 访问 模式 与 一般 的 ActiveX   Server   Page ( ASP ) 不同 ， 如图 2 所示 。 在 ASP 方式 下 ， ADO 对象 与 ODBC 在 同一 机器 上 ， 而 在 RDS 方式 下 ， ADO 与 ODBC 在 不同 的 机器 上 ， 因而 必须 通过 RDS 的 桥梁 作用 。 
+ 
+ 图 2     ASP 的 工作 模式 
+ 　 　 在 RDS 工作 模式 下 ， 数据 访问 更 适合 批量 工作 方式 ， 这 是 由 RDS 特殊 的 数据 访问 方式 决定 的 。 在 开始 工作 时 ， RDS 打开 Web 数据库 读取 所 需要 的 记录 ， 然后 复制 1 份 ； 而 ADO 对象 的 记录集 从 复本 中 读取数据 ； 在 记录集 读数据 后 ， 其 所有 处理 都 是 针对 这一 复本 ； 只有 在 调用 RDS 的 SubmitChanges 方法 后 ， 才 把 数据 提交 到 Web 数据库 。 其 工作 原理 如图 3 所示 。 
+ 
+ 图 3     RDS 访问 数据 模式 
+ 2     利用 RDS 实现 基于 浏览器 的 批量 数据 修改 
+ 　 　 在 使用 VB 等 快速 开发工具 设计 数据库 应用 时 ， 要 实现 对 数据 的 批量 修改 ， 最 直观 的 方法 是 使用 网格 ( Grid ／ Browse ) 控件 ， 只要 设置 好该 控件 的 属性 后 ， 就 可以 方便 地 实现 数据 添加 和 批量 修改 等 功能 。 在 浏览器 环境 下 ， 只 需要 在 页面 上 插入 网格 控件 与 RDS 控件 ， 并 设置 其 DataSrc 属性 为 相应 的 RDS ， 就 可以 实现 网格 控件 与 由 RDS 生成 的 记录集 之间 的 连接 。 遗憾 的 是 ， Microsoft 提供 的 网格 控件 仅能 显示 数据 ， 而 不能 实现 对 数据 的 修改 。 要 实现 对 数据 的 批量 修改 ， 还 需要 其它 方法 。 
+ 2.1   使用 ActiveX 控件 SSDBGrid 
+ 　 　 SSDBGrid 控件 是 由 Sheridan   SoftWare 所 开发 的 DBGrid 组件 ， 可以 利用 它 来 实现 数据 的 新增 、 删除 及外 修改 等 操作 。 具体 的 工作 过程 如下 。 
+ 　 　 ( 1 ) 在 浏览器 页面 上 插入 对象 
+ 　 　 在 浏览器 页面 上 插入 RDS 与 SSDBGrid 对象 ， 这 既 可以 借助 HTML 的 开发工具 ， 如 FrontPage 或 InterDev 等 ， 用 可视 的 方式 插入 ActiveX 控件 ， 也 可以 把 下面 的 代码 直接 写入 某个 HTML 编辑器 。 当然 ， 要 保证 设计 环境 下 已有 这 2 个 控件 。 其中 RDS 是 在 安装 IE4.0 以上 版本 时 自动 安装 的 ， 而 在 安装 新 版本 的 IIS ／ PWS 时 提供 了 1 个 SSDBGrid 控件 试用 版本 。 在 运行 测试 时 ， 浏览器 将 自动 下载 该 控件 ， 要 注意 的 是 ， 要 正确 设置 在 下面 插入 的 SSDBGrid 控件 代码 中 的 codebase 属性 ， 才 可以 顺利完成 控件 的 下载 过程 。 
+ 　 　 插入 RDS 控件 ： 
+ ＜ OBJECT   classid ＝ ″ clsid  BD96C556 － 65A3 － 11D0 － 983A － 
+ 　 00C04FC29E33 ″   ID ＝ ADC   HEIGHT ＝ 1   WIDTH ＝   1 ＞ 
+ ＜ ／ OBJECT ＞ 
+ 　 　 ① 在 页面 上 插入 RDS 对象 及 相关 的 命令 按钮 ( 如 “ 保存 ” 与 “ 取消 ” ) 。 
+ 　 　 ② 插入 Table 对象 ， 并 在 表格 的 单元格 中 插入 文本框 、 下拉框 、 选择 框等 HTML 组件 。 
+ 　 　 ③ 设置 属性 。 Table 对象 的 属性 设置 如下 ： 
+ 　 　 ＜ TABLE   WIDTH ＝ 100 ％   ALIGN ＝ center   BORDER ＝ 1 
+ 　 　 ID ＝ tab1   DataSrc ＝ ″ ＃ ADC ″   DataPageSize ＝ 2   CELLSPAC － 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ING ＝ 1   CELLPADDING ＝ 1 ＞ 
+ 　 　 2 个 最 关键 的 属性 DataSrc 与 DataPageSize ， 分别 表示 所 关联 的 RDS 数据 连接 名 和 分页 显示 表格 时 每页 显示 的 记录 数 。 
+ 　 　 使用 标记 ＜ THEAD ＞ ＜ ／ THEAD ＞ 与 ＜ TBODY ＞ ＜ ／ TBODY ＞ 分别 显示 表头 与 表体 。 
+ 　 　 为 表格 中 插入 的 文本框 、 选择 框等 设置 属性 如下 ： 
+ 　 　 ＜ TD ＞ ＜ INPUT   id ＝ text2   name ＝ text2   datafld ＝ name   ＞ ＜ ／ TD ＞ 
+ 　 　 ＜ TD ＞ ＜ SELECT   id ＝ select1   name ＝ select1   datafld ＝ sex ＞ 
+ 　 　 　 　 　 ＜ OPTION   value ＝ ″ 男 ″   selected ＞ 男 
+ 　 　 　 　 　 ＜ OPTION   value ＝ ″ 女 ″ ＞ 女 
+ 　 　 ＜ ／ SELECT ＞ ＜ ／ TD ＞ 
+ 　 　 主要 是 DataFld 属性 的 设置 ， 表示 所 关联 的 字 段 。 
+ 　 　 ④ 编写 代码 。 “ 保存 ” 与 “ 取消 ” 按钮 相关 的 代码 与 上面 讨论 类似 ， 而 对于 控制 表格 中 数据 的 数据 翻页 的 按钮 编写 如下 代码 。 
+ 　 　 ＜ INPUT   id ＝ button1   name ＝ button1 
+ 　 　 　 　 type ＝ button   value ＝ ″ 后 一页 ″   onclick ＝ tab1 . next － 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 Page ＞ ＜ P ＞ 
+ 　 　 ＜ INPUT   id ＝ button2   name ＝ button2 
+ 　 　 　 　 type ＝ button   value ＝ ″ 前 一页 ″   onclick ＝ tab1 . previ － 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ousPage ＞ ＜ P ＞ 
+ 　 　 下面 代码 是 1 个 完整 的 实例 。 
+ ＜ HTML ＞ 
+ ＜ HEAD ＞ 
+ ＜ BODY ＞ 
+ ＜ OBJECT   classid ＝ clsid  BD96C556 － 65A3 － 11D0 － 983A － 
+ 　 　 　 　 　 　 　 　 　 　 　 　 00C04FC29E33   height ＝ 1   id ＝ ADC 
+ width ＝ 1 ＞ ＜ ／ OBJECT ＞ 
+ ＜ SCRIPT   LANGUAGE ＝ ″ VBScript ″ ＞ 
+ ′ 插入 脚本 
+ SUB   Window ＿ OnLoad     ′ 初始化 
+ 　 Serverstr ＝ ″ http  ／ ／ ＜ ％ ＝ Request . ServerVariables ( ″ SERV － 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ER ＿ NAME ″ ) ％ ＞ ″ 
+ 　 　 Connectstr ＝ ″ DSN ＝ yypp ； uid ＝ scott ； pwd ＝ scott ； connect － 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 string ＝ yypp ； ″ 
+ 　 SQLstr ＝ ″ Select   *   from   student ″ 
+ 　 ADC . Server ＝ Serverstr 
+ 　 ADC . Connect ＝ Connectstr 
+ 　 ADC . SQL ＝ SQLstr 
+ 　 ADC . Refresh 
+ END   SUB 
+ SUB   Update ＿ OnClick     ′ 保存 
+ 　 　 On   error   Resume   Next 
+ 　 　 插入 SSDBGrid 控件 ： 
+ ＜ OBJECT   ID ＝ ″ GRID ″ WIDTH ＝ 600   HEIGHT ＝ 200 
+ 　 Datasrc ＝ ″ ＃ ADC ″ 
+ 　 codebase ＝ ″ http  ／ ″ ＜ ％ ＝ Request . ServerVariables ( ″ SERV － 
+ 　 　 　 　 ER ＿ NAME ″ ) ％ ＞ ／ MSADC ／ Samples ／ ssdatb32 . cab ″ 
+ 　 CLASSID ＝ ″ CLSID  AC05DC80 － 7DF1 － 11d0 － 839E － 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 00A024A94B3A ″ ＞ 
+ 　 ＜ PARAM   NAME ＝ ″ ＿ Version ″   VALUE ＝ ″ 131072 ″ ＞ 
+ 　 ＜ PARAM   NAME ＝ ″ BackColor ″   VALUE ＝ ″ － 2147483643 ″ ＞ 
+ 　 ＜ PARAM     NAME ＝ ″ BackColorOdd ″       VALUE ＝ ″ － 2147483643 ″ ＞ 
+ 　 ＜ PARAM   NAME ＝ ″ ForeColorEven ″   VALUE ＝ ″ 0 ″ ＞ 
+ 　 ＜ PARAM   NAME ＝ ″ AllowAddNew ″       VALUE ＝ ″ 1 ″ ＞ 
+ 　 ＜ PARAM   NAME ＝ ″ AllowDelete ″ 　 VALUE ＝ ″ 1 ″ ＞ 
+ ＜ ／ OBJECT ＞ 
+ 　 　 插入 提交 按钮 ： 
+ ＜ INPUT   TYPE ＝ BUTTON   NAME ＝ ″ Update ″   VALUE ＝ ″ 保存 ″ ＞ 
+ 　 　 ( 2 ) 设置 属性 
+ 　 　 在 插入 对象 后 ， 必须 适当 地 设置 控件 的 属性 。 在 这里 ， 主要 是 设置 Grid 控件 的 Datasrc 属性 为 相应 的 RDS 控件 ， 并 设置 它 的 参数 AllowAddnew 与 AllowDelet 的 值 为 “ 1 ” 。 
+ 　 　 Datasrc ＝ ″ ＃ ADC ″ 
+ 　 　 ＜ PARAM   NAME ＝ ″ AllowAddNew ″   VALUE ＝ ″ 1 ″ ＞ 
+ 　 　 ＜ PARAM   NAME ＝ ″ AllowDelete ″   VALUE ＝ ″ 1 ″ ＞ 
+ 　 　 ( 3 ) 编写 代码 
+ 　 　 在 标记 ＜ SCRIPT   LANGUAGE ＝ ″ VBScript ″ ＞ 与 ＜ ／ SCRIPT ＞ 之间 插入 代码 及 事件 处理程序 。 例如 ， 在 提交 批量 数据 修改 的 按钮 的 “ Click ” 事件 中 添加 如下 代码 ： 
+ ＜ SCRIPT   LANGUAGE ＝ ″ VBScript ″ ＞ 
+ SUB   Update ＿ OnClick 
+ 　 If   ADC . ReadyState   ＜ ＞   adcReadyStateLoaded   then 
+ 　 　 ADC . SubmitChanges     ′ 提交 修改 
+ 　 　 ADC . Refresh     ′ 重新 访问 数据 
+ 　 　 Grid . Rebind       ′ 重新 绑定 数据 
+ 　 Else 
+ 　 　 MsgBox   ″ Query   results   still   arriving ， Please   wait ″ 
+ 　 End   if 
+ END   SUB 
+ ＜ ／ SCRIPT ＞ 
+ 　 　 至此 ， 基于 浏览器 的 批量 数据 添加 、 删除 与 修改 程序 的 工作 就 已 基本 完成 了 。 在 安装 IIS4.0 或 相应 的 PWS 后 ， 上述 示例 的 完整 代码 可 在 目录 “ … ＼ msadc ＼ samples ＼ adctest . asp ” 中 找到 ， 因而 在 这里 不再 赘述 。 
+ 2.2   使用 HTML 
+ 　 　 在 IE4.0 后 ， Microsoft 公司 扩展 了 基本 的 HTML ， 使 其 与 RDS 结合 ， 共同 组成 一个 开发 基于 浏览器 的 数据库 应用 的 基本 框架 。 一方面 ， HTML 组件 是 浏览器 内建 的 组件 ， 不 需要 传输 或 安装 ； 另一方面 ， 不 需要 附加 的 费用 ； 最后 ， HTML 的 各种 标记 使用 起来 非常 方便 。 下面 通过 实例 ， 具体 说明 RDS 与 HTML 结合 实现 基于 Web 的 数据库 应用 的 过程 。 
+ ＜ HTML ＞ 
+ ＜ HEAD ＞ 
+ ＜ BODY ＞ 
+ ＜ OBJECT   classid ＝ clsid ： BD96C556 － 65A3 － 11D0 － 983A － 00C04FC29E33   height ＝ 1   id ＝ ADC   width ＝ 1 ＞ ＜ ／ OBJECT ＞ 
+ ＜ SCRIPT   LANGUAGE ＝ ″ VBScript ″ ＞ 
+ ′ 插入 脚本 
+ SUB   Window ＿ OnLoad     ′ 初始化 
+ 　 Serverstr ＝ ″ http  ／ ／ ＜ ％ ＝ Request . ServerVariables ( ″ SERV － 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ER ＿ NAME ″ ) ％ ＞ ″ 
+ 　 Connectstr ＝ ″ DSN ＝ yypp ； uid ＝ scott ； pwd ＝ scott ； connect － 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 string ＝ yypp ； ″ 
+ 　 SQLstr ＝ ″ Select   *   from   student ″ 
+ 　 ADC . Server ＝ Serverstr 
+ 　 ADC . Connect ＝ Connectstr 
+ 　 ADC . SQL ＝ SQLstr 
+ 　 ADC . Refresh 
+ END   SUB 
+ SUB   Update ＿ OnClick     ′ 保存 
+ 　 On   error   Resume   Next 
+ 　 　 ADC . SubmitChanges 
+ 　 　 If   Err . Number ＜ ＞ 0   then 
+ 　 　 　 　 ADC . CancelUpdate 
+ 　 　 End   If 
+ 　 　 ADC . Refresh 
+ END   SUB 
+ SUB   Cancel ＿ OnClick 　 ′ 取消 
+ 　 　 ADC . CancelUpdate 
+ 　 　 ADC . Refresh 
+ END   SUB 
+ ＜ ／ SCRIPT ＞ 
+ ＜ TABLE   WIDTH ＝ 100 ％   ALIGN ＝ center   BORDER ＝ 1   ＞ 
+ ＜ TR ＞ ＜ TD ＞ ＜ INPUT   id ＝ button1   name ＝ button1 
+ 　 　 type ＝ button   value ＝ ″ 后 一页 ″   onclick ＝ tab1 . next － 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 Page ＞ ＜ ／ TD ＞ 
+ ＜ TD ＞ ＜ INPUT   id ＝ button2   name ＝ button2 
+ 　 　 type ＝ button   value ＝ ″ 前 一页 ″   onclick ＝ tab1 . previ － 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ousPage ＞ ＜ ／ TD ＞ 
+ ＜ TD ＞ ＜ INPUT   TYPE ＝ button   NAME ＝ ″ Update ″   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 VALUE ＝ ″ 保存 ″ ＞ ＜ ／ TD ＞ 
+ ＜ TD ＞ ＜ INPUT   TYPE ＝ button   NAME ＝ ″ Cancel ″   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 VALUE ＝ ″ 取消 ″ ＞ ＜ ／ TD ＞ 
+ ＜ ／ TR ＞ ＜ ／ TABLE ＞ 
+ ＜ TABLE   WIDTH ＝ 100 ％   ALIGN ＝ center   BORDER ＝ 1 
+ 　 　 ID ＝ tab1   DataSrc ＝ ″ ＃ ADC ″   DataPageSize ＝ 2 
+ 　 　 　 　 　 　 　 　 　 CELLSPACING ＝ 1   CELLPADDING ＝ 1 ＞ 
+ 　 　 ＜ THEAD ＞ 
+ 　 　 ＜ TR ＞ 
+ 　 　 　 　 ＜ TD ＞ num ＜ ／ TD ＞ 
+ 　 　 　 　 ＜ TD ＞ name ＜ ／ TD ＞ 
+ 　 　 　 　 ＜ TD ＞ sex ＜ ／ TD ＞ 
+ 　 　 　 　 ＜ TD ＞ mariage ＜ ／ TD ＞ 
+ 　 　 　 　 ＜ TD ＞ tel ＜ ／ TD ＞ 
+ 　 　 　 　 ＜ TD ＞ address ＜ ／ TD ＞ 
+ 　 　 　 　 ＜ ／ TR ＞ 
+ 　 　 ＜ ／ THEAD ＞ 
+ 　 　 ＜ TBODY ＞ 
+ 　 　 ＜ TR ＞ 
+ 　 　 　 　 ＜ TD ＞ ＜ INPUT   id ＝ text1   name ＝ text1 
+ 　 　 　 　 　 　 　 　 　 DataFld ＝ ″ num ″   ＞ ＜ ／ TD ＞ 
+ 　 　 　 　 ＜ TD ＞ ＜ INPUT   id ＝ text2   name ＝ text2 
+ 　 　 　 　 　 　 　 　 　 datafld ＝ name       ＞ ＜ ／ TD ＞ 
+ 　 　 　 　 ＜ TD ＞ ＜ SELECT   id ＝ select1   name ＝ select1 
+ 　 　 　 　 　 　 　 　 　 datafld ＝ sex ＞ 
+ 　 　 　 　 ＜ OPTION   value ＝ ″ 男 ″   selected ＞ 男 
+ 　 　 　 　 ＜ OPTION   value ＝ ″ 女 ″ ＞ 女 
+ 　 　 　 　 ＜ ／ SELECT ＞ ＜ ／ TD ＞ 
+ 　 　 　 　 ＜ TD ／ ＜ INPUT   type ＝ ″ checkbox ″   id ＝ check － 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 box1   name ＝ checkbox1 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 datafld ＝ mari ＞ ＜ ／ TD ＞ 
+ 　 　 　 　 ＜ TD ＞ ＜ INPUT   id ＝ text3   name ＝ text3   datafld ＝ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 tel ＞ ＜ ／ TD ＞ 
+ 　 　 　 　 ＜ TD ＞ ＜ INPUT   id ＝ text4   name ＝ text4   datafld ＝ 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 address ＞ ＜ ／ TD ＞ 
+ 　 　 ＜ ／ TR ＞ 
+ 　 　 ＜ ／ TBODY ＞ 
+ ＜ ／ TABLE ＞ 
+ ＜ ／ BODY ＞ 
+ ＜ ／ HTML ＞ 
+ 　 　 上面 讨论 了 如何 在 表格 的 单元格 中 插入 各式各样 的 控件 ， 设置 表格 的 DataSrc 属性 及 相关 单元格 的 控件 的 DataFld 属性 。 事实上 ， 也 可以 不 使用 表格 ， 而 直接 设置 插入 控件 的 DataSrc 与 DataFld 属性 。 如 ： 
+ ＜ INPUT   id ＝ text3   name ＝ text3   DataSrc ＝ ″ ＃ ADC ″   
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 Datafld ＝ tel   ＞ 
+ 　 　 通过 把 多个 这样 的 控件 组合 在 一起 ， 就 可以 实现 自由式 的 单 记录 的 添加 、 显示 、 修改 与 删除 等 操作 。 
+ 　 　 随着 因特网 的 普及 ， Web 数据库 技术 将 不断 成熟 。 本文 介绍 的 方法 ， 虽然 已 具有 一定 的 实用价值 ， 但 仍 有 一些 问题 需要 解决 ， 如 安全性 问题 。 因为 大多数 代码 是 在 客户端 执行 ， 因而 许多 代码 可以 从 浏览器 查看 ， 例如 ， 连接 数据库 的 连接 串 等 ， 虽然 可以 通过 Web 服务器 上 ODBC 连接 串 的 设置 隐藏 一部分 信息 ， 但 毕竟 还是 一个 安全隐患 。 
+ 彭 江平 （ 长沙 湖南 财经学院 信息 统计 系 410079 ） 
+ 谢勇 （ 湖南 长信 信息系统 集成 有限公司 ） 
+ 参考文献 
+ 1 ， 王国 荣 ， 朱琳杰 ， 王伟 ． Active   Server   Page   ＆ 数据库 ． 北京 ： 人民邮电出版社 ， 1999 
+ 2 ， Martiner   W ． Visual   Basic 快速 Web 开发 指南 ． 北京 ： 电子   工业 出版社 ， 1998 
+ 3 ， 彭 江平 ， 周 大庆 ， 蒋苏 湘 等 ． Internet ／ Intranet 的 开发 与 应用 ． 成都 ： 电子科技 大学 出版社 ， 1999 
+ 收稿 日期 ： 1999 － 12 － 11 

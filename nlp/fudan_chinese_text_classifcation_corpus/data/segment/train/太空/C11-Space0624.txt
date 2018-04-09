@@ -1,0 +1,30 @@
+上海 航天 
+ AEROSPACE   SHANGHAI 
+ 2001   Vol.18   No.1   P.39 - 43 
+ 
+ 
+ 
+ 
+ 卫星 姿态控制 系统 自主 故障诊断 与 重构 
+ 吴 德安 　   
+ 摘 　 要 ： 以 某极轨 对 地 观测 卫星 为 背景 ， 分析 了 姿态控制 系统 中 单机 部件 出现 故障 时 ， 系统 将会 出现 的 状态 变化 情况 ， 找出 故障 部件 的 判定 方法 ； 提出 采用 产生 式 规则 与 框架 的 混合 知识 表示 结构 ， 描述 姿 控系统 及其 故障 特点 ； 并 提出 了 系统 发生 故障 时 ， 故障 部件 的 自主 隔离 、 备份 部件 的 自主 切换 和 系统 重构 方案 。 仿真 初步 验证 了 该 方案 的 可行性 。 
+ 关键词 ： 卫星 姿态控制 ； 故障诊断 ； 重构 
+ 分类号 ： V448.22 + 2 　 文献 标识码 ： A 
+ 文章 编号 ： 1006 － 1630 （ 2001 ） 01 － 0039 － 05 
+ Automating   Fault   Diagnosis   and   Replacement   for   Satillite   Attitude   Control   System 
+ WU   De - an （ No.812   Institute   of   SAST ,   Shanghai   200233 ,   China ） 　 
+ 
+ Abstract ： This   article   analyzes   the   status   change   in   the   attitude   control   system   when   faults   appear   based   on   one   polar - orbit   satellite ,   and   provides   a   method   to   decide   faulty   component .   It   also   puts   forward   a   mixed   knowledge   represention   which   uses   generating   rules   and   frames   to   describe   attitude   control   system   and   fault   characteristics   and   the   approach   for   automatic   seperation   of   faulty   component ,   automatic   switch   of   spare   parts   and   system   replacement .   Simulation   test   verifies   the   system ' s   fearibility . 
+ Keywords ： Satellite   attitude   control ;   Fault   diagnosis ；   System   rebuild 
+ 作者简介 ： 吴 德安 （ 1967 - ） ， 男 ， 工程师 ， 硕士 ， 研究 领域 ： 卫星 姿 控系统 设计 。   
+ 作者 单位 ： 吴 德安 （ 上海 航天技术 研究院 812 所 ， 上海   200233 ） 　 
+ 
+ 参考文献 ： 
+ ［ 1 ］ 田盛丰 . 人工智能 原理 与 应用 [ M ] . 北京 ： 北京理工大学 出版社 , 1993 . 
+ ［ 2 ］ Sergio   B , G . Diagnostic   Models   for   Engineer   Process   Management   Tools [ J ] . Reliability   Engineering   and   System   Safety , 1990 , 30 ： 21 ～ 50 . 
+ ［ 3 ］ Holtzman , S .   Intelligent   Decision   Systems [ M ] . Addison - Wesley , Menlo   Park , CA , 1989 . 
+ ［ 4 ］ Raiffa ,   H .   Decision   Analysis [ M ] .   Addison   Wesley , Reading , MA , 1968 . 
+ 
+ 收稿 日期 ： 1999 年 9 月 1 日 
+ 修稿 日期 ： 2000 年 9 月 19 日 
+ 出版日期 ： 2001 年 2 月 25 日 

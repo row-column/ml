@@ -1,0 +1,74 @@
+自动化 学报 
+ ACTA   AUTOMATICA   SINICA 
+ 1999 年   第 25 卷   第 6 期   Vol.25   No.6   1999 
+ 
+ 
+ 
+ 关于 H ∞ 代数 Riccati 方程 可 解性 的 频率 
+ 判据 和解 的 Yakubovich 算法 1 ) 
+ 陈阳舟 　 刘家 琦 　 陈 善本 
+ 关键词 　 H ∞ 代数 Riccati 方程 ， 半 正定 镇定 解 ， 频率 判据 ， Yakubovich 算法 . 
+ ON   H ∞   ALGEBRAIC   RICCATI   EQUATION ：   FREQUENCY   CRITERION 
+ OF   SOLUBILITY   AND   YAKUBOVICH   ALGORITHM   OF   SOLUTION 
+ CHEN   Yangzhou 
+ ( Dept .   of   Automation ,   Beijing   Polytechnic   University ,   Beijing 　 100022 ) 
+ LIU   Jiaqi 
+ ( School   of   Astronautics ,   Harbin   Inst .   of   Tech . ,   Harbin 　 150001 ) 
+ CHEN   Shanben 
+ ( National   Key   Laboratory   of   Advanced   Welding   Production , 
+ Harbin   Inst .   of   Tech . ,   Harbin 　 150001 ) 
+ Key   words 　 H ∞   algebraic   Riccati   equation ,   positive   semi - definite   stabilizing   solution ,   frequency   criterion ,   Yakubovich   algorithm . 
+ 1 　 引言 
+ 　 　 众所周知 ， 在 H ∞ 控制 问题 的 状态 空间 解法 中 关键 的 步骤 是 判断 代数 Riccati 方程 
+ - CTC - ATY - YA + Y ( BBT - γ - 2GGT ) Y = 0 　 　 ( 1 ) 
+ 半 正定 镇定 解 的 存在 性 并 求出 该解 ［ 1 ， 2 ］ . 上式 中 A ， B ， G ， C 为 给定 的 适当 维数 的 实矩阵 ； γ 为 一 预先 未知 的 正 实数 ， 它 代表 着 干扰 抑制 水平 ； 上标 “ T ” 表示 矩阵 或 向量 的 转置 . 目前 ， 虽然 有 许多 方法 ( 如 牛顿 迭代法 、 哈米 顿 矩阵 的 不变 子 空间 法 、 广义 特征 子 空间 法 、 矩阵 符号 函数 法等 ) 可用 来 求解 代数 Riccati 方程 ， 但 由于 方程 ( 1 ) 中 参数 γ 事先 未知 ， 使得 应用 这些 方法 时 需要 反复 试探 参数 γ 以 判断 解 的 存在 性 . 本文 中 我们 在 ( C ， A ) 能 观测 这样 一个 稍强 的 假定 下 给出 式 ( 1 ) 的 半 正定 镇定 解 存在 的 一个 易 检验 的 频率 判据 ， 并 给出 一个 直观 的 几何 解释 . 同时 将 原 方程 转化 为 可 利用 Yakubovich 算法 ［ 3 ］ 来 求解 . 
+ 2 　 频率 判据 和 Yakubovich 算法 
+ 　 　 在 ( A ， B ， C ) 能 稳能观 ( 即 ( A ， B ) 能稳 ( C ， A ) 能观 ) 假定 下 ， 方程 ( 1 ) 存在 半 正定 镇定 解 Y ( 即使 得 A - BBTY + γ - 2GGTY 为 Hurwitz 矩阵 的 半 正定 解 ) 当且 仅 当 方程 ［ 2 ］ 
+ γ - 2GGT - BBT + AX + XAT + XCTCX = 0 　 　 ( 2 ) 
+ 存在 正定 解 X ( 此解 事实上 也 是 式 ( 2 ) 的 镇定 解 ) ， 并且 有 Y = X - 1 . 
+ 　 　 引入 如下 记号 ： 算子 意指 对 一 多项式 矩阵 M ( λ ) ， M ( λ ) = M * ( - λ ) ， 符号 * 表示 共轭 转置 ， i 表示 虚数 单位 ， 
+ 　 　 ( 3a ) 
+ 　 　 ( 3b ) 
+ 　 　 定理 1 . 　 假定 在 方程 ( 1 ) 中 ( A ， B ， C ) 能 稳能观 ， 且 A 无 对称 于 虚轴 的 特征 根 ， 则 方程 ( 1 ) 存在 半 正定 镇定 解 的 充分 必要条件 是 ： a ) 对 任意 的 实 ω ， 有 
+ W2 ( i ω ) W * 2 ( i ω ) - γ - 2W1 ( i ω ) W * 1 ( i ω ) + I ＞ 0 　 　 ( 4 ) 
+ ( 从而 方程 ( 2 ) 有 镇定 解 X ) ； b ) 方程 ( 2 ) 的 镇定 解为 正定 的 . 
+ 　 　 证明 . 显然 只 需要 说明 条件 a ) 的 充分 必要性 . 方程 ( 2 ) 可以 写成 Lur ' e 型 方程 
+ γ - 2GGT - BBT + AX + XAT + HHT = 0 ，   H = - XCT ， 　 　 ( 5 ) 
+ 或 等价 地 写成 恒等式 ( 对 任意 适当 维数 的 复 向量 z , w ) 
+ 　 2Rez * X ( - ATz + CTw ) + z * ( BBT - γ - 2GGT ) z + w * w = 
+ ( w - HTz ) * ( w - HTz ) . 　 　 ( 6 ) 
+ 不失 一般性 ， 假定 A 无 对称 于 虚轴 的 特征 根 . 事实上 ， 由于 ( C ， A ) 能观 ， 则 存在 矩阵 K 使得 - AT + CTKT 无 对称 于 虚轴 的 特征 根 . 从而 代替 方程 ( 5 ) 可以 考查 方程 
+ γ - 2GGT - BBT - KKT + ( A - KC ) X + X ( A - KC ) T + H1HT1 = 0 , 
+ H1 = - XCT - K . 
+ 现 假定 恒等式 ( 6 ) 成立 ， 则 当 z , w 满足 - ATz + CTw = i ω z 时 ， 可 得 
+ C ( i ω I - A ) - 1 ( BBT - γ - 2GGT ) ( - i ω I - AT ) - 1CT + I ＞ 0 . 　 　 ( 7 ) 
+ 事实上 ， 条件 ( 7 ) 不仅 是 恒等式 ( 6 ) 对 某个 X ， H 成立 的 必要条件 而且 是 充分条件 ， 这是 Kalman - Yakubovich 引理 给出 的 结论 ［ 6 ］ . 
+ 证毕 . 
+ 　 　 定理 1 给出 了 方程 ( 1 ) 可解 的 一个 频率 判据 . 这个 判据 有 一个 简单 的 几何 解释 . 以下 假定 在 式 ( 1 ) 矩阵 C 为 行向量 c ( 即 考虑 单 输出 情况 ) 且 ( A ， B ， c ) 能 稳能观 . 
+ 　 　 直线 判据 . 　 令 L ( i ω ) = ( W1 ( i ω ) W * 1 ( i ω ) ， W2 ( i ω ) W * 2 ( i ω ) ) ， 则 方程 ( 1 ) 有半 正定 镇定 解当且 仅 当 L ( i ω ) 当 ω 从 0 变到 + ∞ 时 在 ( x , y ) 平面 坐标系 中 的 图像 位于 直线 γ - 2x - y = 1 的 左边 ( 从而 方程 ( 2 ) 有 镇定 解 ) ， 且 方程 ( 2 ) 的 镇定 解 正定 . 
+ 　 　 方程 ( 1 ) 的 正定 镇定 解可 应用 Yakubovich 算法 求得 ［ 3 ］ ： 
+ 　 　 1 )   计算 式 ( 3 ) 中 的 Φ ( λ ) 并 分解 Φ ( λ ) = φ ( λ ) φ ( λ ) ， 使 φ ( λ ) 为首 项 系数 为 1 的 Hurwitz 反 稳定 多项式 ； 
+ 　 　 2 )   计算 多项式 φ ( λ ) - δ ( λ ) 和 多项式 矩阵 c λ 的 系数 
+ 
+ 其中 n 为 矩阵 A 的 阶次 ； 
+ 　 　 3 )   由 方程 qjH = kj ( j = 1 , … n ) 求解 矩阵 H ； 
+ 　 　 4 )   当 A 无 对称 于 虚轴 的 特征 根时 ， 由 Lyapunov 方程 
+ AX + XAT + ( HHT + γ - 2GGT - BBT ) = 0 
+ 求出 X ； 否则 ， 选择 一个 矩阵 K 使得 AK = : A - KC 无 对称 于 虚轴 的 特征 根 ， 然后 由 
+ AKX + XATK + γ - 2GGT - BBT - KKT + ( K - H ) ( K - H ) T = 0 
+ 求出 X ； 
+ 　 　 5 )   如果 X 正定 ， 则 求 Y = X - 1 . 
+ 3 　 结束语 
+ 　 　 本文 给出 了 H ∞ 代数 Riccati 方程 存在 正定 镇定 解 的 一个 频率 判据 . 对于 单 输出 情况 给出 了 一个 几何 解释 . 这种 几何 判别 方法 可以 很 方便 地 应用 Matlab 软件包 实现 . 另外 ， 还 将 Yakubovich 仅 对 标准 代数 Riccati 方程 给出 的 算法 用来 计算 H ∞ 代数 Riccati 方程 正定 镇定 解 . 需 指出 的 是 ， 定理 1 中 条件 b ) 可用 另 一些 等价 条件 代替 ， 本文 限于 篇幅 不予 讨论 . 
+ 1 )   国家教委 留学 回国 人员 专项基金 和 国家自然科学基金 资助 项目 . 
+ 作者简介 ： 陈阳舟 　 1963 年生 ， 1994 年 在 俄罗斯 圣彼得堡 大学 获 理学博士 学位 . 1996 年 3 月 至 1998 年 3 月 在 哈尔滨工业大学 从事 博士后 研究 工作 . 现为 北京工业大学 自动化系 副教授 . 目前 主要 的 研究 领域 有 鲁棒控制 、 最优控制 和 微分 对策 等 . 
+ 　 　 　 　 　 陈 善本 　 1956 年生 ， 工学 博士 ， 现任 哈尔滨工业大学 教授 、 博士生 导师 . 目前 研究 领域 有 鲁棒控制 、 最优控制 、 机器人 焊接 智能化 相关 的 理论 与 应用 等 . 
+ 　 　 　 　 　 刘家 琦 　 1941 年生 ， 现为 哈尔滨工业大学 教授 、 博士生 导师 、 副校长 . 主要 从事 计算 数学 、 应用 数学 和 应用 地球物理 等 领域 有关 反 问题 的 研究 . 
+ 作者 单位 ： 陈阳舟 　 北京工业大学 自动化系 　 北京 　 100022 
+ 　 　 　 　 　 刘家 琦 　 哈尔滨工业大学 航天 学院 　 哈尔滨 　 150001 
+ 　 　 　 　 　 陈 善本 　 哈尔滨工业大学 焊接 国家 重点 实验室 　 哈尔滨 　 150001 
+ 参考文献 
+ 1 　 Doyle   J ,   Glover   K ,   Khargonekar   P ,   Francis   B .   State - space   solutions   to   standard   H ∞   and   H2   control   problems . IEEE   Trans .   Autom .   Control , 1989 ， 34 ( 8 ) ： 831 ～ 847 
+ 2 　 Scherer   C .   H ∞ - control   by   state   feedback :   an   iterative   algorithm   and   characterization   of   high - gain   occurrence . Sys .   and   Control   Lett . ,   1989 ( 12 ) ： 383 ～ 391 
+ 3 　 Yakubovich   V   A .   Frequency   theorem   in   control   theory   ( in   Russian ) .   Siberian   Math .   Zh . ,   1973 ,   16 ( 2 ) ： 385 ～ 420 
+ 收稿 日期 　 1997 - 05 - 13 　 收 修改稿 日期 　 1998 - 08 - 20 

@@ -1,0 +1,121 @@
+计算机 应用 研究 
+ APPLICATION   RESERCH   OF   COMPUTERS 
+ 2000     Vol.17 　 No.1 　 P.1 - 5 
+ 
+ 
+ 
+ 
+ 关联 规则 采掘 综述 
+ 铁治欣 　 陈奇 　 俞瑞钊 
+ 摘要 　 介绍 了 关联 规则 采掘 问题 的 研究 情况 ， 对 一些 典型 采掘 算法 进行 了 分析 和 评价 ， 指出 了 关联 规则 衡量标准 的 不足 ， 展望 了 关联 规则 采掘 的 未来 研究 方向 。 
+ 关键词 　 数据 采掘 关联 规则 大项 集 知识 发现 
+ 1 　 引言 
+ 　 　 近年来 ， 数据 采掘 技术 的 研究 引起 了 国际 人工智能 和 数据库 等 领域专家 与 学者 的 广泛 关注 [ 1   ～ 3 ] 。 在 事务 数据库 中 采掘 关联 规则 是 数据 采掘 领域 中 的 一个 非常 重要 的 研究课题 。 它 是 由 R   . Agrawal 等 人 首先 提出 的 [ 4 ] 。 有 一个 关联 规则 的 例子 就是 “ 90% 的 客户 在 购买 面包 的 同时 也 会 购买 牛奶 ” ， 其 直观 意义 为 顾客 在 购买 某些 商品 的 时候 有 多 大 倾向 购买 另外 一些 商品 。 关联 规则 的 应用 主要 包括 顾客 购物 分析 、 目录 设计 、 商品 广告 邮寄 分析 、 追加 销售 、 仓储   规划 、 网络故障 分析 等 。 
+ 　 　 关联 规则 的 采掘 问题 可 形式化 描述 如下 [ 4 , 5 ] ： 
+ 　 　 设 I = { i1 ， i2 ， ... ， im } 是 由 m 个 不同 的 项目 组成 的 集合 。 给定 一个 事务 数据库 D ， 其中   的 每 一个 事务 T 是 I 中 一组 项目 的 集合 ， 即 TI ， T 有 一个 唯一 的 标识符 TID 。 若 项集 XI 且 XT   ， 则 事务 T 包含 项集 X 。 一条 相联 规则 就是 形如 X ( Y 的 蕴涵 式 ， 其中 XI ， YI ， X ∩ Y = φ 。 相联   规则 XY 成立 的 条件 是 ： ① 它 具有 支持 度 s 。 即 事务 数据库 D 中 至少 有 s% 的 事务 包含 X ∪ Y 。 ② 它   具有 置信度 c 。 即 在 事务 数据库 D 中 包含 X 的 事务 至少 有 c% 同时 也 包含 Y 。 
+ 关联 规则 的 采掘 问题 就是 在 事务 数据库 D 中 找出 具有 用户 给定 的 最小 支持 度 minsup 和 最小 置   信度 minconf 的 关联 规则 。 
+ 　 　 采掘 关联 规则 问题 可以 分解 为 以下 两个 子 问题 [ 4 , 5 ] ： 
+ 　 　 ① 找出 存在 于 事务 数据库 中 的 所有 大项 集 。 项集 X 的 支持 度 support ( X ) 不 小于 用户 给定 的 最   小 支持 度 minsup ， 则 称 X 为 大项 集 ( largeitemset ) 。 
+ 　 　 ② 利用 大项 集 生成 关联 规则 。 对于 每个 大项 集 A ， 若 BA ， B ≠ φ ， 且 Support ( A ) / Support ( B ) m   inconf ， 则 有 关联 规则 B ( A - B ) 。 
+ 　 　 第 ② 个子 问题 比较 容易 ， 其 生成 算法 可 参见 文献 [ 5 ] 。 目前 大多数 研究 集中 在 第一个 子 问题   上 。 以下 我们 对 算法 的 介绍 也 集中 在 第一个 子 问题 上 。 
+ 2 　 关联 规则 研究 现状 
+ 2.1 　 采掘 关联 规则 的 一般 步骤 
+ 　 　 R . Agrawal 等 人 在 文献 [ 4 ] 中 首先 提出 了 关联 规则 的 采掘 问题 并 给出 解决 此 问题 最 原始 的 算   法 AIS 之后 ， 该 问题 得到 了 国际 人工智能 和 数据库 等 领域 学者 的 密切 关注 ， 提出 了 多种 的 算   法 。 所有 的 采掘 算法 不论 它 是 采用 什么 数据结构 ， 其 复杂程度 、 效率 如何 ， 它们 都 可以 分为   如下 几个 步骤 。 
+ 　 　 ① 预处理 与 采掘 任务 有关 的 数据 。 根据 具体 问题 的 要求 对 数据库 进行 相应 的 操作 ， 从而 构成   规格化 的 数据库 D 。 
+ 　 　 ② 针对 D ， 求 出 所有 满足 最小 支持 度 的 项集 ， 即 大项 集 。 由于 一般 情况 下 我们 所 面临 的 数据   库 都 比较 大 ， 所以 此步 是 算法 的 核心 。 
+ 　 　 ③ 生成 满足 最小 置信度 的 规则 ， 形成 规则 集 R 。 
+ 　 　 ④ 解释 并 输出 R 。 
+ 2.2 　 主要 研究 方向 和 典型 算法 分析 
+ 　 　 R . Agrawal 等 人 提出 了 关联 规则 的 采掘 问题 以后 ， 该 问题 的 研究 得到 了 长足 地 发展 。 到 目前   为止 ， 其 主要 的 研究 方向 有 ： 
+ 　 　 ( 1 ) 多 循环 方式 的 采掘 算法 
+ 　 　 此类 算法 包括 Agrawal 等 人 提出 的 AIS [ 4 ] ， Apriori 、 AprioriTid 和 AprioriHybrid [ 5 ] 、 Park   等 人 提出 的 DHP [ 6 ] ， Savasere 等 人 的 PARTITION [ 7 ] 以及 Toivonen 提出 的 抽样 算法 Sampling   [ 8 ] 等等 。 其中 最 有效 和 有 影响 的 算法 为 ： Apriori ， DHP 和 PARTITION 。 
+ 　 　 在 算法 AIS 中 ， 候选 大项 集是 在 扫描 数据库 的 过程 中 产生 的 。 具体地说 ， 在 对 数据库 进行 第 k   次 扫描 时 ， 候选 大项 集 ( 其中 每 一个 元素 的 元素 个数 不 一定 是 k 个 ， 可以 大于 k ) 是 由 第 k - 1 次 扫描 所 产生 的 边界 集 ( Frontierset ) 通过 增加 当前 事务 中 的 项 得到 ， 同时 计算 候选 大项 集中 的 元素 的 支持 数 ， 直到 某 一次 扫描 所 产生 的 边界 集为 空时 停止 运算 。 应该 注意 的 是 ， 第 k 次 扫描 所 产生 的 边界 集要 大于 本次 扫描 生成 的 大项 集 。 本 算法 的 缺点 在于 生成 的 候选 大项 集太大 。 
+ 　 　 算法 Apriori 和 AprioriTid 利用 “ 在 给定 的 事务 数据库 D 中 ， 任意 大项 集 的 子集 都 是 大项 集 ；   任意 弱项 集 的 超集 都 是 弱项 集 ” 这一 原理 对 事务 数据库 进行 多遍 扫描 ， 第一次 扫描 得出 大 1 项集 L1 ， 第 k ( k > 1 ) 次 扫描 前先 利用 第 k - 1 次 扫描 的 结果 ( 即大 k - 1 项集 Lk - 1 ) 和 函数 Apriori _ g   en [ 5 ] 产生 候选 大 k 项集 Ck ， 然后 在 扫描 过程 中 确定 Ck 中 每 一 元素 的 支持 数 ， 最后 在 每 一遍 扫   描 结束 时 计算 出大 k 项集 Lk ， 算法 在 当 候选 大 k 项集 Ck 为 空时 结束 。 由于 充分利用 的 上述 原理   ， 这 两个 算法 所 产生 的 候选 大项 集要 比 算法 AIS 小得多 ， 从而 提高 了 算法 的 效率 。 算法 Aprio   riTid 还有 另外 一个 特点 ， 即仅 在 第一次 扫描 时用 事务 数据库 D 计算 候选 大项 集 的 支持 数 ， 其   它 各次 扫描 用 其 上 一次 扫描 生成 的 候选 事务 数据库 D ' 来 计算 候选 大项 集 的 支持 数 。 在 最后 的   几次 扫描 中 ， D ' 的 大小 要 远远 小于 D ， 减小 了 I / O 操作 时间 ， 提高 了 算法 的 效率 。 算法 Aprio   riHybrid 是 算法 Apriori 与 算法 AprioriTid 的 结合 ， 当 候选 事务 数据库 D ' 不能 完全 容纳 于 内   存时 用 算法 Apriori ， 当 内存 能够 完全 容纳 候选 事务 数据库 D ' 时 ， 则 用 算法 AprioriTid 。 
+ 　 　 算法 DHP 利用 哈希 ( Hashing ) 技术 有效 地 改进 了 候选 大项 集 的 生成 过程 ， 产生 了 比 前述 算法 更   小 的 候选 大项 集 ( 对大 2 候选 集 尤为 明显 ) ， 同时 也 缩减 了 事务 数据库 的 大小 ， 减小 了 I / O 操作   时间 ， 其 效率 比 算法 Apriori 有 明显提高 。 
+ 　 　 算法 PARTION 分为 两个 部分 。 在 第一 部分 中 ， 算法 首先 将要 在 其中 发现 关联 规则 的 事务 数据   库 D 分为 n 个 互不 相交 的 事务 数据库 D1 ， D2 ， ... ， Dn ， Di ( i = 1 , 2 , ... , n ) 的 大小 要求   能够 容纳 在 内存 之中 ， 然后 将 每 一个 分 事务 数据库 Di ( i = 1 , 2 , ... , n ) 读入 内存 并 发现 其   中 的 大项 集 Li ， 最后 在 第一 部分 结束 时 将 所有 分 事务 数据库 的 大项 集合 并 成为 一个 在 事务 数   据库 D 中 的 潜在 大项 集 算法 第二 部分 计算 潜在 大项 集 PL 在 事务 数据库 D 中 的 支持 数 ， 并 得出 大项 集 L 。 该 算法 只 对 事务 数据库 D 扫描 两次 ， 大大减少 了 I / O 操作 ， 从而 提高 了 算法 的 效率 。 
+ 　 　 算法 Sampling 设计 思想 为 ： 对 事务 数据库 D 进行 随机抽样 得到 抽样 事务 数据库 D ' ， 先 以 小于   用户 给定 的 最小 支持 度 的 支持 度 发现 存在 于 D ' 中 大项 集 L ' ， 再 在 剩下 的 数据库 D - D ' 中 继续 计   算 L ' 中 各 元素 的 支持 数 ， 最后 以 用户 给定 的 最小 支持 度 计算 出 大项 集 L 。 在 大部分 情况 下 ，   可以 用此 方法 发现 正确 的 大项 集 ， 但 有时 可能 会 漏掉 一些 大项 集 ， 这时 可以 对 D 进行 第二次   扫描 以 得出 漏掉 的 大项 集 。 此 算法 在 大部分 情况 下 可以 只 对 D 进行 一次 扫描 就 得出 大项 集 ，   最坏 的 情况 对 D 进行 两次 扫描 ， 因而 算法 效率 较 高 。 
+ 　 　 ( 2 ) 增量 式 更新 算法 
+ 　 　 关联 规则 的 增量 式 更新 问题 主要 有 两个 ： ① 在 给定 的 最小 支持 度 和 最小 置信度 下 ， 当 一个 新   的 事物 数据 集 db 添加 到 旧 的 事物 数据库 DB 中时 ， 如何 生成 db ( DB 中 的 关联 规则 ； ② 给定 事物   数据库 DB ， 在 最小 支持 度 和 最小 可信度 发生变化 时 ， 如何 生成 数据库 DB 中 的 关联 规则 。 文 [ 9 ] 考虑 了 关联 规则 更新 的 第一类 问题 ， 给出 了 一个 基本 框架 与 算法 Apriori [ 5 ] 相一致 的 算法 FUP 。 文 [ 10 ] 针对 关联 规则 更新 的 第二类 问题 进行 了 研究 ， 设计 出 了 相应 的 算法 IUA 和 PIUA 。 
+ 　 　 算法 FUP 的 基本 思想 为 ： 对 任意 一个 k ( k1 ) 项集 ， 若 其 在 DB 和 db 中 都 是 大项 集 ， 则 其 一定 是   大项 集 ； 若 其 在 DB 和 db 中 都 是 弱项 集 ， 则 其 一定 是 弱项 集 ； 若 其仅 在 DB ( db ) 中是 大项 集 ， 则   其 支持 数应 加上 其 在 db ( DB ) 中 的 支持 数以 确定 它 是否 为 大项 集 。 算法 FUP 假设 在 DB 中 发现 的   大项 集 ( n 为 L 中 最大 元素 的 元素 个数 ) 已 被 保存 下来 。 它 需要 对 DB 和 db 进行 多次 扫描 ， 在 第   1 次 扫描 中 ， 算法 先 扫描 db ， 将 L1 中 的 元素 仍为 db ( DB 中 的 大项 集 的 元素 记入 L ' 1 ， 并 生成 候   选大 1 项集 C1 ， C1 中 的 元素 为 db 中 的 大 1 项集且 不 包含 在 L1 中 ； 然后 扫描 DB 以 决定 C1 中 的 元素   是否 为 db ( DB 中 的 大项 集 ， 并 将 是 db ( DB 中 的 大项 集 的 元素 记入 L ' 1 中 。 在 第 k ( k > 1 ) 次 扫描 前   ， 先对 L ' k - 1 用 Apriori _ Gen ( ) 函数 生成 候选 大 k 项集 Ck ， 并 除去 Lk 中 的 元素 ， 即 Ck = Ck - Lk ，   对 Lk 进行 剪枝 ， 即 对于 X ∈ Lk ， 若 存在 Y ∈ Lk - 1 - L ' k - 1 ， 则 X 肯定 不会 是 db ∪ DB 中 的 大 k 项集 ， 应 将 其 在 Lk 中 删除 ； 然后 扫描 db ， 将 Lk 中 的 元素 仍为 db ∪ DB 中 的 大项 集 的 元素 记入 L ' k ， 记录 候选 大 k 项集 Ck 中 的 元素 在 db 中 的 支持 数 ； 最后 扫描 DB ， 记录 Ck 中 的 元素 在 DB 中 的 支持 数 ， 扫描 结束 时 ， 将 Ck 中是 db ∪ DB 中 大项 集   的 元素 记入 L ' k 中 。 算法 在 Lk 和 Ck 均 为 空时 结束 。 由于 利用 了 对 DB 进行 采掘 的 结果 ， 本 算法 的 效率 比 再 一次 利用 算法 Apriori 或 DHP 对 db ∪ DB 进行 采掘 的 效率 要 高得 多 。 
+ 　 　 算法 IUA 采用 了 一个 独特 的 候选 大项 集 生成 算法 iua _ gen ， 在 每 一次 对 数据库 DB 扫描 之前 生成   较 小 的 候选 大项 集 ， 从而 提高 了 算法 的 效率 。 它 也 要求 上 一次 对 数据库 DB 进行 采掘 时 发现 的   大项 集 ( n 为 L 中 最大 元素 的 元素 个数 ) 在 本次 采掘 时 是 可 得到 的 。 因为 人们 在 发现 关联 规则 时 ， 常常 需要 不断 地 调整 最小 支持 度 和 最小 可信度 来 聚集 到 那些 真正 令其 感兴趣 关联 规则 上   ， 因而 本 算法 具有 很 重要 的 意义 。 
+ 　 　 ( 3 ) 并行 发现 算法 
+ 　 　 目前 已经 提出 的 并行 采掘 关联 规则 的 算法 有 ： Agrawal 等 人 提出 的 CD ( Count   Distribution )   、 CaD ( Candidate   Distribution ) 、 DD ( Data   Distribution ) [ 11 ] ， Park 等 人 提出 的 PDM [ 12 ] 。 Chueng 等 人 提出 的 算法 DMA [ 13 ] 和 FDM [ 14 ] 虽然 是 基于 分布式 数据库 的 采掘 算法 ， 但 也 可   适用 于 并行 采掘 。 
+ 　 　 算法 CD 具有 速度 较 快 、 容易 实现 、 要求 各 计算机 间 同步 次数 较少 等 优点 ， 但 它 有 通信量 大 和   候选 大项 集大 等 缺点 。 算法 CaD 、 DD 及 PDM 的 执行 效果 都 不如 CD [ 13 ] 。 算法 DMA 虽 克服 了 算法 C   D 的 一些 弱点 ， 但 它 要求 各 计算机 间 同步 次数 较 多 。 算法 FDM 与 算法 DMA 基本一致 ， 区别 在于 F   DM 中 增加 了 全局 剪枝 技术 。 
+ 　 　 这些 算法 都 是 基于 无 共享 体系结构 ， 即 并行计算 的 n 台 计算机 之间 除了 用 网络连接 起来 以外   ， 其它 都 是 完全 独立 的 。 每台 计算机 Pi ( i = 1 , 2 , ... , n ) 上 都 有 自己 的 分 事务 数据库 DBi ， 总 的 事务 数据库 。 
+ 　 　 算法 CD 是 算法 Apriori 在 并行 环境 下 的 应用 ， 它 要求 计算机 Pi ( i = 1 , 2 , ... , n ) 对 DBi 进行 多遍 扫描 。 在 第 k 次 扫描 ， 当 k > 1 时 ， 计算机 Pi ( i = 1 , 2 , ... , n ) 首先 利用 第 k - 1 次 扫描 所得   的 大项 集 Lk - 1 和 Apriori _ Gen ( ) 函数 生成 候选 大项 集 Ck ， 当 k = 1 时 ， 计算机 Pi 先 扫描 DBi 得出   其中 的 大 1 项集 ， 再 与 其它 计算机 得到 的 大 1 项集 进行 交换 并 进行 合并 ， 从而 生成 候选 大 1 项   集 C1 ； 然后 扫描 DBi 计算 Ck 中 的 元素 在 DBi 中 的 支持 数 ， 计算机 Pi 广播 Ck 中 元素 的 支持 数 ， 并   接收 从 其它 计算机 传来 的 Ck 中 元素 的 支持 数 ， 并 对 这些 支持 数 进行 累加 ， 得出 Ck 中   元素 的 全局 支持 数 ； 最后 计算 出大 k 项集 Lk ， 若 Lk 中 元素 个数 为 1 ， 则 算法 结束 。 
+ 　 　 算法 DMA 是 基于 “ 若 项集 X 在 DB 中是 大项 集 ， 则 其必 在 某 一个 DBi 也 是 大项 集 ” 的 原理 进行 设计 。 算法 中 采用 局部 剪枝 技术 ( Local   pruning ) ， 使 其 生成 的 候选 大项 集比 算法 CD 要 小 。 算法 各个 站点 进行 支持 数 交换 时 采用 轮询 站点 技术 ( polling   site ) ， 使 每 一个 项集 X 的 通讯 代   价由 算法 CD 的 o ( n2 ) 降为 o ( n ) ， 其中 n 为 站点 个数 。 它 可 分为 如下 几步 ： ① 生成 候选 大 k 项集 CHiK 。 根据 计算机 Pi ( i = 1 ， 2 ， ... ， n ) 在 k - 1 次 循环 所 生成 的 稠密 集 HLiK - 1 ， 生成 循环 k 所 需用 的 候选 大 k 项集 CHiK ， 即 ② 支持 数 计算 。 扫描 DBi 计算 候选 大 k 项 集中 的 每个 元素 X 的 局部 支持 数 X . supi 。 ③ 交换 支持 数 。 采用 轮询 站点 技术 与 其它 计算机 交换 候选 大 k 项 集中 的   元素 的 支持 数 ， 并 计算 它 的 全局 支持 数 。 ④ 生成 大项 集 Lk 和 稠密 集 。 中 的 元素 具有 下列 性质 ： 它 在 DBi 和 DB 中 都 是 大项 集 。 
+ 　 　 ( 4 ) 采掘 一般 或 多层 关联 规则 
+ 　 　 在 研究 采掘 关联 规则 的 过程 中 ， 许多 学者 发现 在 一些 实际 应用 中 ， 由于 数据 比较 少 ， 要 想 在   原始 的 概念 层次 上 发现 强 的 ( Strong ) 和 有趣 的 ( Interesting ) 关联 规则 是 比较 困难 的 ， 因为   好 多项 集 往往 没有 足够 的 支持 数 。 由于 概念 层次 在 要 采掘 的 数据库 中 经常 是 存在 的 ， 比如 在   一个 连锁店 会 存在 这样 概念 层次 ： 光明 牌 牛奶 是 牛奶 ， 牛奶 是 食品 等 ， 我们 称 高层次 的 项 是   低层次 项 的 父亲 ， 这种 概念 层次 关系 通常 用 一个 有 向 非 循环 图 ( DAG ) 来 表示 。 于是 我们 就 可   以 在 较 高 的 概念 层次 上 发现 关联 规则 。 基于 要 采掘 的 数据库 中 的 概念 层次 和 发现 单一 概念 层   次 中 的 关联 规则 的 算法 ， 学者 们 提出 了 许多 高效 发现 一般 或 多层 关联 规则 的 算法 ， 主要 有 ：   Han 等 人 的 ML _ T2L1 及其 变种 ML _ T1LA 、 ML _ TML1 、 ML _ T2LA [ 15 ] 和 R . Srikant 等 人 的 Cumulate 、   Stratify 及其 变种 Estimate 、 EstMerge [ 16 ] 等 。 
+ 　 　 算法 ML _ T2L1 的 基本 思想 是 首先 根据 要 发现 的 任务 从原 事务 数据库 生成 一个 根据 概念 层次 信   息 进行 编码 的 事务 数据库 ， 利用 这个 具有 概念 层次 信息 的 新 生成 的 数据库 ， 自顶向下 逐层 递   进地 在 不同 层次 发现 相应 的 关联 规则 。 它 实际上 是 算法 Apriori 在 多 概念 层次 环境 中 的 扩展   。 根据 对 在 发现 高层 关联 规则 过程 中 所用 的 数据结构 和 所 生成 的 中间 结果 共享 方式 的 不同 ，   算法 ML _ T2L1 有 三个 变种 ： ML _ T1LA 、 ML _ TML1 、 ML _ T2LA 。 
+ 　 　 算法 Cumulate 的 基本 思想 与 Apriori 完全 一样 ， 只是 在 扫描 到 事务 数据库 某一 事务时 ， 将 此   事务 中 所有 项 的 祖先 加入 到 本 事务 中 ， 并 加入 三个 优化 ： ① 对 加入 到 事务 中 的 祖先 进行 过滤   。 ② 预先 计算 概念 关系 T 中 的 每 一个 项 的 祖先 ， 得到 项集 与其 祖先 的 对照表 T * 。 ③ 对 既 包含   项集 X 又 包含 X 的 祖先 的 项集 进行 剪枝 。 
+ 　 　 算法 Stratify 基于 “ 若 项集 X 的 父亲 不是 大项 集 ， 则 X 肯定 不会 是 大项 集 ” 的 事实 进行 设计 。 其 基本 思想 为 ： 在 概念 层次 有 向 非 循环 图中 ， 定义 没有 父亲 的 项集 X 的 深度 depth ( X ) = 0 ， 其   它 项集 的 深度 为 ： 算法 要 对 事务 数据库 进行 多遍 扫描 ， 第 kk ( 0 ) 次 扫描 计算 深度 为 kk ( 0 ) 的 所有 项集 Ck 的 支持 数 ， 并 得出 深度 为 kk ( 0 ) 的 大项 集 Lk ， 在 第 kk ( 1 ) 次 扫描 之前 ， 对 Ck 进行 剪枝 ， 即 删除 Ck 中 那些 祖先 包含 在 Ck - 1 - Lk - 1 中 的 元素 。 围绕 着 怎样 及早 决定 某些 深度 较大 的 项集 是否是 大项 集 问题 ， 文献 [ 16 ] 用 抽样 技术 对算   法 Stratify 进行 扩展 ， 形成 算法 Estimate 和 EstMerge 。 
+ 　 　 ( 5 ) 采掘 多值 属性 关联 规则 
+ 　 　 关联 规则 可 分为 布尔 型 关联 规则 和 多值 属性 关联 规则 。 多值 属性 又 可 分为 数量 属性 和 类别 属   性 。 多值 属性 关联 规则 采掘 问题 首先 在 文献 [ 17 ] 中 提出 。 目前 提出 的 采掘 多值 属性 关联 规则   的 算法 大多 是 将 多值 属性 关联 规则 采掘 问题 转化 为 布尔 型 关联 规则 采掘 问题 ， 即将 多值 属性   的 值 划分 为 多个 区间 ， 每个 区间 算作 一个 属性 ， 将 类别 属性 的 每 一个 类别 当作 一个 属性 。 
+ 　 　 文 [ 17 ] 中 发现 的 多值 属性 关联 规则 的 形式 为 ： x = qxy = qy ， 其 前件 和 后件 对应 的 都 是 单一 的   数值 ， 而 不是 一个 区间 ， 文中 提出 的 算法 比较简单 ， 但 当 我们 需要 发现 所有 属性 之间 的 关联   规则 时 ， 我们 将 遇到 属性 组合 的 爆炸 问题 。 
+ 　 　 文 [ 18 ] 用 “ 偏 完整性 度量 （ partial   completenessmeasure ） ” 原则 将 数量 属性 划分 为 相等 的 几个 区段 ， 当某 一 区段 的 支持 数 小于 用户 给定 的 最小 支持 数时 ， 我们 就 将 其 与其 邻近 的 区段   进行 合并 。 为了 使 发现 的 关联 规则 更具 有趣 性 ， 文中 采用 了 “ 大于 期望 的 值 （ greater - than -   expected - value ） ” 准则 。 
+ 　 　 文 [ 19 ] 认为 文 [ 18 ] 中 的 属性 划分 方法 不能 很 好 地 表示 数据 的 分布 ， 尤其 是 属性 值 分布 不 均匀   的 时候 ， 于是 提出 了 一个 聚类 算法 ， 根据 数据库 中 数据 的 分布 情况 决定 属性 值 如何 划分 区段   ， 并 可 将 相关 的 区段 进行 合并 。 在 此基础 上 发现 的 多值 关联 规则 更具 有效性 和 可 理解 性 。 
+ 　 　 ( 6 ) 基于 约束 的 关联 规则 采掘 
+ 　 　 基于 约束 的 关联 规则 采掘 的 主要 目的 是 发现 更 有趣 的 、 更 实用 的 和 更 特别 的 关联 规则 ， 这方   面 的 研究 主要 有 [ 20 ～ 27 ] 。 
+ 　 　 文 [ 20 ] 研究 了 在 提供 布尔 表达式 约束 情况 下 的 关联 规则 发现 问题 。 这种 布尔 表达式 约束 允许   用户 指定 他 所 感兴趣 的 关联 规则 的 集合 ， 这种 约束 不仅 可以 用来 对 事务 数据库 进行 预加工 ，   而且 可以 把 它 集成 在 采掘 算法 内部 ， 从而 提高 算法 的 执行 效率 ， 文中 根据 这种 集成 方式 的 不   同 给出 了 三种 不同 的 算法 ： MultipleJoins 、 Reorder 、 Direct 。 
+ 　 　 文 [ 21 ] 提出 并 分析 了 用户 所 给出 的 约束 的 两个 对 发现 算法 的 剪枝 步骤 非常 重要 的 属性 ： 反单   调性 ( anti - monotonicity ) 和 简洁性 ( succinctness ) ， 提出 了 一个 高效 的 基于 约束 的 关联 规   则 采掘 算法 CAP 。 
+ 　 　 另 一种 类型 的 基于 约束 的 关联 规则 采掘 方法 是 元 模式 制导 的 关联 规则 采掘 算法 [ 25 ～ 27 ] 。 这   种 类型 的 发现 算法 首先 由 用户 给定 要 发现 的 关联 规则 的 元 模式 或 模板 ， 然后 根据 这些 模板 在   数据库 中 发现 与 模板 相适应 的 实际 存在 的 关联 规则 。 例如 文 [ 26 ] 就是 基于 这种 模式 提出 了 两   个 相应 的 算法 ： 大 谓词 增长 算法 ( largepredicate - growing ) 和 直接 p - 谓词 测试 算法 ( Direct   p - predicatetesting ) 。 
+ 　 　 ( 7 ) 其它 方向 
+ 　 　 除了 以上 列举 的 比较 常见 的 研究 方向 外 ， 还有 其它 一些 研究 方向 ， 如 ： 发现 关联 规则 的 语言   [ 28 , 29 ] 、 采掘 长 模式 和 密集 数据 集 [ 24 , 30 ] 、 采掘 相关性 和 因果关系 [ 31 , 32 ] 、 发现 比例   规则 [ 33 ] 、 发现 周期 ( cyclic ) 和 日历 ( calendric ) 关联 规则 [ 34 , 35 ] 、 采掘 多维 关联 规则 [ 25 ]   等等 。 
+ 2.3 　 关联 规则 衡量标准 的 不足 
+ 　 　 目前 ， 衡量 和 生成 关联 规则 的 标准 主要 有 两个 ， 即 支持 度 和 置信度 。 但 仅 用 这 两个 标准 来衡   量 关联 规则 显然 是 不够 的 ， 因为 仅仅 利用 用户 定 的 最小 支持 度 和 最小 置信度 来 生成 关联 规则   ， 则 往往 会 发现 大量 冗余 的 、 虚假 的 和 非 采掘 者 关心 的 关联 规则 。 
+ 　 　 让 我们 首先 来看 一下 文献 [ 1 ] 给出 的 一个 例子 。 考察 某个 学校 5 , 000 名 学生 的 早晨 活动 情况 。   调查 结果表明 ： 60% 学生 打篮球 ， 75% 的 学生 吃 麦片粥 ， 40% 的 学生 既 打篮球 又 吃 麦片粥 。 若 我们 将 最小 支持 度 和 最小 置信度 分别 定为 40% 和 60% ， 则 我们 可以 发现 关联 规则 ： 打篮球 吃 麦片粥 ， 其 支持 度 和 置信度 分别 为 40% 和 66.6% 。 该 规则 实际上 是 一个 虚假 的 规则 ， 因为 吃麦   片 粥 的 学生 比例 为 75% ， 既 高于 最小 支持 度 60% ， 又 高于 规则 的 支持 度 66.6% ， 因而 该 规则 提   供 的 信息 没有 任何 价值 。 
+ 　 　 这种 不足 已经 引起 了 不少 学者 的 注意 ， 并 提出 了 一些 采掘 有趣 和 实用 的 关联 规则 的 算法 [ 16 ,   31 ] ， 但 还 没有 形成 一个 统一 的 标准 。 我们 认为 有 必要 将 兴趣 度 这个 标准 加入 到 关联 规则 的   定义 之中 ， 这样 才 符合 数据 采掘 的 宗旨 和 减少 关联 规则 采掘 的 盲目性 。 
+ 3 　 进一步 研究 的 方向 
+ 　 　 目前 ， 数据库 采掘 关联 规则 已经 取得 了 令人瞩目 的 成绩 ， 但 对 下列 问题 进行 研究 也 将 是 具有   挑战性 的 工作 。 
+ 　 　 。 开发 更 高效 的 采掘 算法 
+ 　 　 随着 数据库 的 尺寸 的 不断 增大 ， 不仅 增大 了 采掘 算法 的 搜索 空间 ， 而且 也 增加 了 盲目 发现 的   可能性 。 因此 我们 必须 利用 领域 知识 去 提取 与 我们 发现 任务 有关 的 数据 ， 删除 无用 数据 ， 有   效地 降低 问题 的 维数 ， 设计 出 更加 有效 的 采掘 算法 。 在 这方面 ， 基于 约束 的 关联 规则 采掘 具   有 广阔 的 前途 。 
+ 　 　 。 可视化 采掘 
+ 　 　 设计 一个 灵活 方便 的 用户界面 ， 允许 用户 与 采掘 系统 进行 交互 ， 并 对 所 采掘 的 结果 进行 很 好   的 可视化 表示 ， 使非 领域专家 也 能够 进行 采掘 。 
+ 　 　 。 基于 不同 媒体 的 采掘 
+ 　 　 目前 大多数 采掘 关联 规则 算法 都 是 基于 关系数据库 或 事务 数据库 的 算法 ， 设计 应用 于 其它 类   型 数据库 ( 如 面向对象 数据库 、 多维 数据库 、 数据仓库 等 ) 关联 规则 采掘 算法 也 将 是 十分 有意   义 的 工作 。 
+ 　 　 。 制定 更为 合理 的 关联 衡量 评价 标准 
+ 　 　 如前所述 ， 目前 的 关联 规则 的 衡量标准 可能 会 使 我们 发现 一些 冗余 的 、 虚假 的 和 非 采掘 者 关   心 的 关联 规则 ， 因而 很 有 必要 制定 一些 新 的 衡量标准 ， 但 这些 标准 的 制定 可能 要 具体 问题 具   体 分析 。 
+ 　 　 。 与 其它 系统 的 集成 
+ 　 　 这里 的 集成 包括 与 其它 采掘 方法 的 集成 和 与 其它 系统 ( 如 专家系统 、 决策支持系统 等 ) 的 集成   。 
+ 4 　 结束语 
+ 　 　 本文 对 近年来 关联 规则 采掘 中 主要 研究 方向 进行 了 回顾 ， 并 对 一些 典型 算法 进行 了 分析 和 评   价 。 指出 了 关联 规则 衡量标准 的 不足 ， 展望 了 关联 规则 采掘 的 未来 研究 方向 。 
+ 铁治欣 （ 浙江大学 人工智能 研究所 杭州 310027 ） 
+ 陈奇 （ 浙江大学 人工智能 研究所 杭州 310027 ） 
+ 俞瑞钊 （ 浙江大学 人工智能 研究所 杭州 310027 ） 
+ 参考文献 
+ 1 ， M .   - S .   Chen ,   et   al .   Data   mining :   an   overview   from   database   perspective .   IEEE   Transactions   on   knowledge   and   data   engineering ,   1996 ,   8 ( 6 ) ,   866 ～ 883 
+ 2 ， R .   Agrawal ,   et   al .   Database   Mining :   A   Performance   Perspective .   IEEE   Transactions   on   knowledge   and   data   engineering ,   1993 ,   5 ( 6 ) ,   914 ～ 925 
+ 3 ， Usama   M .   Fayyad ,   et   al .   Advances   in   knowledge   discovery   and   data   mining .   California :   AAAI   Press / The   MIT   Press .   1996 
+ 4 ， R .   Agrawal ,   et   al .   Mining   association   rules   between   sets   of   items   in   large   databases .   Proc .   ACM   SIGMOD   int ' l   conf .   management   of   data ,   Washington ,   DC ,   May   1993 ,   207 ～ 216 
+ 5 ， R .   Agrawal ,   R .   Srikant .   Fast   algorithms   for   mining   association   rules .   Proc .   20th   int ' l   conf .   very   large   databases ,   Santiago ,   Chile ,   Sept .   1994 ,   487 ～ 499 
+ 6 ， J .   S .   Park ,   et   al .   Using   a   hash - based   method   with   transaction   trimming   for   mining   association   rules .   IEEE   Transactions   on   knowledge   and   data   engineering ,   1997 ,   9 ( 5 ) ,   813 ～ 825 
+ 7 ， A .   Savasere ,   E .   Omiecinski   and   S .   Navathe .   An   efficient   algorithm   for   mining   association   rules .   Proceedings   of   the   21st   international   conference   on   very   large   databases ,   Zurich ,   Switzerland ,   Sept .   1995 ,   432 ～ 444 
+ 8 ， Hannu   Toivonen .   Sampling   large   databases   for   association   rules .   Proceedings   of   the   22nd   international   conference   on   very   large   databases ,   Bombay ,   India ,   1996 ,   134 ～ 145 
+ 9 ， D .   W .   Cheung ,   et   al .   Maintenance   of   discovered   association   rules   in   large   databases :   an   incremental   updating   technique .   In :   Proceedings   of   the   12th   international   conference   on   data   engineering ,   New   Orleans   Louisiana ,   1995 ,   106 ～ 114 
+ 10 ， 冯玉才 ,   冯剑林 .   关联 规则 的 增量 式 更新 算法 .   软件 学报 ,   1998 ,   9 ( 4 ) , 301 ～ 306 
+ 11 ， R .   Agrawal ,   et   al .   Parallel   mining   of   association   rules .   IEEE   Transactions   on   knowledge   and   data   engineering ,   1996 ,   8 ( 6 ) ,   962 ～ 969 
+ 12 ， J .   S .   Park ,   et   al .   Efficient   parallel   data   mining   for   association   rules .   Proc .   Fourth   int ' l   conf .   information   and   Knowledge   management ,   Baltimore ,   Nov .   1995 
+ 13 ， D .   W .   Cheung ,   et   al .   efficient   mining   of   association   rules   in   distributed   databases .   IEEE   Transactions   on   knowledge   and   data   engineering ,   1996 ,   8 ( 6 ) ,   910 ～ 921 
+ 14 ， D .   W .   Cheung ,   et   al .   A   fast   distributed   algorithm   for   mining   association   rules .   Proc .   of   1996   Int ' l   Conf .   on   Parallel   and   Distributed   Information   Systems   ( PDIS ' 96 ) ,   Miami   Beach ,   Florida ,   USA ,   Dec .   1996 
+ 15 ， J .   Han ,   Y .   Fu .   Discovery   of   multiple - level   association   rules   from   large   databases .   Proc .   of   the   21st   international   conference   on   very   large   databases ,   Zurich ,   Switzerland ,   Sept .   1995 ,   420 ～ 431 
+ 16 ， R .   Srikant ,   R .   Agrawal .   Mining   generalized   association   rules .   In :   Proceedings   of   the   21st   international   conference   on   very   large   databases ,   Zurich ,   Switzerland ,   Sept .   1995 ,   407 ～ 419 
+ 17 ， G .   Piatetsky - Shapiro .   Discovery ,   Analysis ,   and   Presentation   of   strong   rules .   In :   G .   Piatetsky   Shapiro   and   W .   J .   Frawley   eds .   Knowledge   discovery   in   database .   AAAI / MIT   Press .   1991 ,   229 ～ 248 
+ 18 ， R .   Srikant ,   R .   Agrawal .   Mining   quantitative   association   rules   in   large   relational   tables .   In :   Proc .   1996   ACM   SIGMOD   int ' l   Conf .   Management   Data ,   Montreal ,   Canada ,   1996 ,   1 ～ 12 
+ 19 ， 张 朝晖 ,   陆玉昌 ,   张   钹 .   发掘 多值 属性 的 关联 规则 .   软件 学报 ,   1998 ,   9 ( 11 ) ,   801 ～ 805 
+ 20 ， R .   Srikant ,   R .   Agrawal .   Mining   association   rules   with   item   constrains .   Proc .   of   the   3rd   Int ' l   Conference   on   Knowledge   Discovery   in   Databases   and   Data   Mining ,   Newport   Beach ,   California ,   August   1997 ,   67 ～ 73 
+ 21 ， R .   Ng ,   L .   V .   S .   Lakshmanan ,   J .   Han   and   A .   Pang ,   Exploratory   Mining   and   Pruning   Optimizations   of   Constrained   Associations   Rules ,   Proc .   of   1998   ACM - SIGMOD   Conf .   on   Management   of   Data ,   Seattle ,   Washington ,   June   1998 ,   13 ～ 24 
+ 22 ， L .   V .   S .   Lakshmanan ,   R .   Ng ,   J .   Han   and   A .   Pang ,   Optimization   of   Constrained   Frequent   Set   Queries   with   2 - Variable   Constraints ,   Proc .   1999   ACM - SIGMOD   Conf .   on   Management   of   Data ,   Philadelphia ,   PA ,   June   1999 
+ 23 ， R .   Ng ,   L .   V .   S .   Lakshmanan ,   J .   Han   and   T .   Mah ,   Exploratory   Mining   via   Constrained   Frequent   Set   Queries ,   Proc .   1999   ACM - SIGMOD   Conf .   on   Management   of   Data ,   Philadelphia ,   PA ,   June   1999 
+ 24 ， R .   J .   Bayardo   Jr . ,   R .   Agrawal ,   and   D .   Gunopulos .   Constraint - Based   Rule   Mining   in   Large ,   Dense   Databases .   In   Proc .   of   the   15th   Int ' l   Conf .   on   Data   Engineering ,   1999 ,   188 ～ 197 
+ 25 ， Micheline   Kamber ,   Jiawei   Han ,   Jenny   Y .   Chiang ,   Metarule - Guided   Mining   of   Multi - Dimensional   Association   Rules   Using   Data   Cubes ,   Proceeding   of   the   3rd   International   Conference   on   Knowledge   Discovery   and   Data   Mining ,   Newport   Beach ,   California ,   Aug .   1997 ,   207 ～ 210 
+ 26 ， Y .   Fu   and   J . Han ,   Meta - Rule - Guided   Mining   of   Association   Rules   in   Relational   Databases ,   Proc .   1995   Int ' l   Workshop .   on   Knowledge   Discovery   and   Deductive   and   Object - Oriented   Databases ( KDOOD ' 95 ) ,   Singapore ,   December   1995 ,   pp.39 ～ 46 
+ 27 ， Wei - Min   Shen ,   et   al .   Metaqueries   for   data   mining .   In :   U .   M .   Fayyad ,   G .   Piatetsky - Shapiro ,   et   al   eds .   Advances   in   knowledge   discovery   and   data   mining .   AAAI / MIT   Press .   1996 ,   375 ～ 398 
+ 28 ， R .   Meo ,   G .   Psaila ,   and   S .   Ceri .   A   new   SQL - like   operator   for   mining   association   rules .   Proc .   of   the   22nd   int .   Conf .   on   very   large   databases ,   Bombay ,   India ,   1996 ,   122 ～ 133 
+ 29 ， J .   Han ,   Y .   Fu ,   K .   Koperski ,   W .   Wang ,   and   O .   Zaiane ,   DMQL :   A   Data   Mining   Query   Language   for   Relational   Databases ,   1996   SIGMOD ' 96   Workshop   on   Research   Issues   on   Data   Mining   and   Knowledge   Discovery   ( DMKD ' 96 ) ,   Montreal ,   Canada ,   June   1996 
+ 30 ， R .   J .   Bayardo   Jr . ,   Efficiently   Mining   Long   Patterns   from   Databases ,   Proc .   of   the   ACM   SIGMOD   Conference   on   Management   of   Data ,   Seattle ,   Washington ,   June   1998 ,   85 ～ 93 
+ 31 ， S .   Brin ,   R . Motwani ,   and   C .   Silverstein .   Beyond   market   basket :   generalizing   association   rules   to   correlation .   Proc .   1997   ACM - SIGMOD   int .   conf .   management   of   data ,   Tucson ,   Arizona ,   May   1997 ,   265 ～ 276 
+ 32 ， C .   Silverstein ,   S .   Brin ,   R .   Motwani ,   and   J .   Ullman .   Scalable   techniques   for   mining   causal   structures .   Proc .   1998   int .   conf .   Very   Large   Data   Bases ,   New   York ,   NY ,   August   1998 ,   594 ～ 605 
+ 33 ， F .   Korn ,   et   al .   Ratio   rules :   A   new   paradigm   for   fast ,   quantifiable   data   mining .   Proc .   1998   int .   conf .   Very   Large   Data   Bases ,   New   York ,   NY ,   August   1998 ,   582 ～ 593 
+ 34 ， B .   Ozden ,   et   al .   Cylic   association   rules .   Proc   1998   int .   conf .   Data   Engineering ,   Orlando ,   FL ,   Feb .   1998 ,   412 ～ 421 
+ 35 ， S .   Ramaswamy ,   et   al .   On   the   discovery   of   interesting   patterns   in   association   rules ,   Proc .   1998   int .   conf .   Very   Large   Data   Bases ,   New   York ,   NY ,   August   1998 ,   368 ～ 379 
+ 收稿 日期 ： 1999 年 6 月 23 日 

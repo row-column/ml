@@ -1,0 +1,268 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 　 Vol.36 　 No.6 　 P.705 - 711 
+ 
+ 
+ 
+ 交互式 环境 下 基于 层次 分解 的 并行 变换 技术 
+ 和 伟民 　 李彤 　 刘剑 　 金钊 
+ 摘 　 要 ： 针对 传统 并行 变换 技术 存在 的 不足 ， 提出 了 一种 交互式 环境 下 基于 层次 分解 的 并行 变换 技术 ， 主要 侧重于 循环 外 并行 成分 的 提取 ， 并 强调 由 用户 参与 并行 变换 工作 ， 获得 较为理想 的 任务 颗粒 度及 相关性 分析 ， 从而 降低 了 并行 变换 的 复杂度 ， 在 一定 程度 上 提高 了 程序 的 并行度 . 
+ 关键词 ： CFG ,   HTG ,   任务 分解 ,   交互式 环境 ,   PCFG ,   并行 变换 
+ 分类号 ： TP311 
+ A   TECHNOLOGY   OF   PARALLEL   TRANSFORMATION 
+ BASED   ON   HIERARCHY   AND   DECOMPOSITION   IN   AN 
+ INTERACTIVE   ENVIRONMENT 
+ HE   Wei - Min ， LI   Tong ， LIU   Jian ， JIN   Zhao 
+ ( Department   of   Computer   Science ,   Yunnan   University ,   Kunming   650091 ) 
+ Abstract ： In   order   to   improve   the   traditional   technology   of   parallel   transformation ,   a   new   technology   of   parallel   transformation   based   on   hierarchy   and   decomposition   in   an   interactive   environment   is   presented .   It   focuses   on   the   extraction   of   non - loop   parallelism   and   emphasizes   the   interaction   of   users .   It   can   decrease   the   complexity   of   parallel   transformation   and   make   the   extraction   of   functional   parallelism   more   effective   to   some   extent . 
+ Key   words ： control   flow   graph ,   hierarchical   task   graph ,   task   decomposition ,   interactive   environment ,   parallel   control   flow   graph ,   parallel   transformation ▲ 
+ 1 　 引 　 　 言 
+ 　 　 近年来 ， 为了 提高 计算机系统 的 效率 ， 最大 限度 地 挖掘 计算机系统 的 潜力 ， 并行 技术 的 研究 成为 一个 热点 ， 而 并行 编译 技术 又 是 其中 的 难点 之一 . 并行 变换 是 并行 编译 中 的 一个 重要 组成部分 ， 它 对 源程序 进行 等价 重构 ， 从 顺序程序 中 提取 并行 成分 ， 使 其 获得 更 多 的 并行 机会 ［ 1 ］ . 
+ 　 　 目前 的 并行 变换 技术 主要 有 两种 . 一种 主要 侧重于 循环 并行性 的 开发 ， 利用 各种 循环 并行 技术 将 循环 重构 为 具有 更 多 并行 机会 的 形式 ［ 2 , 3 ］ . 常见 的 循环 变换 技术 有 ： 循环 交换 、 循环 分布 、 循环 熔合 （ loop   fusion ） 、 循环 剥离 （ loop   peeling ） 等等 ［ 4 , 5 ］ . 由于 循环 变换 仅 针对 循环 进行 ， 忽略 了 存在 于 循环 之外 的 潜在 并行性 的 开发 . 当 处理机 个数 较 少时 ， 仅 利用 循环 迭代 间 的 并行性 就 可以 获得 运行 性能 很 好 的 目标 代码 ， 即使 进一步 开发 潜在 的 并行性 ， 其 性能 改善 也 不 显著 . 但 当 处理机 较多时 ， 仅 利用 循环 并行 无法 使 所有 处理机 处于 “ 忙 ” 状态 ， 处理机 的 利用率 不高 ［ 6 ］ . 另 一种 方法 对前 一种 进行 了 改进 ， 兼顾 了 循环 外 并行性 的 开发 ， 但 任务 颗粒 度 的 调整 、 不同 任务 之间 的 相关性 分析 完全 由 系统 自动 完成 ， 用户 无法 干预 . 由于 系统 的 智能化 程度 有限 ， 这样 获得 的 任务 颗粒 度 大小 及 相关性 分析 往往 不够 理想 ， 从而 降低 了 程序 的 并行度 ［ 7 ］ . 
+ 　 　 本文 针对 以上 两种 并行 变换 技术 的 不足 ， 提出 了 一种 交互式 环境 下 基于 层次 分解 的 并行 变换 技术 . 这种 技术 主要 侧重于 循环 外 并行 成分 的 提取 ， 并 强调 由 用户 参与 并行 变换 工作 ， 获得 较为理想 的 任务 颗粒 度及 相关性 分析 . 至于 循环 内 并行 成分 的 提取 ， 利用 现有 的 循环 变换 技术 进行 即可 ， 本文 不再 详细 讨论 . 
+ 2 　 HTG 的 构造 
+ 　 　 从 顺序 源程序 的 控制流 图 CFG 出发 ， 可以 构造 一个 树型 层次 任务 图 HTG . HTG 中 的 每个 结点 代表 一个 任务 ， 一个 任务 又 可以 包含 多个 子 任务 . HTG 的 根 结点 root 中 存放 整个 顺序 源程序 的 CFG ， 将 根 结点 进行 划分 ， 可以 得到 下 一层 的 中间 结点 ， 每个 中间 结点 又 可 进行 类似 的 划分 ， 直到 不能 再 划分 为止 ， 此时 的 叶 结点 称为 基本 结点 . 这样 就 得到 一个 递归结构 的 有 向 层次 图 HTG . 
+ 　 　 由 CFG 构造 HTG 的 方法 如下 ： 
+ 　 　 设 CFG = （ V ， E ） ， 其中 V 为 基本 结点 集 ， E 为 有 向 弧集 . 
+ 　 　 HTG = （ HV ， HE ） ， 其中 HV 为 任务 集 ， HE 为 有 向 弧集 . 
+ 　 　 定义 1 .   在 CFG 中 ， 若 结点 y 是 结点 x 的 祖先 且 从 x 到 y 存在 弧 （ x ， y ） , 则 弧 （ x ， y ） 称为 循环 弧 ， 记 为 （ x ， y ） ∈ cycle . 
+ 　 　 令 
+ 
+ 则 I ( x ) 为 CFG 中以 x 为 起点 ， y 为 终点 的 循环 的 集合 . 
+ 
+ 则 C ( G ) 为 CFG 中 条件 结点 的 集合 . 
+ 　 　 定义 2 .   设 x ∈ C ( G ) ， y ∈ V ， 若 从 x 到 结束 结点 stop 的 每 一条 路径 都 经过 y ， 且 若 存在 y ′ 使得 从 x 到 stop 的 每 一条 路径 都 经过 y ′ ， 则 y 是 y ′ 的 祖先 ， 那么 称 y 为 x 条件 的 结束 结点 . 
+ 
+ 
+ 图 1 　 顺序 源程序 的 控制流 图 CFG 
+ 　 　 令 J ( x ) = ∪ （ C ( x , y )   ( C ( x , y ) 为 以 x 为 条件 起点 ， y 为 x 的 条件 结束 结点 的 条件 ） ， 则 J ( x ) 为 CFG 中以 x 为 起点 ， y 为 终点 的 条件 的 集合 . 
+ 　 　 最终 可得 HV = { I ( x ) : x ∈ H ( G ) } ∪ { J ( x ) : x ∈ C ( G ) } ∪ root ∪ { V } 
+ 　 　 由 HV 易得 HE . （ 算法 略 ） 
+ 　 　 某 顺序 源程序 代码 如下 ， 与 之 相应 的 CFG 如图 1 所示 ， 相应 的 HTG 如图 2 所示 . 　 　 begin 
+ 　 　 　 for   i = 1   to   n   do 
+ 　 　 　 　 read ( first ［ i ］ ) 
+ 　 　 endfor 
+ 　 　 　 for   i = 1   to   n   do 
+ 　 　 　 　 read ( second ［ i ］ )   
+ 　 　 　 endfor 
+ 　 　 　 for   i = 1   to   n   do 
+ 　 　 　 　 read ( third ［ i ］ ) 
+ 　 　 　 endfor 
+ 　 　 　 if   ( first ［ 0 ］ < second ［ 0 ］   and   first ［ 0 ］ < third ［ 0 ］ ) 
+ 　 　 　 begin 
+ 　 　 　 　 process - block ( first ) 
+ if   ( second ［ 0 ］ < third ［ 0 ］ ) 
+ begin 
+ process - block ( second ) 
+ process - block ( third ) 
+ end 
+ else 
+ begin 
+ process - block ( third ) 
+ process - block ( second ) 
+ end 
+ end 
+ else 
+ if   ( second ［ 0 ］ < first ［ 0 ］   and   second ［ 0 ］ < third ［ 0 ］ ) 
+ begin 
+ process - block ( second ) 
+ if   ( first ［ 0 ］ < third ［ 0 ］ ) 
+ begin 
+ process - block ( first ) 
+ process - block ( third ) 
+ end 
+ else 
+ begin 
+ process - block ( third ) 
+ process - block ( first ) 
+ end 
+ end 
+ else 
+ begin 
+ process - block ( third ) 
+ if   ( first ［ 0 ］ < second ［ 0 ］ ) 
+ begin 
+ process - block ( first ) 
+ process - block ( second ) 
+ end 
+ else 
+ begin 
+ process - block ( second ) 
+ process - block ( first ) 
+ end 
+ end 
+ end 
+ end 
+ 　 　 　 　 / *   Start   of   node   T1   * / 
+ 　 　 　 　 / *   BS0   * / 
+ 　 　 　 　 / *   End   of   node   T1   * / 
+ 　 　 　 　 / *   Start   of   node   T2   * / 
+ 　 　 　 　 / *   BS1   * / 
+ 　 　 　 　 / *   End   of   node   T2   * / 
+ 　 　 　 　 / *   Start   of   node   T3   * / 
+ 　 　 　 　 / *   BS2   * / 
+ 　 　 　 　 / *   End   of   node   T3   * / 
+ 　 　 　 　 / *   Start   of   node   T4   * / 
+ 　 　 
+ 　 　 　 　 / *   BS3   * / 
+ 　 　 　 　 / *   Start   of   node   T41   * / 
+ 　 　 
+ 　 　 　 　 / *   Start   of   BS4   * / 
+ 　 　 　 　 / *   End   of   BS4   * / 
+ 　 　 
+ 　 　 
+ 　 　 
+ 　 　 　 　 / *   Start   of   BS5   * / 
+ 　 　 　 　 / *   End   of   BS5   * / 
+ 　 　 　 　 / *   End   of   node   T41   * / 
+ 　 　 
+ 　 　 
+ 　 　 　 　 / *   Start   of   node   T42   * / 
+ 　 　 
+ 　 　 　 　 / *   BS6   * / 
+ 　 　 　 　 / *   Start   of   node   T421   * / 
+ 　 　 
+ 　 　 　 　 / *   Start   of   BS7   * / 
+ 　 　 　 　 / *   End   of   BS7   * / 
+ 　 　 
+ 　 　 
+ 　 　 
+ 　 　 　 　 / *   Start   of   BS8   * / 
+ 　 　 　 　 / *   End   of   BS8   * / 
+ 　 　 　 　 / *   End   of   node   T41   * / 
+ 　 　 
+ 　 　 
+ 　 　 
+ 　 　 　 　 / *   BS9   * / 
+ 　 　 　 　 / *   Start   of   node   T422   * / 
+ 　 　 
+ 　 　 　 　 / *   Start   of   BS10   * / 
+ 　 　 　 　 / *   End   of   BS10   * / 
+ 　 　 
+ 　 　 
+ 　 　 
+ 　 　 　 　 / *   Start   of   BS11   * / 
+ 　 　 　 　 / *   End   of   BS11   * / 
+ 　 　 　 　 / *   End   of   node   T422   * / 
+ 　 　 　 　 / *   End   of   node   T42   * / 
+ 　 　 　 　 / *   End   of   node   T4   * / 
+ 
+ 
+ 图 2 　 与 图 1 所示 CFG 相应 的 层次 任务 图 HTG 
+ 3 　 HTG 的 优化 
+ 　 　 定义 3 .   任务 数据 相关 是 指 任务 之间 的 操作 数据 的 相互依赖 关系 ［ 8 ］ . 设 Skl ， Skr 分别 表示 任务 Tk 中 语句 的 左部 变量 集和右部 变量 集 ， 若 任务 Ti 在 Tj 之前 执行 ， 则 有 如下 3 种 相关 关系 ： 
+ 　 　 ( 1 )   若 Sil ∩ Sjr ≠ , 则 称 Ti 正 相关 于 Tj ， 记为 Ti δ Tj ； 
+ 　 　 ( 2 )   若 Sir ∩ Sjl ≠ , 则 称 Ti 反 相关 于 Tj ， 记为 TiTj ； 
+ 　 　 ( 3 )   若 Sil ∩ Sjl ≠ , 则 称 Ti 输出 相关 于 Tj ， 记为 Ti δ ° Tj . 
+ 　 　 在 HTG 中 ， 当 Ti ， Tj 数据 相关 时 ， 它们 之间 仍 有 并行 的 潜力 可 挖 ， 可以 采用 任务 分解 技术 对 HTG 进行 优化 . 
+ 3.1 　 优化 思想 
+ 　 　 假设 在 HTG 中 某 一 任务 结点 Tx = { T1 ,   T2 , … , Tm } ,   Ti , Tj ∈ Tx ， Ti 与 Tj 数据 相关 且 Tj 依赖于 Ti ， 在 未 进行 任务 分解 之前 ， Ti 在 Tj 之前 执行 . 利用 任务 分解 技术 我们 对 Tj 的 子 任务 适当 调整 ， 可以 将 Tj 的 子 任务 划分 为 3 个 集合 ： Tj1 ， Tj2 ， Tj3 . Tj1 中 的 任务 与 Ti 数据 无关 ； 除了 与 Tj1 中子 任务 相关 的 任务 外 ， Tj 中 其它 任务 都 属于 Tj2 ； 未 被 Tj1 和 Tj2 包括 的 任务 属于 Tj3 ， 此外 ， 为 保持 原有 的 语义 而 添加 的 任务 也 放在 Tj3 中 . Tj1 中 的 任务 可以 与 Ti 并行执行 ， 如图 3 所示 . 在 HTG 中将 Tj1 从 Tj 中 分离出来 ， 上 提 一层 . 任务 分解 之前 Tx = { T1 , T2 , … , Ti , Ti + 1 , … , Tj - 1 , Tj , … , Tm } , Tj = { Tj1 , Tj2 , Tj3 } ; 任务 分解 之后 ， Tx ′ = { T1 , T2 , … , Ti , Ti + 1 , … , Tj - 1 , Tj1 , T ′ j , … , Tm } , T ′ j , = { Tj2 ， Tj3 } . 由于 Tj2 与 Ti 数据 相关 ， 但 与 Tj1 数据 无关 ， 若 Ti 执行 完毕 时 Tj1 还 未 执行 完 ， 则 可以 让 Tj2 与 Tj1 并行执行 . 与 Tj2 相关 的 优化 工作 只能 在 程序执行 过程 中 动态 进行 ， 所以 在 对 HTG 的 静态 优化 阶段 我们 不予考虑 . 
+ 
+ 
+ 图 3 　 任务 分解 技术 
+ 3.2 　 算法 设计 
+ 　 　 实现 HTG 优化 的 关键在于 如何 将 Tj 中 的 任务 合理 分解 后 放入 Tj1 ， Tj2 ， Tj3 中 . 任务 分解 算法 将 结点 Tj 中 的 任务 划分 为 若干 子 任务 ， 子 任务 的 选择 决定 了 分解 的 粒度 . 根据 这些 子 任务 与 结点 Ti 的 相关性 ， 将 其 分为 3 类 ： 
+ 　 　 ( 1 )   Bound 类 :   与 Ti 数据 相关 ； 
+ 　 　 ( 2 )   Linked 类 :   与 Ti 数据 无关 ， 但 与 Bound 类 或 其他 Linked 类子 任务 相关 . Linked 类 任务 可 细分 为 ： ①   Needsbound : 与 Bound 类 或 其他 Needsbound 类 相关 ； ②   Generatelinked : 与 Bound 类 、 Needsbound 类 或 其他 Generatelinked 类 相关 ； ③   Readlinked : 其他 Linked 类 ， 与 Generatelinked 类 相关 ； 
+ 　 　 ( 3 )   Free 类 :   其他 . 
+ 　 　 在 判断 了 子 任务 的 类别 后 ， 将 其 分别 放入 Tj1 , Tj2 , Tj3 中 . 
+ 　 　 算法 1 .   将 Tj 中 的 任务 分解 后 分别 放入 Tj1 , Tj2 , Tj3 中 
+ 　 　 输入 ： Tj = { T1 , T2 , … , Tm }   ,   Ti 
+ 　 　 输出 ： Tj1 , Tj2 , Tj3 
+ 　 　 BEGIN 
+ 　 　 　 　 FOR   ( j ∶ = 1   TO   m )   DO 
+ 　 　 　 　 IF   ( Tj ∈ Free 类 或 Tj ∈ Generatelinked 类 ) 
+ 　 　 　 　 　 　 THEN   将 Tj 放入 Tj1 中 
+ 　 　 　 　 　 　 ELSE   IF   ( Tj ∈ Bound 类 或 Tj ∈ Needsbound 类 ) 
+ 　 　 　 　 　 　 　 　 　 THEN   将 Tj 放入 Tj3 中 
+ 　 　 　 　 　 　 　 　 　 ELSE   将 Tj 放入 Tj1 中 或 将 Tj 放入 Tj3 中 
+ 　 　 END . 
+ 4 　 用户 交互方式 
+ 　 　 在 传统 的 并行 变换 过程 中 ， 并行 成分 的 提取 和 执行 条件 的 获得 都 是 由 系统 自动 完成 的 ［ 9 ］ 
+ . CFG 是 预先 定义 好 的 ， 任务 的 颗粒 度 要么 是 固定 的 ， 要么 由 系统 自动 调整 . 某个 任务 的 执行 时间 信息 在 编译 时 无法 获得 ， 过程 调用 中 的 实际 参数值 以及 循环 边界 等 信息 只能 由 编译器 作 较为 保守 的 估计 . 由于 系统 自身 智能 程度 的 限制 ， “ 自动 ” 式 并行 变换 在 一定 程度 上 会 降低 程序 的 并行度 ， 特别 是 对于 比较复杂 的 大型 程序 ， 更是 会 使 并行 变换 的 效率 大打折扣 ［ 10 ］ . 而 并行 变换 往往 就是 针对 复杂 的 大型 程序 的 （ 简单 的 小型 程序 没有 并行 变换 的 必要 ） ， 因此 仅 由 系统 自身 来 完成 并行 变换 效果 是 很 不 理想 的 . 为了 进一步提高 程序 的 并行度 ， 我们 采用 一种 有 用户 协作 参与 的 交互方式 ， 对 HTG 进一步 优化 . 
+ 　 　 在 交互式 环境 下 ， 用户 有权 做 以下 一些 有益 的 工作 ： 
+ 　 　 ( 1 )   根据 需要 选择 任务 颗粒 度 的 大小 ； 
+ 　 　 ( 2 )   请 系统 测试 任意 两个 任务 结点 间 的 相关 关系 ； 
+ 　 　 ( 3 )   为了 消除 相关 关系 ， 利用 自己 所 掌握 的 知识 和 经验 ， 适当 对 源程序 进行 有益 的 修改 ； 
+ 　 　 ( 4 )   在 HTG 的 优化 过程 中 ， 能够 转移 到 HTG 的 不同 层次 中 ， 动态 修改 任务 的 颗粒 度 大小 ， 确定 将 哪些 任务 分解 ， 哪些 子 任务 上 提 ； 
+ 　 　 ( 5 )   粗略 估计 任务 的 执行 时间 ， 确定 某些 任务 虽然 可以 并行 ， 但 是否 有 并行 的 必要 （ 某些 可以 并行 的 任务 如果 执行 时间 很 短 ， 并行 的 开销 时间 反而 比 串行 的 执行 时间 要长 ， 这样 的 并行 就 毫无意义 ） . 
+ 　 　 我们 采用 交互式 菜单 实现 用户 对 HTG 的 优化 . 
+ 　 　 菜单 界面 由 两 部分 组成 ： 左部 为 功能 选项 ， 右部 为 当前 的 CFG . 
+ 　 　 功能 选项 包括 以下 6 项 功能 ： 
+ 　 　 ( 1 )   Control   Dependence   Graph   ( 生成 当前 CFG 的 控制 相关 图 ) 
+ 　 　 ( 2 )   Data   Dependence   Graph   （ 生成 当前 CFG 的 数据 相关 图 ） 
+ 　 　 ( 3 )   Modify   Source   Code   （ 适当 修改 顺序 源程序 代码 ） 
+ 　 　 ( 4 )   Move   to   Next   Level   （ 转 到 当前 考察 结点 的 下 一层 ） 
+ 　 　 ( 5 )   Move   to   Previous   Level   （ 转 到 当前 考察 结点 的 上 一层 ） 
+ 　 　 ( 6 )   Dependence   Test   （ 检测 任意 两个 结点 之间 的 相关 关系 ） 
+ 　 　 用户 通过 以上 提供 的 6 项 功能 实现 对 HTG 的 优化 . 
+ 5 　 由 HTG 到 PCFG 的 并行 变换 
+ 　 　 从 优化 后 的 HTG 出发 ， 我们 可以 构造 并行程序 的 控制流 图 PCFG . 
+ 　 　 PCFG = （ PV ， PE ） ， 其中 PV 为 并行任务 集 ， PE 为 有 向 弧集 . 
+ 　 　 PCFG 有 如下 性质 ： 
+ 　 　 ( 1 )   若 ( Ti , Tj ) ∈ PE ， 则 Ti 应 在 Tj 之前 执行 ； 
+ 　 　 ( 2 )   Ti ∈ PV ， 若 Ti = { T1 , T2 , … , Ts } , ( s ≥ 2 ) ， 则 T1 , T2 , … , Ts 可以 并行执行 . 
+ 　 　 定义 4 .   设 HTG 中 某 一非叶 结点 root 的 子 任务 结点 从 左 至 右 依次 为 T1 ， T2 ， … ， Tm ， CT + i = { Tr | Tr = Tj ∧ 1 ≤ j ≤ m ∧ ( ( Ts ∈ CT + i ∧ s ≠ r ) → Tr 与 Ts 数据 无关 ) } ( 1 ≤ i ≤ m ) ， 称 CT + i 为 root 的 并行任务 闭包 . 
+ 　 　 由 CT + i 的 定义 可知 ， CT + i 中 的 任务 两 两 数据 无关 . 
+ 　 　 求 CT + i 的 算法 如下 ： 
+ 　 　 算法 2 .   求 HTG 中 结点 root 的 并行任务 闭包 CT + i 
+ 　 　 输入 ： root 
+ 　 　 输出 ： CT + i 
+ 　 　 BEGIN 
+ 　 　 　 　 i : = 1 ;   total : = { T1   ,   T2   , … ,   Tm } ;   count : = m ； 
+ 　 　 　 　 WHILE （ count > 1 ） DO 
+ 　 　 　 　 BEGIN 
+ 　 　 　 　 　 　 j : = 0 ; 　 　 　 　 CT （ j ） i ： = total 中 第一个 子 任务 结点 ; 
+ 　 　 　 　 　 　 REPEAT 
+ 　 　 　 　 　 　 求 Tb ; 
+ 　 　 　 　 　 　 / *   Tb = { T | T ∈ total ∧ TCT （ j ） i ∧ ( Tq ∈ CT （ j ） i ) ( T 与 Tq 数据 无关 ) } ;   * / 
+ 　 　 　 　 　 　 CT （ j + 1 ） i : = CT ( j ) i ∪ Tb ; 
+ 　 　 　 　 　 　 j : = j + 1 ; 
+ 　 　 　 　 　 　 UNTIL ( CT （ j - 1 ） i = CT （ j ） i ) 
+ 　 　 　 　 　 　 CT ＋ i : = CT （ j ） i ; 
+ 　 　 　 　 　 　 total : = total － CT + i ; 
+ 　 　 　 　 　 　 count : = total 中 的 子 任务 的 个数 ； 
+ 　 　 　 　 　 　 i : = i + 1 ; 
+ 　 　 　 　 END 
+ 　 　 END . 
+ 　 　 由 算法 2 求得 root 的 并行任务 闭包 分别 为 CT + 1 ， CT + 2 ， … ， CT + n ( 1 ≤ n ≤ m ) . 
+ 　 　 在 算法 2 的 基础 上 可以 构造 求 PCFG 的 算法 如 算法 3 （ 最初 的 PCFG 只 含有 开始 结点 start 、 根 结点 root 和 结束 结点 stop ） . 
+ 　 　 算法 3 .   由 HTG 构造 并行程序 控制流 图 PCFG 
+ 　 　 输入 ： root   / *   root 为 当前 HTG 的 根 结点   * / 
+ 　 　 输出 ： PCFG 
+ 　 　 BEGIN 
+ 　 　 　 　 以 root 作为 输入 调用 算法 2 ， 求得 CT + 1 ， CT + 2 ， … ， CT + n ； 
+ 　 　 　 　 在 PCFG 中以 CT + 1 ， CT + 2 ， … ， CT + n 替代 root ； 
+ 　 　 　 　 FOR （ i : = 1   TO   n - 1 ） DO 
+ 　 　 　 　 CT + i 与 CT + i + 1 之间 用 有 向 弧 （ CT + i ， CT + i + 1 ） 相连 ； 
+ 　 　 　 　 FOR （ i : = 1   TO   n ） DO 
+ 　 　 　 　 IF   ( CT + i 只 包含 一个 子 任务 Tj 且 Tj 不是 基本 结点 ) 
+ 　 　 　 　 　 　 THEN   以 Tj 作为 输入 递归 调用 算法 3 ; 
+ 　 　 END . 
+ 6 　 结束语 
+ 　 　 并行 变换 是 并行 编译 技术 的 重要 组成部分 ， 本文 提出 的 并行 变换 技术 主要 是 通过 构造 HTG ， 并 采用 任务 分解 技术 和 用户 交互 的 方式 对 其 进行 优化 ， 最后 由 优化 的 HTG 构造 并行程序 的 控制流 图 PCFG . 这 在 一定 程度 上 提高 了 程序 的 并行度 ， 能够 获得 比 传统 并行 变换 更好 的 并行 效益 . 不过 ， 在 这方面 还有 很多 的 工作 值得 去 做 . 例如 ， 用户 的 参与 虽然 在 一定 程度 上 提高 了 程序 的 并行度 ， 但是 用户 也 不 可能 对 所有 的 任务 运行 时间 作出 合理 的 估计 ， 并行 变换 在 很大 程度 上 还 只 停留 在 静态 的 水平 上 ， 这 就 不 可能 使 程序 获得最佳 的 并行 效益 . 另外 ， 对于 嵌套 较 多 的 程序 ， 并行 变换 会 变得 比较复杂 ， 开销 也 会 相应 增加 ， 原有 的 变换 技术 可能 要 进行 相应 的 修改 才能 适用 . 上述 这些 问题 都 有待 进一步 的 研究 ， 我们 将 在 今后 的 工作 中 对 这些 问题 加以解决 . ■ 
+ 基金项目 ： 本 课题 得到 云南省 自然科学 基金 、 云南省 中青年 学术 和 技术 带头人 培养 基金 联合 资 　 　 　 　 　 　 助 . 
+ 作者简介 ： 和 伟民 ， 男 ， 1973 年 2 月生 ， 硕士 研究生 ， 主要 从事 软件工程 、 并行处理 等 方面 的 　 　 　 　 　 　 研究 . 
+ 　 　 　 　 　 李彤 ， 男 ， 1963 年 12 月生 ， 教授 ， 主要 从事 软件工程 、 并行处理 、 操作系统 等 方面 　 　 　 　 　 　 的 研究 . 
+ 　 　 　 　 　 刘剑 ， 男 ， 1976 年 1 月生 ， 硕士 研究生 ， 主要 从事 软件工程 、 软件 自动化 等 方面 的 　 　 　 　 　 　 研究 . 
+ 　 　 　 　 　 金钊 ， 男 ， 1977 年 3 月生 ， 硕士 研究生 ， 主要 从事 软件工程 、 CASE 工具 集成 等 方面 　 　 　 　 　 　 的 研究 . 
+ 作者 单位 ： 和 伟民 （ 云南大学 计算机科学 系 　 昆明 　 650091 ） 
+ 　 　 　 　 　 李彤 （ 云南大学 计算机科学 系 　 昆明 　 650091 ） 
+ 　 　 　 　 　 刘剑 （ 云南大学 计算机科学 系 　 昆明 　 650091 ） 
+ 　 　 　 　 　 金钊 （ 云南大学 计算机科学 系 　 昆明 　 650091 ） 
+ 参考文献 ： 
+ ［ 1 ］ 清萍 ， 李晓峰 ， 郑世荣 . 一种 基于 分解 变换 的 并行 化 编译 新 技术 . 计算机科学 ， 1998 ， 25 ( 1 ) ：   81 ～ 83 
+ 　 　 　 ( Chen   Qingpin ,   Li   Xiaofeng ,   Zheng   Shirong .   A   new   technology   of   split - based   transformation   in   parallelization   compile .   Computer   Science   ( in   Chinese )   1998 , 25 ( 1 ) :   81 ～ 83 ) 
+ ［ 2 ］ Koelbel   C ,   Mehrotra   P .   Compiling   global   name   space   parallel   loops   for   distributed   execution .   IEEE   Trans   on   Parallel   and   Distributed   Systems ,   1991 ,   2 ( 10 ) :   463 ～ 481 
+ ［ 3 ］ Kennedy   K ,   McKinley   K   S ，   Tseng   C .   Interactive   parallel   programming   using   the   parascope   editor .   IEEE   Trans   on   Parallel   and   Distributed   Systems ,   1991 ,   2 ( 7 ) :   329 ～ 341 
+ ［ 4 ］ Lilja   D   J .   Exploiting   the   parallelism   available   in   loops .   Computer ,   1994 ,   27 ( 1 ) :   13 ～ 26 
+ ［ 5 ］ Rogers   A ,   Pingali   K .   Compiling   for   distributed   memory   architectures .   IEEE   Trans   on   Parallel   and   Distributed   Systems .   1994 ,   5 ( 3 ) :   281 ～ 298 
+ ［ 6 ］ Girkar   M ,   Polychronopoulos   C   D .   Automatic   extraction   of   functional   parallelism   from   ordinary   programs .   IEEE   Trans   on   Parallel   and   Distributed   Systems ,   1992 ,   3 ( 3 ) :   166 ～ 178 
+ ［ 7 ］ Mukherjee   N ,   Das   P   K .   An   approach   towards   parallelisation   of   sequential   programs   in   an   interactive   environment .   Information   and   Software   Technology   ,   1997 ,   39 ( 2 ) :   77 ～ 89 
+ ［ 8 ］ Ferrante   J ,   Ottenstein   K   J ,   Warren   J   D .   The   program   dependence   graph   and   its   use   in   optimization .   ACM   Trans   on   Programming   Languages   and   Systems ,   1987 ,   9 ( 7 ) :   319 ～ 349 
+ ［ 9 ］ 李学干 ， 徐甲同 . 并行处理技术 . 北京 ： 北京理工大学 出版社 ， 1994 
+ 　 　 　 ( Li   Xuegan ,   Xu   Jiatong .   Parallel   Processing   Technology ( in   Chinese ) .   Beijing : Beijing   Polytechnic   University   Press ,   1994 ) 
+ ［ 10 ］ 李玉茜 ， 杨宗源 . 并行程序 设计 . 上海 ： 上海 科学技术 文献 出版社 ， 1994 
+ 　 　 　 ( Li   Yuqian ,   Yang   Zongyuan .   Parallel   Programming ( in   Chinese ) .   Shanghai : Shanghai   Science   and   Technology   Literature   Press ,   1994 ) 
+ 收稿 日期 ： 1998 - 09 - 14 
+ 修稿 日期 ： 1999 - 02 - 01 

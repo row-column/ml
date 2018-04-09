@@ -1,0 +1,57 @@
+土壤 与 环境 
+ SOIL   AND   ENVIRONMENTAL   SCIENCES 
+ 1999 年 　 第 4 期 　 第 8 卷 　 Vol.8 　 No.4 　 1999 
+ 
+ 
+ 
+ 菌根 真菌 在 墨兰 和 建 兰根 中 的 感染 特征 及 生理 特性 
+ 潘超美 　 陈汝民 　 叶 庆生 
+ 　 　 摘要 ： 从 产于 粤北 山区 的 野生 建 兰根 中 分离 出 4 株 内生 真菌 ， 并 对 这些 真菌 在 兰根 上 的 感染 特征 及 生理学 特性 进行 了 研究 。 结果表明 ， 菌根 真菌 多数 侵染 植株 根段 离 根尖 3 ～ 18   cm 的 根毛 区 ， 而 根尖 和 新长 出 的 根则 很少 被 感染 ； 几乎 所有 的 老根 都 受过 真菌 的 感染 。 真菌 菌丝 从 兰根 表皮 侵入 ， 通过 表皮层 进入 皮层 薄壁 细胞 内部 形成 菌丝 团 ， 而 在 表皮层 并 不 进入 细胞 内 ， 也 不 形成 菌丝 团 。 真菌 感染 根状茎 后 第 9 天 ， 皮层 细胞 内 的 菌丝 团 开始 消解 。 所 分离 的 菌株 能 利用 大部分 简单 的 有机 碳源 和 氮源 ， 能 在 营养成分 不 明确 的 天然 介质 中 生长 良好 ， 但 对 硝酸盐 的 利用 较差 。 
+ 　 　 关键词 ： 墨兰 ； 建兰 ； 菌根 真菌 ； 感染 特征 ； 生理 特性 
+ 　 　 中 图 分类号 ： Q143 +.   2   文献 标识码 ： A 
+ Infection   Characteristics   and   Physiological   Features   of   Mycorrhizal   Fungi   in   Roots   of   Cymbidium   sinense   and   C .   ensifolium   
+ PAN   Chao - mei1 ， CHEN   Ru - min2 ， YE   Qing - sheng2 
+ （ 1 :   Guangdong   Institute   of   Eco - environmental   and   Soil   Sciences ,   Guangzhou   510650 ,   China ; 2 :   Department   of   Biology ,   South   China   Normal   University ,   Guangzhou   510630 ,   China ） 
+ 　 　 Abstract : 　 Four   endophytic   fungi   ( unidetified )   have   been   isolated   from   the   roots   of   Cymbidium   ensifolium   growing   in   the   mountain   area   of   northern   Guangdong   province .   The   characteristic   of   mycorrhizal   infection ,   general   morphology   and   physiology   of   these   isolates   were   investigated .   The   results   showed   that   fungi   hyphae   were   frequently   present   in   root   hairs   sections   that   were   3 ～ 18   cm   from   root   tip .   Cortical   infection   was   rarely   seen   in   root   tip   and   young   roots .   Almost   all   old   roots   have   been   invaded   by   mycorrhizal   fungi .   Fungi   hyphae   invaded   root   epidermis   into   cortical   cells   and   formed   pelotons   there ,   but   peloton   were   not   seen   in   epidermal   cells .   The   pelotons   in   cortical   cell   of   Cymbidium   sinense   and   C ． ensifolium   rhizomes   began   to   digest   after   9   days   of   infection .   These   isolates   could   utilize   most   of   simple   carbohydrate   and   nitrogen   source   except   for   nitrate . 
+ 　 　 Key   words : 　 Cymbidium   sinense ;   C .   ensifolium ;   mycorrhizal   fungi ;   infection   characteristic ;   physiological   feature 
+ 　 　 在 自然 条件 下 兰科 种子 胚 细胞 不能 形成 酶系统 来 满足 萌发 过程 的 营养 所 需 [ 1 ] 。 真菌 感染 后 ， 菌根 真菌 的 菌丝 把 胚 和 基质 连接起来 ， 形成 一个 共生 系统 使 胚 细胞 得以 生长发育 。 因此 ， 菌根 真菌 在 兰科 植物种子 的 萌发 和 幼苗 生长 过程 中起 极其重要 的 作用 。 为了 寻找 能 与 兰科 植物 形成 良好 共生 关系 的 真菌 菌株 ， 我们 对 产于 粤北 山区 的 野生 建 兰根 段 的 菌根 真菌 进行 分离 、 筛选 ， 并 观察 菌根 真菌 在 兰根 上 的 感染 特征 和 一般 生理 特性 。 本 研究 旨在 为 今后 开展 菌根 真菌 在 国兰 快速 繁殖 研究 和 工厂化 栽培 生产 方面 提供 科学依据 。 
+ 1   材料 与 方法 
+ 1.1   菌根 真菌 的 分离 与 纯化 
+ 　 　 野生 建兰 植株 的 采集 和 菌株 分离 情况 见表 1 。 
+ 表 1 　 样品 收集 及 分离 情况 
+ 分离 号 分离 日期 产地 寄主 
+ P011997 年 5 月 新丰 C .   ensifolium 
+ P101997 年 10 月 始兴 C .   ensifolium 
+ P051998 年 4 月 新丰 C .   ensifolium 
+ P151998 年 11 月 南雄 C .   ensifolium 
+ 
+ 1.2   真菌 感染 墨兰 和 建兰 根状茎 实验 
+ 　 　 1 ） 分别 用 无菌 的 墨兰 和 建兰 种子 萌发 成 根状茎 。 
+ 　 　 2 ） 将 上述 分离 好 的 菌株 转 到 马铃薯 甘露 糖醇 酵母 浸膏 葡萄糖 液体 培养基 [ 2 ] 中 ， 自然 光照 ， 28   ℃ 下 旋转 振荡 （ 60   r / min ） 培养 10   d 。 用 超声波 振荡 仪 把 菌丝 团 打散 ， 或用 无菌 研钵 将 菌丝 团 磨碎 ， 用 四层 无菌 纱布 过滤 ， 收集 菌丝 滤液 ， 备用 。 
+ 　 　 3 ） 吸取 1   ml 菌丝 滤液 到 盛有 50   ml   1 / 2MS 液体 培养基 的 150   ml 三角 烧瓶 中 （ MS   培养基 中 的 蔗糖 用 10   g / kg 的 羧甲基 纤维素 代替 ， 再 加入 1   g / kg 的 葡萄糖 ） ， 并 接入 约 2   g 的 根状茎 ， 每天 光照 8   h ， 28   ℃ 下 振荡 培养 。 从 第 3 天起 每天 取 根状茎 ， 用 Trypan   blue 染色 后于 显微镜 下 观察 真菌 感染 情况 。 
+ 1.3   真菌 在 兰根 上 的 感染 特征 的 观察 
+ 　 　 主要 是 在 光学 显微镜 下 进行 。 
+ 1.4   菌根 真菌 对 碳源 和 氮源 的 同化 试验 
+ 　 　 同化 试验 采用 生长 图谱 法 [ 3 ] ， 培养基 为 无 碳源 基础 培养基 和 无 氮源 基础 培养基 [ 3 ] 。 
+ 2   结果 与 讨论 
+ 2.1   菌根 真菌 的 一般 形态 特征 
+ 　 　 4 个 菌株 在 PDA 平板 培养基 上 一般 要 生长 7 ～ 10   d ， 气生 菌丝 浓密 ， 分别 为 无色 、 白色 。 P01 和 P05 号 菌株 气生 菌丝 较 短 ， 紧密 ， 菌落 呈 绒毛状 ， 培养 时间 长 了 会 形成 同心圆 ； P10 和 P15 号 菌株 气生 菌丝 较长 ， 疏松 ， 菌落 呈 棉絮 状 ； P15 号 菌株 为 快 生型 种 ， 接种 后 一周 即 长满 整个 斜面 ； 而 P10 号菌 则 为 慢生型 ， 一般 需要 生长 10   d 以上 才能 长好 。 在 光学 显微镜 下 观察 ， P10 和 P15 号 菌株 菌丝 呈 蜘蛛网 状 ， 菌丝 粗为 0.8 ～ 2   m   m ， 无 分隔 ， 较 少 分枝 ， 菌丝 内 原生质 体较 浓 ； P01 和 P05 号 菌株 菌丝 较 粗 ， 透明 ， 分枝 多 ， 多 呈 直角 分枝 ， 分枝 与 主枝 相接处 稍 缢缩 ， 其上 常有 一 横隔 ， 菌丝 粗为 8 ～ 12   m   m ， 没有 锁状 联合 ， 不 产生 孢子 。 
+ 2.2   菌根 真菌 在 兰根 上 的 感染 特征 
+ 　 　 从 收集 的 样品 来看 ， 感染 了 菌根 真菌 的 兰苗 ， 叶片 上病 斑 较 少 ， 叶色 浓绿 ， 尤其 是 感染率 较 高 的 植株 。 兰科 菌根 真菌 多数 侵染 在 植株 的 根 段距离 根尖 3 ～ 18   cm 的 根毛 区 ， 而 根尖 伸长 区则 很少 被 感染 。 较 嫩 、 新出 的 根则 很少 被 菌根 真菌 感染 ， 被 真菌 的 感染 多 在 老 根段 ， 所有 被 检测 的 老根 几乎 100 ％ 都 受过 真菌 的 感染 。 通过 组织 解剖 和 显微 观察 ， 发现 这些 菌株 具有 典型 的 兰科 菌根 真菌 的 特征 。 菌丝 从 表皮层 侵入 ， 进入 皮层 薄壁组织 。 在 寄主 根系 的 皮层 薄壁组织 细胞 内 ， 真菌 的 菌丝 呈 螺旋线 团状 或 结状 ； 感染 程度较高 的 根段 ， 整个 皮层 薄壁 细胞组织 内部 都 布满 了 菌丝 团 或 消解 的 菌丝 结 。 在 显微镜 下 观察 根段 横截面 的 切片 ， 可以 看到 真菌 在 表皮层 不 形成 菌丝 团 ， 也 不 进入 细胞 内部 。 真菌 菌丝 穿过 表皮 进入 皮层 细胞 内 ， 沿 细胞壁 缠绕 数圈 成 菌丝 团 ， 然后 再 感染 相邻 的 另 一个 细胞 ， 逐步 扩展 为 一个 感染 区域 ， 时间 较长 的 菌丝 团 已经 开始 消解 。 在 低倍 镜下 ， 用 红血球 计数 板 对 徒手 切片 的 根段 横截面 的 感染率 进行 估算 ， 结果显示 ， 感染率 为 20% ～ 60% 。 用 组培 墨兰 和 建兰 根状茎 接种 P15 号 真菌 的 感染 试验 中 ， 发现 皮层 细胞 内 菌丝 团 一般 在 9 ～ 11   d 开始 解体 。 
+ 　 　 从 光学 显微镜 下 可以 看到 ， 真菌 菌丝 不 侵染 表皮 细胞 和 中部 的 维管柱 ； 在 兰根 表皮层 上 还 可以 观察 到 两种 以上 的 真菌 菌丝 ， 这 说明 了 一种 兰科 植物 可以 与 多种 寄生 真菌 相 联系 ， 但 并 不是 所有 的 这些 真菌 都 能 刺激 寄主 的 生长发育 和 形成 良好 的 共生 关系 。 一般 认为 ， 真菌 菌丝 能够 侵染 兰科 植物 的 原 球体 ， 在 皮层 细胞 内 形成 菌丝 团 ， 并 能 刺激 寄主植物 种子 萌发 菌株 才能 与 寄主 形成 互为 共生 的 关系 [ 4 ] 。 
+ 2.3   菌根 真菌 的 一般 生理 特性 
+ 　 　 所 分离 到 的 真菌 都 可以 在 营养成分 不 明确 的 天然 介质 中 良好 地 生长 。 在 PDA 培养基 、 麦麸 糖 土壤 浸出液 培养基 和 麦麸 糖 树叶 （ 山毛榉 科 ） 提取液 培养基 上 ， 3 ～ 7   d 就 可以 形成 直径 为 2 ～ 5   cm 的 菌落 ， 三种 培养基 对 菌丝 的 生长 并 无 明显 差异 。 
+ 　 　 在 pH 范围 和 温度 试验 中 ， 这些 真菌 容易 在 中性 偏酸 的 环境 中 生长 ， 当 pH ＜ 5.6 或 pH ＞ 7.6 时 ， 在 PDA 培养基 上 则 生长 缓慢 。 4 种 真菌 的 菌丝 生长 所 需 的 温度 不同 ， P01 和 P05 号菌 的 最适 生长 温度 为 28 ～ 30   ℃ ， P10 号菌 的 最适 为 25 ～ 28   ℃ ， P15 号菌 为 25   ℃ ， 低于 或 高于 各自 的 最适 生长 温度 ， 生长 速度 就 减慢 。 
+ 　 　 在 碳源 同化 范围 试验 中 ， 这些 真菌 能够 利用 大部分 可溶性 的 单糖 或 双糖 作为 碳源 ， 如 葡萄糖 、 蔗糖 、 麦芽糖 、 果糖 、 甘露醇 、 半乳糖 、 纤维 二糖 等 ； 同时 也 能 分解 一些 复杂 的 大分子 碳水化合物 作 碳源 ， 如 淀粉 、 纤维素 、 果胶 、 腐殖质 和 阿拉伯糖 等 ， 但 生长 较慢 ； 这 表明 这些 真菌 对 碳源 没有 很 特殊 的 要求 。 
+ 　 　 在 淀粉 、 纤维素 、 果胶 等作 碳源 的 培养基 上 ， 这些 真菌 在 生长 过程 中会 使 环境 中 的 pH 由 6.0 降至 5.3 左右 ， 这 表明 真菌 在 分解 利用 这些 较 复杂 碳源 的 代谢 过程 中 ， 会 产生 一些 有机酸 而 使 环境 中 的 pH 稍微 下降 ， 而 这个 酸度 范围 对 真菌 菌丝 的 生长 有所 抑制 ， 但 对 根状茎 的 生长 则 影响 不 大 。 环境 中 pH 的 下降 ， 有利于 共生 体系 的 同步 生长 。 
+ 　 　 这些 真菌 能够 利用 多种 无机 和 有机 的 氮源 ， 特别 是 对 氨 盐 和 简单 的 有机 氮 利用 最好 ； 对 尿素 、 氨基酸 、 胨 和 蛋白质 的 利用 也 很 好 ； 但 对 硝酸盐 的 利用 较差 。 
+ 基金项目 ： 广东省 “ 九五 ” 科技 重点 攻关项目 （ 9622033 - 10 ） 
+ 作者简介 ： 潘超美 （ 1956 ～ ） ， 女 ， 硕士 ， 高级 实验 师 
+ 作者 单位 ： 潘超美 　   广东省 生态环境 与 土壤 研究所 ， 广州   510650 ； 
+ 　 　 　 　 　   陈汝民 　 叶 庆生 　 华南 师范大学 生物系 国兰 研究 中心 ， 广州   510630 
+ 参考文献 
+ [ 1 ]   Hadley   G .   Orchid   Mycorrhiza   [ A ] .   In :   Arditti   J ,   ed .   Orchid   Biology :   reviews   and   perspectives   II   [ C ] .   Ithaca :   Cornell   University   Press ,   1982 .   84 ～ 118 
+ [ 2 ]   俞大 绂 .   植物 病理学 和 真菌学 技术 汇编 （ 2 ） [ M ] .   北京 :   人民教育出版社 ； 1977 .   121 
+ [ 3 ]   中国科学院 微生物 研究所 .   常见 与 常用 真菌   [ M ] .   北京 :   科学出版社 ， 1978 .   259 
+ [ 4 ]   Harley   J   L ,   Smith   S   E .   Mycorrhizal   Symbiosis   [ M ] .   Cambrige :   Academic   Press ,   1983 .   268 ～ 295 
+ 1999 - 07 - 08 

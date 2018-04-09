@@ -1,0 +1,101 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 2000 　 Vol.11 　 No.4 　 P.540 - 544 
+ 
+ 
+ 
+ 
+ 基于 多 界面 的 COM / CORBA 互操作 
+ 兑继英 　 汪芸 　 顾 冠群 
+ 　 摘要 　 在 OMG （ object   management   group ） 的 COM （ common   object   model ） / CORBA ( common   object   request   broker   architecture ） 互操作 规范 中 , COM / CORBA 互操作 采用 桥 的 方式 实现 . 尽管 这种 方法 适用范围 较广 , 但 其 性能 较差 , 无法 实现 透明 的 对象 生命周期 映射 , 而且 没有 解决 COM 和 CORBA 应用程序 的 移植 问题 . 该文 提出 一种 基于 多 界面 对象 集成 方法 的 COM / CORBA 互操作 模型 , 使 客户 可以 直接 访问 异种 对象 , 从而 提高 互操作 的 性能 , 增强 互操作 的 透明性 , 还 可以 实现 应用程序 在 异构 环境 下 的 移植 . 
+ 　 关键词 　 COM （ common   object   model ） ， CORBA （ common   object   request   broker   architecture ） , COM / CORBA 互操作 , 多 界面 . 
+ 　 中图法 分类号 　 TP311 
+ COM / CORBA   Interworking   Based   on   Multi - Interface 
+ DUI   Ji - ying 　 WANG   Yun 　 GU   Guan - qun 
+ （ Department   of   Computer   Science   and   Engineering 　 Southeast   University 　 Nanjing 　 210096 ） 
+ （ Key   Laboratory   of   Computer   Network   and   Data   Integration   Ministry   of   Education 　 Nanjing   210096 ） 
+ Abstract 　 　 In   the   OMG ' s   COM / CORBA   interworking   specification ,   interworking   between   COM   and   CORBA   is   implemented   via   bridges .   Though   the   interworking   model   is   flexible ,   it   needs   heavy   overheads   which   leads   to   poor   performance .   Moreover ,   there   are   problems   in   its   object   life - cycle   mapping .   It   does   not   provide   portability   either .   In   this   paper ,   a   COM / CORBA   interworking   model   is   proposed   based   on   multi - interface   object   integration   method .   In   the   new   model ,   a   client   can   directly   access   a   foreign   object ,   therefore   interworking   performance   is   improved   remarkably .   In   addition ,   it   enhances   interworking   transparency   and   provides   application   portability   between   COM   and   CORBA   environments . 
+ Key   words 　 COM （ common   object   model ） ， CORBA （ common   object   request   broker   architecture ） ,   COM / CORBA   interworking ,   multi - interface . 
+ 　 　 COM （ common   object   model ） 和 CORBA （ common   object   request   broker   architecture ） 应用 的 增长 使得 COM / CORBA 互操作 的 需求 不断 上升 , 因此 ， 很多 CORBA 产品 都 遵照 OMG 组织 （ object   management   group ） 制订 的 COM / CORBA 互操作 规范 实现 了 COM / CORBA 互操作 . 规范 中 的 互操作 方法 通过 桥来 连接 两个 异构 系统 ［ 1 ］ , 桥 负责 将 客户 请求 转换 为 对 异种 对象 的 请求 , 并 将 这个 请求 发送给 异种 对象 , 最后 对 请求 结果 进行 转换 并 返回 给 客户 . 
+ 显然 , 与 同种 对象 模型 中 客户 对 服务器 的 调用 相比 , 这种 方法 在 性能 方面 下降 了 很多 . 另外 ， 在 COM 和 CORBA 对象 生命周期 机制 中 存在 的 差异 使得 COM 和 CORBA 的 对象 生存 周期 无法 透明 地 进行 映射 . 例如 ， COM 客户 能够 控制 COM 对象 的 生命周期 , 但 在 互操作 的 情况 下 , COM 客户 无法控制 CORBA 对象 的 生命周期 . 此外 , 规范 中 也 没有 解决 COM 和 CORBA 应用 的 移植 问题 . 因此 , 文中 提出 使用 多 界面 对象 集成 方法 来 实现 COM / CORBA 互操作 , 在 提高 性能 和 增强 透明性 的 同时 , 还 可以 实现 应用程序 在 异构 环境 下 的 移植 . 
+ 1 　 多 界面 对象 集成 方法 
+ 　 　 多 界面 对象 集成 方法 MIOIM （ multi - interface   object   integration   method ， 简称 MIOIM ） 的 基本 思想 是 将 对象 实现 为 同时 具备 COM 和 CORBA 界面 的 多 界面 对象 , 使得 服务器 既 可以 支持 COM 客户 , 也 可以 支持 CORBA 客户 . 另一方面 , 通过 为 应用程序 建立 统一 代理 , 客户 可以 访问 各种 对象 模型 中 的 对象 , 从而 实现 COM 和 CORBA 的 集成 . 
+ 1.1 　 基本 模型 
+ 　 　 不论是 COM 还是 CORBA , 对象 都 通过 界面 来 展示 它 的 功能 , 客户 通过 对象 的 界面 来 访问 对象 ［ 1 , 2 ］ . 对 应用 来说 , 不论 它 的 对象 是 通过 COM 界面 展示 ， 还是 通过 CORBA 界面 展示 , 其 对象 实现 都 是 相同 的 . MIOIM 的 思想 是 将 对象 设计 和 实现 为 具有 多种 界面 的 对象 ， 以 满足 不同 客户 的 需求 . 同时 , 客户 也 可以 通过 统一 代理 的 方式 实现 对 各种 对象 的 访问 . MIOIM 的 基本 模型 如图 1 所示 . 其中 , 对象 模型 i （ i = 1 , 2 , ... , n ） 代表 不同 的 对象 模型 . 对象 模型 i 中 的 界面 对象 是 为 对象 模型 i 中 的 客户 开发 的 界面 对象 , 负责 将 客户 的 请求 转换 为 对 对象 实现 的 调用 , 并 将 调用 结果 按照 它 所 支持 的 界面 格式 返回 给 客户 . 对象 实现 是 指 独立 于 具体 对象 模型 的 对象 功能 实体 . 统一 代理 为 客户 访问 同种 或 异种 对象 提供 了 一个 统一 的 界面 , 它 负责 按照 目标 对象 所在 的 对象 模型 的 访问 方式 访问 对象 , 当 对象 实现 作为 客户 时 ， 可以 通过 统一 代理 来 访问 各种 模型 中 的 对象 . 使用 统一 代理 访问 对象 的 客户程序 称为 多 界面 客户 , 采用 MIOIM 实现 对象 的 应用程序 称为 多 界面 服务器 , 多 界面 客户 和 多 界面 服务器 统称 为 多 界面 应用程序 . 
+ 
+ ① 对象 模型 l 中 的 客户 , ② 对象 模型 n 中 的 客户 , ③ 对象 模型 l 中 的 界面 对象 , ④ 对象 模型 n 中 的 界面 对象 , ⑤ 对象 实现 , ⑥ 统 代理 , ⑦ 对象 模型 l 中 的 对象 , ⑧ 对象 模型 n 中 的 对象 , ⑨ 多 界面 应用程序 . 
+ Fig.1 Model   of   MIOIM 
+ 图 1   　 MIOIM 的 基本 模型 
+ 　 　 与 规范 中 的 互操作 机制 相比 , MIOIM 具有 以下 几个 优点 ： 
+ 　 　 ( 1 )   MIOIM 中 的 界面 对象 、 对象 实现 和 统一 代理 实现 在 同一个 程序 中 , 由于 分布 对象 计算 系统 的 性能 较 低 ［ 3 ］ , 其 访问 代价 比 进程 内 的 直接 访问 高得 多 , 因此 ， MIOIM 在 性能 上 比 互操作 有 很大 的 提高 ； 
+ 　 　 ( 2 )   在 MIOIM 中 , 针对 不同 对象 模型 的 客户 开发 的 界面 对象 可以 具有 不同 的 生命周期 , 因此 ， 不 需要 对 生命周期 进行 映射 ； 
+ 　 　 ( 3 )   由于 使用 了 界面 对象 和 统一 代理 , 对象 实现 完全 独立 于 所 使用 的 对象 模型 , 因此 ， 可以 通过 条件 编译 的 方法 ， 根据 应用 所在 的 环境 定制 界面 对象 , 从而 实现 应用程序 在 不同 对象 系统 下 的 移植 ； 
+ 　 　 ( 4 )   可以 针对 其他 对象 模型 来 增加 界面 对象 和 扩充 统一 代理 , 因此 ， 除了 支持 COM / CORBA 互操作 外 , 还 可以 方便 地 支持 其他 对象 模型 , 例如 ， OODCE 和 JAVA   RMI . 
+ 1.2 　 实现 方法 
+ 　 　 MIOIM 的 实现 方法 有 两种 . 一种 方法 是 将 统一 代理 和 界面 对象 集成 到 COM 或 CORBA 的 桩 和 构架 中 . 这种 方法 可以 保留 已有 的 开发 界面 , 用户 可以 按照 原来 的 方式 开发 应用程序 , 因此 具有 较 高 的 透明性 , 有利于 已有 应用 的 迁移 , 但 实现 代价 较 高 . 另 一种 方法 是 定义新 的 桩 和 构架 , 基于 已有 的 桩 和 构架 实现 界面 对象 和 统一 代理 . 由于 定义 了 新 的 开发 界面 , 这种 方法 的 透明性 不如 前者 , 不利于 已有 应用 的 迁移 , 但 实现 代价 较 低 . 
+ 　 　 除此之外 , COM 和 CORBA 还 支持 动态 方式 实现 客户 和 服务器 . 在 这种 方式 下 ， 用户 无需 使用 桩 和 构架 , 而 通过 系统 调用 可 直接 生成 请求 或 对 请求 进行 处理 . MIOIM 可以 改造 或 重新 定义 相关 的 系统 调用 , 对于 客户 来讲 ， 可以 根据 它 所 访问 的 对象 类型 ， 对 其 动态 生成 的 请求 进行 转换 并 发送 ； 对于 服务器 来说 ， 则 可以 将 请求 转换 之后 再 交给 服务器 . 
+ 　 　 MIOIM 可以 沿用 互操作 规范 中 的 界面 映射 和 界面 组成 映射 规则 , 这样 ， 一方面 避免 了 重复 工作 , 另一方面 也 有利于 客户程序 在 两种 互 操作系统 上 的 移植 . 由于 多个 界面 对象 使用 同一个 对象 实现 , MIOIM 需要 解决 界面 对象 对 对象 实现 的 共享 问题 . COM 和 CORBA 有 各自 的 对象 实现 共享 机制 , 可以 在 此基础 上 定义 和 实现 对象 实现 的 共享 机制 及 并发 控制 机制 . 
+ 2 　 MIOIM 的 适用范围 
+ 　 　 由于 界面 对象 、 对象 实现 和 统一 代理 实现 在 同一个 程序 中 , 使得 MIOIM 需要 在 COM 和 CORBA 的 混合 环境 下 实现 , 因而 限制 了 它 的 应用 范围 . 下面 对 MIOIM 和 规范 中 的 互操作 方法 的 实现 环境 进行 比较 . 
+ 　 　 分布 对象 计算 系统 所 支持 的 环境 包括 3 个 要素 ： 操作系统 、 编程语言 和 网络 环境 . 设 COM 所能 支持 的 操作系统 集合 为 Scom , 编程语言 集合 为 Lcom , 网络 环境 集合 为 Ncom ； 相应 的 CORBA 所能 支持 的 环境 表示 为 Scorba , Lcorba 和 Ncorba ； 设 某个 操作系统 si 所能 支持 的 编程语言 集合 为 Li , 网络 环境 集合 为 Ni . 假设 si , si ∈ Scom ∧ si ∈ Scorba ∧ Li ∩ Lcom ∩ Lcorba ≠ Φ ∧ Ni ∩ Ncom ∩ Ncorba ≠ Φ . 
+ 　 　 对于 规范 中 的 互操作 方法 , COM 客户 访问 CORBA 对象 的 互操作 应用环境 为 
+ 
+ 　 　 对于 MIOIM , COM 客户 可以 通过 两种 方式 访问 CORBA 对象 . 一种 是 通过 为 COM 客户 开发 统一 代理 , 另 一种 是 将 CORBA 对象 实现 为 多 界面 对象 . 设 这 两种 方法 所 支持 的 应用环境 分别 为 E1 和 E2 , 则 
+ 
+ 由此 可以 看出 ， MIOIM 的 适用范围 较 小 , 具体 地 , 令 
+ 
+ 则 
+ 　 　 当 客户 方为 CORBA 、 服务器 方为 COM 时 ， 有 类似 的 结果 . 令 MIOIM 方法 中 的 CORBA 客户 开发 统一 代理 的 应用环境 集合 为 E ' 1 , 将 CORBA 对象 实现 为 多 界面 对象 的 应用环境 集合 E ' 2 , 则 
+ Ecorba ， com － E ′ 1 ∪ E ′ 2 = （ C ∪ D ） × （ A ∪ B ） . 
+ 上述 结果 说明 , 在 某些 情况 下 不能 使用 MIOIM , 例如 , COM 客户 使用 Visual   Basic 开发 , CORBA 对象 实现 在 UNIX 平台 上 . 目前 DCOM 正在 向 其他 操作系统 移植 , CORBA 也 在 不断 扩充 所 支持 的 编程语言 . 随着 COM , CORBA 应用环境 的 相互 渗透 , 今后 MIOIM 的 适用范围 也 会 不断扩大 . 在 理想 情况 下 , Scom = Scorba , Lcom = Lcorba , Ncom = Ncorba , 则 Ecom ， corba － E1 ∪ E2 = Ecorba ， com － E ′ 1 ∪ E ′ 2 = Φ , MIOIM 和 规范 中 的 互操作 方法 的 适用范围 相同 . 
+ 3 　 实例 介绍 
+ 　 　 以下 是 一个 简单 的 实验 , 内容 为 将 一个 名为 grid 的 CORBA 对象 改造 为 同时 具备 CORBA 界面 和 COM 界面 的 对象 , 初步 验证 了 MIOIM 的 可行性 和 性能 . grid 的 OMG   IDL 和 MIDL 界面 定义 如下 : 
+ 　 　 / / OMG   IDL   definition   of   grid 
+ 　 　 interface   grid   { 
+ 　 　 　 readonly   attribute   short   height ;   / / height   of   the   grid 
+ 　 　 　 readonly   attribute   short   width ;   / / width   of   the   grid 
+ 　 　 　 void   set   ( in   short   n ,   in   short   m ,   in   long   value ) ;   / / set   the   element   ［ n , m ］   of   the   grid : 
+ 　 　 　 long   get   ( in   short   n ,   in   short   m ) ;   / / return   element   ［ n , m ］   of   the   grid : 
+ 　 　 } ; 
+ 　 　 / / MIDL   definition   of   grid 
+ 　 　 [ ... ] 
+ interface   IGrid :   IUnknown   { 
+ 　 　 import   “ unknwn . idl ” ; 
+ 　 　 HRESULT   get － height ( ［ out ］   short   * retval ) ;   / / height   of   the   grid 
+ 　 　 HRESULT   get － width ( ［ out ］   short   * retval ) ;   / / width   of   the   grid 
+ 　 　 HRESULT   set ( ［ in ］   short   n ,   ［ in ］   short   m ,   ［ in ］   long   value ) ;   / / set   the   element   ［ n , m ］   of   the   grid : 
+ 　 　 HRESULT   get ( ［ in ］   short   n ,   ［ in ］   short   m ,   ［ out ］   long   * retval ) ;   / / return   element   ［ n , m ］   of   the   grid : 
+ } ; 
+ 　 　 此外 , 实验 中 还 实现 了 grid 的 COM 服务器 , 并 按照 规范 中 的 互操作 机制 为 grid 定制 了 COM 代理 和 CORBA 代理 . 实验 使用 同一个 客户程序 对 3 种 不同 的 访问 方式 进行 测试 , 测试 分 本地 和 远程 两种 , 测试 内容 为 调用 每个 操作 所 花费 的 平均 时间 （ 单位 : μ s ） . 由于 4 个 操作 的 测试 结果 差别 很小 , 这里 只 列出 get 操作 的 测试 结果 , 见表 1 和表 2 . 
+ Table   1 　 Performance   test   based   on   COM   client 
+ 表 1 　 基于 COM 客户 的 性能 测试 
+ 
+ 　 Local ① Remote ② 
+ MIOIM   0.126   8   1.833   0 
+ COM   proxy ③ 4.635   87.847   5 
+ COM   object ④ 0.125   2   1.827   7 
+ 
+ ① 本地 , ② 远程 , ③ COM 代理 , ④ COM   对象 . 
+ Table   2 　 Performance   test   based   on   CORBA   client 
+ 表 2 　 基于 CORBA 客户 的 性能 测试 
+ 
+ 　 Local ① Remote ② 
+ MIOIM   4.320   5   8.335   6 
+ CORBA   proxy ③ 4.662   68.792   5 
+ CORBA   object ④ 4.294   78.274   0 
+ 
+ ① 本地 , ② 远程 , ③ CORBA 代理 , ④ CORBA 对象 . 
+ 　 　 从 测试 结果 可以 看出 , MIOIM 在 性能 上 有 显著 提高 , 与 客户 直接 访问 对象 的 性能 基本相同 . 从 测试 结果 还 可以 看出 , 不论 本地 调用 还是 远程 调用 , COM 的 性能 都 高于 CORBA , 因此 ， MIOIM 对 COM 代理 性能 的 提高 更为 显著 . 
+ 4 　 结束语 
+ 　 　 本文 提出 使用 多 界面 对象 集成 方法 来 实现 COM 和 CORBA 的 互操作 . 该 方法 的 主要 优点 在于 提高 了 互操作 的 性能 , 此外 ， 还 提高 了 透明性 、 实现 了 可移植性 . 由于 目前 MIOIM 在 适用范围 上 还 受到限制 , 因此 ， 还 不能 完全 代替 规范 中 的 互操作 方法 , 而 可以 作为 规范 中 的 互操作 方法 的 扩展 来 使用 . 
+ 兑继英 （ 东南大学 计算机科学 与 工程系 　 南京 　 210096 ） 
+ （ 计算机网络 和 数据 集成 国家教育部 重点 实验室 　 南京 　 210096 ） 　 
+ 汪芸 （ 东南大学 计算机科学 与 工程系 　 南京 　 210096 ） 
+ （ 计算机网络 和 数据 集成 国家教育部 重点 实验室 　 南京 　 210096 ） 　 
+ 顾 冠群 （ 东南大学 计算机科学 与 工程系 　 南京 　 210096 ） 
+ （ 计算机网络 和 数据 集成 国家教育部 重点 实验室 　 南京 　 210096 ） 
+ 参考文献 
+ 1 ， Wang   Yun .   CORBA   Technique   and   Its   Applications .   Nanjing :   Southeast   University   Press ,   1999 
+ ( 汪芸 . CORBA 技术 及其 应用 . 南京 : 东南大学 出版社 , 1999 ) 
+ 2 ， Brockschmidt   K .   Inside   Ole   2 .   Redmond :   Microsoft   Press ,   1998 
+ 3 ， Schmidt   D   C ,   Gokhale   A   S ,   Harrison   T   et   al .   High - Performance   and   system   architecture   for   real - time   CORBA .   IEEE   Communications   Magazine ,   1997 , 35 ( 2 ) : 72 ～ 77 

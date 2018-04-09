@@ -1,0 +1,153 @@
+计算机 应用 研究 
+ APPLICATION   RESEARCH   OF   COMPUTERS 
+ 2000 　 Vol.17 　 No.2 　 P.74 - 76 
+ 
+ 
+ 
+ Windows 与 DOS 网络通信 技术 
+ 刘志刚 　 王博亮 　 刘希顺 
+ 摘   要   介绍 了 局域网 中 NetBIOS 基本 应用 原理 ， 以及 基于 NetBIOS 的 DOS 和 Windows 的 通讯 方法 ， 并 给出 了 NetBIOS 在 局域网 中央 监控 系统 中 的 具体 应用 。 
+ 关键词   NetBIOS   NetBEUI   局域网   数据 报   会话 
+ l   前言 
+ 　 　 目前 Windows 和 DOS 之间 的 网络通信 协议 应用 得 最 多 的 有 三种 ： TCP / IP 、 NWLink 、 NetBIOS 。 在 Windows 系统 下 ， 第三种 方式 称为 NetBEUI ( NetBIOS   EXTENDED   USER   INTERFACE ) ， 即 NetBIOS 扩充 用户 接口 。 其中 TCP / IP 是 使用 最 广泛 的 通信协议 ， 它 支持 Internet 、 路由 能力 是 所有 通信协议 中 最强 的 ， 可 通过 Windows   Socket 对 其 进行 操作 ； NWLink 是 与 Novell   Netware   IPX / SPX 兼容 的 通信协议 ， 路由 能力 比较 强 ， 最大 的 优点 是 通过 该 协议 可 访问 Novell 网络 ； NetBIOS 是 一种 适用 于 小型 网络 ， 如 部门 网 和 局域网 的 通信协议 ， 在 小型 网络 上该 协议 速度 最快 ， 效率 最高 ， 不足之处 是 缺乏 路由 能力 ， 在 广域网 上 效率 差 。 我们 在 所 研制 的 局域网 中央 监控 系统 中 ， 因为 NetBIOS 速度 和 效率高 ， 对系统 配制 要求 低 ， 而且 网络 编程 简单 ， 故 选择 了 它 作为 系统 中 基本 的 网络通信 协议 。 
+ 2   NetBIOS 简介 
+ 　 　 1984 年 8 月 ， Sytek 公司 推出 了 为 IBM 第一个 局域网 IBM - PC   Network 所 使用 的 管理程序 NetBIOS 。 1985 年 10 月 ， IBM 推出 它 的 另 一个 局域网 IBM   Token - Ring 时 ， 使用 了 功能 增强 了 的 NetBIOS ， 称为 NetBEUI 。 NetBIOS 在 国际标准化组织 ( ISO ) 开放系统 互联 ( OSI ) 七层 参考模型 中 处于 较 高 的 层次 ， 如图 1 所示 ， 所以 编写 NetBIOS 接口 应用程序 基本上 与 其它 层 无关 ， 这 使得 NetBIOS 的 应用 在 各种各样 的 通讯 环境 中 基本上 都 可以 移植 。 由于 NetBIOS 应用 的 广泛 可移植性 ， 且 直观 简单 ， 以致 NetBIOS 在 各种 操作系统 环境 中 迅速 推广 ， 如 DOS 、 OS / 2 、 UNIX 等 。 当 Microsoft 推出 其 Windows 系列 时 ， 一直 把 NetBIOS 作为 其 主要 的 网络通信 协议 。 以下 对 NetBIOS 的 使用 作 基本 介绍 。 
+ 
+ 图 1 　 ISO / OSI 参考模型 
+ 2.1   NetBIOS 的 功能 简介 
+ 　 　 NetBIOS 提供 了 三种 基本 服务 ： 名字 服务 、 数据 报 服务 、 会话 服务 。 应用程序 通过 调用 三种 服务 中 的 相应 控制 命令 ， 就 能 实现 多机间 ， 甚至 单机 内 不同 应用程序 间 的 通讯 。 
+ 2.1 . 1   名字 服务 
+ 　 　 为了 保证 通讯 时 信息 能 从 信源 机 到达 目的 机 ， 网上 各 工作站 必须 有 相应 的 名字 来 证明 自己 的 身份 以及 识别 对方 。 工作站 使用 的 名字 可以 有 多个 的 ， 但 在 使用 某个 名字 之前 ， 必须 在 局域 中 申请 使用 该 名字 的 权利 。 申请 的 名字 有 两种 ： 唯一 名 和 组名 。 如果 名字 是 唯一 名 ， 那么 ， 局域网 中 其它 工作站 就 不能 使用 这个 名字 ， 否则 名字 注册 会 失败 ； 如果 名字 是 组名 ， 那么 其它 工作站 就 不能 把 这个 名字 注册 为 唯一 名 ， 并且 局域网 中 任何 工作站 都 可以 同时 注册 这个 组名 。 
+ 2.1 . 2   数据 报及 会 话 服务 
+ 　 　 各 工作站 中 的 应用程序 可以 通过 NetBIOS 与 驻留 在 相同 或 不同 工作站 中 的 应用程序 进行 通讯 。 通信 的 方式 有 两种 ： 数据 报 方式 或会话 方式 。 
+ 　 　 数据 报是 一种 短信息 ， 它 既 可 被 传送 给 具有 唯一 名 的 工作站 ， 也 可 传送 给 共享 一个组 名 的 一组 工作站 ； 它 的 大小 可 由 NetBIOS 的 执行程序 改变 但 不 保证 信息 准确 有序 地 送到 接收 方 ， 数据 报 信息 的 准确性 需要 程序员 在 程序 中 进行 检验 。 DOS 下 数据 报 的 最大 长度 是 512 字节 ， Windows 下为 1 , 024 字节 。 
+ 　 　 会话 是 两个 应用程序 之间 一种 可靠 的 数据 传送 方式 ， 属于 点对点 通信 。 与 数据 报 相比 ， 会话 方式 的 主要 优点 是 接收 方 系统 要 把 信息 接收 状态 送交到 发送 方 系统 ， 发送 方 系统 根据 信息 接收 状态 确定 信息 是否 重 发 ， 从而 可以 保证数据 的 准确性 ， 整个 过程 由 NetBIOS 系统 完成 ， 不 需要 人工 干涉 。 然而 ， 会话 的 可靠性 是 以 建立 会话 、 维护 会话 、 微机 之间 数据包 应答 的 开销 为 代价 ， 增加 了 网络 负担 。 
+ 2.2   NetBIOS 的 使用 方法 
+ 2.2 . 1   NetBIOS 控制 块 ( NCB ) 
+ 　 　 NetBIOS 的 所有 服务 调用 都 是 通过 将 一个 NCB ( NetBIOS   Control   Block ) 传送 到 NetBIOS 入口 ， 由 NetBIOS 驱动程序 执行 对应 的 功能 。 NCB 结构 如下 ： 
+ struct   NCB 
+ { 
+ unsigned   char   ncb _ command ;   / / 服务 命令 码 
+ unsigned   char   ncb _ retcode ;   / / 立即 返回 码 
+ unsigned   char   ncb _ lsn ;   / / 本地 会话 号 
+ unsigned   char   ncb _ num ;   / / 网络 名字 号 
+ unsigned   char   * ncb _ buffer ;   / / 缓冲区 地址 
+ WORD   ncb _ length ;   / / 缓冲区 长度 
+ unsigned   char   ncb _ callname [ 16 ] ;   / / 目的 机 网络 名 
+ unsigned   char   ncb _ name [ 16 ] ;   / / 信源 机 网络 名 
+ unsigned   char   ncb _ rto ;   / / 接收 超时 
+ unsigned   char   ncb _ sto ;   / / 发送 超时 
+ void ( * ncb _ post ) ( struct _ NCB * ) ;   / / 后置 例程 地址 
+ unsigned   char   ncb _ lana _ num ;   / / 适配器 号 
+ unsigned   char   ncb _ cmd _ cplt ;   / / 命令 完成 标志 
+ unsigned   char   ncb _ reserve [ 10 ] ;   / / 保留字 段 
+ HANDLE   ncb _ event ;   / / 事件 句柄 
+ } ; 
+ 其中 ncb _ event 是 Windows 特有 ， 在 DOS 下 没有 此项 ， 倒数第 2 项 变为 ncb _ reserve [ 14 ] 。 
+ 2.2 . 2   NetBIOS 服务 的 等待 ( WAIT ) 和 非 等待 ( NO _   WAIT ) 状态 
+ 　 　 NetBIOS 的 服务 一般 有 两种 状态 ： 等待 和 非 等待 。 命令 码 的 最高 位为 1 时 ， 服务 处于 非 等待 状态 ， 最高 位为 0 时 ， 服务 处于 等待 状态 。 当 NetBIOS 服务 处于 等待 状态 时 ， 系统 一直 等到 该 服务 结束 后 ， 才 执行 以后 的 程序 。 而 处于 非 等待 状态 时 ， 不必 等到 该 服务 执行 完毕 ， 就 可以 执行 以后 的 程序 。 非 等待 服务 的 完成 与否 有 两种 方法 进行 检验 ： 一是 查询 该 服务 的 命令 完成 标志 ， 即 NCB 中 的 ncb _ cmd _ cplt ， 若 ncb _ cmd _ cplt 是 0XFF ， 说明 服务 还 没有 完成 ； 二是 使用 后置 例程 ， 当 服务 一 完成 ， 系统 立即 调用 该 服务 的 后置 例程 。 NetBIOS 服务 使用 非 等待 状态 有利于 减少 系统 时间 资源 的 消费 ， 在 对 时间 要求 比较 严格 的 应用 中 使用 较 多 。 
+ 3   DOS 下 NetBIOS 的 使用 方法 
+ 　 　 DOS 操作系统 并 不 直接 拥有 NetBIOS 功能 ， 可 通过 Windows   NT   Server4.0 制造 出 DOS 下 的 NetBIOS 驱动程序 ， 将 该 驱动程序 拷贝到 DOS 工作站 中 ， 在 工作站 启动 时 调用 该 程序 ， 工作站 就 具备 了 NetBIOS 功能 。 NetBIOS 在 DOS 环境 下 的 入口 是 0x5c 中断 ， 其 调用函数 定义 如下 ： 
+ void   DOS _ NetBios ( struct   NCB   * pncb ) 
+ { 
+ union   REGS   inregs , outregs ; 
+ struct   SREGS   sregs ; 
+ sregs . es = FP _ SEG ( ( struct   NCB   far * ) pncb ) ;   
+ / / 把 NCB 的 段 地址 赋予 寄存器 ES 
+ inregs . x . bx = FP _ OFF ( ( struct   NCB   far * ) pncb ) ;   
+ / / 把 NCB 的 偏移量 赋予 寄存器 BX 
+ int86x ( 0x5c , & inregs , & outregs , & sregs ) ;   
+ / / 调用 0x5c 中断 ， 请求 NetBIOS 调用 
+ } 
+ 　 　 以下 是 DOS 下 发送 和 接收数据 的 具体方法 ： 
+ / / / DOS 下 数据 接收 函数 的 定义 
+ void   DOS _ RecvData ( struct   NCB * pncb ,   unsigned   char   session _ lsn ,   
+ 　 　 　 　 　 unsigned   char * Buffer , WORD   length ) 
+ { 
+ ... 首先 把 NCB 中 的 所有 值置 为 0 
+ pncb - > ncb _ command = 0x15 + 0x80 ; 
+ 　 　 / / 其中 0xl5 为 接收数据 命令 码 ， 0x80 为 非 等待 状态 标志 
+ pncb - > ncb _ lsn = session _ lsn ;   
+ 　 　 / / 与 其它 工作站 建立 会话 时 ， 返回 的 会 话 号 
+ pncb - > ncb _ buffer = Buffer ;   / / 接收缓冲区 
+ pncb - > ncb _ length = length ;   / / 接收缓冲区 长度 
+ pncb - > ncb _ lana _ num = 0 ; 
+ pncb - > ncb _ post = Post _ Recv ;   / / 设置 接收 后置 例程 
+ DOS _ Netbios ( pncb ) ; 
+ } 
+ / / / DOS 下 数据 发送 函数 的 定义 
+ void   DOS _ SendData ( struct   NCB * pncb , unsigned   char   session _ lsn ,   
+ 　 　 　 　 　 unsigned   char * Buffer , WORD   length ) 
+ { 
+ ... 首先 把 NCB 中 的 所有 值置 为 0 
+ pncb - > ncb _ command = 0x14 + 0x80 ;   
+ 　 　 / / 其中 0xl4 为 发送数据 命令 码 ， 0x80 为 非 等待 状态 标志 
+ pncb - > ncb _ lsn = session _ lsn ;   
+ 　 　 / / 与 其它 工作站 建立 会话 时 ， 返回 的 会 话 号 
+ pncb - > ncb _ buffer = Buffer ;   / / 发送数据 缓冲区 
+ pncb - > ncb _ length = length ;   / / 发送数据 长度 
+ pncb - > ncb _ lana _ num = 0 ; 
+ pncb - > ncb _ post = Post _ Send ;   / / 设置 接收 后置 例程 
+ DOS _ Netbios ( pncb ) ; 
+ } 
+ 　 　 DOS 下 NetBIOS 中 的 后置 例程 是 一个 软 中断 ， 其 定义 必须 遵守 以下 的 格式 ： 
+ void   interrupt   FunctionName ( ) 
+ { 用户 自定义 的 处理 部分 } 
+ 4   Windows 下 NetBIOS 的 使用 方法 
+ 　 　 在 Windows 下 使用 NetBIOS 要 在 系统 网络 设置 中 把 NetBEUI 协议 定义 成 默认 的 通信协议 。 由于 Windows 下 不 允许 直接 访问 系统 中断 ， 故 与 DOS 环境 下 调用 NetBIOS 服务 不同 。 在 Visual   C++ 5.0 中 ， 有 一个 关于 NetBIOS 调用 的 头文件 < nb30 . h > ， 把 该 头文件 加入 到 程序 中 ， 然后 再 调用 其中 的 入口 函数 ， 其 入口 函数 形式 如下 ： 
+ unsigned   char   Netbios ( struct   NCB   * pncb ) ; 
+ 　 　 以下 是 Windows 监控 站 接收 和 发送数据 的 具体方法 ： 
+ / / / Windows 下 数据 接收 函数 的 定义 
+ void   Win _ RecvData ( struct   NCB * pncb , unsigned   char   session _ lsn , 
+ 　 　 　 　 unsigned   char * Buffer , WORD   length ) 
+ { 
+ ... 首先 把 NCB 中 的 所有 值置 为 0 
+ pncb - > ncb _ command = NCBRECV + ASYNCH ;   
+ / / 其中 NCBDGRECV 为 接收数据 命令 码 ， ASYNCH 为 非 等待 状态 标志 
+ pncb - > ncb _ lsn = session _ lsn ;   
+ 　 　 / / 与 其它 工作站 建立 会话 时 ， 返回 的 会 话 号 
+ pncb - > ncb _ buffer = Buffer ;   / / 接收缓冲区 
+ pncb - > ncb _ length = length ;   / / 接收缓冲区 长度 
+ pncb - > ncb _ lana _ num = 0 ; 
+ pncb - > ncb _ post = Post _ Recv ;   / / 设置 接收 后置 例程 
+ Netbios ( pncb ) ; 
+ } 
+ / / / Windows 下 数据 发送 函数 的 定义 
+ void   Win _ SendData ( struct   NCB * pncb , unsigned   char   session _ lsn , 
+ 　 　 　 　 　 unsigned   char * Buffer , WORD   length ) 
+ { 
+ ... 首先 把 NCB 中 的 所有 值置 为 0 
+ pncb - > ncb _ command = NCBSEND + ASYNCH ;   
+ 　 　 / / 其中 NCBSEND 为 数据 发送 命令 ， ASYNCH 为 非 等待 状态 标志 
+ pncb - > ncb _ lsn = session _ lsn ;   
+ 　 　 / / 与 其它 工作站 建立 会话 时 ， 返回 的 会 话 号 
+ pncb - > ncb _ buffer = Buffer ;   / / 发送数据 缓冲区 
+ pncb - > ncb _ length = length ;   / / 发送数据 长度 
+ pncb - > ncb _ lana _ num = 0 ; 
+ pncb - > ncb _ post = Post _ Send ;   / / 设置 接收 后置 例程 
+ Netbios ( pncb ) ; 
+ } 
+ 　 　 Windows 下 后置 例程 的 定义 与 DOS 下 后置 例程 的 定义 有所不同 ， 格式 如下 ： 
+ NCB _ POST   FunctionName ( ) 
+ { 用户 自定义 的 处理 部分 } 
+ 5   局域网 中央 监控 系统 的 设计 
+ 　 　 在 我们 所 研制 的 局域网 中央 监控 系统 中 ， 中央 监控 站 使用 Windows   95 / 98 / NT ， 以 利用 Windows 友好 的 界面 及其 多任务 特性 ； 因为 DOS 的 单任务 特性 适合 于 数据 采集 ， 故 工作站 采用 DOS 。 整个 系统 要求 一个 Windows 监控 站 实时 监控 8 ～ 16 台 DOS 工作站 。 
+ 　 　 DOS 工作站 负责 从 外界 采集 数据 ， 通过 网络 把 数 
+ 　 　 据 信息 传送 到 监控 站 ， 同时 接收 和 处理 Windows 监控 站 发来 的 命令 ， 其 网络通信 部分 如图 2 所示 。 
+ 
+ 图 2 　 DOS 工作站 流程图 
+ 　 　 Windows 监控 站 接收 从 DOS 工作站 发来 的 数据 ， 对 原始数据 经过 处理 后 进行 显示 、 打印 、 存储 ， 同时 控制 DOS 工作站 的 运作 ， 其 网络通信 部分 如图 3 所示 。 
+ 
+ 图 3 　 Windows 监控 站 流程图 
+ 6   结束语 
+ 　 　 经过 实践 检验 ， 我们 所 研制 的 基于 NetBIOS 的 局域网 中央 监控 系统 ， 工作 性能 稳定 ， 没有 出现 网络 堵塞 现象 ， 实时性 好 ， 不必 像 TCP / IP 那样 考虑 机器 名 ， 操作 非常 简便 ， 充分证明 了 NetBIOS 在 局域网 上 优越 的 性能 。 随着 Internet 的 流行 ， 把 NetBIOS 和 TCP / IP 结合 在 一起 日益 受到 人们 的 重视 ， 当 在 广域 上 传输 信息 时 ， 采用 TCP / IP ； 在 局域网 上 采用 NetBIOS ， 这一 应用 在 本文 中 就 不 详细 论述 了 。 
+ 刘志刚 （ 国防科技大学 电子 工程学院   长沙   410073 ） 
+ 王博亮 （ 国防科技大学 电子 工程学院   长沙   410073 ） 
+ 刘希顺 （ 国防科技大学 电子 工程学院   长沙   410073 ） 
+ 参考文献 
+ 1 ， W .   David   Schwaderer 著 .   丛海莱 ,   周芳芹 ,   张克军 译 .   NetBIOS   C 程序员 指南 .   上海 ： 上海 科学普及 出版社 
+ 2 ， 杨永高 ,   王   宇著 .   微机 局部 网络 原理 及 实用 指南 .   成都 ： 西南 交通 大学 出版社 
+ 3 ， 朱 三元 ,   杨   明 ,   薛   钫 著 .   网络通信 软件设计 指南 .   北京 ： 清华大学出版社 
+ 4 ， Ben   Ezzell ,   Jim   Blaney 著 ,   郝启堂 ,   曹   康译 .   Windows   NT4 / Windows95 高级 开发 指南 .   北京 ： 电子 工业 出版社 
+ 5 ， 戴有炜 著 .   WindowsNT   SERVER3.51 中文版 实用 指南 .   北京 ： 清华大学出版社 
+ 收稿 日期 ： 1999 年 6 月 30 日 

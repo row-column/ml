@@ -1,0 +1,49 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 1999 年   第 18 卷   第 4 期   Vol.18   No.4   1999 
+ 
+ 
+ 
+ ActiveX 控件 和 Owner - draw 控件 的 编程 
+ 潘 　 众 　 沙征 东 
+ 　 　 摘 　 要 ： 控件 是 用户界面 的 重要 组成 ， ActiveX 控件 和 Owner - draw   控件 能 满足用户 化 界面 的 需要 ， 本文 介绍 了 这 两种 控件 的 编程 要点 。 
+ 　 　 关键词 ： ActiveX 控件 　 Owner - draw 控件 　 控件 容器 
+ 　 　 控件 是 用户界面 的 重要 组成 ， 它 使 用户 很 方便 地 与 计算机 进行 对话   ， 且 使 软件 的 操作 越来越 简   单 ， 因此 控件 成为 软件设计 中 不可 缺少 的 一部分 。 但 由于 MFC 提供 的 库存 控件 非常 有限 ，   有时 不能 满足 使用 需要 ， 所以 必须 自己 制作 一些 符合要求 的 控件 ， 方法 是 多种多样 的 ，   可以 根据 需要 来 选择 。 本文 主要 介绍 如何 在 Visual   C++ 中 制作 ActiveX 控件 和 拥有者 画 ( Owne   r - draw ) 控件 ， 并 各 结合 一个 小 例子 加以 说明 。 
+ 1 　 ActiveX 控件 
+ 　 　 当 需要 1 个 拥有 完全 不同 的 外形 或 完全 不同 功能 的 全新 控件 时 ， 制作 1 个 ActiveX 控件   会 是 最好 的 选择 。 ActiveX 控件 能 使 界面 别具一格 ， 更 有 吸引力 ， 可 满足 各种 需要 。   
+ 　 　 ActiveX 控件 基于 普通 对象 模型 ( COM ) 、 能 在 自己 的 窗口 中 绘制 自己 的 对象 。 它 有点 类   似 OLE 服务器 ， 能 被 OLE 容器 使用 ， 这种 容器 称为 控件 容器 ， 通常 是 对话框 。 控件 容器 通过 1   组 属性 ( Properties ) 和 方法 ( Methods ) 来 管理 它 ， 也 能 通过 事件 ( Events ) 的 形式 发送   消息 给 控件 容器 。 
+ 　 　 ActiveX 控件 通过 COleControl 类 、 事件 激发 函数 ( Event - firing   Function ) 和 1 个 调度 映射 表   ( Dispatch   Map ) 来 有效 地 与 控件 容器 和 用户 进行 交互 。 所有 的 ActiveX 控件 类 都 是从 COleCon   trol 类 派生 出来 的 ， COleControl 类 除了 使 控件 对象 具有 MFC 窗口 对象 的 所有 特征 之外 ， 还增   加 了 控件 激发 事件 的 能力 。 控件 通过 激发 事件 通知 控件 容器 已 发生 重要 情况 。 控件 容器 还 可   通过 事件 附属 参数 了解 更 详细 的 情况 。 调度 映射 表 陈列 一系列 属性 和 方法 给 用户 ， 它们 提供   了 一种 交互式 界面 ， 具体内容 在 创建 控件 时 根据 需要 来 决定 。 
+ 　 　 ActiveX 控件 的 属性 和 方法 在 用途 上 非常 类似 于类 的 成员 变量 和 成员 函数 ， 可以 认为 属性 和   方法 是 ActiveX 控件 类 成员 变量 和 成员 函数 的 1 个 子集 ， 这样 在 设计 和 编程 时 ， 把   控件 容器 可以 修改 或 需要 确定 其值 的 变量 用 添加 属性 的 方式 添加 到 控件 类中 ， 把 在   控件 容器 的 编程 过程 中 需要 使用 的 函数 用 添加 方法 的 方式 添加 到 控件 类中 。 Ac   tiveX 控件 的 事件 通常 是 由 用户 的 动作 ( 如 鼠标 或 键盘输入 ) 、 控件 本身 发生 的 特殊 情况   引   起 的 。 制作 ActiveX 控件 时 ， 最 常用 的 事件 当然 是 按 下 鼠标 。 Visual   C++ 中 提供 了 不少 库存   属性 ( Stock   Properties ) 、 库存 方法 ( Stock   Methods ) 和 库存 事件 ( Stock   Events ) ， 为 编程   带来 了 很多 方便 ， 然而 控件 的 大部分 属性 、 方法 和 事件 是 自定义 ( Custom ) 的 ， 需要 自己   编程 。 ClassWizard 中 支持 的 自定义 属性 有 如下 3 种 类型 ： 
+ 　 　 1 ． DISPPROPERTYNOTIFY ： 使用 成员 变量 和 通知 消息 来 实现 。 
+ 　 　 2 ． DISPPROPERTYEX ： 使用 Get / Set 函数 来 实现 。 
+ 　 　 3 ． DISPPROPERTYPARAM ： 使用 Get / Set 函数 和 索取 参数 来 实现 。 
+ 　 　 这 3 种 自定义 属性 使用 起来 差别 较 小 ， 在 使用 该 控件 的 工程 中 会 自动 加入 该 控件 类 的 包装 类 (   Wrap   Class ) ， 对 控件 容器 来说 ， 控件 所有 的 属性 都 可 通过 这个 包装 类 提供 的 Get / Set 函数 对   获取 或 设置 该 属性 。 只是 第一种 类型 稍 有 限制 ， 第三种 类型 一般 不用 。 一般而言 ， 把 在 控   件 容器 的 程序 中要 用到 的 属性 设置 成 第二种 类型 ， 而 把 那些 只 用于 编辑 资源 ( 如 对话框 ) 的 、   在 程序 中 用不着 的 属性 设置 成 第一种 类型 比较 妥当 。 
+ 　 　 下面 就 以 控制 平台 常用 的 多 档 选择开关 ( Switch   Control ) 的 制作 为例 ， 说明 在 Visual   C++ 中   ActiveX 控件 的 制作 及 使用 要点 ， 具体操作 不 多 阐述 。 
+ 　 　 Switch 控件 是 用来 进行 多档 选择 的 ， 外形 就象 各种 仪器仪表 面板 上   的 圆形 旋钮 ， 有 一 指针 指示 用户 所 做 的 选择 。 当 在 容器 中 使用 时 ， 容器 的 设计 人员 应能 改   变它 的 选择 档数 ， 在 程序 中 可 随时 确定 或 改变 指针 的 位置 。 以下 几个 属性 是 该 控件 所 必须 的   ： 
+ 　 　 BackColor ： 背景 颜色 ， 主要 用于 使 控件 四周 颜色 与 控件 容器 背景 颜色 一致 ， 是 库存 属性 。   
+ 　 　 Division ： 开关 选择 档数 ， 说明 有 多少 档 可 供选择 ， 可 设置 成 第一种 类型 自定义 属性 。 
+ 　 　 PointerPos ： 指针 位置 ， 指示 指针 所处 的 位置 ， 即 指向 哪 一档 ， 可 设置 成 第二种 类型 自定义   属性 。 
+ 　 　 另外 ， 还 可 添加 的 属性 有 开关 颜色 、 指针 颜色 等等 。 
+ 　 　 Switch 控件 呈圆形 ， 它 的 外围 刻度 把 它 分成 多个 扇形 区域 ， 使用 该 控件 的 控件 容器   在 编程 时   可能 要 确定 鼠标 落 在 这些 扇形 区域 中 的 哪 一个 ， 实际上 在 该 控件 本身 的 编程 中 也 要 确定 这个   区域 ， 因此 把 确定 这个 区域 的 函数 InPie ( ) 作为 一个 方法 来 对待 是 有益无害 的 。 更 重要 的 是 ， 当 用户 在 该 控件 上 按 动鼠标 时 ， 控件 应当 响应 这一 动作 ， 即 必须 根据 鼠标 位置   重画 指针 ， 并 修改 PointerPos 属性 值 。 为此 ， 在 ClassWizard 中 添加 自定义 事件 ， 命名 为 Cli   ckIn 。 在 控件 类 的 消息 响应函数 ( 控件 也 是 1 个 窗口 ) OnLButtonDown ( ) 中 修改 PointerPos 属   性值 ， 并 使 控件 无效 ， 使 之 重画 ， 最后 调用 该 事件 的 激发 函数 FireClickIn ( ) 通知 容器 用户   已 按 下 鼠标 左键 。 这样 在 插入 了 Switch 控件 的 容器 中 ， 就 可以 编写 这个 消息 的 响应函数 OnCl   ickInXXX ( ) ， 通过 ClassWizard 是 很 容易 做到 的 。 
+ 2 　 Owner - draw 控件 
+ 　 　 在 编程 时 ， 有时 会 对 某个 库存 控件 的 外形 不满 ， 这时 就 可以 把 它 设成 具有 拥有者 画 ( Own   er - draw ) 风格 的 控件 。 然后 派生 1 个 该 控件 类 的 子类 ， 重载 DrawItem ( ) 等 函数 ， 并 把 该 控件   定义 成 这个 子类 的 1 个 对象 。 下面 通过 1 个 创建 颜色 选择 组合 框 的 例子 简要 说明 如何 制作 Owne   r - draw 控件 。 
+ 　 　 颜色 选择 组合 框是 1 个 常用 的 控件 ， 但 CComboBox 类 只能 在 其 选项 中 输入 文字 ， 不能 填充 图形   。 为此 在 编辑 对话框 资源 时 ， 把 要 制成 颜色 选择 组合 框 的 组合 框 设置 成 Drop   List 类型 ， 并   在 Owner - draw 中 选择 Variable 项 。 之后 通过 ClassWizard 派生 CComboBox 类 的 子类 CColorComb   oBox ， 关键 是 要 重载 下列 3 个类 成员 。 
+ 　 　 1 ． DrawItem ( LPDRAWITEMSTRUCT   lpDS ) ， 负责 绘制 选项 ， 大多数 控件 类 都 拥有 这个   成员 函数   。 LPDRAWITEMSTRUCT 是 指向 DRAWITEMSTRUCT 结构 的 指针 ， 绘制 颜色 条 正是 通过 该 结构 的 成员   hDC 来 获得 设备 对象 的 指针 的 。 该 结构 的 成员 itemData 对应 各 选项 的 值 。 成员 itemActio   n 定义 要 执行 的 动作 ， 可以 是 下列 值 的 组合 ( 位 或 ) ： 
+ 　 　 ODADRAWENTIRE — — 表示 整个 控件 需重 绘 。 
+ 　 　 ODAFOCUS — — 表示 控件 获得 或 失去 输入 焦点 ， 必须 根据 另 一个 成员 itemSt   ate 判断 控件 是否 拥有 输入 焦点 。 
+ 　 　 ODASELECT — — 表示 选择 的 状态 发生 改变 ， 必须 检测 itemState 以 确定 选择 状态 。   
+ 　 　 成员 itemState 指示 在 当前 绘制 动作 发生 后该 选项 的 存在 状态 ， 可以 是 下列 值 的 组合 ( 位 或 )   ： 
+ 　 　 ODSCHECKED — — 菜单 条款 被 选中 ， 只 用于 菜单 。 
+ 　 　 ODSDISABLED — — 该 选项 被 禁止 。 
+ 　 　 ODSFOCUS — — 该 选项 拥有 输入 焦点 。 
+ 　 　 ODSGRAYED — — 条款 变灰 ， 只 用于 菜单 。 
+ 　 　 ODSSELECTED — — 该 选项 被 选中 。 
+ 　 　 ODSCOMBOBOXEDIT — — 绘制 动作 发生 在 组合 框中 的 编辑框 内 。 
+ 　 　 ODSDEFAULT — — 该 选项 是 默认 选项 。 
+ 　 　 对于 颜色 组合 框 ， 当 ( itemAction   &   ODADRAWENTIRE ) 为 真时 ， 表示 要用 itemData   指定 的 颜   色 绘制 选项 彩色 条 。 单 鼠标 移 到 某个 选项 上时 ， 该 选项 彩色 条应 由 另 一 颜色 矩形框 围起来 ，   这时 ， ( ( itemAction   &   ODAFOCUS ) && ( itemState   &   ODSFOCUS ) ) 为 真 。   当单 鼠标 从 某个 选   项 上移 走时 ， 应用 该 选项 彩色 条 的 颜色 重绘 矩形 外围 框 ， 此时 ， ( itemState   &   ODSFOCUS ) 为 假 。 弄清楚 这些 要求 后 ， 程序 就 可用 3 个 条件 语句 完成 绘制 工作 。 
+ 　 　 2 ． MeasureItem ( LPMEASUREITEMSTRUCT   lpMS ) ， 负责 通过 MEASUREITEMSTRUCT 结构 的 itemHei   ght 成员 设置 选项 的 高度 ， 只有 CComboBox 、 ClistBox 等 少数几个 类 拥有 该 成员 函数 。 
+ 　 　 3 ． CompareItem ( LPCOMPAREITEMSTRUCT   lpCS ) ， 负责 列表框 和 组合 框中 选项 的 排序 。 按 自己   规定 的 大小 判断 准则 比较 COMPAREITEMSTRUCT 结构 的 itemData1 和 itemData2 成员 的 大小 。 只   有 在 列表框 和 组合 框 具有 排序 风格 时 ， 这个 函数 才 被 调用 。 
+ 　 　 为了 完善 CColorComboBox 类 ， 还 可 对应 CComboBox 类 成员 AddString 、 DeleteString 、 FindSt   ring 加入 AddColorItem 、 DeleteColorItem 、 FindColorItem   3 个 成员 函数 。 必须 在 CDialog   ∷ OnInitDialog 中 调用 AddColorItem ， 以便 向 这个 颜色 组合 框 加入 选项 。 
+ 　 　 上面 介绍 了 ActiveX 和 Owner - draw 控件 的 一般 制作 要点 ， 限于 篇幅 ， 不 做 更 详细 说   明 ， 具体 细节 请 参考 在线 帮助 。 
+ 作者 单位 ： 武汉大学 电信 学院 ( 430072 ) 
+ 收稿 日期 ： 1998 - 10 - 26 

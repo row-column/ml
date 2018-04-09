@@ -1,0 +1,101 @@
+中国 环境 科学 
+ CHINA   ENVIRONMENTAL   SCIENCE 
+ 1999 年 　 第 19 卷 　 第 3 期 　 Vol.19   No.3   1999 
+ 
+ 
+ 
+ 含 硫酸盐 高浓度 有机 废水 生物 处理 技术 
+ 赵   毅 　 杨景亮 　 任洪强 　 罗人明 　 刘 三学 
+ 摘要 ： 采用 硫酸盐 还原 — 硫化物 生物 氧化 — 产甲烷 — 接触 氧化 工艺 处理 青霉素 废水 , 硫酸盐 还原 与 有机物 甲烷 化 分别 在 两个 反应器 中 进行 , 有效 地 避免 了 硫酸盐 还原 菌 对 产甲烷菌 的 竞争 抑制 ; 利用 无色 硫 细菌 将 硫酸盐 还原 产物 — 硫化物 氧化 成 S , 消除 了 硫化物 对 产甲烷菌 的 毒害 作用 . 研究 结果表明 , 当 系统 进水 COD 为 4500 ～ 5000mg / L , 浓度 为 1500 ～ 1600mg / L 时 , 系统 出 水中 COD 为 310 ～ 348mg / L ,   COD 平均 去除率 为 93.2% , 平均 去除率 为 91.2% . 
+ 关键词 ： 硫酸盐 生物 还原 ； 硫化物 生物 氧化 ； 产甲烷 ； 接触 氧化 ； 青霉素 废水 
+ 中 图 分类号 ： X703.1   文献 标识码 ： A   文章 编号 ： 1000 -   6923 ( 1999 ) 03 -   0281 -   04 
+ A   study   on   biological   treatment   technology   for   high   strength   sulfate — organic   wastewater . 
+ ZHAO   Yi1 ,   YANG   Jing - liang1 ,   REN   Hong - qiang1 , LUO   Ren - ming2 ,   LIU   San - xue2 
+ ( 1 . Department   of   Environmental   Engineering ,   North   China   Electric   Power   University ,   Baoding   071003 , China ； 2 . Department   of   Environmental   Engineering ,   Hebei   University   of   Science   and   Technology ,   Shijiazhuang   050018 ,   China ) .   China   Environmental   Science .   1999 , 19 ( 3 ) ： 281 ～ 284 
+ Abstract ： The   penicillin   wastewater   was   treated   with   the   process   of   sulfate   reduction — sulfide   biological   oxidation — methane   production — contact   oxidation .   In   this   process ,   sulfate   reduction   was   separated   from   methane   production   to   avoid   the   inhibition   on   methane   bacteria ; and   sulfide   was   oxidized   by   colorless   sulfur   bacteria   to   reduce   poison   its   effect   on   methane   bacteria .   Experiment   results   showed : when   the   influent   COD   was   4500 ～ 5000mg / L   and     was   l500 ～ 1600mg / L , the   effluent   COD   of   310 ～ 348mg / L , COD   average   removal   rate   of   93.2 ％   and     average   removal   rate   of   91.2%   were   reached . 
+ Key   words ： sulfate   biological   reduction ； sulfide   biological   oxidation ； methane   production ； contact   oxidation ； penicillin   wastewater 
+ 　 　 在 轻工 、 制药 等 行业 排放 的 生产废水 中除 含有 高浓度 有机物 外 , 还 含有 高浓度 硫酸盐 , 此类 废水 属 含 硫酸盐 高浓度 有机 废水 . 采用 厌氧 消化 法 进行 处理 , 硫酸盐 还原 菌 引起 的 硫酸盐 还原作用 对厌 氧 消化 产生 严重 的 抑制 影响 . 其 影响 机制 综合 起来 可 归纳 为 两个 方面 [ 1 ] : 一是 硫酸盐 还原 菌 和 产甲烷菌 都 可以 利用 乙酸 和 H2 而 产生 基质 竞争性 抑制作用 ; 二是 硫酸盐 还原 产物 — 硫化物 对 产甲烷菌 的 毒害 作用 . 目前 此类 废水 的 处理 技术 不同 程度 地 存在 着 运行 费用 高 、 效果 不 稳定 等 缺陷 [ 2 , 3 ] . 两相 [ 4 , 5 ] 、 三相 [ 6 ] 工艺 处理 人工模拟 废水 取得 较 好 效果 , 但 采用 同类 工艺 处理 生产废水 的 报道 较少 . 青霉素 废水 属于 含 硫酸盐 高浓度 
+ 　 　 有机 废水 , 采用 硫酸盐 生物 还原 — 硫化物 生物 氧化 — 产甲烷 — 接触 氧化 的 四相 串联 工艺 处理 , 结果表明 , 该 工艺 可 有效 地 消除 硫酸盐 对厌 氧 消化 的 抑制作用 , 并 取得 良好 的 净化 效果 . 本文 重点 研究 各 处理单元 的 效果 和 效能 , 对 整体 工艺 稳定 运行状况 及 技术 可行性 进行 考察 和 分析 . 
+ 1 　 材料 与 方法 
+ 1.1 　 试验 工艺流程 
+ 　 　 试验 流程 如图 1 . 在 硫酸盐 还原 反应器 中 , 硫酸盐 还原 菌 利用 废水 中 部分 有机物 将 还原 为 硫化物 . 在 硫化物 生物 氧化 反应器 中 , 无色 硫 细菌 在 好 氧 条件 下 将 硫化物 氧化 成 单质 硫 . 产甲烷 反应器 中 的 产甲烷菌 将 脱硫 废水 中 的 有机物 分解 为 CH4 和 CO2 . 在 好 氧 条件 下 , 接触 氧化 反应器 中 填料 表面 的 微生物 进一步 分解 废水 中 的 有机物 . 硫酸盐 还原 反应器 和 产甲烷 反应器 均 置入 恒温箱 内 , 温度控制 在 35 ± 1 ℃ . 硫化物 生物 氧化 反应器 和 接触 氧化 反应器 用 空压机 供氧 , 室温 条件 下 运行 . 
+ 
+ 图 1 　 工艺流程 示意 
+ Fig.1   Work   process 
+ 储水 槽   2 . 计量泵   3 . 恒温 水浴   4 . 硫酸盐 还原 反应器   5 . 硫化物 生物 氧化 反应器   6 . 产甲烷 反应器   7 . 接触 氧化 反应器   8 . 沉淀池   9 . 水封   10 . 气体 流量计   
+ 1.2 　 主要 设备 
+ 　 　 硫酸盐 还原 反应器 为 上 流式 厌氧 污泥 床 反应器 , 直径 90mm , 总高 900mm , 容积 5L . 
+ 　 　 硫化物 生物 氧化 反应器 为 上 流式 填料 床 反应器 , 直径 50mm , 高度 550mm , 容积 1.0 L ; 填料 装填 高度 450mm , 填料 为 塑料 阶梯 环 , 直径 24mm , 高 17mm . 产甲烷 反应器 为 上 流式 厌氧 污泥 床 反应器 , 下部 直径 65mm , 上部 直径 70mm , 总高 1200mm , 容积 3.6 L . 
+ 　 　 接触 氧化 反应器 为 上 流式 填料 床 反应器 , 内径 90mm , 有效 容积 2.4 L ; 内装半 软性 填料 , 填料 直径 80mm , 装填 高度 为 500mm . 
+ 1.3   试验 用水 
+ 　 　 废水 取自 青霉素 生产 提炼 车间 , COD   18000 ～ 26000mg / L 、 5000 ～ 7000mg / L 、 pH 值 3 ～ 4 . 调节 后 作为 硫酸盐 还原 反应器 进水 . 
+ 1.4   接种 污泥 
+ 　 　 硫酸盐 还原 反应器 接种 污泥 取自 废水处理 站 厌氧 反应器 , 接种 前用 配制 的 含有 机 废水 进行 间歇 驯化 , 反应器 接种 污泥 浓度 为 18.2 gVSS / L ; 硫化物 生物 氧化 反应器 接种 污泥 取自 废水 排污 地沟 , 接种 污泥 浓度 为 4.1 gMLSS / L ; 产甲烷 反应器 接种 污泥 取自 废水处理 站 厌氧 反应器 , 接种 污泥 浓度 为 20.8 gVSS / L ; 接触 氧化 反应器 接种 污泥 取自 城市污水 处理厂 二沉池 , 接种 污泥 浓度 为 3.8 gMLSS / L . 
+ 1.5   分析 项目 
+ 　 　 COD 、 pH 值 、 、 VSS 、 硫化物 采用 标准 方法 测定 [ 7 ] ; 溶解氧 : YSI - 55 测定仪 . 
+ 2 　 结果 与 讨论 
+ 2.1   硫酸盐 还原 反应器 
+ 　 　 在 一定 条件 下 , 硫酸盐 还原 菌 以 有机物 为 碳源 作为 生长 、 繁殖 所 需 的 能源 , SO42 - 为 有机物 分解 过程 中 的 最终 电子 受体 被 还原成 硫 离子 [ 8 ] . 为 考察 反应器 的 效能 , 反应器 运行 过程 可 分为 启动 期 、 负荷 运行 期 和 稳定 运行 期 . 
+ 2.1 . 1   启动 期   硫酸盐 还原 反应器 成功 启动 的 标志 是 有效 地 抑制 产甲烷菌 生长 , 培养 驯化 出 活性 较 高 的 硫酸盐 还原 菌 . 间歇 驯化 后 的 接种 污泥 产甲烷菌 活性 仍 较 高 , 为 使 产甲烷菌 活性 得到 抑制 , 加快 硫酸盐 还原 菌 生长 繁殖 , 反应器 采用 高负荷 启动 : 控制 进水 900 ～ 1800mg / L 、 COD2000 ～ 4400mg / L , 启动 负荷 为 0.9 ～ 2.0   kg / m3 · d 、 COD 为 2 ～ 5kg / m3 · d . 经过 10 天 的 运行 ,   COD 去除率 由 80 ％ 降至 40 ％ 左右 , 去除率 由 30 ％ 上升 至 66 ％ . 当 SO42 - 去除率 大于 90 ％ 时 , 提高 反应器 运行 负荷 , 提高 幅度 为 0.5 kg / m3 · d . 经过 一个月 的 运行 , 负荷 达到 3kg / m3 · d , 去除率 大于 95 ％ , 水力 停留时间 ( HRT ) 由 21.5 h 降至 6.6 h . 床层 污泥 的 凝聚 性能 有 了 明显改善 . 运行 结果 见图 2 . 
+ 2.1 . 2   负荷 运行 期   主要 考察 反应器 还原 的 效能 . 此 阶段 HRT 在 4 ～ 5h , 通过 逐步 增加 
+ 　 　 进水 浓度 提高 负荷 . 控制 条件 为 : 当 SO42 - 去除率 大于 80 ％ 时 , 稳定 运行 2 ～ 3 天 , 负荷 提高 幅度 为 1kg / m3 · d . 经过 65 天 运行 , 负荷 由 4kg / m3 · d 上升 到 10kg / m3 · d , 进水 浓度 由 800mg / L 增加 到 2000mg / L , COD 由 3000mg / L 增加 到 7500   mg / L , 反应器 仍能 维持 较 高 的 去除率 , 污泥 床 实现 了 颗粒化 . 运行 结果 见图 3 . 
+ 
+ 图 2 　 启动 期 反应器 运行 结果 
+ Fig.2   Operation   result   of   the   reactor   at   starting 
+ 1 .   COD /   2 .   去除率   3 .   进水 负荷   4 .   HRT 
+ 
+ 图 3 　 负荷 期 反应器 运行 结果 
+ Fig.3   Operation   result   of   reactor   at   loading 
+ 1 .   去除率   2 .   进水 负荷   3 .   COD /   4 .   HRT 
+ 2.1 . 3   稳定 运行 期   为 考察 反应器 在 一定 负荷 条件 下 稳定 运行状况 和 后续 处理单元 的 运行 效果 , 控制 反应器 负荷 为 5kg / m3 · d , 进水 浓度 为 1500 ～ 1600mg / L 、 COD 浓度 为 4500 ～ 5000mg / L . 运行 结果表明 , 去除率 为 90% ～ 95 ％ , 平均 92% ; COD 去除率 为 30 ％ 左右 , 出 水中 100 ～ 130mg / L 、 COD3000 ～ 3500   mg / L 、 硫化物 300   mg / L 左右 . 
+ 2.2   硫化物 生物 氧化 反应器 
+ 　 　 在 好 氧 条件 下 , 无色 硫 细菌 可 将 废水 中 的 硫化物 氧化 成 S 和 . 硫化物 生物 氧化 反应器 成功 运行 的 关键在于 控制 适当 的 操作 条件 , 使 反应 向 生成 S 的 方向 进行 . Buisman 等 人 [ 9 ] 的 试验 结果表明 , 影响 硫化物 转化成 S 的 主要 因素 是 溶解氧 和 硫化物 浓度 . 
+ 　 　 硫酸 还原 反应器 稳定 运行 , 硫化物 生物 氧化 反应器 开始 启动 , 进水 负荷 约 5kgS2 - / m3 · d . 启动 初期 严格控制 反应器 中 的 溶解氧 , 到 第 15 运行 日 , 硫化物 去除率 达到 92 ％ 以上 . 在 其后 的 运行 过程 中 , 溶解氧 控制 在 3.2 mg / L 左右 , 硫化物 去除率 稳定 在 92% ～ 95 ％ , 其中 94% ～ 96 ％ 氧化 成 S , 出 水中 硫化物 浓度 为 23 ～ 25.8 mg / L ; COD 去除率 约 为 10 ％ , 出水 COD 浓度 为 2933 ～ 3187mg / L . 反应器 运行 结果 见表 1 .   
+ 表 1 　 硫化物 生物 氧化 反应器 运行 结果 
+ Table   1   Operation   result   of   sulfide   biological   oxidation   reactor 
+ 运行 日 进水 硫化物 硫化物 去除率 溶解氧 
+ ( d ) ( mg / L ) ( % ) ( mg / L ) 
+ 1 ～ 8295 ～ 30349.6 ～ 800.7 ～ 2.5 
+ 9 ～ 15289 ～ 30451 ～ 921.1 ～ 3.2 
+ 16 ～ 50293 ～ 31092 ～ 952.7 ～ 3.5 
+ 
+ 2.3   产甲烷 反应器 
+ 　 　 产甲烷 反应器 的 功能 是 去除 脱硫 后 废水 中 的 有机物 . 硫化物 生物 氧化 反应器 运行 稳定 后 , 产甲烷 反应器 开始 启动 , 启动 负荷 为 2.0 kg   COD / m3 · d . 运行 过程 中 , 当 COD 去除率 大于 80% 时 , 能 提高 运行 负荷 , 提高 幅度 为 1.0 kgCOD / m3 ·   d . 经过 20 天 运行 , COD 负荷 达到 6kg / m3 · d , 去除率 为 80% , 产气率 为 0.462 m3 / kg   COD ( 去除 ) . 废水 中 剩余 的 得到 进一步 还原 , 去除率 为 96% ～ 99.5% . 出 水中 COD 为 527 ～ 621   mg / L 、 浓度 为 2 ～ 10mg / L 、 硫化物 浓度 为 56 ～ 58.8 mg / L . 
+ 2.4   接触 氧化 反应器 
+ 　 　 与 产甲烷 反应器 同时 启动 , 控制 气水 比为 20 , 7 天后 纤维 填料 表面 已 形成 丰富 的 生物膜 . 在 此后 的 运行 过程 中 , COD 去除率 ( 均值 ) 为 45.5% , 废水 中 的 硫化物 在 好 氧 条件 下 被 氧化 成 . 反应器 出水 COD 为 310 ～ 348mg / L 、 为 120 ～ 140mg / L 、 硫化物 为 1.5 ～ 1.9 mg / L . 
+ 3 　 工艺 可行性 分析 
+ 　 　 采用 硫酸盐 还原 — 硫化物 生物 氧化 — 产甲烷 — 接触 氧化 的 四相 串联 工艺 处理 含 硫酸盐 高浓度 有机 废水 , 将 硫酸盐 还原 与 有机物 甲烷 化 分别 在 两个 反应器 中 进行 , 从根本上 避免 了 生物 还原 对 甲烷 菌 造成 的 竞争 抑制 ; 利用 无色 硫 细菌 将 硫化物 氧化 为 单质 硫 , 消除 了 硫化物 对 产甲烷菌 的 毒害 作用 , 为 产甲烷 反应器 的 有效 运行 创造 了 良好条件 . 
+ 　 　 试验 结果表明 , 在 硫酸盐 还原 反应器 中 , 可 培养 出 高活性 硫酸盐 还原 菌 颗粒 污泥 , 使 反应器 具有 较 高 的 负荷 和 去除率 ; 利用 无色 硫 细菌 去除 硫化物 效果 好 , 设备 简单 ; 处理 脱硫 后 的 废水 , 产甲烷 反应器 启动 负荷 高 , 提升 快 , 产气 指标 正常 ; 接触 氧化 的 设置 保证 了 整个 处理 系统 的 运行 效果 . 整体 工艺 稳定 运行 结果 见表 2 . 
+ 表 2 　 整体 工艺 运行 结果 
+ Table   2   Operation   result   of   the   process 
+ 序号 项   目 COD 浓度 
+ ( mg / L ) COD 去除率 
+ ( 均值 ) ( % ) 浓度 
+ ( mg / L ) 去除率 
+ ( 均值 ) ( % ) 硫化物 浓度 
+ ( mg / L ) 硫化物 去除率 
+ ( 均值 ) ( % ) 
+ 1 系统 进水 4500 ～ 5000 　 1500 ～ 1600 　 　 　 
+ 2 硫酸盐 还原 反应器 出水 3000 ～ 350030100 ～ 13092.0302 ～ 310 　 
+ 3 生物 脱硫 反应器 出水 2933 ～ 318710100 ～ 140 - 23 ～ 25.8 　 
+ 4 产甲烷 反应器 出水 527 ～ 62180.12 ～ 1098.256 ～ 58.891 . 9 
+ 5 生物 接触 氧化 出水 310 ～ 34845.5120 ～ 140 - 1.5 ～ 1.996 . 1 
+ 6 系统 出水 310 ～ 34893.2120 ～ 14091.21 . 5 ～ 1.998 . 7 
+ 
+ 4 　 结 　 论 
+ 　 　 采用 硫酸盐 还原 — 硫化物 生物 氧化 — 产甲烷 — 接触 氧化 的 四相 串联 工艺 处理 青霉素 废水 , 试验 结果表明 , 当 系统 进水 COD 为 4500 ～ 5000   mg / L , 浓度 为 1500 ～ 1600mg / L 时 , 系统 出水 COD 为 310 ～ 348mg / L , COD 平均 去除率 为 93.2 ％ , 平均 去除率 为 91.2 ％ . 
+ 基金项目 ： 石家庄市 科技 攻关项目 ( 9428102 ) 
+ 作者简介 ： 赵   毅 ( 1955 - ) , 男 , 河北 秦皇岛 人 , 华北电力大学 环境 工程系 教授 、 硕士 研究生 导师 , 主要 从事 环境工程 的 教学 和 科研工作 . 主持 过 “ 金属 螯合物 的 高效 液相 色谱 研究 ” 和 “ 多氯联苯 的 破坏 与 处理 ” 等 10 余项 课题 的 研究 工作 , 研究成果 获 电力部 科技进步 二等奖 2 项 、 河北省 教委 科技进步 二等奖 2 项 . 发表 论文 50 余篇 . 
+ 作者 单位 ： 赵   毅 　 杨景亮 　 任洪强 　 华北电力大学 环境 工程系 , 河北   保定   071003 ； 
+ 　 　 　 　 　 罗人明 　 刘 三学 　 河北 科技 大学 环境 工程系 , 河北   石家庄   050018 
+ 参考文献 ： 
+ [ 1 ] Anderson   G   K .   Indentification   and   control   of   inhibition   in   the   anaerobic   treatment   of   industry   wastewater   [ J ] .   Process   Biochemistry , 1982 ,   17 ( 4 ) :   28 -   32 . 
+ [ 2 ] Dezham   P .   Digester   gas   H2S   control   using   iron   salts   [ J ] .   J . WPCF . ,   1988 ,   60 :   514 -   517 . 
+ [ 3 ] Alon   Lcbel .   Molasses   promoted   biological   sulfur   recovery   from   high   sulfate   wastes   [ R ] .   Ind .   Waste   Conf .   40th ,   1985 ,   891 -   896 . 
+ [ 4 ] Yan   Gao .   Anaerobic   digestion   of   high   strength   wastewaters   containing   high   levels   of   sulfate : [ D ] .   England :   Unit   of   Newcastale   Upon   Tvne ,   1989 . 
+ [ 5 ] 杨景亮 , 左剑恶 , 胡纪萃 .   两相厌 氧 工艺 处理 含 硫酸盐 有机 废水 的 研究   [ J ] .   环境 科学 ,   1995 ,   6 ( 3 ) :   8 -   11 . 
+ [ 6 ] 左剑恶 .   含 硫酸盐 高浓度 有机 废水处理 新 技术 研究   [ D ] .   北京 : 清华大学 环境 工程系 , 1995 . 
+ [ 7 ] 国家环保局 《 水 和 废水 监测 分析方法 》 编委会 .   水 和 废水 监测 分析方法   [ M ] .   北京 : 中国 环境 科学出版社 , 1989 . 
+ [ 8 ] Postgate   J   R .   The   sulphate   reducing   bacteria   [ M ] .   UK :   Cambridge   University   Press ,   1984 . 
+ [ 9 ] Cees   J   N   Buisman ,   Bert   G   Geraats ,   Peter   Ijspeert .   Optimization   of   sulfur   production   in   a   biotechnological   sulfide - removing   reactor   [ J ] .   Biotech .   Bioeng . , 1990 , 35 :   50 -   56 . 
+ 收稿 日期 ： 1998 - 10 - 13 

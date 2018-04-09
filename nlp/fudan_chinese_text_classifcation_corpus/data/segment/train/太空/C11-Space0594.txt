@@ -1,0 +1,32 @@
+上海 航天 
+ AEROSPACE   SHANGHAI 
+ 2001   Vol.18   No.2   P.61 - 68 
+ 
+ 
+ 
+ 
+ 卫星 电磁兼容 性 设计 技术 
+ 宋明 龙 　   魏致 坤 　   
+ 摘 　 要 ： 根据 卫星 上 电子 元器件 多 的 特点 ， 对 气象卫星 的 电磁 兼容性问题 进行 了 研究 ， 着重 对 卫星 接地 、 搭接 、 电磁 屏蔽 和 电缆 布线 束 的 设计 进行 了 分析 。 针对 上述 技术 进行 了 讨论 ， 提出 了 实施 要求 。 经 卫星 在 轨 飞行 验证 ， 对 FY - 1C 所 进行 的 电磁兼容 性 设计 是 正确 的 。 
+ 关键词 ： 电磁兼容 性 ； 电磁 环境 ； 电子设备 ； 接地 ； 屏蔽 
+ 分类号 ： V474.2 　 文献 标识码 ： A 
+ 文章 编号 ： 1006 － 1630 ( 2001 ) 02 － 0061 － 08 
+ EMC   Design   Technology   of   Satellit 
+ SONG   Ming - long （ No.509   Institute   of   SAST ,   Shanghai   200240 ,   China ） 　 
+ WEI   Zhi - kun （ No.509   Institute   of   SAST ,   Shanghai   200240 ,   China ） 　 
+ 
+ Abstract ： The   Electromagnetic   Compatibility ( EMC ) of   meteorological   satellite   is   s   tudied   and   the   satellite   grounding   and   contacting ,   shielding   and   the   design   of   c   able   lines   are   analyzed   emphatically .   The   in - orbit   flight   shows   that   the   EMC   de   sign   for   FY - 1C   is   correct . 
+ Keywords ： Electromagnetic   compatibility ;   Electromagnetic   environment ;   Electroni   c   device ;   Grounding ;   Shielding 
+ 作者简介 ： 宋明 龙 ( 1940 - ) ， 男 ， 研究员 ， 上海市 宇航 学会 会员 ， 研究 领域 ： 卫星 总体 。   
+ 作者 单位 ： 宋明 龙 （ 上海 航天技术 研究院 509 所 ， 上海   200240 ） 　 
+ 　 　 　 　 　 魏致 坤 （ 上海 航天技术 研究院 509 所 ， 上海   200240 ） 　 
+ 
+ 参考文献 ： 
+ ［ 1 ］ GJB   1210 - 91 , 接地 、 搭接 和 屏蔽 设计 的 实施 [ S ] . 
+ ［ 2 ］ GJB   72 - 85 , 电磁干扰 和 电磁兼容 性 设计 名词术语 [ S ] . 
+ ［ 3 ］ MIL - STD - 1587 , 接地 、 搭接 和 屏蔽 设计 的 应用 [ S ] . 
+ ［ 4 ］ 吕仁清 , 蒋 全兴 . 电磁兼容 性 结构设计 [ M ]   . 南京 ： 东南大学 出版社 , 1990 . 
+ 
+ 收稿 日期 ： 2000 年 9 月 29 日 
+ 修稿 日期 ： 2001 年 1 月 5 日 
+ 出版日期 ： 2001 年 4 月 25 日 

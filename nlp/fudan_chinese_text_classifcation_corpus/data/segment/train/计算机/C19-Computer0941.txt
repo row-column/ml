@@ -1,0 +1,167 @@
+自动化 学报 
+ ACTA   AUTOMATICA   SINICA 
+ 1997 年   第 23 卷   第 5 期   Vol.23   No.5   1997 
+ 
+ 
+ 
+ 多 变量 鲁棒 自 适应 极点 配置 算法 
+ 李俊民 　 邢科义 　 高淑萍 
+ 摘 　 要 　 在 系统 具有 一般 不 确定 结构 的 情况 下 ， 提出 了 一种 多 变量 自 适应 极点 配置 算法 ， 解决 了 多 变量 自 适应 极点 配置 算法 的 奇异 性 问题 ， 证明 了 它 的 全局 收敛性 和 稳定性 . 该 算法 构造 了 一个 估计 参数 的 修正 策略 ， 保证 估计 模型 的 一致 能 控性 ， 并且 得到 能 控度 的 一个 下界 . 所 需要 的 先验 知识 仅为 系统 的 能 观性 指数 和 能 控性 指数 的 上界 以及 干扰 上界 . 
+ 关键词 　 鲁棒 自 适应 极点 配置 ， 不 确定 结构 ， 参数估计 修正 策略 ， 全局 收敛性 和 稳定性 ， 
+ ROBUST   MULTIVARIABLE   ADAPTIVE   POLE 
+ PLACEMENT   ALGORITHM 
+ LI   JUNMING 　 　 XING   KEYI 　 　 GAO   SHUPING 
+ ( Department   of   Applied   Mathematics , Xidian   University ,   Xi ′ an 　 710071 ) 
+ Abstract 　 Adaptive   pole   placement   algorithm   for   multivariable   system   with   a   general   uncertainty   structure   is   presented . The   long - standing   adaptive   pole   placement   problem   for   multivariable   non   minimum   phase   system   with   a   general   uncertainty   structure   is   solved   without   a   persistent   excitation   signal . A   modification   strategy   for   parameter   estimation   is   proposed   to   guarantee   the   uniform   controllability   of   the   estimated   model   and   to   obtain   a   lower   bound   of   the   controllable   measure . The   global   convergence   and   the   stability   of   the   algorithm   are   established . The   scheme   requires   no   a   priori   knowledge   other   than   the   system   observability   indices   and   upper   bound   of   the   controllability   index . 
+ Key   words 　 Robust   adaptive   pole   placement , uncertainty   structure , parameter   estimate   modification   strategy , global   convergence   and   stability . 
+ 1 　 引言 
+ 　 　 自 适应 控制算法 的 鲁棒性 问题 自从 1982 年 ［ 1 ］ 被 提出 后 ， 就 一直 是 研究 的 热门 课题 之一 ， 修改 经典 自 适应 控制算法 ( 如 引入 死 区 、 变量 单模 化及 投影 修正 等 ) 使 其 具有 某种 鲁棒性 是 重要 的 研究 方法 ［ 2 ］ . 对单 变量 确定 系统 ， R . Lozano ［ 3 ］ 提出 无需 持续 激励 的 全局 收敛 的 自 适应 极点 配置 算法 ， 随后 陆续 发表 了 具有 各种 鲁棒性 的 修正 算法 4 — 7 ］ ， 其中 文献 ［ 7 ］ 对 具有 不 确定 结构 的 任意 阶单 变量 系统 解决 了 自 适应 极点 配置 问题 . 对于 多 变量 确定 系统 ， 文献 ［ 8 ］ 研究 了 一种 自 适应 极点 配置 算法 ， 本文 考虑 具有 一般 不 确定 结构 的 多 变量 系统 ， 提出 了 一种 多 变量 自 适应 极点 配置 算法 和 一个 估计 参数 的 修正 策略 ， 保证 估计 模型 的 一致 能 控性 ， 得到 能 控度 的 一个 下界 ， 解决 了 多 变量 自 适应 极点 配置 算法 的 奇异 性 问题 ， 证明 了 它 的 全局 收敛性 和 稳定性 . 该 算法 既 不 需要 持续 激励 ， 也 不 需要 限制 系统 参数 属于 某个 区域 ， 所 需要 的 先验 知识 仅为 系统 的 能 观性 指数 和 能 控性 指数 的 上界 以及 干扰 上界 . 
+ 2 　 对象 模型 与 参数估计 算法 
+ 　 　 考虑 下面 的 多 变量 系统 
+ A ( D ) y ( t ) = B ( D ) u ( t ) + v ( t ) , 
+ ( 1 ) 
+ 其中 　 A ( D ) ， B ( D ) 分别 是 q × q 、 q × p 维 、 后移 算子 D 的 多项式 矩阵 ， 并且 它们 是 左 互质 的 . A ( D ) 是 行 既 约 ， 记 Γ r [ A ( D ) ] 为 A ( D ) 的 最高 行次 项 系数 矩阵 ， 不失 一般性 ， 该 矩阵 为 对角线 元素 为 1 的 下 三角 矩阵 . y ( t ) , u ( t ) 分别 是 系统 输出 和 输入 向量 ， v ( t ) 是 如下 的 不 确定 向量 ： 
+ 
+ ( 2 ) 
+ ( 1 ) 式 可 改写 为 如下 分量 形式 ： 
+ 
+ ( 3 ) 
+ 这里 
+ 
+ 是 系统 真 参数 . 
+ 　 　 首先 作 如下 假设 ： 
+ 　 　 1 ) 系统 ( 1 ) 是 能控 的 ， 系统 能 观性 指数 vj ( j = 1 , 2 , … q ) 和 能 控性 指数 的 上界 μ 已知 . 
+ 　 　 2 ) 干扰 上 界 μ i 和 η i , i = 1 , 2 , … ， q 已知 . 
+ 　 　 定义 几个 模化 向量 
+ 
+ ( 4 ) 
+ 调度 向量 
+ 
+ 当 系统 ( 1 ) 或者 ( 3 ) 的 参数 未知 或慢 时变 时 ， 利用 下面 递推 最小 二乘 算法 估计 参数值 
+ 
+ ( 6 ) 
+ 
+ ( 5 ) 
+ 其中 　 ε > 0 是 任意 选择 ， α i = 1 + tr ( Fi ( 0 ) ) , tr ( F ( 0 ) ) 是 协方差 矩阵的迹 ， F ( 0 ) 是 任意 选择 的 正定 矩阵 ， θ i ( 0 ) ( i = 1 , … q ) 是 任意 选择 的 参数 初值 ， θ i ( t ) 为 θ * i 在 t 时刻 估计值 . 
+ 　 　 定理 1 . 参数估计 算法 ( 5 ) 式 具有 下面 特性 ： 
+ 　 　 1 ) 　 Fi ( t ) 和 θ i ( t ) 均 收敛 ； 
+ 　 　 2 ) 　 
+ 　 　 3 ) 　 
+ ( 7 ) 
+ 这里 　 
+ 　 　 证明 . 类似 于 文献 ［ 7 ］ 的 定理 1 证明 ， 只要 注意 下标 . 
+ 3 　 参数估计 的 修正 策略 
+ 　 　 由于 用 ( 5 ) 式 估计 参数 未必 能 保证 模型 的 可控性 ， 如果 估计 模型 不 可控 ， 则 极点 配置 方程 成为 奇异 方程 ， 导致 极点 配置 算法 失败 . 下面 根据 ( 5 ) 式 的 性质 提出 一个 参数估计 的 修正 策略 ， 用来 解决 奇异 问题 . 
+ 
+ ( 8 ) 
+ 其中 　 β i ( t ) ( i = 1 , … q ) 的 选取 在 后面 给出 ， 这里 β i ( t ) ( i = 1 , … q ) 必须 满足 下面 两个 重要 性质 ： 
+ 　 　 P1 ) 　 β i ( t ) ( i = 1 , … q ) 必须 收敛 ； 
+ 　 　 P2 ) 　 β i ( t ) ( i = 1 , … q ) 必须 使 广义 Sylvester 结式 的 某种 形式 具有 非 零下 界 . 
+ 　 　 下面 给出 β i ( t ) ( i = 1 , … q ) 的 选择 方法 ， 作 如下 记号 ： 
+ 　 
+ 由 产生 的 广义 Sylvester 结式 矩阵 定义 如下 ［ 8 ］ ： 
+ 
+ ( 9 ) 
+ 其中 　 
+ 　 　 β i ( t ) , i = 1 , … q , 选择 为 如下 结构 ： 
+ 
+ ( 10 ) 
+ 其中 　 这里 σ ( t ) 在 集合 D 中 取值 ， D = ｛ σ 1 , σ 2 , … , σ l ｝ ， 其 元素 满足 
+ 
+ ( 11 ) 
+ 　 　 记 　 
+ 　 　 为了 满足 P2 ) ， σ ( t ) 的 值 将 从 D 中 的 一个 值 转换 为 另 一个 值 ［ 8 ］ ， 为了 满足 P1 ) ， 在 改变 β t 时 引入 一个 具有 常数 滞后 宽度 的 开关 函数 . 
+ 　 　 定义 1 . 当 λ = σ ( t ) 时 ， 称 
+ 
+ 为 系统 的 一种 可控 度 . 
+ 　 　 定义 2 . 滞后 开关 函数 σ ( t ) 定义 如下 ： 
+ 　 　 σ ( t ) = σ ( t - 1 ) ， 如果 对 所有 σ j ∈ D ， zt ( σ j ) < ( 1 + γ ) zt ( σ ( t - 1 ) ) , 
+ 　 　 σ ( t ) = σ j , 如果 j 是 zt ( σ j ) ≥ ( 1 + γ ) zt ( σ ( t - 1 ) ) 和 zt ( σ j ) ≥ zt ( σ i ) ， 对 任意 σ i ∈ D 成立 的 最小 正整数 . 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 12 ) 
+ 　 　 定理 2 . 设 系统 ( 1 ) 式 满足 假设 1 ) ， 2 ) ， 参数 由 ( 5 ) 式 估计 ， 奇异 问题 由 上面 提出 的 修正 策略 来 解决 ， 则 此 修正 策略 具有 如下 性质 ： 
+ 　 　 1 ) 　 β i ( t ) , i = 1 , … q 收敛 ； 
+ 　 　 2 ) 　 系统 的 可控 度 有 下界 
+ 
+ 其中 　 ε 0 是 标称 系统 的 可控 度 的 一个 下界 ， 即 
+ 
+ 这里 hi = max ( 1 , hi0 ) , i = 1 , 2 , … , q . 
+ 　 　 证明 . 显然 ， 是 所有 β i ( t ) , i = 1 , … q 的 多元 多项式 ， 由 文献 ［ 8 ］ 得 
+ 
+ ( 13 ) 
+ 其中 　 ni = ni - 1 + ( n + pvi ) , n0 = 0 , i = 1 , … , q , 这里 g ( i1 , i2 , … , inq ) 是 Θ t 和 Fi ( t ) i = 1 , … , q 的 标量 函数 ， gt 是 包含 所有 可能 项 g ( i1 , i2 , … , inq ) 形成 的 向量 ， v ( β t ) 是 对应 于 g ( i1 , i2 , … , inq ) 的 所有 的 组合 所 构成 的 向量 . 
+ 　 　 为了 估计 ( 13 ) 式 ， 把 v ( β t ) 作 如下 安排 ： 
+ 　 　 首先 定义 由 所有 β i11 , i1 = 0 , 1 , … , m1 - 1 构成 的 向量 然后 所有 构成 的 向量 安排 为 类似 地 ， 所有 构成 的 向量 安排 为 接下来 ， 定义 所有 构成 的 向量 为 因此 ， 所有 构成 的 向量 可定义 为 这个 过程 重复 进行 到 定义 所有 构成 的 向量 为 wnq ， 最后 定义 将 ( 10 ) 中 β t 代入 上面 各 向量 ， 得到 
+ 
+ ( 14 ) 
+ 　 　 由于 对 感兴趣 ， 所以 ， 考虑 对 每个 D 中 的 元素 所 形成 的 
+ 由 它们 形成 一个 向量 pt 
+ 
+ ( 15 ) 
+ 其中 N 是 l × l 维 Vandermonde 矩阵 . 
+ 　 　 由 文献 ［ 7 ］ ， 得到 pt 范数 的 一个 下界 
+ 
+ ( 16 ) 
+ 记由 已知 条件 得 
+ 
+ ( 17 ) 
+ 由及 ( 14 ) ， ( 7 ) 式 得 
+ 
+ ( 18 ) 
+ 这里 　 hi = max ( 1 , hi0 ) , 　 i = 1 , 2 , … , q . 由 ( 17 ) ， ( 18 ) 式 得 
+ 
+ ( 19 ) 
+ 将 ( 19 ) 式 代入 ( 16 ) 式 得 
+ 
+ ( 20 ) 
+ 由 定理 1 可知 Fi ( t ) 和 θ i ( t ) , i = 1 , 2 , … q 均 收敛 ， 因此 ， 对 每个 在 集合 D 中取 的 值 σ i ， 相应 的 zt ( σ i ) 也 收敛 . 由于 zt ( λ ) 是 滞后 开关 函数 ( 12 ) 中 的 调度 变量 ， 因此 ， σ ( t ) 收敛 ， 进而 β t 也 收敛 . 
+ 　 　 定义 　 由 ( 12 ) ， ( 14 ) ， ( 15 ) 式 得 
+ 
+ ( 21 ) 
+ 结合 ( 20 ) ， ( 21 ) 式 得 
+ 
+ ( 22 ) 
+ 由于 在 开关 函数 中 引入 滞后 量 ， 因此 ， σ ( t ) 未必 有 zl ( σ ( t ) ) = zmax ( t ) ， 但是 有 下面 不等式 成立 ： 
+ 
+ ( 23 ) 
+ 结合 ( 22 ) ， ( 23 ) 式 得到 定理 的 结论 . 
+ 4 　 自 适应 极点 配置 算法 及其 收敛性 
+ 　 　 设 修正 的 估计 模型 为 
+ 
+ ( 24 ) 
+ 这里 是 第 i 个 后验 误差 . 
+ 　 　 引理 1 . ( 24 ) 式 中 的 eai ( t ) 满足 下面 不等式 
+ 
+ ( 25 ) 
+ 其中 　 
+ 　 　 证明 . 将 文献 ［ 6 ］ 的 结果 推广 到 多 变量 情形 ， 得到 本 引理 的 证明 . 
+ 　 　 对于 估计 模型 ( 24 ) 式 ， 设计 下面 的 控制器 
+ 
+ ( 26 ) 
+ 其中 ξ ( t ) 是 分 状态 ， Q * ( D ) 是 任意 稳定 多项式 矩阵 ， 其 对角 元素 为首 一 ( μ - 1 ) 次 算子 D 的 多项式 . y * ( t ) 是 参考 输入 向量 ， K ( t , D ) , H ( t , D ) 满足 下面 极点 配置 方程 
+ 
+ ( 27 ) 
+ 其中 　 A * ( D ) 是 任意 稳定 多项式 矩阵 且 Γ r ( A * ( D ) ) = Γ r [ A * ( D ) ] , 由 ( 24 ) ， ( 26 ) ， ( 27 ) 式 得到 下面 闭环 方程 ［ 8 ， 9 ］ 
+ 
+ ( 28 ) 
+ 　 　 定理 3 . 设 系统 ( 1 ) 式 的 未知 参数 由 ( 5 ) 式 估计 ， 用 本文 构造 的 修正 策略 修改 估计值 ， 则 本文 提出 的 自 适应 极点 配置 算法 满足 下面 性质 ， 即 存在 一组 μ i 的 非 零 上界 ， 使得 对 任意 一类 满足 ( 2 ) 式 且 有 干扰 的 系统 其 输入 和 输出 均 保持 有界 . 
+ 　 　 证明 . 由 文献 ［ 8 ］ ， ［ 9 ］ 可知 ， ( 28 ) 式 中 的 Δ 是 参数估计 增量 Θ t - Θ t - 1 的 函数 ， 因此 ， 当 t 趋向于 无穷 时 它 趋向于 零 . 所以 ， 当 t 足够 大 但 有限 时 ， ( 28 ) 式 将 任意 接近 如下 渐近 稳定 系统 
+ 
+ ( 29 ) 
+ 由于 的 有界性 知 ， ξ ( t ) 增长 不会 快 于 ‖ ea ( t ) ‖ 的 线性 项 . 由 ( 26 ) 式 知 ， y ( t ) , u ( t ) 增长 也 不会 快 于 ‖ ea ( t ) ‖ 的 线性 项 . 如果 假定 至少 有 一个 ‖ φ l ( t - 1 ) ‖ 变为 无 界 ， 由于 u ( t ) , y ( t ) 和 ea1 ( t ) 以 相同 阶 发散 ， 因此 ， 将 有 一个 非零 的 下界 . 如果 ‖ φ l ( t - 1 ) ‖ 变为 无 界 ， ( 4 ) 式 中 的 δ l ( t ) 将 收敛 于 μ l 且 ( 6 ) 式 中 的 将 收敛 于 α 1 ( μ 21 + ε μ l ) . 因此 ， 存在 一个 足够 小 的 界限 使得 对 任意 的 下界 大于 这 与 估计 算法 的 性质 ( 25 ) 式 矛盾 ， 所以 ， 定理 的 结论 成立 . 
+ 5 　 结论 
+ 　 　 对 具有 一般 不 确定 结构 的 多 变量 系统 解决 了 自 适应 极点 配置 问题 ， 所 提出 的 算法 具有 全局 收敛性 、 BIBO 稳定性 和 鲁棒性 . 构造 了 一个 参数估计 的 修正 策略 确保 估计 模型 的 一致 能 控性 ， 并且 获得 能 控度 的 一个 下界 . 
+ 作者 单位 ： 西安电子科技大学 应用 数学系 　 西安 　 710071 
+ 作者简介 ： 
+ 　 　 李俊民 　 1965 年生 . 1989 年 毕业 于 西安电子科技大学 获 硕士学位 . 现为 西安交通大学 系统工程 研究所 在职 博士生 . 研究 领域 有 自 适应控制 ， 非线性 动态 系统优化 控制 和 智能 控制 . 
+ 　 　 邢科义 　 1957 年生 ， 1994 年 毕业 于 西安交通大学 系统工程 研究所 获 博士学位 . 现为 西安电子科技大学 副教授 . 研究 领域 有 离散 事件 动态 系统 理论 ， PETRI 网 理论 及 应用 . 
+ 　 　 高淑萍 　 1963 年生 . 1995 年 毕业 于 西安电子科技大学 ， 获 硕士学位 . 讲师 ， 研究 方向 为鲁棒 自 适应控制 . 
+ 参考文献 
+ 　 [ 1 ］ 　 Rohrs   C   E   et   al . Robustness   of   Adaptive   control   algorithm   in   the   presence   of   unmodeled   dynamics . In : Proceedings   of   the   21st   IEEE   CDC , Orlando , Florida , 1982 : 3 — 11 . 
+ 　 [ 2 ] 　 袁震东 . 关于 自 适应控制 鲁棒性 的 一般 观察 . 信息 与 控制 ， 1989 ， 17 ( 4 ) : 32 — 37 . 
+ 　 [ 3 ] 　 Lozano   R , Goodwin   G   C . Globally   convergence   adaptive   pole   placement   algorithm   without   a   persistent   excitement   requirement . IEEE   Trans   on   AC , 1985 , 30 ( 8 ) : 795 — 798 . 
+ 　 [ 4 ] 　 Lozano   R . Robustness   adaptive   regulation   without   persistency   excitation . IEEE   Trans   on   AC , 1989 , 34 ( 12 ) : 1260 _ 1267 . 
+ 　 [ 5 ] 　 Lozano   R , Dion   J   M , Dugard   L . Singularity - free   adaptive   pole   placement   using   periodic   controllers . IEEE   Trans   on   AC , 1993 , 38 ( 1 ) : 104 — 108 . 
+ 　 [ 6 ] 　 Lozano   R . Singularity - free   adaptive   pole   placement   without   resorting   to   persistensy   of   excitation   detailed   analysis   for   first   order   systems . Automatica , 1992 , 28 ( 1 ) : 27 — 33 . 
+ 　 [ 7 ] 　 Lozano   R , Zhao   X   H . Adaptive   pole   placement   without   excitation   probing   signals . IEEE   Trans , on   AC , 1994 , 39 ( 1 ) : 112 — 120 . 
+ 　 [ 8 ] 　 李俊民 . 全局 收敛 的 多 变量 适应 极点 配置 算法 . 控制 与 决策 ， 1991 ， 6 ( 4 ) ： 277 — 282 . 
+ 　 [ 9 ] 　 Goodwin   G   C , Sun   K . Adaptive   Filtering , Predition   and   Control , Englewood   Cliffs , NJ : Prentice - Hall , 1984 . 
+ 收稿 日期 　 1995 - 08 - 25 

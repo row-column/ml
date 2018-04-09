@@ -1,0 +1,134 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 19 卷   第 3 期     Vol.19   No.3   1999 
+ 
+ 
+ 
+ 基于 随机 Petri 网 模型 的 网络协议 性能 测试 
+ 徐明伟 　 林闯 　 吴建平 
+ 摘 　 要 　 分析 了 协议 性能 测试 需要 解决 的 主要 问题 ， 并 以 随机 Petri 网为 形式化 工具 ， 描述 了 网络协议 的 服务质量 . 提出 从 随机 Petri 网 模型 到 TTCN ( tree   and   tabular   combined   notation ) 测试 集 的 转换规则 ， 并 根据 随机 Petri 网 模型 生成 了 协议 性能 测试 例 . 
+ 关键词 　 协议 性能 测试 ， 随机 Petri 网 ( SPN ) ， 服务质量 ( QoS ) ， 树表 结合 表示法 ( TTCN ) . 
+ 中图法 分类号 　 TP302 
+ Network   Protocol   Performance   Testing   Based   on   Stochastic   Petri   Nets 
+ XU   Ming - wei 　 WU   Jian - ping1 
+ 　 Department   of   Computer   Science   and   Technology   Tsinghua   University   Beijing   100084 
+ LIN   Chuang 
+ 　 Information   Science   Institute   State   Information   Center   Beijing   100045 
+ Abstract 　   The   main   points   of   protocol   performance   testing   is   analyzed   in   this   paper .   The   QoS ( quality   of   service )   of   network   protocol   is   described   with   a   formal   tool ,   stochastic   Petri   nets .   Furthermore ,   the   rules   from   the   SPN ( stochastic   Petri   nets )   models   to   test   suite   of   TTCN ( tree   and   tabular   combined   notation )   are   proposed ,   and   a   performance   test   case   is   generated   from   the   SPN   models . 
+ Key   words 　 Protocol   performance   testing ,   stochastic   Petri   nets   ( SPN ) ,   quality   of   service   ( QoS ) ,   tree   and   tabular   combined   notation   ( TTCN ) . 
+ 　 　 目前 , 计算机网络 中非 功能 方面 的 因素 ， 特别 是 服务质量 ( quality   of   service , 简称 QoS ) 已经 变得 越来越 重要 ， 人们 采用 各种 方法 来 保证 提供 给 用户 的 服务质量 . 这些 方法 包括 端 用户 与 网络 服务提供者 之间 的 协商 ， 传输服务 的 QoS 保证 以及 QoS 的 监控 和 管理 等 . 但是 , 如何 能够 准确 地 知道 网络 部件 提供 给 用户 的 服务 是否 达到 要求 ， 这 需要 通过 协议 性能 测试 来 解决 . 
+ 　 　 协议 性能 测试 研究 需要 解决 4 个 问题 ： ( 1 )   测 什么 ， 即 测试 被测 实现 的 哪些 外部 特征 ； ( 2 )   如何 测 ， 即 如何 描述 测试 序列 ； ( 3 )   测试环境 的 配置 ， 这 与 采用 的 测试方法 有关 ； ( 4 )   测试 输入 的 负载 模型 及其 参数 . 以上 4 点 概括 了 协议 性能 测试 活动 的 主要 方面 . 对 测试 活动 的 准确 描述 是 确保 测试 结果 可 重复 、 可 比较 的 先决条件 ［ 1 ］ ， 因此 , 形式化 地 描述 协议 性能 测试 的 各个方面 是 非常 必要 的 . 由于 随机 Petri 网 （ stochastic   Petri   nets , 简称 SPN ） ［ 2 , 3 ］ 在 协议 描述 和 性能 分析 中 取得 的 成功 ， SPN 作为 一种 形式化 工具 是 描述 协议 性能 测试 的 一个 很 好 的 选择 . 
+ 　 　 目前 ， 关于 协议 测试 已经 有 一个 国际标准 ISO   9646 ［ 4 ］ ， 它 是 关于 协议 一致性 测试 的 标准 . ISO   9646 建议 把 树表 结合 表示法 ( tree   and   tabular   combined   notation , 简称 TTCN ) 作为 协议 一致性 测试 集 的 抽象 描述语言 . 成熟 的 协议 一致性 测试 研究 给 协议 性能 测试 以 很大 的 借鉴 ， 但是 一致性 测试 是 功能测试 ， 它 与 性能 测试 有着 本质 的 区别 . TTCN 本身 的 局限 ， 例如 缺少 并发 性 和 实时性 和 对 负载 描述 能力 弱 等 ， 制约 了 它 对 协议 性能 测试 的 描述 能力 . 针对 这些 局限 ， 很多 人 对 TTCN 做 了 扩展 ［ 1 , 5 , 6 ］ ， 用以 研究 协议 性能 测试 . TTCN 仅仅 是 一种 测试 集 描述语言 ， 它 不能 描述 协议 和 协议 的 性能 规定 . 我们 需要 一种 形式化 工具 ， 既 能 描述 协议 行为 ， 特别 是 并发 性 和 实时性 ， 又 能 描述 协议 的 性能 规定 ， 而且 用 这种 形式化 工具 建立 的 模型 能够 很 方便 地 转换 为 TTCN 测试 集 . SPN 是 一个 很 好 的 选择 ， 它 除了 满足 上述 要求 外 ， 还有 很多 自身 的 特点 ， 比如 能够 方便 地 描述 复杂 的 网络 负载 模型 ， 而且 SPN 在 性能 分析 中 取得 的 成功 也 非常 有助于 协议 性能 测试 的 研究 . 本文 在 充分发挥 SPN 和 TTCN 各自 长处 的 基础 上 ， 把 它们 有机 地 结合 起来 . 
+ 　 　 本文 的 贡献 在于 分析 了 协议 性能 测试 需要 解决 的 主要 问题 ， 用 SPN 形式化 描述 了 QoS 参数 ， 并 提出 了 从 SPN 模型 到 TTCN 测试 集 的 转换规则 . 本文 第 1 节以 SPN 为 形式化 工具 分析 、 描述 了 网络协议 的 服务质量 ; 第 2 节 提出 了 从 SPN 模型 到 TTCN 测试 集 的 转换规则 ， 并 给出 一个 协议 性能 测试 例 ； 最后 是 总结 . 
+ 1   基于 随机 Petri 网 的 协议 性能 规定 
+ 　 　 形式化 描述 网络协议 和 它 所 提供 的 服务 是 非常 必要 的 ， 形式化 模型 可以 保证 它们 定义 的 无 二义性 、 操作 的 正确性 和 提供 所 要求 的 服务质量 . 协议 服务 规定 的 主要 性能参数 都 是 面向用户 定义 的 ， 主要 包括 系统 的 延迟 、 吞吐量 和 服务 失效 的 概率 等 . 本文 以 面向 连接 的 服务 为例 研究 协议 性能 测试 . 
+ 　 　 面向 连接 服务 的 定义 仅 考虑 使用 这个 服务 的 对 等 层 实体 之间 的 单个 连接 . 一个 连接 包括 3 个 阶段 : 建立 、 数据传输 和 拆除 . 每个 服务 以 “ 服务 原语 ” 的 方式 来 定义 ， 它 抽象 定义 了 信息 在 服务 用户 和 服务提供者 之间 传送 的 方式 . 传送 服务 如图 1 所示 . 一个 服务 原语 可以 认为 是 相邻 层次 之间 接口 过程 元素 的 抽象 ， 它 独立 于 实现 中 所 使用 的 通信 机制 . 服务 原语 的 发生 被 认为 是 在 不同 时刻 的 原子 操作 ， 是 不可分割 的 . 
+ 
+ 图 1 　 服务 的 传送 框图 
+ 　 　 在 网络协议 服务 的 SPN 模型 中 ， 服务 原语 同 变迁 相对 应 ， SPN 的 实施 所 产生 的 形式语言 ( 所有 的 变迁 实施 序列 ) 描述 了 原语 发生 序列 的 全部 组合 . 为了 方便 讨论 ， 我们 以 传送 层 服务 为例 ， 先 描述 它 的 SPN 模型 ， 再 基于 SPN 模型 分析 它 的 性能 规定 . 
+ 　 　 传送 服务 规定 按 功能 结构 可 分成 5 个 工作 模式 : 传送 连接 建立 服务 、 正常 数据 传送 服务 、 加急 数据 传送 服务 、 用户 拆除 连接 和 服务提供者 拆除 连接 . 每 一个 工作 模式 可 由 一个 SPN 模型 描述 ， 如图 2 ～ 图 6 所示 . 
+ 
+ 图 2 　 连接 建立 服务 　 　 　 　 　 　 　 图 3 　 正常 数据 传送 服务 
+ 
+ 图 4 　 加急 数据 传送 服务 　 　 　 　 图 5 　 用户 拆除 连接 　 　 　 图 6 　 服务提供者 拆除 连接 
+ 这 5 个 模式 的 模型 可 由 相同 名字 的 位置 相叠 连接 形成 总 的 模型 . 位置 和 标志 类型 的 含义 分别 在 表 1 和表 2 中 描述 . 在 模型 中 ， 变迁 的 名字 是 服务 原语 的 压缩 ， 变迁 的 含义 在 表 3 中 描述 . 
+ 表 1   位置 含义 
+ 
+ 位置 含义 
+ A 状态 位置 ， 它 控制 用户 A 的 原语 
+ B 状态 位置 ， 它 控制 用户 B 的 原语 
+ AB 队列 位置 ， 模拟 从 用户 A 到 B 的 信息流 队列 
+ BA 队列 位置 ， 模拟 从 用户 B 到 A 的 信息流 队列 
+ 
+ 表 2   标志 类型 含义 
+ 
+ 标志 类型 含义 
+ i 空闲 状态 ， 等待 连接 建立 
+ c 连接 建立 阶段 
+ d 数据 传送 阶段 
+ s 连接 要求 
+ a 连接 响应 
+ n 正常 数据 
+ e 加急 数据 
+ r 拆除 连接 要求 
+ 
+ 表 3   变迁 所 相对 的 服务 原语 含义 
+ 
+ 变迁 原语 含义 
+ CRA 用户 A 发送 连接 请求 
+ CIB 用户 B 接收 连接 指示 
+ CRB 用户 B 发送 连接 响应 
+ CCA 用户 A 接收 连接 确认 
+ NDRA ( B ) 用户 A ( B ) 发送 正常 数据 
+ NDIA ( B ) 用户 A ( B ) 接收 正常 数据 
+ LAB ( BA ) 队列 AB ( BA ) 丢失 正常 数据 
+ EDRA ( B ) 用户 A ( B ) 发送 加急 数据 
+ EDIA ( B ) 用户 A ( B ) 接收 加急 数据 
+ DRA ( B ) 用户 A ( B ) 发送 拆除 连接 请求 
+ DIA ( B ) 用户 A ( B ) 接收 拆除 连接 指示 
+ EQAB 清除 队列 AB 
+ 
+ 　 　 在 很多 协议 中 都 定义 了 一组 服务质量 ( QoS ) 参数 ， 这些 参数 是 用户 在 连接 请求 原语 中 发送给 服务提供者 的 . QoS 的 某些 值 可 由 服务提供者 修改 ， 在 连接 建立 时 返回 给 提交 要求 的 用户 . QoS 的 定义 在 各 网络 层次 都 是 非常 类似 的 . 下面 , 从 用户 的 观点 描述 其中 几个 主要 性能参数 . 
+ 　 　 ( 1 )   连接 建立 延时 ( CED ) 连接 建立 延时 是 在 连接 请求 和 连接 确认 发生 之间 的 延时 . 在 图 2 中 ， CED 可以 容易 地 定义 为 , 在 变迁 CRA 和 CCA 实施 之间 经过 的 时间 . 由于 连接 建立 请求 的 提出 不 需要 时间 ， 即 变迁 CRA 是 瞬时 变迁 . CED 包含 3 个 部分 : 
+ 　 　 — — 从 呼叫 用户 到 被 呼 用户 之间 的 连接 建立 传输 延时 ， 由 变迁 CIB 的 实施 时间 TCIB 表示 ; 
+ 　 　 — — 被 呼 用户 的 响应 时间 ， 由 变迁 CRB 的 实施 时间 TCRB 表示 ; 
+ 　 　 — — 从 被 呼 用户 到 呼叫 用户 之间 的 连接 建立 传输 延时 ， 由 变迁 CCA 的 实施 时间 TCCA 表示 . 
+ 　 　 因此 ， 连接 建立 延时 可以 表达 为   
+ CED = TCIB + TCRB + TCCA . ( 1 ) 
+ 　 　 ( 2 )   传送 延时 
+ 　 　 传送 延时 是 在 一个 数据 请求 和 相应 数据 指示 之间 的 延时 . 一个 数据 单元 成功 地 从 呼叫 用户 传送 到 被 呼 用户 的 延时 定义 ， 见图 3 ， 表现 为 变迁 NDRA 第 n 次 ( n > 0 ) 实施 和 NDIB 第 n 次 实施 之间 经过 的 时间 . 一个 类似 的 定义 表现 为 反 方向 的 传送 延时 . 在 图 3 的 模型 中 ， 队列 位置 AB 和 BA 可以 包含 多个 标志 n ， 它们 是 先进先出 ( FIFO ) 队列 ， 因此 , 要 注意 变迁 NDIB 和 NDIA 的 实施 语义 . 
+ 　 　 ( 3 )   连接 拆除 延时 ( CRD ) 
+ 　 　 连接 拆除 延时 是 拆除 连接 请求 和 相应 拆除 连接 指示 之间 的 延时 . 对于 被 呼 用户 的 CRD 定义 ， 在 图 5 中 表现 为 在 变迁 DRA 和 DIB1 实施 之间 所 经历 的 时间 . 类似 的 、 呼叫 用户 的 CRD 定义 为 ， 在 变迁 DRB 和 DIA1 实施 之间 所 经历 的 时间 . 注意 在 图 5 的 模型 中 ， 变迁 DRA 和 DRB 是 瞬时 变迁 ， 而 变迁 DIB1 和 DIA1 是 时间 变迁 . 
+ 　 　 ( 4 )   吞吐量 
+ 　 　 吞吐量 是 单位 时间 内 传送 用户 数据 字节 数量 . 在 图 3 模型 中 的 变迁 NDRA 与 变迁 DRA ， DIA1 ， DIA2 和 DIA3 可能 会 冲突 ， 但 这些 变迁 的 实施 都 比 NDRA 有 较 高 的 优先级 ， 当 它们 实施 时 ， NDRA 不可 实施 . 令 Size 表示 传送数据 单元 的 平均 长度 ， TNDRA 和 TNDIB 分别 表示 变迁 NDRA 和 NDIB 的 实施 时间 . 假定 吞吐量 不 为 发送 用户 所 限制 ( 总有 数据 等待 发送 ) ， 从 呼叫 用户 到 被 呼 用户 的 正常 数据流 的 平均 吞吐量 ( TNF ) 可以 表达 为 
+ TNF = min ( TNFA ， TNFB ) , 　 ( 2 ) 
+ 其中 
+ TNFA = Size / TNDRA , 　 TNFB = Size / TNDIB . 
+ 　 　 ( 5 )   剩余 错误 比率 
+ 　 　 剩余 错误 比率 是 在 给定 时间 间隔 内 ， 传送 不 正确 、 丢失 或 重复 的 数据 单元 数量 与 试图 传送 的 数据 单元 总 数量 之比 . 剩余 错误 比率 可由图 3 模型 中 的 丢失 和 重复 变迁 的 利用率 来 表现 ， 在 模型 中 我们 仅 描述 了 丢失 变迁 LAB 和 LBA ， 同样 可以 加上 重复 变迁 . 
+ 　 　 ( 6 )   失败 概率 
+ 连接 建立 失败 概率 、 传送 失效 概率 、 连接 弹性 和 拆除 连接 失败 概率 等 参数 与 传送 服务 或 传送 服务提供者 失效 有关 ， 这些 参数 涉及 到 图 5 和 图 6 模型 中 的 所有 拆除 变迁 的 利用率 ， 比较复杂 ， 因 篇幅 有限 ， 不 做 详细 讨论 . 
+ 2   SPN 模型 到 TTCN 测试 集 的 转换规则 
+ 　 　 上节 以 传送 协议 为例 ， 用 SPN 形式化 描述 了 协议 的 性能 规定 ， 为 准确 地 测试 协议 性能 提供 了 保证 . 国际标准 ISO   9646   建议 把 TTCN 作为 协议 测试 集 描述语言 ， 许多 公司 也 提供 了 商品化 的 TTCN 工具 . 如何 从 SPN 描述 的 协议 模型 生成 TTCN 测试 集 呢 ？ 根据 SPN 和 TTCN 的 内在 关系 ， 我们 提出 了 从 SPN 模型 到 TTCN 测试 集 的 转换规则 . 
+ 　 　 ( 1 )   变迁 （ Transition ） 
+ 　 　 〈 a 〉 SPN 模型 中 的 一个 变迁 在 测试 例中用 一个 测试 语句 来 表示 ， 丢失 变迁 例外 ， 它 不能 对应 一个 测试 语句 ， 这 是因为 丢失 变迁 不能 直接 被 观察 到 . 
+ 　 　 〈 b 〉 SPN 模型 确定 了 ， 测试 的 控制 观察点 也 就 确定 了 ， 每个 变迁 都 与 一个 控制 观察点 相对 应 . 
+ 　 　 〈 c 〉 在 协议 性能 测试 中 ， 测试 系统 主要 通过 发送 和 接收 PDU 或 ASP 来 测试 性能 . 因此 , 发送 和 接收 语句 是 测试 例中 最 主要 也 是 使用 最 频繁 的 语句 . 由 SPN 模型 中 变迁 转换成 的 测试 语句 是 属于 发送 还是 接收 语句 取决于 SPN 模型 中 变迁 弧 的 偏序 关系 . 一个 变迁 对应 于 发送 语句 ， 那么 , 下 一个 变迁 则 对应 于 接收 语句 ， 反之亦然 . 
+ 　 　 〈 d 〉 测试 例中 的 测试 序列 完全符合 SPN 模型 中 变迁 的 点燃 顺序 . 由 〈 c 〉 和 〈 d 〉 可知 ， 在 顺序 执行 的 测试 序列 中 ， 发送 和 接收 语句 是 交叉 的 ， 即 “ ! ? ! ? ” 或 “ ? ! ? ! ” . 
+ 　 　 〈 e 〉 由于 在 性能 测试 中 ， 变迁 的 逗留 时间 是 测试 的 一个 重要 部分 ， 因此 , 由 SPN 模型 中 的 变迁 转换 的 测试 语句 的 前 一条 和 后 一条 通常 是 一个 读 时间 的 语句 ( readtimer ) . 有些 情况 下读 时间 操作 可以 省略 ， 如 要 测试 多个 连续 变迁 的 合计 时间 ， 则 只 需 在 多个 连续 变迁 实施 之前 和 之后 执行 readtimer 即可 ， 其他 的 可以 省略 ； 或 不 关心 某个 变迁 的 逗留 时间 . 
+ 　 　 ( 2 )   记号 （ Token ） 
+ SPN 模型 中 的 记号 对应 于 测试 例中 的 约束 部分 ， 即 在 PCO 观察 到 的 PDU 或 ASP . 通过 对 它 的 测试 ， 可以 检查 被测 实现 的 功能 是否 正确 . 
+ 　 　 ( 3 )   标记 （ Marking ） 
+ 协议 测试 时 ， 需要 使 测试 系统 和 被 测系统 进入 到 某个 状态 下才 开始 执行 测试 的 主体 部分 . SPN 模型 中 的 标记 则 反映 了 测试 系统 和 被 测系统 的 当前 状态 . 
+ 　 　 由于 协议 性能 测试 是 一种 黑盒 测试 ， 即 它 只 关心 被测 实现 的 输入 和 输出 ， 而 不 关心 被测 实现 的 内部 处理过程 ， 所以 完全 能够 根据上述 规则 由图 2 ～ 6 生成 测试 各个 QoS 参数 的 动态 行为 描述 . 表 4 给出 了 测试 连接 建立 延时 的 测试 例 ， 其中 T 是 测试 器方 的 PCO ， I 是 被 测系统 方 的 PCO . ! 表示 发送 ， ? 表示 接收 . 
+ 表 4   性能 测试 例 （ 测试 连接 建立 延时 CED ） 的 动态 行为 描述 
+ 
+ Test   Case   Dynamic   Behavior 
+ Test   Case   Name :   CED 
+ Purpose :   Test   the   connect   establishment   delay 
+ NrLabel 　 Behavior   DescriptionConstrains   RefVerdicComments 
+ 　 　 readtimer   ( T , t1 ) T _ CReq 　 　 
+ T !   ConReqT _ CInd 
+ I ?   ConIndT _ CResp 
+ I !   ConRespT _ CConf 
+ T ?   ConConf 　 
+ readtimer   ( T , t2 ) 
+ ( t : = t2 - t1 ) pass 
+ otherwisefail 
+ otherwisefail 
+ 
+ 　 　 3   总   结 
+ 　 　 协议 性能 测试 是 计算机网络 ， 特别 是 协议 工程 领域 中 的 一个 重要 研究课题 . 本文 分析 了 协议 性能 测试 需要 解决 的 主要 问题 ， 并用 随机 Petri 网 作为 形式化 工具 ， 以 传送 协议 为例 ， 分析 描述 了 网络协议 的 服务质量 参数 ， 以此 产生 TTCN 测试 例 . 根据 SPN 和 TTCN 的 内在 关系 ， 提出 了 从 SPN 模型 到 TTCN 测试 集 的 转换规则 . 最后 给出 了 一个 协议 性能 测试 例 .   
+ 　 　 本文 研究 得到 国家自然科学基金 资助 . 作者 徐明伟 , 1971 年生 , 博士 , 主要 研究 领域 为 计算机网络 协议 测试 ， 性能 评价 和 高速 网络体系结构 . 林闯 , 1948 年生 , 博士 , 研究员 ， 主要 研究 领域 为 系统 性能 评价 ， 随机 Petri 网 和 ATM 网络 . 吴建平 , 1953 年生 , 教授 ， 博士生 导师 , 主要 研究 领域 为 高速 网络体系结构 ， 互连 技术 ， 协议 测试 技术 ， Internet 网络管理 和 安全 . 
+ 　 　 本文 通讯联系 人 : 徐明伟 ， 北京 100084 , 清华大学 计算机科学 与 技术 系 
+ 作者 单位 ： 徐明伟   吴建平 ： 清华大学 计算机科学 与 技术 系 　 北京 　 100084 
+ 　 　 　 　 　 林闯 ： 国家信息中心 经济 与 技术 研究所 　 北京 　 100045 
+ 　 　 　 　 　 E - mail :   xmw @ csnet1 . cs . tsinghua . edu . cn 
+ 参考文献 
+ ［ 1 ］ Schieferdecker   I ,   Stepien   B ,   Rennoch   A .   PefTTCN ,   a   TTCN   language   extension   for   performance   testing .   In :   Kim   M ,   Kang   S ,   Hong   K   eds .   Proceedings   of   IFIP   TC6   the   10th   International   Workshop   on   Testing   of   Communicating   Systems .   IFIP ,   September   1997 .   21 ～ 36 
+ ［ 2 ］ Lin   Chuang ,   Li   Bo ,   Wu   Jian - ping .   Modeling   ATM   traffic   using   stochastic   Petri   nets .   In :   Proceedings   of   the   6th   International   Conference   on   Computer   Communications   and   Networks .   Los   Alamitors :   IEEE   Computer   Society ,   1997 .   538 ～ 541 
+ ［ 3 ］ Billington   Jonathan .   On   specifying   performance   aspects   of   protocol   services .   In :   Proceedings   of   the   International   Workshop   on   Timed   Petri   Nets .   Torino ,   Italy ,   1985 .   288 ～ 295 
+ ［ 4 ］ ISO   9646 .   Conformance   Testing   Methodology   and   Framework   Part   3 — — The   Tree   and   Tabular   Combined   Notation .   ISO .   1991 
+ ［ 5 ］ Walter   Thomas ,   Grabowski   Jens .   Real - time   TTCN   for   testing   real - time   and   multimedia   systems .   In :   Kim   M ,   Kang   S ,   Hong   K   eds .   Proceedings   of   IFIP   TC6   the   10th   International   Workshop   on   Testing   of   Communicating   Systems .   IFIP ,   1997 .   21 ～ 36 
+ ［ 6 ］ Xu   Ming - wei ,   Wu   Jian - ping .   An   extension   to   concurrent   TTCN .   In :   Roch   Guerin   ed .   Proceedings   of   IEEE   INFOCOM ' 98 .   San   Francisco ,   USA ,   1998 .   447 ～ 454 
+ （ 1998 - 05 - 04 收稿 ） 

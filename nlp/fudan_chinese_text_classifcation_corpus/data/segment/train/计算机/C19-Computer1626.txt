@@ -1,0 +1,156 @@
+信息 与 控制 
+ INFORMATION   AND   CONTROL 
+ 1999 年   第 28 卷   第 6 期   Vol.28   No.6   1999 
+ 
+ 
+ 
+ 连续 系统 线性 二次 型 期望 极点 配置 问题 的 研究 
+ 冯 冬青   谢宋 和 
+ 　 　 摘 　 要 ： 本文 以 线性 二次 型 性能指标 中 的 加权 矩阵 和 最优 闭环 系统 在 频域 内 的 解析 关系 为 基础 ， 提出 了 一种 新 的 期望 极点 配置 方法 ． 该 方法 的 主要 优点 是 不必 求解 复杂 的 矩阵 Riccati 方程 也 可 很 容易 地 确定 满足 指定 闭环 极点 配置 要求 的 状态 反馈 矩阵 ． 本文 还 讨论 了 指定 闭环 极点 的 选择 方法 ， 并用 例子 说明 这种 极点 配置 方法 的 有效性 和 简便性 ． 
+ 　 　 关键词 ： 连续 系统 ，   LQ 问题 ，   加权 矩阵 ，   Riccati 方程 ，   期望 极点 配置 
+ 　 　 中 图 分类号 ： TP13 　 　 　 　 　 　 文献 标识码 ： B 
+ STUDY   ON   THE   LINEAR   QUADRATIC   EXPECTED   POLE   ASSIGNMENT 
+ PROBLEM   FOR   THE   CONTINUOUS - TIME   SYSTEM 
+ FENG   Dong - qing2   XIE   Song - he2 
+ ( 1 .   Information   &   Control   Institute ,   Zhengzhou   University   of   Technology ,   Zhengzhou   450002 ;   2 .   Department   of   Control   Engineering ,   Zhengzhou   Institute   of   Light   Industry ,   Zhengzhou   450002 ) 
+ Abstract 　 This   paper   presents   a   new   method   of   the   expected   pole   assignment   based   on   the   analytical   relationship   between   the   weighting   matrices   in   the   linear   quadratic   performance   and   the   closed - loop   systems   in   the   frequency   domain .   The   advantage   of   the   method   is   that   the   state   feedback   matrix   satisfying   the   pole   assignment   can   be   easily   determined   without   solving   the   complex   matrix   algebraic   Riccati   equation .   The   choice   of   prescribed   closed - loop   poles   is   discussed   and   the   effectiveness   and   simplicity   of   the   method   is   expounded   based   on   an   example . 
+ 　 　 Key   words 　 continuous - time   system ,   LQ   problem ,   weighting   matrix ,   Riccati   equation ,   expected   pole   assignment 
+ 1 　 引言 
+ 　 　 考虑 一个 线性 定常 可控 系统 
+ X = AX + BU 　 　 　 　 　 ( 1 ) 
+ 式 中 A 和 B 分别 是 n × n 和 n × m 维 定常 矩阵 ． 
+ 　 　 线性 二次 型 性能指标 为 
+ 　 　 　 　 　 　 　 ( 2 ) 
+ 式 中 Q ≥ 0 ， R > 0 ． 由 最优控制 理论 知 ， 使 性能指标 ( 2 ) 极小 的 最优控制 律为 
+ U = - KX = - R - 1BTPX 　 　 　 　 　 　 　 　 　 　 ( 3 ) 
+ 式 中 P 满足 矩阵 代数 Riccati 方程 
+ ATP + PA - PBR - 1BTP + Q = 0 　 　 　 　 　 　 　 　 ( 4 ) 
+ 　 　 由 ( 1 ) 式 和 ( 3 ) 式 可得 最优 闭环 系统 
+ 　 　 　 　 　 　 　 　 　 ( 5 ) 
+ 　 　 所谓 线性 二次 型 期望 极点 配置 问题 ， 就是 要 确定 一个 状态 反馈 控制 律 K ， 使 对应 的 闭环 系统 具有 一组 预先指定 的 极点 ｛ λ ci ， i = 1 ， 2 ， … ， n ｝ ， 并且 使 某个 二次 型 性能指标 ( 2 ) 极小 ， 即 存在 某个 加权 阵 Q ≥ 0 和 R ＞ 0 与 K 对应 [ 1 ] ． 因此 ， 研究 二次 型 期望 极点 配置 问题 的 意义 在于 ： 对于 单 变量 系统 来讲 ， 如何 选择 期望 的 闭环 极点 ， 从而 保证 与 之 对应 的 唯一 反馈 增益 是 最优 的 ； 对于 多 变量 系统 而言 ， 在 已知 指定 极点 是 一组 二次 型 期望 极点 的 前提 下 ， 利用 极点 配置 的 自由度 ， 来 寻找 一个 满足 极点 配置 要求 的 反馈 增益 ． 因此 ， 二次 型 期望 极点 配置 问题 的 实质 是 传统 的 极点 配置 方法 和 LQ 最优设计 方法 的 综合 问题 ， 通过 这种 综合 设计 方法 所 得到 的 闭环 系统 将 具有 极点 配置 方法 的 良好 动态 特性 和 LQ 最优设计 的 内在 鲁棒性 等 双重 优点 [ 3 ] ． 
+ 　 　 通常 解决 二次 型 期望 极点 配置 问题 的 方法 有 两种 ： 以 极点 移动 为 基础 的 数值 迭代法 [ 3 ～ 5 ] 和 从 LQ 逆 问题 着眼 的 解析 法 [ 6 ～ 8 ] ． 前 一种 方法 没有 从 本质 上 揭示 加权 阵 Q ， R 与 K 以及 λ ci 之间 的 多值 对应 关系 ， 在 迭代 求解 过程 中 要求 多次 求解 非线性 矩阵 方程 ， 非常复杂 ． 后 一种 方法 对 A 和 λ ci 提出 不同 程度 的 限制 要求 ， 问题 实质 上 没有 得到 圆满解决 ． 本文 提出 了 一种 以 极点 分组 移动 为 基础 的 新 方法 ， 其 特点 是 不 需要 求解 非线性 的 矩阵 Riccati 方程 ， 也 可以 很 容易 地 确定 满足 指定 闭环 极点 配置 要求 的 最优 反馈 矩阵 K 以及 与 之 对应 的 加权 矩阵 Q 和 R ． 实际 算例 表明 这种 极点 配置 方法 是 简便 有效 的 ． 
+ 2 　 关于 最优 反馈 增益 K 的 存在 性 问题 
+ 　 　 我们 已经 知道 LQ 最优控制 系统 并 不能 任意 配置 极点 ， 即 对 给定 的 一组 期望 闭环 极点 ， 并不一定 存在 相应 的 Q ≥ 0 和 R ＞ 0 ， 使得 由此 设计 的 LQ 闭环 系统 具有 指定 的 极点 ． 对于 二次 型 期望 极点 配置 问题 来讲 ， 首先 要 解决 的 问题 是 如何 根据 期望 的 闭环 动态 特性 选择 或 修正 指定 的 闭环 极点 ； 其次 是 如何 充分利用 多 变量 系统 极点 配置 的 自由度 ， 确定 一个 状态 反馈 矩阵 K ， 使 之 成为 最优 反馈 矩阵 ， 并 达到 指定 闭环 极点 配置 的 要求 ． 
+ 　 　 引理 1   对于 给定 的 反馈 增益 K ， 存在 某个 加权 矩阵 Q ≥ 0 与 之 对应 ， 当且 仅 当 
+ 
+ 式 中 F ( j ω ) = I + K ( j ω I - A ) - 1B . 
+ 　 　 令 
+ 
+ 　 　 定理 1   若 λ oi   , λ ci ( i = 1 , 2 , … , n ) 分别 是 系统 （ 1 ） 和 （ 5 ） 的 开环 极点 和 期望 闭环 极点 ， 则 有 如下 不等式 成立 ： 
+ 　 　 　 　 　 　 ( 6 ) 
+ 　 　 　 　 　 　 ( 7 ) 
+ 　 　 　 　 ( 8 ) 
+ 式 中 满足 
+ 　 　 证明   利用 detF ( s ) = Pc ( s ) / Po ( s ) ， 根据 引理 1 不难 证明 （ 6 ） 式 和 （ 7 ） 式 ， 根据 文献 [ 9 ] 和 [ 10 ] 不难 得到 （ 8 ） 式 ． 
+ 　 　 定理 1 为 实际 工程设计 选择 合适 的 闭环 极点 提供 了 重要 的 理论依据 ， 是 选择 或 修正 指定 极点 的 前提条件 ． 从 几何 意义 上 看 ， 要求 λ ci 相对 于 λ oi ( i = 1 , 2 , … , n ) 在 整体 上离 平面 的 原点 以及 自 左 方向 的 虚轴 更 远 一些 ． 
+ 　 　 定理 2 [ 8 ]   对于 单 变量 系统 而言 ， 指定 的 闭环 极点 λ ci ( i = 1 , 2 , … , n ) 是 一组 二次 型 期望 极点 的 充分条件 是 如下 n 个 不等式 同时 成立 ： 
+ 
+ 式 中 i = 1 , 2 , … , n 且 当 j > n 时 ，   aj = bj = 0 ． 
+ 3 　 期望 极点 配置 的 基本原理 
+ 　 　 根据 文献 [ 1 ] 有 
+ FT ( - S ) RF ( S ) = R + BT ( - SIn - AT ) Q ( SIn - A ) - 1B 
+ 上 式 两边 同时 取 行列式 ， 并 化简 整理 得 
+ Pc ( S ) Pc ( - S ) = Po ( S ) Po ( - S ) det 　 　 　 　 　 　 　 　 ( 9 ) 
+ 令 H ( S ) = ( SIn - A ) - 1B = N ( S ) / Po ( S ) , 则 （ 9 ） 式 可 改写 为 
+ Pc ( S ) Pc ( - S ) = Po ( S ) Po ( - S ) det 　 　 　 　 　 　 　 　 ( 10 ) 
+ 　 　 引理 2 [ 11 ]   如果 λ ci ≠ λ cj ( i ≠ j ) 且 λ ci  λ ( A ) , 则 Q ， R 和 K 以及 λ ci 存在 如下 关系 : 
+ K = - [ ζ  1 , ζ 2 … ζ n ] [ ζ  1 ζ 2 … ζ n ] - 1 　 　 　 　 ( 11 ) 
+ 式 中非 零 向量 ξ i , ξ i （ i = 1 ， 2 ， … ， n ） 由下式 确定 ： 
+ ζ i = 0   i = 1 , 2 , … , n 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 12 ) 
+ ζ i = H ( λ ci ) ζ i   i = 1 , 2 , … , n 　 　 　 　 　 　 　 　 　 ( 13 ) 
+ 　 　 引理 2 从 本质 上 反映 了 加权 矩阵 Q ， R 与 K 以及 λ ci 之间 的 相互 关系 ． 如果 利用 某种 方式 能够 得到 与 λ ci 对应 的 Q 和 R ， 那么 根据 引理 2 可以 直接 确定 Q 和 R 对应 的 K ， 而 不必 求解 复杂 的 非线性 矩阵 代数方程 （ 4 ） ． 
+ 　 　 引理 3   已知 系统 矩阵 A 的 模态 矩阵 为 M ， 且 M 已 分解 为 
+ 　 　 　 　 　 　 　 　 　 　 　 　 　 ( 14 ) 
+ 
+ 式 中 
+ 　 　 　 　 　 　 　 　 　 　 　 ( 15 ) 
+ 　 　 　 　 　 　 　 　 　 　 　 　 ( 16 ) 
+ 且 M - i ( i = 1 , 2 , … , n1 ) 和 M + j ( j = 1 , 2 , … , n2 ) 分别 表示 对应 于 λ - oi 和 λ + oj 的 特征向量 ， λ - oi 表示 矩阵 A 的 要 保持 不变 的 特征值 ， λ + oj 表示 矩阵 A 的 将要 被 移动 的 特征值 ， 且 n1 + n2 = n ． 如果 加权 矩阵 Q 满足 
+ QM - i = 0   i = 1 , 2 , … , n 　 　 　 　 　 　 　 　 ( 17 ) 
+ 那么 ， 由 以上 Q 阵 和 任意 给定 的 R > 0 确定 的 状态 反馈 矩阵 为 
+ 　 　 　 　 　 　 ( 18 ) 
+ 式 中 ζ i , ζ i ( i = 1 , 2 , … , n2 ) 分别 由 （ 12 ） 式 和 （ 13 ） 式 确定 ， 且 对应 的 闭环 系统 将 具有 不变 特征值 和 被 移动 以后 的 n2 个 目标 特征值 ． 
+ 　 　 证明   根据 引理 2 和 文献 [ 10 ] 不 难得 证 ． 
+ 　 　 定理 3   已知 M 为 A 的 模态 矩阵 ， 且 有 
+ 　 　 　 　 　 　 　 　 　 　 　 ( 19 ) 
+ 那么 ， 满足 （ 17 ） 式 要求 的 Q 可以 是 
+ 　 　 　 　 　 　 　 　 　 　 　 　 ( 20 ) 
+ 式 中 
+ D = DT ≥ 0 . 
+ 　 　 证明   因为 M - 1M = In ， 故 
+ 
+ 因此 
+ 　 　 根据 定理 3 就 可以 提出 如下 的 以 极点 分组 移动 （ 每 一次 移 一个 或 两个 极点 ） 为 基础 的 期望 极点 配置 方法 ． 
+ 　 　 假定 原 系统 的 特征 多项式 为 
+ Po ( S ) = Poi ( S ) Pov ( S ) 
+ 式 中 Pov ( S ) = 0 的 根 对应 于 要 移动 的 特征值 ， Poi ( S ) = 0 的 根 对应 于 不变 特征值 ， 且 令 
+ Pov ( S ) = S2 + a1S + a0   或   Pov ( S ) = S + a0 
+ 只 经过 一次 极点 移动 的 闭环 系统 特征 多项式 为 
+ Pc ( S ) = Pci ( S ) Pcv ( S ) 
+ 其中 Pci ( S ) = Poi ( S ) ， Pcv ( S ) 由 目标 特征值 决定 ， 且 令 
+ Pcv ( S ) = S2 + b1S + b0   或   Pcv ( S ) = S + b0 
+ 根据 定理 3 ， 可令 D = ddT ， 式 中 d = [ d  1   d2 ] T 或 d = d1 ． 因此 ， 有 [ 9 ] 
+ 
+ 把 上式 代入 （ 9 ） 式 ， 并 化简 有 
+ Pcv ( S ) Pcv ( - S ) = Pov ( S ) Pov ( - S ) + dTW ( S ) WT ( - S ) d 　 　 　 　 　 　 　 　 　 　 　 ( 21 ) 
+ 式 中 W ( S ) = [ [ AKM ^ ] yN ( S ) R - 1 / 2 ] / Pov ( S ) ． 由于 Pov ( S ) ， Pcv ( S ) 以及 W ( S ) 均 已知 ， 因此 ， 由 （ 21 ） 式 可以 求得 d ， 从而 得到 Q （ 在 指定 某 一个 R > 0 条件 下 ） . 再 根据 引理 3 即可 确定 一个 K ， 实现 某 一个 或 一对 极点 的 移动 ． 反复 经过 多次 极点 的 分组 移动 （ 最多 n 次 ） ， 即可 得到 要求 的 K ． 
+ 　 　 需要 指出 ： 每次 移动 过程 中 的 极点 个数 不 限于 一个 或 两个 ， 也 可以 是 两个 以上 ． 但是 ， 当 每次 移动 的 极点 个数 愈多时 ， 虽然 移动 的 总 次数 少 了 ， 但 每次 的 计算 过程 就 复杂 多 了 ， 因为 （ 21 ） 式 终归 转化 为 一个 非 线性方程组 ． 此外 ， 共轭 的 复数 极点 对 需分 在 同一个 极点 组中 参与 移动 ． 
+ 4 　 极点 分组 移动 的 计算方法 
+ 　 　 第一步   对于 已知 的 开环 系统 （ 1 ） ， 求 λ oi ( i = 1 , 2 , … , n ) ， 然后 将 这些 开环 极点 进行 适当 分组 ， 每组 只含 一个 或 两个 极点 ． 
+ 　 　 第二步   根据 第一步 的 开环 极点 分组 情况 ， 利用 定理 1 和 2 选择 适当 的 闭环 极点 ， 并 进行 分组 ， 以 保证 （ 21 ） 式 的 d 存在 ． 
+ 　 　 第三步   令 j = 1 , A ( j ) = A , H ( j ) ( S ) = H ( S ) , N ( j ) ( S ) = N ( S ) ， P ( j ) o ( S ) = Po ( S ) , { λ ( j ) oi } = { λ oi } , 并且 任意 指定 一个 加权 矩阵 R > 0 ， 一般 取 R = Im ， 同时 令 ． R ( j ) = R . 
+ 　 　 第四步   进行 第 j 组 极点 的 移动 ， 根据 （ 21 ） 式 求 d ( j ) ， 而后 由 （ 20 ） 式 求 Q ( j ) ， 再 根据 引理 3 求 K ( j ) ． 此时 ， 可 准备 进行 第 ( j + 1 ) 组 极点 的 移动 ， 令 
+ A ( j + 1 ) = A ( j ) c = A ( j ) - BK ( j ) 
+ H ( j + 1 ) ( S ) = - 1B 
+ R ( j + 1 ) = R ( j ) = R 
+ P ( j + 1 ) 0 ( s ) = P ( j ) c ( s ) 
+ { λ ai ( j + 1 ) } = { λ ci ( j ) } 
+ 　 　 第五步   如果 全部 极点 已移 到 目标 位置 ， 那么 ， 不难 证明 满足 指定 闭环 极点 配置 要求 的 最优 反馈 增益 为 
+ 　 　 　 　 　 　 　 　 　 ( 22 ) 
+ 且 与 之 对应 的 加权 矩阵 为 
+ 　 　 　 　 　 　 　 　 　 ( 23 ) 
+ 这里 的 l 表示 极点 组 的 总 移动 次数 ． 否则 ， 转 第四步 ． 
+ 5 　 例子 [ 5 ] 
+ 
+ 因此   λ ( A ) = { - 4 , - 1 , - 2 } 
+ 　 　 若期望 的 极点 为 λ ( Ac ) = { - 4 , - 5 , - 6 } ， 那么 ， 可以 分 两步 来 进行 期望 极点 配置 ： 先 将 - 2 移到 - 6 ， 再 将 - 1 移到 - 5 ， 而 - 4 保持 不变 ． 
+ 　 　 在 将 - 2 移到 - 6 时 ， 我们 可 得 
+ 
+ 如果 选定 R = I2 ， 则 
+ 
+ 根据 （ 21 ） 式 可得 
+ 
+ 因此 ， [ d1 ( 1 ) ] 2 = 128 ， 且 
+ 
+ 故有 
+ 
+ 同理 ， 在 将 - 1 移到 - 5 时 ， 有 
+ 
+ 
+ 因此 ， d ( 2 ) 1 ] 2 = 24 × 900 / 116 , 且 
+ 
+ 故 
+ 　 　 　 　 　 　 　 　 　 ( 24 ) 
+ 与 之 对应 的 加权 矩阵 分别 为 
+ 　 　 　 　 　 　 　 ( 25 ) 
+ 
+ 　 　 　 　 　 　 　 　 　 　 ( 26 ) 
+ 　 　 若 把 上述 的 A , B , Q 和 R 代入 方程 （ 4 ） ， 求出 P ， 而后 根据 （ 3 ） 式 不难 验证 ： 所得 的 最优 反馈 矩阵 与 （ 24 ） 式 相同 ， 且 有 λ ( A - BK ) = { - 4 , - 5 , - 6 } ，   这 就 充分说明 了 本文 的 正确性 ． 
+ 作者简介 
+ 　 　 冯 冬青 ( 1959 - ) ， 男 ， 硕士 ， 副教授 ． 研究 领域 为 最优控制 , 智能 控制 , 生产 过程 计算机控制 ． 
+ 　 　 谢宋 和 ( 1965 - ) ， 男 ， 副教授 ． 研究 领域 为 线性 多 变量 系统 理论 ， 模糊控制 ， 智能 控制 ． 
+ 作者 单位 ： 冯 冬青   郑州 工业 大学 信息 与 控制 研究所   郑州   450002 
+ 　 　 　 　 　 谢宋 和   郑州 轻工业 学院 控制 工程系   郑州   450002 
+ 参考文献 
+ 1   Anderson   B   D   O ,   Moore   J   B .   Liner   Optimal   Control .   Prentice - Hall ,   London , 1971 
+ 2   Kalman   R   E .   When   is   a   Linear   Control   System   Optimal .   Trans .   ASME ( D ) ,   1964 ,   86 ( 1 ) :   51 ～ 60 
+ 3   Solheim   O   A .   Design   of   Optimal   Control   System   with   Prescribed   Eigenvalues .   Int .   J .   Control ,   1972 , 15 ( 1 ) :   143 ～ 160 
+ 4   Eastman   W   L ,   Bossi   J   A .   Design   of   Linear   Quadratic   Regulator   with   Assigned   Eigenvalue .   Int   J   Control ,   1984 , 39 ( 3 ) : 731 ～ 742 
+ 5   Juang   J   C ,   Lee   T   T . On   Optimal   Pole   Assignment   in   a   Specified   Region .   Int .   J .   Control ,   1984 ,   40 ( 1 ) : 65 ～ 79 
+ 6   王耀青 , 吕勇 哉 . 具有 给定 极点 的 最优控制 系统 设计 . 信息 与 控制 , 1989 , 18 ( 3 ) : 41 ～ 45 
+ 7   王耀青 . LQ 最优控制 系统 中 加权 矩阵 的 确定 . 自动化 学报 , 1992 , 18 ( 2 ) : 313 ～ 317 
+ 8   谢宋 和 ， 李人厚 . 一种 新 的 最优 极点 配置 方法 . 控制 理论 与 应用 , 1993 , 10 ( 1 ) : 113 ～ 116 
+ 9   须田 信英 （ 日 ） 等 著 , 曹长 修译 . 自动控制 中 的 矩阵 理论 . 北京 : 科学出版社 ， 1979 
+ 10   Kawasaki   N ,   Shimemura   E .   Determining   Quadratic   Weighting   matricces   to   Located   Poles   in   a   Specified   Region .   Automatica ,   1983 ,   19 ( 5 ) : 557 ～ 560 
+ 11   Kailath   T .   Linear   Systems ,   Prentice - Hall ,   London , 1980 
+ 收稿 日期 : 1998 - 06 - 18 

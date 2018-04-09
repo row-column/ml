@@ -1,0 +1,122 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 9 期   Vol.36   No.9   1999 
+ 
+ 
+ 
+ 并行程序 的 时序 测试 
+ 梁煜 　 李舒 　 张辉 　 韩 承德 
+ 摘 　 要 　 并行程序 的 错误 可 分为 进程 间 错误 ( inter - process   fault ) 和 进程 内部 错误 ( intra - process   fault ) . 其中 ,   进程 内部 错误 是 由 控制流 错误 造成 的 ,   而 进程 间 错误 是 由 进程 间 的 不合理 时序 关系 造成 的 .   文中 主要 探讨 了 关于 并行程序 ( 以 基于 消息传递 的 分布式 并行程序 为主 ) 时序 测试 中 的 一系列 关键技术 . 为了 能够 简捷 、 较 完备 地 反映 并行程序 的 运行 流程 , 文中 首先 构筑 了 一个 同步序列 模型 , 所有 问题 均 在 此 模型 的 基础 上 进行 讨论 .   为了 检测 分布式 并行程序 同步序列 的 合法性 , 文中 构筑 了 有效 同步序列 的 形式 规范 . 为 使 问题 更加 明 了 ,   还 提供 了 两个 典型 的 聚类 操作 — — 树型 广播 与 归并 的 有效 同步序列 的 形式 规范 ,   并 总结 了 两个 操作 中 的 各 同步 事件 间 的 时序 约束 规律 . 庞大 的 时序 组合 使得 并行程序 的 测试 难以实现 ,   因此 文中 提出 了 一种 现实 可行 的 测试 策略 — — 原子事件 测试方法 ,   其 思想 方法 是 线性化 同步序列 使 其仅 由 串行 的 原子 同步 事件 组成 ， 从而 达到 分而治之 的 目的 . 
+ 关键词 　 时序 测试 , 并行程序 , 同步 事件 , 同步序列 , 原子事件 测试 策略 
+ 中图法 分类号 　 TP311.5 
+ TIMING - SEQUENCE   TEST   OF   PARALLEL   PROGRAMS 
+ LIANG   Yu ,   LI   Shu ,   ZHANG   Hui ,   and   HAN   Cheng - De 
+ ( National   Research   Center   of   High   Performance   Computers ,   Institute   of   Computing   Technology , Chinese   Academy   of   Sciences ,   Beijing   100080 ) 
+ Abstract 　 Testing   of   parallel   programs   involves   two   parts — — testing   of   control - flow   within   the   processes   and   testing   of   timing - sequence .   The   paper   here   focuses   on   the   latter , particularly   on   the   timing - sequence   of   message - passing   paradigms . In   order   to   simply   and   precisely   describe   the   execution   of   distributed   programs , the   coarse - grained   SYN - sequence   model   is   proposed , on   which   all   of   the   topics   discussed   in   the   paper   are   based . In   order   to   analyze   the   validity   of   observed   SYN - sequence , this   paper   constructed   the   formal   specification   ( Backus   normal   form ) of   the   valid   SYN - sequence . With   two   typical   collective   operation — — combine   and   broadcast   as   instances ,   the   paper   further   clarified   the   significance   of   formal   specification   for   valid   SYN - sequence   in   the   testing   of   distributed   programs . In   practice   the   number   of   the   distinct   timing - sequence   combination   for   distributed   programs   is   so   large   that   it   is   almost   impossible   to   test   them   directly . Therefore ,   an   efficient   and   practical   testing   strategy — — atomic   SYN - event   testing   is   proposed ,   which   is   to   linearize   the   SYN - sequence ( enabling   it   to   consist   only   of   serial   atomic   SYN - events ) at   first   and   then   test   each   atomic   SYN - event   independently . 
+ Key   words 　 timing - sequence   test ,   parallel   programs ,   SYN - event ,   SYN - sequence , atomic - event   test 
+ 1 　 引 　 　 言 
+ 　 　 　 　 在 对 并行程序 ( 多线程 或 多 进程 ) 的 测试 中 ,   我们 不仅 需要 获得 进程 内部 各 控制流 的 执行 情况 ( 以 确定 各个 进程 或 线程 均 按 所 期望 的 控制 流程 运行 ) ,   而且 还 需 获得 对 各 进程 或 线程 间 不同 时序 组合 的 测试 完成 程度 (   以 保证 参与 并行计算 的 各个 进程 或 线程 间 的 相互 时序 关系 与 期望 时序 相符 ) . 对于 进程 内 的 控制 流程 测试 ( control - flow   testing ) ,   我们 可以 沿用 串行 程序 测试 中 所 采用 的 一系列 业已 成熟 的 技术 ［ 1 , 2 ］ ,   在 本文 中 不再 赘述 ; 而 在 并行程序 的 时序 测试 ( timing - sequence   testing ) 这一 领域 ,   迄今 尚未 有 公认 的 较为 有效 的 方法 ,   本文 将 以此 作为 主要 研究 内容 . 
+ 　 　 时序 测试 的 引入 大大增加 了 并行程序 的 测试 复杂度 ,   同时 也 增加 了 对 其 进行 跟踪 ( trace ) 、 纠错 ( debug ) 的 难度 ,   测试 与 纠错 已 日益 成为 并行 软件开发 研制 的 主要 瓶颈 之一 .   本文 从 实用 的 角度 出发 ,   首先 构筑 了 一个 能 反映 并行程序 时序 流程 的 模型 — — 同步序列 模型 ,   然后 在 此基础 上 对 时序 测试 中 的 一系列 关键技术 ,   如 并行程序 运行 过程 中 所 产生 的 时序 流程 的 合法性 分析 、 并行程序 的 测试方法 等 ,   进行 了 较为 深入 、 细致 的 研究 . 
+ 2 　 并行程序 运行 模型 
+ 　 　 在 并行计算 中 ,   各个 进程 是 相互 制约 、 相互 协同 的 ,   因此 一个 相对 完备 的 并行程序 测试工具 应该 具备 能 反映 进程 间 时序 关系 的 机制 .   为此 ,   本文 借鉴 了 文献 ［ 3 ］ 提出 的 同步序列 } 模型 .   一个 分布式 并行程序 的 时序 流程 可以 由 一系列 按 一定 时序 先后 关系 组织 起来 的 同步 事件 的 序列 — — 即 同步序列 ( SYN - sequence ) 来 描述 .   在 这里 ,   同步 事件 ( SYN - event ) 表示 与 通信 有关 的 基本操作 .   本文 是 以 基于 消息传递 的 并行程序 为 研究 对象 ,   并 采用 粗粒度 的 同步 事件 模型 ,   即用 消息 的 一次 发送 - 接收 作为 同步 事件 .   同时 ,   构成 同步 事件 的 发送 和 接收 命令 均 称为 同步操作 ( SYN - action ) . 其它 种类 的 同步 事件 模型 可 参见 文献 ［ 3 ］ . 另外 ,   被 同步 事件 所 占用 的 通信 媒体 ( 通信 信道 或 共享内存 ) 称为 同步 对象   ( SYN - object ) . 在 并行程序 中 ,   与 同步 事件 相对 应 的 是 计算 事件 ( computing   occurence ) , 它 是 对 一段 独立 的 不 包含 同步操作 的 程序 的 执行 ,   在 时序 测试 中 对 计算 事件 不 作 任何 处理 . 
+ 　 　 总之 ,   本文 所 采用 的 同步序列 模型 有 如下 特点 : ① 以 基于 消息传递 的 并行程序 为 研究 对象 ,   同步 事件 表示 一次 消息 的 发送 - 接收 , 发送 与 接收 均 采用 阻塞 ( blocking ) 方式 工作 ; ② 参与 计算 的 诸 进程 均 是 静态 产生 ; ③ 同步操作 均 应 出现 在 主程序 中 ,   否则 或者 将 子程序 展开 ,   或者 将 相应 子程序 视为 一 计算 事件 ; ④ 对于 并行程序 中 的 迭代 操作 ,   如果 迭代 因子 与 循环 中 的 进程 号 相关 ,   则 需 将 循环展开 ; ⑤ 同步 事件 的 时序 以 发送 时刻 作为 基准 ,   在 这里 我们 假设 先 发送 的 消息 也 先 被 接收 ,   文中 以 “  ” 表示 早 于 发生 ， 而 以 “  ” 表示 晚于 发生 . 
+ 　 　 同步 图   ( SYN - graph ) ［ 4 ］ 可以 较为 准确 地 描述 并行程序 的 同步序列 模型 .   在 本文 中 同步 图由 一个 四元 矢 ( quadruple ) 〈 T , N , Ec , Es 〉 来 表示 ,   其中 T 表示 参与 计算 的 进程 集合 ,   N   表示 同步操作 的 集合 ,   Ec 表示 计算 操作 集合 , Es 表示 同步 事件 集合 . 例如 ,   对于 如下 基于 消息传递 的 并行程序 ( 略去 有关 计算 操作 ,   两个 同步操作 函数 为 send (   ) | 和 recv (   ) ) : 
+ 　 　 例程 1 .   简单 的 基于 消息传递 的 并行程序 伪 代码 
+ process   a 
+ begin 
+ 　 　 　 for   ( i = 0 ;   i < 2 ;   i ++ )   recv ( - 1 ,   msgid , data ,   MAXDATALEN ) ; 
+ / *   a0 ,   a1   * / 
+ 　 　 　 send ( b ,   msgid ,   data ,   datalen ) ; 　 　 　 　 　 　 　 　 　 　 　 　 　 　   　 　 　 　 / *   a2   * / 
+ 　 　 　 send ( c ,   msgid ,   data ,   datalen ) ; 　 　 　 　 　 　 　 　 　 　 　 　 　 　   　 　 　 　 / *   a3   * / 
+ 　 　 　 send ( c ,   msgid ,   data ,   datalen ) 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / *   a4   * / 
+ 　 　 　 recv ( c ,   msgid ,   data ,   MAXDATALEN ) ; 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / *   a5   * / 
+ end 
+ process   b 
+ begin 
+ 　 　 　 send ( a ,   msgid ,   data ,   datalen ) ; 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　   / *   b0   * / 
+ 　 　 　 recv ( a ,   msgid ,   data ,   MAXDATALEN ) ; 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / *   b1   * / 
+ end 
+ process   c 
+ begin 
+ 　 　 　 send ( a ,   msgid ,   data ,   datalen ) ; 　 　 　 　 　 　 　 　 　 　 　 　 　 　   　 　 　 　 / *   c0   * / 
+ 　 　 　 recv ( a ,   msgid ,   data ,   MAXDATALEN ) ; 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / *   c1   * / 
+ 　 　 　 send ( a ,   msgid ,   data ,   datalen ) ; 　 　 　 　 　 　 　 　 　 　 　 　 　 　   　 　 　 　 / *   c2   * / 
+ 　 　 　 recv ( a ,   msgid ,   data ,   MAXDATALEN ) ; 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 　 / *   c3   * / 
+ end 
+ 　 　 其 同步 图如图 1 所示 . 图 1 中 的 结点 除了 起始 点 ( B ) 和 终结 点 ( E ) 表示 程序 的 开始 和 终结 外 , 其它 均 表示 同步操作 ( 诸如 receive ( ) ， send ( ) 等 ) ;   粗 实线 为 计算 操作 ( computing   action ) ; 而 破 折线 ( dashed   line ) 为 同步 事件 ; 图中 的 虚 直线 表示 进程 的 产生 和 终止 ; 值得一提的是 图中 的 虚线 椭圆 ,   由于 a0 ， a1 与 b0 ， c0 四个 同步操作 无法 形成 确定 的 同步 事件 ,   在 程序运行 过程 中 既 可能 产生 同步 事件 b0a0 和 c0a1 ,   又 可能 产生 同步 事件 c0a0 和 b0a1 ,   因此 在 图 中 进行 了 专门 标识 . 
+ 
+ 图 1 　 并行程序 的 运行 模型 
+ 　 　 鉴于 本文 以 基于 消息传递 的 并行程序 为 研究 对象 ,   因此 在 这里 同步 事件 将 采用 四元 矢 〈 V ,   S ,   R ,   M 〉 来 表示 . 其中 ,   V 表示 同步 事件 的 类型 ; S 表示 消息 发送 方 ( sender ) ,   其中 信息 包括 发送 进程 、 发送 操作 在 程序 中 的 位置 等 ; R 表示 消息 接收 方 ( receiver ) ,   其中 信息 包括 接收 进程 、 接收 操作 在 程序 中 的 位置 等 ; M 表示 通信 信箱 ( mail   box ) ,   在 许多 实用程序 中用 一 整数 来 标识 . 为 简便 起 见 ,   在 本文 的 剩余 部分 同步 事件 均 由 一 发送 方 - 接收 方 对偶 来 表示 . 
+ 　 　 其实 ,   根据 测试 粒度 ( testing   granulality ) 的 不同 ,   同步 事件 可以 采用 不同 的 数据结构 来 表示 . 上述 关于 同步 事件 的 数据结构 的 有效性 建立 在 这样 一个 假设 之上 :   一旦 发送 方 和 接收 方 建立 起 联接 ,   通信 即可 正常 进行 . 
+ 3 　 并行程序 测试 模型 
+ 3.1 　 正确性 判断 原则 
+ 　 　 鉴于 并行程序 执行 过程 中 在 时序 上 的 不确定性 ( nondeterminacy ) , 关于 分布式 并行程序 的 正确性 也 具有 了 不同于 串行 程序 的 新 的 判断 原则 . 对于 一 分布式 并行程序 P ,   当 输入 为 X 时 ,   如果 一 同步序列 可以 被 执行 产生 ,   则 此 序列 称为 可行 的 ( feasible ) ;   当 输入 为 X 时 ,   如果 一 同步序列 符合 程序 P 的 定义 规范 ,   则 可 称之为 有效 的 ( valid ) . 在 这里 ,   本文 的 程序定义 规范 是 由 一系列 偏序 关系 组成 的 关于 同步 事件 执行 顺序 的 约束条件 ( constraints ) . 
+ 　 　 令 : ①   Feasible ( P , X )   为 输入 为   X   时 关于 分布式 并行程序   P 可行 的 同步序列 集合 ;   ②   Valid ( P , X )   为 输入 为   X   时 关于 分布式 并行程序   P 有效 的 同步序列 集合 . 
+ 　 　 定义 1 .   当 输入 为 X   时 并行程序 P 是 正确 的 ,   当且 仅 当 : 
+ 　 　 ①   Feasible ( P , X )   =   Valid ( P , X )   ;   而且 
+ 　 　 ②   以 X   作为 输入 ,   每次 执行 P   均 能 得到 正确 的 结果 . 
+ 　 　 而且 ,   如果 对于 所有 的 输入 P   都 能 正确 执行 ,   则 P   是 正确 的 . 
+ 　 　 定义 2 .   输入 为 X 时 并行程序 P 是 错误 的 , 当且 仅 当 : 
+ 　 　 ①   Feasible ( P , X )   ≠   Valid ( P , X )   ;   或者 
+ 　 　 ②   以 X   作为 输入 ,   某 一次 执行 会 产生 错误 的 结果 ,   即使 其 同步序列 是 有效 的   ( 当然 也 是 可行 的 ) . 
+ 　 　 其中 ,   在 定义 2 中 ,   如果 条件 ① 满足 ,   则 说明 出现 进程 间 错误 ( inter - process   fault ) ;   如果 条件 ② 满足 ,   则 意味着 出现 进程 内部 错误 ( intra - process   fault ) . 
+ 　 　 同步序列 的 引入 将 为 我们 对 并行程序 测试 覆盖率 、 测试 完备 性 和 测试 产生 等 问题 的 认识 提供 更加 全面 、 准确 的 视角 ,   详细 内容 参见 文献 ［ 3 ］ . 
+ 　 　 要 判断 Feasible ( P , X )   ≠   Valid ( P , X )   是否 成立 ,   较为 现实 的 办法 是 采用 一致性 测试 ( conformance   testing ) 策略 [ 5 ] . 所谓 一致性 测试 指 的 是 检查 实现 ( implementation ) 是否 满足 规范 ( specification ) . 这里 的 规范 主要 指 的 是 形式 规范 ( formal   specification ) . 下节 的 主要 内容 是 如何 建立 有效 同步序列 的 形式 规范 ,   从而 使 计算机 能 自动 地 鉴别 被测 程序运行 过程 中 所 产生 的 同步序列 是否 有效 . 
+ 3.2 　 同步序列 规范 的 形式 描述 
+ 　 　 分布式 并行程序 在 某种程度 上 是 一种 面向 数据流 的 并行程序 , 对于 某一 分布式 并行程序 , 我们 总 可以 用 相应 的 数据流 图来 描述 其 执行 过程 中 的 同步 事件 间 的 约束条件 . 因此 ,   分布式 并行程序 的 规范 可以 由 数据流 图来 表达 . 文中 所 定义 的 语法 ( 采用 上下文 无关 文法 ,   即 BACKUS 范式 ) 可以 直观 地 描述 并行程序 的 数据 流程 ,   因此 它 也 可以 描述 分布式 并行程序 的 同步序列 规范 . 
+ 　 　 定义 3 .   令 Valid ( P , X )   为 输入 为   X   时 关于 分布式 并行程序   P 的 有效 同步序列 集合 , 则 Valid ( P , X )   可用 四元 矢 〈 VT ,   VN ,   O , F 〉 来 表达 . 其中 , 
+ 　 　 ① 终结符 VT   = { : , ; , s , r , 「 ， 」 , ( , ) , ［ , ］ } . 其中 s 和 r 分别 表示 发送 方 ( sender ) 和 接收 方 ( receiver ) 进程 ; “ : ” 和 “ ; ” 是 关系 联接 符 ,   它们 分别 表示 串行 ( sequential ) 和 平行 关系 ( parallel ) ; “ 「 ” 和 “ 」 ” 分别 表示 循环 的 开始 和 终结 , “ ( ” 和 “ ) ” 为 接收 方 序列 的 界符 ,   而 “ ［ ” 和 “ ］ ” 为 发送 方 序列 的 界符 .   在 这里 接收 方 序列 表示 由 具有 相同 发送 进程 的 接收 方 组成 的 序列 , 而 发送 方 序列 表示 由 具有 相同 接收 进程 的 发送 方 组成 的 序列 . 
+ 　 　 ② 非 终结符   VN   =   { E ,   R ,   S } . 其中 E 表示 同步序列 ,   R 表示 接收 方 序列 ,   S 表示 发送 方 序列 . 
+ 　 　 ③ 初始状态   O ,   在 这里 它 表示 整个 同步序列 . 
+ 　 　 ④ 产生 式   F 为 
+ 
+ 　 　 在 介绍 上述 文法 的 具体 语义 之前 ,   有 必要 阐明 两个 重要 概念 : 同步 事件 间 的 串行 和 平行 . 
+ 　 　 定义 4 . 令 Valid ( P , X ) 是 输入 为 X 时 分布式 并行程序 P 的 有效 同步序列 集合 ,   而 α 和 β 为 输入 为 X 时 程序运行 过程 中 的 两个 同步 事件 . 如果 在 Valid ( P , X )   的 任一 有效 同步序列 中 ,   均 存在 α  β 或者 α  β ,   则 称 输入 为 X 时 α 和 β 串行 ( serial ,   用 “ ; ” 来 表示 ) ;   否则 称 输入 为 X 时 α 和 β   平行 ( parallel ,   用 “ : ” 来 表示 ) . 
+ 　 　 例如 ,   在 图 1 中 所示 并行程序 中 :   { b0a01 : c0a01 } ,   { a4c3 : c2a5 } ,   而 { a2b1 ; a3c1 } . 
+ 　 　 定义 3 所 描述 文法 的 相应 语义 如下 : ① 在 输入 确定 的 情况 下 ,   程序运行 过程 中 各 同步 事件 间 可能 存在 两种 关系 : 串行 ( sequential ) 和 平行 ( parallel ) .   而且 ,   同步 事件 可以 有 循环 表示 形式 ; 但是 ,   如果 迭代 因子 与 循环 中 同步操作 中 的 有关 进程 号 存在 映射 关系 ,   则 不可 采用 E → ［ E ］ 来 表示 ,   此时 必须 将 循环 进行 展开 . ② 在 这里 简单 地用 二元 矢 〈 s , r 〉 表示 同步 事件 ,   其中 r 为 消息 接收 进程 ,   而 s 为 消息 发送 进程 . 根据 文法 结构 ,   〈 s , r 〉 有 两种 表示 形式 : s ( r ) 和 r ［ s ］ ,   二者 分别 称为 发送 方 优先 和 接收 方 优先 模式 . 其中 ,   前者 适用 于 广播 操作 ,   而 后者 适用 于 归并 操作 . ③ 发送 方 优先 和 接收 方 优先 表达式 均 可 进行 嵌套 ( nest ) .   具体 例子 可 参见 第 2.4 节 . ④ 根据 并行程序 的 运行机制 , 采用 发送 方 优先 模式 时 ,   表达式 为 s ( r0 ; r1 ; … : rn ) ,   因为 各 同步 事件 串行 ; 当 采用 接收 方 优先 模式 时 ,   表达式 为 r ［ s0 : s1 : … : sm ］ ,   相应 各 同步 事件 平行 . 
+ 3.3 　 线性 同步 和 非线性 同步 并行程序 
+ 　 　 根据 执行 过程 中 所 产生 的 同步序列 的 性质 ,   并行程序 可以 分为 线性 同步 并行程序 和 非线性 同步 并行程序 . 
+ 　 　 定义 5 .   对于 并行程序 P ,   在 输入 为 X 的 情况 下 ,   如果 在 Valid ( P , X ) 的 任一 同步序列 中 ,   任意 两个 同步 事件 均 串行 ,   则 称 在 输入 为 X 时 P 线性 同步 ( linear   synchronization ) ;   否则 称 在 输入 为 X 时 P 非线性 同步 ( nonlinear   synchronization ) . 如果 对于 所有 的 输入 P 均 为 线性 同步 ,   则 称 P 为 线性 同步 程序 . 
+ 　 　 定理 1 .   在 输入 为 X 时 P 线性 同步 当且 仅 当 | Valid ( P , X ) | = 1 ( | set |   表示 集合 set 中 元素 个数 ) . 
+ 　 　 定理 1 可 由 定义 5 直接 得到 . 
+ 　 　 由于 在 线性 同步 程序 中 所有 同步 事件 均 按 确定 的 顺序 执行 而 不会 出现 竞争 ( race ) 、 冲突 ( conflict ) ,   因此 在 正常 情况 下 ( 除非 某些 进程 非正常 退出 并行计算 ) ,   按 线性 同步序列 运行 的 并行程序 不会 出现 死锁 . 只有 按 非线性 同步序列 运行 的 并行程序 才 有 可能 产生 死锁 ( deadlock ) , 如图 l ,   同步 事件 a4c3 和 c2a5 就是 产生 死锁 的 隐患 之一 ,   根本原因 是 { a4c3 : c2a5 } . 
+ 　 　 实际上 ,   在 实用 的 并行程序 中 ,   其 同步序列 一般 都 是 呈 线性 或 基本上 呈 线性 的 .   这 是 由 并行程序 的 本质 所 决定 的 .   因为 在 串行 程序 中 ,   数据 依赖性 ( data   dependency ) 是 通过 控制流 的 依赖性 来 体现 的 ;   而 在 并行程序 中 ,   进程 间 的 数据 依赖性 是 通过 通信 来 实现 的 ,   这 就 决定 了 并行程序 运行 过程 中 各 同步 事件 基本上 应该 为 串行 关系 . 
+ 　 　 在 对 并行程序 的 分析 、 测试 中 ,   非线性 给 我们 带来 了 很大 的 不便 .   因此 ,   在 许多 时候 将 非线性 程序 线性化 ( linearlization ) 就 变得 很 有 必要 . 线性化 的 主要 方法 有 : ① 对于 诸如 图 l 中所含 同步序列 a4c3 : c2a5 , 可以 通过 调整 同步 语句 的 语序 而 将 其 线性化 ;   ② 而 对于 较为 复杂 的 非线性 同步序列 ,   例如 由 广播 操作 导致 的 平行 关系 , 本文 引入 了 原子 同步 事件 ( atomic   SYN - event ) } 这一 概念 ,   将 一系列 相关 的 会 导致 非线性 的 同步 事件 归结 成为 原子 同步 事件 ,   然后 再 分别 对 诸 原子 同步 事件 逐个 分析 .   在 实际 的 并行程序 中 ,   原子 同步 事件 主要 有点 - 点 通信 ( point - to - point ) 、 聚类 操作 ( 如 broadcast 和 combine ) 、 同步控制 操作 ( 如 barrier ) 等 . 
+ 　 　 例如 ,   图 l 所 描述 的 并行程序 经过 线性化 后 ,   其 有效 同步序列 规范 由 a ［ b : c ］ ; a ( b ; c ) ; a ( c ) : c ( a ) 变为 combine ( a ) ; broadcast ( a ) ; a ( c ) ; c ( a ) . 
+ 3.4 　 两个 典型 的 聚类 操作 — — 广播 和 归并 
+ 　 　 聚类 操作 ( collective   operation ) 表示 同时 涉及 两个 以上 进程 的 通信 操作 . 树型 广播 和 归并 是 比较 有 代表性 的 非线性 聚类 操作 . 在 并行程序 中 ,   聚类 操作 相应 的 源代码 有 如下 结构 特点 : 在 相应 的 循环 语句 中 ,   循环 因子 与 同步 函数 中 的 进程 号 存在 一定 的 映射 关系 . 我们 在 第 3.2 节已 提到 数据 流程图 可以 反映 分布式 程序 中 各 同步 事件 间 的 约束 关系 . 图 2 描述 了 在 参与 通信 的 进程 数为 9 、 采用 分支 数为 3 的 树型 拓扑 结构 ( topology ) 进行 广播 和 归并 操作 的 数据 流程图 , 图中 结点 表示 进程 ， 而 结点 间 连线 表示 同步 事件 .   数据 流程图 实际上 反映 了 各 同步 事件 间 的 时序 关系 . 
+ 
+ 图 2 　 树型 聚类 广播 ( a ) 、 归并 ( b ) 操作 的 数据 流程图 
+ 　 　 称 数据 流程图 中 两个 同步 事件 存在 直系 血亲 关系 ,   如果 从 某 一 同步 事件 开始 一直 往 下 ( 相对 于 树根 ) 总能 抵达 另 一个 同步 事件 .   在 图 2 中 同步 事件 03 与 35 就是 直系 血亲 . 称 两个 同步 事件 为 兄弟 ,   如果 在 树型 图中 与 这 两个 同步 事件 相应 的 两条 边均 源自 同一 结点 . 在 图 2 中 同步 事件 34 与 35 就是 兄弟 . 
+ 　 　 采用 定义 3 所述 文法 可以 很 方便 地 描述 树型 广播 操作 的 有效 同步序列 规范 . 例如 ,   图 2a 中 所述 广播 操作 的 有效 同步序列 规范 可以 表示 为 : 0 ( 0 ( 0 ; 1 ; 2 )   ;   3 ( 3 ; 4 ; 5 )   ;   6 ( 6 ; 7 ; 8 ) )   由于 同步 事件 的 执行 顺序 为 从外向内 进行 ,   因此 树型 广播 操作 的 同步序列 规范 又 称为 向心 表 ( centripetal   table ) . 
+ 　 　 关于 向心 表有 一个 重要 性质 : 表中任 两个 同步 事件 α 和 β , 如果 α 和 β 为 直系 血亲 ,   或 α 和 β 为 兄弟 ,   或者 α 和 β 的 发送 方 为 同一 进程 , 则 α 与 β 串行 . 
+ 　 　 采用 定义 3 所述 文法 也 可以 很 方便 地 描述 树型 归并 操作 的 有效 同步序列 规范 .   例如 ,   图 2 ( b ) 中 所述 广播 操作 的 有效 同步序列 规范 可以 表示 为 : 0 ［ 0 ［ 0 : 1 : 2 ］   :   3 ［ 3 : 4 : 5 ］   :   6 ［ 6 : 7 : 8 ］ ］   由于 同步 事件 的 执行 顺序 为 从 内向 外 ,   因此 树型 归并 操作 的 同步序列 规范 又 称为 离心 表 ( centrifugal   table ) . 
+ 　 　 离心 表有 一个 重要 性质 : 只有 存在 直系 血亲 关系 的 两个 同步 事件 才 存在 串行 关系 . 关于 向心 表 和 离心 表 的 这 两个 重要 性质 将 在 测试 覆盖率 的 计算 中 起到 重要 作用 . 
+ 4 　 原子事件 测试 策略 
+ 　 　 并行程序 时序 测试 的 难点 主要 源自 并行程序 中 庞大 的 时序 组合 数 . 表 1 列出 了 不同 分支 数 的 结点 数为 9 的 树型 广播 与 归并 操作 的 有效 同步序列 总数 .   表中 数据 表明 即使 是 像 9 - 结点 广播 与 归并 这样 简单 的 并行程序 ,   其 有效 同步序列 数 也 是 非常 大 的 . 为此 ,   本文 提出 了   原子事件 测试 ( atomic - event   testing ) ,   具体 在 同步序列 模型 中 ,   原子事件 测试 分为 两个 步骤 : ① 线性化 整个 原始 同步序列 ,   使 其仅 由 串行 相关 的 原子 同步 事件 组成   ( 参见 第 3 节 ) . ② 分别 对 各 原子 同步 事件 进行 测试 . 针对 某一 被 测 原子 同步 事件 ( atomic   SYN - event ) ,   可以 用 确定性 测试方法 将 其它 原子 同步 事件 的 时序 流程 固定 ,   从而 集中地 对 其 进行 测试 ,   也 可 开发 专门 的 引导 模块 来 启动 对此 原子 同步 事件 模块 的 执行 . 
+ 表 1 　 各种 树型 聚类 操作 的 可测性 比较 
+ 
+ 分支 数 操作 　 　 有效 同步序列 规范 有效 同步序列 总数 
+ 2 广播 0 ( 0 ( 0 ( 0 ( 0 , 1 ) , 2 ( 2 , 3 ) ) , 
+ 4 ( 4 ( 4 , 5 ) , 6 ( 6 , 7 ) ) ) , 8 ) 80 
+ 　 归并 0 ［ 0 ［ 0 ［ 0 ［ 0 : 1 ］ : 2 ［ 2 : 3 ］ ］ : 
+ 4 ［ 4 ［ 4 : 5 ］ : 6 ［ 6 : 7 ］ ］ ］ : 8 ］ 2520 
+ 3 广播 0 ( 0 ( 0 ; 1 ; 2 ) ; 3 ( 3 ; 4 ; 5 ) ; 6 ( 6 ; 7 ; 8 ) ) 126 
+ 　 归并   0 ［ 0 ［ 0 : 1 : 2 ］ : 3 ［ 3 : 4 : 5 ］ : 6 ［ 6 : 7 : 8 ］ ］ 4480 
+ 4 广播 0 ( 0 ( 0 , 1 , 2 , 3 ) , 4 ( 4 , 5 , 6 , 7 ) , 8 ) 35 
+ 　 归并 0 ［ 0 ［ 0 : 1 : 2 : 3 ］ : 4 ［ 4 : 5 : 6 : 7 ］ : 8 ］ 10080 
+ 
+ 　 　 原子事件 测试 在 完备 性 和 可靠性 方面 可能 不如 整体 事件 测试 ,   但 由于 它 具有 较 高 的 测试 效率 ,   同时 能够 减少 事件 记录 文件 所 占 的 空间 . 因此 ,   在 同步序列 模型 中 它 是 一种 较为 实用 的 测试 策略 . 另外 ,   原子事件 测试 策略 的 引入 大大简化 了 并行程序 时序 测试 中 的 一系列 技术 并 使 其 的 实现 成为 可能 ,   例如 并行程序 时序 的 测试 覆盖率 分析 、 同步序列 的 重演 ( replay ) 与 记录 ( record ) 、 并行程序 的 测试 产生 ( test   generation ) 、 测度 分析 ( testability   analysis ) 以及 基于 同步序列 模型 之上 的 关于 死锁 ( deadlock ) 的 动 静态 检测 ［ 4 ］ 等 .   作者 已 在 这些 领域 取得 了 一定 进展 ,   由于 本文 篇幅 有限 , 我们 将 在 以后 的 文章 中 加以 介绍 .   
+ 注 ： 本 课题 得到 国家 攀登 计划 项目 基金 资助 . 
+ 作者简介 ： 梁煜 , 男 ， 1968 年 3 月生 ， 博士 , 主要 研究 方向 为 计算机 并行处理 、 计算机 体系结构 、 计算机 测试 与 容错 技术 等 . 
+ 李舒 , 男 ， 1974 年 3 月生 ， 博士 研究生 ,   主要 研究 方向 为 计算机 并行处理 、 信号处理 等 . 
+ 张辉 , 男 ， 1973 年 12 月生 ， 硕士 研究生 ,   主要 研究 方向 为 计算机 体系结构 、 图像处理 技术 等 . 
+ 韩 承德 , 男 ， 1940 年 4 月生 ， 研究员 ,   博士生 导师 ,   主要 研究 方向 为 计算机 体系结构 、 计算机 并行处理 、 多媒体技术 等 . 
+ 作者 单位 ： 中国科学院计算技术研究所 国家 高性能 计算机 工程技术 中心 　 北京 　 100080 
+ 参考文献 
+ 1 　 　 Beizer   B .   Software   Testing   Techniques . New   York ：   Van   Nostrand   Reinhold   Company , 1983 
+ 2 　 　 Ferguson   R ,   Korel   R ,   Software   test   data   generation   using   the   chaining   approach .   In :   Int ' l   Test   Conf ,   1995 .   703 ～ 709 
+ 3 　 　 Tai   K   C ,   Carver   H .   Testing   of   distributed   programs .   In :   Parallel   Distributed   Computing   Handbook ,   Series   on   Computer   Engineering .   New   York :   McGraw - Hill ,   1996 .   955 ～ 978 
+ 4 　 　 Masticola   P , Gyder   G . Static   Infinite   Wait   Anomaly   Detection   in   Polynomial   Time . In : Int ' l   Conf   on   Parallel   Processing , II.1990 . 78 ～ 87 
+ 5 　 　 Linn   J ,   Uyar   U . Conformance   Testing   Methodologies   E   Architecture   for   OSI ( Open   System   Interconnection ) Protocols .   California :   IEEE   Computer   Sociaty   Press ,   Los   Alamitos 
+ 原稿 收到 日期 ： 1997 - 11 - 26 ； 修改稿 收到 日期 ： 1998 - 02 - 12 . 

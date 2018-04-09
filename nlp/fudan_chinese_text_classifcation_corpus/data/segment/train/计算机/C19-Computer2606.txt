@@ -1,0 +1,241 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 6 期   第 10 卷   Vol.10   No.6   1999 
+ 
+ 
+ 
+ 指针 数组 的 过程 内 别名 分析 * 
+ 黄   波 　 臧斌宇 　 俞一峻 　 朱传琪 
+ 　 　 摘要 　 指针 别名 分析 在 C语言 的 并行 优化 中 占有 重要 的 地位 , 但 已有 的 指针 别名 分析 只能 处理 指针 标量 的 情况 . 文章 在 介绍 已有 指针 别名 信息 表示法 的 不足 的 基础 上 , 提出 了 一种 能够 表示 指针 数组 别名 信息 的 表示 方法 , 它 可以 更加 准确 地 表示 指针 别名 信息 . 在 此 表示法 的 基础 上 , 提出 了 指针 数组 的 过程 内 别名 分析 算法 . 此 算法 完全 包含 了 指针 标量 的 别名 分析 , 对 现有 的 指针 别名 分析 算法 所 不能 解决 的 一些 问题 能 进行 有效 地 处理 . 
+ 　 　 关键词 　 指针 别名 分析 , 指针 数组 , 过程 内 分析 , 并行 优化 . 
+ 　 　 中图法 分类号 　 TP314 
+ 　 
+ Intraprocedural   Alias   Analysis   for   Pointer   Array 
+ HUANG   Bo 　 ZANG   Bin - yu 　 YU   Yi - jun 　 ZHU   Chuan - qi 
+ ( Institute   of   Parallel   Processing   Fudan   University   Shanghai   200433 ) 
+ 　 　 Abstract 　   Pointer   alias   analysis   plays   an   important   role   in   the   parallelizing   optimization   of   C   program ,   however ,   all   the   previous   analyzing   algorithm   can   only   be   used   to   analyze   the   pointer   scalars .   In   this   paper ,   an   extended   representation   for   point - to   information   is   presented ,   which   can   represent   not   only   the   point - to   information   of   pointer   scalars ,   but   also   the   point - to   information   of   pointer   arrays .   Furthermore ,   an   algorithm   of   intraprocedural   alias   analysis   for   pointer   array   is   presented .   This   algorithm   comprises   both   the   pointer   scalar   analysis   and   pointer   array   analysis .   It   can   be   used   to   efficiently   solve   some   problems   which   couldn ' t   be   solved   by   the   previous   algorithm . 
+ 　 　 Key   words 　 Pointer   alias   analysis ,   pointer   array ,   intraprocedural   analysis ,   parallelizing   optimization . 
+ 　 　 在 过去 的 10 年 中 , 并行 优化 技术 的 研究 取得 了 很大 进展 . 国内外 的 学者 先后 研制 出 不少 典型 的 并行 优化 系统 , 其中 颇具 代表性 的 系统 有 斯坦福大学 的 SUIF ［ 1 ］ 、 伊利诺伊大学 的 Polaris ［ 2 ］ 和 复旦大学 的 AFT ［ 3 ］ 等 . 从 各种 媒体 发表 的 论文 及 系统 测试数据 都 表明 ， 对 串行 FORTRAN 程序 的 并行 优化 已 趋于 成熟 , 目前 研究 的 方向 正 逐步 转向 对 串行 C 程序 的 并行 优化 . 与 FORTRAN 相比 , C语言 存在 许多 FORTRAN 所 不 具有 的 语法 特点 , 如 多级 指针 的 使用 、 内存 的 动态分配 、 递归函数 的 调用 等 . 这些 区别 决定 了 对 C 程序 的 并行 优化 必然 与 对 FORTRAN 程序 的 并行 优化 有 显著 的 不同 , 而 正是 由于 这些 区别 的 存在 , 在 一定 的 程度 上 无疑 加剧 了 C 程序 并行 优化 的 难度 . 
+ 　 　 当 程序 里面 存在 指针 数据类型 或者 存在 通过 传送 地址 方式 进行 的 过程 调用 时 , 两个 或 两个 以上 的 表达式 就 可能 代表 同一 内存地址 , 这时 ， 我们 称 这些 代表 同一 内存地址 的 表达式 互为 别名 . 由于 指针 数据类型 的 存在 而 引起 的 别名 称为 指针 别名 , 指针 别名 的 存在 是 C语言 的 典型 特征 之一 . 当对 某 一 指针 别名 信息 不 明确 的 时侯 , 所有 的 数据流 分析 及 相关性 分析 都 必须 采用 保守 的 估计 , 即 假设 此 指针 指向 所有 变量 , 这种 假设 必然 给 分析 的 准确性 带来 很大 的 影响 并 最终 使 并行 优化 的 效果 大大降低 . 为了 减小 指针 别名 的 存在 对 并行 分析 与 并行 变换 的 影响 , 加强 指针 别名 的 分析 是 获取 更加 准确 的 指针 别名 信息 、 提高 数据流 分析 与 并行 优化 效果 的 有效 措施 . 国内外 并行 优化 的 研究者 曾 提出 过 多种 关于 指针 别名 分析 的 方法 ［ 4 ～ 11 ］ . 但是 , 迄今为止 ， 所有 的 指针 别名 分析方法 都 只能 对 指针 标量 进行 别名 分析 , 当 碰到 指针 数组 时 , 已有 的 方法 就 无能为力 了 , 如 对于 下面 这个 程序段 : 
+ int   ( * FunctionPointer ［ ］ ) ( ) = { Function - 1 , Function - 2 , ... , Function - N } ; 
+ 当 出现 诸如 FunctionPointer ［ i ］ ( ) 的 调用 , 并且 i 的 值 可以 确定 时 , 由于 已有 的 指针 别名 分析方法 不能 取得 FunctionPointer 的 指向 信息 , 在 分析 时 就 不能 确定 具体 调用 的 是 哪个 函数 , 从而 在 其他 数据流 分析 ( 特别 是 过程 间 分析 ) 时 必须 采用 保守 的 估计 方法 , 这 必然 影响 分析 的 准确性 . 为此 , 本文 提出 了 一种 新 的 指针 别名 信息 的 表示法 . 它 把 指针 的 范围 与 所指 目标 的 范围 融合 于 指针 别名 信息 内 , 能够 表示 指针 数组 的 别名 信息 . 在 这种 表示法 的 基础 上 , 本文 提出 了 指针 数组 的 过程 内 别名 分析 算法 , 进而 把 指针 别名 分析 从 指针 标量 推广 到 指针 数组 , 能为 C 程序 的 并行 分析 与 并行 变换 提供 更为 准确 的 指针 别名 信息 . 
+ 　 　 本文 第 1 节在 介绍 相关 的 指针 别名 信息 表示法 的 基础 上 提出 了 一种 指针 别名 信息 的 扩展 指向 表示法 . 第 2 节 介绍 过程 内 指针 数组 别名 分析 的 基本 框架 . 第 3 节 介绍 了 如何 对 C 程序 中 的 各种 语句 进行 指针 数组 别名 分析 的 方法 . 第 4 节用 3 个 例子 阐述 了 本文 所提 算法 的 应用 . 第 5 节是 总结 . 　 　 
+ 1   指针 别名 信息 的 扩展 指向 表示 
+ 1.1   相关 的 工作 
+ 　 　 常见 的 指针 别名 信息 表示法 有 两种 : 别名 对 ( alias   pair ) 表示法 ［ 4 , 5 ］ 和 指向 ( point - to ) 表示法 ［ 6 ～ 10 ］ . 别名 对 表示法 是 把 互为 别名 的 表达式 用 一个二元 组来 表示 . 由于 这种 表示法 将 产生 大量 的 信息冗余 且 信息量 太 少 , 后来 又 采用 了 指向 表示法 , 即用 由 一个 指针 标量 与 这个 指针 标量 所 指向 的 目标 变量 构成 的 二元 组 表示 别名 信息 , Maryam   Emami 等 人 扩展 了 指向 表示法 , 在 二元 组 的 基础 上 增加 了 一个 确定 指向 或 可能 指向 标志 ( D 或 P ) , 从而 使得 别名 信息 能 被 更 准确 地 表示 与 使用 ［ 10 ］ . 但 当 某 一 指针 标量 指向 的 目标 是 数组 时 , 原来 的 指向 表示法 要么 把 整个 数组 当作 一个 整体 来 看待 , 要么 只 区分 数组 的 首 元素 , 并 把 除首 元素 外 的 其他 数组 元素 当成 一个 整体 . 后来 , 斯坦福大学 的 Robert   P .   Wilson 等 人用 一个 位置 集 ( location   set ) 来 表示 指针 所 指向 的 目标 , 更 准确 地 表示 了 指针 指向 的 范围 ( 位置 集是 一个 三元组 ( b , f , s ) , b 是 内存 块 的 名字 , f 是 在 b 内 的 偏移 , s 是 步长 , ( b , f , s ) 等价 于 位置 集合 { f + i × s | i ∈ Z } ) ［ 9 ］ . 图 1 用 一个 简单 的 例子 来 说明 这些 指针 别名 信息 表示法 的 区别 ( 在 下例 中 , 假设 S1 前 的 别名 信息 为空 , 整数 占 2 字节 ) .   * * 
+ 
+ 图 1 　 几种 指针 别名 信息 表示法 的 比较 
+ 　 　   但是 , 上述 这些 指针 别名 信息 的 表示 方法 都 不能 表示 指针 数组 的 别名 信息 , 因此 在 对 C 程序 并行 优化 的 过程 中 遇到 指针 数组 时 必须 采取 保守 的 估计 , 这 必然 会 影响 并行 优化 的 效果 . 为了 表示 指针 数组 的 别名 信息 , 必须 采用 一种 新 的 指针 别名 信息 的 表示法 . 
+ 1.2   扩展 指向 表示法 
+ 　 　 本文 采用 一种 扩展 的 指向 表示法 来 表示 指针 别名 信息 , 这种 表示法 具有 如下 的 形式 : （ p , t , c , PR , TR ) . 其中 p 表示 指针 变量名 或者 指针 数组名 ; t 表示 p 所指 的 目标 变量名 或者 目标 数组名 ; c 表示 指针 的 指向 关系 是 确定 指向 还是 可能 指向 , 取值 为 D 或 P , D 表示 确定 指向 , P 表示 可能 指向 , 同时 定义 P 与 D 之间 的 汇合 算子 ∧ , ∧ 具有 如下 性质 : D ∧ D = D , D ∧ P = P , P ∧ D = P , P ∧ P = P . PR 与 TR 的 含义 如下 : 当 p 是 数组名 时 , PR 表示 p 所 包含 的 数组 元素 的 范围 , 其他 情况 下 , PR = ; 当 t 是 数组名 或 动态 申请 的 一大块 连续 内存 区域 名 ( 动态 申请 的 内存 区域 的 命名 规则 见下文 ) 时 , TR 表示 t 所 包含 的 数组 元素 或 动态 申请 的 内存 区域 内 元素 的 范围 ; 其他 情况 下 , TR = . 
+ 　 　 PR 与 TR 可以 表示 为 { ( Si , Ii , Ei ) | 1 ≤ i ≤ n } . 在 三元组 ( Si , Ii , Ei ) 中 , Si 表示 区域 的 起始 位置 , Ei 表示 区域 的 终止 位置 , Ii 表示 区域 递增 的 步长 , 它们 都 是 整数 , 且 以 字节 为 计算 单位 . 也就是说 ， 集合 PR 与 TR 的 元素 本身 也 是 集合 , 而且 各 元素 集合 之间 不 相交 . 因此 ， PR 与 PR 之间 或 TR 与 TR 之间 的 运算 必须 包括 它们 各自 的 元素 集合 之间 的 运算 . 
+ 　 　 设某 一 数组 元素 所 占 的 字节数 为 ES , 三元组 ( S , I , E ) 所 表示 的 区域 实际上 相当于 如下 的 字节 集 ( 其中 B 表示 数组 首 地址 ) : 
+ { B + S , B + S + 1 , ... , B + S + ES - 1 ; B + S + I , B + S + I + 1 , ... , 
+ B + S + I + ES - 1 ; ... , B + E - ES + 1 , ... , B + E - 1 , B + E } 
+ 　 　 定义 1 .   设 R 为 PR 或 TR , 则 数组 的 第 1 个 元素 R0 可 表示 为 { ( 0 , ES , ES - 1 ) } , 第 i + 1 ( i ＞ 0 ) 个 元素 Ri 可 表示 为 { ( i * ES , ES , ( i + 1 ) * ES - 1 ) } . 
+ 　 　 定理 1 .   用 定义 1 中 的 表示法 表示 Ri 与 Rj , j ＞ i , 则 Ri ∪ Rj = { ( i * ES , ( j - i ) * ES , ( j + 1 ) * ES - 1 ) } （ 证明 从略 ） . 
+ 　 　 推论 1 .   若 in - in - 1 = in - 1 - in - 2 = ... = i1 - i0 , 则 Ri0 ∪ Ri1 ∪ ... ∪ Rin = { ( i0 * ES , ( i1 - i0 ) * ES , ( in + 1 ) * ES - 1 ) } . 
+ 　 　 推论 2 .   对于 数组 A ［ n ］ , 整个 数组 区域 R0 ∪ R1 ∪ ... ∪ Rn - 1 可 表示 为 { ( 0 , ES , n * ES - 1 ) } . 
+ 　 　 上述 的 定理 和 推论 在 进行 数组 范围 区域 的 合并 操作 时 , 在 很大 程度 上将 会 简化 结果 范围 区域 的 表示 . 
+ 　 　 定义 2 .   设 R = ( S , I , E ) , R ′ = ( S ′ , I ′ , E ′ ) , R ∩ R ′ =  当且 仅 当 对 属于 R 的 任意子 区域 及 属于 R ′ 的 任意子 区域 , 恒有 
+ 
+ 　 　 表 1 是 对 一些 指针 赋值 语句 ( 指针 赋值 语句 的 概念 将 在 第 3.1 节 定义 ) 的 指针 别名 信息 的 表示 ( 为 简化 描述 , 数组 首 地址 假设 为 0 ) . 
+ 表 1 　 一些 指针 赋值 语句 的 指针 别名 信息 的 表示 
+ 
+ 语句 指针 别名 信息 
+ int   a , * p ; p = & a { ( p , a , D , , ) } 
+ void   q ( ) ; void ( * f ) ( ) ; f = q ; { ( f , q , D , , ) } 
+ int * p ［ 10 ］ , a ; p ［ 0 ］ = & a ; { ( p , a , D , PR0 , ) } , 其中 PR0 = { ( 0 , 4 , 3 ) } 
+ int   a ［ 100 ］ , b , * q ;   
+ if   ( a ［ 0 ］ ＞ b ) 
+ 　 q = & b ; 
+ else   q = a ; { ( q , b , P , , ) , 
+ ( q , a , P , , TR0 ) } 
+ 其中 TR0 = { ( 0 , 2 , 1 ) } 
+ struct   STTYPE { int   a , b ; float   f ［ N ］ ; } S ; 
+ float * p ; p = & s . f ［ 10 ］ ; { ( p , s . f , D , , TRf10 ) } 
+ 其中 TRf10 = { ( 40 , 4 , 43 ) } 
+ int * p ［ 10 ］ , q ［ N ］ ;   P ［ 0 ］ = q + i ; { ( p , q , D , PR0 , TRi ) } 
+ 其中 PR0 = { ( 0 , 4 , 3 ) } , TRi = { ( 2i , 2 , 2i + 1 ) } 
+ 
+ 
+ 　 　 C 程序 中 不可避免 地 存在 内存 的 动态 申请 , 必须 通过 命名 的 方式 对 这些 动态 申请 的 内存 区域 进行 标识 , 才能 在 指针 别名 信息 里 表明 哪些 指针 指向 它们 . 在 这里 采用 一种 简单 的 命名 方法 , 即用 动态 申请 内存 语句 所在 的 文件名 与 此 语句 所在 的 行号 及 循环 迭代 变量 ( 如果 此 动态 申请 内存 语句 在 循环 体内 ) 来 标识 . 实际上 , 当 申请 一块 连续 的 内存 区域 像 数组 一样 使用 时 , 在 进行 指针 别名 的 分析 时 ， 我们 把 这种 动态 申请 的 内存 区域 同 数组 一样 看待 .   
+ 2   指针 数组 过程 内 别名 分析 的 框架 
+ 　 　 过程 内 的 指针 别名 分析 就是 通过 对 过程 内 的 所有 语句 依次 进行 别名 分析 , 最后 求出 在 过程 出口处 的 指针 别名 信息 . 这里 没有 讨论 过程 调用 语句 对 指针 别名 信息 的 影响 , 实际上 ， 跨 过程 求取 指针 别名 信息 是 很 重要 的 , 文献 ［ 5 , 6 , 9 ～ 11 ］ 对此 进行 了 深入 的 研究 . 有 了 过程 内 指针 别名 分析 的 框架 , 利用 各种 形式 的 过程 间 分析 技术 就 不难 把 指针 别名 分析 推广 到 过程 间 分析 上 . 由于 前 文 提出 的 指针 别名 信息 的 表示法 既能 很 好 地 表示 指针 数组 的 别名 信息 , 又 能 把 指针 标量 别名 信息 的 表示 囊括 其中 , 因此 ， 本文 介绍 的 指针 数组 过程 内 别名 分析 的 框架 实际上 同时 进行 了 指针 数组 与 指针 标量 的 别名 分析 . 在 某种意义 上 讲 ， 指针 标量 是 指针 数组 的 一个 特例 , 本文 所 描述 的 指针 数组 的 别名 分析 在 概念 上 完全 蕴含 了 指针 标量 的 别名 分析 . 
+ 　 　 在 介绍 指针 数组 过程 内 别名 分析 的 基本 框架 前 , 先 介绍 几个 基本概念 . 
+ 　 　 对于 给定 的 程序控制 流图 CFG 及 程序 内 的 任一 语句 S , 定义 A - IN ( S )   为 到达 语句 S 的 入口 之前 的 指针 别名 信息 集 ( AliasSet ) ; A - OUT ( S ) 为 离开 语句 S 的 出口 之后 的 指针 别名 信息 集 ; PRED ( S ) 为 控制流 图中 S 的 所有 前驱 语句 所 构成 的 集合 . 有 了 上述 定义 及 上 一节 所 介绍 的 指针 别名 信息 的 表示法 , 指针 数组 的 过程 内 别名 分析 可以 用 如下 的 框架 来 表示 : 
+ 　 　 　 　 　 for   each   statement   S   in   the   procedure { 
+ 　 　 　 　 　 　 A - IN ( S ) = ; 
+ 　 　 　 　 　 　 A - OUT ( S ) = StmtAnalysis ( S , , CFG ) ; 
+ 　 　 　 　 　 } 
+ 　 　 　 　 　 do { 
+ 　 　 　 　 　 　 Changed = FALSE ; 
+ 　 　 　 　 　 　 for   each   Statement   S   in   depth   first   order { 
+ 　 　 　 　 　 　 　 OldA - IN ( S ) = A - IN ( S ) ; 
+ 　 　 　 　 　 　 　 
+ 　 　 　 　 　 　 　 if   ( OldA - IN ( S ) ≠ A - IN ( S ) )   { 
+ 　 　 　 　 　 　 　 　 　 　 Changed = TRUE ; 
+ 　 　 　 　 　 　 　 　 　 　 A - OUT ( S ) = StmtAnalysis ( S , A - IN ( S ) , CFG ) ; 
+ 　 　 　 　 　 　 　 } 
+ 　 　 　 　 　 　 } 
+ 　 　 　 　 　 } while 　 Changed 
+ 　 　 在 以上 的 指针 数组 过程 内 别名 分析 的 基本 框架 中 , 函数 StmtAnalysis 完成 对 语句 S 内 指针 数组 与 指针 标量 别名 信息 的 分析 , 它 的 具体 实现 将 在 第 3 节 介绍 . Merge 实现 的 是 对 指针 别名 信息 的 合并 , 并 以 合并 后 的 指针 别名 信息 集 作为 函数 的 返回值 , Merge 所 实现 的 具体操作 如下 . 
+ 算法 .   指针 别名 信息 的 合并 算法 . 
+ 　 　 　 　 　 AliasSet 　 Merge ( AliasSet   AS ) 
+ 　 　 　 　 　 { 
+ 　 　 　 　 　 　 for   each   Pointer   variable   p   exists   in   element   of   AS   { 
+ 　 　 　 　 　 　 　 if   ( ( p , x , D , PR1 , TR1 ) ∈ AS   and   ( p , y , D , PR2 , TR2 ) ∈ AS   and 
+ 　 　 　 　 　 　 　 　 ( ( PR1 =   and   PR2 = )   or   PR1 ∩ PR2 ≠ )   and   x ≠ y ) { 
+ 　 　 　 　 　 　 　 　 　 change   ( p , x , D , PR1 , TR1 )   to   ( p , x , P , PR1 , TR1 ) ; 
+ 　 　 　 　 　 　 　 　 　 change   ( p , y , D , PR2 , TR2 )   to   ( p , y , P , PR2 , TR2 ) ; 
+ 　 　 　 　 　 　 　 　 } 
+ 　 　 　 　 　 　 　 if   ( ( p , x , P , PR1 , TR1 ) ∈ AS   and   ( p , y , D , PR2 , TR2 ) ∈ AS   and   x ≠ y ) 
+ 　 　 　 　 　 　 　 　 　 change   ( p , y , D , PR2 , TR2 )   to   ( p , y , P , PR2 , TR2 ) ; 
+ 　 　 　 　 　 　 　 if   ( ( p , x , c1 , PR1 , TR1 ) ∈ AS   and   ( p , x , c2 , PR2 , TR2 ) ∈ AS ) { 
+ 　 　 　 　 　 　 　 　 　 PR = PR1 ∪ PR2 ; 
+ 　 　 　 　 　 　 　 　 　 TR = TR1 ∪ TR2 ; 
+ 　 　 　 　 　 　 　 　 　 delete   ( p , x , c1 , PR1 , TR1 )   from   AS ; 
+ 　 　 　 　 　 　 　 　 　 delete   ( p , x , c2 , PR2 , TR2 )   from   AS ; 
+ 　 　 　 　 　 　 　 　 　 if   ( PR = = &&   TR = = ) 
+ 　 　 　 　 　 　 　 　 　 　 　 c = c1 ∧ c2 ; 
+ 　 　 　 　 　 　 　 　 　 else 
+ 　 　 　 　 　 　 　 　 　 　 　 c = P ; 
+ 　 　 　 　 　 　 　 　 　 AS = AS ∪ { ( p , x , c , PR , TR ) } ; 
+ 　 　 　 　 　 　 　 　 } 
+ 　 　 　 　 　 　 　 } 
+ 　 　 　 　 　 　 　 return   AS ; 
+ 　 　 　 　 　 } 
+ 　 　 在 指针 别名 信息 的 合并 算法 中 , 最后 一种 合并 情况 是 把 多个 别名 信息 简化 成 一个 别名 信息 , 从而 可以 缩减 指针 别名 信息 集中 的 元素 个数 . 但 当 p 为 指针 数组 , p 所指 的 目标 亦 为 数组 , 并且 p 中 不同 的 元素 指向 的 数组 是 同一 数组 时 , 这种 合并 可能 会 带来 一些 指针 信息 的 不精确性 . 由于 实际 程序 中 这种 情况 比较 罕见 , 因而 在 进行 指针 数组 的 别名 分析 时 发生 这种 合并 的 机会 很少 , 对 整个 分析 的 影响 也 就 很小 . 
+ 3   语句 的 指针 数组 别名 分析 
+ 3.1   指针 赋值 语句 
+ 　 　 过程 内 分析 所 涉及 到 的 对 指针 别名 信息 的 改变 主要 体现 在 指针 赋值 语句 上 . 指针 赋值 语句 的 定义 如下 . 
+ 　 　 定义 3 .   当 赋值 语句 左部 表达式 的 类型 求值 结果 为 指针 类型 时 , 此 赋值 语句 称为 指针 赋值 语句 . 
+ 　 　 指针 赋值 语句 的 执行 结果 是 使 赋值 语句 左部 代表 的 指针 变量 ( 指针 数组 或 指针 标量 ) 所 指向 的 目标 发生 改变 , 从而 使 指针 别名 信息 发生 相应 的 变化 . 
+ 　 　 定义 4 .   由 指针 赋值 语句 的 左部 所 代表 的 指针 变量 所 构成 的 集合 称为 左 目标 集 , 记作 L - Target ( S ) ; 指针 赋值 语句 的 右部 表达式 所 指向 的 目标 集合 称为 右 目标 集 , 记为 R - Target ( S ) . 
+ 　 　 左 目标 集 与 右 目标 集中 的 元素 用 三元组 ( t , c , R ) 表示 . 在 左 目标 集中 , t 为 指针 变量名 或 指针 数组名 , 而 在 右 目标 集中 , t 可以 是 任意 的 变量名 ( 包括 对 动态 申请 的 内存 区域 的 命名 ) . c 表示 t 是 确定 目标 还是 可能 目标 , 取值 和 运算 性质 与 第 1 节 指针 别名 信息 表示 中 的 c 相同 , R 的 含义 与 表示 和 PR 或 TR 相似 , 当 t 为 数组名 或 动态 申请 的 内存 区域 名时 , R 表示 目标 包含 的 范围 , 其他 情况 下为 . 强制 类型转换 并 不 改变 左 目标 集和右 目标 集 , 常见 的 指针 赋值 语句 中 左 目标 集 与 右 目标 集 的 计算 见表 2 ( 第 1 栏中 表达式 的 求值 结果 为 指针 变量 或 内存 区域 的 地址 , IMPOSSIBLE 表示 指针 赋值 语句 不 可能 以 第 1 栏中 的 表达式 作为 左部 , offset ( f ) 表示 域 f 在 结构 内 的 偏移量 , 以 字节 为 单位 , ES 表示 数组 元素 所 占 的 字节数 ) , 表中 未 列出 的 情况 可以 通过 综合 此表中 的 情况 而 得出 相应 的 左 目标 集 与 右 目标 集 . 
+ 表 2 　 指针 赋值 语句 的 左 目标 集 与 右 目标 集 
+ 
+ 指针 赋值 语句 
+ S 的 左 （ 右 ） 部 L - Target   ( S ) R - Target ( S ) 
+ & aIMPOSSIBLE { ( a , D , ) } 
+ & a . fIMPOSSIBLE { ( a . f , D , ) } 
+ & a ［ i ］ IMPOSSIBLE { ( a , D ,   Ri ) } 
+ a ( a 为 指针 标量 ) { ( a , D , ) } { ( x , c , TR ) | ( a , x , c , PR , TR ) ∈ A - IN ( S ) } 
+ a . f { ( a . f , D , ) } { ( x , c , TR ) | ( a . f , x , c , PR , TR ) ∈ A - IN ( S ) } 
+ a ［ i ］ 
+ ( a 是 指针 数组 ) { ( a , D , Ri ) } { ( x , c , TR ) | ( a , x , c , PR , TR ) ∈ A - IN ( S ) , RiPR } 
+ * a 
+ ( 此时 a 是 一个 
+ 二级 指针 变量 ) { ( x , c , TR ) | ( a , x , c , , TR ) ∈ A - IN ( S ) } { ( y , c1 ∧ c2 , TR2 ) | ( a , x , c1 , , TR1 ) ∈ A - IN ( S ) ; ( x , y , c2 , PR2 , TR2 ) ∈ A - IN ( S ) ; TR1PR2 } 
+ ( * a ) . f 
+ ( a 是 一 指向 结构 
+ 的 指针 , 结构 中 
+ 有 一 f 域 , 域 f 
+ 是 一 指针 ) { ( y , c , TR ′ ) | ( a , x , c , , TR ) ∈ A - IN ( S ) ; 
+ if   ( TR ≠ ) / * 此时 x 为 一 结构 数组 * / 
+ y = x ; TR ′ = { ( S ′ , I , E ′ ) | S ′ = S + Offset ( f ) , 
+ 　 　 E ′ = E + Offset ( f ) , ( S , I , E ) ∈ TR , } 
+ else 
+ 　 　 y = x . f ; TR ′ = ; 
+ } { ( z , c1 ∧ c2 , TR2 ) | ( a , x , c1 , , TR1 ) ∈ A - IN ( S ) ; 
+ if   ( TR1 ≠ )   / * 此时 x 为 一 结构 数组 * / 
+ 　 　 y = x ; TR ′ 1 = { ( S ′ , I , E ′ ) | S ′ = S + Offset ( f ) , 
+ 　 　 E ′ = E + Offset ( f ) , ( S , I , E ) ∈ TR1 } 
+ else   y = x . f ; TR ′ 1 = ; 
+ ( y , z , c2 , PR2 , TR2 ) ∈ A - IN ( S ) ; TR ′ 1PR2 } 
+ ( * a ) ［ i ］ 
+ ( a 是 一 指向 指针 
+ 数组 的 指针 ) { ( x , c , TR ′ ) | ( a , x , c , , TR ) ∈ A - IN ( S ) ; 
+ TR ′ = { ( S ′ , I , E ′ ) | S ′ = S + i * ES , 
+ 　 　 E ′ = E + i * ES , ( S , I , E ) ∈ TR } } { ( y , c1 ∧ c2 , TR2 ) | ( a , x , c1 , , TR1 ) ∈ A - IN ( S ) , 
+ TR ′ 1 = { ( S ′ , I , E ′ ) | S ′ = S + i * ES , E ′ = E + i * ES , ( S , I , E ) ∈ TR1 } , ( x , y , c2 , PR2 , TR2 ) ∈ A - IN ( S ) , TR ′ 1PR2 } 
+ p + NIMPOSSIBLE { ( x , c , TR ′ ) | ( p , x , c , PR , TR ) ∈ A - IN ( S ) , 
+ TR ′ = { ( S ′ , I , E ′ ) | S ′ = S + N * sizeof ( * p ) , 
+ 　 　 E ′ = E + N * sizeof ( * p ) , ( S , I , E ) ∈ TR } } 
+ NULLIMPOSSIBLE { ( NULL , D , ) } 
+ malloc ( Type ) IMPOSSIBLE { ( MEM - ALLOC - NAME , D , ) } 
+ malloc ( Type * N ) IMPOSSIBLE { ( MEM - ALLOC - NAME , D , R0 ) } 
+ 
+ 
+ 　 　 在 上表 中 , MEM - ALLOC - NAME 为 一个 宏 , 它 根据 动态 申请 内存 语句 所在 的 文件名 、 行号 及 循环 迭代 变量 ( 如果 此 动态 申请 内存 语句 在 循环 体内 ) 等 信息 返回 一个 标识 名 .   
+ 3.2   指针 赋值 语句 的 指针 数组 别名 分析 
+ 　 　 给定 程序控制 流图 CFG 、 指针 赋值 语句 S 及 S 入口 前 的 指针 别名 信息 集 A - IN , 指针 赋值 语句 的 指针 别名 分析 算法 可 描述 如下 : 
+ 　 　 AliasSet 　 PointerAssignmentAnalysis ( AssignStmt   S , AliasSet   A - IN , Graph   CFG ) 
+ 　 　 {   A - KILL = { ( p , t , c , PR , TR ) | ( p , D , PR ′ ) ∈ L - Target ( S ) , ( p , t , c , PR , TR ) ∈ A - IN } ; 
+ 　 　 　 A - CHANGE = { ( p , t , D , PR , TR ) | ( p , P , PR ′ ) ∈ L - Target ( S ) , ( p , t , D , PR , TR ) ∈ A - IN } ; 
+ 　 　 　 A - GEN = { ( p , t , c1 ∧ c2 , PR , TR ) | ( p , c1 , PR ) ∈ L - Target ( S ) , ( t , c2 , TR ) ∈ R - Target ( S ) } ; 
+ 　 　 　 CHANGED - SET = ( A - IN － A - CHANGE ) ∪ { ( p , t , P , PR , TR ) | ( p , t , D , PR , TR ) ∈ A - CHANGE } ; 
+ 　 　 　 return   Merge ( ( CHANGED - SET － A - KILL ) ∪ A - GEN ) ) 
+ 　 　 } 
+ 3.3   其他 语句 的 指针 数组 别名 分析 
+ 　 　 虽然 C语言 包含 多种 语句 结构 , 但 经过 程序 结构化 及 规范化 后 , 所有 的 控制结构 都 可以 归结为 顺序 、 条件 、 循环 3 种 . 在 对 任一 语句 进行 指针 别名 的 分析 时 , 根据 此 语句 所属 的 类别 ( 属于 简单 语句 、 顺序 语句 、 条件 语句 、 循环 语句 中 的 哪 一种 ) , 分别 调用 不同 的 指针 数组 别名 分析程序 , 对 语句 进行 指针 别名 分析 ( 由于 所有 具有 副作用 的 表达式 都 在 程序 规范化 过程 中 被 等价 的 表达式 ( 或 语句 ) 所 替代 , 指针 别名 信息 不会 被 规范化 后 的 任何 表达式 所 改变 ) . 在 过程 内 分析 中 , 只有 指针 赋值 语句 才能 对 指针 别名 信息 进行 修改 , 因而 在 对 简单 语句 ( 如 赋值 语句 、 break 语句 、 continue 语句 等 ) 进行 指针 别名 分析 时 , 只要 判断 此 语句 是不是 指针 赋值 语句 , 如果 不是 指针 赋值 语句 , 则 语句 出口处 的 指针 别名 信息 将 与 语句 入口处 的 指针 别名 信息 一致 , 否则 调用 指针 赋值 语句 的 指针 数组 别名 分析 算法 计算 指针 别名 信息 . 而 对于 顺序 、 条件 、 循环 3 种 控制结构 , 它们 的 指针 数组 过程 内 别名 分析 的 框架 与 参考文献 ［ 10 ］ 中 的 分析 框架 相似 . 
+ 4   应用 举例 
+ 　 　 先看 下面 这个 程序段 : 
+ 　 　 　 　 int   a ［ M ］ , * P , * q , i ;   
+ 　 　 　 　 ... 
+ 　 　 　 　 p = a ; 
+ 　 　 　 　 q = a + 1 ; 
+ 　 　 　 　 i = 0 ; 
+ 　 　 　 　 while   ( i ＜ N ) { 
+ 　 　 s1 : 　 * p = ... ; 
+ 　 　 s2 : 　 ... = * q ; 
+ 　 　 　 　 ... 
+ 　 　 s3 : 　 p = p + 2 ; 
+ 　 　 s4 : 　 q = q + 2 ; 
+ 　 　 　 　 i = i + 1 ; 
+ 　 　 　 　 } 
+ 　 　 　 　 ... 
+ 　 　 经过 本文 所 描述 算法 的 指针 别名 分析 , 在 循环体 的 每个 迭代 中 , 指针 别名 信息 为 { ( p , a , D , , TR ) , ( q , a , D , , TR ′ ) } , 其中 TR = { ( 4i , 2 , 4i + 1 ) } , TR ′ = { ( 4i + 2 , 2 , 4i + 3 ) } , 0 ≤ i ≤ N - 1 . 由于 TR ∩ TR ′ = , 因此 在 进行 相关性 分析 时 , 可以 通过 对 指针 别名 信息 的 利用 判断 出 s1 和 s2 不 存在 任何 相关性 , 从而 可以 通过 消除 s3 与 s4 引起 的 规约 相关 把 这个 循环 变换 成 并行 循环 . 
+ 　 　 回到 本文 前言 中所举 的 那个 例子 , 在 语句 : int   ( * FunctionPointer ［ ］ ) ( ) = { Function - 1 , Function - 2 , ... , Function - N } ;   后 , 函数指针 数组 的 别名 信息 如下 : { ( FunctionPointer , Function - 1 , D , PR0 , ) ,   ( FunctionPointer , Function - 2 , D , PR1 , ) , ... ,   ( FunctionPointer , Function - N , D , PRN - 1 , ) } ,   当 碰到 FunctionPointer ［ i ］ ( ) 的 调用 , 并且 i 的 值 可以 确定 时 , 如 i = 1 , 通过 FunctionPointer 与 PR1 查 指针 别名 信息 表便 可以 确定 这 是 对   Function - 2 的 调用 , 于是 可以 准确 扩展 原来 保守 估计 的 调用 图 , 从而 使得 分析程序 可以 进入 Function - 2 跨 过程 获取 数据流 信息 . 
+ 　 　 最后 再 分析 下列 程序 实例 . 
+ 　 　 　 　 typed   struct   DataStruct { 
+ 　 　 　 　 　 　 　 　 　 　 KEYWORD   key ; 
+ 　 　 　 　 　 　 　 　 　 　 CONTENT   content ; 
+ 　 　 　 　 　 　 　 　 　 　 struct   DataStruct *   next ; 
+ 　 　 　 　 　 　 　 　 } DS ; 
+ 　 　 　 　 DS * DataBase ［ N ］ , q ; 　   int   i ; 
+ 　 　 　 　 ... 
+ 　 　 　 　 / * Construct   the   data   table * / 
+ 　 　 　 　 i = 0 ; 
+ 　 　 　 　 while   ( i ＜ N ) { 
+ 　 　 　 　 s1 : 　   DataBase ［ i ］ = q = NULL ; 
+ 　 　 　 　 　 　 　 ... 
+ 　 　 　 　 　 　 　 while   ( ... ) { 
+ 　 　 　 　 　 　 　 　 ... 
+ 　 　 　 　 　 　 　 　 if   ( q = = NULL ) 
+ 　 　 　 　 s2 : 　 　 　 　 DataBase ［ i ］ = q = ( DS * ) malloc ( sizeof ( DS ) ) ; 
+ 　 　 　 　 　 　 　 　 else 
+ 　 　 　 　 s3 : 　 　 　 　 q - ＞ next = ( DS * ) malloc ( sizeof ( DS ) ) ; 
+ 　 　 　 　 　 　 　 　 ... 
+ 　 　 　 　 　 　 　 　 if   ( q - ＞ next ! = NULL ) 
+ 　 　 　 　 s4 : 　 　 　 　 q = q - ＞ next ; 
+ 　 　 　 　 　 　 　 　 i ++ 
+ 　 　 　 　 　 　 　 } 
+ 　 　 　 　 } 
+ 　 　 　 　 ... 
+ 　 　 通过 前 文 所述 算法 的 分析 可 得 如下 的 指针 别名 信息 : { ( DataBase , NULL , P , PRi , ) ,   ( DataBase , MEM - ALLOC - s2 - i , P , PRi , ) ,   ( q , NULL , P , , ) ,   ( q , MEM - ALLOC - s2 - i , P , , ) ,   ( q , MEM - ALLOC - s3 - i , P , , ) ,   ( MEM - ALLOC - s2 - i . next , MEM - ALLOC - s3 - i , P , , ) ,   ( MEM - ALLOC - s3 - i . next , MEM - ALLOC - s3 - i . next , P , , ) } ( 0 ≤ i ≤ N - 1 ) . 由此可知 , 对于 外重 循环 的 不同 循环 迭代 , DataBase 与 q 所指 的 目标 集 不 相交 . 通过 数组 私有化 技术 可以 判断 出 : 指针 标量 q 在 循环 内 是 私有 变量 , DataBase 在 循环 内 是 私有 数组 , 因此 , 外重 循环 可以 变换 成 并行 循环 . 
+ 　 　 从 上面 3 个 例子 可以 看出 : 本文 所 提出 指针 数组 的 过程 内 别名 分析 算法 能 对 C 程序 中 指针 标量 与 指针 数组 的 别名 信息 有效 地 进行 分析 , 从而 在 很大 程度 上 提高 了 并行 优化 的 效率 . 
+ 5   总   结 
+ 　 　 本文 用 五元 式 扩展 了 指针 别名 信息 的 指向 表示法 , 把 指针 标量 与 指针 数组 别名 信息 的 表示 融合 在 一起 , 更加 精确 地 表示 了 指针 别名 信息 , 并 在 此基础 上 给出 了 指针 数组 过程 内 别名 分析 的 基本 框架 与 指针 数组 别名 信息 的 求取 算法 , 从而 把 指针 别名 信息 的 分析 从 指针 标量 推广 到 指针 数组 , 形成 了 一个 过程 内 指针 别名 分析 的 完整 体系 . 利用 这个 算法 ， 能够 同时 有效 而 准确 地求 出 指针 数组 与 指针 标量 的 别名 信息 , 从而 明显 地 提高 C 程序 并行 优化 的 效果 . 
+ * 　 本文 研究 得到 国家自然科学基金 、 国家 863 高科技 项目 基金 和 国家教育部 博士点 基金 资助 。 
+ * * 　 如果 没有 特殊 说明 ， 文中 皆 假 调整 数占 2 字节 ， 实数 占 4 字节 ， 32 位 寻址 ， 即 sizeo ( int * ) = ( float * ) = 4 
+ 作者简介 　 黄波 ， 1973 年生 ， 博士生 ， 主要 研究 领域 为 并行 编译 。 
+ 　 　 　 　 　 臧斌宇 ， 1965 年生 ， 副教授 ， 主要 研究 领域 为 并行 编译 。 
+ 　 　 　 　 　 俞一峻 ， 1972 年生 ， 博士 ， 主要 研究 领域 为 并行 编译 。 
+ 　 　 　 　 　 朱传琪 ， 1943 年生 ， 教授 ， 博士生 导师 ， 主要 研究 领域 为 并行处理 。 
+ 本文 通读 联系人 ： 黄波 ， 止海   200433 ， 复旦大学 并行处理 研究所 
+ 作者 单位 ： 复旦大学 并行处理 研究所   上海   200433 
+ 参考文献 
+ 　 1 　 Stanford   Compiler   Group .   The   SUIF   parallelizing   compiler   guide .   Technique   Report ,   Standford   University ,   1994 
+ 　 2 　 Blume   B ,   Eigenmann   R ,   Faigin   K   et   al .   The   next   generation   in   parallelizing   compiler .   In :   Proceedings   of   the   7th   Workshop   on   LCPC .   1994 
+ 　 3 　 朱传琪 , 臧斌宇 , 陈彤 . 程序 自动 并行 化 系统 . 软件 学报 , 1996 , 7 ( 3 ) : 180 ～ 186 
+ ( Zhu   Chuan - qi ,   Zang   Bin - yu ,   Chen   Tong .   An   automatic   parallelizer .   Journal   of   Software ,   1996 , 7 ( 3 ) : 180 ～ 186 ) 
+ 　 4 　 Spillman   T   C .   Exposing   side   effect   in   a   PL / I   optimizing   compiler .   In :   Proceedings   of   the   IFIP   Conference .   North - Holland ,   1971 .   376 ～ 381 
+ 　 5 　 Allen   F   E .   Interprocedual   data   flow   analysis .   In :   Proceedings   of   the   IFIP   Conference .   North - Holland ,   Amsterdam ,   1974 .   398 ～ 402 
+ 　 6 　 Barth   J   M .   A   practical   interprocedual   data   flow   analysis   algorithm .   Communication   of   ACM ,   1978 , 21 ( 9 ) : 724 ～ 736 
+ 　 7 　 Aho   A   V ,   Sethi   R ,   Ullman   J   D .   Compilers   Principles ,   Techniques   and   Tools .   Reading ,   MA :   Addison - Weslsy   Publishing   Company ,   1986 .   648 ～ 660 
+ 　 8 　 Wolfe   M .   High   Performance   Compilers   for   Parallel   Computing .   Reading ,   MA :   Addison - Weslsy   Publishing   Company ,   1995 .   277 ～ 287 
+ 　 9 　 Wilson   R   P ,   Lam   M   S .   Efficient   context - sentive   pointer   analysis   for   C   programs .   In :   Proceedings   of   ACM   SIGPLAN   ' 95   Conference   on   Programming   Language   Design   and   Implementation .   La   Jolla ,   CA ,   1995 .   1 ～ 12 
+ 　 10 　 Emami   M ,   Ghiya   R ,   Hendren   L .   Context - sensitive   interprocedual   points - to   analysis   in   the   presence   of   function   pointers .   In :   Proceedings   of   ACM   SIGPLAN ' 94   Conference   on   Programming   Language   Design   and   Implementation .   1994 .   242 ～ 256 
+ 　 11 　 Liu   Qiang ,   Zhang   Zhao - qing ,   Ji   Xiao - mei .   Eliminating   two   kinds   of   data   flow   inaccuracy   in   the   presence   of   pointer   aliasing .   In :   Proceedings   of   the   1997   Conference   on   Advances   in   Parallel   and   Distributed   Computing .   Los   Alamitors ,   CA :   IEEE   Computer   Society   Press ,   1997 .   410 ～ 415 
+ 本文 1998 - 01 - 24 收到 原稿 ， 1998 - 06 - 30 收到 修改稿 

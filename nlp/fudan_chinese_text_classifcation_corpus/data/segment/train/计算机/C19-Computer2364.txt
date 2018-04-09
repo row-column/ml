@@ -1,0 +1,83 @@
+计算机 研究 与 发展 
+ JOURNAL   OF   COMPUTER   RESEARCH   AND   DEVELOPMENT 
+ 1999 年   第 36 卷   第 8 期   Vol.36   No.8   1999 
+ 
+ 
+ 
+ 基于 QoS 控制 的 连续 媒体 服务 任务调度 
+ 张 拥军 　 刘 　 晔  　 陈福接 
+ 摘 　 要 　 连续 媒体 服务 如 视频 、 音频 等 是 一类 新 的 实时 应用 ， 要求 在 一 统一 的 操作系统 框架 内 支持 强 、 弱 实时 应用 （ 任务 ） ， 而 传统 的 操作系统 （ 如 UNIX 或者 Windows   NT ） 中 的 调度 策略 不能 很 好 的 支持 该类 应用 . 文中 提出 了 一种 新 的 QoS 描述 方法 ， 并 在 此基础 上 提出 支持 连续 媒体 流 的 、 基于 QoS 的 启发式 任务调度 算法 ， 该 算法 综合 考虑 了 多媒体 任务 的 成功率 和 连续 失败 数 ， 在 资源 有限 的 前提 下 ， 尽量 保证 所有 媒体 流 的 服务质量 . 文中 通过 模拟 、 比较 对 该 算法 进行 了 评价 . 
+ 关键词 　 QoS ，   任务调度 ，   连续 媒体 流 
+ 中图法 分类号 　 TP37 
+ TASK   SCHEDULING   BASED   ON   QoS   CONTROL   FOR   CONTINUOUS   MEDIA   SERVICES 
+ ZHANG   Yong - Jun ,   LIU   Ye  ,   and   CHEN   Fu - Jie 
+ ( Department   of   Computer   Science ,   National   University   of   Defense   Technology ,   Changsha   410073 ) 
+ ( Graduate   School ,   Unversity   of   Science   and   Technology   of   China ,   Beijing   100039 ) 
+ Abstract 　 Continuous   media   service   is   a   new   kind   of   real - time   applications .   It   requires   that   hard   and   soft   real - time   tasks   should   be   supported   in   an   integrated   operating   system   framework .   But   the   scheduling   policies   in   traditional   OS （ e . g . ,   UNIX   or   Windows   NT ） can ' t   support   this   application   to   the   best .   This   paper   proposes   a   new   QoS   method ,   based   on   which   a   QoS - based   heuristic   task   scheduling   algorithm   supporting   continuous   media   streams   is   described .   The   algorithm   takes   into   account   the   success   ratio   and   consecutive   fail   count   of   multimedia   tasks   in   order   to   guarantee   the   quality   of   all   media   streams .   Finally ,   simulation   and   comparison   are   performed   to   validate   the   effectiveness   of   this   algorithm . 
+ Key   words 　 QoS ,   task   scheduling ,   continuous   media   stream 
+ 1 　 引 　 言 
+ 　 　 多媒体技术 的 发展 对 其 应用 的 支撑 平台 提出 了 更 高 的 要求 ， 尤其 是 系统 中 的 任务调度 技术 ， 与 实时 任务调度 理论 和 算法 的 结合 是 其 发展 的 必然趋势 . 然而 ， 目前 在 实时 调度 领域 取得 的 成果 主要 是 基于 强 实时 约束 的 调度 算法 和 调度 策略 ， 如 earliest   deadline   first （ EDF ） ， rate   monotonic   scheduling （ RMS ） ［ 1 ］ 以及 它们 的 一些 改进 或 变形 ［ 2 ， 3 ］ 等 ,   算法 也 主要 被 用 在 强 实时 （ hard   real - time ） 应用领域 . 在 强 实时 系统 中 ， 要求 所有 的 任务 在 规定 的 时间 期限 （ deadline ） 内 被 调度 完成 ， 否则 就 可能 造成 大 的 灾难 或 大 的 损失 . 
+ 　 　 而 在 多媒体 这类 新 的 实时 应用 中 ， 少数 任务 （ 在 一定 的 阈值 内 ） 没 在 期限内 完成 ， 并 不会 造成 大 的 损失 . 例如 ， 在 连续 的 视频流 或 音频 流中 ， 少数 数据 帧 的 丢失 或 不能 及时处理 ， 并 不会 导致 其 QoS 明显 地 下降 ， 因此 多媒体 应用 系统 被 称为 弱 实时 系统 . 正是 由于 多媒体 应用 的 这种 特殊性 ， 如何 高效 地 利用 系统 中 的 各种 资源 为 人们 所 关注 . 因此 研究 适用 于 多媒体系统 的 任务调度 算法 成为 当前 实时 与 多媒体 领域 的 重要 研究 方向 . 
+ 　 　 目前 ， 一些 多媒体 服务器 采用 UNIX 或 NT 平台 ， 对 多媒体 任务 的 调度 一般 就 直接 借用 UNIX 或 NT 中 的 调度 器 ， 采用 分时 或 简单 优先级 的 调度 策略 ， 这样 显然 不能 很 好 地 处理 具有 软 实时 约束 的 多媒体 任务 . 文献 ［ 4 ］ 提出 了 基于 带宽 划分 的 multimedia   server   algorithms ， 该 算法 中 的 任务 的 QoS 是 通过 多媒体 服务器 占用 CPU 时间 的 比率 来 实现 ， 但 该 算法 复杂 ， 实现 比较 困难 . 文献 ［ 5 ］ 提出 了 一个 应用 于 多媒体 数据流 的 多 帧 任务模型 ， 但 当 任务 的 每个 实例 的 执行 时间 发生变化 时 ， 有 可能 导致 大部分 任务 都 不能 在 规定 的 期限 （ deadline ） 内 完成 . 
+ 　 　 本文 先 提出 一种 对 多媒体 任务 进行 QoS 描述 的 新 方法 ， 并 在 此基础 上 提出 了 一个 基于 QoS 控制 的 连续 媒体 流 服务器 调度 算法 . 把 对 连续 媒体 流 的 服务 作为 周期性 任务 处理 ， 如 视频流 平均 33ms 要 处理 一帧 ， 任务 能 被 调度 在 其 时间 期限内 完成 ， 则 认为 任务 成功 ， 否则 失败 . 而 服务 的 QoS 参数 是 通过 任务 的 最小 成功率 和 允许 的 最大 连续 失败 数来 描述 . 较之 过去 的 算法 ， QoS 参数 单纯 采用 任务 的 成功率 来 描述 更为 准确 地 刻画 了 连续 媒体 流 被 服务 的 质量 ， 避免 了 某些 媒体 流 任务 因 连续 不能 被 正确 调度 执行 而 导致 的 QoS 下降 . 通过 模拟 ， 并 与 普通 的 分时 、 EDF 调度 算法 比较 ， 本文 中 提出 的 算法 具有 较 好 性能 ， 且 容易 实现 . 
+ 2 　 任务模型 及 调度 算法 
+ 　 　 在 连续 媒体 （ 如 VOD ） 服务器 上 ， 对 每条 视频 或 音频 流 的 处理 都 可以 认为 是 一个 任务 ， 即 一个 可 被 调度 的 实体 ， 并 把 每条 媒体 流 的 处理 当做 周期性 任务 ， 描述 为 （ C ， P ） ， C 为 任务 的 执行 时间 ， P 为 任务 的 执行 周期 . 如 视频流 的 处理速度 应 达到 30 帧 / s ， 假设 把 每 帧 的 处理 作为 该 任务 的 一个 实例 . 这样 ， 每个 实例 的 处理 时间 相当于 有 了 约束 ， 需在 33ms 内 完成 ； 而且 ， 视频流 的 处理 可 视为 由 执行 周期 为 33ms 的 任务 序列 构成 . 我们 把 在 约束 时间 内 完成 的 实例 称为 实例 成功 ， 否则 称为 实例 失败 . 
+ 　 　 对于 每条 媒体 流 的 QoS 控制 ， 用 3 个 参数 来 描述 ： S ， Q ， F ， 即 在 对 S 个 连续 实例 处理 中 ， 至少 要 成功 完成 Q 个 ， 而且 连续 失败 的 实例 数 不能 超过 F 个 . 称 Q / S 为 任务 的 最小 成功率 ， 称 F 为 任务 允许 的 最大 连续 失败 数 . 如果 服务器 调度 导致 某条流 S 个 连续 实例 中 多于 S － Q 个 实例 失败 ， 或 失败 的 实例 连续 的 出现 超过 F 个 ， 则 认为 服务器 的 任务调度 没 满足 该 媒体 流 的 服务质量 （ QoS ） . 
+ 　 　 对于 周期性 任务 集 ， 采用 EDF 或 MLF （ min   laxity   first ） 调度 算法 ， 如果 CPU 的 总 利用率 ， 那么 该 任务 集可 被 正确 调度 ［ 1 ］ . 但 当 任务 集 的 CPU 利用率 超过 1 时 ， 若 再 采用 EDF 或 MLF 调度 算法 ， 结果 将 无法 预测 . 
+ 　 　 在 多媒体 应用 系统 中 ， 像 视频流 和 音频 流 ， 只要 满足 一定 的 QoS ， 就 认为 是 可 接受 的 . 因此 当 系统 负载 较大 时 ， 可 在 QoS 允许 的 范围 内 ， 通过 适当 降低 某些 任务 的 服务质量 ， 来 保证系统 中 所有 任务 的 服务质量 . 
+ 2.1 　 任务模型 
+ 　 　 考虑 通常 情况 ， 假设 系统 中有 n 个强 实时 任务 和 m 个 多媒体 任务 运行 与 一台 单 CPU 服务器 上 ， 任务模型 如下 ： 
+ 　 　 系统 中强 实时 任务 的 描述 ： 
+ 　 　 系统 中 多媒体 任务 的 描述 ： 
+ 　 　 任务 都 定义 为 周期性 执行 . 其中 ， ri 为 任务 Ti 的 初始 释放 时间 ； ci 为 任务 Ti 最坏 情况 下 （ worst - case ） 的 执行 时间 ； pi 为 任务 Ti 的 执行 周期 . Ti , j 为 任务 Ti 的 第 j 个 实例 ， Ti , j 处理 媒体 流 的 某个 数据 单位 ， 如 视频流 中 的 一帧 . 由于 目前 通常 使用 的 数据压缩 技术 ， Ti , j 的 处理 时间 可能 与 Ti , k 不同 （ j ≠ k ） . 因此 ， Ti , j 的 释放 时间 可定义 为 ri ＋ （ j － 1 ） × pi ， 完成 时间 期限 （ deadline ） 可定义 为 ri ＋ j × pi . 如果 Ti , j 能 在 deadline 之前 正确 完成 ， 则 认为 成功 ， 否则 认为 失败 . 
+ 　 　 Si ， Qi 的 意义 为 在 任务 Ti 连续 执行 的 Si 个 实例 中 ， 至少 要 成功 Qi 个 ， 因此 Qi / Si 为 任务 Ti 的 成功率 . Fi 为 任务 Ti 允许 的 最大 连续 失败 任务 数 . 多媒体 任务 的 QoS 是 由 参数 Si ， Qi 和 Fi 来 控制 ， 也就是说 对 多媒体 任务 的 调度 必须 满足 Qi / Si 的 成功率 ， 而且 要 防止出现 Fi 个 任务 连续 调度 失败 . 参数 Fi 的 引入 避免 了 只用 成功率 来 描述 多媒体 任务 而 放弃 质量 的 片面性 . 
+ 　 　 在 系统 中 ， 必须 保证 强 实时 任务 在 其 时间 期限内 完成 . 因而 对于 多媒体 任务 ， 其 优先级 设置 一般 要 比强 实时 任务 低 . 
+ 2.2 　 基于 QoS 控制 的 调度 算法 
+ 　 　 算法 的 基本 思想 是 当 系统 负载 较大 时 ， 为 避免 少数 任务 连续 失败 ， 而 将 可能 的 任务 失败 分布 于 所有 的 任务 中 ， 以 尽量 保证 所有 任务 的 QoS . 下面 讨论 如何 将 多媒体 流 的 QoS 描述 映射 为 其 任务 执行 的 优先级 . 
+ 　 　 采用 启发式 的 优先级 赋值 方法 ， 用 函数 H ( T ) 为 每个 媒体 流 任务 计算 优先级 . 根据 QoS 参数 ， H ( T ) 要 考虑 任务 执行 的 成功率 ， 还要 避免 任务 连续 失败 的 情况 . 因此 在 H ( T ) 中要 有 参数 表示 上述 内容 . H ( T ) 的 定义 如下 ： 
+ 
+ 　 　 其中 ： 表示 在 Ti 中 最近 已经 连续 出现 的 实例 失败 数 ； 表示 Ti 最近 Si － 1 个 实例 中 总共 失败 的 次数 . 的 统计 可 通过 移位 寄存器 或 软件 移位 来 实现 . 如为 Tj 的 最近 Si 个 状态 ， ζ ＝ 1 表示 实例 执行 成功 ； ζ ＝ 0 表示 失败 . π ( Ti ) 表示 任务 Ti 即将 执行 实例 的 重要性 ， 如 在 视频流 中 I 帧 的 处理 应比 P 帧 和 B 帧 的 优先级 高 . π ( Ti ) 的 取值 范围 在 0 与 1 之间 . 
+ 
+ 
+ 图 1 　 任务调度 模型 示意图 
+ 
+ 　 　 α ， β ， γ 为 调节 系数 ， 可 根据 需要 调整 . α 与 β 的 比值 代表 了 任务 的 成功率 与 连续 失败 数在 优先级 赋值 中 的 重要性 . 
+ 　 　 我们 定义 H ( Ti ) 值越 大 ， 表明 为 当前 赋给 Ti 的 某个 实例 的 优先级 越高 . H ( Ti ) 的 计算公式 相对 地 说明 了 某条 媒体 流 任务 当前 实例 的 重要性 ， 也 充分 地 体现 了 QoS 参数 对 媒体 流 服务质量 的 控制 . 
+ 　 　 如果 有 多个 任务 计算 得到 的 H ( T ) 值 相同 ， 则 采用 EDF 算法 对 它们 进行 内部 的 优先级 排序 . 系统 的 任务调度 模型 如图 1 中 所示 . 
+ 3 　 算法 性能 评价 
+ 　 　 我们 通过 模拟 对 基于 QoS 控制 的 调度 算法 进行 评价 . 采用 两种 方法 ， 分别 与 分时 调度 算法 和 EDF 调度 算法 进行 比较 . 
+ 
+ 
+ 图 2 　 算法 模拟 结果 1 
+ 3.1 　 与 分时 调度 算法 的 比较 
+ 　 　 模拟 设置 的 参数 包括 服务器 的 平均 负载 和 每 条流 的 QoS 参数 . 通过 模拟 求得 多媒体 流 的 QoS 不能 被 调度 满足 的 概率 ， 即 调度 失败率 ， 并 与 分时 调度 算法 进行 比较 . 
+ 　 　 模拟 中 ， 连续 媒体 流 任务 数 总共 为 15 个 . 为了 方便 ， 所有 媒体 流 的 QoS 参数设置 相同 ： α ＝ β ＝ 1 ， 分 时 调度 算法 的 时间 片设 为 1ms . 算法 模拟 与 比较 的 结果 如图 2 所示 . 
+ 　 　 从图 2 所知 ， 与 普通 分 时 调度 算法 相比 ， 基于 QoS 的 调度 算法 更 适合 于 处理 连续 媒体 流 任务 . 尤其 当 系统 负载 较大 时 ， 算法 调度 任务 的 失败率 低 ， 能 较 好 的 满足 多媒体 任务 要求 的 QoS . 
+ 3.2 　 与 EDF 算法 的 比较 
+ 　 　 模拟 中 ， 连续 媒体 流 任务 数 总共 为 10 个 . 所有 媒体 流 的 QoS 参数设置 相同 ： α ＝ β ＝ 1 ， S = 30 ， Q = 24 ， F = 4 . 
+ 　 　 . 那么 ， Ti , j 的 时间 期限 ( deadline ) 为 j × Pi ， EDF 算法 根据 此 deadline 来 调度 . 假设 系统 中 所有 任务 的 初始 释放 时间 为 0 . 
+ 　 　 图 3 中 纵坐标 表示 任务 被 调度 的 成功率 ， 横坐标 为 系统 中 的 任务 编号 . 图 4 中 的 纵坐标 表示 任务 连续 失败 次数 超过 QoS 参数 的 概率 . 根据 图 3 、 图 4 中 的 模拟 结果 ， EDF 算法 不能 调度 编号 为 4 ， 7 ， 10 的 任务 满足 期望 的 QoS . 而 采用 基于 QoS 控制 的 调度 算法 能 满足 所有 任务 的 QoS . 
+ 
+ 
+ 图 3 　 算法 模拟 结果 2 
+ 
+ 
+ 图 4 　 算法 模拟 结果 3 
+ 4 　 允许 控制 
+ 　 　 在 实时 应用 系统 中 ， 为了 保证系统 中 的 任务 能 在 规定 的 deadline 之前 完成 ， 当新 任务 进入 系统 时 ， 往往 需要 进行 允许 控制 . 
+ 　 　 新 任务 T （ 多媒体 任务 ） ＝ （ C ,   P ,   S , Q ,   F ） 请求 执行 ， 其中 C ， P ， S ， Q ， F 的 含义 同 上 定义 . 进行 允许 控制 的 计算公式 为 判断 式 （ 2 ） 是否 成立 . 如果 成立 ， 则 新 任务 可以 进入 系统 执行 ， 不会 导致 其它 任务 的 QoS 服务质量 降低 到 允许 的 QoS 之下 ； 如果 不 成立 ， 则 拒绝 新 任务 . 
+ 
+ 其中 , m 是 系统 中 已有 任务 . 上标 rt 与 mt 分别 表示 实时 任务 和 多媒体 任务 . 
+ 5 　 结束语 
+ 　 　 本文 针对 连续 媒体 服务 提出 了 一种 新 的 QoS 表示 ， 在 此基础 上 提出 一个 基于 QoS 的 启发式 任务调度 算法 ， 并 通过 模拟 、 比较 证明 了 算法 的 有效性 . 
+ 作者简介 ： 张 拥军 ， 男 ， 1972 年 1 月生 ， 博士 研究生 . 现 主要 研究 方向 为 实时 和 容错 系统 、 多媒体 . 刘晔 ， 女 ， 1971 年生 ， 硕士 研究生 ， 主要 研究 方向 为 多媒体技术 和 ATM 网络 . 陈福接 ， 男 ， 1935 年生 ， 教授 ， 博士生 导师 ， 主要 研究 方向 为 高性能 计算机 体系结构 、 分布式 多媒体技术 . 
+ 作者 单位 ： 张 拥军 　 陈福接 　 国防科学技术大学 计算机科学 系 　 长沙 　 410073 
+ 　 　 　 　 　 刘 　 晔 　 中国 科学技术 大学 研究生院 　 北京 　 100039 
+ 参考文献 
+ 1 　 Liu   C   L ,   Layland   J   W .   Scheduling   algorithms   for   multiprogramming   in   a   hard   real - time   environment .   Journal   of   Association   for   Computer   Machinery ,   1973 ,   20 ( 1 ) :   46 ～ 61 
+ 2 　 Sha   L ,   Rajkumar   R .   Generalized   rate - monotonic   scheduling   theory :   A   framework   for   developing   real - time   systems .   Proc   of   the   IEEE ,   1994 ,   82 ( 1 ) :   68 ～ 82 
+ 3 　 Tindell   K   W .   An   extendible   approach   for   analyzing   fixed   priority   hard   real - time   tasks .   Real - Time   Systems ,   1994 ,   6 ( 2 ) :   133 ～ 151 
+ 4 　 Hiroyuki   Kaneko ,   Stankovic   J   A .   Integrated   scheduling   of   multimedia   and   hard   real - time   tasks .   Umass   Computer   Science   Technical   Report .   1996 ,   96 ～ 43 
+ 5 　 Mok   A   K ,   Chen   D .   A   multiframe   model   for   real - time   tasks .   In :   Proc   of   17th   Real - Time   Symposium ,   1996 .   22 ～ 29 
+ 收到 日期 ： 1998 - 09 - 28 
+ 修改 日期 ： 1999 - 03 - 22 

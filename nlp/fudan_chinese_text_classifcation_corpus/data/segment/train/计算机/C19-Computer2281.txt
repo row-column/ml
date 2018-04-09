@@ -1,0 +1,82 @@
+计算机 应用 研究 
+ APPLICATION   RESEARCH   OF   COMPUTERS 
+ 2000 　 Vol.17 　 No.5 　 P.78 - 80 
+ 
+ 
+ 
+ 于 Web 上 的 动态 主页 开发 研究 
+ 黄德能 　 薛小平 　 阮永良 
+ 摘     要     从 目前 的 Internet 发展趋势 出发 ， 阐明 了 Web 与 数据库 相结合 的 要求 越来越 普遍 ， 而 传统 的 开发方法 CGI 不仅 开发 困难 ， 而且 效率 低 ， 在 这种 情况 下 ， 微软 推出 了 ASP 。 它 具有 开放性 、 易 操作性 、 效率高 和 浏览器 独立 等 优点 。 简介 了 怎样 利用 ASP 的 组件 ADO 对 数据库 进行 操作 。 
+ 关键词     Web     CGI     ASP     ADO     ODBC       数据库 
+ 1     引言 
+ 　 　 Internet / Intranet 技术 的 日益 发展 ， 使得 企业 的 信息 服务 部门 已经 认识 到 Intranet 的 优势 ， 使 数据库 与 Web 的 连接 成为 数据库 开发 方面 的 热门 技术 之一 。 
+ 目前 ， 网页 制作 技术 大都 必须 提供 交互式 的 操作 ， 而 交互式 网页 制作 必须 要 依靠 数据库 技术 。 传统 的 开发方法 CGI 不仅 开发 困难 ， 而且 效率 低 ， 在 这种 情况 下 ， 微软 推出 了 ASP 。 ASP 能 利用 其 组件 方便 地 访问 数据库 ， 而且 ， 由于 ASP 是 在 服务器 上 解释 执行 的 ， 所以 ， 不必 选择 特定 的 浏览器 ， 这 使得 ASP 技术 具有 更 广泛 的 应用 范围 。 
+ 2     基于 ASP ( Active   Service   Pages ) 的 服务 模型 
+ 　 　 作为 IIS 的 一个 组成部分 的 ASP 是 一个 Web 服务器端 的 开发 环境 ， 利用 它 可以 产生 和 运行 动态 的 、 交互 的 、 高性能 的 Web 服务器应用程序 。 ASP 可以 使用 任何 Script 语言 ， 只要 你 提供 相应 的 脚本 驱动 ( Engine ) 。 ASP 自身 提供 了 VBScript 和 Java   Script 的 驱动 。 ASP 可以 将 可 执行 的 Script 直接 嵌入 HTML 文件 ， HTML 开发 和 Script 开发 在 同一 开发 过程 就 可以 完成 ， 而且 通过 ActiveX 控件 ， 可以 实现 非常复杂 的 Web 应用 。 
+ 　 　 ASP 是 一种 与 编译 无关 的 应用 开发 运行 环境 。 应用 开发者 可以 把 HTML 、 批 处理器 命令 和 ActiveX 服务器 组件 等 结合 在 一起 ， 从而 建立 一个 动态 的 功能强大 的 Web 应用 系统 。 
+ 　 　 ASP 属于 ActiveX 技术 中 的 Server 端 技术 。 与 常见 的 在 客户端 实现 动态 主页 的 技术 如 Java   Applet 、 ActiveX   Control 等 不同 ， 在 客户端 不 需要 编程 。 ASP 中 的 命令 和 Script 语句 都 是 由 服务器 解释 执行 的 ， 执行 结果 产生 的 动态 Web 页面 将 送到 浏览器 ； 而 客户端 的 Script 命令 则 由 浏览器 来 解释 执行 ( 如图 1 所示 ) 。 由于 ASP 是 在 服务器端 解释 执行 ， 开发者 可以 不必 考虑 浏览器 是否 支持 ASP ； 同时 由于 它 在 服务器端 执行 ， 开发者 也 不必 担心 别人 下载 程序 从而 窃取 编程 逻辑 。 
+ 
+ 图 1 动态 网页 设计 模型 
+ 　 　 ASP 文件 相当于 一个 可执行文件 ， 因此 必须 放在 Web 服务器 上 有 可 执行 权限 的 目录 下 。 浏览器 向 Web 服务器 请求 调用 ASP 文件 时 ， 启动 ASP 。 通过 ASP 内置 的 对象 和 服务器 组件 的 使用 ， 开发者 可以 完成 非常复杂 的 任务 ， 而且 用户 还 可以 利用 别人 开发 的 服务器 组件 来 完成 专门 的 任务 。 
+ 　 　 利用 服务器端 的 Script 和 HTML ， 可以 很 容易 地 生成 动态网 ， 但是 功能 有限 ， 例如 不能 连接 服务器 数据库 、 使用 网络 功能 或 访问 服务器 文件系统 等 。 解决方案 是 利用 COM ( Component   Object   Model ) 技术 ， 通过 COM 技术 ， 可以 容易 地 使用 其它 COM 组件 。 这种 对于 Web 可 共享 的 COM 组件 ， 就是 服务器 组件 。 一个 服务器 组件 就 相当于 一个 对象 ， 它 提供 属性 和 方法 来 使用 服务器资源 ， 并且 服务器 组件 可以 支持 ActiveX 的 任何 第三方 开发 。 ASP 本身 自带 了 五个 服务器 组件 ， 可以 直接 使用 ， 并 能 完成 大部分 服务器端 的 工作 。 
+ 3     ASP 的 基本 组件 及 对象 
+ 　 　 ASP 提供 了 五个 服务器 组件 ， 其中 最 重要 的 两个 是 数据库 访问 组件 ( ADODB ) 和 文件 访问 组件 。 ASP 程序 通过 调用 ADODB 对 数据库 进行 操作 。 
+ 　 　 ASP 组件 ， 曾 被 称为 OLE 自动 服务器 ( OLE   Automation   Servers ) ， 现在 经过 设计 后 可以 作为 一个 网络应用 程序 的 一部分 在 用户 的 网络 服务器 上 运行 。 这些 组件 允许 用户 在 内部 对 其 脚本 进行 功能 扩展 ， 系统对 这些 扩展 的 功能 进行 保密 。 ASP 组件 可以 构架 在 由 Microsoft 公司 建立 的 公认 的 公约 标准 上 ， 也 可以 直接 使用 ASP 自带 的 基本 组件 ， 如 ActiveX 数据 对象 ( ADO   ( Access   Database   Object ) ) 组件 、 内容 链接 组件 、 文件系统 组件 、 浏览器 组件 和 广告 转子 组件 。 
+ 　 　 ． ActiveX 数据 对象 ( ADO ) 组件 ： 它 提供 了 与 任何 ODBC 兼容 数据库 或 OLE   DB 数据源 的 高性能 连接 。 ADO 允许 网络 开发者 方便 地 将 一个 数据库 与 一个 “ 激活 ” 的 网页 相连接 ， 以便 存取 和 操作 数据 。 支持 数据库 驱动 的 Web 应用程序 ， 并 可 在 系统 上 设置 网络 “ 前端 处理器 ” 。 
+ 　 　 ． 内容 链接 组件 ： 内容 链接 组件 管理 一个 URL 表 。 用户 可以 使用 内容 链接 的 功能 来 自动 生成 以及 更新 内容 表并 导航 性地 与 前后 Web 页 进行 链接 。 这个 列表 被 存储 在 网络 服务器 上 ， 对 一个 网页 “ 流 ” 可以 动态 地 管理 和 重排 ， 而 不会 破坏 链接 。 增加 、 删除 或 移动 网页 则 需要 在 列表 文件 中 对 页 序 进行 调整 。 用户 不必 在 单个 网页 上 对 HTML 文件 进行 编辑 。 
+ 　 　 ． 文件系统 组件 ： 文件系统 组件 提供 了 一种 存取 方式 ， 以 完成 对 存储 在 服务器 上 文本文件 的 存取 工作 。 通过 这种 方式 ， 开发者 无需 编写 自己 的 代码 即可 在 文件系统 上 打开 或 关闭 文件 ， 因为 大多数 脚本语言 不 允许 直接存取 文件 ， 所以 这种 方法 非常 有用 。 
+ 　 　 ． 浏览器 功能性 组件 ： 通过 使用 浏览器 功能性 组件 ， 一个 ASP 文件 可以 对 客户 使用 的 浏览器 的 功能 进行 组织 ， 并 动态 地 完成 布局 和 内容 的 优化 。 这 就 确保 了 Webmaster 不必 再 为 每个 浏览器 生成 一系列 重复 的 网页 。 
+ 　 　 ． 广告 转子 组件 ： 广告 转子 组件 可以 在 页面 上 加入 可以 方便 地 变幻 的 广告 部分 。 它 通过 一个 不同 广告 的 列表 来 安排 显示 优先权 的 相对 比例 。 每次 对 ASP 文件 进行 一次 请求 后 ， 可以 通过 使用 组件 并 基于 当前 的 标准 来 显示 一个 广告 。 要 调用 这些 组件 必须 用到 ASP 的 内建 对象 。 
+ 　 　 ASP 包括 许多 内置 的 服务器 和 应用程序 构建 对象 。 这些 对象 使 开发者 可以 摆脱 很多 烦琐 的 工作 ， 如 存取 来自 客户 方 请求 的 细节 、 管理应用程序 状态 和 调配 请求 等 。 这些 内 建 对象 包括 ： 
+ 　 　 ． Request 和 Response ： Request 对象 提供 了 对 任何 由 HTTP 请求 而 转入 脚本 的 信息 的 存取 ， 其中 包括 窗体 、 表格 、 URL 查询 和 HTTP 域名 等 有关 信息 。 Response 对象 可用 来 构建 对 信息 的 反馈 ， 其中 包括 网页 截止 时间 和 HTTP 输出 流 的 全 控件 。 
+ 　 　 ． Application 和 Session 这些 对象 用来 简化 状态 处理 。 Application 对象 被 用来 存储 一个 特定 应用程序 所 需 的 信息 ， 而 Session 对象 被 用于 存取 一个 特定 用户 任务 所 允许 的 信息 。 这是 ASP 的 一个 非常 有用 的 特性 ， 可以 用来 解决 许多 Webmaster 头疼 的 问题 。 利用 Application 对象 ， 用户 可以 对 Web 应用程序 的 属性 进行 设置 ， 以便 在 众多 用户 中 实现 信息 共享 。 此外 ， 通过 LOCK ( 加锁 ) 和 UNLOCK ( 解锁 ) 方法 ， 用来 确保 多个 用户 不会 同时 修改 一个 属性 。 Session 对象 ， 只要 用户 在 同一 任务 中 ， 如 在 Web 应用程序 中 的 页 之间 跳动 时 ， 则 存储 在 Session 对象 中 的 变量 始终 有效 ， 只有 当 任务 被 截止 或者 被 放弃 时 ， 服务器 才 毁坏 这一 任务 对应 Session 对象 。 Session 对象 最 常见 的 用途 之一 就是 用来 存储 已 登录 用户 的 权限 ， 这样 就 可以 方便 地 解决 Web 应用程序 的 安全 问题 。 
+ 　 　 ． Server ： Server 对象 允许 脚本 来 生成 Active   Server 组件 的 实例 ， 并且 利用 新 的 功能 进行 对 ASP 环境 的 扩展 。 Server 对象 拥有 两个 重要 方法 ， 即 MapPath 和 CreateObject 。 MapPath 可以 将 Web   Server 的 虚拟 路径 还原成 实际 路径 ； CreateObject 可能 是 最 重要 的 一个 方法 ， 用 它 可 产生 服务器 组件 的 对象 实例 ： Server . CreateObject ( ProgID ) 其中 ProgID 指定 了 构件 标识 。 构件 可以 是 EXE 程序 ， 也 可以 是 DLL 动态链接库 。 这些 程序 必须 在 操作系统 中 注册 后 ， COM 才 会 在 系统 资料库 ( Registry ) 中 维护 这些 信息 。 
+ 　 　 在 很多 情况 下 ， 为了 实现 商务 性 的 应用 ， 都 需要 用到 数据库 方面 的 操作 ， 而 ADO 正是 实现 这种 操作 的 重要 手段 。 
+ 4     应用 实例 
+ 　 　 ( 1 ) 应用 开发 的 三层 结构 模型 
+ 　 　 Web 应用 系统 开发 往往 采用 三层 模式 结构 ， 即 把 原来 客户机 一侧 的 应用 程序模块 与 GUI 分开 ， 并 放到 服务器 上 ， 形成 三层 结构 。 这样 ， 系统 的 反应速度快 、 功能 灵活 、 具有 可 变更 性且 系统 的 可移植性 好 。 三层 结构 描述 如下 ： 
+ 　 　 第一层 为 表示层 ： 由 客户端 URL 所 指定 的 用户 向 Web 服务器 提出 服务 申请 。 Web 服务器 对 用户 进行 身份验证 后 ， 用 HTTP 协议 把 所 需 的 文件 资料 传送 给 用户 ， 客户端 只是 接收 文件 资料 ， 并 显示 在 WWW 浏览器 上 。 
+ 　 　 第二层 具有 CGI ( Common   Gateway   Interface ) 或 Web 服务器 为 应用逻辑 层 。 它 主要 利用 服务器 完成 客户 的 应用 功能 ， 即 ： Web 服务器 接受 客户 申请 ， 首先 需要 执行 CGI 程序 ， 以便 与 数据库 连接 ， 进行 申请 处理 ， 而后 将 处理结果 返回 Web 服务器 ， 再 由 Web 服务器 传到 客户端 。 CGI 有 许多 弊端 ， 因为 CGI 不仅 开发 困难 ， 而且 CGI 对 每个 HTTP 请求 都 激活 一个 相应 进程 ， 由此 造成 程序 挤占 系统资源 ， 降低 效率 ， 在 出现 大量 并发 请求 时 更是 力不从心 。 
+ 　 　 第三层 为 数据 层 ： Web 应用 模式 的 发展 推动 着 Web 开发技术 的 进步 ， 单纯 应用 HTML 进行 Web 开发 的 传统模式 已经 不能 满足 人们 的 需要 了 。 Web 服务器 一般 安装 在 一台 功能强大 的 计算机 上 ， 但 不 可能 充分利用 服务器 的 计算机 处理 能力 为 远程 用户 提供 更 多 动态 有趣 的 内容 。 针对 这些 问题 ， 不同 厂家 提供 了 不同 的 技术 来 完善 Web 应用 的 开发 。 微软 在 其 Windows   NT4.0 上 提供 了 IIS ( Internet   Information   Server ， 互联网 信息 服务器 ) 。 其 设计 目标 是 提供 适应性 强 的 Internet 和 Intranet 服务器 功能 。 通过 围绕 Windows   NT 所 做 的 优化 ， IIS 具有 很 高 的 执行 效率 、 很 好 的 安全 保密性 、 易于 管理 以及 启动 迅速 等 优点 。 
+ 　 　 ADO 其实 是 一种 提供 各种类型 数据 访问 的 连接 机制 。 最 通常 的 一种 使用 就是 在 客户 / 服务器 应用 中 对 关系 型 数据库 中 数据 的 访问 ， 在 ASP 环境 中 ， 通过 VBScript 或者 JavaScript ， ADO 可以 实现 数据 灵活 的 操作 。 ADO 可以 通过 ODBC 和 数据源 作用 ， 所以 你 可以 用 SQL   Server 、 Oracle 、 Access 等 数据库 甚至 Microsoft   Excel 、 Text 等 文件 中 的 数据 。 
+ 　 　 由于 ADO 实际上 是 建立 在 OLE - DB 这 一层 的 基础 上 ， 所以 ADO 还 可以 利用 除了 ODBC 之外 的 数据源 提供者 。 而 对于 ODBC 数据源 来说 ， 各种 不同 的 ODBC 驱动 又 可以 提供 不同 的 功能 。 这些 情况 使 ADO 中 一些 对象 、 属性 、 方法 在 具体 的 应用环境 中 有所不同 。 
+ 　 　 ( 2 ) 数据库 的 连接 和 访问 
+ 　 　 根据 我们 在 Web 上 的 开发 经验 ， 主要 要 解决 的 问题 是 与 数据库 的 连接 关系 ， 我们 以 SQL   Server   ODBC 来 举例 加以 说明 。 
+ 　 　 ADO 有 两个 主要 的 对象 ： Connection 和 Recordset 。 
+ 　 　 Connection 对象 
+ 　 　 创建 数据库 的 连接 是 一种 简单 直接 的 操作 ， 首先 ， 要 定义 一个 Connection 对象 的 实例 ， 这 只是 Active   Database   Component 实现 的 对象 之一 。 它 的 ProgID 是 ADODB ， 用 下面 的 语句 创建 ： 
+ Set   conn = Server . CreateObject ( " ADODB . Connection " ) 
+ 　 　 通过 调用 Server 对象 的 CreateObject 方法 ， 我们 初始化 了 一个 变量 conn ， 用于 保存 指向 新创建 的 连接 的 指针 。 然后 我们 调用 Connection 对象 的 Open 方法 打开 一个 连接 ： 
+ 　 　 conn . Open “ Teachers ” 其中 Teachers 是 ODBC 登录 的 已经 存在 的 系统 DSN 。 
+ 　 　 打开 连接 后 ， 就 可以 对 数据库 进行 查询 了 ， 例如 ： conn . execute ＂ delete   *   from   Teachers   where   name = quot ; 
+ 　 　 Recordset 对象 
+ 　 　 在 许多 情况 下 ， 我们 需要 通过 ADO 来 返回 一些 记录 ， 这样 就 可以 把 返回 的 结果显示 在 我们 的 Web 页 中 。 对于 这种 要求 的 查询 ， 我们 就 用 Recordset 对象 来 保存 返回 的 结果 。 
+ 　 　 我们 可以 用 Connection 对象 的 Execute 方法 产生 Recordset ： 
+ Set   conn = Server . CreateObject ( ＂ ADODB . Connection ＂ ) 
+ Conn . open ＂ Teachers ＂ 
+ Sql = " select * from   Teachers   where   name = 
+ Set   rs = conn . Execute ( Sql ) 
+ 　 　 也 可以 直接 创建 一个 Recordset 对象 ： 
+ Set   rs = Server . CreateObject ( ＂ ADODB . Recordset ＂ ) 
+ Sql = ＂ select * from   Teachers   where   name = 
+ Rs . open   Sql 
+ 　 　 数据库 的 操作 主要 有增 、 删 、 改 、 查 四种 基本 的 操作 。 这里 本人 根据 自己 的 经验 提供 一个 数据库 的 完整 操作 。 
+ Set   conn = Server . CreateObject ( ＂ ADODB . Connection ＂ ) 
+ Conn . open ＂ Teachers ＂ 
+ Sql1 = ＂ Insert   Into   Teacher   ( name ,   age ,   address ,   telephone )   Values   ( ,   24 ,   ＂ Shanghai ＂ , ＂ 123456 ＂ ) ＂ 　 　 　 　 　   ' 增加 记录 
+ Set   rs1 = conn . Execute ( Sql1 ) 
+ Sql2 = ＂ delete * from   Teachers   where   name = 　 　 　 ' 删除 记录 
+ Set   rs2 = conn . Execute ( Sql2 ) 
+ Sql3 = ＂ Update   Teacher   Set   telephone = 6 + telephone 　 　 ' 修改 记录 
+ Set   rs3 = conn . Execute ( Sql3 ) 
+ Sql4 = ＂ select * from   Teachers   where   name = 　 　 ' 查找 记录 
+ Set   rs4 = conn . Execute ( Sql1 ) 
+ 5     结束语 
+ 　 　 以上 介绍 了 ASP 出现 的 时代背景 、 ASP 的 特点 、 ADO 的 用法 以及 它们 的 对象 模型 。 可以 看出 ， ASP 作为 一种 动态 Web 应用 的 开发工具 ， 有着 很 好 的 灵活性 和 很 强 的 性能 ， 从而 具有 强大 的 生命力 ， 必将 在 今后 的 Internet 舞台 上 大放异彩 。 
+ 黄德能 ( 上海 铁道 大学 计算机 科学技术 系     上海   200331 ) 
+ 薛小平 ( 上海 铁道 大学 计算机 科学技术 系     上海   200331 ) 
+ 阮永良 ( 上海 铁道 大学 计算机 科学技术 系     上海   200331 ) 
+ 参考文献 
+ 1 ， 陈 银山 ,   张录 娥 译 .   Web 数据库 的 建立 与 管理 .   北京 :   机械 工业 出版社 ,   1997 
+ 2 ， 董启雄 等 译 .   Active   Server   Pages 编程 指南 .   北京 :   宇航 出版社 ,   1998 
+ 收稿 日期 ： 1999 - 11 - 29 

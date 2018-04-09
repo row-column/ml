@@ -1,0 +1,138 @@
+宇   航   学   报 
+ JOURNAL   OF   ASTRONAUTICS 
+ 1998 年     第 3 期       No.3   May       1998 
+ 科技期刊 
+ 反编译 在 航天工业 中 的 应用 * 
+ 
+ 赵 　 蕾 　 吴 　 岩 　 王开 铸 
+ ( 哈尔滨工业大学 计算机系 319 信箱 * 哈尔滨 * 150001 ) 
+ 　 　 摘 　 要 　 本文 论述 了 反编译 作为 一种 程序验证 的 工具 在 航天工业 中 的 重要 地位 和 应用 ; 介绍 了 反编译 的 背景 知识 ; 给出 一个 实用 的 反编译 系统 DCPL 的 设计 模型 和 关键技术 及其 一个 运行 结果 示例 以 说明 反编译器 的 功能 。 
+ 　 　 主题词 　 反编译 　 软件工具 　 程序验证 　 程序 可靠性 
+ APPLICATION   OF   DECOMPILATION   
+ TO   AEROSPACE   INDUSTRY 
+ 
+ Zhao   Lei 　 Wu   Yan 　 Wang   Kaizhu 
+ ( Department   of   Computer   Science   and   Engineering   
+ BOX   319 , Harbin   Institute   of   Technology * Harbin * 150001 ) 
+ 　 　 Abstract 　 In   this   paper , the   significance   and   application   of   decompilation   as   a   program   verifying   tool   in   Aerospace   Industry   is   discussed ; the   background   knowledge   of   decompilation   is   introduced ; a   model   of   a   practical   decompiler   DCPL   is   presented   as   well   its   result   to   show   its   function . 
+ 　 　 Key   words 　 Decompilation 　 Software   tool 　 Program   verification 　 Program   reliability 
+ 1 　 引 　 言 
+ 　 　 航天工业 是 各国 竞相 发展 的 一项 事业 。 航天器 的 各 部分 都 离不开 计算机 的 控制 , 各种 控制软件 、 计算 软件 、 分析 软件 等等 在 航天器 的 设计 与 应用 中起 着 重要 地位 。 
+ 　 　 1996 年 6 月 4 日 阿里亚娜 - 5 型 火箭 发射 失事 , 使 欧共体 蒙受 25 亿美元 以上 的 损失 。 经过 专家 调查 , 此次 失事 的 主要 原因 是 : 箭载 计算机系统 使用 的 软件 出 了 问题 。 此 软件 是从 阿里亚娜 - 4 型 火箭 的 软件系统 中 移植 过来 的 , 由于 5 型 火箭 上 增加 了 新 机构 , 而 4 型 火箭 的 软件 不能 对 这些 新 机构 发出 的 信号 进行 分析 和 处理 , 从而 导致 火箭 控制 失灵 。 由于 阿里亚娜 - 5 型 火箭 发射 的 失事 , 使 软件可靠性 和 正确性 问题 再度 摆 到 软件 开发者 面前 ［ 1 ］ 。 反编译器 作为 一种 有效 的 程序验证 的 工具 使 人们 再度 意识 到 它 在 航天工业 中 的 重要性 及 实用性 。 本文 介绍 了 反编译器 的 功能 、 产生 背景 和 它 在 航天工业 中 的 应用 , 并 给出 了 我们 正在 研制 的 一个 实用 反编译 系统 DCPL 的 体系结构 及 关键技术 , 最后 给出 其 一个 简单 的 运行 示例 。 
+ 2 　 反编译 的 背景 知识 介绍 
+ 2.1 　 反编译 的 定义 
+ 　 　 反编译 可以 看成 是 编译 的 逆 过程 , 即将 以 机器语言 形式 存在 的 目标 代码 翻译成 与其 功能 等价 的 高级 语言 形式 的 代码 的 过程 ［ 2 ］ 。 
+ 　 　 确定 型 反编译 的 模型 为 一个 映射 , decompile : S — ＞ T , 其中 S 是 源代码 集 ( source ) , 是 机器指令 集 ; T 是 目标 代码 集 ( target ) , 是 高级 语句 集 。 
+ 2.2 　 反编译 的 产生 背景 
+ 　 　 反编译 ( Decompilation ) 一词 第一次 出现 于 1960 年 。 六十年代 , 随着 第三代 计算机 的 产生 , 为了 挽救 大量 的 运行 在 即将 报废 的 第二代 计算机 上 的 软年 , 同时 也 为 加速 开发 第三代 机器 的 软件 , 美国 开始 研制 专门 用途 的 反编译器 作为 软件 移植 的 工具 。 
+ 2.3 　 反编译 在 航天技术 中 的 应用 
+ 　 　 反编译 发展 至今 , 其 应用领域 主要 体现 在 软件维护 和 软件 安全性 ［ 2 ］ 两 方面 。 用于 软件维护 时 , 主要 是 恢复 丢失 的 源代码 、 将 软件 移植 到 新 的 硬件平台 、 重新 结构化 旧有 软件 等等 。 用于 软件 安全性 时 , 主要 是 针对 安全性 要求 极高 ( safty - critical ) 的 软件 , 发现 其中 是否 有 病毒 , 或 是否 有 隐藏 的 窃密 程序 ( Trojan ) 。 
+ 　 　 西方 各国 早已 将 反编译 技术 用于 航天事业 和 尖端 工业 , 如 : IBM 为 NASA 的 航天飞机 研制 的 反编译器 ［ 3 ］ ; 澳大利亚 电子 研究 实验室 研制 的 针对 类 Pascal 语言 的 反编译器 ［ 4 ］ ; 欧共体 ESPRIT 计划 中 的 反编译 研究 , 如 英国 的 核工业部 使用 反编译 技术 验证 大量 的 safty - critical 软件 , 以 提高 软件 的 正确性 ［ 5 ］ ; 我国 从 80 年代 初 开始 反编译 的 研究 并且 已 逐步形成 自己 的 产品 ［ 6 ］ , 但 尚未 见 将 反编译 技术 应用 于 航天技术 的 报导 。 
+ 　 　 用于 航天 的 软件系统 通常 不 经过 编译 优化 以 避免 不必要 的 软件 错误 , 反编译 此类 软件 的 难度 相对 减小 。 可以 通过 将 内存 映象 的 反编译 结果 与 原始 输入 ( 源程序 ) 相 比较 来 验证 软件 的 正确性 , 如果 二 程序 完全 等价 , 则 编译 结果 可靠 ( 反编译 可靠 的 前提 下 ) 。 如下 图示 : 
+ 
+ 
+ 图 1 　 反编译 验证 程序正确性 
+ 如果 对于 每 一种 输入 , 都 有 输出 1 = 输出 2 = 预测 结果 , 则 可 说明 编译 是 可靠 的 。 同样 也 可 通过 比较 原始 程序 和 反编译 结果 在 程序 功能 空间 中 的 拓朴 结构 是否 完全 一样 , 来 判定 反编译 是否 做到 了 输出 结果 与 原始 程序 功能 等价 , 这 通常 要 经过 大量 的 测试 。 
+ 3 　 一个 实用 反编译 系统 DCPL 的 体系结构 
+ 　 　 DCPL 是 我们 研制 的 一个 反编译 系统 , 其 设计 吸收 了 编译 技术 中 的 成熟 理论 。 
+ 3.1 　 DCPL 体系结构 
+ 　 　 下图 给出 了 DCPL 的 模型 。 它 以 可执行文件 作为 输入 , 输出 与其 对应 的 C语言 程序 。 
+ 
+ 
+ 图 2 　 DCPL 体系结构 
+ 3.2 　 DCPL 各 模块 的 功能 
+ 　 　 ( 1 ) 预 处理器 : 是 DCPL 的 基础 , 以 可执行文件 作为 输入 , 将 其 部分 反汇编 , 根据 程序 的 启动 代码 , 提取 出 相应 的 数据 段 和 代码段 , 存储 在 中间 文件 中 。 
+ 　 　 ( 2 ) 库函数 识别器 : 是 对 中间 文件 的 一遍 扫描 。 根据 库函数 特征 表 识别 出 文件 中 所有 库函数 和 用户 自定义 函数 的 入口 。 采用 顺序 - 索引 - 连接 技术 构造 特征 表 。 索引 函数 的 形式 为 : index ( len , n ) = w1 * len + w2 * n ; 其中 len 和 n 分别 为 函数 主体 的 长度 和 它 所 调用 辅 函数 的 次数 。 用 一 指针 数组 指向 各个 特征 链 的 头 结点 , 数组 的 下 标值 是 索引 函数 作用 于 各个 特征 结点 上 的 结果 ; 同一个 链上 的 各个 结点 的 特征值 经 索引 函数 作用 后 其值 相同 ; 链表 内部 , 各 结点 依照 使用 频率 顺序 存放 。 
+ 　 　 ( 3 ) 控制流 分析器 : 根据 反编译 控制流 文法 , 以 语法 制导 的 方法 进行 控制流 的 分析 和 归约 , 生成 控制流 模块 的 机内 表示 形式 及其 结构 文件 。 采用 约束 属性 文法 描述 控制流 , 如 < for > ∷ = jmp { statement } m0 { cmp } < jop > 
+ ｜ jmp . destination = cmp . offset && jop . destination = statement . offset ｜ 之后 的 是 该 规则 的 约束 。 用 移进 - 归约 策略 和 模式匹配 方法 相结合 进行 分析 和 归约 。 
+ 　 　 ( 4 ) 数据流 分析器 : 根据 库函数 识别器 提供 的 库函数 参数信息 和 函数 返回值 信息 、 控制流 分析器 得到 的 基本块 划分 信息 进行 变量 恢复 。 具体 实现 时分 两步走 : < 1 > 变量 定值 - 应用 信息 的 收集 和 综合 
+ 　 　 为 每个 变量 构造 定值 - 应用 链 。 其 模型 是 双向 链表 , 如下 图 所示 : 
+ 
+ 
+ 图 3 　 定值 - 应用 链 的 一个 结点 模型 
+ 定值 - 应用 链是 记录 变量 定义 和 使用 信息 的 数据结构 , 其 define 指针 指向 定义 它 的 语句 , use 指针 指向 在 它 被 重 定义 之前 所有 使用 它 的 语句 ( 即该 变量 出现 在 赋值 语句 右边 的 情况 ) 。 定值 - 应用 链 可以 推理 相关联 的 简单 类型 变量 的 类型 ( 字符 型 、 整型 等 ) 。 
+ 　 　 < 2 > 变量 类型 的 推理 分析 
+ 　 　 把 变量 放在 上下文 中 , 利用 推理 规则 进行 再求 精 。 求精 过程 利用 了 汉语 处理 中 的 分词 思想 。 将 同时 出现 次数 超过 阈值 的 一组 内存 单元 和 寄存器 绑 在 一起 , 形成 一个 token ( 一个 复杂 的 数据类型 ) , 阈值 可 根据 结果 进行 调整 。 这是 一个 反馈 过程 , 用于 恢复 复合 数据类型 ( 数组 、 结构 等 ) , 规则 型 如 : call   a ［ ］ - ＞ initiate   array ; exist ( loop , index   si , base   bx ) - ＞ assign   array ; ( add   ax , adc   dx ) - ＞ addition   long 等等 。 推理 分析 结果 的 正确性 依赖于 复合 数据 是否是 同时 引用 和 规则 的 完备 性 , 是 个 不确定性 算法 。 
+ 　 　 ( 5 ) 优化 器 : 将 前 几个 模块 生成 的 结果 进行 综合 分析 , 去除 冗余 变量 和 中间 语句 , 如 中间 变量 和 指令 , 进行 语句 的 合并 和 流程 的 结构化 。 
+ 　 　 ( 6 ) 翻译器 : 将 前述 模块 生成 的 机内 表示 形式 翻译成 C语言 程序 形式 , 输出 给 用户 , 完成 反编译 的 任务 。 
+ 3.3 　 系统 的 一个 运行 结果 举例 
+ 　 　 下面 是 一个 简单 的 C语言 程序 以及 其 目标 代码 的 反汇编 形式 和 应用 于 DCPL 的 输出 结果 。 
+ 　 　 　 　 测试 用 C语言 程序 : 
+ 　 main ( ) 
+ 　 　 {   int   a , b , c ; 
+ 　 　 　 scanf ( ″ % d ″ , & a ) ; 
+ 　 　 　 if ( a ＞ = 0 ) 
+ 　 　 　 {   if ( a ＞ 20 ) 
+ 　 　 　 　 　 　 　 　 { b = a ; 
+ 　 　 c = b + 2 ; } 
+ 　 　 　 　 else 
+ 　 　 　 　 　 c = a ; 　 　 } 
+ 　 　 　 else 
+ 　 　 　 {   c = a ; 
+ 　 　 b = c * a ; } 
+ 　 　 　 printf ( ″ % d ″ , c ) ;   } 
+ 　 　 
+ 　 　 DCPL 的 输出 结果 : 
+ 　 　 　 main ( ) 
+ 　 　 {   int   var1 ; 
+ 　 　 register   int   var2 ; 
+ 　 　 register   int   var3 ; 
+ 　 　 scanf ( ″ % d ″ , & var1 ) ; 
+ 　 　 if ( var1 ＞ = 0 ) 
+ 　 　 {   if ( var1 ＞ 20 ) 
+ 　 　 {   var2 = var1 ; 
+ 　 　 　 var3 = var2 + 2 ; } 
+ 　 　 　 　 else 
+ 　 　 {   var3 = var1 ; } } 
+ 　 　 　 else 
+ 　 　 {   var3 = var1 ; 
+ 　 　 var2 = var3 * var1 ; } 
+ 　 　 　 printf ( ″ % d ″ , var3 ) ; 　 } 
+ 测试 用 C语言 程序 所 对应 的 目标 代码 : 
+ 2386 : 01FA   55 　 　 　 　 　 PUSH 　 　 BP 
+ 2386 : 01FD   8BECMOVBP , SP 
+ 2386 : 01FD   83EC02SUBSPM + 02 
+ 2386 : 0200   56PUSHSI 
+ 2386 : 0201   57PUSHDI 
+ 2386 : 0202   8D46FELEAAX , ［ BP - 02 ］ 
+ 2386 : 0205   50PUSHAX 
+ 2386 : 0206   B89401MOVAX , 0194 
+ 2386 : 0209   50PUSHAX 
+ 2386 : 020A   E86714CALL1674 
+ 2386 : 020D   59POPCX 
+ 2386 : 020E   59POPCX 
+ 2386 : 020F   837EFE00CMPWORD   PTR ［ BP - 02 ］ , + 00 
+ 2386 : 0213   7C14JL0229 
+ 2386 : 0215   837EFE14CMPWORD   PTR ［ BP - 02 ］ , + 14 
+ 2386 : 0219   7E09JLE0224 
+ 2386 : 021B   8B7EFEMOVDI , ［ BP - 02 ］ 
+ 2386 : 021E   8BF7MOVSI , DI 
+ 2386 : 0220   46INCSI 
+ 2386 : 0221   46INCSI 
+ 2386 : 0222   EB03JMP0227 
+ 2386 : 0224   8B76FEMOVSI , ［ BP - 02 ］ 
+ 2386 : 0227   EB0AJMP0233 
+ 2386 : 0229   8B76FEMOVSI , ［ BP - 02 ］ 
+ 2386 : 022C   8BC6MOVAX , SI 
+ 2386 : 022E   F766FEMULWORD   PTR ［ BP - 02 ］ 
+ 2386 : 0231   8BF8MOVDI , AX 
+ 2386 : 0233   56PUSHSI 
+ 2386 : 0234   B89701MOVAX , 0197 
+ 2386 : 0237   50PUSHAX 
+ 2386 : 0238   E8990BCALL0DD4 
+ 2386 : 023B   59POPCX 
+ 2386 : 023C   59POPCX 
+ 2386 : 020D   5FPOPDI 
+ 2386 : 020E   5EPOPSI 
+ 2386 : 023F   8BE5MOVSP , BP 
+ 2386 : 0241   5DPOPBP 
+ 2386 : 0242   C3RET 
+ 4 　 结束语 
+ 　 　 发展 航天事业 是 我国 的 一项 国策 , 航天 计划 的 成功 完成 是 众望 所 向 。 近几年 各国 因 航天器 的 软件可靠性 较差 导致 的 种种 航天 发射 失败 所 造成 的 不必要 的 人员伤亡 和 财政 浪费 , 使得 软件 正确性 验证 日益 显现出 重要性 。 反编译 正是 解决 这一 课题 的 极佳 工具 。 我国 在 该 课题 上 的 研究 尽管 起步 较 国外 晚 , 但 现已 取得 了 长足 的 进展 。 经济 国内 反编译 同行 的 研究 和 实践 , 现有 的 反编译 系统 基本 达到 了 验证 简单 程序 的 要求 , 但 要 反编译 大规模 的 软件 , 诸如 用于 航天 计划 中 的 软件 , 还 需要 深入 的 研究 。 将 反编译 技术 应用 于 航天 领域 以 提高 航天 器材 的 可靠性 , 航天 发射 的 成功率 , 航天器 运行 的 正确性 , 确实 是 一个 很 有 前途 的 研究 方向 。 
+ 参考文献 
+ 1 　 李未 . 欧洲 程序设计 方法 研究 的 三个 动向 . 智能机 研 研究 动态 , Vol   9 , 1996 
+ 2 　 Cristina   Cifuentes   and   John   Gough   K . Decompilation   of   binary   programs . Software   Practice   and   Experience , 1995 , 25 ( 7 ) 
+ 3 　 Spector   A   and   Gifford   D . Case   study : the   space   shuttle   primary   computer   system , Communications   of   the   ACM , 27 , 872 - 900 
+ 4 　 Hood   S   T . Decompiling   with   definite   clause   grammars . Research   Report , ERL - 0571 - RR , 1991 
+ 5 　 Pavey   D   J   and   Winsborrow   L   A . Demonstrating   equivalence   of   source   code   and   PROM   contents.4 th   European   Workshop   on   Dependable   Commputing , 8 - 10 , 1992 
+ 6 　 合肥工业大学 微机 所 . DECLER 用户 使用手册 . 1995.3 

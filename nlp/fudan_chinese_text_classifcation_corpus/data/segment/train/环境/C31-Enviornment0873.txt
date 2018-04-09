@@ -1,0 +1,130 @@
+环境 科学 学报 
+ ACTA   SCIENTIAE   CIRCUMSTANTIAE 
+ 1999 年 　 第 19 卷 　 第 4 期 　 Vol.19 　 No.4 　 1999 
+ 
+ 
+ 
+ 含湿 Ca ( OH ) 2 颗粒 脱硫 反应 特性 的 模型 研究 
+ 高 　 翔 　 骆仲泱 　 陈 亚非 　 周 劲松 　 李绚天 　 倪明江 　 岑可法 
+ 摘要 　 在 半干法 脱硫 装置 中 脱硫 反应 主要 表现 为 含湿 Ca ( OH ) 2 颗粒 与 SO2 的 反应 . 在 液相 反应 溶解 和 传质 理论 基础 上 ， 通过 对 含湿 Ca ( OH ) 2 颗粒 内 反应 机理 的 研究 分析 提出 了 含湿 Ca ( OH ) 2 的 脱硫 反应 模型 . 通过 分析 和 计算 可 发现 ， 含湿 Ca ( OH ) 2 颗粒 由于 液相 的 存在 使 反应 特性 与 干燥 Ca ( OH ) 2 颗粒 相比 发生 明显 变化 . 反应 速率 随含 湿量 的 提高 而 增加 ， 含湿 颗粒 的 粒径 减少 和 钙 转化率 提高 均会 使 反应 速率 下降 ， 当 温度 低于 某一 临界温度 Tcr 时 ， 温度 升高 反应 速率 增加 ， 当 温度 超出 某 临界温度 Tcr 时 ， 反应 速率 随温升 而 下降 . 
+ 关键词 　 含湿 Ca ( OH ) 2 颗粒 ； 脱硫 反应 ； 模型 . 
+ Modeling   the   reactivity   of   aqueous   Ca ( OH ) 2   particle 
+ GAO   Xiang , LUO   Zhongyang , CHEN   Yafei , ZHOU   Jinsong , LI   Xuantian , NI   Mingjiang , CEN   Kefa   
+ ( Institute   for   Thermal   Power   Engineering , Zhejiang   University , Hangzhou   310027 )   
+ Abstract 　 The   reaction   between   aqueous   Ca ( OH ) 2   particle   and   SO2   is   the   mainly   sulfation   reaction   in   semi - dry   FGD   system . Based   on   reaction , dissolution   and   mass   transfer   theory   and   by   the   way   of   reaction   mechanism   analysis . A   desulphurization   model   of   aqueous   Ca ( OH ) 2   particle   is   proposed . It   can   be   found   that   the   sulfation   reaction   mechanism   of   aqueous   Ca ( OH ) 2   particle   is   obviously   different   from   dry   Ca ( OH ) 2   particle , and   the   reaction   rate   increased   with   water   content   in   aqueous   sorbent   and   decreased   with   particle   size   and   conversion   ratio . The   temperature   effect   on   reaction   rate   of   aqueous   sorbent   is   relatively   complex   and   there   is   a   critical   temperature   point   in   the   related   curve . Below   this   point , the   reaction   rate   increased   with   temperature   increasing , while   alove   the   point , the   reaction   rate   decreased   with   the   temperature   increasing . The   results   supply   the   optimum   parameters   for   semi － dry   FGD   system   designed . 
+ Keywords 　 aqueous   Ca ( OH ) 2   particle , desulphurization   reaction , model . 
+ 　 　 
+ 1 　 前言 
+ 　 　 随着 经济 的 发展 导致 了 能源 生产 和 消费量 的 增长 ， 由此 造成 了 相当严重 的 SO2 等 气态 污染物 的 污染 问题 . 烟气 脱硫 是 一项 有效 控制 SO2 污染 的 技术 . 在 众多 烟气 脱硫 技术 中 ， 喷钙 增湿 、 喷雾干燥 等 半干法 脱硫 装置 以 其 系统 简单 ， 投资 费用 低 、 脱硫 效率 较 高 和 无 二次污染 等 性能 得到 越来越 多 的 重视 和 发展 . 
+ 　 　 在 现有 的 半干法 脱硫 装置 中 脱硫 反应 主要 表现 为 含湿 Ca ( OH ) 2 颗粒 和 SO2 的 反应 . 目前 ， 已有 研究者 对 其 反应 特性 进行 实验 研究 ［ 1 ］ . 然而 由于 反应 涉及 到 的 传质 扩散 和 反应 机理 的 复杂性 ， 至今 有关 反应 理论 模型 方面 的 研究 还 较 少见 有 报道 . 本文 在 对于 含湿 Ca ( OH ) 2 颗粒 内部 SO2 、 HSO3 - 、 SO32 - 、 Ca2 + 等 成份 传质 、 扩散 和 反应 机理 分析 的 基础 上 提出 了 单颗 含湿 Ca ( OH ) 2 的 脱硫 反应 模型 . 模型 通过 计算 ， 研究 了 颗粒 含湿量 、 温度 、 粒度 和 Ca ( OH ) 2 转化率 等 因素 对 含湿 Ca ( OH ) 2 颗粒 的 脱硫 反应 特性 的 影响 . 计算 和 实验 结果 取得 了 较 好 的 一致 . 本文 为 半干法 脱硫 装置 的 深入研究 和 完善 优化 提供 了 理论 基础 . 
+ 
+ 2 　 脱硫 反应 机理 分析 
+ 　 　 相对 于 干燥 CaO 和 Ca ( OH ) 2 吸收剂 脱硫 反应 而言 ， 含湿 Ca ( OH ) 2 颗粒 由于 水分 存在 使 其 反应 机制 发生 了 一定 的 变化 . 首先 ， 颗粒 表面 的 水分 通过 吸收 溶解 SO2 ， 形成 的 新 反应 成份 HSO3 - 、 SO32 - 有利于 反应 的 进行 ； 其次 水分 在 颗粒 内部 的 渗透 在 Ca ( OH ) 2 颗粒 间 形成 液膜 ， 使 气体 分子 在 孔隙 和 产物 层内 扩散 转变 为 液相 中 的 离子 扩散 . 含湿 Ca ( OH ) 2 颗粒 的 硫 盐化 反应式 一般 形式 可 写成 ： 
+ 
+ ( 1 ) 
+ 但是 实际上 含湿 吸收剂 颗粒 的 硫 盐化 反应 过程 将 分成 以下 5 个 步骤 ［ 2 ， 3 ］ ： 反应物 SO2 从主 流体 向 颗粒 表面 的 外部 气相 传质 ； 颗粒 表面 对 SO2 的 吸收 溶解 ； 形成 HSO - 3 和 SO2 - 3 离子 ； 硫份 在 液相 中 扩散 ； Ca ( OH ) 2 颗粒 在 液相 中 溶解 ； 钙 与 硫 的 液相 反应 . 
+ 　 　 对于 上述 5 个 反应 步骤 ， 我们 要 建立 一个 通用 的 反应 模型 ， 全部 给予 描述 是 很 困难 的 . 只能 对于 反应 的 主要 控制 步骤 建立 模型 进行 研究 ， 一些 研究者 ［ 4 ， 5 ］ 发现 液相 反应 比 传质 扩散 快得多 . 早期 的 研究者 们 认为 控制 浆状 含湿 颗粒 硫 盐化 反应 的 步骤 只有 一个 ， 即 SO2 的 水合 反应 . 由此 Jo ' zewiez 和 Rochelle ( 1984 ) 建立 了 一维 的 浆状 液滴 硫 盐化 模型 ［ 1 ］ . 在 以后 更 多 的 研究 中 发现 ， Ca ( OH ) 2 的 溶解 扩散 速率 也 是 反应 的 制约 因素 . Karlson 和 Klingspor ( 1987 ) 发展 了 两个 一维 模型 ， 分别 成功 地 模拟 了 含湿 Ca ( OH ) 2 颗粒 在 同时 考虑 SO2 和 Ca ( OH ) 2 溶解 扩散控制 时 的 硫 盐化 反应 ［ 6 ］ . 总之 ， 从前 人 研究 可知 对于 含湿 Ca ( OH ) 2 颗粒 的 硫 盐化 反应 ， 反应物 在 液相 中 的 溶解 和 传质 扩散 过程 同样 都 是 控制 整个 反应 速率 的 关键步骤 . 在 液相 中 反应物 溶解 和 传质 的 理论 基础 是 液相 伴有 化学反应 的 传质 理论 . 在 本文 中将 以 概念 简明 、 数学 处理 方便 、 能够 反映 通过 相间 滞流层 进行 分子 和 离子 扩散 传递 这一 基本 事实 的 膜 理论 为 基础 ， 建立 气 - 液 - 固三 相传 质 反应 模型 ［ 7 ］ . 
+ 
+ 3 　 模型 的 建立 
+ 　 　 本文 在 提出 考虑 SO2 溶解 扩散 的 单个 含湿 Ca ( OH ) 2 颗粒 的 反应 模型 之前 ， 首先 对 反应 过程 作出 以下 几个 假设 ： 溶解 的 钙 离子 与 亚硫酸 根 之间 的 液相 离子反应 与 传质 过程 相比 非常 迅速 ； 在 颗粒 中水 和 吸收剂 颗粒 相对 静止 ； 液相 中 浓度梯度 变化 足够 慢可 视为 准稳态 过程 ； 可 忽略 反应热 和 吸收剂 溶解热 ； 在 颗粒 中 不 考虑 温度梯度 ； 颗粒 和 Ca ( OH ) 2 晶粒 为 球状 . 　 　 
+ 
+ 
+ 图 1 　 含湿 吸收剂 颗粒 反应 及 结构 示意图 
+ Fig.1   Conceptual   construction   and   reaction   diagram   of   aqueous   sorbent   particle 
+ 　 　 由图 1 可见 ， 吸收剂 内部 是 由 许多 固相 的 钙 基 吸收剂 微粒 和 溶液 组成 . 在 模型 中 ， 我们 首先 用膜 理论 对浆 滴 中 单颗 Ca ( OH ) 2 微粒 近 壁面 液膜 中 的 溶解 传质 反应 过程 进行 研究 ， 然后 在 前面 的 基础 上 对 整个 浆滴 建立 起 描述 Ca ( OH ) 2 和 SO2 溶液 传质 反应 的 宏观 微分方程 . 
+ 　 　 稳态 时 ， 在 单颗 微粒 所 附液 膜 中 ， 则 颗粒 表面 的 溶解 方程 为 ： 
+ NCa = Ks ( Ap / A ) ( Ccs - C * cl ) 
+ ( 2 ) 
+ 　 　 式 中 ， NCa 是 吸收剂 溶解 速率 ， mol / ( m2 . s ) ; Ks 是 液固 传质 系数 ， m / s ; Ap 是 单位 体积 含湿 吸收剂 颗粒 的 液固 相界 面积 ， m2 / m3 ［ 8 ］ ; A 是 单位 体积 含湿 吸收剂 颗粒 的 控制 单元 界 面积 , m2 / m3 ； Ccs 是 钙 基 吸收剂 的 饱和 浓度 , mol / m3 ； C * cl 是 近 颗粒 的 液相 主体 浓度 ， mol / m3 . 
+ 　 　 从近 颗粒 液相 主体 向 反应 液面 扩散 传质 的 Ca ( OH ) 2 溶 质量 为 ： 
+ N ′ Ca = 4 π r2DCa ( dCcl ) / ( dr ) 
+ ( 3 ) 
+ 　 　 边界条件 ： r = dpl / 2 + λ 时 ， Ccl = 0 ; r = dpl / 2 时 ， Ccl = C * cl 
+ 　 　 式 中 ， dpl 表示 含湿 吸收剂 颗粒 中 Ca ( OH ) 2 微粒 的 粒径 ， m . 根据 反应物 质量守恒 原理 ， 我们 知道 从 颗粒 表面 溶解 的 Ca ( OH ) 2 量 ， 必然 与 近 颗粒 液相 主体 向 反应 界面 扩散 的 量 相等 . 
+ π d2plNCa = N ′ Ca 
+ ( 4 ) 
+ 　 　 那么 存在 以下 关系式 ： 
+ 
+ ( 5 ) 
+ 　 　 式 中 ， λ 表示 颗粒 内 微粒 表面 至 反应 界面 的 距离 . 在 单个 颗粒 的 液膜 内 SO2 的 扩散 主要 在 边界 ( dpl / 2 + δ ) 和 反应 界面 ( dpl / 2 + λ ) 之间 ， 因而 液膜 界面 到 反应 界面 的 溶解 SO2 液相 扩散 流量 可 表示 为 ： 
+ 
+ ( 6 ) 
+ 　 　 这里 ， Ds 表示 溶液 中硫份 的 扩散系数 ， m2 / s ; Cs 表示 溶液 浓度 ， mol / m3 ; 而 根据 反应物 平衡 原理 ， 可知 进入 微粒 单元 溶解 SO2 的 流量 与 它 的 扩散 流量 一致 ， 则 ： 
+ 
+ ( 7 ) 
+ 　 　 根据 方程 ( 6 ) 和 ( 7 ) 即可 推 得 反应 界面 位置 的 计算公式 ： 
+ 
+ ( 8 ) 
+ 　 　 而 根据 方程 ( 4 ) 和 ( 8 ) 可 获得 求解 C * cl 的 方程 ： 
+ 
+ ( 9 ) 
+ 　 　 综上所述 ， 对于 含湿 吸收剂 颗粒 中 单颗 微粒 溶解 速率 的 方程 可 表示 为 ： 
+ 
+ ( 10 ) 
+ 　 　 SO2 和 Ca ( OH ) 2 为 等 摩尔 反应 ， 整个 含湿 Ca ( OH ) 2 颗粒 中 的 存在 以下 守恒 方程 ： 颗粒 表面 扩散 入 SO2 摩尔 数 等于 反应 消耗 Ca ( OH ) 2 摩尔 数 . 
+ 　 　 则 从 颗粒 外 表面 到 颗粒 反应 界面 区域 内 的 R 至 R + dR 层上 存在 微分方程 ： 
+ 
+ ( 11 ) 
+ 　 　 边界条件 ： 　 
+ 　 　 式 中 ， C0 表示 颗粒 表面 SO2 的 溶解 浓度 ， mol / m ３ ； Rrf 表示 颗粒 内 的 反应 界面 ； R ＝ 0 表示 吸收剂 颗粒 的 中心 位置 . 而 从 颗粒 反应 界面 到 颗粒 核心 区域 浆液 中 Ca ( OH ) 2 溶液 在 颗粒 中 的 溶解 和 扩散 根据 反应物 平衡 原理 可 得 ， 在 R 至 R + dR 层有 ： 
+ 
+ ( 12 ) 
+ 　 　 边界条件 ： 
+ 　 　 单个 颗粒 的 反应 速率 可由 下式 计算 ： 
+ 
+ ( 13 ) 
+ 　 　 式 中 ， dps 表示 吸收剂 颗粒 直径 , m ; X 表示 吸收剂 颗粒 中 吸收剂 的 转化率 ， 即 Ca ( OH ) 2 转化 为 CaSO ３ 或 CaSO ４ 的 比率 ； β w 表示 吸收剂 颗粒 中 水分 含量 . 
+ 4 　 计算结果 及 分析 
+ 　 　 图 2 至图 5 分别 显示 了 含 湿量 、 粒度 、 温度 和 吸收剂 中 Ca ( OH ) 2 转化率 对 含湿 吸收剂 颗粒 反应 速率 影响 计算结果 的 特性 曲线 . 在 计算 中 ， 参数 选取 为 ： 含湿量 β w = 0.3 ， CSO2 = 2000ppm ， 转化率 X ＝ 0.1 ， 温度 T ＝ 80 ℃ ， 干燥 吸收剂 颗粒 粒度 dp ＝ 100 μ m . 在 模型 计算 中 需要 确定 SO2 和 Ca ( OH ) 2 的 溶解度 和 扩散系数 等 物性 参数 分别 由 文献 ［ 8 ］ 和 ［ 9 ］ 给出 . 对于 溶液 中 H2SO ３ , HSO ３ 和 Ca ( OH ) 2 等 成分 的 扩散系数 由表 1 给出 ， 表中 T 表示 温度 ( ℃ ) . 
+ 表 1 　 溶液 中 H2SO3 、 HSO3 - 和 Ca ( OH ) 2 成分 的 扩散系数 
+ Table   1   Diffusion   cofficrent   of   H2SO ３ , H2SO ３ and   Ca ( OH ) 2   in   solution 
+ 
+ 成分 计算公式 引 自 
+ H2SO3DH2SO3 = ( T + 273 ) exp [ - 19.895 - 1800 / ( T + 273 ) ] 文献 ［ 12 ］ 
+ HSO3 - 文献 ［ 12 ］ 
+ 总 硫分 文献 ［ 12 ］ 
+ Ca ( OH ) 2DCa = 3.954 × 10 - 9exp [ - 2046 / ( T + 273 ) ] 文献 ［ 11 ］ 
+ 
+ 　 　 从图 2 中 可 看出 吸收剂 颗粒 含湿量 增加 可 有效 地 提高 颗粒 的 反应 速率 ， 含湿量 从 0.08 增至 0.50 ， 其 反应 速率 从 1.73 × 10 - 4mol / ( mol . s ) 增至 4.03 × 10 - 4mol / ( mol . s ) 反应 速率 提高 了 2.3 倍 . 而已 有 研究 表明 ， 当 转化率 为 0.1 时 ， Ca ( OH ) 2 硫 盐化 反应 速率 仅为 6.1 × 10 - 6mol / ( mol . s ) . 这样 可 简单 算 得 吸收剂 颗粒 含湿量 从 0 增至 0.08 ， 反应 速率 的 提高 幅度 约 为 28.4 倍 ［ 1 ］ ． 研究 发现 ， 只要 吸收剂 颗粒 含湿量 逾越 了 临界 含湿量 后 ， 其 增幅 明显 下降 . 这 提示 我们 吸收剂 颗粒 均匀 增湿 的 重要性 . 并且 也 说明 在 喷水 增湿 活化 脱硫 过程 中 ， 在 喷水 点 的 布置 上应 考虑 吸收剂 颗粒 全程 的 湿度 尽可能 保持 在 临界点 以上 ， 一味 单纯 增加 喷水 量 并不一定 会 对 反应 活性 起到 显著 作用 . 在 喷水 量 选择 上 ， 应 根据 效果 和 系统 承受能力 适当 选取 . 由图 还 可 发现 ， 模型 计算结果 与 实验 值 基本一致 . 
+ 　 　 图 3 显示 了 含湿 颗粒 粒度 对 硫 盐化 反应 速率 的 影响 ， 吸收剂 颗粒 粒度 增加 ， 其 反应速度 下降 ， 这 基本 与 干燥 吸收剂 硫 盐化 反应 特性 接近 . 然而 在 实际 过程 中 吸收剂 粒度 减少 不仅 存在 前述 水分 蒸发 过快 的 不足 ， 还会 缩短 颗粒 在 系统 内 的 停留时间 ， 因此 在 颗粒 吸收剂 粒度 选择 上应 充分考虑 到 各 方面 的 影响 作用 . 
+ 
+ 
+ 图 2 　 颗粒 含湿量 对 反应 速率 的 影响 
+ Fig.2   Effect   of   water   content   on   reaction   rate 
+ 
+ 
+ 图 3 　 颗粒 粒度 对 反应 速率 的 影响 
+ Fig.3   Effect   of   particle   size   on   reaction   rate 
+ 　 　 图 4 反映 了 温度 对 含湿 吸收剂 颗粒 反应 速率 的 影响 . 计算 结果表明 ， 含湿 吸收剂 颗粒 的 反应 温度 低于 某一 临界温度 Tcr 值时 ， 反应 速率 随 温度 的 增加 而 提高 ； 但 超过 了 临界温度 Tcr 后 ， 反应 速率 随 温度 的 升高 反而 下降 . 因为 含湿 吸收剂 颗粒 反应 速率 由 反应物 在 液相 中 的 溶解 和 扩散 同时 控制 . 而 温度 对 溶解 和 扩散 的 作用 正好 是 相反 ， 温度 升高 溶解度 下降 ， 但 反应物 扩散系数 提高 . 计算结果 说明 含湿 吸收剂 颗粒 温度 低于 某一 临界值 时 ， 反应物 在 溶液 中 扩散 对 颗粒 反应 速率 的 影响 作用 较大 ， 因此 温度 升高 反应 速率 提高 . 当 超出 了 临界温度 点后 ， 则 反应物 溶解 成 了 反应 的 主要 影响 因素 ， 这样 反应 速率 随 温度 的 提高 反而 下降 . F . Ruhland ( 1991 ) 在 25 — 70 ℃ 范围 内 进行 Ca ( OH ) 2 浆液 的 脱硫 试验 ， 结果 也 证实 了 在 较 低 温度 条件 下 脱硫 反应 速率 随 温度 升高 这一 事实 ［ 3 ］ . 
+ 
+ 
+ 图 4 　 温度 对 反应 速率 的 影响 
+ Fig.4   Effect   of   temperature   on   reaction   rate 
+ 
+ 
+ 图 5 　 吸收剂 转化率 对 反应 速率 的 影响 
+ Fig.5   Effect   of   sorbent   conversion   on   reaction   rate 
+ 　 　 在 图 5 中 显示 了 含湿 吸收剂 颗粒 转化率 对 反应 速率 影响 的 计算结果 . 从中 可 看出 ， 转化率 对 含湿 吸收剂 颗粒 反应 速率 的 影响 远弱 于 它 对 干燥 吸收 颗粒 的 影响 . 当 转化率 从 0 增至 0.4 时 ， 其 反应 速率 仅 下降 了 15% ， 这 从 另 一个 侧面 说明 了 喷水 增湿 强化 脱硫 反应 的 原因 . 
+ 
+ 5 　 结论 
+ 　 　 本文 在 对 含湿 Ca ( OH ) 2 内在 机理 分析 的 基础 上 提出 了 基于 液相 反应 溶解 和 传质 理论 的 单颗 含湿 Ca ( OH ) 2 颗粒 脱硫 反应 模型 . 通过 分析 和 计算 可以 发现 含湿 Ca ( OH ) 2 的 脱硫 盐化 反应 机理 相对 于 干燥 Ca ( OH ) 2 已 发生 明显 变化 ， 液相 的 存在 使 反应 速率 有 明显提高 . 反应速度 随 颗粒 含湿量 的 提高 而 增加 ， 含湿 颗粒 的 粒度 减小 和 转化率 提高 均会 使 反应速度 有所 下降 ； 温度 对 含湿 颗粒 反应 特性 的 影响 比较复杂 ， 当 温度 低于 某一 临界 Tcr 时 温度 升高 反应速度 增加 ， 当 超过 临界温度 Tcr 后 ， 反应 速率 随温升 反而 下降 ， 而 下降 幅度 显著 . 
+ 　 　 因此 ， 本文 认为 喷水 增湿 活化 脱硫 过程 ， 均匀 布置 喷水 点 有利于 提高 脱硫 效率 . 
+ *   国家自然科学基金 资助 项目 ( 编号 ： 29277275 ) 
+ 作者 单位 ： ( 浙江大学 热能 工程 研究所 ， 杭州 　 310027 ) 
+ 参考文献 
+ 　 1 　 高 　 翔 . 余热 回收 、 除尘 、 脱硫 多功能 烟气 净化 装置 的 基础 研究 . 浙江大学 ［ 博士学位 论文 ］ ， 1995 
+ 　 2 　 Newton   G   H , Kramlich   J . Modeling   the   SO2 - slurry   droplet   reaction . A   I   Ch   E   J , 1990 , 36 ( 12 ) : 1865 — 1872 
+ 　 3 　 Ruhland   F , Kind   R , Weiss   S . The   kinetics   of   the   absorption   of   sulfur   dioxide   in   calcium   hydroxide   suspension . Chem   Eng   Sci , 1991 , 46 ( 4 ) : 939 — 947 
+ 　 4 　 Babu   D   R , Narsimhan   G , Phillips   C   R . Absorption   of   sulfur   dioxide   in   calcium   hydroxide   solutions . Ind   Eng   Chem   Fund , 1984 , 23 : 373 — 374 
+ 　 5 　 Sada   E   H , Kumazawa   H , Sawada   Y   et   al . Kinetics   of   sulfur   dioxide   into   aqueous   slurries   of   calcium   carbonate   and   magnesium   hydroxide . Chem   Eng   Sci , 1981 , 36 : 149 — 153 
+ 　 6 　 Kalsan   H   T , Kingspor   J . Tentative   modelling   of   spray - dry   scrubbing   of   SO2 . Chem   Eng   Tech , 1987 , 10 : 104 — 112 
+ 　 7 　 谭 天恩 等 . 传质 - 反应 过程 . 杭州 ： 浙江大学 出版社 . 1990 
+ 　 8 　 朱炳长 . 化学反应 工程 . 北京 ： 化学工业 出版社 . 1993 
+ 　 9 　 Rabe   A   E , Harris   J   F . Vapor   liquid   equilibrium   data   for   the   binary   system   sulfur   dioxide   and   water . J   Chem   Eng   Data , 1963 , 8 : 333 
+ 　 10   Ho   E   S , Shin   S   M . Ca ( OH ) 2 / fly   ash   sorbent   for   SO2   removal   ind . Eng   Chem   Res , 1992 , 31 : 1130 — 1135 
+ 　 11   Brid   R   B , Stewart   W   E , Lightfoot   E   N . Transport   phenomena . New   York : Wiley.1960 
+ 　 12   Kinzey   M . Modeling   the   gas   and   liquid - Phase   resistances   in   the   dry   scrubbing   process   for   removal . MS   Thesis , Cornall   Univ.1988 
+ 1997 - 11 - 25 收到 原稿 
+ 1998 - 03 - 22 收到 修改稿 
+ 
+  

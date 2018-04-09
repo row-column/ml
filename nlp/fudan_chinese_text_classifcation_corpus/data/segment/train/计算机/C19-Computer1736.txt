@@ -1,0 +1,80 @@
+软件 学报 
+ JOURNAL   OF   SOFTWARE 
+ 1999 年   第 2 期   No.2   1999 
+ 
+ 
+ 
+ 一个 自 授权 系统 及 问题 的 知识 复杂性 * 
+ 徐寿怀 　 张根度   朱   洪 
+ 　 　 摘要 　 基于 图同构 零 知识 证明 的 标识 - 鉴别 - 签名 系统 , 提出 了 一个 解决 自 授权 问题 的 方法 . 与 以前 的 方法 相比 , 虽然 两者 都 是 基于 对主 秘密 的 逐步 暴露 来 实现 的 , 但 前者 是 基于 图同构 置换 来 实现 的 , 而 后者 是 基于 类似 于 秘密 共享 的 思想 来 实现 的 . 在 研究 给出 的 自 授权 系统 的 安全性 时 , 定义 了 问题 级 的 知识 复杂性 、 实际 知识 复杂性 和 计算 知识 复杂性 . 应 把 它们 作为 协议 知识 复杂性 的 上界 . 
+ 　 　 关键词 　 零 知识 证明 , 图同构 , 知识 复杂性 , 自 授权 系统 . 
+ 　 　 中图法 分类号 　 TP14 
+ One   Self - delegation   Scheme   and   the   Knowledge   Complexity   of   Problems   
+ XU   Shou - huai   ZHANG   Gen - du   ZHU   Hong   
+ 　 　 Abstract 　   A   solution   to   the   problem   of   self - delegation   using   the   identification - authentication - signature   scheme   based   on   the   graph   isomorphism   problem   is   proposed   in   this   paper .   The   major   difference   from   the   traditional   solutions   is   that   it   is   based   on   the   graph   isomorphism   rather   than   computing   numeric   theory   problem ,   though   they   all   leak   out   secret   information   little   by   little .   The   knowledge   complexity   of   problems ,   the   including   knowledge   complexity ,   the   practical   knowledge   complexity ,   and   the   computing   knowledge   complexity   are   also   defined .   In   the   authors '   opinion ,   these   definitions   should   be   used   as   the   upper   bound   of   knowledge   complexity   of   protocols . 
+ 　 　 Key   words 　 Zero - knowledge   proof ,   graph   isomorphism ,   knowledge   complexity ,   self - delegation   system . 
+ 　 　 在 很多 情况 下 , 要 把 主 密钥 ( 或 秘密 ) 存放 在 安全 的 环境 中 , 由 它 派 生出 二级 密钥 , 它 在 指定 的 时间 内起 着 主 密钥 的 作用 . 如何 限制 合法 的 用户 把 这种 二级 密钥 任意 地 送给 别人 使用 呢 ？ 一个 方法 是 , 当 用户 进行 一次 自 授权 时 , 必须 暴露 有关 主 密钥 的 部分 信息 ［ 1 , 2 ］ . 
+ Goldreich 等 人 在 文献 ［ 1 ］ 中 提出 了 解决 该 问题 要 实现 的 两个 目标 : ①   危害 最小化 , 即 任何 一个 二级 密钥 的 失密 对主 密钥 造成 的 危害 要 尽量 小 ; ②   可 控制 的 授权 , 每次 授权 总是 伴随 着 主 密钥 的 部分 信息 的 泄露 . 主 密钥 的 泄露 有 突变 ( 阈值 模式 ) 和 渐变 ( 每次 泄露 主 密钥 的 若干 有效 位 ) 两种 方法 , 并 提出 了 基于 零 知识 证明 的 解 , 而 知识 的 零 知识 证明 ［ 3 ］ 是 基于 离散 对数 求解 的 困难性 的 . 
+ 本文 基于 图同构 零 知识 证明 的 标识 - 鉴别 - 签名 系统 , 构造 了 一种 新 的 自 授权 系统 , 其 渐变 解是 自然 的 . 在 交互式 协议 中 定量 的 知识 复杂性 ［ 4 , 5 ］ 的 启发 下 , 我们 提出 了 基于 问题 求解 搜索 空间 的 知识 复杂性 定义 , 并 认为 该 复杂性 界应 是 协议 知识 复杂性 界 的 上界 , 可 代替 目前 被 承认 的 协议 的 知识 复杂性 的 通信 复杂性 上 界 ［ 5 ］ . 
+ 1   基于 图同构 零 知识 证明 的 标识 - 鉴别 - 签名 系统 
+ 　 　 传统 的 标识 - 鉴别 - 签名 系统 都 是 基于 计算 数论 中 的 难题 ( 如求 离散 对数 或 因子 分解 ) 的 , 本文 提出 了 一个 基于 一对 公开 的 同 构图 的 零 知识 证明 的 标识 - 鉴别 - 签名 系统 的 自 授权 系统 . 
+ 　 　 构造 1 .   基于 一对 公开 的 同 构图 的 标识 - 鉴别 - 签名 模式 由 下述 的 标识 生成 、 身份 鉴别 、 数字签名 和 签名 验证 这 4 个 ( 概率 ) 多项式 时间 算法 组成 . 
+ 　 　 标识 生成 .   对 输入 的 安全 参数 1n , 输出 一个 四元组 ( o , p , f , { gi } i ∈ N ) , 其中 o 是 一对 顶点 数为 n 的 同 构图 ( G0 , G1 ) , p 是 G0 到 G1 的 一个 同构 映射 , { gi } i ∈ N 是 一个 { 0 , 1 } i → { 0 , 1 } i 的 单向 置换 簇 , f 定义 为 对 G1 施加 一个 同构 映射 π , π 是 用 单向 置换 簇 生成 的 { 0 , 1 , ... , n - 1 } 上 的 置换 permu ( x ) , 即 f ( π , ( G0 , G1 ) ) = π ( G1 ) . 假设 存在 一种 安全 的 方法 把 ( o , p , f , { gi } i ∈ N ) 分配 给 用户 P , 其中 只有 P 才 知道 p , 其余 的 都 是 公开 的 . 
+ 　 　 身份 鉴别 .   当 用户 P 要 与 用户 V 通信 时 , P 通过 向 V 零 知识 地 证明 他 知道 ( G0 , G1 ) 的 同构 p . 
+ 　 　 数字签名 .   对 给定 的 报文 x , 用户 P 首先 用 与 “ 标识 生成 ” 中 相同 的 方法 生成 σ = permu ( x ) , 再 计算 β = σ ( G1 ) , 对 报文 x , 用户 P 的 签名 就是 该 β , 它 被 附加 在 x 的 后面 ( 也 可以 不 把 该 签名 附加 在 报文 中 传送 . 当 V 收到 报文 后 , 按 同样 的 算法 计算 , 得到 一个 新 的 β ′ , 而 P 提供 的 零 知识 证明 是 关于 “ G0 β ” 的 , 若该 证明 不能 使 V 接受 “ G0 β ′ ” , 即 说明 或者 报文 在 传输 过程 中 被 篡改 而 使得 β ≠ β ′ , 或者 P 在 抵赖 . 无论 何种 原因 , 该报 文都 被 抛弃 ) . 显然 , P 知道 G0 与 β 是 同构 的 . 
+ 　 　 签名 验证 .   用户 V 验证 该 签名 时 , 需要 用户 P 零 知识 地 证明 该 β 与 G0 同构 . 由于 { gi } i ∈ N 是 公开 的 , V 在 收到 可能 被 篡改 了 的 报文 x ′ 后 , 计算 σ ′ = permu ( x ′ ) , 然后 计算 β ′ = σ ′ ( G1 ) . 若 β ' ≠ β , 则 抛弃 该 被 篡改 过 的 报文 , 否则 , 通过 P 零 知识 地 证明 G0 与 β 同构 . 
+ 　 　 在 构造 1 中 的 标识 生成 部分 假设 有 一个 可靠 的 第三方 来 完成 标识 生成 和 分发 的 工作 . 实际上 , 也 可以 不 依赖于 可信 的 第三方 的 存在 , 即 对 一个 给定 的 安全 参数 , 每个 用户 生成 自己 的 标识 等 信息 , 然后 向 某个 机构 ( 如公钥 目录 机构 ) 登记 即可 . 关于 这方面 研究 的 更新 的 结果 , 将 另文 发表 . 
+ 2   基于 同 构图 标识 的 自 授权 系统 模型 
+ 　 　 在 基于 同 构图 标识 的 零 知识 证明 系统 中 , 为了 实现 可 控制 扩散 的 需求 , 当 合法 用户 每 进行 一次 自 授权 时 , 就 必须 给出 同构 中 的 一个 顶点 对偶 , 形式 见 构造 3 . 这样 , 经 至多 为 顶点 数 次数 的 自 授权 后 , 该 用户 的 秘密 就 全部 泄露 了 . 
+ 　 　 构造 2 .   ( 基于 一对 公开 图 的 图同构 零 知识 证明 系统 的 自 授权 系统 模型 ) 设 合法 用户 拥有 的 公私 钥对 为 ( sk , pk ) * . 
+ 　 　 授权 生成 .   用户 生成 一个 二级 钥对 ( skl , pkl ) * * , 然后 生成 一个 可 供 验证 者 验证 的 带 下 标的 标记 tagl , l 表示 本次 授权 的 一个 标号 . tagl 将 使 验证 者 相信 它 的确 是 由 该 合法 用户 生成 的 . 此时 , 在 新 得到 的 公私 钥 系统 中 不再 有 包括 原来 密钥 的 秘密 信息 . 
+ 　 　 授权 验证 . 当 一个 持有 ( skl , pkl ) 的 用户 请求 服务 时 , 服务提供者 将 根据 tagl 来 验证 其 合法性 . 当 验证 者 确信 该 授权 是 合法 的 , 则 提供 服务 , 称此 三元组 ( skl , pkl , tagl ) 是 合法 的 . 
+ 　 　 用户 通过 非法 的 手段 得到 三元组 ( skl , pkl , tagl ) 后 , 他 至多 能 在 该 授权 规定 的 范围 ( 如该 授权 或 三元组 的 有效期 ) 内 享受 服务 , 但 合法 用户 的 主 密钥 却 并未 被 暴露 . 
+ 3   基于 一对 公开 的 同 构图 的 自 授权 系统 构造 
+ 3.1   基于 一对 公开 的 同 构图 的 自 授权 系统 构造 
+ 　 　 在 本节 给出 的 实例 中 , 二级 标识 - 鉴别 - 签名 系统 仍然 是 基于 一对 公开 的 同 构图 的 . 
+ 　 　 构造 3 .   ( 基于 一对 公开 图 的 图同构 零 知识 证明 系统 的 自 授权 系统 ) 设 合法 用户 已 按 构造 1 生成 相应 的 系统 , 他 拥有 的 公私 钥对 ( sk , pk ) 同 构造 2 . ( G0 , G1 ) 是 其同 构图 对 或 标识 , 每个 图 的 顶点 标识 为 0 , 1 , 2 , ... , n - 1 , n 为 顶点 数 . 
+ 　 　 授权 生成 .   令 l 表示 本次 授权 的 下标 , 它 表示 这次 授权 必须 暴露 的 在 该 秘密 的 同构 置换 中 G0 的 标号 为 l 的 点 对应 于 G1 中 的 点 的 标号 l ′ . 形式 地说 , 若 G1 = π ( G0 ) , 则 π ( l ) = l ′ . 然后 , 生成 本次 授权 的 一个 标记 ( 二进 串 ) tagl , 该 标记 是 关于 NP 断言 “ 存在 G0 和 G1 的 同构 置换 π , 即 G1 = π ( G0 ) , 且 π ( l ) = l ′ ” 的 一个 非 交互式 零 知识 证明 . 最后 , 用户 利用 构造 2 生成 一个 二级 钥对 ( skl , pkl ) , 其中 pkl 是 一对 同 构图 , 其 顶点 数是 安全 参数 的 一个 函数 , skl 是 这 一对 图 的 同构 置换 . 这个 二级 钥对 将 在 其 有效期 内起 着 与 原来 的 主钥 对 相同 的 功能 和 作用 . 
+ 　 　 授权 验证 .   当 一个 持有 ( skl , pkl ) 的 用户 请求 服务 时 , 服务提供者 将 根据 tagl 表示 的 非 交互式 零 知识 证明 来 验证 三元组 ( skl , pkl , tagl ) 是否 合法 . 
+ 3.2   基于 一对 公开 的 同 构图 的 自 授权 系统 构造 的 正确性 
+ 　 　 构造 3 的 正确性 由 下述 定理 保证 . 
+ 　 　 定理 1 . ( 1 )   任何 NP 断言 都 存在 零 知识 交互式 证明 系统 ［ 6 ］ ; ( 2 )   任何 零 知识 交互式 证明 系统 都 可变 换成 非 交互式 零 知识 证明 系统 ［ 7 ］ . 
+ 3.3   基于 一对 公开 的 同 构图 的 自 授权 系统 构造 的 实际 安全性 
+ 　 　 当 给定 两个 图时 , 要 判断 它们 是否 同构 , 搜索 空间 为 n ! . 根据 Stirling 公式 易知 , 当 n = 128 时 , 穷尽 搜索 是 不 可行 的 . 
+ 　 　 显然 , 验证 了 足够 多 的 二级 钥 的 验证 者 能 容易 地 计算 出 合法 用户 的 主 密钥 . 但 当 n 足够 大 ( 如 n = 128 ) 时 , 暴露 一个 构造 3 中 的 点 对 不会 泄露 整个 同构 置换 . 当 我们 从 某个 Oracle 处 得知 的 置换 中 某个 对应 顶点 的 度数 为 d 时 , 问题 求解 的 搜索 空间 从 n ! 降为 d ! . ( n - d - 1 ) ! , 因此 , 在 选择 要 暴露 的 同构 置换 中 的 点 对 时 , 要 满足 危害 最小化 , 所 选中 的 点 的 顺序 应 以 度数 的 增序 进行 . 
+ 　 　 对 给定 规模 的 图 , 安全 自 授权 的 次数 取决于 当时 实际 的 计算能力 和 图 的 特征 . 例如 , 当 规模 为 30 的 图同构 的 搜索 是 可 接受 的 时候 , 对 一个 规模 为 n 的 图 而言 , 进行 自 授权 的 次数 的 上界 为 ( n - 30 ) , 实用 建议 的 次数 为 ( n - 60 ) . 
+ 4   定性 的 和 定量 的 知识 复杂性 
+ 4.1   协议 的 知识 复杂性 
+ 　 　 Goldwasser ［ 8 ］ 等 人 在 1985 年 首次 提出 了 交互式 证明 系统 的 知识 复杂性 概念 . 知识 复杂性 是 关于 验证 方 通过 交互 时 获得 计算 意义 上 的 好处 的 一个 测度 , 即 在 交互 后 可能 得到 的 东西 . 知识 复杂性 、 信息熵 和 通信 复杂性 是 不同 的 测度 . 通信 复杂性 是 指 双方 的 通信量 的 量度 ［ 5 ］ . 关于 定量 的 知识 复杂性 , Goldreich 等 人 ［ 5 ］ 认为 : 可以 用 协议 的 通信 复杂性 作为 协议 的 知识 复杂性 的 上界 . 在 基于 通信 复杂性 界 是 可 计算 的 假设 下 得到 知识 复杂性 应当 位于 区间 ［ 0 , poly ( . ) ］ 中 . 
+ 　 　 目前 , 关于 协议 的 知识 复杂性 的 形式 有 3 种 不同 的 定义 . 称 证明 者 P 泄露 了 至多 k ( ｜ x ｜ ) 比特 的 知识 , 如果 在 交互 后 验证 者 V 能 计算出来 的 任何 东西 , 他 都 能 通过 查询 Oracle 至多 k ( ｜ x ｜ ) 比特 后 计算出来 . 基于 空间 测度 的 复杂性 是 指 , 一个 图灵机 成功 地 模拟 一个 真实 的 交互 的 良好 子 空间 的 一个 量度 . 基于 暗示 的 复杂性 是 指 , 一个 图灵机 能够 有效 地 模拟 一个 真正 的 交互 时 需要 从 其他 地方 获得 的 最小 暗示 的 长度 . 有关 以往 的 定量 知识 复杂性 研究 的 部分 综述 可 详见 文献 ［ 5 ］ . 
+ 4.2   问题 的 知识 复杂性 
+ 　 　 本文 给出 的 应用 系统 涉及 的 是 问题 级 的 知识 复杂性 而 不是 协议 级 的 知识 复杂性 , 用 问题 的 知识 复杂性 作为 协议 的 知识 复杂性 上界 是 更为 合理 的 . 
+ 　 　 一般 地 , 对 两个 顶点 数为 n 的 图 , 与 知识 复杂性 有关 的 问题 , 我们 至少 关心 : ( 1 )   问题 本身 的 知识 复杂性 是 多少 ？ ( 2 )   当 一个 Oracle 告诉 我们 关于 此 两图 的 同构 时 , 我们 获得 的 知识 有 多少 ？ ( 3 ) 当 我们 像 在 构造 3 中 那样 获得 置换 中 的 一个点 对时 , 获得 了 多少 知识 ？ 
+ 　 　 给定 图 的 顶点 编号 , 如 0 , 1 , 2 , ... , n - 1 , 1 个 置换 只 需 n . log ( n ) 位 就 能 完全 确定 . 当 n = 128 时 , 有 n . log ( n ) = 896 比特 的 知识 . 我们 给出 : 
+ 　 　 定义 1 .   问题 的 知识 复杂性 就是 精确 表示 该 问题 的 解所 必需 的 最 短 二进制 串 的 长度 . 
+ 对 因子 分解 而言 , 设 n =  ... , 其中 pi 是 不同 的 素数 , ei ＞ 0 , i = 1 , 2 , .. , j , 则 该 问题 的 知识 复杂性 为 log ( pi ) . 上例 中 精确 地 表示 了 一个 置换 需 n . log ( n ) 比特 , 当 得到 该 896 个 比特 的 知识 时 , 问题 的 解 就 唯一 地 确定 了 . 但 在 实际 问题 中 , 并不需要 知道 全部 的 n . log ( n ) 比特 的 知识 时 , 可能 就 足以 计算 出图 的 同构 . 因为 当 搜索 空间 足够 小时 , 可以 直接 得到 问题 的 解 . 因此 , 需要 定义 问题 的 实际 知识 复杂性 , 其上界 是 问题 的 知识 复杂性 . 多大 的 搜索 空间 才 算是 有 计算 难度 的 ？ 这 不仅 与 现实 机器 的 计算能力 有关 , 还 与 所 基于 的 问题 中 涉及 的 对象 ( 如图 ) 的 特点 有关 . 由于 我们 讨论 的 是 最坏 的 性状 复杂性 , 在 上面 的 图同构 中 , 如果 定义 3 * 1032 ( 相当于 搜索 30 个 顶点 的 图 的 同构 ) 是 当前 能力 下 的 可 计算 的 搜索 空间 , 则 问题 求解 时 , 若 搜索 空间 不 超过 该 空间 的 大小 , 则 该 问题 在 当前 计算能力 下 可以 解决 , 从而 此时 再 查询 Oracle 时 获得 的 知识 复杂性 为 0 . 这样 , 当 从 Oracle 处 获得 知识 , 使 搜索 空间 逐步 减小 到 该 空间 界时 , 就 获得 了 问题 的 全部 知识 . 
+ 　 　 定义 2 .   设 初始 的 问题 求解 搜索 空间 为 s0 , 考虑 该 问题 时 实际 计算能力 所 处理 的 空间 为 s ′ , 当 从 一个 Oracle 处 获得 某种 知识 后 , 问题 求解 的 搜索 空间 降为 s1 ≥ s ′ , 则 称 该 问题 的 实际 知识 复杂性 为 log ( s0 ) 比特 , 称 从 Oracle 处 获得 到 的 知识 复杂性 即 计算 知识 复杂性 , 为 比特 . 
+ 　 　 在 图同构 例中 , 问题 的 实际 知识 复杂性 的 上界 为 问题 的 知识 复杂性 , 即 对 足够 大 的 n , ＞ nlog ( n ) ＞ log ( n ! ) ≈ 716 . 当 我们 从 某个 Oracle 处 得知 的 置换 中 某个 对应 顶点 的 度数 为 d 时 , 则 获得 的 知识 复杂性 的 量度 为 - log ≥ - log = logn . 这 与 直觉 是 相符合 的 , 因为 我们 不仅 得到 了 该 点 对 本身 的 对应 , 还 得到 了 其 相邻 点 的 某种 对应 关系 . 当 我们 从 某个 Oracle 处 获得 的 知识 使 问题 的 搜索 空间 降为 可 计算 时 , 我们 从 该 Oracle 处 获得 的 知识 至少 为 - log ≈ 716 - 108 = 606 . 
+ 　 　 例 : 设 1 个 512 比特 的 Blum 数 n = pq , 则 相应 的 因子 分解 问题 的 知识 复杂性 为 logp + logq = 512 , 而 通信 复杂性 ≥ logp + logq = 512 . 该 问题 的 实际 知识 复杂性 的 上界 为 log ( . log ) = 264 比特 . 
+ 5   结论 和 讨论 
+ 　 　 本文 基于 图同构 零 知识 证明 的 标识 - 鉴别 - 签名 系统 , 提出 了 一个 解决 自 授权 问题 的 方法 . 与 文献 ［ 5 ］ 中 提出 的 方法 相比 , 前者 是 基于 图同构 置换 来 实现 的 , 而 后者 是 基于 类似 于 秘密 共享 的 思想 来 实现 的 . 
+ 　 　 在 研究 自 授权 系统 的 安全性 时 , 我们 得到 了 一个 意外 的 结果 , 即 问题 的 知识 复杂性 定义 . 我们 定义 了 问题 级 的 知识 复杂性 、 实际 知识 复杂性 和 计算 知识 复杂性 . 我们 认为 , 把 它们 作为 协议 知识 复杂性 的 上界 是 合理 的 . 
+ 本文 研究 得到 国家自然科学基金 和 国家 863 高科技 项目 基金 资助 . 
+ 作者 介绍 ： 徐寿怀 , 1970 年生 , 博士生 , 主要 研究 领域 为 计算机 网络安全 , 安全 电子商务 , 电子货币 . 
+ 　 　 　 　 　 张根度 , 1937 年生 , 教授 ， 博士生 导师 , 主要 研究 领域 为 计算机网络 , 信息工程 和 安全 . 
+ 　 　 　 　 　 朱洪 , 1939 年生 , 教授 , 博士生 导师 , 主要 研究 领域 为 算法 设计 和 分析 , 计算 复杂性 , 信息安全 . 
+ 本文 通讯联系 人 : 徐寿怀 ， 上海   200433 , 复旦大学 计算机科学 系 
+ 注释 ： *   此时 ， 公钥 就是 一对 同 构图 ， 私钥 就是 两图 的 同构 ． 
+ 　 　 　 * *   此 二级 密码 应用 的 模式 可以 独立 于 原来 的 应用 模式 ． 如 ， 若 仍然 采用 原来 的 基本 于 图同构 的 零 知识 证明 模式 时 ， 则 公钥 为 一对 图 ， 私钥 是 图 的 同构 ； 若 采用 传统 的 公钥 模式 如 RSA 时 , 则 公私 钥 的 概念 就是 传统意义 上 的 定义 . 
+ 作者 单位 ： 徐寿怀 　 张根度   朱   洪 　 复旦大学 计算机科学 系 　 上海 　 200433 
+ E - mail :   shxu @ ms . fudan . edu . cn 
+ 参考文献 
+ 　 ［ 1 ］ Goldreich   O ,   Pfitmann   B ,   Rivest   R   L .   Self - delegation   with   Controlled   Propagation - or - What   if   You   Lose   Your   Laptop .   http : / / www . mit . edu ,   1997 
+ 　 ［ 2 ］ Dwork   C ,   Lotspiech   J ,   Naor   M .   Digital   signets :   self - enforcing   protection   of   digital   information ( preliminary   version ) .   In :   Leighton   F   T   ed .   Proceedings   of   the   28th   ACM   Symposium   on   Theory   of   Computing .   New   York :   ACM   Press ,   1996 .   489 ～ 498 
+ 　 ［ 3 ］ Bellare   M ,   Goldreich   O .   On   defining   proofs   of   knowledge .   In :   Brickell   E   F   ed .   Proceedings   of   the   CRYPTO ,   Lecture   Notes   in   Computer   Science   740 .   Berlin :   Springer - Verlag ,   1992 .   390 ～ 420 
+ 　 ［ 4 ］ Goldreich   O ,   Petrank   E .   Quantifying   knowledge   complexity .   In :   Sipser   M   ed .   Proceedings   of   IEEE   Symposium   on   Foundations   of   Computer   Science .   Los   Alamitors ,   California :   IEEE   Computer   Society   Press ,   1991 .   59 ～ 68 
+ 　 ［ 5 ］ Goldreich   O ,   Petrank   E .   Quantifying   Knowledge   Complexity .   http : / / www . mit . edu ,   1997 
+ 　 ［ 6 ］ Ben - Or   M ,   Goldreich   O ,   Goldwasser   S   et   al .   Everything   provable   is   provable   in   zero - knowledge .   In :   Goldwasser   S   ed .   Proceedings   of   CRYPTO ,   Lecture   Notes   in   Computer   Science   403 .   Berlin :   Springer - Verlag ,   1988 .   37 ～ 46 
+ 　 ［ 7 ］ Blum   M ,   Feldman   P ,   Micali   S .   Non - interactive   zero - knowledge   and   its   applications ( extended   abstract ) .   In :   Ullman   J   D   ed .   Proceedings   of   the   20th   ACM   Symposium   on   Theory   of   Computing .   New   York :   ACM   Press ,   1988 .   103 ～ 112 
+ 　 ［ 8 ］ Goldwasser   S ,   Micali   S ,   Rackoff   C .   The   knowledge   complexity   of   interactive   proofs .   In :   Pipenger   N   ed .   Proceedings   of   the   17th   ACM   Symposium   on   Theory   of   Computing .   New   York :   ACM   Press ,   1985 .   291 ～ 304 
+ 本文 1997 - 12 - 16 收到 原稿 , 1998 - 03 - 03 收到 修改稿   

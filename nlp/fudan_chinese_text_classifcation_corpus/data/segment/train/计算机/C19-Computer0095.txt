@@ -1,0 +1,78 @@
+计算机 工程 
+ COMPUTER   ENGINEERING 
+ 1999 年   第 25 卷   第 8 期   Vol.25   No.8   1999 
+ 
+ 
+ 
+ 异构 数据库 间 的 数据 集成 
+ 王艳君   杜志典 ， 王运格 
+ 摘要 ： 针对 不同 数据库 之间 的 产品 ， 给出 了 Powerbuilder 与 不同 数据库 之间 的 连接 方法 ， 动态 地 生成 数据 管道 及 数据 窗口 ， 以 实现 异构 数据库 之间 数据 集成 。 
+ 关键词 ： 数据库 ； 数据 集成 ； 数据 管道 
+ Data ' s   Integration   Between   Hetero - structure   Database 
+ Wang   Yanjun , Du   Zhidian , Wang   Yunge 
+ ( Department   of   Statistic , Hebei   Economy   Commerce   University , Shijiazhuang   050016 ) 
+ 【 Abstract 】 For   different   products   of   Database , the   author   gives   methods   of   how   to   connect   different   databases   with   PowerBuider , dynamically   generate   Data   pipelines   and   Datawindow   to   integrate   data   between   hetero - structure   Databases . 
+ 【 Key   words 】 Database ; Data - integration ; Pipeline 
+ 　 　 通过 对 几种 方法 的 综合 比较 ， 认为 利用   PowerBuilder   开发 出 的 应用程序 具有 很 高 的 互操作性 ， 提供 了 对 客户机   /   服务器 结构 的 支持 ， 支持 多种 网络 环境 及 数据源 ， 易于 实现 异构 数据库 集成 ， 有利于 系统 的 升级 和 维护 。 以下 具体 介绍 采用   PowerBuilder   进行 开发 ， 实现 异构 数据库 间 的 数据 集成 。   
+ 1   数据 管道 
+ 　 　 数据 管道   ( PipeLine )   是   PowerBuilder   提供 的 一个 用于 转换 数据 的 对象 ， 它 提供 了 数据 复制 功能 ， 允许 用户 从 一个   RDBMS   向 另 一个   RDBMS   拷贝 表 和 数据 。 数据 管道 功能 可以 同 目前   PowerBuilder   所 支持 的 所有 数据库 一起 工作 。 通过 把 数据 管道 定义 作为 对象 保存 ， 并 在 应用 中 使用 它们 ， 可以 开发 出 全新 的 分布式 软件 。 数据 管道 可用 来 增强 和 补充   Oracle   和   Sybase   本身 的 数据 复制 功能 。   
+ 　 　 数据 管道 不仅仅 是 复制   RDBMS   表 。 开发人员 完全 可以 控制 哪些 应 包含 或 不应 包含 在 目标 表中 的 数据 段 ， 以及 使用 哪些 字段 来 生成 目标 表 的 索引 。   SQL   Select   语句 是 复制 数据 的 基础 ， 可以 用来 连接 操作 的 多 张源表 。 通过 数据 管道 ， 用户 可以 在 各种 数据库 之间 进行 数据 转换 ， 在 实际 开发 中该 工具 非常 有用 ：   
+ 　 　 在   PowerBuilder   中 ， 可 利用   PipeLine   画笔 创建 数据 管道 对象 。 但用 这种 方法 创建 数据 管道 的 数据源 表是 固定 的 。 如果 要 对 多个 表 进行 操作 ， 则 需要 为 每个 表 建立 一个 数据 管道 。 显然 ， 这种 方法 不 可取 。 因为 一个 系统 一般 要 包含 几十 、 几百 甚至 上 千个 表 ， 如果 对 几个 系统 的 数据 进行 转换 ， 其 工作量 是 可想而知 的 。 针对 这个 问题 ， 考虑 是否 可 动态创建 数据 管道 ， 这样 ， 每 选择 一个 表就 生成 一个 数据 管道 既 方便 又 省力 ， 使 数据 转化 在 动态 环境 下 完成 ， 增强 了 通用性 。   
+ 2   设计 
+ 　 　 过去 ， 我们 一般 都 使用 一些 小型 数据库 对 数据 进行 保存 和 管理 ， 如   dBASE   、   Foxbase   数据库 等 ， 而 现在 有 许多 用户 为 更好 地 管理 数据 已 开始 使用 一些 大型 数据库 ， 如   Oracle   、   Sybase   数据库 等 。 根据 系统 的 开发 目标 选择 基于   Windows   的 数据库   Client   端的 开发工具   PowerBuilder   作为 前端开发 ，   Server   端 选择 了   Oracle   大型 数据库 ， 网络 支持 采用   TCP / IP   协议 的   Unix   网络操作系统 。 其 系统结构 如图   1   所示 。   
+ 
+ 图 1   系统 结构图 
+ 3   具体 实现   
+ 3.1   PowerBuilder   与 数据库 的 连接   
+ 　 　 通常 ， 一个 应用 只 连接 一种 数据库 管理系统 ， 然而 ， 利用   PowerBuilder   实现 异构 数据库 间 的 数据 转换 ， 它 必须 与 不同 种类 的 数据库 管理系统 连接起来 才能 工作 。   PowerBuilder   与 数据库 通信用 的 是 事务 对象 ， 它 是   PowerBuilder   和 数据库 之间 通信 的 桥梁 。 在 一般 情况 下用 的 是 缺省 的 事务 对象   SQLCA ( SQL   Communication   Area )   ， 事务 对象 可以 创建 多个 ， 每个 用于 一种 数据库 的 通信 。   
+ 　 　 下面 定义 了 两个 事务 对象   s _ trans   和   d _ trans   ， 用于 实现   PowerBuilder   与源 数据库 、 目的 数据库 的 连接 ：   
+ / /   源 的 定义   
+ s _ trans   =   create   transaction   
+ s _ trans . DBMS = ProfileString ( " Foxpro . ini " , " database " , " dbms " ,   " " )   
+ … …   
+ s _ trans . dbparm = ProfileString ( " Foxpro . ini " , " database " , " dbparm " ,   " " )   
+ connect   using   s _ trans ;   
+ / /   目的 的 定义   
+ d _ trans   =   create   transaction   
+ ......   
+ connect   using   d _ trans ;   
+ 3.2   选择 转换 条件   
+ 　 　 在 源 数据 窗口 中 显示 出源 数据 后 ， 用户 可 根据 需要 按 一定 要求 选择 数据库 记录 ， 进行 转换 。 其中 包括 字段名 、 关系 、 条件 值 ， 用户 可 进行 任意 选择 。 由于 字 段 类型 的 不同 ， 所以 也 要 分 情况 进行 处理 。   
+ 3.3   从 数据源 读取数据   
+ 　 　 当 激活 窗口 时 ，   Open   事件 发生 ， 为 保证 窗口 的 正常 运行 ， 在   Open   事件 中 设置 对于 该 窗口 的 一些 实例 变量 及 窗口 对象 的 初始状态 。   
+ 　 　 与 数据源 建立 连接 后 ， 在 进行 数据 转换 之前 ， 必须 先 从 数据源 读取数据 。 此处 数据源 数据库 文件类型 为   . dbf   文件 。 首先   ,   打开   Select   DBF   File   对话框 ， 用户 可 从中 选取 将要 进行 转换 的 数据库 。 
+ 　 　 在 读取数据 时 ， 因为 字段 的 数据类型 不同 ， 所以 要 分别 进行 处理 ， 生成 数据 管道 语句 ：   
+ 　 　 ls _ PIPELINE = " PIPELINE ( source _ connect = Foxpro , destination _ connect = Oracle , type = replace , &   commit = 100 , errors = 100 )   ～   r   ～   n "   
+ 　 　 　 ls _ SOURCE   = " SOURCE ( name =   ～   " " + ls _ named + "   ～   " , "   
+ 　 　 　 ls _ RETRIEVE   = " RETRIEVE ( statement =   ～   " PBSELECT (   VERSION ( 400 )   &   TABLE ( NAME =   ～   " " + ls _ named + "   ～   "   ) "   
+ 　 　 　 … …   
+ / /   对字 段 的 不同 数据类型 分 情况 讨论   
+ 　 　 CHOOSE   CASE   String ( BlobMid ( lb _ DBF _ Head , 44 + ( li _ n   -   1 ) * 32 , 1 ) )   
+ 　 　 CASE   " C "   
+ 　 　 　 ls _ create _ table = ls _ create _ table + " character ( "   
+ 　 　 　 lb _ width _ high = BlobMid ( lb _ DBF _ Head , 48 + ( li _ n   - 1 ) * 32 , 1 )   
+ 　 　 　 … … 
+ 　 　 END   CHOOSE   
+ / /   总结   
+ 　 　 　 ls _ pipe _ syntax = ls _ PIPELINE + ls _ SOURCE + ls _ RETRIEVE + ls _ DESTINATION   
+ 　 　 从 数据源 读取数据 后 ， 根据 所 读取 的 数据 生成 相应 的 数据 窗口 ， 以 显示 数据源 的 数据 。   
+ 3.4   进行 数据 转换   
+ 　 　 当 用 鼠标 单击   [   转换   ]   按钮 时 ， 导致   clicked   事件 发生 ， 处理程序 如下 ：   
+ 　 　 uo _ pipe   iuo _ pipe   
+ 　 　 　 iuo _ pipe = CREATE   uo _ pipe   
+ 　 　 　 iuo _ pipe . syntax = ls _ pipe _ syntax   
+ 　 　 li _ start _ result   =   iuo _ pipe . Start ( i _ src , i _ dst , dw _ pipe _ err )   
+ 　 　 这是 整个 应用 中 最 关键 的 事件 ， 主要 是 动态 生成 一个 数据 管道 ， 把 数据 传送 过来 。 在 运行 转换 程序 时 ， 需 使用   PowerBuilder   提供 的 数据 管道 系统 对象 ， 为此 需要 创建 一个 类 用户 对象 ， 这个 类 用户 对象 是 通过 继承   PowerBuilder   内置 的 数据 管道 系统 对象 创建 的 。   
+ 　 　 数据 通过 管道 传输 过来 后 ， 生成 数据 窗口 以 显示 数据 供 用户 浏览 。 此时 ， 该 数据 便 为   Oracle   数据库 文件 形式 ， 用户 可 对表中 的 数据 进行 有效 的 管理 。   
+ 3.5   进行 数据 转换   
+ 　 　 通过 数据 窗口 ， 使用   ODBC   将 数据 窗口 中 的 数据 写入 目的 数据库 中 ， 完成 数据库 数据 的 集成 。   
+ 4   结束语 
+ 　 　 用   PowerBuilder   提供 的 数据 管道 类库 方法 实现 数据格式   转换 ， 可 把 已 开发 使用 的   Foxpro   等 数据库系统 集成 到   Oracle   、   Sybase   等 大型 数据库系统 上 ， 从而 有效 地 利用 原有 的 数据库 资源 。 用   PowerBuilder   提供 的 数据 管道 类库 编制 的 程序 灵活 编程 量 不大 ， 目前 用该 方法 编程 进行 数据 转换 较 好 。   
+ 注释 ： 本文 是 在 开发   "   吐哈 油田 异构 数据库 间 数据 集成   "   的 基础 上 完成 的 。   
+ 作者 单位 ： 王艳君 　 王运格 　 河北师范大学 计算机系 ， 石家庄   050016 
+ 　 　 　 　 　 杜志典 　 河北 经贸大学 统计 系 ， 石家庄   050061 
+ 参考文献   
+ 1   Yourdon   E .   Java 、 the   Web   and   Software   Development .   Compu -   ter ,   1996 - 08   
+ 2   Marsh   K ,   Braunstein   B .   PowerBuilder   4   应用 程序开发 指南 .   北   京 ： 清华大学出版社 ，   1996   
+ 3   陶辅 周 ， 杨代伦 ， 李旭伟 .   实用   Oracle   系统 开发 和 设计 详解 .   北   京 ： 电子 工业 出版社 ，   1995   
+ 4   李奇 ， 常方 . PowerBuilder   开发技术 与 应用 .   北京 ： 清华大学 出版   社 ， 1995   

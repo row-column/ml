@@ -1,0 +1,36 @@
+上海 航天 
+ AEROSPACE   SHANGHAI 
+ 2001   Vol.18   No.1   P.22 - 26 
+ 
+ 
+ 
+ 
+ 基于 卫星 质保 体系 的 神经网络 模型 
+ 舒适 　   陆力斌 　   朱鸿昌 　   
+ 摘 　 要 ： 针对 质保 体系 基础 上 的 卫星 产品 保证 管理 ， 应用 多层 前馈 神经网络 原理 和 方法 ， 建立 了 基于 无 卫星 产品 保证 要求 的 质保 体系 与 基于 卫星 产品 保证 要求 的 质保 体系 神经网络 模型 ， 以用 神经网络 模型 来 模拟 和 控制 卫星 产品 的 质量 水平 ； 并用 模型 比较 了 两种 质保 体系 的 联系 与 区别 。 
+ 关键词 ： 产品 保证 ； 质保 体系 ； 神经网络 ； 模型 
+ 分类号 ： 472.2 　 文献 标识码 ： A 
+ 文章 编号 ： 1006 － 1630 （ 2001 ） 01 － 0022 － 05 
+ The   Neural   Networks   Model   of   Satellite   Quality   Assurance   System 
+ SHU   Shi （ Management   College ,   Harbin   Institute   of   Technology ， Heilongjiang   Harbin   150001 ，   China ） 　 
+ LU   Li - bin （ Management   College ,   Harbin   Institute   of   Technology ， Heilongjiang   Harbin   150001 ，   China ） 　 
+ ZHU   Hong - chang （ No .   509   Institute   of   SAST ,   Shanghai   200240 ,   China ） 　 
+ 
+ Abstract ： The   Neural   Networks   models   of   quality   assurance   system   without   satellite   product   assurance   and   quality   assurance   system   with   satellite   product   assurance   are   set   up   by   use   of   theory   and   method   of   Neural   Networks   to   simulate   and   control   the   satellite   quality   degree .   And   we   also   compare   the   difference   and   the   relationships   of   these   two   systems   by   means   of   Neural   Networks   models . 
+ Keywords ： Product   assurance ； Quality   assurance   system ； Neural   networks ;   Model 
+ 
+ 作者简介 ： 舒适 （ 1973 - ） ， 男 ， 硕士生 ， 研究 领域 ： 航天 产品 管理 。   
+ 作者 单位 ： 舒适 （ 哈尔滨工业大学 管理 学院 ,   黑龙江 哈尔滨   150001 ） 　 
+ 　 　 　 　 　 陆力斌 （ 哈尔滨工业大学 管理 学院 ,   黑龙江 哈尔滨   150001 ） 　 
+ 　 　 　 　 　 朱鸿昌 （ 上海 航天技术 研究院 509 所 ， 上海   200240 ） 　 
+ 
+ 参考文献 ： 
+ ［ 1 ］ 孙增圻 , 张再兴 , 邓志东 .   智能 控制 理论 与 技术 [ M ] .   北京 ： 清华大学出版社 / 南宁 ： 广西 科学技术 出版社 , 1997 . 
+ ［ 2 ］ 李士勇 . 模糊控制 、 神经 控制 和 智能 控制论 [ M ] . 哈尔滨工业大学 出版社 , 1996 . 
+ ［ 3 ］ 欧洲 空间 标准化 合作 组织 （ ECSS ） 标准 . 空间 产品 保证 （ Space   Product   Assurance ） ECSS - P 系列 标准   1996.4 . 19 [ S ] .   中国 航天工业 总公司 第七 O 八 研究所 ,   1997 
+ ［ 4 ］ 舒适 , 陆力斌 , 朱鸿昌 .   航天 产品 保证 与 项目管理 在 实施 QJ9000 标准 中 的 应用 [ J ] .   科研 管理 , 1999 , （ 4 ） . 
+ ［ 5 ］ 舒适 , 陆力斌 , 朱鸿昌 . 卫星 产品 保证体系 的 质量 控制目标 函数 [ M ] .   管理 工程学 报 ,   2000 , 14 （ 2 ） . 14 ～ 17 . 
+ 
+ 收稿 日期 ： 2000 年 4 月 23 日 
+ 修稿 日期 ： 2000 年 9 月 29 日 
+ 出版日期 ： 2001 年 2 月 25 日 

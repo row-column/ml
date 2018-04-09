@@ -1,0 +1,189 @@
+微型机 与 应用 
+ MICROCOMPUTER   &   ITS   APPLICATIONS 
+ 1999 年   第 18 卷   第 4 期   Vol.18   No.4   1999 
+ 
+ 
+ 
+ 开发 Windows   NT 的 后台 服务 
+ 张存东 　 罗 　 敏   　 乐 　 祥 
+ 　 　 摘 　 要 ： 利用 一组 WIN32   API 函数 将 自主 开发 的 服务器程序 扩展 为   NT 的   一项 后台 服务 ， 让 NT 把 其 当作 系统 服务 自动 加载 ， 从而 扩充 NT 服务器 的 后台 功能 ， 并 结合 一   个 实例 说明 开发 中应 做 的 工作 。 
+ 　 　 关键词 ： Windows   NT 　 后台 服务 　 服务 控制 管理器 
+ 　 　 在 WINDOWS   NT 服务器 中 ， NT 的 一些 后台 系统 服务 随着 NT 的 启动 而 自动 加载 ，   不需 用户 人工   干预 ， 这种 方式 不仅 简化 了 服务器 启动 过程 ， 同时 也 使 一些 重要 服务 的 启动 更加 安全可靠 。   而且 ， 在 服务器 启动 以后 ， 用户 也 可以 利用 控制面板 中 服务 控制面板 应用程序 灵活 地 设置 这   些 后台 服务 的 启动 属性 ， 方便 了 用户 对 NT 后台 服务 的 管理 。 笔者 在 开发 基于 NT 服务器 的 应用   程   序时 ， 发现 利用 一组 WIN32   API   函数 完全 可以 将 自己 开发 的 服务器程序 扩展 为 NT 的 一项 后台   服务 ， 让 NT 把 其 当作 系统 服务 自动 加载 ， 从而 扩充 NT 服务器 的 后台 服务 功能 。 下面 结合 一个   实例 ， 概述 开发 NT 后台 服务 应用程序 的 方法 和 步骤 。 
+ 1 　 自定义 后台 服务 注册 
+ 　 　 在 NT 操作系统 中 ， 所有 的 后台 服务 全都 由 服务 控制 管理器 进行 统一 管理 ， 这些 后台 服务 的 状   态 数据 都 保存 在 服务 控制 管理器 数据库 中 。 所以 要 想 创建 一个 新 的 后台 服务 ， 在 应用程序 的   主 模块 里 应 首先 调用函数 OpenSCManager 打开 该 数据库 ， 再 调用函数 CreateService 在 此 数据   库中 创建 1 个 新 的 服务 线程 对象 ， 并 将 该 线程 对象 启动 属性 设置 为 随 系统启动 自动 加载 ， 这   样 NT 在 重新启动 时该 线程 就 会 由 NT 自动 启动 。 完成 这 一步 ， 仅仅 实现 了 后台 服务 线程 对象 的   注册 ， 还 没有 建立 与 服务 控制 管理器 的 联结 。 
+ / / 在 服务 控制 管理器 数据库 中 注册 后台 服务 线程 
+ void   CmdRegisterService ( ) 
+ { 
+ 　 　 SCHANDLE 　 　 schService ; 
+ 　 　 SCHANDLE 　 　 schSCManager ; 
+ 　 　 TCHAR   szPath ［ 512 ］ ; 
+ 　 　 / / 获得 后台 服务 进程 执行 路径 
+ 　 　 if ( GetModuleFileName ( NULL , szPath , 512 ) = = 0 ) 
+ 　 　 { tprintf ( TEXT ( “ Unable   to   install   % s   -   % s ＼ n " ) ， 
+ 　 　 TEXT ( “ Service   Example " ) ,   GetLastErrorText ( szErr ,   256 ) ) ; 
+ 　 　 　 return ; 
+ 　 　 } 
+ 　 　 / / 打开 服务 控制 管理器 数据库 
+ 　 　 schSCManager = OpenSCManager ( 
+ 　 　 　 　 　 　 　 　 　 NULL , 　 　 　 / / 本地 机器 
+ 　 　 　 　 　 　 　 　 　 NULL , 　 　 　 / / 默认 数据库 
+ 　 　 　 　 　 　 　 　 　 SCMANAGERALLACCESS   / / 访问 权限 
+ 　 　 　 　 　 　 　 　 　 ) ; 
+ 　 　 / / 在 此 数据库 中 创建 后台 服务 线程 对象 
+ 　 　 if ( schSCManager ) 
+ 　 　 { 　 schService = CreateService ( 
+ 　 　 　 　 schSCManager , 　 / / 服务 控制 管理器 数据库 
+ 　 　 　 　 TEXT ( “ ServiceExample " ) , 　 / / 后台 服务 名称 
+ 　 　 　 　 TEXT ( “ Service   Example " ) , / / 在 服务 控制面板 中 显示 的 / / 服务 名称 
+ 　 　 　 　 SERVICEALLACCESS , 　 / / 访问 权限 
+ 　 　 　 　 SERVICEWIN32OWNPROCESS , 　 / / 服务类型 
+ 　 　 　 　 SERVICEAUTOSTART , 　 / / 启动 类型 ， 随 系统 自动 / / 加载 
+ 　 　 　 　 SERVICEERRORNORMAL , 
+ 　 　 　 　 szPath , 
+ 　 　 　 　 NULL , 
+ 　 　 　 　 NULL , 
+ TEXT ( “ " ) , 
+ NULL , 　 　 / / 本地 系统 帐号 
+ NULL ) ; / /   没有 口令 
+ 　 　 / / 在 这里 可以 创建 多个 后台 服务 线程 对象 ， 完成 不同 的 
+ / / 后台任务 
+ 　 　 if ( schService ) 
+ 　 　 　 { tprintf ( TEXT ( “ % s   installed . ＼ n " ) , TEXT ( “ Service   Example " ) ) ;   
+ 　 　 　 　 CloseServiceHandle ( schService ) ; 
+ 　 　 　 } 
+ 　 　 　 else 
+ 　 　 　 { tprintf ( TEXT ( “ CreateService   failed - % s ＼ n " ) , 
+ 　 　 　 GetLastErrorText ( szErr ,   256 ) ) ； 
+ 　 　 　 } 
+ 　 　 　 CloseServiceHandle ( schSCManager ) ； 
+ 　 　 } 
+ 　 　 else 
+ 　 　 　 tprintf ( TEXT ( “ OpenSCManager   failed   -   % s ＼ n " ) , 
+ GetLastErrorText ( szErr , 256 ) ) ； 
+ } 
+ 2 　 定义 后台 服务 线程 入口 点 ServiceMain 
+ 　 　 在此之前 应该 首先 定义 服务 线程 入口 表 ( SERVICETABLEENTRY ) ， 它 记录   了 服务器应用程序   要 执行 的 所有 后台 服务 的 入口 点 ( 在 1 个 服务器应用程序 中 可 同时 加载 多个 后台 服务 线程 ) 。   每 一个 后台 服务 线程 都 有 自己 的 ServiceMain 执行 入口 点 。 当 服务 控制 管理器 接收 到 启动 后   台 服务 的 命令 后 ， 它会 首先 将 启动 命令 发送到 服务 控制 分配器 中 ， 然后 ， 服务 控制 分配器 就   会 按照 服务 线程 入口 表 定义 的 对应 关系 启动 1 个 新 线程 去 执行 指定 的 后台 服务 。 在 Servic   eMain 中 应当 调用 RegisterServiceCtrlHandler 先 注册 1 个 服务 控制 函数 Handler ， 它 负责 接   收 和 处理 服务 控制 管理器 发出 的 命令 ， 并 通过 调用 SetServiceStatus 重新 设置 后台 服务 状态   ， 将 被 启动 的 后台 服务 状态 信息 回 送到 服务 控制 管理器 中 。 这些 操作 主要 是 在 后台 服务 线程   启动 之前 完成 一些 必要 的 初始化 工作 。 ServiceMain 及 Handler 是 占位 符 ， 在 程序 中 可以 用 不   同 的 名称 定义 自己 的 后台 服务 线程 入口 函数 和 服务 控制 处理函数 。 
+ / / 定义 后台 服务 线程 入口 表 
+ SERVICETABLEENTRY   MyServiceTable ［ ］ = 
+ { 
+ 　 　 　 { 
+ 　 　 　 TEXT ( “ ServiceExample " ) , / / 后台 服务 线程 的 名称 
+ 　 　 　 ( LPSERVICEMAINFUNCTION ) MyServiceMain / / 后 台服 / / 务 线程 入口 点 
+ 　 　 　 } , 
+ 　 　 　 { NULL ,   NULL   } 　 　 　 / / 标志 表 的 结束 
+ } ; 
+ / / 服务 线程 入口 函数 
+ void   WINAPI   MyServiceMain ( DWORD   dwArgc ,   LPTSTR   * lpszArgv ) 
+ { 
+ 　 　 / / 注册 服务 控制 处理函数 
+ sshStatusHandle = RegisterServiceCtrlHandler ( TEXT ( “ ServiceExample " ) ,   Servi   ceControlHandler ) ; 
+ 　 　 if ( ! sshStatusHandle ) 
+ goto   cleanup ; 
+ 　 　 / / 服务类型 
+ 　 　 ssStatus . dwServiceType = SERVICEWIN32OWNPROCESS ;   
+ 　 　 / / 指定 的 出错 代码 
+ 　 　 ssStatus . dwServiceSpecificExitCode = 0 ; 
+ 　 　 / / 启动 自己 定义 的 后台 服务 
+ 　 　 ServiceStart ( ) ; 
+ cleanup : 
+ 　 　 if ( sshStatusHandle ) 
+ ( VOID ) ReportStatusToSCMgr ( 
+ SERVICESTOPPED , dwErr , 0 ) ; 
+ 　 　 return ; 
+ } 
+ 
+ / / 服务 控制 处理函数 : 负责 接收 和 处理 服务 控制 管理器 发出 的 
+ / / 命令 
+ VOID   WINAPI   ServiceControlHandler ( DWORD   dwCtrlCode ) 
+ { 
+ 　 　 switch ( dwCtrlCode ) 
+ 　 　 { 
+ 　 　 　 / / 停止 服务 之前 ， 应 首先 向 服务 控制 管理器 回送 状态 信息 
+ 　 　 　 case   SERVICECONTROLSTOP : 
+ 　 　 　 　 ReportStatusToSCMgr ( SERVICESTOPPENDING , NOE   RROR ,   0 ) ; 
+ 　 　 　 　 ServiceStop ( ) ; 
+ 　 　 　 　 return ; 
+ 　 　 　 / / 更新 服务 状态 
+ 　 　 　 case   SERVICECONTROLINTERROGATE : 
+ 　 　 　 　 break ; 
+ 　 　 　 default : 
+ 　 　 　 　 break ; 
+ 　 　 } 
+ 　 　 / / 向 服务 控制面板 管理器 回送 状态 信息 
+ 　 　 ReportStatusToSCMgr ( ssStatus . dwCurrentState ,   NOERROR ,   0 ) ;   
+ } 
+ 
+ / / 设置 当前 服务 状态 并 将 状态 信息 回 送到 服务 控制 管理器 
+ BOOL   ReportStatusToSCMgr ( DWORD   dwCurrentState , DWORD 
+ dwWin32ExitCode , WORD   dwWaitHint ) 
+ { 
+ 　 　 static   DWORD   dwCheckPoint = 1 ; 
+ 　 　 BOOL   fResult = TRUE ; 
+ 　 　 if ( dwCurrentState = = SERVICESTARTPENDING ) 
+ 　 　 　 ssStatus . dwControlsAccepted = 0 ; 
+ 　 　 else 
+ 　 　 　 ssStatus . dwControlsAccepted = SERVICEACCEPTSTOP ; 
+ 　 　 / / 设置 状态 信息 
+ 　 　 ssStatus . dwCurrentState = dwCurrentState ; 
+ 　 　 ssStatus . dwWin32ExitCode = dwWin32ExitCode ; 
+ 　 　 ssStatus . dwWaitHint = dwWaitHint ; 
+ 　 　 if ( ( dwCurrentState = = SERVICERUNNING   ) ‖ 
+ 　 　 　 ( dwCurrentState = = SERVICESTOPPED ) ) 
+ 　 　 　 ssStatus . dwCheckPoint = 0 ; 
+ 　 　 else 
+ 　 　 　 ssStatus . dwCheckPoint = dwCheckPoint ++ ; 
+ 　 　 / / 将 状态 信息 回 送到 服务 控制 管理器 
+ 　 　 if ( ! ( fResult = SetServiceStatus ( sshStatusHandle , & ssStatus ) ) ) { 
+ 　 　 　 AddToMessageLog ( TEXT ( “ SetServiceStatus " ) ) ; / / 向 NT 事 / / 件 管理器 报告 出错 消息 
+ 　 　 　 } 
+ 　 　 　 return   fResult ; 
+ } 
+ 3 　 建立 应用程序 主线 程与 服务 控制 管理器 的 连接 
+ 　 　 在 创建 了 服务器应用程序 的 所有 服务 线程 对象 后 ， 当 NT 重新启动 加载 该 服务器 进程 或者 从服   务 控制面板 中 手工 启动 该 服务 进程 时 ,   服务器应用程序 主线 程就会 调用函数 StartServiceCt   rlDispatcher 建立 服务 进程 主线 程与 服务 控制 管理器 的 连接 ， 使得 主线 程 扮演 起 服务 控制 分   配器 的 角色 ， 只有 当 所有 的 服务 线程 终止 后 ， 该 主线 程才 会 完成 任务 并 返回 。 利用 上述 过程   建立 起来 的 连接 ， 服务 控制 管理器 会 将 服务 控制面板 中 用户 对 服务 进程 的 控制 命令 ( Start 、   Terminate 等 ) 发送到 主线 程中 , 交给 服务 控制 分配器 处理 。 
+ / / 服务 进程 入口 
+ voidCRTAPI1   main ( int   argc ,   char   * * argv ) 
+ { 
+ 　 　 if ( ( argc > 1 ) && ( ( * argv ［ 1 ］ = = ‘ - ' ) ‖ ( * argv ［ 1 ］ = = ‘ / ' ) )   ) 
+ 　 　 { 
+ 　 　 　 if ( stricmp ( “ register " ,   argv ［ 1 ］ + 1 ) = = 0 ) 
+ 　 　 　 　 CmdRegisterService ( ) ;   / / 注册 后台 服务 线程 对象 
+ 　 　 　 else 
+ 　 　 　 　 goto   dispatch ; 
+ 　 　 　 exit ( 0 ) ; 
+ 　 　 } 
+ 　 　 dispatch : 
+ 　 　 　 / / 启动 服务 控制 分配器 ， 建立 主线 程与 服务 控制面板 的 
+ / / 连接 
+ 　 　 　 if ( StartServiceCtrlDispatcher ( MyServiceTable ) ) 
+ 　 　 　 　 AddToMessageLog ( TEXT   ( “ StartServiceCtrlDispatcher   success . " ) ) ; 
+ } 
+ 4 　 定义 自己 的 后台 服务 实现 主 模块 
+ 　 　 该 模块 放在 服务 线程 入口 点 ServiceMain 中 ， 在 服务 线程 初始化 完毕 以后 ， 就 可以 启动 自己   定义 的 后台 服务 。 　 　 
+ 
+ void   ServiceStart ( ) 
+ { 
+ 　 　 / / 向 服务 控制 管理器 报告 服务 正在 启动 
+ 　 　 if ( ! ReportStatusToSCMgr ( 
+ SERVICESTARTPENDING , 　 / / service   state 
+ NOERROR , 
+ dwWaitHint ) ) 
+ return ; 
+ 　 　 / / 下面 是 线程 的 初始化 代码 ( 注意 : 初始化 代码执行 时间 
+ / / 不 应 超过 设定 的 nWaitHi   nt ， 否则 服务 控制 管理器 会认 
+ / / 为 服务 线程 已经 没有响应 
+ 　 　 / / 向 服务 控制 管理器 报告 服务 已经 启动 
+ 　 　 if ( ! ReportStatusToSCMgr ( 
+ SERVICERUNNING , 　 　 / / service   state 
+ NOERROR , 　 　 　 / / exit   code 
+ 0 ) ) 　 　 　 　 / / wait   hint 
+ 　 　 　 return ; 
+ / / 开始 执行 服务 
+ } 
+ / / 停止 后台 服务 线程 
+ void   ServiceStop ( ) 
+ { 
+ 　 　 / / 添加 结束 服务 线程 代码 
+ } 
+ 　 　 在 该 示例 中 ， 后台 服务 线程 在 服务器 上 创建 1 个 网络 套 接字 ， 并 在 6002 端口 监听 TCP / IP 客   户   的 连接 请求 。 如果 与 新 的 客户 建立 连接 后 ， 首先 向 其 发送 欢迎 消息 ， 接下来 ， 只要 每 收到 客   户 发送 过来 的 消息 ， 就 会 向 其 回送 1 个 确认 信息 ， 直到 连接 断开 以后 重新 进入 监听 状态 。 感   兴趣 的 读者 可以 将 本 程序 在 VC5.0 中 编译成 可执行文件 ( 在 AppWizard 中 选择 Win32   Console   A   pplication , 工程 名为 ntservice ) ， 然后 在 WINDOWS   NT   SERVER4.0 的 控制台 中 输入 “ ntservi   ce   - register ” ， 再 重新启动 服务器 ， 打开 控制面板 中 的 服务 管理器 ， 就 可以 看到 Service   Example 已 启动 。 如果 要 测试 服务例程 的 响应 功能 ， 可以 自己 编写 1 个 TCP / IP 客户程序 ， 并 连   接   到 该 服务器 的 端口 6002 。 本 程序 在 VC5.0 中 编译 连接 ， 在 中文 WINDOWS   NT   SERVER4.0 中 调试   通过 。 
+ 作者 单位 ： 北京市 海淀区 学院路 丁 11 号 55 信箱 ( 100083 ) 
+ 收稿 日期 ： 1998 - 11 - 23 

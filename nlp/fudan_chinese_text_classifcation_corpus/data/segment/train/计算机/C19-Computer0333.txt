@@ -1,0 +1,99 @@
+计算机 应用 
+ Computer   Applications 
+ 1999 年   第 19 卷 　 第 8 期   Vol.19 　 No.8   1999 
+ 
+ 
+ 
+ VB 中用 DAO 创建 各种 数据格式 的 数据库 
+ 陈勇 孝 　 李学相 　 郎 　 洪 
+ 　 　 摘 　 要 　 本文 讨论 了 使用 数据库 访问 接口 工具 DAO ( 数据 访问 对象 ) 创建 各种 数据格式 的 数据库 的 一般 方法 。 
+ 　 　 关键词 　 数据 访问 ， 对象 ， 数据库 
+ 1 　 VB 的 数据库 接口 
+ 　 　 VB 中 提供 的 操作 数据库 的 接口 工具 是 DC ( 数据 控件 ) 、 DAO ( 数据 访问 对象 ) 、 RDC ( 远程 数据 控件 ) 、 RDO ( 远程 数据 访问 对象 ) 、 ODBC ( 开放 数据库 连接 ) 、 ODBC   API ( 通过 Windows 数据库 函数 API 访问 数据库 ) 。 
+ 　 　 其中 DC 最 简单 ， 配合 数据 绑定 ( Bounding ) 控件 ， 通过 JET 达到 不用 编写 任何 代码 即可 实现 显示 或 更新 数据库 的 目的 ， 但 在 功能 上 受到 很大 限制 ， 比如 不能 用 程序 进行 控制 、 信息 的 检索 无法 实现 等 ， 一般 情况 下仅 适用 于 初级 人员 使用 。 
+ 　 　 使用 RDC ， 也 可 在 不用 编制 程序代码 的 情况 下 ， 使 客户 机能 操作 服务器 中 数据库 。 
+ 　 　 DAO 比 DC 要 复杂 得 多 ， 编程 中 需用 到 大量 的 集合 和 对象 的 概念 ， 每个 对象 包括 有 自己 的 属性 及 方法 ， 而且 很多 属性 本身 又 可 成为 对象 ， 常使 VB 初学者 无从下手 ， 但是 由于 它 是 用 编写程序 的 方式 访问 数据库 的 ， 因此 灵活性 大 ， 在 实际 开发 程序 的 过程 中 ， 常用 来 写出 高效率 的 操作 数据库 的 应用程序 。 
+ 2 　 JET 与 DAO 
+ 2.1 　 JET 
+ 　 　 JET 引擎 为 VB 与 数据库 的 接口 提供 基本 方法 ， 功能 有 创建 、 修改 和 删除 表 、 索引 、 查询 ， 验证 数据 的 完整性 ， 支持 SQL ( 查询语言 ) ， 数据库 的 修复 、 压缩 及 重新 索引 。 
+ 　 　 JET 引擎 的 数据类型 除 常见 的 外 ， 还 包括 二进制 型 （ 图像处理 ） ， OLE 型 （ 对象 链接 及 嵌入 ） 。 与 VB   5.0 一起 发行 的 Jet 为 3.5 版本 ， 加强 了 对 ODBC   数据源 处理 的 功能 。 
+ 
+ 　 　 JET 是 一个 中间层 ， 可 访问 的 数据库 从 DBase 到 ODBC （ Oracle   和 SQL   Server ） 数据 资源 的 所有 数据库 ( 参看 图 1 ) 。 
+ 
+ 
+ 图 1 
+ 　 　 ISAM ( 索引 顺序 访问 方法 Indexed   Sequential   Access   Method ) 用以 处理 数据库 、 表 、 索引 、 数据类型 ， JET 需要 使用 ISAM 驱动程序 。 
+ 　 　 ODBC 就 不 要求 另一端 服务器 中 数据库 的 类型 ， 可以 是 FoxPro ， 也 可以 是 Oracle 驱动程序 。 
+ 2.2 　 DAO 
+ 　 　 DAO 可以 让 用户 方便 地 访问 数据库 中 的 实际 数据 信息 ， 即 是 说 VB 通过 一系列 DAO 来 访问 JET 的 功能 。 DAO 结构 如图 2 。 
+ 
+ 
+ 图 2 
+ 　 　 DAO 和 DC 都 是 运用 JET 引擎 ， 以 简单 的 VB 命令 操作 数据 资源 。 如果 访问 ODBC 数据 资源 ， 推荐 使用 RDO ， 因为 RDO 不 使用 JET ， JET 对非 MS   Access 数据库 操作 时 速度慢 。 VB 的 OOP 使 用户 站 在 一个 比 面向 过程 ( 或 结构化 ) 程序设计 更高 、 更 抽象 的 层次 上去 解决问题 ， 二者 有 本质 的 区别 ， 前者 更 难以 理解 ， 它 突出 真实世界 和 抽象 的 对象 ， 而 不是 过程 ， 它 的 数据 定义 （ 信息 ） 非常 稳定 。 
+ 　 　 在 DataBases 之上 还有 两个 DBEngine 和 WorkSpaces 对象 ， 即 JET 引擎 ， 包含 一个 集合 对象 WorkSpaces ； WorkSpaces 对象 包含 一个 数据库 集合 对象 DataBases ， Databases 集合 由 Database 对象 组成 。 
+ 　 　 Database 对象 是 在 创建 或 打开 数据库 时 产生 的 ， 其中 的 Connect 属性 指定 了 创建 或 打开 数据库 类型 或 格式 ， 即 链接 字符串 ， 如 Access , 等 数据库 ； Name 属性 包含 完整 的 数据库 路径 或 文件名 ， 对于 Access 为 完整 的 数据库 路径 及 文件名 ， 对于 FoxPro2.5 , dBase Ⅲ 为 完整 的 子目录 路径 ， 每 一个 . DBF 文件 为 一个 表 。 
+ 　 　 它 的 CreateTableDef 方法 用于 添加 TableDef 表 对象 ， OpenRecordSet 方法 用于 建立 一个 RecordSet 记录集 对象 ， 可以 是 DynaSet 动态 集 、 Snapshot 快照 、 Table 表 类型 。 
+ 　 　 TableDef 对象 包含 实际 的 数据 内容 ， 一个 数据库 可 有 多个 表 ， 使用 CreateField 方法 可以 建立 新 的 Field 对象 ， 也 可用 OpenRecordSet 方法 来 建立 RecordSet 对象 ， VB 中 在 建立 RecordSet 对象 时应 指定 具体 的 类型 。 
+ 3 　 使用 DAO 创建 数据库 
+ 3.1 　 创建 数据库 
+ 　 　 包括 定义 数据库 对象 变量 ， 建立 一个 数据库 ， 把 创建 的 数据库 对象 赋给 数据库 对象 变量 。 
+ Dim   DataBaseObjVar   As   Database 
+ ′ 定义 对象 变量 DataBaseObjVar 
+ Set   DataBaseObjVar = CreateDataBase ( DataBaseName ) 
+ ′ 数据库 对象 赋给 数据库 对象 变量 
+ 　 　 DataBaseObjVar 为 用于 访问 要 创建 数据 的 对象 变量 ， Database 为 数据库 对象 ， 参数 DataBaseName 为 要 创建 的 数据库 名 ， 含 路径 和 盘符 。 如 " C : \ MyDataAcess \ My . mbd " ( 对应 Access 数据库 ) 或 C : \ MyDataFoxPro " ( 对应 FoxPro 数据库 ) 。 
+ 　 　 此外 ， 在 CreateDatabase 方法 中 ， 还 包含 有 多个 参数 ， 如 版本信息 、 国别 、 口令 、 是否 加密 等 ， 多数 情况 下 可 省略 ， 联机帮助 有 详细 介绍 。 
+ 3.2 　 创建 表 
+ 　 　 包括 定义 表 对象 变量 ， 创建 表 对象 ， 把 数据库 中 的 表 对象 赋给表 对象 变量 ， 将表 添加 到表 集合 中 ， 一个 数据库 可 有 多个 表 。 
+ Dim   TableObjVar   As   TableDef 
+ ′ 定义 表 对象 变量 
+ Set   TableObjVar = DataBaseObjVar . CreateTableDef ( TableName ) 
+ ′ 创建 表 ， 并 赋 给 表 对象 变量 
+ DatabaseObjVar . TableDefs . Append   TableObjVar   
+ ′ 将表 添加 到表 集合 中 
+ 　 　 TableObjVar 为 访问 创建 表 的 对象 变量 ， TableName 为 创建 的 表名 ， TableDef 为表 对象 ， CreateTableDef 为 创建 表 的 方法 ， Append 为 添加 表到 表 集合 中 的 方法 ， 使 建立 的 表 成为 数据库 中 的 一员 。 
+ 3.3 　 创建 字 段 
+ 　 　 包括 定义 表中 的 字 段 对象 变量 ， 创建 表中 的 字 段 ， 把 表中 的 字 段 对象 赋给 字 段 对象 变量 ， 将 字 段 添加 到 字 段 集合 中 ， 通常 情况 下 一个 表 包含 有 多个 字 段 。 下面 的 语句 用于 创建 第一个 字 段 ( 索引 为 0 ) 。 
+ Dim   FieldObjVar ( )   As   Field 
+ ′ 定义 字 段 变量 
+ SetFieldObjVar ( 0 ) = TableObjVar . CreateField ( FieldName , FieldType , FieldLength ) 
+ ′ 指定 字段 的 名称 ， 类型 ， 长度 
+ DataBaseObjVar . TableObjVar . Fields . Append   FieldObjVar ( 0 ) 
+ ′ 添加 字段 到 字 段 集合 中 
+ 　 　 重复 上述 两条 语句 ， 可定义 其它 字 段 。 FieldObjVar 为 访问 创建 字段 的 对象 变量 ， 可用 数组 表示 ， 因 一个 表可有 多个 字 段 ； 数值 0 为 第一个 字 段 ， 字段 的 索引 值 从 0 开始 ； FieldNName 为 字段名 ， FieldType 为 该 字 段 的 类型 ( 如 整型 、 字符 型 ) ； FieldLength 为 该 字 段 的 长度 。 
+ 　 　 使用 Append 方法 ， 添加 创建 的 字 段 到 字 段 集合 中 ， 不能 省略 。 
+ 3.4 　 创建 索引 
+ 　 　 数据库 中 一个 表可有 一个 或 多个 索引 ， 也 可 没有 索引 。 创建 索引 时 ， 包括 索引 对象 变量 ， 设置 主 索引 及 唯一性 ， 创建 索引 的 字 段 ， 最后 将 索引 字段 和 索引 分别 添加 到 字 段 集合 和 索引 集合 中 。 
+ Dim   IndexObjVar   As   Index 
+ ′ 定义 索引 对象 变量 
+ Set   IndexObjVar = DataBaseObjVar . TableObjVar ( 0 ) . 
+ CreateIndex ( IndexField   Name ) 
+ ′ 在 某个 已经 创建 的 表中 建立 索引 对象 ， 并 赋 给 索引 对象 变量 
+ IndexObjVar . Primary = True 
+ ′ 主 索引 
+ IndexObjVar . Uinque = True 
+ ′ 唯一性 
+ Dime   IndexFieldObjVar   As   Field 
+ ′ 定义 索引 字 段 对象 变量 
+ Set   IndexFieldObjVar = IndexObjVar . CreateField ( IndexFieldName ) 
+ ′ 建立 索引 字 段 对象 ， 并 赋 给 字 段 对象 变量 
+ IndexObjVar . Fields . Append   IndexFieldObjVar 
+ ′ 索引 字 段 添加 到 字 段 集合 中 
+ DataBaeObjVar . TableObjVar ( 0 ) . Inedxes . Append   IndexObjVar 
+ ′ 建立 的 索引 对象 添加 到 索引 集合 中 
+ 　 　 重复 上面 的 语句 ， 则 可 创建 其它 表 的 索引 。 
+ 　 　 使用 Inedx 对象 的 CreateField 方法 所 建立 的 索引 字 段 ， 必须 是 TableDef 对象 中 已 存在 的 字 段 。 
+ 3.5 　 创建 记录集 
+ 　 　 多数 情况 下 ， 操作 数据库 时 不外乎 是 记录 的 插入 、 删除 与 修改 ， 因此 在 数据库 、 表 、 字段 及 索引 等 诸 对象 建立 完毕 后 ， 最后 要 创建 记录集 对象 。 记录集 对象 的 创建 包括 定义 记录集 对象 变量 ， 使用 SQL 查询语言 打开 记录集 。 
+ Dim   RecordSetObjVar   As   RecordSet 
+ ′ 定义 记录集 对象 变量 
+ SQLVar = " Select （ 字 段表 ） From （ 表格 清单 ） Where （ 表达式 ） 
+ ′ 查询 语句 
+ Set   RecordSetObjVar = DataBaseObjVar . OpenRecod   et ( SQLVar ) 
+ 　 　 关于 SQL 请 参考 相应 资料 。 
+ 　 　 到此为止 ， 数据库 结构 基本上 建立 好 了 ， 以后 可 使用 RecordSet 对象 的 MoveFirst ， MoveLast ， MovePrevious ， MoveNext ， FindFirst ， FindLast ， FindPrevious ， FindNext 等 方法 访问 数据库 了 。 
+ 4 　 结束语 
+ 　 　 从 创建 数据库 的 过程 可以 看出 ， 在 VB 中 用户 可 根据 需要 来 创建 多种类型 数据库 ， 非常灵活 ， 不 象 其它 对象 那样 局限于 特定 类型 的 数据格式 ， 一旦 建立 完毕 ， 访问 不同 数据格式 的 数据库 的 方法 是 完全 一样 的 。 关于 数据库 的 操作 ， 另有 专文 探讨 。   
+ 作者简介 : 陈孝勇 　 讲师 。 
+ 作者 单位 : 陈勇 孝 　 李学相 　 郎 　 洪 　 郑州 工业 大学 　 河南 . 郑州 （ 450002 ) 
+ 收稿 日期 : 1999 - 04 - 30 ( 修改稿 ) 

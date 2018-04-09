@@ -1,0 +1,129 @@
+计算机 应用 
+ COMPUTER   APPLICATIONS 
+ 1999 年   第 19 卷   第 10 期   Vol.19   No.10   1999 
+ 
+ 
+ 
+ 用 ASP 服务器 组件 实现 Web 页面 上 的 随机 图形 显示 
+ 陈刚 
+ 　 　 摘 　 要 　 ASP 是 交互式 Web 页面 、 Web 数据库 应用 的 重要 技术 ， ASP 服务器 组件 可以 进一步 扩展 ASP 的 功能 。 本文 用 一个 ASP 服务器 组件 实现 了 Web 页面 上 的 随机 图形 显示 。 
+ 　 　 关键词 　 ASP ， 服务器 组件 ， Web 页面 ， 图形 显示 
+ 1 　 ASP 服务器 组件 
+ 　 　 ASP 服务器 组件 （ Server   Side   Component ） 实际上 是 运行 在 服务器 上 的 一个 DLL ， 它 可以 完成 常规 DLL 胜任 的 任何 任务 。 不同之处 是 ： 它 由 ASP 页面 调用 、 并 以 Web 页面 为 交互 对象 ， 读入 用户 的 输入 （ Web 页面 上 各 输入 域 的 值 ） ， 处理 后 返回 结果 到 Web 页面 。 
+ 　 　 这些 交互 当然 都 要 通过 Web 服务器 作为 中介 。 ASP 服务器 组件 可以 用 VB 、 VFP 、 V C++ 、 C++   Builder 、 Delphi 等 任意 支持 COM 技术 的 语言 编写 。 由于 它 可以 利用 服务器 的 任何 资源 ， 其 功能 仅 受限于 你 的 想象力 。 
+ 　 　 目前 支持 ASP 的 有 IIS （ Internet   Information   Server ， WinNTServer   4.0 自带 ） 和 PWS （ Personel   Web   Server ， 用于 Win95 环境 ） 。 并 要求 安装 Visual   InterDev 中 的 Server   Components ： FrontPage   Server   Extensions 、   Active   Server   Pages 和 ClientComponents ： Visual   InterDev   Client 。 可以 把 这些 都 安装 在 同一 台 机器 上 ， 这样 可以 在 单机 上 方便 地 编程 、 调试 。 
+ 2 　 Web 页面 上 的 随机 图形 显示 
+ 　 　 一个 漂亮 的 图形 可以 使 Web 页面 更具 吸引力 ， 使人 流连忘返 。 但 一旦 我们 的 Web 页面 设计 完成 ， 这个 图形 也 就 确定 下来 。 换言之 ， 除非 我们 重新 修改 HTML 代码 ， 则 每次 打开 这个 页面 ， 看到 的 都 是 同样 一个 图形 。 那么 能否 让 用户 在 每次 进入 我们 的 站点 时 ， 都 能 看到 不同 的 画面 呢 ？ 例如 ， 每次 这个 Web 页面 被 访问 时 ， 从 一个 包含 若干 图形文件 的 文件夹 中 随机 选取 一个 ， 在 该 页面 上 显示 ， 使 访问 该 页面 的 用户 每次 都 会 得到 不同 的 视觉享受 。 
+ 　 　 这个 要求 用 HTML 、 DHTML 或 VB   Script 语言 无法 做到 。 这里 ， 我们 用 一个 ASP 服务器 组件 实现 之 。 
+ 3 　 ASP 服务器 组件 的 实现 
+ 　 　 下面 用 VB5.0 开发 一个 ActiveX   DLL ） ， 以 实现 Web 页面 上 的 随机 图形 显示 ， 相信 它会 为 你 的 站点 增色 不少 。 
+ 　 用 VB5.0 建立 ActiveX   DLL 
+ 首先 在 VB5.0 中 新建 一个 Project   ， 类型 为 ActiveX   DLL   ： 
+ 设定 属性 如下 ： 
+ Project   Name ： RandShowFile ， 
+ ClassModule   Name ： Randimage 
+ 其中 类 Randimage 的 代码 如下 ： 
+ Option   Explicit 
+ Private   mvarFilePath   As   String   ′ local   copy 
+ Public   Property   Let   FilePath 
+ ( ByVal   vData   As   String ) 
+ ′ 设置 文件 路径 
+ If   Right ( vData ,   1 )   =   " / "   
+ Or   Right ( vData ,   1 )   =   " \ "   Then 
+ mvarFilePath   =   vData 
+ Else 
+ If   InStr ( vData ,   " / " )   < >   0   Then 
+ mvarFilePath   =   vData   &   " / " 
+ Else 
+ mvarFilePath   =   vData   &   " \ " 
+ End   If 
+ End   If 
+ End   Property 
+ Public   Property   Get   FilePath ( )   As   String 
+ ′ 取得 文件 路径 
+ FilePath   =   mvarFilePath 
+ End   Property 
+ Private   Sub   Class — Initialize ( ) 
+ mvarFilePath   =   " " 
+ End   Sub 
+ Public   Function   Show ( Optional   ByVal   
+ Extension   As   String ) 
+ As   String 
+ ′ 从以 指定 文件 路径 中 随机 选取 并 返回 一个 文件名 
+ ′ 参数 Extension 指定 文件 的 扩展名 
+ Dim   MyPath   As   String 
+ Dim   MyName   As   String 
+ Dim   List ( )   As   String 
+ Dim   FileCount   As   Integer 
+ Dim   n   As   Integer 
+ On   Error   GoTo   BadNews 
+ If   Len ( mvarFilePath )   < =   1   Then 
+ Show   =   " NoFilePathSpecified   " 
+ Erase   List 
+ Exit   Function 
+ Else 
+ If   IsMissing ( Extension )   Then 
+ Extension   =   " * . * "   
+ ′ 如果 扩展名 没有 指定 ， 则 默认 为 * . * 
+ End   If 
+ MyPath   =   mvarFilePath   &   Trim ( Extension )   
+ ′   Set   the   path . 
+ MyName   =   Dir ( MyPath ,   vbNormal )   
+ ′   Retrieve   thefirst   entry . 
+ End   If 
+ FileCount   =   0 
+ ReDim   List ( 10 ) 
+ Do   While   MyName   < >   " " 
+ List ( FileCount )   =   MyName 
+ FileCount   =   FileCount   +   1 
+ If   FileCount   > =   UBound ( List )   Then 
+ n   =   UBound ( List )   +   10 
+ ReDim   Preserve   List ( n ) 
+ End   If 
+ MyName   =   Dir ( ) 
+ Loop 
+ If   FileCount   > =   1   Then 
+ Randomize   ′   初始化 rand ( ) 函数 ， 
+ 否则 每次 将 产生 相同 的 数字 
+ n   =   Int ( FileCount   *   Rnd ( ) ) 
+ ′   产生 在 1   和 list1 . listcount   之间 的 随机数 . 
+ Show   =   List ( n ) 
+ Erase   List 
+ Exit   Function 
+ Else 
+ BadNews : 
+ Show   =   " NoFileFound " 
+ Erase   List 
+ End   If 
+ End   Function 
+ 　 　 在 编译 之前 ， 注意 要 在 此 Project 中 加入 一个 Module 并 在 其中 加入 代码 
+ 　 　 Sub   Main ( ) 
+ End   Sub 
+ 　 　 然后 在 菜单 Project   |   RandShowFile   Projectise … 引出 的 对话框 中 ， 设 Startup   Object 为 Sub   Main 。 最后 在 菜单 File 中 ， 选 Make   Randimage . dll 。 到 此 ， 我们 的 Server   Side   Component   就 开发 完成 ， 并且 它 已 自动 注册 在 机器 上 。 
+ 4 　 在 ASP 页面 中 使用 服务器 组件 
+ 　 　 下面 将 建立 一个 ASP 页面 以 测试 我们 的 Server   SideComponent 。 
+ 　 　 启动 Visual   InterDev ， 开始 一个 新 的 工程 ： New   Projects ， 然后 选取 Web   Project   Wizard ， 在 Project   Name 中 输入 TestRandimage ， 点击 OK 后 ， Visual   InterDev 产生 一些 辅助 文件 ， 为 新 的 工程 做好 准备 ， 然后 自动 打开 该 工程 。 为了 方便 测试 ， 拷贝 几个 图形文件 到 Images 文件夹 中 ， 文件类型 可以 是 浏览器 支持 的 任意 图形文件 ， 如 GIF 、 JPG 、 BMP 等 。 
+ 　 　 在 该 工程 中 建立 ASP 页面 ， 点击 菜单 File   |   New   ， 在 New   对话框 中选 Files   |   Active   Server   Page   ， 并 指定 其 名字 ： Randimage . asp 。 Visual   InterDev 将会 为 我们 产生 一个 空 的 框架 ， 在 其中 用 手工 加入 代码 。 完成 后 的 代码 如下 ： 
+ < % @   LANGUAGE = " VBSCRIPT "   % > 
+ < html > 
+ < head > 
+ < / head > 
+ < body > 
+ < h5 > 测试 randimage   组件 ， 随机 显示 一个 图形文件 < h5 > 
+ 图形文件 路径 :   < % = server . mappath ( " images " ) % > < br > 
+ < % 
+ set   ox = server . createobject 
+ ( " randshowfile . randimage " ) ′ 实例 化 组件 
+ ox . filepath = server . mappath ( " images " ) 
+ % > 
+ < img   src = " < % = ox . filepath & ox . show% > " > 
+ < % set   ox = nothing   ′ 使用 后 释放 组件 % > 
+ < / body > 
+ < / html > 
+ 　 　 由于 Web 页面 使用 的 路径 （ URL ） 都 是 虚拟 路径 （ VirtualDirectory ） ， 必须 使用 server . mappath ( ) 将 其 转换 到 物理 路径 （ Physical   Directory ） 。 例如 ， 此处 的 图形 文件夹 images 的 虚拟 路径 是 ： / / Servername / TestRandimage / Images （ 其中 Servername 是 你 的 Web 服务器 的 名字 ） ， 其 对应 的 物理 路径 是 C : \ Inetpub \ wwwroot \ TestRandimage \ Images   。 如果 不 把 Images 映射 到 物理 路径 则 组件 找 不到 该 文件夹 ， 无法 正常 工作 。 
+ 　 　 代码 完成 后 测试 之 ， 注意 到 在 每次 打开 或 刷新 该 页面 时 ， 会 有 一个 不同 的 图形 显示 在 上面 。 
+ 5 　 效果 
+ 　 　 使用 Server   Side   Component 可以 大大 丰富 Web 应用 的 功能 、 提高 编程 效率 ； 完成 HTML 或 VBScript 等 不易 完成 的 任务 ； 封装 特定 的 商业 逻辑 等 。 与 Java   Applet 相比 ， 它 直接 在 Web   Server   上 执行 ， 其 执行 结果 作为 HTML 页面 的 一部分 下载 到 用户端 ， 用户 无法 分辨 他 所 看到 的 界面 元素 是 直接 的 HTML 元素 ， 还是 Server   Side   Component 的 执行 结果 。 这 就 免去 了 附加 的 Applet 的 下载 过程 和 其 在 用户 端的 执行 过程 。 
+ 作者简介 ： 陈刚 　 硕士 ， 讲师 。 主要 研究 方向 ： 数字 信号处理 、 图像处理 、 计算机 控制系统 。 
+ 作者 单位 ： 重庆出版社 电脑中心 　 重庆 （ 400016 ） 
+ 收稿 日期 : 1999 - 05 - 05 ( 修改稿 ) 

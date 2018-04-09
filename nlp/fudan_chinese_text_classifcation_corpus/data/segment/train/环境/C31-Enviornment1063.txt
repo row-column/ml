@@ -1,0 +1,120 @@
+环境 科学研究 
+ RSEARCH   OF   ENUIRONMENTAL   SCIENCES 
+ 1999 年   第 12 卷   第 1 期     Vol   12   No.1   1999 
+ 
+ 
+ 
+ 水中 臭氧 分解 动力学 研究 
+ 张 　 晖 　 杨卓如 　 陈焕钦 
+ 摘 　 要 　 在 磷酸盐 缓冲液 中 研究 了 臭氧 的 自分解 ， 根据 臭氧 分解 机理 推导 出其 动力学 方程 。 由 不同 温度 和 pH 值下 的 实验 结果 确定 出 kT , 0 , n 以及 活化能 E 。 
+ 关键词 　 臭氧 　 分解 　 动力学 
+ Kinetics   of   Ozone   Decomposition   in   Water 
+ ZHANG   Hui1 ) 　 YANG   Zhuoru2 ) 　 CHEN   Huanqin2 ) 
+ (   1 ) Department   of   Environmental   Science , Wuhan   University , Wuhan 　 430072 ; 
+ 2 ) Research   Insitute   of   Chemical   Engineering , South   China   University   of   Technology , Guangzhou 　 510641 ) 
+ Abstract 　 Studies   on   ozone   self - decomposition   were   performed   in   the   phosphate   buffered   solution . From   the   decomposition   mechanism , the   kinetic   expression   was   derived   as . The   values   of   kT , 0 , n   and   activation   energy   E   were   determined   according   to   the   results   at   various   pH   and   temperature . 
+ Keywords 　 Ozone ;   Decomposition ;   Kinetics 
+ 
+ 　 　 随着 臭氧 在 水 处理过程 中 的 应用 ， 液相 臭氧 的 自分解 也 引起 了 人们 的 重视 ， 但 研究 的 侧重点 各有不同 。 一种 以 Staehe   Lin 和 Hoigne ［ 1 ， 2 ］ 为 代表 ， 研究 液相 臭氧 分解 产生 · OH 等 自由基 的 链反应 机理 ； 另 一种 则 以 Kuo ［ 3 ， 4 ］ 为 代表 ， 研究 从 气相 传入 液相 的 臭氧 其 自分解 反应 对 有机物 臭 氧化 过程 的 影响 ， 这样 就 提出 了 许多 分解 动力学 表达式 ［ 5 ］ 。 但 由于 反应 介质 — — 水 或 水溶液 组成 等 方面 的 差异 ， 导致 这些 动力学 表达式 形式各异 。 为此 Sotelo 等 ［ 6 ］ 根据 Weiss ［ 7 ］ 提出 的 如下 链反应 机理 ： 
+ 　 　 引发 　 
+ 　 　 　 　 　 
+ 　 　 增长 　 
+ 　 　 　 　 　 
+ 　 　 终止 　 
+ 推导 出其 动力学 方程 为 
+ 　 　 
+ 　 　 该 方程 可以 较 好 地 关联 不同 温度 和 pH 值下 的 实验 结果 。 为 保持 实验 过程 中 恒定 的 pH 值 ， 选用 磷酸盐 缓冲液 作为 实验 介质 。 由于 磷酸盐 是 一种 较强 的 · OH 自由基 清除剂 ［ 2 ］ ， 它 与 自由基 之间 的 反应 在 链反应 的 终止 步骤 中将 占 主导地位 ， 这 在 Weiss 的 机理 反应式 中未 表现 出来 ， 因而 由此 推出 的 动力学 方程 并 不是 对 臭氧 分解 过程 的 真实 描述 。 
+ 　 　 Nadezhdin ［ 8 ］ 在 总结 前人 提出 的 各种 链反应 基础 上 ， 提出 了 如下 的 臭氧 分解 历程 ： 
+ 　 　 引发 　 
+ 　 　 　 　 　 
+ 　 　 增长 　 
+ 　 　 　 　 　 
+ 　 　 终止 　 ( 相对 于 后 2 个 反应 可 忽略 ) 
+ 
+ 并 得到 不同 pH 值下 的 动力学 表达式 ： 
+ 
+ 同时 特别 指出 ， 在 · OH 自由基 清除剂 存在 的 条件 下 ， 
+ 　 　 该文 也 选择 磷酸盐 缓冲液 作为 实验 介质 ， 研究 不同 温度 和 pH 值下 的 臭氧 分解 过程 ， 以 Nadezhdin 的 分解 机理 为 基础 ， 推导 并 确定 出其 动力学 方程 。 
+ 1 　 实验 部分 
+ 　 　 文中 采用 的 均 相法 研究 臭氧 的 分解 过程 。 实验 介质 为 磷酸盐 缓冲液 ， pH 值为 2.0 ～ 8.0 ， 其中 磷酸盐 浓度 保持 为 0.05   mol / L ， 液体 温度 由 恒温 水夹套 调节 。 实验 时 首先 向 缓冲液 中通入 含 臭氧 的 空气 ， 待 一段时间 液相 臭氧浓度 稳定 后 ， 停止 通气 ， 计时 并 由 靛蓝 法 ［ 9 ］ 测定 此时 的 液相 臭氧浓度 ， 然后 定时 取样 分析 其中 的 臭氧浓度 。 
+ 2 　 结果 与 讨论 
+ 2.1 　 pH 值 的 影响 
+ 　 　 图 1 显示 随着 pH 值 的 增加 ， 臭氧 自分解 的 速度 加快 。 根据 臭氧 分解 的 链反应 机理 知 ， 其中 一个 链引发 反应 为 ： 
+ 
+ 或 　 
+ 
+ 
+ 
+ 图 1 　 pH 值 的 影响 
+ 因此 pH 值 的 升高 ， 即 OH - 根 离子 浓度 的 增加 ， 利于 链反应 的 引发 ， 从而 促进 臭氧 的 自分解 。 
+ 2.2 　 温度 的 影响 
+ 　 　 液相 温度 的 升高 必然 导致 速率 常数 的 提高 ， 从而 加速 臭氧 的 自分解 ， 如图 2 所示 。 
+ 
+ 
+ 图 2 　 温度 的 影响 
+ 2.3 　 臭氧 分解 动力学 方程 的 确定 
+ 　 　 目前 许多 研究者 在 确定 臭氧 分解 动力学 表达式 时 ， 仍停留 在 对 实验 数据 进行 经验 关联 ［ 3 ， 10 ， 11 ］ 。 他们 将 该 表达式 写成 如下 形式 ： 
+ 
+ 　 　 积分 后 得到 
+ 　 　 
+ 或 　 
+ 　 　 根据 前人 的 工作 知 m 一般 为 1 ， 1.5 或 2 ， 这样 将 m 的 3 种 取值 分别 进行 最小 二乘 关联 ， 拟合 得 最好 ( 即 相关系数 r 最大 ) 的 m 值 即 为 臭氧 分解 反应 级数 。 文中 按 上述 方法 进行 数据处理 ， 结果 见表 1 。 
+ 表 1 　 不同 m 值下 的 处理结果 ( r 值 ) 
+ 
+ mpH 
+ 2.05 . 88.0 
+ 10.9960 . 9980.994 
+ 1.50 . 9990.9980 . 998 
+ 20.9990 . 9930.998 
+ 
+ 　 　 注 ： 温度 为 30 ℃ 
+ 
+ 　 　 由表 1 知 ， 不同 m 值下 的 处理结果 相差 并 不 显著 ， 因此 单纯 的 经验 关联 无法 确定 臭氧 分解 的 真实 反应 级数 ， 必须 以 臭氧 的 分解 机理 为 基础 来 推导 并 确定 其 反应 动力学 方程 。 
+ 　 　 该 实验 介质 为 磷酸盐 缓冲液 ， 其中 H2PO4 - 和 HPO42 - 根 离子 是 较 强 的 · OH 自由基 清除剂 ： 
+ 
+ 　 　 此时 臭氧 的 分解 历程 应为 Nadezhdin 提出 的 链反应 再 加上 如下 的 链终止 反应 ： 
+ 
+ 　 　 其中 Si 为 H2PO4 - 或 HPO42 - 根 离子 。 
+ 　 　 分别 对 O3 ， 和 进行 衡算 ， 在 假定 和 为 稳态 的 条件 下 ， 可 推出 
+ 
+ 　 　 其中 Kw = ［ H + ］ ［ OH - ］ 。 
+ 　 　 由 文献 ［ 2 ， 8 ］ 提供 的 各 速率 常数 参考值 和 实验 条件 知 ， 等式 右边 括号 中 的 第一项 相对 于 第二项 可 忽略 ， 则 
+ 　 　 
+ 　 　 由于 H2PO4 - 和 HPO42 - 根 离子 之间 存在 如下 平衡 ： 
+ 　 　 
+ 　 　 为 简便 起 见 ， 可令 
+ 　 　 
+ 　 　 其中 ［ S ］ 为 磷酸盐 浓度 ， 文中 为 0.05   mol / L 保持 不变 ， 这样 的 表达式 可简化 为 
+ 
+ 　 　 考虑 温度 的 影响 ， 上式 可 写成 Arrhenius 形式 ： 
+ 
+ 　 　 按照 m = 2 时 的 情形 对 实验 数据 进行 最小 二乘 关联 ， 可求 出 不同 pH 值下 的 k ′ T 值 。 根据 pH 为 5.8 时 不同 温度 下 的 速度 常 数值 ， 由 ln   k ′ T 对 1 / T 作图 ( 如图 3 所示 ) ， 该 直线 斜率 为 - E / R ， 则 可求 出 活化能 E = 128.5   kJ / mol 。 
+ 
+ 
+ 
+ 图 3 　 ln   k ′ T 对 1 / T 的 实验 关联 
+ 　 　 再 根据 不同 pH 值 和 温度 下 的 速率 常 数值 ， 由 ( ln   k ′ T + E / RT ） 对 - ln ［ OH - ］ 作图 ( 如图 4 所示 ) ， 由该 直线 的 斜率 和 截距 值可求 出 n = 0.18 ,   kT , 0 = 3.05 × 1025 。 
+ 　 　 这样 臭氧 自分解 反应 动力学 方程 为 ： 
+ 
+ 
+ 
+ 图 4 　 ln   k ′ T + E / RT 对 - ln ［ OH - ］ 的 实验 关联 
+ 3 　 结论 
+ 　 　 以 Nadezhdin ［ 8 ］ 提出 的 臭氧 自分解 机理 为 基础 ， 推导 出 · OH 自由基 清除剂 存在 时 的 分解 动力学 方程 。 臭氧 分解 速率 随 温度 和 pH 值 的 提高 而 加快 ， 根据 实验 结果 ， 确定 出 动力学 方程 的 Arrhenius 形式 为 ： 
+ 
+ 第一 作者 ： 男 ， 1964 年生 ， 工程师 
+ 作者 单位 ： 张 　 晖 　 武汉大学 环境 科学系 ， 武汉 　 430072 ； 
+ 　 　 　 　 　 杨卓如 　 陈焕钦 　 华南理工大学 化工 研究所 ， 广州 　 510641 
+ 参考文献 
+ 1 　 Staehelin   J , Hoigne   J . Environ   Sci   Technol , 1982 , 16 : 676 . 
+ 2 　 Staehelin   J , Hoigne   J . Environ   Sci   Technol , 1985 , 19 : 1206 . 
+ 3 　 Kuo   C   H . Environ   Prog , 1982 , 1 : 189 . 
+ 4 　 Mehta   Y   H , George   C   E , et   al . Can   J   Chem   Eng   1989 , 67 : 118 . 
+ 5 　 张晖 . 有机 废水 中 对 硝基 酚 的 臭 氧化 法 处理 : 〔 学位 论文 〕 . 广州 ： 华南理工大学 ， 1995 . 
+ 6 　 Sotelo   J   L , Beltran   T   J , et   al . Ind   Eng   Chem   Res , 1987 , 26 : 39 . 
+ 7 　 Weiss   J . Trans   Faraday   Soc , 1935 , 31 : 668 . 
+ 8 　 Na   dezhdin   A   D . Ind   Eng   Chem   Res , 1988 , 27 : 548 . 
+ 9 　 Bader   H , Hoigne   J . Wat   Res , 1981 , 15 : 449 . 
+ 10 　 Sotelo   J   L , Beltran   F   J , et   al . Wat   Res , 1989 , 23 : 1239 . 
+ 11 　 Ku   Y , Su   W   J , et   al . Ind   Eng   Chem   Res , 1996 , 35 : 3369 .   
+ 收稿 日期 ： 1997 － 11 － 13 　 修回 日期 ： 1998 － 05 － 20 
